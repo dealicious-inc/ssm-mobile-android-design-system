@@ -16,11 +16,11 @@ fun AppTheme(
 ) {
     val colors = if (darkTheme) darkColors() else lightColors()
     val rememberedColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
-    val rippleIndication = rememberRipple()
+//    val rippleIndication = rememberRipple()
 
     CompositionLocalProvider(
         LocalColors provides rememberedColors,
-        LocalIndication provides rippleIndication,
+//        LocalIndication provides rippleIndication,
         LocalRippleTheme provides AppRippleTheme,
         LocalTypography provides AppTheme.typography,
         LocalShapes provides AppTheme.shapes,
