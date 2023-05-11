@@ -1,4 +1,4 @@
-package net.deali.designsystem.preview
+package net.deali.designsystem.unit
 
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 

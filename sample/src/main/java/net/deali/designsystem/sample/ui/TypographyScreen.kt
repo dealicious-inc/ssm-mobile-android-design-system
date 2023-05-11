@@ -27,7 +27,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.preview.getRandomText
+import net.deali.designsystem.unit.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
@@ -143,7 +143,7 @@ fun TypographyScreen() {
 }
 
 @Composable
-fun Content(
+private fun Content(
     title: String,
     style: TextStyle
 ) {
@@ -179,7 +179,8 @@ fun Content(
                 )
 
                 DealiText(
-                    modifier = Modifier.padding(30.dp),
+                    modifier = Modifier
+                        .padding(30.dp),
                     text = getRandomText(),
                     style = style
                 )

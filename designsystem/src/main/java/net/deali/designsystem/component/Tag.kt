@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.preview.getRandomText
+import net.deali.designsystem.unit.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.blue10
 import net.deali.designsystem.theme.blue70
@@ -299,7 +299,7 @@ private fun MediumTag(
         modifier = modifier,
         text = text,
         color = textColor,
-        style = AppTheme.typography.B2_14_M,
+        style = AppTheme.typography.B4_12_M,
         paddingValues = PaddingValues(8.dp, 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -361,12 +361,12 @@ private fun Tag(
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 270, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun LargePrimaryFulledTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         LargePrimaryFulledPinkTag(
             text = getRandomText(1)
@@ -383,12 +383,12 @@ private fun LargePrimaryFulledTagPreview() {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 270, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun LargeSecondaryOutlinedTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         LargeSecondaryOutlinedPinkTag(
             text = getRandomText(1)
@@ -405,12 +405,12 @@ private fun LargeSecondaryOutlinedTagPreview() {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 270, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun MediumPrimaryFulledTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         MediumPrimaryFulledPinkTag(
             text = getRandomText(1)
@@ -427,12 +427,12 @@ private fun MediumPrimaryFulledTagPreview() {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 270, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun MediumSecondaryOutlinedTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         MediumSecondaryOutlinedPinkTag(
             text = getRandomText(1)
@@ -449,12 +449,12 @@ private fun MediumSecondaryOutlinedTagPreview() {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 180, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun SmallPrimaryFulledTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         SmallPrimaryFulledPinkTag(
             text = getRandomText(1)
@@ -471,12 +471,12 @@ private fun SmallPrimaryFulledTagPreview() {
 }
 
 @Composable
-@Preview(showBackground = true, widthDp = 180, backgroundColor = 0XFFFFFF)
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun SmallSecondaryOutlinedTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         SmallSecondaryOutlinedPinkTag(
             text = getRandomText(1)

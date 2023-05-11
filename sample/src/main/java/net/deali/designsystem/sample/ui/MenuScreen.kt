@@ -9,14 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.MediumFulledButton
-import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun MenuScreen(
-    navigateToTypography: () -> Unit
+    navigateToTypography: () -> Unit,
+    navigateToButton: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -28,134 +26,100 @@ fun MenuScreen(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "1. Typography",
             onClick = navigateToTypography
-        ) {
-            DealiText(
-                text = "1. Typography",
-                style = AppTheme.typography.H1_32_B,
-                color = white100
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "2. Grid",
             onClick = {}
-        ) {
-            DealiText(
-                text = "2. Grid",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "3. Colors",
             onClick = {}
-        ) {
-            DealiText(
-                text = "3. Colors",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "4. Indentations",
             onClick = {}
-        ) {
-            DealiText(
-                text = "4. Indentations",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "5. Iconography",
             onClick = {}
-        ) {
-            DealiText(
-                text = "5. Iconography",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "6. Shadows",
             onClick = {}
-        ) {
-            DealiText(
-                text = "6. Shadows",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "7. Corner radius",
             onClick = {}
-        ) {
-            DealiText(
-                text = "7. Corner radius",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "8. Navigation",
             onClick = {}
-        ) {
-            DealiText(
-                text = "8. Navigation",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
-            onClick = {}
-        ) {
-            DealiText(
-                text = "9. Buttons",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+            process = false,
+            text = "9. Buttons",
+            onClick = navigateToButton
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "10. UI Elements",
             onClick = {}
-        ) {
-            DealiText(
-                text = "10. UI Elements",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
 
         MediumFulledButton(
             modifier = Modifier
                 .fillMaxWidth(),
             enabled = true,
+            process = false,
+            text = "11. Forms",
             onClick = {}
-        ) {
-            DealiText(
-                text = "11. Forms",
-                style = AppTheme.typography.H1_32_B
-            )
-        }
+        )
     }
 }
 
@@ -163,6 +127,7 @@ fun MenuScreen(
 @Preview(showBackground = true, widthDp = 360, backgroundColor = 0XFFFFFF)
 private fun MenuScreenPreview() {
     MenuScreen(
-        navigateToTypography = {}
+        navigateToTypography = {},
+        navigateToButton = {}
     )
 }

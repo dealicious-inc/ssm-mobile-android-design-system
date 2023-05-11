@@ -73,6 +73,12 @@ data class AppTypography(
         lineHeight = (20.sp).tu
     ),
 
+    val B2_14_B: TextStyle = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = (14.sp).tu,
+        lineHeight = (20.sp).tu
+    ),
+
     val B2_14_M: TextStyle = TextStyle(
         fontWeight = FontWeight.Medium,
         fontSize = (14.sp).tu,

@@ -2,10 +2,7 @@ package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -24,11 +21,17 @@ fun Nav() {
             MenuScreen(
                 navigateToTypography = {
                     navController.navigate("typography")
+                },
+                navigateToButton = {
+                    navController.navigate("buttons")
                 }
             )
         }
         composable("typography") {
             TypographyScreen()
+        }
+        composable("buttons") {
+            ButtonsScreen()
         }
     }
 }
