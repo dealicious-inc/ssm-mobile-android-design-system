@@ -1,26 +1,27 @@
 package net.deali.designsystem.sample.ui
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import net.deali.designsystem.component.CommonButton
 
 @Composable
-fun MenuScreen() {
-    Box(
+fun MenuScreen(
+    navigateToTypography: () -> Unit
+) {
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Blue)
     ) {
-        BasicText(
-            modifier = Modifier
-                .clickable(onClick = {
-                }),
-            text = "1. Typography" 
-        )
+        CommonButton(
+            onClick = navigateToTypography
+        ) {
+            BasicText(
+                modifier = Modifier,
+                text = "1. Typography"
+            )
+        }
     }
 }

@@ -33,5 +33,5 @@ dependencies {
     implementation Libs.composeUiUtil
     debugImplementation Libs.composeUiTooling
     implementation Libs.composeUiToolingPreview
-    implementation Libs.composeMaterial
+    api Libs.composeMaterial
 }
