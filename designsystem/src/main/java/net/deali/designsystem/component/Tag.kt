@@ -19,7 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.preview.getRandomText
-import net.deali.designsystem.unit.tu
 import net.deali.designsystem.theme.blue10
 import net.deali.designsystem.theme.blue70
 import net.deali.designsystem.theme.blue90
@@ -29,6 +28,7 @@ import net.deali.designsystem.theme.pink10
 import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
+import net.deali.designsystem.unit.tu
 
 @Composable
 fun LargePrimaryFulledPinkTag(

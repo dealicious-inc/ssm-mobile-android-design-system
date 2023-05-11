@@ -22,14 +22,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.preview.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.pink60
-import net.deali.designsystem.unit.tu
 
 @Composable
 private fun SmallButton(
@@ -45,6 +42,7 @@ private fun SmallButton(
         backgroundColor = pink60,
         disabledBackgroundColor = gray50,
         enabled = enabled,
+        contentPadding = PaddingValues(horizontal = 16.dp),
         onClick = onClick
     ) {
         content()
@@ -57,9 +55,9 @@ private fun Button(
     backgroundColor: Color,
     disabledBackgroundColor: Color,
     enabled: Boolean,
+    contentPadding: PaddingValues,
     modifier: Modifier = Modifier,
     border: BorderStroke? = null,
-    contentPadding: PaddingValues = PaddingValues(),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit
 ) {
@@ -78,7 +76,7 @@ private fun Button(
         propagateMinConstraints = true
     ) {
         Row(
-            Modifier.padding(contentPadding),
+            modifier = Modifier.padding(contentPadding),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
             content = content
