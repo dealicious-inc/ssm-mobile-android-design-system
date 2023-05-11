@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -28,9 +27,66 @@ import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.pink60
 
+
+@Composable
+fun SmallFulledButton(
+    enabled: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    SmallButton(
+        modifier = modifier,
+        backgroundColor = pink60,
+        disabledBackgroundColor = gray50,
+        enabled = enabled,
+        onClick = onClick
+    ) {
+        content()
+    }
+}
+
+@Composable
+fun MediumFulledButton(
+    enabled: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    MediumButton(
+        modifier = modifier,
+        backgroundColor = pink60,
+        disabledBackgroundColor = gray50,
+        enabled = enabled,
+        onClick = onClick
+    ) {
+        content()
+    }
+}
+
+@Composable
+fun LargeFulledButton(
+    enabled: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    LargeButton(
+        modifier = modifier,
+        backgroundColor = pink60,
+        disabledBackgroundColor = gray50,
+        enabled = enabled,
+        onClick = onClick
+    ) {
+        content()
+    }
+}
+
 @Composable
 private fun SmallButton(
     enabled: Boolean,
+    backgroundColor: Color,
+    disabledBackgroundColor: Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit
@@ -39,10 +95,56 @@ private fun SmallButton(
         modifier = modifier
             .height(32.dp),
         shape = AppTheme.shapes.smallButton,
-        backgroundColor = pink60,
-        disabledBackgroundColor = gray50,
+        backgroundColor = backgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor,
         enabled = enabled,
         contentPadding = PaddingValues(horizontal = 16.dp),
+        onClick = onClick
+    ) {
+        content()
+    }
+}
+
+@Composable
+private fun MediumButton(
+    enabled: Boolean,
+    backgroundColor: Color,
+    disabledBackgroundColor: Color,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    Button(
+        modifier = modifier
+            .height(46.dp),
+        shape = AppTheme.shapes.mediumButton,
+        backgroundColor = backgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor,
+        enabled = enabled,
+        contentPadding = PaddingValues(horizontal = 20.dp),
+        onClick = onClick
+    ) {
+        content()
+    }
+}
+
+@Composable
+private fun LargeButton(
+    enabled: Boolean,
+    backgroundColor: Color,
+    disabledBackgroundColor: Color,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit
+) {
+    Button(
+        modifier = modifier
+            .height(50.dp),
+        shape = AppTheme.shapes.largeButton,
+        backgroundColor = backgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor,
+        enabled = enabled,
+        contentPadding = PaddingValues(horizontal = 40.dp),
         onClick = onClick
     ) {
         content()
@@ -93,11 +195,51 @@ private fun SmallFulledButtonPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        SmallButton(
+        SmallFulledButton(
             enabled = true,
             onClick = {}
         ) {
-            Text(text = "Default")
+            DealiText(
+                text = "Default"
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true, widthDp = 180, backgroundColor = 0XFFFFFF)
+private fun MediumFulledButtonPreview() {
+    Row(
+        modifier = Modifier
+            .padding(10.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        MediumFulledButton(
+            enabled = true,
+            onClick = {}
+        ) {
+            DealiText(
+                text = "Default"
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true, widthDp = 180, backgroundColor = 0XFFFFFF)
+private fun LargeFulledButtonPreview() {
+    Row(
+        modifier = Modifier
+            .padding(10.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        LargeFulledButton(
+            enabled = true,
+            onClick = {}
+        ) {
+            DealiText(
+                text = "Default"
+            )
         }
     }
 }

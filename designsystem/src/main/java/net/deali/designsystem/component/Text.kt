@@ -9,14 +9,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
 import net.deali.designsystem.theme.gray100
+import net.deali.designsystem.unit.tu
 
 @Composable
 fun DealiText(
     text: String,
     modifier: Modifier = Modifier,
     color: Color = gray100,
-    fontSize: TextUnit,
-    fontWeight: FontWeight,
+    fontSize: TextUnit = 10.tu,
+    fontWeight: FontWeight = FontWeight.Normal,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
 ) {

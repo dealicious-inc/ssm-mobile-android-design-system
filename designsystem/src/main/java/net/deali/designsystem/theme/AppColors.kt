@@ -21,12 +21,12 @@ val gray40 = Color(0xFFD0D6E1)
 val gray50 = Color(0xFFBEC5D2)
 val gray60 = Color(0xFFA6ADBD)
 val gray70 = Color(0xFF8F97A7)
+val gray80 = Color(0xFF686E7B)
 val gray100 = Color(0xFF222222)
 
 val black010 = Color(0x1A000000)
 val black020 = Color(0x33000000)
 val black040 = Color(0x66000000)
-val black080 = Color(0xCC000000)
 val black100 = Color(0xFF000000)
 
 val white020 = Color(0x33FFFFFF)
@@ -45,6 +45,7 @@ class AppColors(
     info: Color,
     warning: Color,
     success: Color,
+    ripple: Color,
     isLight: Boolean
 ) {
     var error by mutableStateOf(error)
@@ -62,6 +63,9 @@ class AppColors(
     var success by mutableStateOf(success)
         private set
 
+    var ripple by mutableStateOf(ripple)
+        private set
+
     var isLight by mutableStateOf(isLight)
         internal set
 
@@ -71,6 +75,7 @@ class AppColors(
         info: Color = this.info,
         warning: Color = this.warning,
         success: Color = this.success,
+        ripple: Color = this.ripple,
         isLight: Boolean = this.isLight
     ) = AppColors(
         error,
@@ -78,6 +83,7 @@ class AppColors(
         info,
         warning,
         success,
+        ripple,
         isLight
     )
 
@@ -87,6 +93,7 @@ class AppColors(
         info = other.info
         warning = other.warning
         success = other.success
+        ripple = other.ripple
         isLight = other.isLight
     }
 }
@@ -98,13 +105,15 @@ fun lightColors(
     links: Color = linksLight,
     info: Color = infoLight,
     warning: Color = warningLight,
-    success: Color = successLight
+    success: Color = successLight,
+    ripple: Color = rippleLight,
 ): AppColors = AppColors(
     error = error,
     links = links,
     info = info,
     warning = warning,
     success = success,
+    ripple = ripple,
     isLight = true
 )
 
@@ -113,13 +122,15 @@ fun darkColors(
     links: Color = linksDark,
     info: Color = infoDark,
     warning: Color = warningDark,
-    success: Color = successDark
+    success: Color = successDark,
+    ripple: Color = rippleDark,
 ): AppColors = AppColors(
     error = error,
     links = links,
     info = info,
     warning = warning,
     success = success,
+    ripple = ripple,
     isLight = false
 )
 
@@ -129,6 +140,7 @@ private val linksLight = Color(0xFF2B66FD)
 private val infoLight = Color(0xFF2B66FD)
 private val warningLight = Color(0xFFFFD600)
 private val successLight = Color(0xFF1BDA17)
+private val rippleLight = Color(0x22000000)
 
 // dark color
 private val errorDark = Color(0xFFFA1818)
@@ -136,3 +148,4 @@ private val linksDark = Color(0xFF2B66FD)
 private val infoDark = Color(0xFF2B66FD)
 private val warningDark = Color(0xFFFFD600)
 private val successDark = Color(0xFF1BDA17)
+private val rippleDark = Color(0x22000000)
