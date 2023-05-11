@@ -7,18 +7,14 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.preview.getRandomText
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.blue10
 import net.deali.designsystem.theme.blue70
 import net.deali.designsystem.theme.blue90
@@ -28,7 +24,6 @@ import net.deali.designsystem.theme.pink10
 import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.tu
 
 @Composable
 fun LargePrimaryFulledPinkTag(
@@ -284,9 +279,8 @@ private fun SmallTag(
     Tag(
         modifier = modifier,
         text = text,
-        textColor = textColor,
-        fontSize = 10.tu,
-        fontWeight = FontWeight.Bold,
+        color = textColor,
+        style = AppTheme.typography.C1_10_B,
         paddingValues = PaddingValues(4.dp, 1.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -304,9 +298,8 @@ private fun MediumTag(
     Tag(
         modifier = modifier,
         text = text,
-        textColor = textColor,
-        fontSize = 12.tu,
-        fontWeight = FontWeight.Bold,
+        color = textColor,
+        style = AppTheme.typography.B2_14_M,
         paddingValues = PaddingValues(8.dp, 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -324,9 +317,8 @@ private fun LargeTag(
     Tag(
         modifier = modifier,
         text = text,
-        textColor = textColor,
-        fontSize = 14.tu,
-        fontWeight = FontWeight.Bold,
+        color = textColor,
+        style = AppTheme.typography.B2_14_M,
         paddingValues = PaddingValues(8.dp, 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -337,43 +329,33 @@ private fun LargeTag(
 private fun Tag(
     modifier: Modifier,
     text: String,
-    textColor: Color,
-    fontSize: TextUnit,
-    fontWeight: FontWeight,
+    color: Color,
+    style: TextStyle,
     paddingValues: PaddingValues,
     backgroundColor: Color,
     borderColor: Color? = null,
 ) {
-    val style = compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }.current
-
-    val mergedStyle = style.merge(
-        TextStyle(
-            color = textColor,
-            fontSize = fontSize,
-            fontWeight = fontWeight
-        )
-    )
-
-    val borderModifier = if (borderColor != null) {
-        Modifier.border(
-            width = 1.dp,
-            color = borderColor,
-            shape = RoundedCornerShape(4.dp)
-        )
-    } else {
-        Modifier
-    }
-
-    BasicText(
-        text = text,
+    DealiText(
         modifier = modifier
             .background(
                 color = backgroundColor,
                 shape = RoundedCornerShape(4.dp)
             )
-            .then(borderModifier)
+            .then(
+                if (borderColor != null) {
+                    Modifier.border(
+                        width = 1.dp,
+                        color = borderColor,
+                        shape = RoundedCornerShape(4.dp)
+                    )
+                } else {
+                    Modifier
+                }
+            )
             .padding(paddingValues),
-        style = mergedStyle,
+        text = text,
+        color = color,
+        style = style,
         maxLines = 1
     )
 }

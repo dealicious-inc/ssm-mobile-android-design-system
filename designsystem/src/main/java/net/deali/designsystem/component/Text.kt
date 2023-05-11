@@ -2,6 +2,8 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -14,22 +16,23 @@ import net.deali.designsystem.unit.tu
 @Composable
 fun DealiText(
     text: String,
+    style: TextStyle,
     modifier: Modifier = Modifier,
     color: Color = gray100,
-    fontSize: TextUnit = 10.tu,
-    fontWeight: FontWeight = FontWeight.Normal,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
 ) {
+    val mergedStyle = style.merge(
+        TextStyle(
+            color = color
+        )
+    )
+
     BasicText(
         text = text,
         modifier = modifier,
         overflow = overflow,
         maxLines = maxLines,
-        style = TextStyle(
-            color = color,
-            fontSize = fontSize,
-            fontWeight = fontWeight
-        )
+        style = mergedStyle
     )
 }

@@ -200,7 +200,8 @@ private fun SmallFulledButtonPreview() {
             onClick = {}
         ) {
             DealiText(
-                text = "Default"
+                text = "Default",
+                style = AppTheme.typography.H1_32_B,
             )
         }
     }
@@ -219,7 +220,8 @@ private fun MediumFulledButtonPreview() {
             onClick = {}
         ) {
             DealiText(
-                text = "Default"
+                text = "Default",
+                style = AppTheme.typography.H1_32_B,
             )
         }
     }
@@ -238,7 +240,8 @@ private fun LargeFulledButtonPreview() {
             onClick = {}
         ) {
             DealiText(
-                text = "Default"
+                text = "Default",
+                style = AppTheme.typography.H1_32_B,
             )
         }
     }

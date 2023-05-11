@@ -1,5 +1,6 @@
 package net.deali.designsystem.unit
 
+import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.platform.LocalDensity
@@ -29,3 +30,9 @@ val Float.tu: TextUnit
 val Double.tu: TextUnit
     @Composable
     get() = with(LocalDensity.current) { (this@tu / fontScale).sp }
+
+/**
+ * sp to dp
+ */
+val TextUnit.tu: TextUnit
+    get() = (this * Resources.getSystem().displayMetrics.density) / Resources.getSystem().displayMetrics.scaledDensity
