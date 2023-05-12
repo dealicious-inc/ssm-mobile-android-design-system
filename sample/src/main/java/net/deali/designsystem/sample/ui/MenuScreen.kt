@@ -14,6 +14,7 @@ import net.deali.designsystem.component.MediumFulledButton
 @Composable
 fun MenuScreen(
     navigateToTypography: () -> Unit,
+    navigateToColors: () -> Unit,
     navigateToButton: () -> Unit
 ) {
     Column(
@@ -46,7 +47,7 @@ fun MenuScreen(
             enabled = true,
             process = false,
             text = "3. Colors",
-            onClick = {}
+            onClick = navigateToColors
         )
 
         MediumFulledButton(
@@ -128,6 +129,7 @@ fun MenuScreen(
 private fun MenuScreenPreview() {
     MenuScreen(
         navigateToTypography = {},
+        navigateToColors = {},
         navigateToButton = {}
     )
 }

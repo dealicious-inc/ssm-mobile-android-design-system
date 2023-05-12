@@ -27,11 +27,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.unit.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
+import net.deali.designsystem.unit.getRandomText
 
 @Composable
 fun TypographyScreen() {

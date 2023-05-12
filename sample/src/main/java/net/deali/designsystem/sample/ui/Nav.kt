@@ -22,6 +22,9 @@ fun Nav() {
                 navigateToTypography = {
                     navController.navigate("typography")
                 },
+                navigateToColors = {
+                    navController.navigate("colors")
+                },
                 navigateToButton = {
                     navController.navigate("buttons")
                 }
@@ -29,6 +32,9 @@ fun Nav() {
         }
         composable("typography") {
             TypographyScreen()
+        }
+        composable("colors") {
+            ColorsScreen()
         }
         composable("buttons") {
             ButtonsScreen()
