@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    namespace 'net.deali.appresource'
+
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 33
+
+        vectorDrawables.useSupportLibrary = true
+    }
+}
+
+dependencies {
+}

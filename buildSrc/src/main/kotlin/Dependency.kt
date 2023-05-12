@@ -9,6 +9,7 @@ object Versions {
     const val activityCompose = "1.4.0"
 
     const val navigationCompose = "2.5.3"
+    const val constraintLayoutCompose = "1.0.1"
 }
 
 object Libs {
@@ -24,4 +25,5 @@ object Libs {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+    const val constraintLayoutCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutCompose}"
 }

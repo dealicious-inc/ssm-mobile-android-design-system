@@ -34,4 +34,5 @@ dependencies {
     debugImplementation Libs.composeUiTooling
     implementation Libs.composeUiToolingPreview
     implementation Libs.composeMaterial
+    implementation Libs.constraintLayoutCompose
 }

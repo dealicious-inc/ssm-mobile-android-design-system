@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,16 +12,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.LargeFulledButton
 import net.deali.designsystem.component.LargeOutlinedButton
 import net.deali.designsystem.component.LargeTextButton
@@ -29,36 +32,57 @@ import net.deali.designsystem.component.MediumFulledButton
 import net.deali.designsystem.component.MediumOutlinedButton
 import net.deali.designsystem.component.MediumTextButton
 import net.deali.designsystem.component.MediumTonalOutlinedButton
+import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.SmallFulledButton
 import net.deali.designsystem.component.SmallOutlinedButton
 import net.deali.designsystem.component.SmallTextButton
 import net.deali.designsystem.component.SmallTonalOutlinedButton
-import net.deali.designsystem.sample.R
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.white100
 
 @Composable
-fun ButtonsScreen() {
-    val scrollState = rememberScrollState()
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color = gray20)
-            .padding(10.dp)
-            .verticalScroll(scrollState),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
+fun ButtonsScreen(
+    onBackPress: () -> Unit
+) {
+    NavigationContainer(
+        navigationBar = {
+            NavigationBar(
+                title = "Buttons",
+                navigationIcon = {
+                    Icon24(
+                        painter = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                        onClick = onBackPress
+                    )
+                }
+            )
+        }
     ) {
-        ButtonSmallContainer()
-        ButtonMediumContainer()
-        ButtonLargeContainer()
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = gray20),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            contentPadding = PaddingValues(10.dp)
+        ) {
+            item {
+                ButtonSmallContainer()
+            }
+
+            item {
+                ButtonMediumContainer()
+            }
+
+            item {
+                ButtonLargeContainer()
+            }
+        }
     }
 }
 
 @Composable
 private fun ButtonSmallContainer() {
-    Container(
+    Item(
         text = "Button Small"
     ) {
         SubContainer(
@@ -281,7 +305,7 @@ private fun ButtonSmallContainer() {
 
 @Composable
 private fun ButtonMediumContainer() {
-    Container(
+    Item(
         text = "Button Medium"
     ) {
         SubContainer(
@@ -504,7 +528,7 @@ private fun ButtonMediumContainer() {
 
 @Composable
 private fun ButtonLargeContainer() {
-    Container(
+    Item(
         text = "Button Large"
     ) {
         SubContainer(
@@ -726,7 +750,7 @@ private fun ButtonLargeContainer() {
 }
 
 @Composable
-private fun Container(
+private fun Item(
     text: String,
     content: @Composable () -> Unit
 ) {
@@ -801,5 +825,7 @@ private fun ContainerItem(
 @Composable
 @Preview
 private fun ButtonsScreenPreview() {
-    ButtonsScreen()
+    ButtonsScreen(
+        onBackPress = {}
+    )
 }
