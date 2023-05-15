@@ -33,28 +33,26 @@ fun Nav() {
 private fun NavGraphBuilder.menuGraph(navController: NavController) {
     composable(Screen.Menu.route) {
         MenuScreen(
-            navigateToTypography = {
-                navController.navigate(Screen.Typography.route)
-            },
-            navigateToColors = {
-                navController.navigate(Screen.Colors.route)
-            },
-            navigateToIconography = {
-                navController.navigate(Screen.Iconography.route)
-            },
-            navigateToCornerRadius = {
-                navController.navigate(Screen.CornerRadius.route)
-            },
-            navigateToButton = {
-                navController.navigate(Screen.Buttons.route)
-            },
-            navigationToUIElements = {
-                navController.navigate(Screen.UIElements.route)
-            }
+            navigateToTypography = { navController.navigate(Screen.Typography.route) },
+            navigateToGrid = { navController.navigate(Screen.Grid.route) },
+            navigateToColors = { navController.navigate(Screen.Colors.route) },
+            navigateToIndentations = { navController.navigate(Screen.Indentations.route) },
+            navigateToIconography = { navController.navigate(Screen.Iconography.route) },
+            navigateToShadows = { navController.navigate(Screen.Shadows.route) },
+            navigateToCornerRadius = { navController.navigate(Screen.CornerRadius.route) },
+            navigateToNavigation = { navController.navigate(Screen.Navigation.route) },
+            navigateToButtons = { navController.navigate(Screen.Buttons.route) },
+            navigateToUIElements = { navController.navigate(Screen.UIElements.route) },
+            navigateToForms = { navController.navigate(Screen.Forms.route) },
         )
     }
     composable(Screen.Typography.route) {
         TypographyScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.Grid.route) {
+        GridScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -63,8 +61,18 @@ private fun NavGraphBuilder.menuGraph(navController: NavController) {
             onBackPress = navController::popBackStack
         )
     }
+    composable(Screen.Indentations.route) {
+        IndentationsScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
     composable(Screen.Iconography.route) {
         IconographyScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.Shadows.route) {
+        ShadowsScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -73,8 +81,18 @@ private fun NavGraphBuilder.menuGraph(navController: NavController) {
             onBackPress = navController::popBackStack
         )
     }
+    composable(Screen.Navigation.route) {
+        NavigationScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
     composable(Screen.Buttons.route) {
         ButtonsScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.Forms.route) {
+        FormsScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -101,13 +119,19 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
 sealed class Screen(val route: String) {
     object Menu : Screen("menu")
     object Typography : Screen("typography")
+    object Grid : Screen("grid")
     object Colors : Screen("colors")
+    object Indentations : Screen("indentations")
     object Iconography : Screen("iconography")
+    object Shadows : Screen("shadows")
     object CornerRadius : Screen("cornerRadius")
+    object Navigation : Screen("navigation")
     object Buttons : Screen("buttons")
     object UIElements : Screen("uiElements") {
         val menu = this.route + "Menu"
     }
+    object Forms : Screen("forms")
+
     object Tag : Screen("Tag")
 }
 

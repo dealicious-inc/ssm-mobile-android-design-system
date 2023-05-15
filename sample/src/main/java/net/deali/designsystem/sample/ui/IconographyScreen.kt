@@ -63,7 +63,7 @@ fun IconographyScreen(
     NavigationContainer(
         navigationBar = {
             NavigationBar(
-                title = "Colors",
+                title = "Iconography",
                 navigationIcon = {
                     Icon24(
                         painter = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
