@@ -16,7 +16,8 @@ fun MenuScreen(
     navigateToTypography: () -> Unit,
     navigateToColors: () -> Unit,
     navigateToIconography: () -> Unit,
-    navigateToButton: () -> Unit
+    navigateToButton: () -> Unit,
+    navigationToUIElements: () -> Unit
 ) {
     NavigationContainer(
         navigationBar = {
@@ -118,7 +119,7 @@ fun MenuScreen(
                 enabled = true,
                 process = false,
                 text = "10. UI Elements",
-                onClick = {}
+                onClick = navigationToUIElements
             )
 
             MediumFulledButton(
@@ -140,6 +141,7 @@ private fun MenuScreenPreview() {
         navigateToTypography = {},
         navigateToColors = {},
         navigateToIconography = {},
-        navigateToButton = {}
+        navigateToButton = {},
+        navigationToUIElements = {}
     )
 }
