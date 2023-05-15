@@ -95,6 +95,20 @@ fun Icon24(
 fun Icon32(
     painter: Painter,
     modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified
+) {
+    Icon(
+        modifier = modifier,
+        size = 32.dp,
+        painter = painter,
+        color = color
+    )
+}
+
+@Composable
+fun Icon32(
+    painter: Painter,
+    modifier: Modifier = Modifier,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
     onClick: () -> Unit
