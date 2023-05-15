@@ -16,6 +16,7 @@ fun MenuScreen(
     navigateToTypography: () -> Unit,
     navigateToColors: () -> Unit,
     navigateToIconography: () -> Unit,
+    navigateToCornerRadius: () -> Unit,
     navigateToButton: () -> Unit,
     navigationToUIElements: () -> Unit
 ) {
@@ -92,7 +93,7 @@ fun MenuScreen(
                 enabled = true,
                 process = false,
                 text = "7. Corner radius",
-                onClick = {}
+                onClick = navigateToCornerRadius
             )
 
             MediumFulledButton(
@@ -141,6 +142,7 @@ private fun MenuScreenPreview() {
         navigateToTypography = {},
         navigateToColors = {},
         navigateToIconography = {},
+        navigateToCornerRadius = {},
         navigateToButton = {},
         navigationToUIElements = {}
     )

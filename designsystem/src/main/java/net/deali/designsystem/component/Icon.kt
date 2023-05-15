@@ -92,6 +92,29 @@ fun Icon24(
 }
 
 @Composable
+fun Icon32(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    color: Color = Color.Unspecified,
+    onClick: () -> Unit
+) {
+    Icon(
+        modifier = modifier
+            .clickable(
+                onClick = onClick,
+                role = Role.Button,
+                enabled = enabled,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = false, radius = 24.dp)
+            ),
+        size = 32.dp,
+        painter = painter,
+        color = color
+    )
+}
+
+@Composable
 private fun Icon(
     size: Dp,
     painter: Painter,

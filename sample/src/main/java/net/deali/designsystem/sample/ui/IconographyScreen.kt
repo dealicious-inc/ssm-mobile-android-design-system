@@ -3,6 +3,7 @@ package net.deali.designsystem.sample.ui
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +14,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,9 +31,11 @@ import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.Icon32
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_16
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_24
+import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_32
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
 import net.deali.designsystem.theme.gray10
@@ -51,6 +56,8 @@ fun IconographyScreen(
         IconographyScreenItem("ic_ssmk_16", SIZE_16, R.drawable.ic_ssmk_line_16_ver02, R.drawable.ic_ssmk_filled_16_ver02),
 
         IconographyScreenItem("ic_ssmk_24", SIZE_24, R.drawable.ic_ssmk_line_24_ver02, R.drawable.ic_ssmk_filled_24_ver02),
+
+        IconographyScreenItem("ic_ssmk_32", SIZE_32, R.drawable.ic_ssmk_line_32_ver02, R.drawable.ic_ssmk_filled_32_ver02),
     )
 
     NavigationContainer(
@@ -101,13 +108,16 @@ private fun Container(
             .background(white100)
             .padding(10.dp)
     ) {
+        val scrollState = rememberScrollState()
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(5 / 2f)
                 .clip(RoundedCornerShape(6.dp))
                 .background(gray10)
-                .border(1.dp, gray30, RoundedCornerShape(6.dp)),
+                .border(1.dp, gray30, RoundedCornerShape(6.dp))
+                .horizontalScroll(scrollState),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally)
         ) {
@@ -115,6 +125,7 @@ private fun Container(
                 gray100, pink60, gray60, white100
             )
 
+            Spacer(modifier = Modifier.width(10.dp))
             colors.forEach { color ->
                 Item(
                     size = size,
@@ -123,6 +134,7 @@ private fun Container(
                     fulledIconRes = fulledIconRes
                 )
             }
+            Spacer(modifier = Modifier.width(10.dp))
         }
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -172,6 +184,25 @@ private fun Item(
 
             if (fulledIconRes != null) {
                 Icon24(
+                    modifier = Modifier
+                        .background(if (color == white100) black100 else transparent),
+                    painter = painterResource(id = fulledIconRes),
+                    color = color,
+                    onClick = {}
+                )
+            }
+        }
+        SIZE_32 -> {
+            Icon32(
+                modifier = Modifier
+                    .background(if (color == white100) black100 else transparent),
+                painter = painterResource(id = outlinedIconRes),
+                color = color,
+                onClick = {}
+            )
+
+            if (fulledIconRes != null) {
+                Icon32(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
                     painter = painterResource(id = fulledIconRes),

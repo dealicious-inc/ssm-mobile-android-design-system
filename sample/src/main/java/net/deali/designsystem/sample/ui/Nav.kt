@@ -42,6 +42,9 @@ private fun NavGraphBuilder.menuGraph(navController: NavController) {
             navigateToIconography = {
                 navController.navigate(Screen.Iconography.route)
             },
+            navigateToCornerRadius = {
+                navController.navigate(Screen.CornerRadius.route)
+            },
             navigateToButton = {
                 navController.navigate(Screen.Buttons.route)
             },
@@ -62,6 +65,11 @@ private fun NavGraphBuilder.menuGraph(navController: NavController) {
     }
     composable(Screen.Iconography.route) {
         IconographyScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.CornerRadius.route) {
+        CornerRadiusScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -95,6 +103,7 @@ sealed class Screen(val route: String) {
     object Typography : Screen("typography")
     object Colors : Screen("colors")
     object Iconography : Screen("iconography")
+    object CornerRadius : Screen("cornerRadius")
     object Buttons : Screen("buttons")
     object UIElements : Screen("uiElements") {
         val menu = this.route + "Menu"

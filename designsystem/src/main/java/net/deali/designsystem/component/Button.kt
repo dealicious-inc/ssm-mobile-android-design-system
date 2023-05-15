@@ -33,6 +33,7 @@ import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.gray80
 import net.deali.designsystem.theme.pink60
+import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.unit.getRandomText
 
@@ -360,9 +361,9 @@ private fun SmallButton(
     DealiButton(
         modifier = modifier
             .height(32.dp),
-        shape = AppTheme.shapes.smallButton,
-        backgroundColor = backgroundColor,
         enabled = enabled,
+        shape = AppTheme.shapes.radius4,
+        backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 16.dp),
         border = border,
         onClick = onClick
@@ -425,9 +426,9 @@ private fun MediumButton(
     DealiButton(
         modifier = modifier
             .height(46.dp),
-        shape = AppTheme.shapes.mediumButton,
-        backgroundColor = backgroundColor,
         enabled = enabled,
+        shape = AppTheme.shapes.radius6,
+        backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 20.dp),
         border = border,
         onClick = onClick
@@ -489,9 +490,9 @@ private fun LargeButton(
     DealiButton(
         modifier = modifier
             .height(50.dp),
-        shape = AppTheme.shapes.largeButton,
-        backgroundColor = backgroundColor,
         enabled = enabled,
+        shape = AppTheme.shapes.radius6,
+        backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 40.dp),
         border = border,
         onClick = onClick
@@ -539,11 +540,11 @@ private fun LargeButton(
 @Composable
 fun DealiButton(
     shape: Shape,
-    backgroundColor: Color,
     enabled: Boolean,
-    contentPadding: PaddingValues,
     modifier: Modifier = Modifier,
+    backgroundColor: Color = transparent,
     border: BorderStroke? = null,
+    contentPadding: PaddingValues = PaddingValues(),
     onClick: () -> Unit,
     content: @Composable RowScope.() -> Unit
 ) {
@@ -560,7 +561,7 @@ fun DealiButton(
                 onClick = onClick
             )
             .padding(contentPadding),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         content()
