@@ -43,7 +43,7 @@ fun Icon16(
         modifier = modifier
             .clickable(
                 onClick = onClick,
-                role = Role.Button,
+                role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 16.dp)
@@ -80,7 +80,7 @@ fun Icon24(
         modifier = modifier
             .clickable(
                 onClick = onClick,
-                role = Role.Button,
+                role = Role.Checkbox,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 24.dp)
@@ -117,7 +117,7 @@ fun Icon32(
         modifier = modifier
             .clickable(
                 onClick = onClick,
-                role = Role.Button,
+                role = Role.Checkbox,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 24.dp)

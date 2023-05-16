@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':app-resource')
+
     implementation Libs.coreKtx
     implementation Libs.composeFoundation
     implementation Libs.composeUI

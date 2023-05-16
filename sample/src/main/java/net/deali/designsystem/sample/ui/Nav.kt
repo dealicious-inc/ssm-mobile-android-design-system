@@ -102,14 +102,18 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
     navigation(startDestination = Screen.UIElements.route, route = Screen.UIElements.menu) {
         composable(Screen.UIElements.route) {
             UIElementsScreen(
-                navigateToTag = {
-                    navController.navigate(Screen.Tag.route)
-                },
+                navigateToTag = { navController.navigate(Screen.Tag.route) },
+                navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },
                 onBackPress = navController::popBackStack
             )
         }
         composable(Screen.Tag.route) {
             TagScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+        composable(Screen.CheckBox.route) {
+            CheckBoxScreen(
                 onBackPress = navController::popBackStack
             )
         }
@@ -132,7 +136,8 @@ sealed class Screen(val route: String) {
     }
     object Forms : Screen("forms")
 
-    object Tag : Screen("Tag")
+    object Tag : Screen("tag")
+    object CheckBox : Screen("checkBox")
 }
 
 @Composable
