@@ -31,14 +31,15 @@ fun CheckBox(
     onCheck: () -> Unit
 ) {
     Row(
-        modifier = modifier
+        modifier = Modifier
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(),
                 enabled = enabled,
                 role = Role.Checkbox,
                 onClick = onCheck
-            ),
+            )
+            .then(modifier),
         verticalAlignment = Alignment.CenterVertically
     ) {
         CheckBoxIcon(
@@ -48,7 +49,6 @@ fun CheckBox(
 
         DealiText(
             modifier = Modifier
-                .weight(1f)
                 .padding(start = 8.dp),
             text = text,
             style = AppTheme.typography.B3_13_R,
