@@ -1,9 +1,9 @@
 object Versions {
     const val coreKtx = "1.8.0"
 
-    const val composeUI = "1.3.3"
-    const val composeFoundation = "1.3.1"
-    const val composeMaterial = "1.3.1"
+    const val composeUI = "1.4.3"
+    const val composeFoundation = "1.4.3"
+    const val composeMaterial = "1.4.3"
 
     const val appCompat = "1.5.1"
     const val activityCompose = "1.4.0"

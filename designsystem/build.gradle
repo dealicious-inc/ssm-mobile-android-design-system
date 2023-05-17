@@ -21,6 +21,10 @@ android {
         compose true
     }
 
+    composeOptions {
+        kotlinCompilerExtensionVersion = rootProject.composeVersion
+    }
+
     kotlinOptions {
         jvmTarget = '17'
     }
