@@ -137,6 +137,34 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                SmallFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -188,6 +216,34 @@ private fun ButtonSmallContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                SmallOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }
@@ -245,6 +301,34 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                SmallTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -296,6 +380,34 @@ private fun ButtonSmallContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                SmallTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                SmallTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }
@@ -360,6 +472,34 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                MediumFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -411,6 +551,34 @@ private fun ButtonMediumContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                MediumOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }
@@ -468,6 +636,34 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                MediumTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -519,6 +715,34 @@ private fun ButtonMediumContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                MediumTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                MediumTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }
@@ -583,6 +807,34 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                LargeFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeFulledButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -634,6 +886,34 @@ private fun ButtonLargeContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                LargeOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }
@@ -691,6 +971,34 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
             }
+
+            ContainerItem {
+                LargeTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeTonalOutlinedButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+            }
         }
 
         SubContainer(
@@ -742,6 +1050,34 @@ private fun ButtonLargeContainer() {
                     enabled = false,
                     process = false,
                     rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    onClick = {}
+                )
+            }
+
+            ContainerItem {
+                LargeTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    leftIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
+                    onClick = {}
+                )
+
+                LargeTextButton(
+                    text = "Loading",
+                    enabled = true,
+                    process = true,
+                    rightIcon = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                    processIcon = painterResource(id = R.drawable.ic_loading_filled_24_ver01),
                     onClick = {}
                 )
             }

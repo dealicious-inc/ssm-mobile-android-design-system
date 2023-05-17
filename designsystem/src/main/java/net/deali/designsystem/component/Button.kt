@@ -1,7 +1,6 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -20,10 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -361,7 +358,7 @@ private fun SmallButton(
     DealiButton(
         modifier = modifier
             .height(32.dp),
-        enabled = enabled,
+        enabled = enabled && !process,
         shape = AppTheme.shapes.radius4,
         backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 16.dp),
@@ -369,23 +366,17 @@ private fun SmallButton(
         onClick = onClick
     ) {
         if (process && processIcon != null) {
-            Image(
+            RotatingIcon(
                 modifier = Modifier
-                    .size(16.dp),
+                    .size(24.dp),
                 painter = processIcon,
-                contentScale = ContentScale.Crop,
-                contentDescription = null,
-                colorFilter = ColorFilter.tint(textColor)
+                color = textColor
             )
         } else {
             if (leftIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = leftIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
 
@@ -396,13 +387,9 @@ private fun SmallButton(
             )
 
             if (rightIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = rightIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
         }
@@ -426,7 +413,7 @@ private fun MediumButton(
     DealiButton(
         modifier = modifier
             .height(46.dp),
-        enabled = enabled,
+        enabled = enabled && !process,
         shape = AppTheme.shapes.radius6,
         backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 20.dp),
@@ -434,22 +421,17 @@ private fun MediumButton(
         onClick = onClick
     ) {
         if (process && processIcon != null) {
-            Image(
+            RotatingIcon(
                 modifier = Modifier
                     .size(24.dp),
                 painter = processIcon,
-                contentScale = ContentScale.Crop,
-                contentDescription = null
+                color = textColor
             )
         } else {
             if (leftIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = leftIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
 
@@ -460,13 +442,9 @@ private fun MediumButton(
             )
 
             if (rightIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = rightIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
         }
@@ -490,7 +468,7 @@ private fun LargeButton(
     DealiButton(
         modifier = modifier
             .height(50.dp),
-        enabled = enabled,
+        enabled = enabled && !process,
         shape = AppTheme.shapes.radius6,
         backgroundColor = backgroundColor,
         contentPadding = PaddingValues(horizontal = 40.dp),
@@ -498,22 +476,17 @@ private fun LargeButton(
         onClick = onClick
     ) {
         if (process && processIcon != null) {
-            Image(
+            RotatingIcon(
                 modifier = Modifier
                     .size(24.dp),
                 painter = processIcon,
-                contentScale = ContentScale.Crop,
-                contentDescription = null
+                color = textColor
             )
         } else {
             if (leftIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = leftIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
 
@@ -524,13 +497,9 @@ private fun LargeButton(
             )
 
             if (rightIcon != null) {
-                Image(
-                    modifier = Modifier
-                        .size(16.dp),
+                Icon16(
                     painter = rightIcon,
-                    contentScale = ContentScale.Crop,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(textColor)
+                    color = textColor
                 )
             }
         }
