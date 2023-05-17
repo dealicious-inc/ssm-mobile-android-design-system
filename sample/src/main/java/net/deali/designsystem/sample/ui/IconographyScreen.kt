@@ -222,7 +222,7 @@ private fun IconographyScreenPreview() {
     )
 }
 
-data class IconographyScreenItem(
+private data class IconographyScreenItem(
     val name: String,
     val size: Dp,
     @DrawableRes val outlinedIconRes: Int,

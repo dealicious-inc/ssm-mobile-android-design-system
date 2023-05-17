@@ -96,7 +96,7 @@ private fun CornerRadiusScreenPreview() {
     )
 }
 
-data class CornerRadiusScreenItem(
+private data class CornerRadiusScreenItem(
     val name: String,
     val shape: Shape,
 )

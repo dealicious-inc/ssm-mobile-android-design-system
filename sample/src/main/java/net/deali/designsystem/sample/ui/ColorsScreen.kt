@@ -165,7 +165,7 @@ private fun ColorsScreenPreview() {
     )
 }
 
-data class ColorScreenItem(
+private data class ColorScreenItem(
     val color: Color,
     val name: String,
     val code: String

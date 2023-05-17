@@ -150,7 +150,7 @@ private fun TypographyScreenPreview() {
     )
 }
 
-data class TypographyScreenItem(
+private data class TypographyScreenItem(
     val name: String,
     val style: TextStyle
 )
