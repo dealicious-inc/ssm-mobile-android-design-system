@@ -46,7 +46,6 @@ fun TypographyScreen(
         TypographyScreenItem("H1_24_B", AppTheme.typography.H1_24_B),
         TypographyScreenItem("SH1_20_B", AppTheme.typography.SH1_20_B),
         TypographyScreenItem("SH1_20_M", AppTheme.typography.SH1_20_M),
-        TypographyScreenItem("SH1_20_M", AppTheme.typography.SH1_20_M),
         TypographyScreenItem("SH2_18_B", AppTheme.typography.SH2_18_B),
         TypographyScreenItem("SH2_18_R", AppTheme.typography.SH2_18_R),
         TypographyScreenItem("SH3_16_B", AppTheme.typography.SH3_16_B),
