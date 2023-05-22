@@ -1,6 +1,5 @@
 package net.deali.designsystem.theme
 
-import AppRippleTheme
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.ripple.LocalRippleTheme
