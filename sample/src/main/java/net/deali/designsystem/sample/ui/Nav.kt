@@ -12,10 +12,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import net.deali.designsystem.sample.datastore.DataStoreUtil
 import net.deali.designsystem.theme.white100
 
 @Composable
-fun Nav() {
+fun Nav(
+    dataStoreUtil: DataStoreUtil
+) {
     val navController = rememberNavController()
 
     NavHost(
@@ -25,12 +28,15 @@ fun Nav() {
         navController = navController,
         startDestination = Screen.Menu.route
     ) {
-        menuGraph(navController)
+        menuGraph(navController, dataStoreUtil)
         uiElementsGraph(navController)
     }
 }
 
-private fun NavGraphBuilder.menuGraph(navController: NavController) {
+private fun NavGraphBuilder.menuGraph(
+    navController: NavController,
+    dataStoreUtil: DataStoreUtil,
+) {
     composable(Screen.Menu.route) {
         MenuScreen(
             navigateToTypography = { navController.navigate(Screen.Typography.route) },
@@ -48,7 +54,8 @@ private fun NavGraphBuilder.menuGraph(navController: NavController) {
     }
     composable(Screen.Typography.route) {
         TypographyScreen(
-            onBackPress = navController::popBackStack
+            onBackPress = navController::popBackStack,
+            dataStoreUtil = dataStoreUtil
         )
     }
     composable(Screen.Grid.route) {

@@ -10,6 +10,8 @@ object Versions {
 
     const val navigationCompose = "2.5.3"
     const val constraintLayoutCompose = "1.0.1"
+
+    const val datastore = "1.0.0"
 }
 
 object Libs {
@@ -26,4 +28,6 @@ object Libs {
     const val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     const val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     const val constraintLayoutCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintLayoutCompose}"
+
+    const val datastore = "androidx.datastore:datastore-preferences:${Versions.datastore}"
 }

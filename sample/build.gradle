@@ -41,4 +41,5 @@ dependencies {
     implementation Libs.appCompat
     implementation Libs.activityCompose
     implementation Libs.navigationCompose
+    implementation Libs.datastore
 }
