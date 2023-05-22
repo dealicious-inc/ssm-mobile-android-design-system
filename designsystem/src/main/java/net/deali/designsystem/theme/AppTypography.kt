@@ -1,5 +1,6 @@
 package net.deali.designsystem.theme
 
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -12,6 +13,7 @@ import androidx.compose.ui.unit.sp
 import net.deali.appresource.R
 import net.deali.designsystem.unit.tu
 
+@Stable
 class AppTypography(
     H1_32_B: TextStyle,
     H1_24_B: TextStyle,

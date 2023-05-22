@@ -1,5 +1,6 @@
 package net.deali.designsystem.theme
 
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -39,6 +40,7 @@ val orange60 = Color(0xFFFF6827)
 
 val transparent = Color(0x00FFFFFF)
 
+@Stable
 class AppColors(
     error: Color,
     links: Color,
