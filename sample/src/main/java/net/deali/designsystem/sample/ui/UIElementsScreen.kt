@@ -17,6 +17,7 @@ import net.deali.designsystem.component.NavigationBar
 @Composable
 fun UIElementsScreen(
     navigateToCheckBox: () -> Unit,
+    navigateToCheckcircle: () -> Unit,
     navigateToRadioButton: () -> Unit,
     navigateToTag: () -> Unit,
     onBackPress: () -> Unit
@@ -54,6 +55,15 @@ fun UIElementsScreen(
                     .fillMaxWidth(),
                 enabled = true,
                 process = false,
+                text = "Checkcircle",
+                onClick = navigateToCheckcircle
+            )
+
+            MediumOutlinedButton(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = true,
+                process = false,
                 text = "Radio Button",
                 onClick = navigateToRadioButton
             )
@@ -75,6 +85,7 @@ fun UIElementsScreen(
 private fun UIElementsScreenPreview() {
     UIElementsScreen(
         navigateToCheckBox = {},
+        navigateToCheckcircle = {},
         navigateToRadioButton = {},
         navigateToTag = {},
         onBackPress = {}

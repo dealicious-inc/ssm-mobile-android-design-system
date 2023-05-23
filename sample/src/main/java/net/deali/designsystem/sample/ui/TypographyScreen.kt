@@ -1,6 +1,7 @@
 package net.deali.designsystem.sample.ui
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
@@ -25,12 +26,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
@@ -152,6 +155,7 @@ private fun Item(
     style: TextStyle
 ) {
     var isVisible by remember { mutableStateOf(false) }
+    val rotate: Float by animateFloatAsState(if (isVisible) 90f else 270f)
 
     Column(
         modifier = Modifier
@@ -161,14 +165,26 @@ private fun Item(
                 onClick = { isVisible = !isVisible }
             )
     ) {
-        DealiText(
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
-            text = name,
-            style = style,
-            color = style.color
-        )
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            DealiText(
+                modifier = Modifier
+                    .weight(1f),
+                text = name,
+                style = style,
+                color = style.color
+            )
+
+            Icon24(
+                modifier = Modifier
+                    .rotate(rotate),
+                painter = painterResource(id = R.drawable.ic_arrow_left_24_ver01)
+            )
+        }
 
         AnimatedVisibility(
             visible = isVisible,
