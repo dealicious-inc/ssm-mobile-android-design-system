@@ -172,7 +172,7 @@ private fun Icon(
 }
 
 @Composable
-fun RotatingIcon(
+fun IconRotating(
     modifier: Modifier,
     painter: Painter,
     color: Color,

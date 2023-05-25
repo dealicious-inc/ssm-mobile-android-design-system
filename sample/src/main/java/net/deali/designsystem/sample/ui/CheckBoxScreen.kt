@@ -49,7 +49,7 @@ fun CheckBoxScreen(
         ) {
             CheckBox(
                 checked = checked,
-                text = getRandomText(3),
+                text = "CheckBox / checked: $checked / enabled: true",
                 onCheck = {
                     checked = !checked
                 }
@@ -58,7 +58,7 @@ fun CheckBoxScreen(
             CheckBox(
                 checked = false,
                 enabled = false,
-                text = getRandomText(3),
+                text = "CheckBox / checked: false / enabled: false",
                 onCheck = { }
             )
         }

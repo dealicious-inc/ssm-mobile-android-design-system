@@ -28,11 +28,11 @@ import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.PinkDotIndicator
-import net.deali.designsystem.component.WhiteDotIndicator
+import net.deali.designsystem.component.IndicatorPinkDot
+import net.deali.designsystem.component.IndicatorWhiteDot
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.NumberIndicator
-import net.deali.designsystem.component.PaginationIndicator
+import net.deali.designsystem.component.IndicatorNumber
+import net.deali.designsystem.component.IndicatorPagination
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
@@ -105,7 +105,7 @@ private fun PagerContainer() {
             )
         }
 
-        PinkDotIndicator(
+        IndicatorPinkDot(
             modifier = Modifier
                 .padding(6.dp),
             pagerState = pagerState,
@@ -115,7 +115,7 @@ private fun PagerContainer() {
             }
         )
 
-        WhiteDotIndicator(
+        IndicatorWhiteDot(
             modifier = Modifier
                 .padding(6.dp),
             pagerState = pagerState,
@@ -125,7 +125,7 @@ private fun PagerContainer() {
             }
         )
 
-        NumberIndicator(
+        IndicatorNumber(
             modifier = Modifier
                 .padding(6.dp),
             pageCount = pagerDataState.pageCount,
@@ -133,7 +133,7 @@ private fun PagerContainer() {
             pagerState = pagerState
         )
 
-        PaginationIndicator(
+        IndicatorPagination(
             modifier = Modifier
                 .padding(6.dp),
             pageCount = pagerDataState.pageCount,

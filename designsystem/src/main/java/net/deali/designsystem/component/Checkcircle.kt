@@ -58,13 +58,14 @@ private fun CheckcircleIcon(
             checked && isAd.not() -> painterResource(id = R.drawable.ic_checkcircle_on_ver01)
             else -> painterResource(id = R.drawable.ic_checkcircle_off_ver01)
         },
+        enabled = enabled,
         onClick = onCheck
     )
 }
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun CheckBoxPreview() {
+private fun CheckcirclePreview() {
     Column(
         modifier = Modifier
             .padding(10.dp),

@@ -39,13 +39,13 @@ import kotlin.math.absoluteValue
 import kotlin.math.sign
 
 @Composable
-fun PinkDotIndicator(
+fun IndicatorPinkDot(
     pageCount: Int,
     pageIndexMapping: (Int) -> Int,
     modifier: Modifier = Modifier,
     pagerState: PagerState = rememberPagerState()
 ) {
-    DotIndicator(
+    IndicatorDot(
         modifier = modifier,
         pagerState = pagerState,
         pageCount = pageCount,
@@ -58,13 +58,13 @@ fun PinkDotIndicator(
 }
 
 @Composable
-fun WhiteDotIndicator(
+fun IndicatorWhiteDot(
     pageCount: Int,
     pageIndexMapping: (Int) -> Int,
     modifier: Modifier = Modifier,
     pagerState: PagerState = rememberPagerState()
 ) {
-    DotIndicator(
+    IndicatorDot(
         modifier = modifier,
         pagerState = pagerState,
         pageCount = pageCount,
@@ -77,7 +77,7 @@ fun WhiteDotIndicator(
 }
 
 @Composable
-private fun DotIndicator(
+private fun IndicatorDot(
     pagerState: PagerState,
     pageCount: Int,
     activeColor: Color,
@@ -138,7 +138,7 @@ private fun DotIndicator(
 }
 
 @Composable
-fun NumberIndicator(
+fun IndicatorNumber(
     pageCount: Int,
     modifier: Modifier = Modifier,
     pagerDataState: PagerDataState = rememberPageDataState(),
@@ -171,7 +171,7 @@ fun NumberIndicator(
 }
 
 @Composable
-fun PaginationIndicator(
+fun IndicatorPagination(
     pageCount: Int,
     modifier: Modifier = Modifier,
     pagerDataState: PagerDataState = rememberPageDataState(),
@@ -262,8 +262,8 @@ class PagerDataState(
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun DotPinkIndicatorPreview() {
-    PinkDotIndicator(
+private fun IndicatorDotPinkPreview() {
+    IndicatorPinkDot(
         modifier = Modifier
             .padding(10.dp),
         pageCount = 5,
@@ -273,8 +273,8 @@ private fun DotPinkIndicatorPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun DotWhiteIndicatorPreview() {
-    WhiteDotIndicator(
+private fun IndicatorDotWhitePreview() {
+    IndicatorWhiteDot(
         modifier = Modifier
             .padding(10.dp),
         pageCount = 5,
@@ -284,8 +284,8 @@ private fun DotWhiteIndicatorPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun NumberIndicatorPreview() {
-    NumberIndicator(
+private fun IndicatorNumberPreview() {
+    IndicatorNumber(
         modifier = Modifier
             .padding(10.dp),
         pageCount = 5
@@ -294,8 +294,8 @@ private fun NumberIndicatorPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun PaginationIndicatorPreview() {
-    PaginationIndicator(
+private fun IndicatorPaginationPreview() {
+    IndicatorPagination(
         modifier = Modifier
             .padding(10.dp),
         pageCount = 5

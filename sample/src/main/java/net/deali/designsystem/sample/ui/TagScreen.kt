@@ -24,25 +24,25 @@ import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.LargePrimaryFulledBlueTag
-import net.deali.designsystem.component.LargePrimaryFulledGrayTag
-import net.deali.designsystem.component.LargePrimaryFulledPinkTag
-import net.deali.designsystem.component.LargeSecondaryOutlinedBlueTag
-import net.deali.designsystem.component.LargeSecondaryOutlinedGrayTag
-import net.deali.designsystem.component.LargeSecondaryOutlinedPinkTag
-import net.deali.designsystem.component.MediumPrimaryFulledBlueTag
-import net.deali.designsystem.component.MediumPrimaryFulledGrayTag
-import net.deali.designsystem.component.MediumPrimaryFulledPinkTag
-import net.deali.designsystem.component.MediumSecondaryOutlinedBlueTag
-import net.deali.designsystem.component.MediumSecondaryOutlinedGrayTag
-import net.deali.designsystem.component.MediumSecondaryOutlinedPinkTag
+import net.deali.designsystem.component.TagLargePrimaryFulledBlue
+import net.deali.designsystem.component.TagLargePrimaryFulledGray
+import net.deali.designsystem.component.TagLargePrimaryFulledPink
+import net.deali.designsystem.component.TagLargeSecondaryOutlinedBlue
+import net.deali.designsystem.component.TagLargeSecondaryOutlinedGray
+import net.deali.designsystem.component.TagLargeSecondaryOutlinedPink
+import net.deali.designsystem.component.TagMediumPrimaryFulledBlue
+import net.deali.designsystem.component.TagMediumPrimaryFulledGray
+import net.deali.designsystem.component.TagMediumPrimaryFulledPink
+import net.deali.designsystem.component.TagMediumSecondaryOutlinedBlue
+import net.deali.designsystem.component.TagMediumSecondaryOutlinedGray
+import net.deali.designsystem.component.TagMediumSecondaryOutlinedPink
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.SmallPrimaryFulledBlueTag
-import net.deali.designsystem.component.SmallPrimaryFulledGrayTag
-import net.deali.designsystem.component.SmallPrimaryFulledPinkTag
-import net.deali.designsystem.component.SmallSecondaryOutlinedBlueTag
-import net.deali.designsystem.component.SmallSecondaryOutlinedGrayTag
-import net.deali.designsystem.component.SmallSecondaryOutlinedPinkTag
+import net.deali.designsystem.component.TagSmallPrimaryFulledBlue
+import net.deali.designsystem.component.TagSmallPrimaryFulledGray
+import net.deali.designsystem.component.TagSmallPrimaryFulledPink
+import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
+import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
+import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.white100
@@ -93,15 +93,15 @@ private fun TagSmallContainer() {
         SubContainer(
             text = "Fulled Tags"
         ) {
-            SmallPrimaryFulledPinkTag(
+            TagSmallPrimaryFulledPink(
                 text = getRandomText(1)
             )
 
-            SmallPrimaryFulledBlueTag(
+            TagSmallPrimaryFulledBlue(
                 text = getRandomText(1)
             )
 
-            SmallPrimaryFulledGrayTag(
+            TagSmallPrimaryFulledGray(
                 text = getRandomText(1)
             )
         }
@@ -109,15 +109,15 @@ private fun TagSmallContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            SmallSecondaryOutlinedPinkTag(
+            TagSmallSecondaryOutlinedPink(
                 text = getRandomText(1)
             )
 
-            SmallSecondaryOutlinedBlueTag(
+            TagSmallSecondaryOutlinedBlue(
                 text = getRandomText(1)
             )
 
-            SmallSecondaryOutlinedGrayTag(
+            TagSmallSecondaryOutlinedGray(
                 text = getRandomText(1)
             )
         }
@@ -132,15 +132,15 @@ private fun TagMediumContainer() {
         SubContainer(
             text = "Fulled Tags"
         ) {
-            MediumPrimaryFulledPinkTag(
+            TagMediumPrimaryFulledPink(
                 text = getRandomText(1)
             )
 
-            MediumPrimaryFulledBlueTag(
+            TagMediumPrimaryFulledBlue(
                 text = getRandomText(1)
             )
 
-            MediumPrimaryFulledGrayTag(
+            TagMediumPrimaryFulledGray(
                 text = getRandomText(1)
             )
         }
@@ -148,15 +148,15 @@ private fun TagMediumContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            MediumSecondaryOutlinedPinkTag(
+            TagMediumSecondaryOutlinedPink(
                 text = getRandomText(1)
             )
 
-            MediumSecondaryOutlinedBlueTag(
+            TagMediumSecondaryOutlinedBlue(
                 text = getRandomText(1)
             )
 
-            MediumSecondaryOutlinedGrayTag(
+            TagMediumSecondaryOutlinedGray(
                 text = getRandomText(1)
             )
         }
@@ -171,15 +171,15 @@ private fun TagLargeContainer() {
         SubContainer(
             text = "Fulled Tags"
         ) {
-            LargePrimaryFulledPinkTag(
+            TagLargePrimaryFulledPink(
                 text = getRandomText(1)
             )
 
-            LargePrimaryFulledBlueTag(
+            TagLargePrimaryFulledBlue(
                 text = getRandomText(1)
             )
 
-            LargePrimaryFulledGrayTag(
+            TagLargePrimaryFulledGray(
                 text = getRandomText(1)
             )
         }
@@ -187,15 +187,15 @@ private fun TagLargeContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            LargeSecondaryOutlinedPinkTag(
+            TagLargeSecondaryOutlinedPink(
                 text = getRandomText(1)
             )
 
-            LargeSecondaryOutlinedBlueTag(
+            TagLargeSecondaryOutlinedBlue(
                 text = getRandomText(1)
             )
 
-            LargeSecondaryOutlinedGrayTag(
+            TagLargeSecondaryOutlinedGray(
                 text = getRandomText(1)
             )
         }

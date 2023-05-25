@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.MediumOutlinedButton
+import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.NavigationBar
 
 @Composable
@@ -41,7 +41,7 @@ fun UIElementsScreen(
                 .weight(1f),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            MediumOutlinedButton(
+            ButtonMediumOutlined(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -50,7 +50,7 @@ fun UIElementsScreen(
                 onClick = navigateToCheckBox
             )
 
-            MediumOutlinedButton(
+            ButtonMediumOutlined(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -59,7 +59,7 @@ fun UIElementsScreen(
                 onClick = navigateToCheckcircle
             )
 
-            MediumOutlinedButton(
+            ButtonMediumOutlined(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -68,7 +68,7 @@ fun UIElementsScreen(
                 onClick = navigateToRadioButton
             )
 
-            MediumOutlinedButton(
+            ButtonMediumOutlined(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,

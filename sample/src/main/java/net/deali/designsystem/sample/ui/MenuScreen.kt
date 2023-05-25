@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.MediumFulledButton
+import net.deali.designsystem.component.ButtonMediumFulled
 import net.deali.designsystem.component.NavigationBar
 
 @Composable
@@ -38,7 +38,7 @@ fun MenuScreen(
                 .weight(1f),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -47,7 +47,7 @@ fun MenuScreen(
                 onClick = navigateToTypography
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -56,7 +56,7 @@ fun MenuScreen(
                 onClick = navigateToGrid
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -65,7 +65,7 @@ fun MenuScreen(
                 onClick = navigateToColors
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -74,7 +74,7 @@ fun MenuScreen(
                 onClick = navigateToIndentations
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -83,7 +83,7 @@ fun MenuScreen(
                 onClick = navigateToIconography
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -92,7 +92,7 @@ fun MenuScreen(
                 onClick = navigateToShadows
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -101,7 +101,7 @@ fun MenuScreen(
                 onClick = navigateToCornerRadius
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -110,7 +110,7 @@ fun MenuScreen(
                 onClick = navigateToNavigation
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -119,7 +119,7 @@ fun MenuScreen(
                 onClick = navigateToButtons
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
@@ -128,7 +128,7 @@ fun MenuScreen(
                 onClick = navigateToUIElements
             )
 
-            MediumFulledButton(
+            ButtonMediumFulled(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,

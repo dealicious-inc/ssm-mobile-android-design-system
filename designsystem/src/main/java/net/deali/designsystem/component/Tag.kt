@@ -26,11 +26,11 @@ import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
 
 @Composable
-fun LargePrimaryFulledPinkTag(
+fun TagLargePrimaryFulledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = pink60,
@@ -39,11 +39,11 @@ fun LargePrimaryFulledPinkTag(
 }
 
 @Composable
-fun LargePrimaryFulledBlueTag(
+fun TagLargePrimaryFulledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = blue70,
@@ -52,11 +52,11 @@ fun LargePrimaryFulledBlueTag(
 }
 
 @Composable
-fun LargePrimaryFulledGrayTag(
+fun TagLargePrimaryFulledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -65,11 +65,11 @@ fun LargePrimaryFulledGrayTag(
 }
 
 @Composable
-fun LargeSecondaryOutlinedPinkTag(
+fun TagLargeSecondaryOutlinedPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = pink90,
@@ -79,11 +79,11 @@ fun LargeSecondaryOutlinedPinkTag(
 }
 
 @Composable
-fun LargeSecondaryOutlinedBlueTag(
+fun TagLargeSecondaryOutlinedBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = blue90,
@@ -93,11 +93,11 @@ fun LargeSecondaryOutlinedBlueTag(
 }
 
 @Composable
-fun LargeSecondaryOutlinedGrayTag(
+fun TagLargeSecondaryOutlinedGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    LargeTag(
+    TagLarge(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -107,11 +107,11 @@ fun LargeSecondaryOutlinedGrayTag(
 }
 
 @Composable
-fun MediumPrimaryFulledPinkTag(
+fun TagMediumPrimaryFulledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = pink60,
@@ -120,11 +120,11 @@ fun MediumPrimaryFulledPinkTag(
 }
 
 @Composable
-fun MediumPrimaryFulledBlueTag(
+fun TagMediumPrimaryFulledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = blue70,
@@ -133,11 +133,11 @@ fun MediumPrimaryFulledBlueTag(
 }
 
 @Composable
-fun MediumPrimaryFulledGrayTag(
+fun TagMediumPrimaryFulledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -146,11 +146,11 @@ fun MediumPrimaryFulledGrayTag(
 }
 
 @Composable
-fun MediumSecondaryOutlinedPinkTag(
+fun TagMediumSecondaryOutlinedPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = pink90,
@@ -160,11 +160,11 @@ fun MediumSecondaryOutlinedPinkTag(
 }
 
 @Composable
-fun MediumSecondaryOutlinedBlueTag(
+fun TagMediumSecondaryOutlinedBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = blue90,
@@ -174,11 +174,11 @@ fun MediumSecondaryOutlinedBlueTag(
 }
 
 @Composable
-fun MediumSecondaryOutlinedGrayTag(
+fun TagMediumSecondaryOutlinedGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    MediumTag(
+    TagMedium(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -188,11 +188,11 @@ fun MediumSecondaryOutlinedGrayTag(
 }
 
 @Composable
-fun SmallPrimaryFulledPinkTag(
+fun TagSmallPrimaryFulledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = pink60,
@@ -201,11 +201,11 @@ fun SmallPrimaryFulledPinkTag(
 }
 
 @Composable
-fun SmallPrimaryFulledBlueTag(
+fun TagSmallPrimaryFulledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = blue70,
@@ -214,11 +214,11 @@ fun SmallPrimaryFulledBlueTag(
 }
 
 @Composable
-fun SmallPrimaryFulledGrayTag(
+fun TagSmallPrimaryFulledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -227,11 +227,11 @@ fun SmallPrimaryFulledGrayTag(
 }
 
 @Composable
-fun SmallSecondaryOutlinedPinkTag(
+fun TagSmallSecondaryOutlinedPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = pink90,
@@ -241,11 +241,11 @@ fun SmallSecondaryOutlinedPinkTag(
 }
 
 @Composable
-fun SmallSecondaryOutlinedBlueTag(
+fun TagSmallSecondaryOutlinedBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = blue90,
@@ -255,11 +255,11 @@ fun SmallSecondaryOutlinedBlueTag(
 }
 
 @Composable
-fun SmallSecondaryOutlinedGrayTag(
+fun TagSmallSecondaryOutlinedGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
-    SmallTag(
+    TagSmall(
         modifier = modifier,
         text = text,
         textColor = gray80,
@@ -269,7 +269,7 @@ fun SmallSecondaryOutlinedGrayTag(
 }
 
 @Composable
-private fun SmallTag(
+private fun TagSmall(
     modifier: Modifier,
     text: String,
     textColor: Color,
@@ -288,7 +288,7 @@ private fun SmallTag(
 }
 
 @Composable
-private fun MediumTag(
+private fun TagMedium(
     modifier: Modifier,
     text: String,
     textColor: Color,
@@ -307,7 +307,7 @@ private fun MediumTag(
 }
 
 @Composable
-private fun LargeTag(
+private fun TagLarge(
     modifier: Modifier,
     text: String,
     textColor: Color,
@@ -368,37 +368,15 @@ private fun LargePrimaryFulledTagPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        LargePrimaryFulledPinkTag(
+        TagLargePrimaryFulledPink(
             text = getRandomText(1)
         )
 
-        LargePrimaryFulledBlueTag(
+        TagLargePrimaryFulledBlue(
             text = getRandomText(1)
         )
 
-        LargePrimaryFulledGrayTag(
-            text = getRandomText(1)
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun LargeSecondaryOutlinedTagPreview() {
-    Row(
-        modifier = Modifier
-            .padding(10.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        LargeSecondaryOutlinedPinkTag(
-            text = getRandomText(1)
-        )
-
-        LargeSecondaryOutlinedBlueTag(
-            text = getRandomText(1)
-        )
-
-        LargeSecondaryOutlinedGrayTag(
+        TagLargePrimaryFulledGray(
             text = getRandomText(1)
         )
     }
@@ -406,21 +384,21 @@ private fun LargeSecondaryOutlinedTagPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun MediumPrimaryFulledTagPreview() {
+private fun TagLargeSecondaryOutlinedPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        MediumPrimaryFulledPinkTag(
+        TagLargeSecondaryOutlinedPink(
             text = getRandomText(1)
         )
 
-        MediumPrimaryFulledBlueTag(
+        TagLargeSecondaryOutlinedBlue(
             text = getRandomText(1)
         )
 
-        MediumPrimaryFulledGrayTag(
+        TagLargeSecondaryOutlinedGray(
             text = getRandomText(1)
         )
     }
@@ -428,21 +406,21 @@ private fun MediumPrimaryFulledTagPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun MediumSecondaryOutlinedTagPreview() {
+private fun TagMediumPrimaryFulledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        MediumSecondaryOutlinedPinkTag(
+        TagMediumPrimaryFulledPink(
             text = getRandomText(1)
         )
 
-        MediumSecondaryOutlinedBlueTag(
+        TagMediumPrimaryFulledBlue(
             text = getRandomText(1)
         )
 
-        MediumSecondaryOutlinedGrayTag(
+        TagMediumPrimaryFulledGray(
             text = getRandomText(1)
         )
     }
@@ -450,21 +428,21 @@ private fun MediumSecondaryOutlinedTagPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun SmallPrimaryFulledTagPreview() {
+private fun TagMediumSecondaryOutlinedPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        SmallPrimaryFulledPinkTag(
+        TagMediumSecondaryOutlinedPink(
             text = getRandomText(1)
         )
 
-        SmallPrimaryFulledBlueTag(
+        TagMediumSecondaryOutlinedBlue(
             text = getRandomText(1)
         )
 
-        SmallPrimaryFulledGrayTag(
+        TagMediumSecondaryOutlinedGray(
             text = getRandomText(1)
         )
     }
@@ -472,21 +450,43 @@ private fun SmallPrimaryFulledTagPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun SmallSecondaryOutlinedTagPreview() {
+private fun TagSmallPrimaryFulledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        SmallSecondaryOutlinedPinkTag(
+        TagSmallPrimaryFulledPink(
             text = getRandomText(1)
         )
 
-        SmallSecondaryOutlinedBlueTag(
+        TagSmallPrimaryFulledBlue(
             text = getRandomText(1)
         )
 
-        SmallSecondaryOutlinedGrayTag(
+        TagSmallPrimaryFulledGray(
+            text = getRandomText(1)
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
+private fun TagSmallSecondaryOutlinedPreview() {
+    Row(
+        modifier = Modifier
+            .padding(10.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        TagSmallSecondaryOutlinedPink(
+            text = getRandomText(1)
+        )
+
+        TagSmallSecondaryOutlinedBlue(
+            text = getRandomText(1)
+        )
+
+        TagSmallSecondaryOutlinedGray(
             text = getRandomText(1)
         )
     }
