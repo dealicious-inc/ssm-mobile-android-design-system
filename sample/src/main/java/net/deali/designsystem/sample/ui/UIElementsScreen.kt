@@ -19,6 +19,7 @@ fun UIElementsScreen(
     navigateToCheckBox: () -> Unit,
     navigateToCheckcircle: () -> Unit,
     navigateToRadioButton: () -> Unit,
+    navigateToRating: () -> Unit,
     navigateToTag: () -> Unit,
     onBackPress: () -> Unit
 ) {
@@ -73,6 +74,15 @@ fun UIElementsScreen(
                     .fillMaxWidth(),
                 enabled = true,
                 process = false,
+                text = "Rating",
+                onClick = navigateToRating
+            )
+
+            ButtonMediumOutlined(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = true,
+                process = false,
                 text = "Tag",
                 onClick = navigateToTag
             )
@@ -87,6 +97,7 @@ private fun UIElementsScreenPreview() {
         navigateToCheckBox = {},
         navigateToCheckcircle = {},
         navigateToRadioButton = {},
+        navigateToRating = {},
         navigateToTag = {},
         onBackPress = {}
     )

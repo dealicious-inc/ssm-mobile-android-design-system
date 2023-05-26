@@ -112,6 +112,7 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
                 navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },
                 navigateToCheckcircle = { navController.navigate(Screen.Checkcircle.route) },
                 navigateToRadioButton = { navController.navigate(Screen.RadioButton.route) },
+                navigateToRating = { navController.navigate(Screen.Rating.route) },
                 navigateToTag = { navController.navigate(Screen.Tag.route) },
                 onBackPress = navController::popBackStack
             )
@@ -128,6 +129,11 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
         }
         composable(Screen.RadioButton.route) {
             RadioButtonScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+        composable(Screen.Rating.route) {
+            RatingScreen(
                 onBackPress = navController::popBackStack
             )
         }
@@ -159,6 +165,7 @@ sealed class Screen(val route: String) {
     object CheckBox : Screen("checkBox")
     object Checkcircle : Screen("checkcircle")
     object RadioButton : Screen("radioButton")
+    object Rating : Screen("rating")
     object Tag : Screen("tag")
 }
 
