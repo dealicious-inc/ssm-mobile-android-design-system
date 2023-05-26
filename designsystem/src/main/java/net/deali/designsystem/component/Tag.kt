@@ -280,7 +280,7 @@ private fun TagSmall(
         modifier = modifier,
         text = text,
         color = textColor,
-        style = AppTheme.typography.C1_10_B,
+        style = AppTheme.typography.c1b10,
         paddingValues = PaddingValues(4.dp, 1.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -299,7 +299,7 @@ private fun TagMedium(
         modifier = modifier,
         text = text,
         color = textColor,
-        style = AppTheme.typography.B4_12_M,
+        style = AppTheme.typography.b4m12,
         paddingValues = PaddingValues(8.dp, 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
@@ -318,7 +318,7 @@ private fun TagLarge(
         modifier = modifier,
         text = text,
         color = textColor,
-        style = AppTheme.typography.B2_14_M,
+        style = AppTheme.typography.b2m14,
         paddingValues = PaddingValues(8.dp, 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor

@@ -33,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
@@ -51,26 +50,27 @@ fun TypographyScreen(
     dataStoreUtil: DataStoreUtil
 ) {
     val typographyScreenItems = listOf(
-        TypographyScreenItem("H1_32_B", AppTheme.typography.H1_32_B),
-        TypographyScreenItem("H1_24_B", AppTheme.typography.H1_24_B),
-        TypographyScreenItem("SH1_20_B", AppTheme.typography.SH1_20_B),
-        TypographyScreenItem("SH1_20_M", AppTheme.typography.SH1_20_M),
-        TypographyScreenItem("SH2_18_B", AppTheme.typography.SH2_18_B),
-        TypographyScreenItem("SH2_18_R", AppTheme.typography.SH2_18_R),
-        TypographyScreenItem("SH3_16_B", AppTheme.typography.SH3_16_B),
-        TypographyScreenItem("SH3_16_R", AppTheme.typography.SH3_16_R),
-        TypographyScreenItem("B1_15_B", AppTheme.typography.B1_15_B),
-        TypographyScreenItem("B1_15_R", AppTheme.typography.B1_15_R),
-        TypographyScreenItem("B2_14_B", AppTheme.typography.B2_14_B),
-        TypographyScreenItem("B2_14_M", AppTheme.typography.B2_14_M),
-        TypographyScreenItem("B2_14_R", AppTheme.typography.B2_14_R),
-        TypographyScreenItem("B3_13_B", AppTheme.typography.B3_13_B),
-        TypographyScreenItem("B3_13_M", AppTheme.typography.B3_13_M),
-        TypographyScreenItem("B4_12_B", AppTheme.typography.B4_12_B),
-        TypographyScreenItem("B4_12_M", AppTheme.typography.B4_12_M),
-        TypographyScreenItem("B4_12_R", AppTheme.typography.B4_12_R),
-        TypographyScreenItem("C1_10_B", AppTheme.typography.C1_10_B),
-        TypographyScreenItem("C1_10_R", AppTheme.typography.C1_10_R),
+        TypographyScreenItem("H1B32", AppTheme.typography.h1b32),
+        TypographyScreenItem("H2B24", AppTheme.typography.h2b24),
+        TypographyScreenItem("SH1B20", AppTheme.typography.sh1b20),
+        TypographyScreenItem("SH1M20", AppTheme.typography.sh1m20),
+        TypographyScreenItem("SH2B18", AppTheme.typography.sh2b18),
+        TypographyScreenItem("SH2R18", AppTheme.typography.sh2r18),
+        TypographyScreenItem("SH3B16", AppTheme.typography.sh3b16),
+        TypographyScreenItem("SH3R16", AppTheme.typography.sh3r16),
+        TypographyScreenItem("B1B15", AppTheme.typography.b1b15),
+        TypographyScreenItem("B1R15", AppTheme.typography.b1r15),
+        TypographyScreenItem("B2B14", AppTheme.typography.b2b14),
+        TypographyScreenItem("B2M14", AppTheme.typography.b2m14),
+        TypographyScreenItem("B2R14", AppTheme.typography.b2r14),
+        TypographyScreenItem("B3B13", AppTheme.typography.b3b13),
+        TypographyScreenItem("B3M13", AppTheme.typography.b3m13),
+        TypographyScreenItem("B3R13", AppTheme.typography.b3r13),
+        TypographyScreenItem("B4B12", AppTheme.typography.b4b12),
+        TypographyScreenItem("B4M12", AppTheme.typography.b4m12),
+        TypographyScreenItem("B4R12", AppTheme.typography.b4r12),
+        TypographyScreenItem("C1B10", AppTheme.typography.c1b10),
+        TypographyScreenItem("C1R10", AppTheme.typography.c1r10),
     )
 
     NavigationContainer(

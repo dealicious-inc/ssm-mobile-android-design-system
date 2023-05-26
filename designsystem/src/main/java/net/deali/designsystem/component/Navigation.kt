@@ -54,7 +54,7 @@ fun NavigationBar(
                     width = Dimension.fillToConstraints
                 },
             text = title,
-            style = AppTheme.typography.SH3_16_B,
+            style = AppTheme.typography.sh3b16,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
             color = gray100

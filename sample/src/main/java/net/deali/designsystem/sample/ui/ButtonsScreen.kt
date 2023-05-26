@@ -1100,7 +1100,7 @@ private fun Item(
                 .fillMaxWidth()
                 .padding(10.dp),
             text = text,
-            style = AppTheme.typography.H1_24_B
+            style = AppTheme.typography.h2b24
         )
 
         Column(
@@ -1130,7 +1130,7 @@ private fun SubContainer(
                 bottom = 10.dp
             ),
         text = text,
-        style = AppTheme.typography.SH2_18_R
+        style = AppTheme.typography.sh2r18
     )
 
     Row(

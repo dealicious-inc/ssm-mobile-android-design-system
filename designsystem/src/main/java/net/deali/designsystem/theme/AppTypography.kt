@@ -15,254 +15,254 @@ import net.deali.designsystem.unit.tu
 
 @Stable
 class AppTypography(
-    H1_32_B: TextStyle,
-    H1_24_B: TextStyle,
-    SH1_20_B: TextStyle,
-    SH1_20_M: TextStyle,
-    SH2_18_B: TextStyle,
-    SH2_18_R: TextStyle,
-    SH3_16_B: TextStyle,
-    SH3_16_R: TextStyle,
-    B1_15_B: TextStyle,
-    B1_15_R: TextStyle,
-    B2_14_B: TextStyle,
-    B2_14_M: TextStyle,
-    B2_14_R: TextStyle,
-    B3_13_B: TextStyle,
-    B3_13_M: TextStyle,
-    B3_13_R: TextStyle,
-    B4_12_B: TextStyle,
-    B4_12_M: TextStyle,
-    B4_12_R: TextStyle,
-    C1_10_B: TextStyle,
-    C1_10_R: TextStyle,
+    h1b32: TextStyle,
+    h2b24: TextStyle,
+    sh1b20: TextStyle,
+    sh1m20: TextStyle,
+    sh2b18: TextStyle,
+    sh2r18: TextStyle,
+    sh3b16: TextStyle,
+    sh3r16: TextStyle,
+    b1b15: TextStyle,
+    b1r15: TextStyle,
+    b2b14: TextStyle,
+    b2m14: TextStyle,
+    b2r14: TextStyle,
+    b3b13: TextStyle,
+    b3m13: TextStyle,
+    b3r13: TextStyle,
+    b4b12: TextStyle,
+    b4m12: TextStyle,
+    b4r12: TextStyle,
+    c1b10: TextStyle,
+    c1r10: TextStyle,
 ) {
-    var H1_32_B by mutableStateOf(H1_32_B)
+    var h1b32 by mutableStateOf(h1b32)
         private set
 
-    var H1_24_B by mutableStateOf(H1_24_B)
+    var h2b24 by mutableStateOf(h2b24)
         private set
 
-    var SH1_20_B by mutableStateOf(SH1_20_B)
+    var sh1b20 by mutableStateOf(sh1b20)
         private set
 
-    var SH1_20_M by mutableStateOf(SH1_20_M)
+    var sh1m20 by mutableStateOf(sh1m20)
         private set
 
-    var SH2_18_B by mutableStateOf(SH2_18_B)
+    var sh2b18 by mutableStateOf(sh2b18)
         private set
 
-    var SH2_18_R by mutableStateOf(SH2_18_R)
+    var sh2r18 by mutableStateOf(sh2r18)
         private set
 
-    var SH3_16_B by mutableStateOf(SH3_16_B)
+    var sh3b16 by mutableStateOf(sh3b16)
         private set
 
-    var SH3_16_R by mutableStateOf(SH3_16_R)
+    var sh3r16 by mutableStateOf(sh3r16)
         private set
 
-    var B1_15_B by mutableStateOf(B1_15_B)
+    var b1b15 by mutableStateOf(b1b15)
         private set
 
-    var B1_15_R by mutableStateOf(B1_15_R)
+    var b1r15 by mutableStateOf(b1r15)
         private set
 
-    var B2_14_B by mutableStateOf(B2_14_B)
+    var b2b14 by mutableStateOf(b2b14)
         private set
 
-    var B2_14_M by mutableStateOf(B2_14_M)
+    var b2m14 by mutableStateOf(b2m14)
         private set
 
-    var B2_14_R by mutableStateOf(B2_14_R)
+    var b2r14 by mutableStateOf(b2r14)
         private set
 
-    var B3_13_B by mutableStateOf(B3_13_B)
+    var b3b13 by mutableStateOf(b3b13)
         private set
 
-    var B3_13_M by mutableStateOf(B3_13_M)
+    var b3m13 by mutableStateOf(b3m13)
         private set
 
-    var B3_13_R by mutableStateOf(B3_13_R)
+    var b3r13 by mutableStateOf(b3r13)
         private set
 
-    var B4_12_B by mutableStateOf(B4_12_B)
+    var b4b12 by mutableStateOf(b4b12)
         private set
 
-    var B4_12_M by mutableStateOf(B4_12_M)
+    var b4m12 by mutableStateOf(b4m12)
         private set
 
-    var B4_12_R by mutableStateOf(B4_12_R)
+    var b4r12 by mutableStateOf(b4r12)
         private set
 
-    var C1_10_B by mutableStateOf(C1_10_B)
+    var c1b10 by mutableStateOf(c1b10)
         private set
 
-    var C1_10_R by mutableStateOf(C1_10_R)
+    var c1r10 by mutableStateOf(c1r10)
         private set
 
     fun copy(
-        H1_32_B: TextStyle = this.H1_32_B,
-        H1_24_B: TextStyle = this.H1_24_B,
-        SH1_20_B: TextStyle = this.SH1_20_B,
-        SH1_20_M: TextStyle = this.SH1_20_M,
-        SH2_18_B: TextStyle = this.SH2_18_B,
-        SH2_18_R: TextStyle = this.SH2_18_R,
-        SH3_16_B: TextStyle = this.SH3_16_B,
-        SH3_16_R: TextStyle = this.SH3_16_R,
-        B1_15_B: TextStyle = this.B1_15_B,
-        B1_15_R: TextStyle = this.B1_15_R,
-        B2_14_B: TextStyle = this.B2_14_B,
-        B2_14_M: TextStyle = this.B2_14_M,
-        B2_14_R: TextStyle = this.B2_14_R,
-        B3_13_B: TextStyle = this.B3_13_B,
-        B3_13_M: TextStyle = this.B3_13_M,
-        B3_13_R: TextStyle = this.B3_13_R,
-        B4_12_B: TextStyle = this.B4_12_B,
-        B4_12_M: TextStyle = this.B4_12_M,
-        B4_12_R: TextStyle = this.B4_12_R,
-        C1_10_B: TextStyle = this.C1_10_B,
-        C1_10_R: TextStyle = this.C1_10_R,
+        h1b32: TextStyle = this.h1b32,
+        h2b24: TextStyle = this.h2b24,
+        sh1b20: TextStyle = this.sh1b20,
+        sh1m20: TextStyle = this.sh1m20,
+        sh2b18: TextStyle = this.sh2b18,
+        sh2r18: TextStyle = this.sh2r18,
+        sh3b16: TextStyle = this.sh3b16,
+        sh3r16: TextStyle = this.sh3r16,
+        b1b15: TextStyle = this.b1b15,
+        b1r15: TextStyle = this.b1r15,
+        b2b14: TextStyle = this.b2b14,
+        b2m14: TextStyle = this.b2m14,
+        b2r14: TextStyle = this.b2r14,
+        b3b13: TextStyle = this.b3b13,
+        b3m13: TextStyle = this.b3m13,
+        b3r13: TextStyle = this.b3r13,
+        b4b12: TextStyle = this.b4b12,
+        b4m12: TextStyle = this.b4m12,
+        b4r12: TextStyle = this.b4r12,
+        c1b10: TextStyle = this.c1b10,
+        c1r10: TextStyle = this.c1r10,
     ) = AppTypography(
-        H1_32_B,
-        H1_24_B,
-        SH1_20_B,
-        SH1_20_M,
-        SH2_18_B,
-        SH2_18_R,
-        SH3_16_B,
-        SH3_16_R,
-        B1_15_B,
-        B1_15_R,
-        B2_14_B,
-        B2_14_M,
-        B2_14_R,
-        B3_13_B,
-        B3_13_M,
-        B3_13_R,
-        B4_12_B,
-        B4_12_M,
-        B4_12_R,
-        C1_10_B,
-        C1_10_R,
+        h1b32,
+        h2b24,
+        sh1b20,
+        sh1m20,
+        sh2b18,
+        sh2r18,
+        sh3b16,
+        sh3r16,
+        b1b15,
+        b1r15,
+        b2b14,
+        b2m14,
+        b2r14,
+        b3b13,
+        b3m13,
+        b3r13,
+        b4b12,
+        b4m12,
+        b4r12,
+        c1b10,
+        c1r10,
     )
 
     fun updateTypographyFrom(other: AppTypography) {
-        H1_32_B = other.H1_32_B
-        H1_24_B = other.H1_24_B
-        SH1_20_B = other.SH1_20_B
-        SH1_20_M = other.SH1_20_M
-        SH2_18_B = other.SH2_18_B
-        SH2_18_R = other.SH2_18_R
-        SH3_16_B = other.SH3_16_B
-        SH3_16_R = other.SH3_16_R
-        B1_15_B = other.B1_15_B
-        B1_15_R = other.B1_15_R
-        B2_14_B = other.B2_14_B
-        B2_14_M = other.B2_14_M
-        B2_14_R = other.B2_14_R
-        B3_13_B = other.B3_13_B
-        B3_13_M = other.B3_13_M
-        B3_13_R = other.B3_13_R
-        B4_12_B = other.B4_12_B
-        B4_12_M = other.B4_12_M
-        B4_12_R = other.B4_12_R
-        C1_10_B = other.C1_10_B
-        C1_10_R = other.C1_10_R
+        h1b32 = other.h1b32
+        h2b24 = other.h2b24
+        sh1b20 = other.sh1b20
+        sh1m20 = other.sh1m20
+        sh2b18 = other.sh2b18
+        sh2r18 = other.sh2r18
+        sh3b16 = other.sh3b16
+        sh3r16 = other.sh3r16
+        b1b15 = other.b1b15
+        b1r15 = other.b1r15
+        b2b14 = other.b2b14
+        b2m14 = other.b2m14
+        b2r14 = other.b2r14
+        b3b13 = other.b3b13
+        b3m13 = other.b3m13
+        b3r13 = other.b3r13
+        b4b12 = other.b4b12
+        b4m12 = other.b4m12
+        b4r12 = other.b4r12
+        c1b10 = other.c1b10
+        c1r10 = other.c1r10
     }
 }
 
 internal val LocalTypography = staticCompositionLocalOf { pretendardTypography() }
 
 fun pretendardTypography(
-    H1_32_B: TextStyle = BASE_H1_32_B.copy(fontFamily = Pretendard),
-    H1_24_B: TextStyle = BASE_H1_24_B.copy(fontFamily = Pretendard),
-    SH1_20_B: TextStyle = BASE_SH1_20_B.copy(fontFamily = Pretendard),
-    SH1_20_M: TextStyle = BASE_SH1_20_M.copy(fontFamily = Pretendard),
-    SH2_18_B: TextStyle = BASE_SH2_18_B.copy(fontFamily = Pretendard),
-    SH2_18_R: TextStyle = BASE_SH2_18_R.copy(fontFamily = Pretendard),
-    SH3_16_B: TextStyle = BASE_SH3_16_B.copy(fontFamily = Pretendard),
-    SH3_16_R: TextStyle = BASE_SH3_16_R.copy(fontFamily = Pretendard),
-    B1_15_B: TextStyle = BASE_B1_15_B.copy(fontFamily = Pretendard),
-    B1_15_R: TextStyle = BASE_B1_15_R.copy(fontFamily = Pretendard),
-    B2_14_B: TextStyle = BASE_B2_14_B.copy(fontFamily = Pretendard),
-    B2_14_M: TextStyle = BASE_B2_14_M.copy(fontFamily = Pretendard),
-    B2_14_R: TextStyle = BASE_B2_14_R.copy(fontFamily = Pretendard),
-    B3_13_B: TextStyle = BASE_B3_13_B.copy(fontFamily = Pretendard),
-    B3_13_M: TextStyle = BASE_B3_13_M.copy(fontFamily = Pretendard),
-    B3_13_R: TextStyle = BASE_B3_13_R.copy(fontFamily = Pretendard),
-    B4_12_B: TextStyle = BASE_B4_12_B.copy(fontFamily = Pretendard),
-    B4_12_M: TextStyle = BASE_B4_12_M.copy(fontFamily = Pretendard),
-    B4_12_R: TextStyle = BASE_B4_12_R.copy(fontFamily = Pretendard),
-    C1_10_B: TextStyle = BASE_C1_10_B.copy(fontFamily = Pretendard),
-    C1_10_R: TextStyle = BASE_C1_10_R.copy(fontFamily = Pretendard),
+    h1b32: TextStyle = baseH1b32.copy(fontFamily = Pretendard),
+    h2b24: TextStyle = baseH2b24.copy(fontFamily = Pretendard),
+    sh1b20: TextStyle = bashSh1b20.copy(fontFamily = Pretendard),
+    sh1m20: TextStyle = baseSh1m20.copy(fontFamily = Pretendard),
+    sh2b18: TextStyle = baseSh2b18.copy(fontFamily = Pretendard),
+    sh2r18: TextStyle = baseSh2r18.copy(fontFamily = Pretendard),
+    sh3b16: TextStyle = baseSh3b16.copy(fontFamily = Pretendard),
+    sh3r16: TextStyle = baseSh3r16.copy(fontFamily = Pretendard),
+    b1b15: TextStyle = baseB1b15.copy(fontFamily = Pretendard),
+    b1r15: TextStyle = baseB1r15.copy(fontFamily = Pretendard),
+    b2b14: TextStyle = baseB2b14.copy(fontFamily = Pretendard),
+    b2m14: TextStyle = baseB2m14.copy(fontFamily = Pretendard),
+    b2r14: TextStyle = baseB2r14.copy(fontFamily = Pretendard),
+    b3b13: TextStyle = baseB3b13.copy(fontFamily = Pretendard),
+    b3m13: TextStyle = baseB3m13.copy(fontFamily = Pretendard),
+    b3r13: TextStyle = baseB3r13.copy(fontFamily = Pretendard),
+    b4b12: TextStyle = baseB4b12.copy(fontFamily = Pretendard),
+    b4m12: TextStyle = baseB4m12.copy(fontFamily = Pretendard),
+    b4r12: TextStyle = baseB4r12.copy(fontFamily = Pretendard),
+    c1b10: TextStyle = baseC1b10.copy(fontFamily = Pretendard),
+    c1r10: TextStyle = baseC1r10.copy(fontFamily = Pretendard),
 ): AppTypography = AppTypography(
-    H1_32_B = H1_32_B,
-    H1_24_B = H1_24_B,
-    SH1_20_B = SH1_20_B,
-    SH1_20_M = SH1_20_M,
-    SH2_18_B = SH2_18_B,
-    SH2_18_R = SH2_18_R,
-    SH3_16_B = SH3_16_B,
-    SH3_16_R = SH3_16_R,
-    B1_15_B = B1_15_B,
-    B1_15_R = B1_15_R,
-    B2_14_B = B2_14_B,
-    B2_14_M = B2_14_M,
-    B2_14_R = B2_14_R,
-    B3_13_B = B3_13_B,
-    B3_13_M = B3_13_M,
-    B3_13_R = B3_13_R,
-    B4_12_B = B4_12_B,
-    B4_12_M = B4_12_M,
-    B4_12_R = B4_12_R,
-    C1_10_B = C1_10_B,
-    C1_10_R = C1_10_R,
+    h1b32 = h1b32,
+    h2b24 = h2b24,
+    sh1b20 = sh1b20,
+    sh1m20 = sh1m20,
+    sh2b18 = sh2b18,
+    sh2r18 = sh2r18,
+    sh3b16 = sh3b16,
+    sh3r16 = sh3r16,
+    b1b15 = b1b15,
+    b1r15 = b1r15,
+    b2b14 = b2b14,
+    b2m14 = b2m14,
+    b2r14 = b2r14,
+    b3b13 = b3b13,
+    b3m13 = b3m13,
+    b3r13 = b3r13,
+    b4b12 = b4b12,
+    b4m12 = b4m12,
+    b4r12 = b4r12,
+    c1b10 = c1b10,
+    c1r10 = c1r10,
 )
 
 fun defaultTypography(
-    H1_32_B: TextStyle = BASE_H1_32_B,
-    H1_24_B: TextStyle = BASE_H1_24_B,
-    SH1_20_B: TextStyle = BASE_SH1_20_B,
-    SH1_20_M: TextStyle = BASE_SH1_20_M,
-    SH2_18_B: TextStyle = BASE_SH2_18_B,
-    SH2_18_R: TextStyle = BASE_SH2_18_R,
-    SH3_16_B: TextStyle = BASE_SH3_16_B,
-    SH3_16_R: TextStyle = BASE_SH3_16_R,
-    B1_15_B: TextStyle = BASE_B1_15_B,
-    B1_15_R: TextStyle = BASE_B1_15_R,
-    B2_14_B: TextStyle = BASE_B2_14_B,
-    B2_14_M: TextStyle = BASE_B2_14_M,
-    B2_14_R: TextStyle = BASE_B2_14_R,
-    B3_13_B: TextStyle = BASE_B3_13_B,
-    B3_13_M: TextStyle = BASE_B3_13_M,
-    B3_13_R: TextStyle = BASE_B3_13_R,
-    B4_12_B: TextStyle = BASE_B4_12_B,
-    B4_12_M: TextStyle = BASE_B4_12_M,
-    B4_12_R: TextStyle = BASE_B4_12_R,
-    C1_10_B: TextStyle = BASE_C1_10_B,
-    C1_10_R: TextStyle = BASE_C1_10_R,
+    h1b32: TextStyle = baseH1b32,
+    h2b24: TextStyle = baseH2b24,
+    sh1b20: TextStyle = bashSh1b20,
+    sh1m20: TextStyle = baseSh1m20,
+    sh2b18: TextStyle = baseSh2b18,
+    sh2r18: TextStyle = baseSh2r18,
+    sh3b16: TextStyle = baseSh3b16,
+    sh3r16: TextStyle = baseSh3r16,
+    b1b15: TextStyle = baseB1b15,
+    b1r15: TextStyle = baseB1r15,
+    b2b14: TextStyle = baseB2b14,
+    b2m14: TextStyle = baseB2m14,
+    b2r14: TextStyle = baseB2r14,
+    b3b13: TextStyle = baseB3b13,
+    b3m13: TextStyle = baseB3m13,
+    b3r13: TextStyle = baseB3r13,
+    b4b12: TextStyle = baseB4b12,
+    b4m12: TextStyle = baseB4m12,
+    b4r12: TextStyle = baseB4r12,
+    c1b10: TextStyle = baseC1b10,
+    c1r10: TextStyle = baseC1r10,
 ): AppTypography = AppTypography(
-    H1_32_B = H1_32_B,
-    H1_24_B = H1_24_B,
-    SH1_20_B = SH1_20_B,
-    SH1_20_M = SH1_20_M,
-    SH2_18_B = SH2_18_B,
-    SH2_18_R = SH2_18_R,
-    SH3_16_B = SH3_16_B,
-    SH3_16_R = SH3_16_R,
-    B1_15_B = B1_15_B,
-    B1_15_R = B1_15_R,
-    B2_14_B = B2_14_B,
-    B2_14_M = B2_14_M,
-    B2_14_R = B2_14_R,
-    B3_13_B = B3_13_B,
-    B3_13_M = B3_13_M,
-    B3_13_R = B3_13_R,
-    B4_12_B = B4_12_B,
-    B4_12_M = B4_12_M,
-    B4_12_R = B4_12_R,
-    C1_10_B = C1_10_B,
-    C1_10_R = C1_10_R,
+    h1b32 = h1b32,
+    h2b24 = h2b24,
+    sh1b20 = sh1b20,
+    sh1m20 = sh1m20,
+    sh2b18 = sh2b18,
+    sh2r18 = sh2r18,
+    sh3b16 = sh3b16,
+    sh3r16 = sh3r16,
+    b1b15 = b1b15,
+    b1r15 = b1r15,
+    b2b14 = b2b14,
+    b2m14 = b2m14,
+    b2r14 = b2r14,
+    b3b13 = b3b13,
+    b3m13 = b3m13,
+    b3r13 = b3r13,
+    b4b12 = b4b12,
+    b4m12 = b4m12,
+    b4r12 = b4r12,
+    c1b10 = c1b10,
+    c1r10 = c1r10,
 )
 
 private val Pretendard = FontFamily(
@@ -271,127 +271,127 @@ private val Pretendard = FontFamily(
     Font(R.font.pretendard_jp_bold, FontWeight.Bold)
 )
 
-private val BASE_H1_32_B: TextStyle = TextStyle(
+private val baseH1b32: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (32.sp).tu,
     lineHeight = (40.sp).tu,
 )
 
-private val BASE_H1_24_B: TextStyle = TextStyle(
+private val baseH2b24: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (24.sp).tu,
     lineHeight = (32.sp).tu
 )
 
-private val BASE_SH1_20_B: TextStyle = TextStyle(
+private val bashSh1b20: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (20.sp).tu,
     lineHeight = (28.sp).tu
 )
 
-private val BASE_SH1_20_M: TextStyle = TextStyle(
+private val baseSh1m20: TextStyle = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = (20.sp).tu,
     lineHeight = (28.sp).tu
 )
 
-private val BASE_SH2_18_B: TextStyle = TextStyle(
+private val baseSh2b18: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (18.sp).tu,
     lineHeight = (26.sp).tu
 )
 
-private val BASE_SH2_18_R: TextStyle = TextStyle(
+private val baseSh2r18: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (18.sp).tu,
     lineHeight = (26.sp).tu
 )
 
-private val BASE_SH3_16_B: TextStyle = TextStyle(
+private val baseSh3b16: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (16.sp).tu,
     lineHeight = (22.sp).tu
 )
 
-private val BASE_SH3_16_R: TextStyle = TextStyle(
+private val baseSh3r16: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (16.sp).tu,
     lineHeight = (22.sp).tu
 )
 
-private val BASE_B1_15_B: TextStyle = TextStyle(
+private val baseB1b15: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (15.sp).tu,
     lineHeight = (20.sp).tu
 )
 
-private val BASE_B1_15_R: TextStyle = TextStyle(
+private val baseB1r15: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (15.sp).tu,
     lineHeight = (20.sp).tu
 )
 
-private val BASE_B2_14_B: TextStyle = TextStyle(
+private val baseB2b14: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu
 )
 
-private val BASE_B2_14_M: TextStyle = TextStyle(
+private val baseB2m14: TextStyle = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu
 )
 
-private val BASE_B2_14_R: TextStyle = TextStyle(
+private val baseB2r14: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu
 )
 
-private val BASE_B3_13_B: TextStyle = TextStyle(
+private val baseB3b13: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_B3_13_M: TextStyle = TextStyle(
+private val baseB3m13: TextStyle = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_B3_13_R: TextStyle = TextStyle(
+private val baseB3r13: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_B4_12_B: TextStyle = TextStyle(
+private val baseB4b12: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (12.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_B4_12_M: TextStyle = TextStyle(
+private val baseB4m12: TextStyle = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = (12.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_B4_12_R: TextStyle = TextStyle(
+private val baseB4r12: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (12.sp).tu,
     lineHeight = (18.sp).tu
 )
 
-private val BASE_C1_10_B: TextStyle = TextStyle(
+private val baseC1b10: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = (10.sp).tu,
     lineHeight = (14.sp).tu
 )
 
-private val BASE_C1_10_R: TextStyle = TextStyle(
+private val baseC1r10: TextStyle = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = (10.sp).tu,
     lineHeight = (14.sp).tu

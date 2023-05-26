@@ -51,7 +51,7 @@ fun CheckBox(
             modifier = Modifier
                 .padding(start = 8.dp),
             text = text,
-            style = AppTheme.typography.B3_13_R,
+            style = AppTheme.typography.b3r13,
             color = when {
                 enabled.not() -> gray50
                 checked -> pink60

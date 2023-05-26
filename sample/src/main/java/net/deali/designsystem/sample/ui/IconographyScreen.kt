@@ -141,7 +141,7 @@ private fun Container(
 
         DealiText(
             text = name,
-            style = AppTheme.typography.B1_15_R
+            style = AppTheme.typography.b1r15
         )
     }
 }
