@@ -21,6 +21,7 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
+import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.white100
 
 @Composable
@@ -83,7 +84,8 @@ private fun Item(
     ) {
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15
+            style = AppTheme.typography.b1r15,
+            color = gray100
         )
     }
 }

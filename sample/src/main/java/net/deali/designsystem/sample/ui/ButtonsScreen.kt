@@ -24,20 +24,21 @@ import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.ButtonLargeFulled
+import net.deali.designsystem.component.ButtonLargeFilled
 import net.deali.designsystem.component.ButtonLargeOutlined
 import net.deali.designsystem.component.ButtonLargeText
 import net.deali.designsystem.component.ButtonLargeTonalOutlined
-import net.deali.designsystem.component.ButtonMediumFulled
+import net.deali.designsystem.component.ButtonMediumFilled
 import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.ButtonMediumText
 import net.deali.designsystem.component.ButtonMediumTonalOutlined
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.ButtonSmallFulled
+import net.deali.designsystem.component.ButtonSmallFilled
 import net.deali.designsystem.component.ButtonSmallOutlined
 import net.deali.designsystem.component.ButtonSmallText
 import net.deali.designsystem.component.ButtonSmallTonalOutlined
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.white100
 
@@ -86,17 +87,17 @@ private fun ButtonSmallContainer() {
         text = "Button Small"
     ) {
         SubContainer(
-            text = "Fulled Buttons"
+            text = "Filled Buttons"
         ) {
             ContainerItem {
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -104,7 +105,7 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -114,14 +115,14 @@ private fun ButtonSmallContainer() {
             }
 
             ContainerItem {
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -129,7 +130,7 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -139,7 +140,7 @@ private fun ButtonSmallContainer() {
             }
 
             ContainerItem {
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -147,7 +148,7 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -156,7 +157,7 @@ private fun ButtonSmallContainer() {
                     onClick = {}
                 )
 
-                ButtonSmallFulled(
+                ButtonSmallFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -421,17 +422,17 @@ private fun ButtonMediumContainer() {
         text = "Button Medium"
     ) {
         SubContainer(
-            text = "Fulled Buttons"
+            text = "Filled Buttons"
         ) {
             ContainerItem {
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -439,7 +440,7 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -449,14 +450,14 @@ private fun ButtonMediumContainer() {
             }
 
             ContainerItem {
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -464,7 +465,7 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -474,7 +475,7 @@ private fun ButtonMediumContainer() {
             }
 
             ContainerItem {
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -482,7 +483,7 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -491,7 +492,7 @@ private fun ButtonMediumContainer() {
                     onClick = {}
                 )
 
-                ButtonMediumFulled(
+                ButtonMediumFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -756,17 +757,17 @@ private fun ButtonLargeContainer() {
         text = "Button Large"
     ) {
         SubContainer(
-            text = "Fulled Buttons"
+            text = "Filled Buttons"
         ) {
             ContainerItem {
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -774,7 +775,7 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Default",
                     enabled = true,
                     process = false,
@@ -784,14 +785,14 @@ private fun ButtonLargeContainer() {
             }
 
             ContainerItem {
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -799,7 +800,7 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Disabled",
                     enabled = false,
                     process = false,
@@ -809,7 +810,7 @@ private fun ButtonLargeContainer() {
             }
 
             ContainerItem {
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -817,7 +818,7 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -826,7 +827,7 @@ private fun ButtonLargeContainer() {
                     onClick = {}
                 )
 
-                ButtonLargeFulled(
+                ButtonLargeFilled(
                     text = "Loading",
                     enabled = true,
                     process = true,
@@ -1100,7 +1101,8 @@ private fun Item(
                 .fillMaxWidth()
                 .padding(10.dp),
             text = text,
-            style = AppTheme.typography.h2b24
+            style = AppTheme.typography.h2b24,
+            color = gray100
         )
 
         Column(
@@ -1130,7 +1132,8 @@ private fun SubContainer(
                 bottom = 10.dp
             ),
         text = text,
-        style = AppTheme.typography.sh2r18
+        style = AppTheme.typography.sh2r18,
+        color = gray100
     )
 
     Row(

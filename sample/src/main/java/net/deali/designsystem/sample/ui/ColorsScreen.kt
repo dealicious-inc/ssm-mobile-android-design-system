@@ -147,12 +147,14 @@ private fun Item(
 
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15
+            style = AppTheme.typography.b1r15,
+            color = gray100
         )
 
         DealiText(
             text = code,
-            style = AppTheme.typography.b1r15
+            style = AppTheme.typography.b1r15,
+            color = gray100
         )
     }
 }

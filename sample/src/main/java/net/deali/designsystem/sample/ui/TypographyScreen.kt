@@ -38,6 +38,7 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.sample.datastore.DataStoreUtil
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
@@ -203,7 +204,8 @@ private fun Item(
                     modifier = Modifier
                         .padding(30.dp),
                     text = getRandomText(),
-                    style = style
+                    style = style,
+                    color = gray100
                 )
             }
         }

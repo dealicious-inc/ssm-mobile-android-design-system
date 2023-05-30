@@ -8,6 +8,7 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.gray100
 
 @Composable
 fun ShadowsScreen(
@@ -28,7 +29,8 @@ fun ShadowsScreen(
     ) {
         DealiText(
             text = "SHADOWS SCREEN EMPTY",
-            style = AppTheme.typography.h1b32
+            style = AppTheme.typography.h1b32,
+            color = gray100
         )
     }
 }

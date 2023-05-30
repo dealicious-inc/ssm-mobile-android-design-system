@@ -36,11 +36,11 @@ import net.deali.designsystem.unit.getRandomText
 
 
 @Composable
-fun ButtonSmallFulled(
+fun ButtonSmallFilled(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -61,11 +61,11 @@ fun ButtonSmallFulled(
 }
 
 @Composable
-fun ButtonMediumFulled(
+fun ButtonMediumFilled(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -86,11 +86,11 @@ fun ButtonMediumFulled(
 }
 
 @Composable
-fun ButtonLargeFulled(
+fun ButtonLargeFilled(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -114,8 +114,8 @@ fun ButtonLargeFulled(
 fun ButtonSmallOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -140,8 +140,8 @@ fun ButtonSmallOutlined(
 fun ButtonMediumOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -166,7 +166,7 @@ fun ButtonMediumOutlined(
 fun ButtonLargeOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
+    process: Boolean = false,
     modifier: Modifier = Modifier,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
@@ -192,8 +192,8 @@ fun ButtonLargeOutlined(
 fun ButtonSmallTonalOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -218,8 +218,8 @@ fun ButtonSmallTonalOutlined(
 fun ButtonMediumTonalOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -244,8 +244,8 @@ fun ButtonMediumTonalOutlined(
 fun ButtonLargeTonalOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    process: Boolean = false,
     leftIcon: Painter? = null,
     rightIcon: Painter? = null,
     processIcon: Painter? = null,
@@ -539,20 +539,20 @@ fun DealiButton(
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun ButtonSmallFulledPreview() {
+private fun ButtonSmallFilledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        ButtonSmallFulled(
+        ButtonSmallFilled(
             text = getRandomText(1),
             enabled = true,
             process = false,
             onClick = {}
         )
 
-        ButtonSmallFulled(
+        ButtonSmallFilled(
             text = getRandomText(1),
             enabled = false,
             process = false,
@@ -563,20 +563,20 @@ private fun ButtonSmallFulledPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun ButtonMediumFulledPreview() {
+private fun ButtonMediumFilledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        ButtonMediumFulled(
+        ButtonMediumFilled(
             text = getRandomText(1),
             enabled = true,
             process = false,
             onClick = {}
         )
 
-        ButtonMediumFulled(
+        ButtonMediumFilled(
             text = getRandomText(1),
             enabled = false,
             process = false,
@@ -587,20 +587,20 @@ private fun ButtonMediumFulledPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun ButtonLargeFulledPreview() {
+private fun ButtonLargeFilledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        ButtonLargeFulled(
+        ButtonLargeFilled(
             text = getRandomText(1),
             enabled = true,
             process = false,
             onClick = {}
         )
 
-        ButtonLargeFulled(
+        ButtonLargeFilled(
             text = getRandomText(1),
             enabled = false,
             process = false,

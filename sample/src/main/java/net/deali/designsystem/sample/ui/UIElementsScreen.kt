@@ -10,8 +10,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
-import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.ButtonMediumOutlined
+import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 
 @Composable
@@ -20,6 +20,7 @@ fun UIElementsScreen(
     navigateToCheckcircle: () -> Unit,
     navigateToRadioButton: () -> Unit,
     navigateToRating: () -> Unit,
+    navigateToPopup: () -> Unit,
     navigateToTag: () -> Unit,
     onBackPress: () -> Unit
 ) {
@@ -83,6 +84,15 @@ fun UIElementsScreen(
                     .fillMaxWidth(),
                 enabled = true,
                 process = false,
+                text = "Popup",
+                onClick = navigateToPopup
+            )
+
+            ButtonMediumOutlined(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = true,
+                process = false,
                 text = "Tag",
                 onClick = navigateToTag
             )
@@ -98,6 +108,7 @@ private fun UIElementsScreenPreview() {
         navigateToCheckcircle = {},
         navigateToRadioButton = {},
         navigateToRating = {},
+        navigateToPopup = {},
         navigateToTag = {},
         onBackPress = {}
     )

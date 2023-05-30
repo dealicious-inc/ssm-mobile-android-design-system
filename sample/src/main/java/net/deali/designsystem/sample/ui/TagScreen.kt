@@ -44,6 +44,7 @@ import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.unit.getRandomText
@@ -217,7 +218,8 @@ private fun Item(
                 .fillMaxWidth()
                 .padding(10.dp),
             text = text,
-            style = AppTheme.typography.h2b24
+            style = AppTheme.typography.h2b24,
+            color = gray100
         )
 
         Column(
@@ -247,7 +249,8 @@ private fun SubContainer(
                 bottom = 10.dp
             ),
         text = text,
-        style = AppTheme.typography.sh2r18
+        style = AppTheme.typography.sh2r18,
+        color = gray100
     )
 
     Row(
