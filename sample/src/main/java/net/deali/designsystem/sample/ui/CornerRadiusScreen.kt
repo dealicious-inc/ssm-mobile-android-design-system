@@ -34,7 +34,8 @@ fun CornerRadiusScreen(
         CornerRadiusScreenItem("Radius : 4", AppTheme.shapes.radius4),
         CornerRadiusScreenItem("Radius : 3", AppTheme.shapes.radius3),
         CornerRadiusScreenItem("Radius : 100%", AppTheme.shapes.radius100percent),
-        CornerRadiusScreenItem("Radius : 20", AppTheme.shapes.radius20)
+        CornerRadiusScreenItem("Radius : 20", AppTheme.shapes.radius20),
+        CornerRadiusScreenItem("Radius : 10", AppTheme.shapes.radius10)
     )
 
     NavigationContainer(

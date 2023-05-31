@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'net.deali.designsystem'
-    compileSdk 33
+    compileSdk Versions.targetSDK
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+        minSdk Versions.minSDK
+        targetSdk Versions.targetSDK
     }
 
     compileOptions {

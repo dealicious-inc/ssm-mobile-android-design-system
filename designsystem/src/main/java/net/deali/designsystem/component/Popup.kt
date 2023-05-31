@@ -218,7 +218,7 @@ private fun Popup(
     ) {
         Column(
             modifier = Modifier
-                .clip(AppTheme.shapes.radius6)
+                .clip(AppTheme.shapes.radius10)
                 .background(white100)
                 .width(280.dp)
                 .padding(

@@ -5,11 +5,11 @@ plugins {
 android {
     namespace 'net.deali.appresource'
 
-    compileSdkVersion 33
+    compileSdkVersion Versions.targetSDK
 
     defaultConfig {
-        minSdkVersion 24
-        targetSdkVersion 33
+        minSdkVersion Versions.minSDK
+        targetSdkVersion Versions.targetSDK
 
         vectorDrawables.useSupportLibrary = true
     }

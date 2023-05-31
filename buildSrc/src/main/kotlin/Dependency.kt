@@ -1,4 +1,7 @@
 object Versions {
+    const val minSDK = 24
+    const val targetSDK = 33
+
     const val coreKtx = "1.8.0"
 
     const val composeUI = "1.4.3"
