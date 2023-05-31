@@ -26,7 +26,7 @@ import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
 
 @Composable
-fun TagLargePrimaryFulledPink(
+fun TagLargePrimaryFilledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -39,7 +39,7 @@ fun TagLargePrimaryFulledPink(
 }
 
 @Composable
-fun TagLargePrimaryFulledBlue(
+fun TagLargePrimaryFilledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -52,7 +52,7 @@ fun TagLargePrimaryFulledBlue(
 }
 
 @Composable
-fun TagLargePrimaryFulledGray(
+fun TagLargePrimaryFilledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -107,7 +107,7 @@ fun TagLargeSecondaryOutlinedGray(
 }
 
 @Composable
-fun TagMediumPrimaryFulledPink(
+fun TagMediumPrimaryFilledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -120,7 +120,7 @@ fun TagMediumPrimaryFulledPink(
 }
 
 @Composable
-fun TagMediumPrimaryFulledBlue(
+fun TagMediumPrimaryFilledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -133,7 +133,7 @@ fun TagMediumPrimaryFulledBlue(
 }
 
 @Composable
-fun TagMediumPrimaryFulledGray(
+fun TagMediumPrimaryFilledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -188,7 +188,7 @@ fun TagMediumSecondaryOutlinedGray(
 }
 
 @Composable
-fun TagSmallPrimaryFulledPink(
+fun TagSmallPrimaryFilledPink(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -201,7 +201,7 @@ fun TagSmallPrimaryFulledPink(
 }
 
 @Composable
-fun TagSmallPrimaryFulledBlue(
+fun TagSmallPrimaryFilledBlue(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -214,7 +214,7 @@ fun TagSmallPrimaryFulledBlue(
 }
 
 @Composable
-fun TagSmallPrimaryFulledGray(
+fun TagSmallPrimaryFilledGray(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -362,21 +362,21 @@ private fun Tag(
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun LargePrimaryFulledTagPreview() {
+private fun LargePrimaryFilledTagPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagLargePrimaryFulledPink(
+        TagLargePrimaryFilledPink(
             text = getRandomText(1)
         )
 
-        TagLargePrimaryFulledBlue(
+        TagLargePrimaryFilledBlue(
             text = getRandomText(1)
         )
 
-        TagLargePrimaryFulledGray(
+        TagLargePrimaryFilledGray(
             text = getRandomText(1)
         )
     }
@@ -406,21 +406,21 @@ private fun TagLargeSecondaryOutlinedPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun TagMediumPrimaryFulledPreview() {
+private fun TagMediumPrimaryFilledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagMediumPrimaryFulledPink(
+        TagMediumPrimaryFilledPink(
             text = getRandomText(1)
         )
 
-        TagMediumPrimaryFulledBlue(
+        TagMediumPrimaryFilledBlue(
             text = getRandomText(1)
         )
 
-        TagMediumPrimaryFulledGray(
+        TagMediumPrimaryFilledGray(
             text = getRandomText(1)
         )
     }
@@ -450,21 +450,21 @@ private fun TagMediumSecondaryOutlinedPreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
-private fun TagSmallPrimaryFulledPreview() {
+private fun TagSmallPrimaryFilledPreview() {
     Row(
         modifier = Modifier
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagSmallPrimaryFulledPink(
+        TagSmallPrimaryFilledPink(
             text = getRandomText(1)
         )
 
-        TagSmallPrimaryFulledBlue(
+        TagSmallPrimaryFilledBlue(
             text = getRandomText(1)
         )
 
-        TagSmallPrimaryFulledGray(
+        TagSmallPrimaryFilledGray(
             text = getRandomText(1)
         )
     }

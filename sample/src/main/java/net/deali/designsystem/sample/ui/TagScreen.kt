@@ -24,22 +24,22 @@ import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.TagLargePrimaryFulledBlue
-import net.deali.designsystem.component.TagLargePrimaryFulledGray
-import net.deali.designsystem.component.TagLargePrimaryFulledPink
+import net.deali.designsystem.component.TagLargePrimaryFilledBlue
+import net.deali.designsystem.component.TagLargePrimaryFilledGray
+import net.deali.designsystem.component.TagLargePrimaryFilledPink
 import net.deali.designsystem.component.TagLargeSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagLargeSecondaryOutlinedGray
 import net.deali.designsystem.component.TagLargeSecondaryOutlinedPink
-import net.deali.designsystem.component.TagMediumPrimaryFulledBlue
-import net.deali.designsystem.component.TagMediumPrimaryFulledGray
-import net.deali.designsystem.component.TagMediumPrimaryFulledPink
+import net.deali.designsystem.component.TagMediumPrimaryFilledBlue
+import net.deali.designsystem.component.TagMediumPrimaryFilledGray
+import net.deali.designsystem.component.TagMediumPrimaryFilledPink
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedGray
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedPink
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.TagSmallPrimaryFulledBlue
-import net.deali.designsystem.component.TagSmallPrimaryFulledGray
-import net.deali.designsystem.component.TagSmallPrimaryFulledPink
+import net.deali.designsystem.component.TagSmallPrimaryFilledBlue
+import net.deali.designsystem.component.TagSmallPrimaryFilledGray
+import net.deali.designsystem.component.TagSmallPrimaryFilledPink
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
@@ -92,17 +92,17 @@ private fun TagSmallContainer() {
         text = "Tag Small"
     ) {
         SubContainer(
-            text = "Fulled Tags"
+            text = "Filled Tags"
         ) {
-            TagSmallPrimaryFulledPink(
+            TagSmallPrimaryFilledPink(
                 text = getRandomText(1)
             )
 
-            TagSmallPrimaryFulledBlue(
+            TagSmallPrimaryFilledBlue(
                 text = getRandomText(1)
             )
 
-            TagSmallPrimaryFulledGray(
+            TagSmallPrimaryFilledGray(
                 text = getRandomText(1)
             )
         }
@@ -131,17 +131,17 @@ private fun TagMediumContainer() {
         text = "Tag Medium"
     ) {
         SubContainer(
-            text = "Fulled Tags"
+            text = "Filled Tags"
         ) {
-            TagMediumPrimaryFulledPink(
+            TagMediumPrimaryFilledPink(
                 text = getRandomText(1)
             )
 
-            TagMediumPrimaryFulledBlue(
+            TagMediumPrimaryFilledBlue(
                 text = getRandomText(1)
             )
 
-            TagMediumPrimaryFulledGray(
+            TagMediumPrimaryFilledGray(
                 text = getRandomText(1)
             )
         }
@@ -170,17 +170,17 @@ private fun TagLargeContainer() {
         text = "Tag Large"
     ) {
         SubContainer(
-            text = "Fulled Tags"
+            text = "Filled Tags"
         ) {
-            TagLargePrimaryFulledPink(
+            TagLargePrimaryFilledPink(
                 text = getRandomText(1)
             )
 
-            TagLargePrimaryFulledBlue(
+            TagLargePrimaryFilledBlue(
                 text = getRandomText(1)
             )
 
-            TagLargePrimaryFulledGray(
+            TagLargePrimaryFilledGray(
                 text = getRandomText(1)
             )
         }

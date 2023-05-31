@@ -87,7 +87,7 @@ fun IconographyScreen(
                     name = icon.name,
                     size = icon.size,
                     outlinedIconRes = icon.outlinedIconRes,
-                    fulledIconRes = icon.fulledIconRes
+                    filledIconRes = icon.filledIconRes
                 )
             }
         }
@@ -99,7 +99,7 @@ private fun Container(
     name: String,
     size: Dp,
     @DrawableRes outlinedIconRes: Int,
-    @DrawableRes fulledIconRes: Int?
+    @DrawableRes filledIconRes: Int?
 ) {
     Column(
         modifier = Modifier
@@ -131,7 +131,7 @@ private fun Container(
                     size = size,
                     color = color,
                     outlinedIconRes = outlinedIconRes,
-                    fulledIconRes = fulledIconRes
+                    filledIconRes = filledIconRes
                 )
             }
             Spacer(modifier = Modifier.width(10.dp))
@@ -152,7 +152,7 @@ private fun Item(
     size: Dp,
     color: Color,
     @DrawableRes outlinedIconRes: Int,
-    @DrawableRes fulledIconRes: Int?
+    @DrawableRes filledIconRes: Int?
 ) {
     when (size) {
         SIZE_16 -> {
@@ -164,11 +164,11 @@ private fun Item(
                 onClick = {}
             )
 
-            if (fulledIconRes != null) {
+            if (filledIconRes != null) {
                 Icon16(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = fulledIconRes),
+                    painter = painterResource(id = filledIconRes),
                     color = color,
                     onClick = {}
                 )
@@ -183,11 +183,11 @@ private fun Item(
                 onClick = {}
             )
 
-            if (fulledIconRes != null) {
+            if (filledIconRes != null) {
                 Icon24(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = fulledIconRes),
+                    painter = painterResource(id = filledIconRes),
                     color = color,
                     onClick = {}
                 )
@@ -202,11 +202,11 @@ private fun Item(
                 onClick = {}
             )
 
-            if (fulledIconRes != null) {
+            if (filledIconRes != null) {
                 Icon32(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = fulledIconRes),
+                    painter = painterResource(id = filledIconRes),
                     color = color,
                     onClick = {}
                 )
@@ -227,7 +227,7 @@ private data class IconographyScreenItem(
     val name: String,
     val size: Dp,
     @DrawableRes val outlinedIconRes: Int,
-    @DrawableRes val fulledIconRes: Int?
+    @DrawableRes val filledIconRes: Int?
 ) {
     companion object {
         val SIZE_16 = 16.dp
