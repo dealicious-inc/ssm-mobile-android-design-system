@@ -2,11 +2,9 @@ package net.deali.designsystem.component
 
 import android.view.View
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,13 +12,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.LayoutCoordinates
 import androidx.compose.ui.layout.boundsInWindow
 import androidx.compose.ui.layout.onGloballyPositioned
@@ -36,54 +31,69 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
-import net.deali.designsystem.theme.black100
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.blue70
+import net.deali.designsystem.theme.white100
 import kotlin.math.roundToInt
 
-//@Composable
-//fun Tooltip(
-//    modifier: Modifier = Modifier,
-//    content: @Composable () -> Unit
-//) {
-//    Box(
-//        modifier = modifier
-//            .drawBehind {
-//                drawRect(
-//                    size = Size(20f, 20f),
-//                    color = blue70
-//                )
-//            }
-//    ) {
-//        content()
-//    }
-//}
-
 @Composable
-fun TooltipPopup(
+fun Tooltip(
+    text: String,
+    isShow: Boolean,
+    onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
-    requesterView: @Composable (Modifier) -> Unit,
+    content: @Composable (Modifier) -> Unit
+) {
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center
+    ) {
+        Tooltip(
+            modifier = Modifier,
+            isShow = isShow,
+            onDismiss = onDismiss,
+            anchorContent = content,
+            tooltipContent = {
+                Text(
+                    modifier = Modifier
+                        .padding(
+                            horizontal = 16.dp,
+                            vertical = 12.dp
+                        ),
+                    text = text,
+                    style = AppTheme.typography.b3m13,
+                    color = white100,
+                )
+            }
+        )
+    }
+}
+
+/**
+ * 참고 : https://github.com/Ilinich/Compose-Tooltip_Popup
+ */
+@Composable
+private fun Tooltip(
+    modifier: Modifier,
+    isShow: Boolean,
+    onDismiss: () -> Unit,
+    anchorContent: @Composable (Modifier) -> Unit,
     tooltipContent: @Composable () -> Unit,
 ) {
-    var isShowTooltip by remember { mutableStateOf(false) }
     var position by remember { mutableStateOf(TooltipPopupPosition()) }
 
     val view = LocalView.current.rootView
 
-    if (isShowTooltip) {
-        TooltipPopup(
-            onDismissRequest = {
-                isShowTooltip = isShowTooltip.not()
-            },
+    if (isShow) {
+        Tooltip(
+            onDismissRequest = onDismiss,
             position = position,
-        ) {
-            tooltipContent()
-        }
+            content = tooltipContent
+        )
     }
-    requesterView(
+
+    anchorContent(
         modifier
-            .noRippleClickable {
-                isShowTooltip = isShowTooltip.not()
-            }
             .onGloballyPositioned { coordinates ->
                 position = calculateTooltipPopupPosition(view, coordinates)
             }
@@ -91,21 +101,24 @@ fun TooltipPopup(
 }
 
 @Composable
-fun TooltipPopup(
+private fun Tooltip(
     position: TooltipPopupPosition,
-    backgroundShape: Shape = MaterialTheme.shapes.medium,
-    backgroundColor: Color = black100,
-    arrowHeight: Dp = 4.dp,
-//    horizontalPadding: Dp = 16.dp,
-    horizontalPadding: Dp = 0.dp,
+    arrowOffset: Dp = 0.dp,
     onDismissRequest: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
     var alignment = Alignment.TopCenter
     var offset = position.offset
 
+    val color = blue70
+    val arrowHeight = 6.dp
+    val horizontalPadding = 16.dp
     val horizontalPaddingInPx = with(LocalDensity.current) {
         horizontalPadding.toPx()
+    }
+
+    val arrowOffsetInPx = with(LocalDensity.current) {
+        arrowOffset.toPx()
     }
 
     var arrowPositionX by remember { mutableStateOf(position.centerPositionX) }
@@ -120,6 +133,7 @@ fun TooltipPopup(
                     y = position.offset.y + arrowPaddingPx
                 )
             }
+
             TooltipAlignment.BottomCenter -> {
                 alignment = Alignment.BottomCenter
                 offset = offset.copy(
@@ -149,19 +163,20 @@ fun TooltipPopup(
             modifier = Modifier
                 .padding(horizontal = horizontalPadding)
                 .background(
-                    color = backgroundColor,
-                    shape = backgroundShape,
+                    color = color,
+                    shape = AppTheme.shapes.radius6,
                 ),
             alignment = position.alignment,
             arrowHeight = arrowHeight,
-            arrowPositionX = arrowPositionX,
+            arrowPositionX = arrowPositionX + arrowOffsetInPx,
+            color = color
         ) {
             content()
         }
     }
 }
 
-internal class TooltipAlignmentOffsetPositionProvider(
+private class TooltipAlignmentOffsetPositionProvider(
     val alignment: Alignment,
     val offset: IntOffset,
     val centerPositionX: Float,
@@ -225,22 +240,26 @@ internal class TooltipAlignmentOffsetPositionProvider(
                 val arrowPosition = halfPopupContentSize.toFloat() - horizontalPaddingInPx
                 onArrowPositionX.invoke(arrowPosition)
             }
+
             tooltipWidth >= maxTooltipSize -> {
                 popupPosition = IntOffset(windowSize.center.x - halfPopupContentSize, popupPosition.y)
                 val arrowPosition = centerPositionX - popupPosition.x - horizontalPaddingInPx
                 onArrowPositionX.invoke(arrowPosition)
             }
+
             halfPopupContentSize > rightSpace -> {
                 popupPosition = IntOffset(centerPositionX.toInt(), popupPosition.y)
                 val arrowPosition = halfPopupContentSize + (halfPopupContentSize - rightSpace) - fullPadding
 
                 onArrowPositionX.invoke(arrowPosition)
             }
+
             halfPopupContentSize > leftSpace -> {
                 popupPosition = IntOffset(0, popupPosition.y)
                 val arrowPosition = centerPositionX - horizontalPaddingInPx
                 onArrowPositionX.invoke(arrowPosition)
             }
+
             else -> {
                 val position = centerPositionX
                 onArrowPositionX.invoke(position)
@@ -252,14 +271,14 @@ internal class TooltipAlignmentOffsetPositionProvider(
 }
 
 @Composable
-fun BubbleLayout(
+private fun BubbleLayout(
     modifier: Modifier = Modifier,
     alignment: TooltipAlignment = TooltipAlignment.TopCenter,
     arrowHeight: Dp,
     arrowPositionX: Float,
+    color: Color,
     content: @Composable () -> Unit
 ) {
-
     val arrowHeightPx = with(LocalDensity.current) {
         arrowHeight.toPx()
     }
@@ -296,7 +315,7 @@ fun BubbleLayout(
 
                 drawPath(
                     path = path,
-                    color = black100,
+                    color = color,
                 )
                 path.close()
             }
@@ -305,14 +324,14 @@ fun BubbleLayout(
     }
 }
 
-data class TooltipPopupPosition(
+private data class TooltipPopupPosition(
     val offset: IntOffset = IntOffset(0, 0),
     val alignment: TooltipAlignment = TooltipAlignment.TopCenter,
 
     val centerPositionX: Float = 0f,
 )
 
-fun calculateTooltipPopupPosition(
+private fun calculateTooltipPopupPosition(
     view: View,
     coordinates: LayoutCoordinates?,
 ): TooltipPopupPosition {
@@ -352,15 +371,7 @@ fun calculateTooltipPopupPosition(
     }
 }
 
-enum class TooltipAlignment {
+private enum class TooltipAlignment {
     BottomCenter,
     TopCenter,
-}
-
-fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
-    clickable(
-        indication = null,
-        interactionSource = remember { MutableInteractionSource() }) {
-        onClick()
-    }
 }

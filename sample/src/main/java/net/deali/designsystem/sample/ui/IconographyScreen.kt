@@ -52,12 +52,114 @@ fun IconographyScreen(
     onBackPress: () -> Unit
 ) {
     val iconographyScreenItems = listOf(
-        IconographyScreenItem("ic_arrow_16", SIZE_16, R.drawable.ic_arrow_left_16_ver01, null),
-        IconographyScreenItem("ic_ssmk_16", SIZE_16, R.drawable.ic_ssmk_line_16_ver02, R.drawable.ic_ssmk_filled_16_ver02),
+        IconographyScreenItem("ic_arrow_16", SIZE_16, null, R.drawable.ic_arrow_left_16_ver01),
+        IconographyScreenItem("ic_ssmk_16", SIZE_16, R.drawable.ic_ssmk_filled_16_ver02, R.drawable.ic_ssmk_line_16_ver02),
 
-        IconographyScreenItem("ic_ssmk_24", SIZE_24, R.drawable.ic_ssmk_line_24_ver02, R.drawable.ic_ssmk_filled_24_ver02),
+        IconographyScreenItem("ic_ssmk_24", SIZE_24, R.drawable.ic_ssmk_filled_24_ver02, R.drawable.ic_ssmk_line_24_ver02),
+        IconographyScreenItem("ic_cart_24", SIZE_24, R.drawable.ic_cart_filled_24_ver01, R.drawable.ic_cart_line_24_ver01),
+        IconographyScreenItem("ic_bookmark_24", SIZE_24, R.drawable.ic_bookmark_filled_24_ver01, R.drawable.ic_bookmark_line_24_ver01),
+        IconographyScreenItem("ic_search_24", SIZE_24, R.drawable.ic_search_filled_24_ver01, R.drawable.ic_search_line_24_ver01),
+        IconographyScreenItem("ic_category_24", SIZE_24, R.drawable.ic_category_filled_24_ver01, R.drawable.ic_category_line_24_ver01),
+        IconographyScreenItem("ic_store_24", SIZE_24, R.drawable.ic_store_filled_24_ver01, R.drawable.ic_store_line_24_ver01),
+        IconographyScreenItem("ic_talk_24", SIZE_24, R.drawable.ic_talk_filled_24_ver01, R.drawable.ic_talk_line_24_ver01),
+        IconographyScreenItem("ic_profile_24", SIZE_24, R.drawable.ic_profile_filled_24_ver01, R.drawable.ic_profile_line_24_ver01),
+        IconographyScreenItem("ic_orderlist_24", SIZE_24, R.drawable.ic_orderlist_filled_24_ver01, R.drawable.ic_orderlist_line_24_ver01),
+        IconographyScreenItem("ic_home_24", SIZE_24, R.drawable.ic_home_filled_24_ver01, R.drawable.ic_home_line_24_ver01),
+        IconographyScreenItem("ic_alarm_24", SIZE_24, R.drawable.ic_alarm_filled_24_ver01, R.drawable.ic_alarm_line_24_ver01),
+        IconographyScreenItem("ic_plus_circle_24", SIZE_24, R.drawable.ic_plus_circle_filled_24_ver01, R.drawable.ic_plus_circle_line_24_ver01),
+        IconographyScreenItem("ic_minus_circle_24", SIZE_24, R.drawable.ic_minus_circle_filled_24_ver01, R.drawable.ic_minus_circle_line_24_ver01),
+        IconographyScreenItem("ic_lens_24", SIZE_24, R.drawable.ic_lens_filled_24_ver01, R.drawable.ic_lens_line_24_ver01),
+        IconographyScreenItem("ic_info_24", SIZE_24, R.drawable.ic_info_filled_24_ver01, R.drawable.ic_info_line_24_ver01),
+        IconographyScreenItem("ic_trash_24", SIZE_24, R.drawable.ic_trash_filled_24_ver01, R.drawable.ic_trash_line_24_ver01),
+        IconographyScreenItem("ic_x_circle_24", SIZE_24, R.drawable.ic_x_circle_filled_24_ver01, R.drawable.ic_x_circle_line_24_ver01),
+        IconographyScreenItem("ic_checkcircle_24", SIZE_24, R.drawable.ic_checkcircle_filled_24_ver01, R.drawable.ic_checkcircle_line_24_ver01),
+        IconographyScreenItem("ic_heart_24", SIZE_24, R.drawable.ic_heart_filled_24_ver01, R.drawable.ic_heart_line_24_ver01),
+        IconographyScreenItem("ic_star_24", SIZE_24, R.drawable.ic_star_filled_24_ver01, R.drawable.ic_star_line_24_ver01),
+        IconographyScreenItem("ic_money_kr_24", SIZE_24, R.drawable.ic_money_kr_filled_24_ver01, R.drawable.ic_money_kr_line_24_ver01),
+        IconographyScreenItem("ic_money_jpy_24", SIZE_24, R.drawable.ic_money_jpy_filled_24_ver01, R.drawable.ic_money_jpy_line_24_ver01),
+        IconographyScreenItem("ic_money_usa_24", SIZE_24, R.drawable.ic_money_usa_filled_24_ver01, R.drawable.ic_money_usa_line_24_ver01),
+        IconographyScreenItem("ic_cash_24", SIZE_24, R.drawable.ic_cash_filled_24_ver01, R.drawable.ic_cash_line_24_ver01),
+        IconographyScreenItem("ic_notify_24", SIZE_24, R.drawable.ic_notify_filled_24_ver01, R.drawable.ic_notify_line_24_ver01),
+        IconographyScreenItem("ic_calendar_24", SIZE_24, R.drawable.ic_calendar_filled_24_ver01, R.drawable.ic_calendar_line_24_ver01),
+        IconographyScreenItem("ic_location_24", SIZE_24, R.drawable.ic_location_filled_24_ver01, R.drawable.ic_location_line_24_ver01),
+        IconographyScreenItem("ic_phone_24", SIZE_24, R.drawable.ic_phone_filled_24_ver01, R.drawable.ic_phone_line_24_ver01),
+        IconographyScreenItem("ic_error_24", SIZE_24, R.drawable.ic_error_filled_24_ver01, R.drawable.ic_error_line_24_ver01),
+        IconographyScreenItem("ic_alarm_announce_24", SIZE_24, R.drawable.ic_alarm_announce_filled_24_ver01, R.drawable.ic_alarm_announce_line_24_ver01),
+        IconographyScreenItem("ic_alarm_order_24", SIZE_24, R.drawable.ic_alarm_order_filled_24_ver01, R.drawable.ic_alarm_order_line_24_ver01),
+        IconographyScreenItem("ic_alarm_request_24", SIZE_24, R.drawable.ic_alarm_request_filled_24_ver01, R.drawable.ic_alarm_request_line_24_ver01),
+        IconographyScreenItem("ic_alarm_etc_24", SIZE_24, R.drawable.ic_alarm_etc_filled_24_ver01, R.drawable.ic_alarm_etc_line_24_ver01),
+        IconographyScreenItem("ic_alarm_ad_24", SIZE_24, R.drawable.ic_alarm_ad_filled_24_ver01, R.drawable.ic_alarm_ad_line_24_ver01),
+        IconographyScreenItem("ic_store_24", SIZE_24, R.drawable.ic_store_filled_24_ver01, R.drawable.ic_store_line_24_ver01),
+        IconographyScreenItem("ic_checkcircleno1_24", SIZE_24, R.drawable.ic_checkcircleno1_filled_24_ver01, null),
+        IconographyScreenItem("ic_checkcircleno2_24", SIZE_24, R.drawable.ic_checkcircleno2_filled_24_ver01, null),
+        IconographyScreenItem("ic_checkcircleno3_24", SIZE_24, R.drawable.ic_checkcircleno3_filled_24_ver01, null),
+        IconographyScreenItem("ic_speechbubble_24", SIZE_24, R.drawable.ic_speechbubble_24_ver01, R.drawable.ic_speechbubble_24_ver01_1),
+        IconographyScreenItem("ic_thumbsup_24", SIZE_24, R.drawable.ic_thumbsup_filled_24_ver01, R.drawable.ic_thumbsup_line_24_ver01),
+        IconographyScreenItem("ic_thumbsdn_24", SIZE_24, R.drawable.ic_thumbsdn_filled_24_ver01, R.drawable.ic_thumbsdn_line_24_ver01),
+        
+        // TODO DRG 밑은 정해지지 않음
+        IconographyScreenItem("ic_addfolder_24", SIZE_24, R.drawable.ic_addfolder_line_24_ver01, null),
+        IconographyScreenItem("ic_x_24", SIZE_24, null, R.drawable.ic_x_line_24_ver01),
+        IconographyScreenItem("ic_arrow_24", SIZE_24, null, R.drawable.ic_arrow_left_24_ver01),
+        IconographyScreenItem("ic_plus_24", SIZE_24, null, R.drawable.ic_plus_24_ver01),
+        IconographyScreenItem("ic_minus_24", SIZE_24, null, R.drawable.ic_minus_24_ver01),
+        IconographyScreenItem("ic_check_24", SIZE_24, null, R.drawable.ic_check_24_ver01),
+        IconographyScreenItem("ic_restocked_24", SIZE_24, null, R.drawable.ic_restocked_24_ver01),
+        IconographyScreenItem("ic_soldout_24", SIZE_24, null, R.drawable.ic_soldout_24_ver01),
+        IconographyScreenItem("ic_scash_24", SIZE_24, null, R.drawable.ic_scash_24_ver01),
+        IconographyScreenItem("ic_spay_24", SIZE_24, null, R.drawable.ic_spay_24_ver01),
+        IconographyScreenItem("ic_dresses_24", SIZE_24, null, R.drawable.ic_dresses_24_ver01),
+        IconographyScreenItem("ic_tsharts_24", SIZE_24, null, R.drawable.ic_tsharts_24_ver01),
+        IconographyScreenItem("ic_womenshoes_24", SIZE_24, null, R.drawable.ic_womenshoes_24_ver01),
+        IconographyScreenItem("ic_womenbags_24", SIZE_24, null, R.drawable.ic_womenbags_24_ver01),
+        IconographyScreenItem("ic_kidsclothes_24", SIZE_24, null, R.drawable.ic_kidsclothes_24_ver01),
+        IconographyScreenItem("ic_menshoes_24", SIZE_24, null, R.drawable.ic_menshoes_24_ver01),
+        IconographyScreenItem("ic_watches_24", SIZE_24, null, R.drawable.ic_watches_24_ver01),
+        IconographyScreenItem("ic_kidshats_24", SIZE_24, null, R.drawable.ic_kidshats_24_ver01),
+        IconographyScreenItem("ic_earrings_24", SIZE_24, null, R.drawable.ic_earrings_24_ver01),
+        IconographyScreenItem("ic_menbags_24", SIZE_24, null, R.drawable.ic_men_bags_24_ver01),
+        IconographyScreenItem("ic_memo_24", SIZE_24, null, R.drawable.ic_memo_24_ver01),
+        IconographyScreenItem("ic_share_24", SIZE_24, null, R.drawable.ic_share_24_ver01),
+        IconographyScreenItem("ic_gridview_24", SIZE_24, null, R.drawable.ic_gridview_24_ver01),
+        IconographyScreenItem("ic_listview_24", SIZE_24, null, R.drawable.ic_listview_24_ver01),
+        IconographyScreenItem("ic_more_24", SIZE_24, null, R.drawable.ic_more_24_ver01),
+        IconographyScreenItem("ic_listorder_24", SIZE_24, null, R.drawable.ic_listorder_24_ver01),
+        IconographyScreenItem("ic_loading_24", SIZE_24, null, R.drawable.ic_loading_24_ver01),
+        IconographyScreenItem("ic_time_24", SIZE_24, null, R.drawable.ic_time_24_ver01),
+        IconographyScreenItem("ic_star_24", SIZE_24, null, R.drawable.ic_star_24_gray04_ver01),
+        IconographyScreenItem("ic_comment_24", SIZE_24, null, R.drawable.ic_comment_24_ver01),
+        IconographyScreenItem("ic_file_copy_24", SIZE_24, null, R.drawable.ic_file_copy_24_ver01),
+        IconographyScreenItem("ic_cshelp_24", SIZE_24, null, R.drawable.ic_cshelp_24_ver01),
+        IconographyScreenItem("ic_folder_24", SIZE_24, null, R.drawable.ic_folder_24_ver01),
+        IconographyScreenItem("ic_folder_add_24", SIZE_24, null, R.drawable.ic_folder_add_24_ver01),
+        IconographyScreenItem("ic_folder_move_24", SIZE_24, null, R.drawable.ic_folder_move_24_ver01),
+        IconographyScreenItem("ic_arrowhead_24", SIZE_24, null, R.drawable.ic_arrowhead_24_ver01),
+        IconographyScreenItem("ic_repeat_24", SIZE_24, null, R.drawable.ic_repeat_24_ver01),
+        IconographyScreenItem("ic_file_text_24", SIZE_24, null, R.drawable.ic_file_text_24_ver01),
+        IconographyScreenItem("ic_setting_24", SIZE_24, null, R.drawable.ic_setting_24_ver01),
+        IconographyScreenItem("ic_smartphone_24", SIZE_24, null, R.drawable.ic_smartphone_24_ver01),
+        IconographyScreenItem("ic_website_24", SIZE_24, null, R.drawable.ic_website_24_ver01),
+        IconographyScreenItem("ic_certificate_24", SIZE_24, null, R.drawable.ic_certificate_24_nver01),
+        IconographyScreenItem("ic_wallet_24", SIZE_24, null, R.drawable.ic_wallet_24_ver01),
+        IconographyScreenItem("ic_bookmark_24", SIZE_24, null, R.drawable.ic_bookmark_24_ver01),
+        IconographyScreenItem("ic_bell_24", SIZE_24, null, R.drawable.ic_bell_24_ver01),
+        IconographyScreenItem("ic_arrow_up_left_24", SIZE_24, null, R.drawable.ic_arrow_up_left_24_ver01),
+        IconographyScreenItem("ic_stockcheck_24", SIZE_24, null, R.drawable.ic_stockcheck_24_ver01),
+        IconographyScreenItem("ic_stockanswer_24", SIZE_24, null, R.drawable.ic_stockanswer_24_ver01),
+        IconographyScreenItem("ic_accountnumber_bank_24", SIZE_24, null, R.drawable.ic_accountnumber_bank_24_ver01),
+        IconographyScreenItem("ic_accountnumber_account_24", SIZE_24, null, R.drawable.ic_accountnumber_account_24_ver01),
+        IconographyScreenItem("ic_direct_orderdetail_ac_copy_24", SIZE_24, null, R.drawable.ic_direct_orderdetail_ac_copy_24_ver01),
+        IconographyScreenItem("ic_frequentchat_24", SIZE_24, null, R.drawable.ic_frequentchat_24_ver01),
+        IconographyScreenItem("ic_out_24", SIZE_24, null, R.drawable.ic_out_24_ver01),
+        IconographyScreenItem("ic_pen_large_24", SIZE_24, null, R.drawable.ic_pen_large_24_ver01),
+        IconographyScreenItem("ic_plus_ad_forward_24", SIZE_24, null, R.drawable.ic_plus_ad_forward_24_ver01),
+        IconographyScreenItem("ic_menu_2line_24", SIZE_24, null, R.drawable.ic_menu_2line_24_ver01),
+        IconographyScreenItem("ic_movelist_24", SIZE_24, null, R.drawable.ic_movelist_24_ver01),
+        IconographyScreenItem("ic_more_horiz_24", SIZE_24, null, R.drawable.ic_more_horiz_24_ver01),
+        IconographyScreenItem("ic_more_vert_24", SIZE_24, null, R.drawable.ic_more_vert_24_ver01),
+        IconographyScreenItem("ic_hashtag_24", SIZE_24, null, R.drawable.ic_hashtag_24_ver01),
 
-        IconographyScreenItem("ic_ssmk_32", SIZE_32, R.drawable.ic_ssmk_line_32_ver02, R.drawable.ic_ssmk_filled_32_ver02),
+        IconographyScreenItem("ic_ssmk_32", SIZE_32, R.drawable.ic_ssmk_filled_32_ver02, R.drawable.ic_ssmk_line_32_ver02),
     )
 
     NavigationContainer(
@@ -98,8 +200,8 @@ fun IconographyScreen(
 private fun Container(
     name: String,
     size: Dp,
-    @DrawableRes outlinedIconRes: Int,
-    @DrawableRes filledIconRes: Int?
+    @DrawableRes filledIconRes: Int?,
+    @DrawableRes outlinedIconRes: Int?,
 ) {
     Column(
         modifier = Modifier
@@ -130,8 +232,8 @@ private fun Container(
                 Item(
                     size = size,
                     color = color,
-                    outlinedIconRes = outlinedIconRes,
-                    filledIconRes = filledIconRes
+                    filledIconRes = filledIconRes,
+                    outlinedIconRes = outlinedIconRes
                 )
             }
             Spacer(modifier = Modifier.width(10.dp))
@@ -151,19 +253,11 @@ private fun Container(
 private fun Item(
     size: Dp,
     color: Color,
-    @DrawableRes outlinedIconRes: Int,
-    @DrawableRes filledIconRes: Int?
+    @DrawableRes filledIconRes: Int?,
+    @DrawableRes outlinedIconRes: Int?,
 ) {
     when (size) {
         SIZE_16 -> {
-            Icon16(
-                modifier = Modifier
-                    .background(if (color == white100) black100 else transparent),
-                painter = painterResource(id = outlinedIconRes),
-                color = color,
-                onClick = {}
-            )
-
             if (filledIconRes != null) {
                 Icon16(
                     modifier = Modifier
@@ -173,16 +267,18 @@ private fun Item(
                     onClick = {}
                 )
             }
+
+            if (outlinedIconRes != null) {
+                Icon16(
+                    modifier = Modifier
+                        .background(if (color == white100) black100 else transparent),
+                    painter = painterResource(id = outlinedIconRes),
+                    color = color,
+                    onClick = {}
+                )
+            }
         }
         SIZE_24 -> {
-            Icon24(
-                modifier = Modifier
-                    .background(if (color == white100) black100 else transparent),
-                painter = painterResource(id = outlinedIconRes),
-                color = color,
-                onClick = {}
-            )
-
             if (filledIconRes != null) {
                 Icon24(
                     modifier = Modifier
@@ -192,21 +288,33 @@ private fun Item(
                     onClick = {}
                 )
             }
+
+            if (outlinedIconRes != null) {
+                Icon24(
+                    modifier = Modifier
+                        .background(if (color == white100) black100 else transparent),
+                    painter = painterResource(id = outlinedIconRes),
+                    color = color,
+                    onClick = {}
+                )
+            }
         }
         SIZE_32 -> {
-            Icon32(
-                modifier = Modifier
-                    .background(if (color == white100) black100 else transparent),
-                painter = painterResource(id = outlinedIconRes),
-                color = color,
-                onClick = {}
-            )
-
             if (filledIconRes != null) {
                 Icon32(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
                     painter = painterResource(id = filledIconRes),
+                    color = color,
+                    onClick = {}
+                )
+            }
+
+            if (outlinedIconRes != null) {
+                Icon32(
+                    modifier = Modifier
+                        .background(if (color == white100) black100 else transparent),
+                    painter = painterResource(id = outlinedIconRes),
                     color = color,
                     onClick = {}
                 )
@@ -226,8 +334,8 @@ private fun IconographyScreenPreview() {
 private data class IconographyScreenItem(
     val name: String,
     val size: Dp,
-    @DrawableRes val outlinedIconRes: Int,
-    @DrawableRes val filledIconRes: Int?
+    @DrawableRes val filledIconRes: Int?,
+    @DrawableRes val outlinedIconRes: Int?
 ) {
     companion object {
         val SIZE_16 = 16.dp
