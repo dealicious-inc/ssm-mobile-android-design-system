@@ -1,11 +1,12 @@
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
@@ -16,7 +17,7 @@ import net.deali.designsystem.theme.gray100
 fun Input(
     value: String,
     onValueChange: (String) -> Unit,
-    trailingIcon: Painter?,
+    @DrawableRes trailingIconRes: Int?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isError: Boolean = false,
@@ -42,10 +43,10 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
-        trailingContent = if (trailingIcon != null) {
+        trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
-                    painter = trailingIcon,
+                    painter = painterResource(id = trailingIconRes),
                     color = iconColor,
                     enabled = onIconClick != null,
                     onClick = onIconClick ?: {},
@@ -93,7 +94,7 @@ fun Input(
 fun Input(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
-    trailingIcon: Painter?,
+    @DrawableRes trailingIconRes: Int?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isError: Boolean = false,
@@ -119,10 +120,10 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
-        trailingContent = if (trailingIcon != null) {
+        trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
-                    painter = trailingIcon,
+                    painter = painterResource(id = trailingIconRes),
                     color = iconColor,
                     enabled = onIconClick != null,
                     onClick = onIconClick ?: {},

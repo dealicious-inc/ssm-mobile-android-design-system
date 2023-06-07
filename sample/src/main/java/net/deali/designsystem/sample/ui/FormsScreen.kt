@@ -144,7 +144,7 @@ fun FormsScreen(
                 Input(
                     value = text7,
                     onValueChange = { text7 = it },
-                    trailingIcon = painterResource(id = R.drawable.ic_x_line_24_ver01),
+                    trailingIconRes = R.drawable.ic_x_line_24_ver01,
                     onIconClick = { text7 = "" },
                     placeholder = "Text input with icon"
                 )
@@ -154,8 +154,8 @@ fun FormsScreen(
                 Input(
                     value = text8,
                     onValueChange = { text8 = it },
-                    trailingIcon = if (text8.isNotEmpty()) {
-                        painterResource(id = R.drawable.ic_x_line_24_ver01)
+                    trailingIconRes = if (text8.isNotEmpty()) {
+                        R.drawable.ic_x_line_24_ver01
                     } else {
                         null
                     },
