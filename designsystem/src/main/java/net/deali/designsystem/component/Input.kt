@@ -1,34 +1,34 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import net.deali.designsystem.internal.textfield.BasicDealiTextField
+import net.deali.designsystem.internal.textfield.CoreDealiTextField
+import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
+import net.deali.designsystem.theme.gray100
 
 @Composable
 fun Input(
     value: String,
     onValueChange: (String) -> Unit,
+    trailingIcon: Painter?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    iconColor: Color = gray100,
+    onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
 ) {
-    BasicDealiTextField(
+    CoreDealiTextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -42,6 +42,95 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        trailingContent = if (trailingIcon != null) {
+            @Composable {
+                Icon16(
+                    painter = trailingIcon,
+                    color = iconColor,
+                    enabled = onIconClick != null,
+                    onClick = onIconClick ?: {},
+                )
+            }
+        } else {
+            null
+        },
+    )
+}
+
+@Composable
+fun Input(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    isError: Boolean = false,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    label: String? = null,
+    helperText: String? = null,
+    trailingContent: @Composable (() -> Unit)? = null,
+) {
+    CoreDealiTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        enabled = enabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        trailingContent = trailingContent,
+    )
+}
+
+@Composable
+fun Input(
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    trailingIcon: Painter?,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    isError: Boolean = false,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    iconColor: Color = gray100,
+    onIconClick: (() -> Unit)? = null,
+    placeholder: String? = null,
+    label: String? = null,
+    helperText: String? = null,
+) {
+    CoreDealiTextFieldForTextFieldValue(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        enabled = enabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        trailingContent = if (trailingIcon != null) {
+            @Composable {
+                Icon16(
+                    painter = trailingIcon,
+                    color = iconColor,
+                    enabled = onIconClick != null,
+                    onClick = onIconClick ?: {},
+                )
+            }
+        } else {
+            null
+        },
     )
 }
 
@@ -57,8 +146,9 @@ fun Input(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    BasicDealiTextField(
+    CoreDealiTextFieldForTextFieldValue(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -72,6 +162,7 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        trailingContent = trailingContent,
     )
 }
 
@@ -89,55 +180,4 @@ fun DealiTextField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun InputPreview() {
-    Box(modifier = Modifier.padding(all = 8.dp)) {
-        var text by remember {
-            mutableStateOf(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales" +
-                        "laoreet commodo."
-            )
-        }
-        Input(
-            value = text,
-            onValueChange = { text = it }
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun InputWithButtonPreview() {
-    Box(modifier = Modifier.padding(all = 8.dp)) {
-        var text by remember {
-            mutableStateOf(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales" +
-                        "laoreet commodo."
-            )
-        }
-        InputWithButton(
-            value = text,
-            onValueChange = { text = it }
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun TextFieldPreview() {
-    Box(modifier = Modifier.padding(all = 8.dp)) {
-        var text by remember {
-            mutableStateOf(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales" +
-                        "laoreet commodo."
-            )
-        }
-        DealiTextField(
-            value = text,
-            onValueChange = { text = it }
-        )
-    }
 }

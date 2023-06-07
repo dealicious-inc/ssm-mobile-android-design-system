@@ -28,7 +28,6 @@ import net.deali.designsystem.theme.AppTheme
 
 @Composable
 internal fun DealiTextFieldDecorationBox(
-    innerTextField: @Composable () -> Unit,
     enabled: Boolean,
     isError: Boolean,
     colors: DealiTextFieldColors,
@@ -38,6 +37,8 @@ internal fun DealiTextFieldDecorationBox(
     label: String?,
     helperText: String?,
     modifier: Modifier = Modifier,
+    innerTextField: @Composable () -> Unit,
+    trailingContent: @Composable (() -> Unit)?,
 ) {
     val focused = interactionSource.collectIsFocusedAsState().value
     val isLabelVisible = !label.isNullOrEmpty()
@@ -59,7 +60,6 @@ internal fun DealiTextFieldDecorationBox(
                 .requiredHeight(20.dp + spacing),
         )
         OutlinedTextField(
-            innerTextField = innerTextField,
             colors = colors,
             paddings = DealiTextFieldDefaults.paddings(),
             placeholder = placeholder,
@@ -71,6 +71,8 @@ internal fun DealiTextFieldDecorationBox(
                 .fillMaxWidth()
                 .requiredHeight(46.dp)
                 .zIndex(1f),
+            innerTextField = innerTextField,
+            trailingContent = trailingContent,
         )
         AnimatedVisibility(
             visible = isHelperTextVisible,
@@ -116,7 +118,6 @@ private fun LabelText(
 
 @Composable
 private fun OutlinedTextField(
-    innerTextField: @Composable () -> Unit,
     colors: DealiTextFieldColors,
     paddings: DealiTextFieldPaddingValues,
     placeholder: String?,
@@ -125,6 +126,8 @@ private fun OutlinedTextField(
     isError: Boolean,
     focused: Boolean,
     modifier: Modifier = Modifier,
+    innerTextField: @Composable () -> Unit,
+    trailingContent: @Composable (() -> Unit)?,
 ) {
     val backgroundColor by colors.backgroundColor(enabled)
     val outlineColor by colors.outlineColor(enabled, focused, isError)
@@ -146,16 +149,25 @@ private fun OutlinedTextField(
 
     Row(
         modifier = mergedModifier,
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = if (trailingContent != null) {
+            Arrangement.spacedBy(20.dp)
+        } else {
+            Arrangement.Start
+        },
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Box {
+        Box(modifier = Modifier.weight(1f)) {
             PlaceholderText(
                 placeholder = placeholder,
                 isVisible = isPlaceholderVisible,
                 colors = colors
             )
             innerTextField()
+        }
+        if (trailingContent != null) {
+            Box {
+                trailingContent()
+            }
         }
     }
 }
