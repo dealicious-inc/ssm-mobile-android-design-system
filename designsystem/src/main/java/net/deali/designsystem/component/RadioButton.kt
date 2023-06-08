@@ -28,7 +28,7 @@ import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.transparent
-import net.deali.designsystem.unit.getRandomText
+import net.deali.designsystem.util.getRandomText
 
 @Composable
 fun RadioButton(

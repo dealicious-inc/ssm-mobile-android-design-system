@@ -11,7 +11,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import net.deali.appresource.R
-import net.deali.designsystem.unit.tu
+import net.deali.designsystem.util.tu
 
 @Stable
 class AppTypography(

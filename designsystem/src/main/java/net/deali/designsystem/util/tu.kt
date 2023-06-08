@@ -1,4 +1,4 @@
-package net.deali.designsystem.unit
+package net.deali.designsystem.util
 
 import android.content.res.Resources
 import androidx.compose.runtime.Composable

@@ -20,7 +20,7 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.getRandomText
+import net.deali.designsystem.util.getRandomText
 
 @Composable
 fun RadioButtonScreen(

@@ -1,4 +1,4 @@
-package net.deali.designsystem.unit
+package net.deali.designsystem.util
 
 import android.graphics.BlurMaskFilter
 import androidx.compose.ui.Modifier

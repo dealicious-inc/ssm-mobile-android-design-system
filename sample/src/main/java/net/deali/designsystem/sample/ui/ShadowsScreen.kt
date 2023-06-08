@@ -38,7 +38,7 @@ import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.shadow
+import net.deali.designsystem.util.shadow
 
 @Composable
 fun ShadowsScreen(

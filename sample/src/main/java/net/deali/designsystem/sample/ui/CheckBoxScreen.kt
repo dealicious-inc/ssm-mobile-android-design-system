@@ -19,7 +19,6 @@ import net.deali.designsystem.component.CheckBox
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.getRandomText
 
 @Composable
 fun CheckBoxScreen(

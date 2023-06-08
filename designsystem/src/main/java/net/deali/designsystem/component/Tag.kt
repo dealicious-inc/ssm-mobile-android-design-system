@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.unit.getRandomText
+import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.blue10
 import net.deali.designsystem.theme.blue70

@@ -42,7 +42,7 @@ import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.getRandomText
+import net.deali.designsystem.util.getRandomText
 import java.util.Locale
 
 @Composable

@@ -32,7 +32,7 @@ import net.deali.designsystem.theme.gray80
 import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.unit.getRandomText
+import net.deali.designsystem.util.getRandomText
 
 
 @Composable
