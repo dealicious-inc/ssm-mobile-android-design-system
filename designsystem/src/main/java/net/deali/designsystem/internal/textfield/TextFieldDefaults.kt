@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
@@ -30,6 +31,10 @@ internal object DealiTextFieldDefaults {
     const val HelperTextBullet: String = "${SquareBullet}${Space}"
 
     val Cursor: Brush = SolidColor(gray100)
+
+    val TextStyle: TextStyle
+        @Composable
+        get() = AppTheme.typography.b2r14
 
     @Composable
     fun paddings(): DealiTextFieldPaddingValues {

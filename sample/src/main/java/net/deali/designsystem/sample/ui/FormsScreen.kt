@@ -54,6 +54,7 @@ fun FormsScreen(
         var text8 by remember { mutableStateOf("") }
         var text9 by remember { mutableStateOf("") }
         var text10 by remember { mutableStateOf("") }
+        var text11 by remember { mutableStateOf("") }
 
         var timer9 by remember { mutableStateOf(60 * 3) }
         val timerText9 by remember(timer9) {
@@ -189,6 +190,15 @@ fun FormsScreen(
                     visualTransformation = PasswordVisualTransformation(),
                     placeholder = "Password",
                     label = "Password visual transformation",
+                )
+            }
+
+            item {
+                Input(
+                    value = text11,
+                    onValueChange = { text11 = it },
+                    textStyle = AppTheme.typography.b2b14,
+                    placeholder = "Custom text style",
                 )
             }
 

@@ -7,10 +7,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
+import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 import net.deali.designsystem.theme.gray100
 
 @Composable
@@ -19,6 +21,7 @@ fun Input(
     onValueChange: (String) -> Unit,
     @DrawableRes trailingIconRes: Int?,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -33,6 +36,7 @@ fun Input(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
+        textStyle = textStyle,
         enabled = enabled,
         isError = isError,
         singleLine = true,
@@ -63,6 +67,7 @@ fun Input(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -76,6 +81,7 @@ fun Input(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
+        textStyle = textStyle,
         enabled = enabled,
         isError = isError,
         singleLine = true,
@@ -96,6 +102,7 @@ fun Input(
     onValueChange: (TextFieldValue) -> Unit,
     @DrawableRes trailingIconRes: Int?,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -110,6 +117,7 @@ fun Input(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
+        textStyle = textStyle,
         enabled = enabled,
         isError = isError,
         singleLine = true,
@@ -140,6 +148,7 @@ fun Input(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -153,6 +162,7 @@ fun Input(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
+        textStyle = textStyle,
         enabled = enabled,
         isError = isError,
         singleLine = true,
