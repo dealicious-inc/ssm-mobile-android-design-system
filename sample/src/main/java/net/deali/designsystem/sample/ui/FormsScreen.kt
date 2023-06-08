@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -26,6 +25,7 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.white100
+import net.deali.designsystem.util.DealiPasswordVisualTransformation
 
 @Composable
 fun FormsScreen(
@@ -187,9 +187,9 @@ fun FormsScreen(
                 Input(
                     value = text10,
                     onValueChange = { text10 = it },
-                    visualTransformation = PasswordVisualTransformation(),
-                    placeholder = "Password",
-                    label = "Password visual transformation",
+                    textStyle = AppTheme.typography.b2b14,
+                    placeholder = "Text input",
+                    label = "Custom text style"
                 )
             }
 
@@ -197,8 +197,9 @@ fun FormsScreen(
                 Input(
                     value = text11,
                     onValueChange = { text11 = it },
-                    textStyle = AppTheme.typography.b2b14,
-                    placeholder = "Custom text style",
+                    visualTransformation = DealiPasswordVisualTransformation(),
+                    placeholder = "Password",
+                    label = "Password visual transformation",
                 )
             }
 
