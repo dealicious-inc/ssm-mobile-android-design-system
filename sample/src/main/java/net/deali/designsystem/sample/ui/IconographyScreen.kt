@@ -160,6 +160,11 @@ fun IconographyScreen(
         IconographyScreenItem("ic_hashtag_24", SIZE_24, null, R.drawable.ic_hashtag_24_ver01),
 
         IconographyScreenItem("ic_ssmk_32", SIZE_32, R.drawable.ic_ssmk_filled_32_ver02, R.drawable.ic_ssmk_line_32_ver02),
+        IconographyScreenItem("ic_cart_32", SIZE_32, R.drawable.ic_cart_filled_32_ver01, R.drawable.ic_cart_line_32_ver01),
+        IconographyScreenItem("ic_bookmark_32", SIZE_32, R.drawable.ic_bookmark_filled_32_ver01, R.drawable.ic_bookmark_line_32_ver01),
+        IconographyScreenItem("ic_error_32", SIZE_32, R.drawable.ic_error_filled_32_ver01, R.drawable.ic_error_line_32_ver01),
+        IconographyScreenItem("ic_call_32", SIZE_32, R.drawable.ic_call_filled_32_ver01, R.drawable.ic_call_line_32_ver01),
+        IconographyScreenItem("ic_notice_32", SIZE_32, R.drawable.ic_notice_filled_32_ver01, R.drawable.ic_notice_line_32_ver01),
     )
 
     NavigationContainer(
