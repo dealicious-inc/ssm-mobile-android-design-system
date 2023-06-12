@@ -175,19 +175,3 @@ fun Input(
         trailingContent = trailingContent,
     )
 }
-
-@Composable
-fun InputWithButton(
-    value: String,
-    onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-}
-
-@Composable
-fun DealiTextField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-}
