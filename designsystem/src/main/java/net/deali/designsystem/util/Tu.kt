@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package net.deali.designsystem.util
 
 import android.content.res.Resources
