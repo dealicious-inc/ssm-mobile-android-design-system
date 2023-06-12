@@ -5,10 +5,11 @@ import androidx.compose.ui.text.input.OffsetMapping
 import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.input.VisualTransformation
 
-class DealiPasswordVisualTransformation constructor(
-    // Unicode charactor '⬤'.
+class BigPasswordVisualTransformation constructor(
+    // Unicode character '⬤'.
     val mask: Char = '\u2b24'
 ) : VisualTransformation {
+    @Suppress("PARAMETER_NAME_CHANGED_ON_OVERRIDE")
     override fun filter(unmasked: AnnotatedString): TransformedText {
         return TransformedText(
             text = AnnotatedString(mask.toString().repeat(unmasked.text.length)),
@@ -18,7 +19,7 @@ class DealiPasswordVisualTransformation constructor(
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DealiPasswordVisualTransformation) return false
+        if (other !is BigPasswordVisualTransformation) return false
         if (this.mask != other.mask) return false
         return true
     }
