@@ -23,7 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -170,7 +169,7 @@ fun IconographyScreen(
                 title = "Iconography",
                 navigationIcon = {
                     Icon24(
-                        painter = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                        iconRes = R.drawable.ic_arrow_left_16_ver01,
                         onClick = onBackPress
                     )
                 }
@@ -264,7 +263,7 @@ private fun Item(
                 Icon16(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = filledIconRes),
+                    iconRes = filledIconRes,
                     color = color,
                     onClick = {}
                 )
@@ -274,7 +273,7 @@ private fun Item(
                 Icon16(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = outlinedIconRes),
+                    iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
                 )
@@ -285,7 +284,7 @@ private fun Item(
                 Icon24(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = filledIconRes),
+                    iconRes = filledIconRes,
                     color = color,
                     onClick = {}
                 )
@@ -295,7 +294,7 @@ private fun Item(
                 Icon24(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = outlinedIconRes),
+                    iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
                 )
@@ -306,7 +305,7 @@ private fun Item(
                 Icon32(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = filledIconRes),
+                    iconRes = filledIconRes,
                     color = color,
                     onClick = {}
                 )
@@ -316,7 +315,7 @@ private fun Item(
                 Icon32(
                     modifier = Modifier
                         .background(if (color == white100) black100 else transparent),
-                    painter = painterResource(id = outlinedIconRes),
+                    iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
                 )

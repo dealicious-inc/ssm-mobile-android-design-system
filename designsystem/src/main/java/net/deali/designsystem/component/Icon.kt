@@ -1,5 +1,6 @@
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -19,29 +20,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun Icon16(
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified
 ) {
     Icon(
         modifier = modifier,
+        iconRes = iconRes,
         size = 16.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 fun Icon16(
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
@@ -56,29 +57,29 @@ fun Icon16(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 16.dp)
             ),
+        iconRes = iconRes,
         size = 16.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 fun Icon24(
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified
 ) {
     Icon(
         modifier = modifier,
+        iconRes = iconRes,
         size = 24.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 fun Icon24(
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
@@ -88,35 +89,35 @@ fun Icon24(
         modifier = modifier
             .clickable(
                 onClick = onClick,
-                role = Role.Checkbox,
+                role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 24.dp)
             ),
+        iconRes = iconRes,
         size = 24.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 fun Icon32(
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified
 ) {
     Icon(
         modifier = modifier,
+        iconRes = iconRes,
         size = 32.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 fun Icon32(
-    painter: Painter,
     modifier: Modifier = Modifier,
+    @DrawableRes iconRes: Int,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
     onClick: () -> Unit
@@ -125,38 +126,38 @@ fun Icon32(
         modifier = modifier
             .clickable(
                 onClick = onClick,
-                role = Role.Checkbox,
+                role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
                 indication = rememberRipple(bounded = false, radius = 24.dp)
             ),
+        iconRes = iconRes,
         size = 32.dp,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 private fun Icon(
+    @DrawableRes iconRes: Int,
     size: Dp,
-    painter: Painter,
     color: Color,
     modifier: Modifier = Modifier
 ) {
     Icon(
         modifier = modifier,
+        iconRes = iconRes,
         width = size,
         height = size,
-        painter = painter,
         color = color
     )
 }
 
 @Composable
 private fun Icon(
+    @DrawableRes iconRes: Int,
     width: Dp,
     height: Dp,
-    painter: Painter,
     color: Color,
     modifier: Modifier = Modifier
 ) {
@@ -164,7 +165,7 @@ private fun Icon(
         modifier = modifier
             .width(width)
             .height(height),
-        painter = painter,
+        painter = painterResource(id = iconRes),
         contentScale = ContentScale.Crop,
         contentDescription = null,
         colorFilter = if (color == Color.Unspecified) null else ColorFilter.tint(color)
@@ -174,7 +175,7 @@ private fun Icon(
 @Composable
 fun IconRotating(
     modifier: Modifier,
-    painter: Painter,
+    @DrawableRes iconRes: Int,
     color: Color,
     durationMillis: Int = 2000
 ) {
@@ -189,6 +190,8 @@ fun IconRotating(
             )
         )
     )
+
+    val painter = painterResource(id = iconRes)
 
     Canvas(modifier = modifier) {
         rotate(degrees = currentAngle) {

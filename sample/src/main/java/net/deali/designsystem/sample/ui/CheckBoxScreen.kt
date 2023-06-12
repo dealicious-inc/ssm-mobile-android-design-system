@@ -30,7 +30,7 @@ fun CheckBoxScreen(
                 title = "CheckBox",
                 navigationIcon = {
                     Icon24(
-                        painter = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                        iconRes = R.drawable.ic_arrow_left_16_ver01,
                         onClick = onBackPress
                     )
                 }

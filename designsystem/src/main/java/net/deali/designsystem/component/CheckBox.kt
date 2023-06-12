@@ -11,7 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -70,10 +69,10 @@ private fun CheckBoxIcon(
 ) {
     Icon24(
         modifier = modifier,
-        painter = when {
-            enabled.not() -> painterResource(id = R.drawable.ic_checkbox_disabled_ver01)
-            checked -> painterResource(id = R.drawable.ic_checkbox_on_ver01)
-            else -> painterResource(id = R.drawable.ic_checkbox_off_ver01)
+        iconRes = when {
+            enabled.not() -> R.drawable.ic_checkbox_disabled_ver01
+            checked -> R.drawable.ic_checkbox_on_ver01
+            else -> R.drawable.ic_checkbox_off_ver01
         }
     )
 }

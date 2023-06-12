@@ -1,5 +1,6 @@
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -20,7 +21,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,16 +34,15 @@ import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 
-
 @Composable
 fun ButtonSmallFilled(
     text: String,
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonSmall(
@@ -66,9 +65,9 @@ fun ButtonMediumFilled(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonMedium(
@@ -91,9 +90,9 @@ fun ButtonLargeFilled(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonLarge(
@@ -116,9 +115,9 @@ fun ButtonSmallOutlined(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonSmall(
@@ -142,9 +141,9 @@ fun ButtonMediumOutlined(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonMedium(
@@ -166,11 +165,11 @@ fun ButtonMediumOutlined(
 fun ButtonLargeOutlined(
     text: String,
     enabled: Boolean,
-    process: Boolean = false,
     modifier: Modifier = Modifier,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    process: Boolean = false,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonLarge(
@@ -194,9 +193,9 @@ fun ButtonSmallTonalOutlined(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonSmall(
@@ -220,9 +219,9 @@ fun ButtonMediumTonalOutlined(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonMedium(
@@ -246,9 +245,9 @@ fun ButtonLargeTonalOutlined(
     enabled: Boolean,
     modifier: Modifier = Modifier,
     process: Boolean = false,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonLarge(
@@ -272,9 +271,9 @@ fun ButtonSmallText(
     enabled: Boolean,
     process: Boolean,
     modifier: Modifier = Modifier,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonSmall(
@@ -297,9 +296,9 @@ fun ButtonMediumText(
     enabled: Boolean,
     process: Boolean,
     modifier: Modifier = Modifier,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonMedium(
@@ -322,9 +321,9 @@ fun ButtonLargeText(
     enabled: Boolean,
     process: Boolean,
     modifier: Modifier = Modifier,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit
 ) {
     ButtonLarge(
@@ -350,9 +349,9 @@ private fun ButtonSmall(
     backgroundColor: Color,
     modifier: Modifier = Modifier,
     border: BorderStroke? = null,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
     DealiButton(
@@ -369,13 +368,13 @@ private fun ButtonSmall(
             IconRotating(
                 modifier = Modifier
                     .size(24.dp),
-                painter = processIcon,
+                iconRes = processIcon,
                 color = textColor
             )
         } else {
             if (leftIcon != null) {
                 Icon16(
-                    painter = leftIcon,
+                    iconRes = leftIcon,
                     color = textColor
                 )
             }
@@ -388,7 +387,7 @@ private fun ButtonSmall(
 
             if (rightIcon != null) {
                 Icon16(
-                    painter = rightIcon,
+                    iconRes = rightIcon,
                     color = textColor
                 )
             }
@@ -405,9 +404,9 @@ private fun ButtonMedium(
     backgroundColor: Color,
     modifier: Modifier = Modifier,
     border: BorderStroke? = null,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
     DealiButton(
@@ -424,13 +423,13 @@ private fun ButtonMedium(
             IconRotating(
                 modifier = Modifier
                     .size(24.dp),
-                painter = processIcon,
+                iconRes = processIcon,
                 color = textColor
             )
         } else {
             if (leftIcon != null) {
                 Icon16(
-                    painter = leftIcon,
+                    iconRes = leftIcon,
                     color = textColor
                 )
             }
@@ -443,7 +442,7 @@ private fun ButtonMedium(
 
             if (rightIcon != null) {
                 Icon16(
-                    painter = rightIcon,
+                    iconRes = rightIcon,
                     color = textColor
                 )
             }
@@ -460,9 +459,9 @@ private fun ButtonLarge(
     backgroundColor: Color,
     modifier: Modifier = Modifier,
     border: BorderStroke? = null,
-    leftIcon: Painter? = null,
-    rightIcon: Painter? = null,
-    processIcon: Painter? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
     DealiButton(
@@ -479,13 +478,13 @@ private fun ButtonLarge(
             IconRotating(
                 modifier = Modifier
                     .size(24.dp),
-                painter = processIcon,
+                iconRes = processIcon,
                 color = textColor
             )
         } else {
             if (leftIcon != null) {
                 Icon16(
-                    painter = leftIcon,
+                    iconRes = leftIcon,
                     color = textColor
                 )
             }
@@ -498,7 +497,7 @@ private fun ButtonLarge(
 
             if (rightIcon != null) {
                 Icon16(
-                    painter = rightIcon,
+                    iconRes = rightIcon,
                     color = textColor
                 )
             }

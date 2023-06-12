@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
@@ -52,11 +51,11 @@ private fun CheckcircleIcon(
 ) {
     Icon24(
         modifier = modifier,
-        painter = when {
-            enabled.not() -> painterResource(id = R.drawable.ic_checkcircle_disabled_ver01)
-            checked && isAd -> painterResource(id = R.drawable.ic_checkcircle_on_ad_ver01)
-            checked && isAd.not() -> painterResource(id = R.drawable.ic_checkcircle_on_ver01)
-            else -> painterResource(id = R.drawable.ic_checkcircle_off_ver01)
+        iconRes = when {
+            enabled.not() -> R.drawable.ic_checkcircle_disabled_ver01
+            checked && isAd -> R.drawable.ic_checkcircle_on_ad_ver01
+            checked && isAd.not() -> R.drawable.ic_checkcircle_on_ver01
+            else -> R.drawable.ic_checkcircle_off_ver01
         },
         enabled = enabled,
         onClick = onCheck

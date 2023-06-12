@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -50,7 +49,7 @@ fun Input(
         trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
-                    painter = painterResource(id = trailingIconRes),
+                    iconRes = trailingIconRes,
                     color = iconColor,
                     enabled = onIconClick != null,
                     onClick = onIconClick ?: {},
@@ -131,7 +130,7 @@ fun Input(
         trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
-                    painter = painterResource(id = trailingIconRes),
+                    iconRes = trailingIconRes,
                     color = iconColor,
                     enabled = onIconClick != null,
                     onClick = onIconClick ?: {},

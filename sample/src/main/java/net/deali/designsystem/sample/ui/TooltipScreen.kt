@@ -10,7 +10,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.appresource.R
@@ -29,7 +28,7 @@ fun TooltipScreen(
                 title = "Tooltip",
                 navigationIcon = {
                     Icon24(
-                        painter = painterResource(id = R.drawable.ic_arrow_left_16_ver01),
+                        iconRes = R.drawable.ic_arrow_left_16_ver01,
                         onClick = onBackPress
                     )
                 }
@@ -67,7 +66,7 @@ fun TooltipScreen(
                 ) { innerModifier ->
                     Icon16(
                         modifier = innerModifier,
-                        painter = painterResource(id = R.drawable.ic_info_16_ver01),
+                        iconRes = R.drawable.ic_info_16_ver01,
                         onClick = {
                             isShow = true
                         }
