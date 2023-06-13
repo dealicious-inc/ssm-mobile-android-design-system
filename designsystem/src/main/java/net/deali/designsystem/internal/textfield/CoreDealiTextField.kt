@@ -99,6 +99,15 @@ internal fun CoreDealiTextFieldForTextFieldValue(
 ) {
     var isValueEmpty by remember { mutableStateOf(value.text.isEmpty()) }
 
+    val colors = DealiTextFieldDefaults.colors()
+
+    val mergedTextStyle = if (enabled) {
+        textStyle
+    } else {
+        val textColor by colors.textColor(enabled)
+        textStyle.merge(TextStyle(color = textColor))
+    }
+
     BasicTextField(
         value = value,
         onValueChange = { textFieldValue ->
@@ -106,7 +115,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
             isValueEmpty = textFieldValue.text.isEmpty()
         },
         modifier = modifier,
-        textStyle = textStyle,
+        textStyle = mergedTextStyle,
         enabled = enabled,
         readOnly = !enabled,
         singleLine = singleLine,
@@ -119,7 +128,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
             DealiTextFieldDecorationBox(
                 enabled = enabled,
                 isError = isError,
-                colors = DealiTextFieldDefaults.colors(),
+                colors = colors,
                 interactionSource = interactionSource,
                 isValueEmpty = isValueEmpty,
                 placeholder = placeholder,

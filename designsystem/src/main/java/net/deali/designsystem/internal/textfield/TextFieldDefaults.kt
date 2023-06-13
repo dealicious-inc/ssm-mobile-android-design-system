@@ -18,6 +18,7 @@ import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray10
 import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.gray70
 import net.deali.designsystem.theme.white100
 
@@ -54,6 +55,7 @@ internal object DealiTextFieldDefaults {
             focusedOutlineColor = gray100,
             errorOutlineColor = AppTheme.colors.error,
             textColor = gray100,
+            disabledTextColor = gray50,
             placeholderTextColor = gray70,
             labelTextColor = gray100,
             helperTextColor = gray70,
@@ -116,7 +118,7 @@ internal interface DealiTextFieldColors {
     fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color>
 
     @Composable
-    fun textColor(): State<Color>
+    fun textColor(enabled: Boolean): State<Color>
 
     @Composable
     fun placeholderTextColor(): State<Color>
@@ -136,6 +138,7 @@ private class DefaultDealiTextFieldColors(
     private val focusedOutlineColor: Color,
     private val errorOutlineColor: Color,
     private val textColor: Color,
+    private val disabledTextColor: Color,
     private val placeholderTextColor: Color,
     private val labelTextColor: Color,
     private val helperTextColor: Color,
@@ -164,8 +167,8 @@ private class DefaultDealiTextFieldColors(
     }
 
     @Composable
-    override fun textColor(): State<Color> {
-        return rememberUpdatedState(textColor)
+    override fun textColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(if (enabled) textColor else disabledTextColor)
     }
 
     @Composable
@@ -196,6 +199,7 @@ private class DefaultDealiTextFieldColors(
         if (this.focusedOutlineColor != other.focusedOutlineColor) return false
         if (this.errorOutlineColor != other.errorOutlineColor) return false
         if (this.textColor != other.textColor) return false
+        if (this.disabledTextColor != other.disabledTextColor) return false
         if (this.placeholderTextColor != other.placeholderTextColor) return false
         if (this.labelTextColor != other.labelTextColor) return false
         if (this.helperTextColor != other.helperTextColor) return false
@@ -211,6 +215,7 @@ private class DefaultDealiTextFieldColors(
         hash = 31 * hash + focusedOutlineColor.hashCode()
         hash = 31 * hash + errorOutlineColor.hashCode()
         hash = 31 * hash + textColor.hashCode()
+        hash = 31 * hash + disabledTextColor.hashCode()
         hash = 31 * hash + placeholderTextColor.hashCode()
         hash = 31 * hash + labelTextColor.hashCode()
         hash = 31 * hash + helperTextColor.hashCode()
