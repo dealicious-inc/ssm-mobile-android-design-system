@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'net.deali.designsystem'
-    compileSdk Versions.targetSDK
+    compileSdk rootProject.targetSdk
 
     defaultConfig {
-        minSdk Versions.minSDK
-        targetSdk Versions.targetSDK
+        minSdk rootProject.minSdk
+        targetSdk rootProject.targetSdk
     }
 
     compileOptions {
@@ -33,12 +33,12 @@ android {
 dependencies {
     implementation project(path: ':app-resource')
 
-    implementation Libs.coreKtx
-    implementation Libs.composeFoundation
-    implementation Libs.composeUI
-    implementation Libs.composeUiUtil
-    debugImplementation Libs.composeUiTooling
-    implementation Libs.composeUiToolingPreview
-    implementation Libs.composeMaterial
-    implementation Libs.constraintLayoutCompose
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.constraintlayout.compose
+
+    implementation libs.compose.ui
+    implementation libs.compose.foundation
+    implementation libs.compose.tooling
+    debugImplementation libs.compoes.preview
+    implementation libs.compose.material
 }

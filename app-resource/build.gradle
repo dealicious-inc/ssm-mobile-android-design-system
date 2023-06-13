@@ -5,15 +5,12 @@ plugins {
 android {
     namespace 'net.deali.appresource'
 
-    compileSdkVersion Versions.targetSDK
+    compileSdk rootProject.targetSdk
 
     defaultConfig {
-        minSdkVersion Versions.minSDK
-        targetSdkVersion Versions.targetSDK
+        minSdk rootProject.minSdk
+        targetSdk rootProject.targetSdk
 
         vectorDrawables.useSupportLibrary = true
     }
-}
-
-dependencies {
 }
