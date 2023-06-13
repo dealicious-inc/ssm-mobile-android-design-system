@@ -30,6 +30,7 @@ internal fun CoreDealiTextField(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = true,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     // TextFieldValue를 사용하는 BasicDealiTextField를 String을 사용 하는 BasicDealiTextField로 만들기 위한 코드.
@@ -75,6 +76,7 @@ internal fun CoreDealiTextField(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
         trailingContent = trailingContent
     )
 }
@@ -95,6 +97,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = true,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     var isValueEmpty by remember { mutableStateOf(value.text.isEmpty()) }
@@ -134,6 +137,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 placeholder = placeholder,
                 label = label,
                 helperText = helperText,
+                isHelperTextVisible = isHelperTextVisible,
                 modifier = Modifier.fillMaxWidth(),
                 innerTextField = innerTextField,
                 trailingContent = trailingContent,

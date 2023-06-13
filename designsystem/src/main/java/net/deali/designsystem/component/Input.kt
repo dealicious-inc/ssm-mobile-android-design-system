@@ -28,6 +28,7 @@ fun Input(
     iconColor: Color = gray100,
     onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
+    isHelperTextVisible: Boolean = false,
     label: String? = null,
     helperText: String? = null,
 ) {
@@ -46,6 +47,7 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
         trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
@@ -74,6 +76,7 @@ fun Input(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     CoreDealiTextField(
@@ -91,6 +94,7 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
         trailingContent = trailingContent,
     )
 }
@@ -111,6 +115,7 @@ fun Input(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
 ) {
     CoreDealiTextFieldForTextFieldValue(
         value = value,
@@ -127,6 +132,7 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
         trailingContent = if (trailingIconRes != null) {
             @Composable {
                 Icon16(
@@ -155,6 +161,7 @@ fun Input(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     CoreDealiTextFieldForTextFieldValue(
@@ -172,6 +179,7 @@ fun Input(
         placeholder = placeholder,
         label = label,
         helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
         trailingContent = trailingContent,
     )
 }

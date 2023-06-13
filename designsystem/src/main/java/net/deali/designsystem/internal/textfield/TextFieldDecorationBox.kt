@@ -36,6 +36,7 @@ internal fun DealiTextFieldDecorationBox(
     placeholder: String?,
     label: String?,
     helperText: String?,
+    isHelperTextVisible: Boolean,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     trailingContent: @Composable (() -> Unit)?,
@@ -43,7 +44,6 @@ internal fun DealiTextFieldDecorationBox(
     val focused = interactionSource.collectIsFocusedAsState().value
     val isLabelVisible = !label.isNullOrEmpty()
     val isPlaceholderVisible = if (focused) false else !placeholder.isNullOrEmpty() && isValueEmpty
-    val isHelperTextVisible = !helperText.isNullOrEmpty()
     val spacing = 4.dp
 
     Column(
@@ -205,7 +205,7 @@ private fun HelperText(
         DealiText(
             text = buildString {
                 append(DealiTextFieldDefaults.HelperTextBullet)
-                append(helperText)
+                append(helperText ?: "")
             },
             style = AppTheme.typography.b4r12,
             color = textColor,
