@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.appresource.R
+import net.deali.designsystem.R
 import net.deali.designsystem.component.ButtonSmallTonalOutlined
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar

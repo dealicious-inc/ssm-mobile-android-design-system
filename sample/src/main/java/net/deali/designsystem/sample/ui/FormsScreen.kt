@@ -13,11 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
-import net.deali.appresource.R
+import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.Input
@@ -25,7 +24,7 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.white100
-import net.deali.designsystem.util.DealiPasswordVisualTransformation
+import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
 fun FormsScreen(
@@ -197,7 +196,7 @@ fun FormsScreen(
                 Input(
                     value = text11,
                     onValueChange = { text11 = it },
-                    visualTransformation = DealiPasswordVisualTransformation(),
+                    visualTransformation = BigPasswordVisualTransformation(),
                     placeholder = "Password",
                     label = "Password visual transformation",
                 )

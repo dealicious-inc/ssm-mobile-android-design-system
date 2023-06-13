@@ -18,4 +18,3 @@ rootProject.name = "Dealicious Design System for Android"
 
 include ':designsystem'
 include ':sample'
-include ':app-resource'

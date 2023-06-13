@@ -32,7 +32,6 @@ android {
 
 dependencies {
     implementation project(path: ':designsystem')
-    implementation project(path: ':app-resource')
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat

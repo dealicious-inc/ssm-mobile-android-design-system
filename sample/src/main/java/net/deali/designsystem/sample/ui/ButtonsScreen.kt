@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.appresource.R
+import net.deali.designsystem.R
 import net.deali.designsystem.component.ButtonLargeFilled
 import net.deali.designsystem.component.ButtonLargeOutlined
 import net.deali.designsystem.component.ButtonLargeText

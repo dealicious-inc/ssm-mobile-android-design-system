@@ -10,6 +10,7 @@ android {
     defaultConfig {
         minSdk rootProject.minSdk
         targetSdk rootProject.targetSdk
+        vectorDrawables.useSupportLibrary = true
     }
 
     compileOptions {
@@ -31,8 +32,6 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':app-resource')
-
     implementation libs.androidx.core.ktx
     implementation libs.androidx.constraintlayout.compose
 
