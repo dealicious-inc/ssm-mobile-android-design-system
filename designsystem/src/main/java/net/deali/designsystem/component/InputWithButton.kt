@@ -9,11 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
+import net.deali.designsystem.theme.gray100
 
 @Composable
 fun InputWithButton(
@@ -29,9 +31,12 @@ fun InputWithButton(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    iconColor: Color = gray100,
+    onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
 ) {
     InputWithButtonRow(modifier = modifier) {
         Input(
@@ -44,9 +49,12 @@ fun InputWithButton(
             isError = isError,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
+            iconColor = iconColor,
+            onIconClick = onIconClick,
             placeholder = placeholder,
             label = label,
             helperText = helperText,
+            isHelperTextVisible = isHelperTextVisible,
         )
         ButtonMediumOutlined(
             text = buttonText,
@@ -73,6 +81,7 @@ fun InputWithButton(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     InputWithButtonRow(modifier = modifier) {
@@ -88,6 +97,7 @@ fun InputWithButton(
             placeholder = placeholder,
             label = label,
             helperText = helperText,
+            isHelperTextVisible = isHelperTextVisible,
             trailingContent = trailingContent,
         )
         ButtonMediumOutlined(
@@ -113,9 +123,12 @@ fun InputWithButton(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    iconColor: Color = gray100,
+    onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
 ) {
     InputWithButtonRow(modifier = modifier) {
         Input(
@@ -128,9 +141,12 @@ fun InputWithButton(
             isError = isError,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
+            iconColor = iconColor,
+            onIconClick = onIconClick,
             placeholder = placeholder,
             label = label,
             helperText = helperText,
+            isHelperTextVisible = isHelperTextVisible,
         )
         ButtonMediumOutlined(
             text = buttonText,
@@ -157,6 +173,7 @@ fun InputWithButton(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
+    isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     InputWithButtonRow(modifier = modifier) {
@@ -172,6 +189,7 @@ fun InputWithButton(
             placeholder = placeholder,
             label = label,
             helperText = helperText,
+            isHelperTextVisible = isHelperTextVisible,
             trailingContent = trailingContent,
         )
         ButtonMediumOutlined(
