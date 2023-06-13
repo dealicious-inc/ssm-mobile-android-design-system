@@ -148,7 +148,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_folder_move_16", SIZE_16, null, R.drawable.ic_folder_move_16_ver01),
         IconographyScreenItem("ic_folder_add_16", SIZE_16, null, R.drawable.ic_folder_add_16_ver01),
         IconographyScreenItem("ic_comment_16", SIZE_16, null, R.drawable.ic_comment_16_ver01),
-        IconographyScreenItem("ic_time_16", SIZE_16, null, R.drawable.ic_time_16_ver01),    // TODO DRG 없앨지 말지 여쭤보기
         IconographyScreenItem("ic_message_16", SIZE_16, null, R.drawable.ic_message_16_ver01),
         IconographyScreenItem("ic_share_16", SIZE_16, null, R.drawable.ic_share_16_ver01),
         IconographyScreenItem("ic_movelist_16", SIZE_16, null, R.drawable.ic_movelist_16_ver01),
@@ -269,8 +268,8 @@ fun IconographyScreen(
         IconographyScreenItem("ic_bookmark_24", SIZE_24, null, R.drawable.ic_bookmark_24_ver01),    // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
         IconographyScreenItem("ic_arrow_up_left_24", SIZE_24, null, R.drawable.ic_arrow_up_left_24_ver01),
         IconographyScreenItem("ic_bic_speechbubble_24", SIZE_24, null, R.drawable.ic_bic_speechbubble_24_ver01),
-        IconographyScreenItem("ic_stockcheck_24", SIZE_24, null, R.drawable.ic_stockcheck_24_ver01),    // TODO DRG 아이콘 네이밍 확인
-        IconographyScreenItem("ic_stockanswer_24", SIZE_24, null, R.drawable.ic_stockanswer_24_ver01),    // TODO DRG 아이콘 네이밍 확인
+        IconographyScreenItem("ic_stockanswer_24", SIZE_24, null, R.drawable.ic_stockanswer_24_ver01),
+        IconographyScreenItem("ic_stockcheck_24", SIZE_24, null, R.drawable.ic_stockcheck_24_ver01),
         IconographyScreenItem("ic_accountnumber_bank_24", SIZE_24, null, R.drawable.ic_accountnumber_bank_24_ver01),
         IconographyScreenItem("ic_accountnumber_account_24", SIZE_24, null, R.drawable.ic_accountnumber_account_24_ver01),
         IconographyScreenItem("ic_orderdetail_ac_copy_24", SIZE_24, null, R.drawable.ic_orderdetail_ac_copy_24_ver01),
