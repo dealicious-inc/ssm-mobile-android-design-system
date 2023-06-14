@@ -2,7 +2,7 @@ buildscript {
     ext {
         minSdk = 24
         targetSdk = 33
-        composeVersion = "1.4.4"
+        composeCompilerVersion = "1.4.4"
     }
 }
 
