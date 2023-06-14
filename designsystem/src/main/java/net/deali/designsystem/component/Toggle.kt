@@ -145,10 +145,7 @@ private fun ToggleHandle(
     val radiusPx = with(LocalDensity.current) { radius.toPx() }
 
     Canvas(modifier = modifier) {
-        drawShadow(
-            color = gray50,
-            cornerRadius = CornerRadius(x = radiusPx, y = radiusPx),
-        )
+        drawShadow(cornerRadius = CornerRadius(x = radiusPx, y = radiusPx))
         drawCircle(
             color = color,
             radius = radiusPx,
