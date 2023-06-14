@@ -174,9 +174,9 @@ private fun Icon(
 
 @Composable
 fun IconRotating(
-    modifier: Modifier,
     @DrawableRes iconRes: Int,
     color: Color,
+    modifier: Modifier = Modifier,
     durationMillis: Int = 2000
 ) {
     val transition = rememberInfiniteTransition(label = "transition")

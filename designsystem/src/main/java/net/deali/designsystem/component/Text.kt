@@ -11,8 +11,8 @@ import androidx.compose.ui.text.style.TextOverflow
 fun DealiText(
     text: String,
     style: TextStyle,
-    modifier: Modifier = Modifier,
     color: Color,
+    modifier: Modifier = Modifier,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
 ) {
