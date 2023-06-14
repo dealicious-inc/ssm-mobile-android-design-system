@@ -2,8 +2,11 @@ package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -17,9 +20,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import net.deali.designsystem.R
+import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.Input
+import net.deali.designsystem.component.InputWithButton
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
@@ -28,6 +33,56 @@ import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
 fun FormsScreen(
+    navigateToInput: () -> Unit,
+    navigateToInputWithButton: () -> Unit,
+    navigateToTextField: () -> Unit,
+    onBackPress: () -> Unit,
+) {
+    NavigationContainer(
+        navigationBar = {
+            NavigationBar(
+                title = "Forms",
+                navigationIcon = {
+                    Icon24(
+                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        onClick = onBackPress
+                    )
+                }
+            )
+        }
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            ButtonMediumOutlined(
+                text = "Input",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToInput,
+            )
+            ButtonMediumOutlined(
+                text = "Input + Button",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToInputWithButton,
+            )
+            ButtonMediumOutlined(
+                text = "TextField",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToTextField,
+            )
+        }
+    }
+}
+
+@Deprecated(
+    "옵션 조절 가능한 샘플 화면으로 변경했으나, 혹시나 되돌릴 가능성을 위해 남겨둠.",
+    ReplaceWith("FormsScreen"),
+)
+@Composable
+fun FormsScreenOld(
     onBackPress: () -> Unit
 ) {
     NavigationContainer(
@@ -54,6 +109,10 @@ fun FormsScreen(
         var text9 by remember { mutableStateOf("") }
         var text10 by remember { mutableStateOf("") }
         var text11 by remember { mutableStateOf("") }
+        var text12 by remember { mutableStateOf("") }
+        var text13 by remember { mutableStateOf("") }
+        var text14 by remember { mutableStateOf("") }
+        var text15 by remember { mutableStateOf("") }
 
         var timer9 by remember { mutableStateOf(60 * 3) }
         val timerText9 by remember(timer9) {
@@ -207,6 +266,52 @@ fun FormsScreen(
             }
 
             item {
+                InputWithButton(
+                    value = text12,
+                    onValueChange = { text12 = it },
+                    buttonText = "Button",
+                    onButtonClick = {},
+                    placeholder = "Text input",
+                )
+            }
+
+            item {
+                InputWithButton(
+                    value = text13,
+                    onValueChange = { text13 = it },
+                    buttonText = "Button",
+                    onButtonClick = {},
+                    inputEnabled = false,
+                    placeholder = "Text input",
+                )
+            }
+
+            item {
+                InputWithButton(
+                    value = text14,
+                    onValueChange = { text14 = it },
+                    buttonText = "Button",
+                    onButtonClick = {},
+                    placeholder = "Text input",
+                    label = "Label",
+                    helperText = "Helper text",
+                )
+            }
+
+            item {
+                InputWithButton(
+                    value = text15,
+                    onValueChange = { text15 = it },
+                    buttonText = "Button",
+                    onButtonClick = {},
+                    inputEnabled = false,
+                    placeholder = "Text input",
+                    label = "Label",
+                    helperText = "Helper text",
+                )
+            }
+
+            item {
                 FormsSampleTitleText(text = "TextField")
             }
         }
@@ -225,9 +330,12 @@ private fun FormsSampleTitleText(
 )
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 private fun FormsScreenPreview() {
     FormsScreen(
-        onBackPress = {}
+        navigateToInput = {},
+        navigateToInputWithButton = {},
+        navigateToTextField = {},
+        onBackPress = {},
     )
 }

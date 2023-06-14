@@ -30,6 +30,7 @@ fun Nav(
     ) {
         menuGraph(navController, dataStoreUtil)
         uiElementsGraph(navController)
+        formsGraph(navController)
     }
 }
 
@@ -98,11 +99,6 @@ private fun NavGraphBuilder.menuGraph(
             onBackPress = navController::popBackStack
         )
     }
-    composable(Screen.Forms.route) {
-        FormsScreen(
-            onBackPress = navController::popBackStack
-        )
-    }
 }
 
 fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
@@ -163,6 +159,34 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
     }
 }
 
+fun NavGraphBuilder.formsGraph(navController: NavController) {
+    navigation(startDestination = Screen.Forms.route, route = Screen.Forms.menu) {
+        composable(Screen.Forms.route) {
+            FormsScreen(
+                navigateToInput = { navController.navigate(Screen.Input.route) },
+                navigateToInputWithButton = { navController.navigate(Screen.InputWithButton.route) },
+                navigateToTextField = { navController.navigate(Screen.TextField.route) },
+                onBackPress = navController::popBackStack,
+            )
+        }
+        composable(Screen.Input.route) {
+            InputScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+        composable(Screen.InputWithButton.route) {
+            InputWithButtonScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+        composable(Screen.TextField.route) {
+            TextFieldScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+    }
+}
+
 sealed class Screen(val route: String) {
     object Menu : Screen("menu")
     object Typography : Screen("typography")
@@ -177,8 +201,9 @@ sealed class Screen(val route: String) {
     object UIElements : Screen("uiElements") {
         val menu = this.route + "Menu"
     }
-
-    object Forms : Screen("forms")
+    object Forms : Screen("forms") {
+        val menu = this.route + "Menu"
+    }
 
     object CheckBox : Screen("checkBox")
     object Checkcircle : Screen("checkcircle")
@@ -188,6 +213,9 @@ sealed class Screen(val route: String) {
     object Rating : Screen("rating")
     object Popup : Screen("popup")
     object Tag : Screen("tag")
+    object Input : Screen("input")
+    object InputWithButton : Screen("inputWithButton")
+    object TextField: Screen("textField")
 }
 
 @Composable
