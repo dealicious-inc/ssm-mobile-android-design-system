@@ -21,6 +21,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.Switch
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
@@ -45,12 +46,8 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            var toggle1Selected by remember { mutableStateOf(false) }
-            var toggle2Selected by remember { mutableStateOf(true) }
-            var toggle3Selected by remember { mutableStateOf(false) }
-
             DealiText(
                 text = "Toggle",
                 style = AppTheme.typography.b2r14,
@@ -61,18 +58,22 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
+                var selected1 by remember { mutableStateOf(false) }
+                var selected2 by remember { mutableStateOf(true) }
+                var selected3 by remember { mutableStateOf(false) }
+
                 Toggle(
-                    selected = toggle1Selected,
-                    onSelectedChange = { toggle1Selected = it },
+                    selected = selected1,
+                    onSelectedChange = { selected1 = it },
                 )
                 Toggle(
-                    selected = toggle2Selected,
-                    onSelectedChange = { toggle2Selected = it },
+                    selected = selected2,
+                    onSelectedChange = { selected2 = it },
                 )
                 Toggle(
-                    selected = toggle3Selected,
+                    selected = selected3,
                     enabled = false,
-                    onSelectedChange = { toggle3Selected = it },
+                    onSelectedChange = { selected3 = it },
                 )
             }
 
@@ -85,10 +86,26 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
             )
 
             Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceAround
             ) {
+                var selected1 by remember { mutableStateOf(false) }
+                var selected2 by remember { mutableStateOf(true) }
+                var selected3 by remember { mutableStateOf(false) }
 
+                Switch(
+                    selected = selected1,
+                    onSelectedChange = { selected1 = it },
+                )
+                Switch(
+                    selected = selected2,
+                    onSelectedChange = { selected2 = it },
+                )
+                Switch(
+                    selected = selected3,
+                    enabled = false,
+                    onSelectedChange = { selected3 = it },
+                )
             }
         }
     }
