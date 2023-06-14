@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.toggle.ToggleDefaults
-import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.util.drawShadow
 
 // TODO: Toggle과 Switch 중 하나로 통일하는 방안을 디자인 측에서 논의중.
