@@ -17,6 +17,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+private val defaultShadowColor = Color.Black.copy(alpha = 0.22f)
+
 /**
  * Composable 뒤쪽에 그림자를 그립니다.
  *
@@ -30,7 +32,7 @@ import androidx.compose.ui.unit.dp
  */
 @Stable
 fun Modifier.shadow(
-    color: Color = Color.Black,
+    color: Color = defaultShadowColor,
     offsetX: Dp = 0.dp,
     offsetY: Dp = 0.dp,
     cornerRadius: Dp = 0.dp,
@@ -63,7 +65,7 @@ fun Modifier.shadow(
  */
 @Stable
 fun Modifier.shadow(
-    color: Color = Color.Black,
+    color: Color = defaultShadowColor,
     offsetX: Dp = 0.dp,
     offsetY: Dp = 0.dp,
     cornerRadius: CornerRadius = CornerRadius.Zero,
@@ -98,7 +100,7 @@ fun Modifier.shadow(
  * @param elevation 떠 있는 효과를 위한 elevation 값. 커질 수록 아래에 내려서 그림자를 그립니다.
  */
 fun DrawScope.drawShadow(
-    color: Color = Color.Black,
+    color: Color = defaultShadowColor,
     topLeft: Offset = Offset.Zero,
     size: Size = Size(width = this.size.width - topLeft.x, height = this.size.height - topLeft.y),
     cornerRadius: CornerRadius = CornerRadius.Zero,
