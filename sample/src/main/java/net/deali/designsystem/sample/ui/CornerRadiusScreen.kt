@@ -11,14 +11,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.DealiButton
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.internal.button.DealiButton
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
 import net.deali.designsystem.theme.gray100
