@@ -27,7 +27,6 @@ import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.pink60
-import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -86,7 +85,7 @@ private fun RadioIcon(
 
     val backgroundColor = when {
         enabled.not() -> gray20
-        else -> transparent
+        else -> AppTheme.colors.transparent
     }
 
     val borderColor = when {
@@ -97,7 +96,7 @@ private fun RadioIcon(
 
     val dotColor = when {
         selected -> pink60
-        else -> transparent
+        else -> AppTheme.colors.transparent
     }
 
     Canvas(

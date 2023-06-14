@@ -43,7 +43,6 @@ import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray60
 import net.deali.designsystem.theme.pink60
-import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
 
 @Composable
@@ -390,7 +389,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -400,7 +399,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
@@ -411,7 +410,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -421,7 +420,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
@@ -432,7 +431,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -442,7 +441,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else transparent),
+                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}

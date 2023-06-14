@@ -35,7 +35,6 @@ import net.deali.designsystem.theme.gray10
 import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.transparent
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.shadow
 
@@ -44,7 +43,7 @@ fun ShadowsScreen(
     onBackPress: () -> Unit
 ) {
     val shadowsScreenItems = listOf(
-        ShadowsScreenItem(name = "Elevation_none", color = transparent, offsetY = 0.dp, blurRadius = 0.dp),
+        ShadowsScreenItem(name = "Elevation_none", color = AppTheme.colors.transparent, offsetY = 0.dp, blurRadius = 0.dp),
         ShadowsScreenItem(name = "Shadow_type1", color = black010, offsetY = (-1).dp, blurRadius = 6.dp),
         ShadowsScreenItem(name = "Shadow_type2", color = black022, offsetY = 1.dp, blurRadius = 3.dp),
         ShadowsScreenItem(name = "Elevation_type3", color = black022, offsetY = 2.dp, blurRadius = 7.dp),

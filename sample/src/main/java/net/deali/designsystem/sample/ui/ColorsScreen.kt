@@ -15,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -86,8 +85,7 @@ fun ColorsScreen(
         ColorScreenItem(orange60, "orange60", "0xFFFF6827"),
 
         ColorScreenItem(AppTheme.colors.error, "error", "0xFFFA1818"),
-        ColorScreenItem(AppTheme.colors.links, "links", "0xFF2B66FD"),
-        ColorScreenItem(AppTheme.colors.info, "info", "0xFF2B66FD"),
+        ColorScreenItem(AppTheme.colors.linkAndInfo, "linkAndInfo", "0xFF2B66FD"),
         ColorScreenItem(AppTheme.colors.warning, "warning", "0xFFFFD600"),
         ColorScreenItem(AppTheme.colors.success, "success", "0xFF1BDA17"),
         ColorScreenItem(AppTheme.colors.ripple, "ripple", "0x22000000"),

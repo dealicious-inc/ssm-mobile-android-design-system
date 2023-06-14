@@ -13,17 +13,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.blue10
 import net.deali.designsystem.theme.blue70
 import net.deali.designsystem.theme.blue90
 import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray80
-import net.deali.designsystem.theme.pink10
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
+import net.deali.designsystem.util.getRandomText
 
 @Composable
 fun TagLargePrimaryFilledPink(
@@ -33,8 +31,8 @@ fun TagLargePrimaryFilledPink(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = pink60,
-        backgroundColor = pink10
+        textColor = AppTheme.colors.primary01,
+        backgroundColor = AppTheme.colors.primary03
     )
 }
 
@@ -74,7 +72,7 @@ fun TagLargeSecondaryOutlinedPink(
         text = text,
         textColor = pink90,
         backgroundColor = white100,
-        borderColor = pink60
+        borderColor = AppTheme.colors.primary01
     )
 }
 
@@ -114,8 +112,8 @@ fun TagMediumPrimaryFilledPink(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = pink60,
-        backgroundColor = pink10
+        textColor = AppTheme.colors.primary01,
+        backgroundColor = AppTheme.colors.primary03
     )
 }
 
@@ -155,7 +153,7 @@ fun TagMediumSecondaryOutlinedPink(
         text = text,
         textColor = pink90,
         backgroundColor = white100,
-        borderColor = pink60
+        borderColor = AppTheme.colors.primary01
     )
 }
 
@@ -195,8 +193,8 @@ fun TagSmallPrimaryFilledPink(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = pink60,
-        backgroundColor = pink10
+        textColor = AppTheme.colors.primary01,
+        backgroundColor = AppTheme.colors.primary03
     )
 }
 
@@ -236,7 +234,7 @@ fun TagSmallSecondaryOutlinedPink(
         text = text,
         textColor = pink90,
         backgroundColor = white100,
-        borderColor = pink60
+        borderColor = AppTheme.colors.primary01
     )
 }
 
