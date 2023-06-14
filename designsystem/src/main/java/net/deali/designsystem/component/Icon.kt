@@ -179,7 +179,7 @@ fun IconRotating(
     color: Color,
     durationMillis: Int = 2000
 ) {
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition(label = "transition")
     val currentAngle by transition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
@@ -188,9 +188,9 @@ fun IconRotating(
                 durationMillis = durationMillis,
                 easing = LinearEasing
             )
-        )
+        ),
+        label = "angle",
     )
-
     val painter = painterResource(id = iconRes)
 
     Canvas(modifier = modifier) {
