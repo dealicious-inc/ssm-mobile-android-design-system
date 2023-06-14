@@ -80,7 +80,8 @@ private fun RadioIcon(
 ) {
     val dotRadius = animateDpAsState(
         targetValue = if (selected) radioButtonDotSize / 2 else 0.dp,
-        animationSpec = tween(durationMillis = 100)
+        animationSpec = tween(durationMillis = 100),
+        label = "radius",
     )
 
     val backgroundColor = when {
