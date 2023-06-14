@@ -18,7 +18,6 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.theme.gray50
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -53,7 +52,7 @@ fun CheckBox(
             style = AppTheme.typography.b3r13,
             color = when {
                 enabled.not() -> gray50
-                checked -> pink60
+                checked -> AppTheme.colors.primary01
                 else -> gray100
             },
             maxLines = 1

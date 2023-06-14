@@ -31,9 +31,9 @@ import net.deali.designsystem.theme.black010
 import net.deali.designsystem.theme.black015
 import net.deali.designsystem.theme.black020
 import net.deali.designsystem.theme.black022
-import net.deali.designsystem.theme.gray10
+import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.shadow
@@ -68,7 +68,7 @@ fun ShadowsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(gray20),
+                .background(AppTheme.colors.divider03),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -103,7 +103,7 @@ private fun Container(
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .background(gray10)
+                .background(AppTheme.colors.bg07)
                 .padding(20.dp)
                 .fillMaxWidth(),
             contentAlignment = Alignment.Center

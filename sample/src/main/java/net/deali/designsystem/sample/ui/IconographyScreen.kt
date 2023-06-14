@@ -37,12 +37,11 @@ import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_24
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_32
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.gray10
+import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray60
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white100
 
 @Composable
@@ -306,7 +305,7 @@ fun IconographyScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(gray20),
+                .background(AppTheme.colors.divider03),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -345,14 +344,14 @@ private fun Container(
                 .fillMaxWidth()
                 .aspectRatio(5 / 2f)
                 .clip(RoundedCornerShape(6.dp))
-                .background(gray10)
+                .background(AppTheme.colors.bg07)
                 .border(1.dp, gray30, RoundedCornerShape(6.dp))
                 .horizontalScroll(scrollState),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally)
         ) {
             val colors = listOf(
-                gray100, pink60, gray60, white100
+                gray100, AppTheme.colors.primary01, gray60, white100
             )
 
             Spacer(modifier = Modifier.width(10.dp))

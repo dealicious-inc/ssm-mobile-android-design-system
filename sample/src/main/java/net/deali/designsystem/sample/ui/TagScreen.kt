@@ -45,7 +45,7 @@ import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 
@@ -69,7 +69,7 @@ fun TagScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = gray20),
+                .background(color = AppTheme.colors.divider03),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {

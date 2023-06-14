@@ -15,9 +15,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray10
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.gray70
 import net.deali.designsystem.theme.white100
@@ -50,8 +48,8 @@ internal object DealiTextFieldDefaults {
     fun colors(): DealiTextFieldColors {
         return DefaultDealiTextFieldColors(
             backgroundColor = white100,
-            disabledBackgroundColor = gray10,
-            outlineColor = gray20,
+            disabledBackgroundColor = AppTheme.colors.bg07,
+            outlineColor = AppTheme.colors.divider03,
             focusedOutlineColor = gray100,
             errorOutlineColor = AppTheme.colors.error,
             textColor = gray100,

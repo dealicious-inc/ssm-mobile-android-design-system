@@ -10,11 +10,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
-import net.deali.designsystem.theme.gray10
-import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray60
-import net.deali.designsystem.theme.pink10
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white100
 
 internal object ToggleDefaults {
@@ -29,11 +26,11 @@ internal object ToggleDefaults {
     fun colors(): ToggleColors {
         return DefaultToggleColors(
             slideColor = gray60,
-            selectedSlideColor = pink10,
-            disabledSlideColor = gray20,
+            selectedSlideColor = AppTheme.colors.primary03,
+            disabledSlideColor = AppTheme.colors.divider03,
             handleColor = white100,
-            selectedHandleColor = pink60,
-            disabledHandleColor = gray10,
+            selectedHandleColor = AppTheme.colors.primary01,
+            disabledHandleColor = AppTheme.colors.bg07,
         )
     }
 }

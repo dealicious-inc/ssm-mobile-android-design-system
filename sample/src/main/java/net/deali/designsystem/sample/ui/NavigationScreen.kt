@@ -22,27 +22,24 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.IndicatorNumber
+import net.deali.designsystem.component.IndicatorPagination
 import net.deali.designsystem.component.IndicatorPinkDot
 import net.deali.designsystem.component.IndicatorWhiteDot
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.IndicatorNumber
-import net.deali.designsystem.component.IndicatorPagination
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.blue70
-import net.deali.designsystem.theme.gray10
+import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
+import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white100
 
 @Composable
@@ -65,7 +62,7 @@ fun NavigationScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = gray20),
+                .background(color = AppTheme.colors.divider03),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -84,7 +81,7 @@ private fun PagerContainer() {
         backgroundColor = gray50
     ) {
         val colors = listOf(
-            pink60, blue70, gray100, black100, white100
+            AppTheme.colors.primary01, AppTheme.colors.secondary01, gray100, black100, white100
         )
 
         val pagerDataState = rememberPageDataState(
@@ -146,7 +143,7 @@ private fun PagerContainer() {
 @Composable
 private fun Container(
     name: String,
-    backgroundColor: Color = gray10,
+    backgroundColor: Color = AppTheme.colors.bg07,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(

@@ -12,11 +12,10 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonLarge
 import net.deali.designsystem.internal.button.ButtonMedium
 import net.deali.designsystem.internal.button.ButtonSmall
-import net.deali.designsystem.theme.gray10
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.gray80
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 
@@ -35,7 +34,7 @@ fun ButtonSmallFilled(
         modifier = modifier,
         text = text,
         textColor = white100,
-        backgroundColor = if (enabled) pink60 else gray50,
+        backgroundColor = if (enabled) AppTheme.colors.primary01 else gray50,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -60,7 +59,7 @@ fun ButtonMediumFilled(
         modifier = modifier,
         text = text,
         textColor = white100,
-        backgroundColor = if (enabled) pink60 else gray50,
+        backgroundColor = if (enabled) AppTheme.colors.primary01 else gray50,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -85,7 +84,7 @@ fun ButtonLargeFilled(
         modifier = modifier,
         text = text,
         textColor = white100,
-        backgroundColor = if (enabled) pink60 else gray50,
+        backgroundColor = if (enabled) AppTheme.colors.primary01 else gray50,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -109,11 +108,11 @@ fun ButtonSmallOutlined(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textColor = if (enabled) pink60 else gray50,
+        textColor = if (enabled) AppTheme.colors.primary01 else gray50,
         backgroundColor = white100,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) pink60 else gray50),
+        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else gray50),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -135,11 +134,11 @@ fun ButtonMediumOutlined(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textColor = if (enabled) pink60 else gray50,
+        textColor = if (enabled) AppTheme.colors.primary01 else gray50,
         backgroundColor = white100,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) pink60 else gray50),
+        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else gray50),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -161,11 +160,11 @@ fun ButtonLargeOutlined(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textColor = if (enabled) pink60 else gray50,
+        textColor = if (enabled) AppTheme.colors.primary01 else gray50,
         backgroundColor = white100,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) pink60 else gray50),
+        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else gray50),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -188,7 +187,7 @@ fun ButtonSmallTonalOutlined(
         modifier = modifier,
         text = text,
         textColor = if (enabled) gray80 else gray50,
-        backgroundColor = gray10,
+        backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
         process = process,
         border = BorderStroke(1.dp, gray30),
@@ -214,7 +213,7 @@ fun ButtonMediumTonalOutlined(
         modifier = modifier,
         text = text,
         textColor = if (enabled) gray80 else gray50,
-        backgroundColor = gray10,
+        backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
         process = process,
         border = BorderStroke(1.dp, gray30),
@@ -240,7 +239,7 @@ fun ButtonLargeTonalOutlined(
         modifier = modifier,
         text = text,
         textColor = if (enabled) gray80 else gray50,
-        backgroundColor = gray10,
+        backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
         process = process,
         border = BorderStroke(1.dp, gray30),

@@ -26,12 +26,7 @@ import net.deali.designsystem.theme.black010
 import net.deali.designsystem.theme.black020
 import net.deali.designsystem.theme.black040
 import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.blue10
-import net.deali.designsystem.theme.blue70
-import net.deali.designsystem.theme.blue90
-import net.deali.designsystem.theme.gray10
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray40
 import net.deali.designsystem.theme.gray50
@@ -41,9 +36,6 @@ import net.deali.designsystem.theme.gray80
 import net.deali.designsystem.theme.orange10
 import net.deali.designsystem.theme.orange50
 import net.deali.designsystem.theme.orange60
-import net.deali.designsystem.theme.pink10
-import net.deali.designsystem.theme.pink60
-import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white020
 import net.deali.designsystem.theme.white060
 import net.deali.designsystem.theme.white100
@@ -53,16 +45,16 @@ fun ColorsScreen(
     onBackPress: () -> Unit
 ) {
     val colorScreenItems = listOf(
-        ColorScreenItem(pink10, "pink10", "#0xFFFEECEF"),
-        ColorScreenItem(pink60, "pink60", "#0xFFFB4760"),
-        ColorScreenItem(pink90, "pink90", "#0xFFEC2843"),
+        ColorScreenItem(AppTheme.colors.primary01, "primary01", "#0xFFFB4760"),
+        ColorScreenItem(AppTheme.colors.primary02, "primary02", "#0xFFEC2843"),
+        ColorScreenItem(AppTheme.colors.primary03, "primary03", "#0xFFFEECEF"),
 
-        ColorScreenItem(blue10, "blue10", "0xFFEAEFFF"),
-        ColorScreenItem(blue70, "blue70", "0xFF3668F4"),
-        ColorScreenItem(blue90, "blue90", "0xFF0E46E4"),
+        ColorScreenItem(AppTheme.colors.secondary01, "secondary01", "0xFF3668F4"),
+        ColorScreenItem(AppTheme.colors.secondary02, "secondary02", "0xFF0E46E4"),
+        ColorScreenItem(AppTheme.colors.secondary03, "secondary03", "0xFFEAEFFF"),
 
-        ColorScreenItem(gray10, "gray10", "0xFFF5F6FB"),
-        ColorScreenItem(gray20, "gray20", "0xFFEBEEF6"),
+        ColorScreenItem(AppTheme.colors.bg07, "bg07", "0xFFF5F6FB"),
+        ColorScreenItem(AppTheme.colors.divider03, "AppTheme.colors.divider03", "0xFFEBEEF6"),
         ColorScreenItem(gray30, "gray30", "0xFFDFE3ED"),
         ColorScreenItem(gray40, "gray40", "0xFFD0D6E1"),
         ColorScreenItem(gray50, "gray50", "0xFFBEC5D2"),
@@ -138,7 +130,7 @@ private fun Item(
     ) {
         Spacer(
             modifier = Modifier
-                .then(if (name.contains("white")) Modifier.border(1.dp, gray20) else Modifier)
+                .then(if (name.contains("white")) Modifier.border(1.dp, AppTheme.colors.divider03) else Modifier)
                 .background(color)
                 .aspectRatio(1f)
         )

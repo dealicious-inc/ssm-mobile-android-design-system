@@ -69,16 +69,6 @@ private val transparent = Color(0x00FFFFFF)
 // ripple
 private val ripple = Color(0x22000000)
 
-val pink10 = Color(0xFFFEECEF)
-val pink60 = Color(0xFFFB4760)
-val pink90 = Color(0xFFEC2843)
-
-val blue10 = Color(0xFFEAEFFF)
-val blue70 = Color(0xFF3668F4)
-val blue90 = Color(0xFF0E46E4)
-
-val gray10 = Color(0xFFF5F6FB)
-val gray20 = Color(0xFFEBEEF6)
 val gray30 = Color(0xFFDFE3ED)
 val gray40 = Color(0xFFD0D6E1)
 val gray50 = Color(0xFFBEC5D2)

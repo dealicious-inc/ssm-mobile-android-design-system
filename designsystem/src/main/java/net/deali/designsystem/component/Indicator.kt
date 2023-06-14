@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black040
 import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white020
 import net.deali.designsystem.theme.white060
 import net.deali.designsystem.theme.white100
@@ -49,7 +48,7 @@ fun IndicatorPinkDot(
         modifier = modifier,
         pagerState = pagerState,
         pageCount = pageCount,
-        activeColor = pink60,
+        activeColor = AppTheme.colors.primary01,
         inactiveColor = gray30,
         indicatorSize = 6.dp,
         space = 6.dp,

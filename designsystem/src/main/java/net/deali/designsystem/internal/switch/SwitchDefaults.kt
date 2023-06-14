@@ -9,8 +9,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.theme.white100
 
 internal object SwitchDefaults {
@@ -22,7 +22,7 @@ internal object SwitchDefaults {
     fun colors(): SwitchColors {
         return DefaultSwitchColors(
             slideColor = gray30,
-            selectedSlideColor = pink60,
+            selectedSlideColor = AppTheme.colors.primary01,
             disabledSlideColor = gray30.copy(alpha = 0.5f),
             handleColor = white100,
         )

@@ -23,10 +23,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
-import net.deali.designsystem.theme.pink60
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -62,7 +60,7 @@ fun RadioButton(
             style = AppTheme.typography.b3r13,
             color = when {
                 enabled.not() -> gray50
-                selected -> pink60
+                selected -> AppTheme.colors.primary01
                 else -> gray100
             }
         )
@@ -84,18 +82,18 @@ private fun RadioIcon(
     )
 
     val backgroundColor = when {
-        enabled.not() -> gray20
+        enabled.not() -> AppTheme.colors.divider03
         else -> AppTheme.colors.transparent
     }
 
     val borderColor = when {
         enabled.not() -> gray30
-        selected -> pink60
+        selected -> AppTheme.colors.primary01
         else -> gray100
     }
 
     val dotColor = when {
-        selected -> pink60
+        selected -> AppTheme.colors.primary01
         else -> AppTheme.colors.transparent
     }
 

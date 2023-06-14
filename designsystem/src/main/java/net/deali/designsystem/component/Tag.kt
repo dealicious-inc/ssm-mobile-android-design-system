@@ -14,12 +14,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.blue10
-import net.deali.designsystem.theme.blue70
-import net.deali.designsystem.theme.blue90
-import net.deali.designsystem.theme.gray20
 import net.deali.designsystem.theme.gray80
-import net.deali.designsystem.theme.pink90
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 
@@ -44,8 +39,8 @@ fun TagLargePrimaryFilledBlue(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = blue70,
-        backgroundColor = blue10
+        textColor = AppTheme.colors.secondary01,
+        backgroundColor = AppTheme.colors.secondary03
     )
 }
 
@@ -58,7 +53,7 @@ fun TagLargePrimaryFilledGray(
         modifier = modifier,
         text = text,
         textColor = gray80,
-        backgroundColor = gray20
+        backgroundColor = AppTheme.colors.divider03
     )
 }
 
@@ -70,7 +65,7 @@ fun TagLargeSecondaryOutlinedPink(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = pink90,
+        textColor = AppTheme.colors.primary02,
         backgroundColor = white100,
         borderColor = AppTheme.colors.primary01
     )
@@ -84,9 +79,9 @@ fun TagLargeSecondaryOutlinedBlue(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = blue90,
+        textColor = AppTheme.colors.secondary02,
         backgroundColor = white100,
-        borderColor = blue70
+        borderColor = AppTheme.colors.secondary01
     )
 }
 
@@ -100,7 +95,7 @@ fun TagLargeSecondaryOutlinedGray(
         text = text,
         textColor = gray80,
         backgroundColor = white100,
-        borderColor = gray20
+        borderColor = AppTheme.colors.divider03
     )
 }
 
@@ -125,8 +120,8 @@ fun TagMediumPrimaryFilledBlue(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = blue70,
-        backgroundColor = blue10
+        textColor = AppTheme.colors.secondary01,
+        backgroundColor = AppTheme.colors.secondary03
     )
 }
 
@@ -139,7 +134,7 @@ fun TagMediumPrimaryFilledGray(
         modifier = modifier,
         text = text,
         textColor = gray80,
-        backgroundColor = gray20
+        backgroundColor = AppTheme.colors.divider03
     )
 }
 
@@ -151,7 +146,7 @@ fun TagMediumSecondaryOutlinedPink(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = pink90,
+        textColor = AppTheme.colors.primary02,
         backgroundColor = white100,
         borderColor = AppTheme.colors.primary01
     )
@@ -165,9 +160,9 @@ fun TagMediumSecondaryOutlinedBlue(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = blue90,
+        textColor = AppTheme.colors.secondary02,
         backgroundColor = white100,
-        borderColor = blue70
+        borderColor = AppTheme.colors.secondary01
     )
 }
 
@@ -181,7 +176,7 @@ fun TagMediumSecondaryOutlinedGray(
         text = text,
         textColor = gray80,
         backgroundColor = white100,
-        borderColor = gray20
+        borderColor = AppTheme.colors.divider03
     )
 }
 
@@ -206,8 +201,8 @@ fun TagSmallPrimaryFilledBlue(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = blue70,
-        backgroundColor = blue10
+        textColor = AppTheme.colors.secondary01,
+        backgroundColor = AppTheme.colors.secondary03
     )
 }
 
@@ -220,7 +215,7 @@ fun TagSmallPrimaryFilledGray(
         modifier = modifier,
         text = text,
         textColor = gray80,
-        backgroundColor = gray20
+        backgroundColor = AppTheme.colors.divider03
     )
 }
 
@@ -232,7 +227,7 @@ fun TagSmallSecondaryOutlinedPink(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = pink90,
+        textColor = AppTheme.colors.primary02,
         backgroundColor = white100,
         borderColor = AppTheme.colors.primary01
     )
@@ -246,9 +241,9 @@ fun TagSmallSecondaryOutlinedBlue(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = blue90,
+        textColor = AppTheme.colors.secondary02,
         backgroundColor = white100,
-        borderColor = blue70
+        borderColor = AppTheme.colors.secondary01
     )
 }
 
@@ -262,7 +257,7 @@ fun TagSmallSecondaryOutlinedGray(
         text = text,
         textColor = gray80,
         backgroundColor = white100,
-        borderColor = gray20
+        borderColor = AppTheme.colors.divider03
     )
 }
 
