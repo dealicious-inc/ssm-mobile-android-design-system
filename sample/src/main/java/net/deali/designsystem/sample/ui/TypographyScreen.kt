@@ -38,7 +38,6 @@ import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.sample.datastore.DataStoreUtil
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText

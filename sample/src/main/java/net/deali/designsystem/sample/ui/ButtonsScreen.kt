@@ -38,7 +38,6 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.white100
 
 @Composable

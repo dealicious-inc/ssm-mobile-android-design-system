@@ -37,9 +37,7 @@ import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_24
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_32
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray60
 import net.deali.designsystem.theme.white100

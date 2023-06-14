@@ -35,9 +35,7 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.gray50
 import net.deali.designsystem.theme.white100

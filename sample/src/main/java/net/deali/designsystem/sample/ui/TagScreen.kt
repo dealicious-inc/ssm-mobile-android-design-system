@@ -18,12 +18,12 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TagLargePrimaryFilledBlue
 import net.deali.designsystem.component.TagLargePrimaryFilledGray
 import net.deali.designsystem.component.TagLargePrimaryFilledPink
@@ -36,7 +36,6 @@ import net.deali.designsystem.component.TagMediumPrimaryFilledPink
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedGray
 import net.deali.designsystem.component.TagMediumSecondaryOutlinedPink
-import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TagSmallPrimaryFilledBlue
 import net.deali.designsystem.component.TagSmallPrimaryFilledGray
 import net.deali.designsystem.component.TagSmallPrimaryFilledPink
@@ -45,7 +44,6 @@ import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 

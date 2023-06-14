@@ -31,9 +31,7 @@ import net.deali.designsystem.theme.black010
 import net.deali.designsystem.theme.black015
 import net.deali.designsystem.theme.black020
 import net.deali.designsystem.theme.black022
-import net.deali.designsystem.theme.AppTheme.colors.bg07
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 import net.deali.designsystem.theme.gray30
 import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.shadow

@@ -25,7 +25,6 @@ import net.deali.designsystem.component.Switch
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.AppTheme.colors.divider03
 
 @Composable
 fun ToggleSwitchScreen(onBackPress: () -> Unit) {
