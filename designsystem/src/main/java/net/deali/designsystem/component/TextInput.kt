@@ -15,7 +15,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 import net.deali.designsystem.theme.AppTheme
 
 @Composable
-fun Input(
+fun TextInput(
     value: String,
     onValueChange: (String) -> Unit,
     @DrawableRes trailingIconRes: Int?,
@@ -64,7 +64,7 @@ fun Input(
 }
 
 @Composable
-fun Input(
+fun TextInput(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -100,7 +100,7 @@ fun Input(
 }
 
 @Composable
-fun Input(
+fun TextInput(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     @DrawableRes trailingIconRes: Int?,
@@ -149,7 +149,7 @@ fun Input(
 }
 
 @Composable
-fun Input(
+fun TextInput(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,

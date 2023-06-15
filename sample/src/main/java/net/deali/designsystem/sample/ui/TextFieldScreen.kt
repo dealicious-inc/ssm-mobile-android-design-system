@@ -22,7 +22,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.DealiTextField
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.Input
+import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
@@ -195,7 +195,7 @@ private fun InputOption(
     placeholder: String,
     modifier: Modifier = Modifier,
 ) {
-    Input(
+    TextInput(
         value = value,
         onValueChange = onValueChange,
         placeholder = placeholder,

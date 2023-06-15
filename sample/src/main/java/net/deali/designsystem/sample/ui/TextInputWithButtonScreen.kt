@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.Input
-import net.deali.designsystem.component.InputWithButton
+import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.component.TextInputWithButton
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
@@ -60,7 +60,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            InputWithButton(
+            TextInputWithButton(
                 value = text,
                 onValueChange = { text = it },
                 buttonText = "Button",
@@ -197,7 +197,7 @@ private fun InputOption(
     placeholder: String,
     modifier: Modifier = Modifier,
 ) {
-    Input(
+    TextInput(
         value = value,
         onValueChange = onValueChange,
         placeholder = placeholder,

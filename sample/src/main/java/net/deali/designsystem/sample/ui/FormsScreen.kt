@@ -23,8 +23,8 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.Input
-import net.deali.designsystem.component.InputWithButton
+import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.component.TextInputWithButton
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.util.BigPasswordVisualTransformation
@@ -54,19 +54,19 @@ fun FormsScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             ButtonMediumOutlined(
-                text = "Input",
+                text = "Text Input",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInput,
             )
             ButtonMediumOutlined(
-                text = "Input + Button",
+                text = "Text Input + Button",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInputWithButton,
             )
             ButtonMediumOutlined(
-                text = "TextField",
+                text = "Text Field",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToTextField,
@@ -143,14 +143,14 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text1,
                     onValueChange = { text1 = it },
                 )
             }
 
             item {
-                Input(
+                TextInput(
                     value = text2,
                     onValueChange = { text2 = it },
                     enabled = false,
@@ -158,7 +158,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text3,
                     onValueChange = { text3 = it },
                     isError = true,
@@ -166,7 +166,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text4,
                     onValueChange = { text4 = it },
                     placeholder = "Text input",
@@ -176,7 +176,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text5,
                     onValueChange = { text5 = it },
                     enabled = false,
@@ -187,7 +187,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text6,
                     onValueChange = { text6 = it },
                     isError = true,
@@ -198,7 +198,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text7,
                     onValueChange = { text7 = it },
                     trailingIconRes = R.drawable.ic_x_24_ver01,
@@ -208,7 +208,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text8,
                     onValueChange = { text8 = it },
                     trailingIconRes = if (text8.isNotEmpty()) {
@@ -223,7 +223,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text9,
                     onValueChange = { text9 = it },
                     placeholder = "Text Input with custom trailing content",
@@ -240,7 +240,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text10,
                     onValueChange = { text10 = it },
                     textStyle = AppTheme.typography.b2b14,
@@ -250,7 +250,7 @@ fun FormsScreenOld(
             }
 
             item {
-                Input(
+                TextInput(
                     value = text11,
                     onValueChange = { text11 = it },
                     visualTransformation = BigPasswordVisualTransformation(),
@@ -264,7 +264,7 @@ fun FormsScreenOld(
             }
 
             item {
-                InputWithButton(
+                TextInputWithButton(
                     value = text12,
                     onValueChange = { text12 = it },
                     buttonText = "Button",
@@ -274,7 +274,7 @@ fun FormsScreenOld(
             }
 
             item {
-                InputWithButton(
+                TextInputWithButton(
                     value = text13,
                     onValueChange = { text13 = it },
                     buttonText = "Button",
@@ -285,7 +285,7 @@ fun FormsScreenOld(
             }
 
             item {
-                InputWithButton(
+                TextInputWithButton(
                     value = text14,
                     onValueChange = { text14 = it },
                     buttonText = "Button",
@@ -297,7 +297,7 @@ fun FormsScreenOld(
             }
 
             item {
-                InputWithButton(
+                TextInputWithButton(
                     value = text15,
                     onValueChange = { text15 = it },
                     buttonText = "Button",

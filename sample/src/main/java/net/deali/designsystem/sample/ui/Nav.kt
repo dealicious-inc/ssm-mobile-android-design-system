@@ -163,18 +163,18 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
     navigation(startDestination = Screen.Forms.route, route = Screen.Forms.menu) {
         composable(Screen.Forms.route) {
             FormsScreen(
-                navigateToInput = { navController.navigate(Screen.Input.route) },
-                navigateToInputWithButton = { navController.navigate(Screen.InputWithButton.route) },
+                navigateToInput = { navController.navigate(Screen.TextInput.route) },
+                navigateToInputWithButton = { navController.navigate(Screen.TextInputWithButton.route) },
                 navigateToTextField = { navController.navigate(Screen.TextField.route) },
                 onBackPress = navController::popBackStack,
             )
         }
-        composable(Screen.Input.route) {
+        composable(Screen.TextInput.route) {
             InputScreen(
                 onBackPress = navController::popBackStack
             )
         }
-        composable(Screen.InputWithButton.route) {
+        composable(Screen.TextInputWithButton.route) {
             InputWithButtonScreen(
                 onBackPress = navController::popBackStack
             )
@@ -213,8 +213,8 @@ sealed class Screen(val route: String) {
     object Rating : Screen("rating")
     object Popup : Screen("popup")
     object Tag : Screen("tag")
-    object Input : Screen("input")
-    object InputWithButton : Screen("inputWithButton")
+    object TextInput : Screen("textInput")
+    object TextInputWithButton : Screen("textInputWithButton")
     object TextField: Screen("textField")
 }
 

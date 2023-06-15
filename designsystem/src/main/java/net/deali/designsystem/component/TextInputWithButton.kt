@@ -18,7 +18,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 import net.deali.designsystem.theme.AppTheme
 
 @Composable
-fun InputWithButton(
+fun TextInputWithButton(
     value: String,
     onValueChange: (String) -> Unit,
     @DrawableRes trailingIconRes: Int?,
@@ -38,8 +38,8 @@ fun InputWithButton(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
 ) {
-    InputWithButtonRow(modifier = modifier) {
-        Input(
+    TextInputWithButtonRow(modifier = modifier) {
+        TextInput(
             value = value,
             onValueChange = onValueChange,
             trailingIconRes = trailingIconRes,
@@ -66,7 +66,7 @@ fun InputWithButton(
 }
 
 @Composable
-fun InputWithButton(
+fun TextInputWithButton(
     value: String,
     onValueChange: (String) -> Unit,
     buttonText: String,
@@ -84,8 +84,8 @@ fun InputWithButton(
     isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    InputWithButtonRow(modifier = modifier) {
-        Input(
+    TextInputWithButtonRow(modifier = modifier) {
+        TextInput(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier.weight(1f),
@@ -110,7 +110,7 @@ fun InputWithButton(
 }
 
 @Composable
-fun InputWithButton(
+fun TextInputWithButton(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     @DrawableRes trailingIconRes: Int?,
@@ -130,8 +130,8 @@ fun InputWithButton(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
 ) {
-    InputWithButtonRow(modifier = modifier) {
-        Input(
+    TextInputWithButtonRow(modifier = modifier) {
+        TextInput(
             value = value,
             onValueChange = onValueChange,
             trailingIconRes = trailingIconRes,
@@ -158,7 +158,7 @@ fun InputWithButton(
 }
 
 @Composable
-fun InputWithButton(
+fun TextInputWithButton(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     buttonText: String,
@@ -176,8 +176,8 @@ fun InputWithButton(
     isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    InputWithButtonRow(modifier = modifier) {
-        Input(
+    TextInputWithButtonRow(modifier = modifier) {
+        TextInput(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier.weight(1f),
@@ -202,7 +202,7 @@ fun InputWithButton(
 }
 
 @Composable
-private fun InputWithButtonRow(
+private fun TextInputWithButtonRow(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) = Row(
