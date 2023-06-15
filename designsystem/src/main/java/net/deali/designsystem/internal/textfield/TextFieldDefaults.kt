@@ -25,12 +25,14 @@ internal object DealiTextFieldDefaults {
     private const val Space: Char = ' '
     const val HelperTextBullet: String = "${SquareBullet}${Space}"
 
-//    TODO DRG AppTheme.colors.text01 로 바꿔야 함.
-    val Cursor: Brush = SolidColor(Color(0xFF222222))
-
     val TextStyle: TextStyle
         @Composable
         get() = AppTheme.typography.b2r14
+
+    @Composable
+    fun cursor(): Brush {
+        return SolidColor(AppTheme.colors.text01)
+    }
 
     @Composable
     fun paddings(): DealiTextFieldPaddingValues {

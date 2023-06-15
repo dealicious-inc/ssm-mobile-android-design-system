@@ -126,7 +126,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
         maxLines = if (singleLine) 1 else maxLines,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
-        cursorBrush = DealiTextFieldDefaults.Cursor,
+        cursorBrush = DealiTextFieldDefaults.cursor(),
         decorationBox = { innerTextField ->
             DealiTextFieldDecorationBox(
                 enabled = enabled,
