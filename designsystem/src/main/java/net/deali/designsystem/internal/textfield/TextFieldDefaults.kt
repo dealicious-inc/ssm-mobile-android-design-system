@@ -15,10 +15,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray50
-import net.deali.designsystem.theme.gray70
-import net.deali.designsystem.theme.white100
 
 internal object DealiTextFieldDefaults {
     val BorderWidth: Dp = 1.dp
@@ -29,7 +25,8 @@ internal object DealiTextFieldDefaults {
     private const val Space: Char = ' '
     const val HelperTextBullet: String = "${SquareBullet}${Space}"
 
-    val Cursor: Brush = SolidColor(gray100)
+//    TODO DRG AppTheme.colors.text01 로 바꿔야 함.
+    val Cursor: Brush = SolidColor(Color(0xFF222222))
 
     val TextStyle: TextStyle
         @Composable
@@ -47,16 +44,16 @@ internal object DealiTextFieldDefaults {
     @Composable
     fun colors(): DealiTextFieldColors {
         return DefaultDealiTextFieldColors(
-            backgroundColor = white100,
-            disabledBackgroundColor = AppTheme.colors.bg07,
-            outlineColor = AppTheme.colors.divider03,
-            focusedOutlineColor = gray100,
+            backgroundColor = AppTheme.colors.primary04,
+            disabledBackgroundColor = AppTheme.colors.divider03,
+            outlineColor = AppTheme.colors.line04,
+            focusedOutlineColor = AppTheme.colors.line01,
             errorOutlineColor = AppTheme.colors.error,
-            textColor = gray100,
-            disabledTextColor = gray50,
-            placeholderTextColor = gray70,
-            labelTextColor = gray100,
-            helperTextColor = gray70,
+            textColor = AppTheme.colors.text01,
+            disabledTextColor = AppTheme.colors.text05,
+            placeholderTextColor = AppTheme.colors.text03,
+            labelTextColor = AppTheme.colors.text01,
+            helperTextColor = AppTheme.colors.text03,
             errorHelperTextColor = AppTheme.colors.error,
         )
     }

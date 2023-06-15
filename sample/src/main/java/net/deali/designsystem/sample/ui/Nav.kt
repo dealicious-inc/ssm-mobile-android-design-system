@@ -13,7 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import net.deali.designsystem.sample.datastore.DataStoreUtil
-import net.deali.designsystem.theme.white100
+import net.deali.designsystem.theme.AppTheme
 
 @Composable
 fun Nav(
@@ -24,7 +24,7 @@ fun Nav(
     NavHost(
         modifier = Modifier
             .fillMaxSize()
-            .background(white100),
+            .background(AppTheme.colors.primary04),
         navController = navController,
         startDestination = Screen.Menu.route
     ) {

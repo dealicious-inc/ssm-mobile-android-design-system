@@ -69,29 +69,6 @@ private val transparent = Color(0x00FFFFFF)
 // ripple
 private val ripple = Color(0x22000000)
 
-val gray30 = Color(0xFFDFE3ED)
-val gray40 = Color(0xFFD0D6E1)
-val gray50 = Color(0xFFBEC5D2)
-val gray60 = Color(0xFFA6ADBD)
-val gray70 = Color(0xFF8F97A7)
-val gray80 = Color(0xFF686E7B)
-val gray100 = Color(0xFF222222)
-
-val black010 = Color(0x1A000000)
-val black015 = Color(0x26000000)    // TODO DRG figma에 없음
-val black020 = Color(0x33000000)
-val black022 = Color(0x38000000)    // TODO DRG figma에 없음
-val black040 = Color(0x66000000)
-val black100 = Color(0xFF000000)
-
-val white020 = Color(0x33FFFFFF)
-val white060 = Color(0x99FFFFFF)
-val white100 = Color(0xFFFFFFFF)
-
-val orange10 = Color(0xFFFFECDB)
-val orange50 = Color(0xFFFF7C44)
-val orange60 = Color(0xFFFF6827)
-
 @Stable
 class AppColors(
     primary01: Color,

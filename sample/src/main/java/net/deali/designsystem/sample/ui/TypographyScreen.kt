@@ -37,9 +37,6 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.sample.datastore.DataStoreUtil
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 import java.util.Locale
 
@@ -128,7 +125,7 @@ private fun LocaleContainer(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = white100)
+            .background(color = AppTheme.colors.primary04)
             .padding(10.dp)
             .selectableGroup(),
         horizontalArrangement = Arrangement.SpaceAround,
@@ -159,7 +156,7 @@ private fun Item(
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(white100)
+            .background(AppTheme.colors.primary04)
             .clickable(
                 onClick = { isVisible = !isVisible }
             )
@@ -195,7 +192,7 @@ private fun Item(
                     Modifier
                         .fillMaxWidth()
                         .height(1.dp)
-                        .background(color = gray30)
+                        .background(color = AppTheme.colors.line03)
                 )
 
                 DealiText(
@@ -203,7 +200,7 @@ private fun Item(
                         .padding(30.dp),
                     text = getRandomText(),
                     style = style,
-                    color = gray100
+                    color = AppTheme.colors.text01
                 )
             }
         }

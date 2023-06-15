@@ -11,8 +11,6 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray60
-import net.deali.designsystem.theme.white100
 
 internal object ToggleDefaults {
     val SlideSize: DpSize = DpSize(width = 34.dp, height = 14.dp)
@@ -25,12 +23,12 @@ internal object ToggleDefaults {
     @Composable
     fun colors(): ToggleColors {
         return DefaultToggleColors(
-            slideColor = gray60,
+            slideColor = AppTheme.colors.bg02,
             selectedSlideColor = AppTheme.colors.primary03,
-            disabledSlideColor = AppTheme.colors.divider03,
-            handleColor = white100,
+            disabledSlideColor = AppTheme.colors.divider02,
+            handleColor = AppTheme.colors.primary04,
             selectedHandleColor = AppTheme.colors.primary01,
-            disabledHandleColor = AppTheme.colors.bg07,
+            disabledHandleColor = AppTheme.colors.divider03,
         )
     }
 }

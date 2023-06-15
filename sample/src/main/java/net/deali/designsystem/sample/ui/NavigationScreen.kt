@@ -34,11 +34,6 @@ import net.deali.designsystem.component.IndicatorWhiteDot
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.gray50
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun NavigationScreen(
@@ -76,10 +71,14 @@ fun NavigationScreen(
 private fun PagerContainer() {
     Container(
         name = "Indicator",
-        backgroundColor = gray50
+        backgroundColor = AppTheme.colors.bg04
     ) {
         val colors = listOf(
-            AppTheme.colors.primary01, AppTheme.colors.secondary01, gray100, black100, white100
+            AppTheme.colors.primary01,
+            AppTheme.colors.secondary01,
+            AppTheme.colors.text01,
+            AppTheme.colors.divider01,
+            AppTheme.colors.line01
         )
 
         val pagerDataState = rememberPageDataState(
@@ -148,7 +147,7 @@ private fun Container(
         modifier = Modifier
             .padding(10.dp)
             .clip(RoundedCornerShape(6.dp))
-            .background(white100)
+            .background(AppTheme.colors.primary04)
             .padding(10.dp)
     ) {
         Column(
@@ -156,7 +155,7 @@ private fun Container(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(6.dp))
                 .background(backgroundColor)
-                .border(1.dp, gray30, RoundedCornerShape(6.dp)),
+                .border(1.dp, AppTheme.colors.line03, RoundedCornerShape(6.dp)),
             content = content,
             horizontalAlignment = Alignment.CenterHorizontally
         )
@@ -166,7 +165,7 @@ private fun Container(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = gray100
+            color = AppTheme.colors.text01
         )
     }
 }

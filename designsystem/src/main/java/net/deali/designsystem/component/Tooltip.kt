@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.tooltip.CoreDealiTooltip
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun Tooltip(
@@ -40,7 +39,7 @@ fun Tooltip(
                         ),
                     text = text,
                     style = AppTheme.typography.b3m13,
-                    color = white100,
+                    color = AppTheme.colors.primary04,
                 )
             }
         )

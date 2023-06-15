@@ -27,13 +27,6 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.black010
-import net.deali.designsystem.theme.black015
-import net.deali.designsystem.theme.black020
-import net.deali.designsystem.theme.black022
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.shadow
 
 @Composable
@@ -42,12 +35,13 @@ fun ShadowsScreen(
 ) {
     val shadowsScreenItems = listOf(
         ShadowsScreenItem(name = "Elevation_none", color = AppTheme.colors.transparent, offsetY = 0.dp, blurRadius = 0.dp),
-        ShadowsScreenItem(name = "Shadow_type1", color = black010, offsetY = (-1).dp, blurRadius = 6.dp),
-        ShadowsScreenItem(name = "Shadow_type2", color = black022, offsetY = 1.dp, blurRadius = 3.dp),
-        ShadowsScreenItem(name = "Elevation_type3", color = black022, offsetY = 2.dp, blurRadius = 7.dp),
-        ShadowsScreenItem(name = "Elevation_type4", color = black020, offsetY = 4.dp, blurRadius = 8.dp),
-        ShadowsScreenItem(name = "Elevation_type5", color = black015, offsetY = 10.dp, blurRadius = 20.dp),
-        ShadowsScreenItem(name = "Elevation_type6", color = black015, offsetY = 20.dp, blurRadius = 50.dp),
+        // TODO DRG shadow color 물어보기
+//        ShadowsScreenItem(name = "Shadow_type1", color = black010, offsetY = (-1).dp, blurRadius = 6.dp),
+//        ShadowsScreenItem(name = "Shadow_type2", color = black022, offsetY = 1.dp, blurRadius = 3.dp),
+//        ShadowsScreenItem(name = "Elevation_type3", color = black022, offsetY = 2.dp, blurRadius = 7.dp),
+//        ShadowsScreenItem(name = "Elevation_type4", color = black020, offsetY = 4.dp, blurRadius = 8.dp),
+//        ShadowsScreenItem(name = "Elevation_type5", color = black015, offsetY = 10.dp, blurRadius = 20.dp),
+//        ShadowsScreenItem(name = "Elevation_type6", color = black015, offsetY = 20.dp, blurRadius = 50.dp),
     )
 
     NavigationContainer(
@@ -95,7 +89,7 @@ private fun Container(
         modifier = Modifier
             .padding(10.dp)
             .clip(RoundedCornerShape(6.dp))
-            .background(white100)
+            .background(AppTheme.colors.primary04)
             .padding(10.dp)
     ) {
         Box(
@@ -117,8 +111,8 @@ private fun Container(
                         cornerRadius = 10.dp,
                     )
                     .clip(AppTheme.shapes.radius10)
-                    .background(white100)
-                    .border(1.dp, gray30, AppTheme.shapes.radius10)
+                    .background(AppTheme.colors.primary04)
+                    .border(1.dp, AppTheme.colors.line03, AppTheme.shapes.radius10)
             )
         }
 
@@ -127,7 +121,7 @@ private fun Container(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = gray100
+            color = AppTheme.colors.text01
         )
     }
 }

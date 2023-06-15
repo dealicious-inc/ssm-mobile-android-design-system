@@ -36,11 +36,6 @@ import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_16
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_24
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_32
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.black100
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.gray60
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun IconographyScreen(
@@ -332,7 +327,7 @@ private fun Container(
         modifier = Modifier
             .padding(10.dp)
             .clip(RoundedCornerShape(6.dp))
-            .background(white100)
+            .background(AppTheme.colors.primary04)
             .padding(10.dp)
     ) {
         val scrollState = rememberScrollState()
@@ -343,13 +338,13 @@ private fun Container(
                 .aspectRatio(5 / 2f)
                 .clip(RoundedCornerShape(6.dp))
                 .background(AppTheme.colors.bg07)
-                .border(1.dp, gray30, RoundedCornerShape(6.dp))
+                .border(1.dp, AppTheme.colors.line03, RoundedCornerShape(6.dp))
                 .horizontalScroll(scrollState),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally)
         ) {
             val colors = listOf(
-                gray100, AppTheme.colors.primary01, gray60, white100
+                AppTheme.colors.text01, AppTheme.colors.primary01, AppTheme.colors.bg02, AppTheme.colors.primary04
             )
 
             Spacer(modifier = Modifier.width(10.dp))
@@ -369,7 +364,7 @@ private fun Container(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = gray100
+            color = AppTheme.colors.text01
         )
     }
 }
@@ -386,7 +381,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -396,7 +391,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
@@ -407,7 +402,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -417,7 +412,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
@@ -428,7 +423,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -438,7 +433,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == white100) black100 else AppTheme.colors.transparent),
+                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.text01 else AppTheme.colors.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}

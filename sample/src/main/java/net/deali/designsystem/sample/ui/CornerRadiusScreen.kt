@@ -11,8 +11,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,8 +21,6 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun CornerRadiusScreen(
@@ -54,7 +52,7 @@ fun CornerRadiusScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = white100),
+                .background(color = AppTheme.colors.primary04),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -78,13 +76,16 @@ private fun Item(
         modifier = Modifier
             .width(200.dp)
             .height(50.dp)
-            .clip(shape)
-            .border(BorderStroke(1.dp, AppTheme.colors.etc01))
+            .border(
+                border = BorderStroke(1.dp, AppTheme.colors.line01),
+                shape = shape
+            ),
+        contentAlignment = Alignment.Center
     ) {
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = gray100
+            color = AppTheme.colors.text01
         )
     }
 }

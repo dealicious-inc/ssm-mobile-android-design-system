@@ -10,8 +10,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.white100
 
 internal object SwitchDefaults {
     val MinSize: DpSize = DpSize(width = 50.dp, height = 30.dp)
@@ -21,10 +19,10 @@ internal object SwitchDefaults {
     @Composable
     fun colors(): SwitchColors {
         return DefaultSwitchColors(
-            slideColor = gray30,
+            slideColor = AppTheme.colors.bg05,
             selectedSlideColor = AppTheme.colors.primary01,
-            disabledSlideColor = gray30.copy(alpha = 0.5f),
-            handleColor = white100,
+            disabledSlideColor = AppTheme.colors.divider01.copy(0.5f),
+            handleColor = AppTheme.colors.primary04,
         )
     }
 }

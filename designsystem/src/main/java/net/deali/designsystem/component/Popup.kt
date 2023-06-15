@@ -18,9 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.gray70
-import net.deali.designsystem.theme.white100
 
 @Composable
 fun Popup(
@@ -45,7 +42,7 @@ fun Popup(
                 ),
             text = title,
             style = AppTheme.typography.sh1b20,
-            color = gray100
+            color = AppTheme.colors.text01
         )
 
         Spacer(modifier = Modifier.height(18.dp))
@@ -53,7 +50,7 @@ fun Popup(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = gray70
+            color = AppTheme.colors.text03
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -100,7 +97,7 @@ fun Popup(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = gray70
+            color = AppTheme.colors.text03
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -151,7 +148,7 @@ fun PopupSingleButton(
                 ),
             text = title,
             style = AppTheme.typography.sh1b20,
-            color = gray100
+            color = AppTheme.colors.text01
         )
 
         Spacer(modifier = Modifier.height(18.dp))
@@ -159,7 +156,7 @@ fun PopupSingleButton(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = gray70
+            color = AppTheme.colors.text03
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -191,7 +188,7 @@ fun PopupSingleButton(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = gray70
+            color = AppTheme.colors.text03
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -219,7 +216,7 @@ private fun Popup(
         Column(
             modifier = Modifier
                 .clip(AppTheme.shapes.radius10)
-                .background(white100)
+                .background(AppTheme.colors.primary04)
                 .width(280.dp)
                 .padding(
                     bottom = 20.dp,

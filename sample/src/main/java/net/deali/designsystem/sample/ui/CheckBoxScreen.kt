@@ -11,14 +11,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.CheckBox
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.theme.white100
+import net.deali.designsystem.theme.AppTheme
 
 @Composable
 fun CheckBoxScreen(
@@ -42,7 +41,7 @@ fun CheckBoxScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = white100)
+                .background(color = AppTheme.colors.primary04)
                 .padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {

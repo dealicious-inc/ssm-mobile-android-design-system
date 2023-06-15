@@ -29,11 +29,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.black040
-import net.deali.designsystem.theme.gray30
-import net.deali.designsystem.theme.white020
-import net.deali.designsystem.theme.white060
-import net.deali.designsystem.theme.white100
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
@@ -49,7 +44,7 @@ fun IndicatorPinkDot(
         pagerState = pagerState,
         pageCount = pageCount,
         activeColor = AppTheme.colors.primary01,
-        inactiveColor = gray30,
+        inactiveColor = AppTheme.colors.line03,
         indicatorSize = 6.dp,
         space = 6.dp,
         pageIndexMapping = pageIndexMapping
@@ -67,8 +62,8 @@ fun IndicatorWhiteDot(
         modifier = modifier,
         pagerState = pagerState,
         pageCount = pageCount,
-        activeColor = white100,
-        inactiveColor = white060,
+        activeColor = AppTheme.colors.primary04,
+        inactiveColor = AppTheme.colors.etc05,
         indicatorSize = 6.dp,
         space = 6.dp,
         pageIndexMapping = pageIndexMapping
@@ -151,20 +146,20 @@ fun IndicatorNumber(
         DealiText(
             text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
             style = AppTheme.typography.b3b13,
-            color = white100
+            color = AppTheme.colors.primary04
         )
 
         Spacer(
             modifier = Modifier
                 .width(1.dp)
                 .height(10.dp)
-                .background(white020)
+                .background(AppTheme.colors.primary04)
         )
 
         DealiText(
             text = String.format("%02d", pageCount),
             style = AppTheme.typography.b3r13,
-            color = white100
+            color = AppTheme.colors.primary04
         )
     }
 }
@@ -179,7 +174,7 @@ fun IndicatorPagination(
     Row(
         modifier = modifier
             .background(
-                color = black040,
+                color = AppTheme.colors.etc03,
                 shape = RoundedCornerShape(14.dp)
             )
             .padding(
@@ -192,19 +187,19 @@ fun IndicatorPagination(
         DealiText(
             text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
             style = AppTheme.typography.b3b13,
-            color = white100
+            color = AppTheme.colors.primary04
         )
 
         DealiText(
             text = "/",
             style = AppTheme.typography.b3r13,
-            color = white060
+            color = AppTheme.colors.etc05
         )
 
         DealiText(
             text = String.format("%02d", pageCount),
             style = AppTheme.typography.b3r13,
-            color = white060
+            color = AppTheme.colors.etc05
         )
     }
 }

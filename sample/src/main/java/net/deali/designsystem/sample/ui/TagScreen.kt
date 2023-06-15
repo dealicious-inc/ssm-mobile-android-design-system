@@ -43,8 +43,6 @@ import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -209,7 +207,7 @@ private fun Item(
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(white100)
+            .background(AppTheme.colors.primary04)
     ) {
         DealiText(
             modifier = Modifier
@@ -217,7 +215,7 @@ private fun Item(
                 .padding(10.dp),
             text = text,
             style = AppTheme.typography.h2b24,
-            color = gray100
+            color = AppTheme.colors.text01
         )
 
         Column(
@@ -248,7 +246,7 @@ private fun SubContainer(
             ),
         text = text,
         style = AppTheme.typography.sh2r18,
-        color = gray100
+        color = AppTheme.colors.text01
     )
 
     Row(

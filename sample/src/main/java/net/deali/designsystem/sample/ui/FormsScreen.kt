@@ -27,8 +27,6 @@ import net.deali.designsystem.component.Input
 import net.deali.designsystem.component.InputWithButton
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
-import net.deali.designsystem.theme.white100
 import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
@@ -136,7 +134,7 @@ fun FormsScreenOld(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = white100),
+                .background(color = AppTheme.colors.primary04),
             contentPadding = PaddingValues(all = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
@@ -325,7 +323,7 @@ private fun FormsSampleTitleText(
 ) = DealiText(
     text = text,
     style = AppTheme.typography.sh3b16,
-    color = gray100,
+    color = AppTheme.colors.text01,
     modifier = modifier
 )
 

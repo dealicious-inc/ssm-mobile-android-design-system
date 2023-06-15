@@ -26,7 +26,6 @@ import net.deali.designsystem.component.Input
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.theme.gray100
 import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
@@ -109,7 +108,7 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 DealiText(
                     text = "Visible 옵션",
                     style = AppTheme.typography.b4r12,
-                    color = gray100,
+                    color = AppTheme.colors.text01,
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -179,7 +178,7 @@ private fun ToggleOption(
         DealiText(
             text = title,
             style = AppTheme.typography.b4r12,
-            color = gray100,
+            color = AppTheme.colors.text01,
         )
         Toggle(
             selected = selected,

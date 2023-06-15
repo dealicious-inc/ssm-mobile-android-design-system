@@ -12,7 +12,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
-import net.deali.designsystem.theme.gray100
+import net.deali.designsystem.theme.AppTheme
 
 @Composable
 fun Input(
@@ -25,7 +25,7 @@ fun Input(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    iconColor: Color = gray100,
+    iconColor: Color = AppTheme.colors.text01,
     onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     isHelperTextVisible: Boolean = false,
@@ -110,7 +110,7 @@ fun Input(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    iconColor: Color = gray100,
+    iconColor: Color = AppTheme.colors.text01,
     onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,
