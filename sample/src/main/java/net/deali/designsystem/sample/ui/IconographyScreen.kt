@@ -46,7 +46,7 @@ fun IconographyScreen(
         IconographyScreenItem("ic_bookmark_16", SIZE_16, R.drawable.ic_bookmark_filled_16_ver01, R.drawable.ic_bookmark_16_ver01),
         IconographyScreenItem("ic_search_16", SIZE_16, R.drawable.ic_search_filled_16_ver01, R.drawable.ic_search_16_ver01),
         IconographyScreenItem("ic_category_16", SIZE_16, R.drawable.ic_category_filled_16_ver01, R.drawable.ic_category_16_ver01),
-        IconographyScreenItem("ic_store_16", SIZE_16, R.drawable.ic_store_filled_16_ver01, R.drawable.ic_store_16_ver01),    // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
+        IconographyScreenItem("ic_store_16", SIZE_16, R.drawable.ic_store_filled_16_ver01, R.drawable.ic_store_16_ver01),
         IconographyScreenItem("ic_talk_16", SIZE_16, R.drawable.ic_talk_filled_16_ver01, R.drawable.ic_talk_16_ver01),
         IconographyScreenItem("ic_profile_16", SIZE_16, R.drawable.ic_profile_filled_16_ver01, R.drawable.ic_profile_16_ver01),
         IconographyScreenItem("ic_orderlist_16", SIZE_16, R.drawable.ic_orderlist_filled_16_ver01, R.drawable.ic_orderlist_16_ver01),
@@ -75,7 +75,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_alarm_request_16", SIZE_16, R.drawable.ic_alarm_request_filled_16_ver01, R.drawable.ic_alarm_request_16_ver01),
         IconographyScreenItem("ic_alarm_etc_16", SIZE_16, R.drawable.ic_alarm_etc_filled_16_ver01, R.drawable.ic_alarm_etc_16_ver01),
         IconographyScreenItem("ic_alarm_ad_16", SIZE_16, R.drawable.ic_alarm_ad_filled_16_ver01, R.drawable.ic_alarm_ad_16_ver01),
-        IconographyScreenItem("ic_store_16", SIZE_16, R.drawable.ic_store_filled_16_ver01, R.drawable.ic_store_16_ver01),    // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
         IconographyScreenItem("ic_checkcircleno1_16", SIZE_16, R.drawable.ic_checkcircleno1_filled_16_ver01, null),
         IconographyScreenItem("ic_checkcircleno2_16", SIZE_16, R.drawable.ic_checkcircleno2_filled_16_ver01, null),
         IconographyScreenItem("ic_checkcircleno3_16", SIZE_16, R.drawable.ic_checkcircleno3_filled_16_ver01, null),
@@ -118,8 +117,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_out_16", SIZE_16, null, R.drawable.ic_out_16_ver01),
         IconographyScreenItem("ic_restore_16", SIZE_16, null, R.drawable.ic_restore_16_ver01),
         IconographyScreenItem("ic_edit_16", SIZE_16, null, R.drawable.ic_edit_16_ver01),
-        IconographyScreenItem("ic_edit_16", SIZE_16, null, R.drawable.ic_edit_16_ver01_1),  // TODO DRG 네이밍이 중복됨
-        IconographyScreenItem("ic_pen_large_16", SIZE_16, null, R.drawable.ic_pen_large_16_ver01),
         IconographyScreenItem("ic_hashtag_16", SIZE_16, null, R.drawable.ic_hashtag_16_ver01),
         IconographyScreenItem("ic_setting_16", SIZE_16, null, R.drawable.ic_setting_16_ver01),
         IconographyScreenItem("ic_spay_16", SIZE_16, null, R.drawable.ic_spay_16_ver01),
@@ -146,7 +143,7 @@ fun IconographyScreen(
         IconographyScreenItem("ic_preview_no_16", SIZE_16, null, R.drawable.ic_preview_no_16_ver01),
         IconographyScreenItem("ic_certificate_16", SIZE_16, null, R.drawable.ic_certificate_16_ver01),
         IconographyScreenItem("ic_wallet_16", SIZE_16, null, R.drawable.ic_wallet_16_ver01),
-        IconographyScreenItem("ic_bookmark_16", SIZE_16, null, R.drawable.ic_bookmark_16_ver01),    // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
+        IconographyScreenItem("ic_bookmark_16", SIZE_16, null, R.drawable.ic_bookmark_16_ver01),
         IconographyScreenItem("ic_accountnumber_bank_16", SIZE_16, null, R.drawable.ic_accountnumber_bank_16_ver01),
         IconographyScreenItem("ic_accountnumber_account_16", SIZE_16, null, R.drawable.ic_accountnumber_account_16_ver01),
         IconographyScreenItem("ic_smartphone_16", SIZE_16, null, R.drawable.ic_smartphone_16_ver01),
@@ -195,7 +192,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_alarm_etc_24", SIZE_24, R.drawable.ic_alarm_etc_filled_24_ver01, R.drawable.ic_alarm_etc_24_ver01),
         IconographyScreenItem("ic_alarm_request_24", SIZE_24, R.drawable.ic_alarm_request_filled_24_ver01, R.drawable.ic_alarm_request_24_ver01),
         IconographyScreenItem("ic_alarm_ad_24", SIZE_24, R.drawable.ic_alarm_ad_filled_24_ver01, R.drawable.ic_alarm_ad_24_ver01),
-        IconographyScreenItem("ic_store_24", SIZE_24, R.drawable.ic_store_filled_24_ver01, R.drawable.ic_store_24_ver01), // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
         IconographyScreenItem("ic_checkcircleno1_24", SIZE_24, R.drawable.ic_checkcircleno1_filled_24_ver01, null),
         IconographyScreenItem("ic_checkcircleno2_24", SIZE_24, R.drawable.ic_checkcircleno2_filled_24_ver01, null),
         IconographyScreenItem("ic_checkcircleno3_24", SIZE_24, R.drawable.ic_checkcircleno3_filled_24_ver01, null),
@@ -256,7 +252,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_website_24", SIZE_24, null, R.drawable.ic_website_24_ver01),
         IconographyScreenItem("ic_certificate_24", SIZE_24, null, R.drawable.ic_certificate_24_ver01),
         IconographyScreenItem("ic_wallet_24", SIZE_24, null, R.drawable.ic_wallet_24_ver01),
-        IconographyScreenItem("ic_bookmark_24", SIZE_24, null, R.drawable.ic_bookmark_24_ver01),    // TODO DRG 아이콘 명칭 중복으로 다시 해야 함
         IconographyScreenItem("ic_arrow_up_left_24", SIZE_24, null, R.drawable.ic_arrow_up_left_24_ver01),
         IconographyScreenItem("ic_bic_speechbubble_24", SIZE_24, null, R.drawable.ic_bic_speechbubble_24_ver01),
         IconographyScreenItem("ic_stockanswer_24", SIZE_24, null, R.drawable.ic_stockanswer_24_ver01),
@@ -266,7 +261,6 @@ fun IconographyScreen(
         IconographyScreenItem("ic_orderdetail_ac_copy_24", SIZE_24, null, R.drawable.ic_orderdetail_ac_copy_24_ver01),
         IconographyScreenItem("ic_frequentchat_24", SIZE_24, null, R.drawable.ic_frequentchat_24_ver01),
         IconographyScreenItem("ic_out_24", SIZE_24, null, R.drawable.ic_out_24_ver01),
-        IconographyScreenItem("ic_pen_large_24", SIZE_24, null, R.drawable.ic_pen_large_24_ver01),
         IconographyScreenItem("ic_plus_ad_forward_24", SIZE_24, null, R.drawable.ic_plus_ad_forward_24_ver01),
         IconographyScreenItem("ic_movelist_24", SIZE_24, null, R.drawable.ic_movelist_24_ver01),
         IconographyScreenItem("ic_more_horiz_24", SIZE_24, null, R.drawable.ic_more_horiz_24_ver01),
