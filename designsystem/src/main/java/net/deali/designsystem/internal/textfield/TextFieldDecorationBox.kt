@@ -131,7 +131,7 @@ private fun OutlinedTextField(
 ) {
     val backgroundColor by colors.backgroundColor(enabled)
     val outlineColor by colors.outlineColor(enabled, focused, isError)
-    val paddingValues by paddings.padding(decorated = false)
+    val paddingValues by paddings.padding(decorated = trailingContent != null)
 
     val mergedModifier = modifier.then(
         Modifier
