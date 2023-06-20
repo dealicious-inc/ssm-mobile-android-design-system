@@ -53,6 +53,9 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         var label by remember { mutableStateOf("") }
         var isHelperTextVisible by remember { mutableStateOf(false) }
         var helperText by remember { mutableStateOf("") }
+        var isIconVisible by remember { mutableStateOf(true) }
+        var isIconClickable by remember { mutableStateOf(true) }
+        var isButtonEnabled by remember { mutableStateOf(true) }
 
         Column(
             modifier = Modifier
@@ -63,9 +66,16 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
             TextInputWithButton(
                 value = text,
                 onValueChange = { text = it },
+                trailingIconRes = if (isIconVisible) R.drawable.ic_x_16_ver01 else null,
+                onIconClick = if (isIconClickable) {
+                    { text = "" }
+                } else {
+                    null
+                },
                 buttonText = "Button",
                 onButtonClick = {},
                 inputEnabled = enabled,
+                buttonEnabled = isButtonEnabled,
                 isError = isError,
                 visualTransformation = masking,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
@@ -92,7 +102,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                     onSelectedChange = { isError = it }
                 )
                 ToggleOption(
-                    title = "Password 마스킹",
+                    title = "마스킹",
                     selected = masking != VisualTransformation.None,
                     onSelectedChange = { masked ->
                         masking = if (masked) {
@@ -102,35 +112,56 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                         }
                     }
                 )
+                ToggleOption(
+                    title = "Button\nEnabled",
+                    selected = isButtonEnabled,
+                    onSelectedChange = { isButtonEnabled = it }
+                )
             }
 
             SampleDivider()
 
             Column {
-                DealiText(
-                    text = "Visible 옵션",
-                    style = AppTheme.typography.b4r12,
-                    color = AppTheme.colors.text01,
-                )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     ToggleOption(
-                        title = "Placeholder",
+                        title = "Placeholder\nVisible",
                         selected = isPlaceholderVisible,
                         onSelectedChange = { isPlaceholderVisible = it }
                     )
                     ToggleOption(
-                        title = "Label",
+                        title = "Label\nVisible",
                         selected = isLabelVisible,
                         onSelectedChange = { isLabelVisible = it }
                     )
                     ToggleOption(
-                        title = "Helper Text",
+                        title = "Helper Text\nVisible",
                         selected = isHelperTextVisible,
                         onSelectedChange = { isHelperTextVisible = it }
+                    )
+                }
+            }
+
+            SampleDivider()
+
+            Column {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ToggleOption(
+                        title = "Icon\nVisible",
+                        selected = isIconVisible,
+                        onSelectedChange = { isIconVisible = it }
+                    )
+                    ToggleOption(
+                        title = "Icon\nClickable",
+                        selected = isIconClickable,
+                        onSelectedChange = { isIconClickable = it }
                     )
                 }
             }

@@ -15,14 +15,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.util.BigPasswordVisualTransformation
@@ -52,6 +53,8 @@ fun InputScreen(onBackPress: () -> Unit) {
         var label by remember { mutableStateOf("") }
         var isHelperTextVisible by remember { mutableStateOf(false) }
         var helperText by remember { mutableStateOf("") }
+        var isIconVisible by remember { mutableStateOf(true) }
+        var isIconClickable by remember { mutableStateOf(true) }
 
         Column(
             modifier = Modifier
@@ -62,6 +65,12 @@ fun InputScreen(onBackPress: () -> Unit) {
             TextInput(
                 value = text,
                 onValueChange = { text = it },
+                trailingIconRes = if (isIconVisible) R.drawable.ic_x_16_ver01 else null,
+                onIconClick = if (isIconClickable) {
+                    { text = "" }
+                } else {
+                    null
+                },
                 enabled = enabled,
                 isError = isError,
                 visualTransformation = masking,
@@ -89,7 +98,7 @@ fun InputScreen(onBackPress: () -> Unit) {
                     onSelectedChange = { isError = it }
                 )
                 ToggleOption(
-                    title = "Password 마스킹",
+                    title = "마스킹",
                     selected = masking != VisualTransformation.None,
                     onSelectedChange = { masked ->
                         masking = if (masked) {
@@ -104,30 +113,46 @@ fun InputScreen(onBackPress: () -> Unit) {
             SampleDivider()
 
             Column {
-                DealiText(
-                    text = "Visible 옵션",
-                    style = AppTheme.typography.b4r12,
-                    color = AppTheme.colors.text01,
-                )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     ToggleOption(
-                        title = "Placeholder",
+                        title = "Placeholder\nVisible",
                         selected = isPlaceholderVisible,
                         onSelectedChange = { isPlaceholderVisible = it }
                     )
                     ToggleOption(
-                        title = "Label",
+                        title = "Label\nVisible",
                         selected = isLabelVisible,
                         onSelectedChange = { isLabelVisible = it }
                     )
                     ToggleOption(
-                        title = "Helper Text",
+                        title = "Helper Text\nVisible",
                         selected = isHelperTextVisible,
                         onSelectedChange = { isHelperTextVisible = it }
+                    )
+                }
+            }
+
+            SampleDivider()
+
+            Column {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ToggleOption(
+                        title = "Icon\nVisible",
+                        selected = isIconVisible,
+                        onSelectedChange = { isIconVisible = it }
+                    )
+                    ToggleOption(
+                        title = "Icon\nClickable",
+                        selected = isIconClickable,
+                        onSelectedChange = { isIconClickable = it }
                     )
                 }
             }
