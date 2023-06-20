@@ -15,18 +15,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.DealiTextField
 import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.AppTheme
-import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
 fun TextFieldScreen(onBackPress: () -> Unit) {
@@ -46,7 +44,6 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
         var text by remember { mutableStateOf("") }
         var enabled by remember { mutableStateOf(true) }
         var isError by remember { mutableStateOf(false) }
-        var masking by remember { mutableStateOf(VisualTransformation.None) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isLabelVisible by remember { mutableStateOf(true) }
@@ -65,7 +62,6 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 onValueChange = { text = it },
                 enabled = enabled,
                 isError = isError,
-                visualTransformation = masking,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
                 helperText = helperText,
@@ -88,17 +84,6 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                     title = "Error",
                     selected = isError,
                     onSelectedChange = { isError = it }
-                )
-                ToggleOption(
-                    title = "Password 마스킹",
-                    selected = masking != VisualTransformation.None,
-                    onSelectedChange = { masked ->
-                        masking = if (masked) {
-                            BigPasswordVisualTransformation()
-                        } else {
-                            VisualTransformation.None
-                        }
-                    }
                 )
             }
 

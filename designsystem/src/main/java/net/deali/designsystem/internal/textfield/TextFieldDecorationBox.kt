@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
@@ -30,6 +31,7 @@ import net.deali.designsystem.theme.AppTheme
 internal fun DealiTextFieldDecorationBox(
     enabled: Boolean,
     isError: Boolean,
+    singleLine: Boolean,
     colors: DealiTextFieldColors,
     interactionSource: MutableInteractionSource,
     isValueEmpty: Boolean,
@@ -67,9 +69,10 @@ internal fun DealiTextFieldDecorationBox(
             enabled = enabled,
             isError = isError,
             focused = focused,
+            singleLine = singleLine,
             modifier = Modifier
                 .fillMaxWidth()
-                .requiredHeight(46.dp)
+                .defaultMinSize(minHeight = 46.dp)
                 .zIndex(1f),
             innerTextField = innerTextField,
             trailingContent = trailingContent,
@@ -125,13 +128,14 @@ private fun OutlinedTextField(
     enabled: Boolean,
     isError: Boolean,
     focused: Boolean,
+    singleLine: Boolean,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     trailingContent: @Composable (() -> Unit)?,
 ) {
     val backgroundColor by colors.backgroundColor(enabled)
     val outlineColor by colors.outlineColor(enabled, focused, isError)
-    val paddingValues by paddings.padding(decorated = trailingContent != null)
+    val paddingValues by paddings.padding(singleLine = singleLine, decorated = trailingContent != null)
 
     val mergedModifier = modifier.then(
         Modifier

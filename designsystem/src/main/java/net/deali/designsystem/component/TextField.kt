@@ -6,12 +6,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.VisualTransformation
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 
-// TODO: 상세 구현 수정 필요
 @Composable
 fun DealiTextField(
     value: String,
@@ -22,7 +20,6 @@ fun DealiTextField(
     isError: Boolean = false,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     label: String? = null,
@@ -39,7 +36,6 @@ fun DealiTextField(
         singleLine = false,
         minLines = minLines,
         maxLines = maxLines,
-        visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
         label = label,
@@ -48,7 +44,6 @@ fun DealiTextField(
     )
 }
 
-// TODO: 상세 구현 수정 필요
 @Composable
 fun DealiTextField(
     value: TextFieldValue,
@@ -59,7 +54,6 @@ fun DealiTextField(
     isError: Boolean = false,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     label: String? = null,
@@ -76,7 +70,6 @@ fun DealiTextField(
         singleLine = false,
         minLines = minLines,
         maxLines = maxLines,
-        visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
         label = label,

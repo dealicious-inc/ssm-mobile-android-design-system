@@ -131,6 +131,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
             DealiTextFieldDecorationBox(
                 enabled = enabled,
                 isError = isError,
+                singleLine = singleLine,
                 colors = colors,
                 interactionSource = interactionSource,
                 isValueEmpty = isValueEmpty,

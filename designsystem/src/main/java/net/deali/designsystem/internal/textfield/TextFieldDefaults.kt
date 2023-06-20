@@ -38,8 +38,10 @@ internal object DealiTextFieldDefaults {
     fun paddings(): DealiTextFieldPaddingValues {
         return DefaultDealiTextFieldPaddingValues(
             start = 12.dp,
+            top = 12.dp,
             end = 12.dp,
             decoratedEnd = 16.dp,
+            bottom = 12.dp,
         )
     }
 
@@ -64,22 +66,28 @@ internal object DealiTextFieldDefaults {
 @Stable
 internal interface DealiTextFieldPaddingValues {
     @Composable
-    fun padding(decorated: Boolean): State<PaddingValues>
+    fun padding(singleLine: Boolean, decorated: Boolean): State<PaddingValues>
 }
 
 @Immutable
 private class DefaultDealiTextFieldPaddingValues(
     private val start: Dp,
+    private val top: Dp,
     private val end: Dp,
-    private val decoratedEnd: Dp
+    private val decoratedEnd: Dp,
+    private val bottom: Dp,
 ) : DealiTextFieldPaddingValues {
     @Composable
-    override fun padding(decorated: Boolean): State<PaddingValues> {
+    override fun padding(singleLine: Boolean, decorated: Boolean): State<PaddingValues> {
         return rememberUpdatedState(
-            if (decorated) {
-                PaddingValues(start = start, end = decoratedEnd)
+            if (singleLine) {
+                if (decorated) {
+                    PaddingValues(start = start, end = decoratedEnd)
+                } else {
+                    PaddingValues(start = start, end = end)
+                }
             } else {
-                PaddingValues(start = start, end = end)
+                PaddingValues(start, top, end, bottom)
             }
         )
     }
