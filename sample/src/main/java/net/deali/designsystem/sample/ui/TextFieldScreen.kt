@@ -62,6 +62,7 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 onValueChange = { text = it },
                 enabled = enabled,
                 isError = isError,
+                minLines = 4,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
                 helperText = helperText,
