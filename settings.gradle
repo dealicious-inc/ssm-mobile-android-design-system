@@ -11,10 +11,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
     }
 }
 
-rootProject.name = "Dealicious Design System for Android"
+rootProject.name = "SinsangMarket Design System for Android"
 
 include ':designsystem'
 include ':sample'

@@ -4,6 +4,10 @@ buildscript {
         targetSdk = 33
         composeCompilerVersion = "1.4.4"
     }
+
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+    }
 }
 
 plugins {

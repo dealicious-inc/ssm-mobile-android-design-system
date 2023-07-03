@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -40,4 +41,18 @@ dependencies {
     implementation libs.compose.tooling
     debugImplementation libs.compoes.preview
     implementation libs.compose.material
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.dealicious-inc'
+                artifactId = 'ssm-mobile-android-design-system'
+                version = '0.0.1'
+            }
+        }
+    }
 }
