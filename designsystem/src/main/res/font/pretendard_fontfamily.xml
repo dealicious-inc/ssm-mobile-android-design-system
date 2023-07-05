@@ -2,15 +2,15 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <font
-        android:font="@font/pretendard_jp_regular"
+        android:font="@font/pretendard_regular"
         android:fontWeight="400"
         tools:ignore="UnusedAttribute" />
     <font
-        android:font="@font/pretendard_jp_medium"
+        android:font="@font/pretendard_medium"
         android:fontWeight="500"
         tools:ignore="UnusedAttribute" />
     <font
-        android:font="@font/pretendard_jp_bold"
+        android:font="@font/pretendard_bold"
         android:fontWeight="700"
         tools:ignore="UnusedAttribute" />
 </font-family>

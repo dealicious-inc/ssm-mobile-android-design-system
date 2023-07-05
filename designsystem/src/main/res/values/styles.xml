@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTextViewStyle">
+    <style name="DealiTextViewStyle">
         <item name="android:fontFamily">@font/pretendard_fontfamily</item>
     </style>
 </resources>

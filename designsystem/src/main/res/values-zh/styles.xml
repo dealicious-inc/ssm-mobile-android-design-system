@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AppTextViewStyle">
-<!--        <item name="android:fontFamily">@font/pretendard_fontfamily</item>-->
+    <style name="DealiTextViewStyle">
+<!-- 중국어는 기본 폰트를 사용하기로 결정 -->
+<!--<item name="android:fontFamily">@font/pretendard_fontfamily</item>-->
     </style>
 </resources>
