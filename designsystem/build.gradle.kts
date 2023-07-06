@@ -45,17 +45,21 @@ dependencies {
     debugImplementation(libs.compoes.preview)
 }
 
-// TODO fix error
-afterEvaluate {
-    publishing {
-        publications {
-            register("release", MavenPublication::class) {
-                from(components["release"])
+val groupId = "com.github.dealicious-inc"
+val artifactId = "ssm-mobile-android-design-system"
+val version = "0.0.1"
 
-                groupId = "com.github.dealicious-inc"
-                artifactId = "ssm-mobile-android-design-system"
-                version = "0.0.1"
-            }
-        }
-    }
-}
+// TODO fix error
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            register("release", MavenPublication::class) {
+//                from(components["release"])
+//
+//                groupId = "com.github.dealicious-inc"
+//                artifactId = "ssm-mobile-android-design-system"
+//                version = "0.0.1"
+//            }
+//        }
+//    }
+//}
