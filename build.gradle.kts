@@ -1,10 +1,6 @@
-buildscript {
-    extra.apply {
-        set("minSdkVersion", libs.versions.minSdk.get().toInt())
-        set("targetSdk", libs.versions.targetSdk.get().toInt())
-        set("composeCompilerVersion", libs.versions.composeCompiler.toString())
-    }
+@file:Suppress("DSL_SCOPE_VIOLATION")
 
+buildscript {
     dependencies {
         classpath(libs.maven.gradle.plugin)
     }

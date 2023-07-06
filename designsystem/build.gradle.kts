@@ -1,7 +1,8 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    "maven-publish"
+    id("maven-publish")
 }
 
 android {
@@ -44,6 +45,7 @@ dependencies {
     debugImplementation(libs.compoes.preview)
 }
 
+// TODO fix error
 afterEvaluate {
     publishing {
         publications {
