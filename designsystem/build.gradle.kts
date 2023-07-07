@@ -45,36 +45,14 @@ dependencies {
     debugImplementation(libs.compoes.preview)
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            create<MavenPublication>("mavenJava") {
-//                groupId = "com.github.dealicious-inc"
-//                artifactId = "ssm-mobile-android-design-system"
-//                version = "0.0.1"
-//            }
-//        }
-//    }
-//}
-
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            maven(MavenPublication) {
-//
-//            }
-//
-//            release(MavenPublication) {
-//                from components.release
-//            }
-//
-//            register("release", MavenPublication::class) {
-//                from(components["release"])
-//
-//                val groupId = "com.github.dealicious-inc"
-//                val artifactId = "ssm-mobile-android-design-system"
-//                val version = "0.0.1"
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("mavenJava") {
+                groupId = "com.github.dealicious-inc"
+                artifactId = "ssm-mobile-android-design-system"
+                version = "0.0.1"
+            }
+        }
+    }
+}
