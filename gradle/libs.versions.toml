@@ -16,8 +16,7 @@ androidx-datastore = "1.0.0"
 compose-ui = "1.4.3"
 compose-foundation = "1.4.3"
 compose-material = "1.4.3"
-composeCompiler = "1.4.4"
-
+compose-compiler = "1.4.4"
 
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
@@ -37,5 +36,6 @@ compose-material = { module = "androidx.compose.material:material", version.ref 
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
 compoes-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
+compoes-compiler = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
 maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin"}
