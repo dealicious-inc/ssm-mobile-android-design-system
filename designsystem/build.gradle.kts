@@ -53,30 +53,7 @@ afterEvaluate {
 
                 groupId = "com.github.dealicious-inc"
                 artifactId = "ssm-mobile-android-design-system"
-                version = "0.0.1"
             }
-
-//            create<MavenPublication>("release") {
-//                from(components["release"])
-//
-//                groupId = "com.github.dealicious-inc"
-//                artifactId = "ssm-mobile-android-design-system"
-//                version = "0.0.1"
-//            }
         }
     }
 }
-
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//
-//                groupId = 'com.github.dealicious-inc'
-//                artifactId = 'ssm-mobile-android-design-system'
-//                version = '0.0.1'
-//            }
-//        }
-//    }
-//}
