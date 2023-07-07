@@ -48,7 +48,7 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            create<MavenPublication>("mavenJava") {
+            create<MavenPublication>("release") {
                 groupId = "com.github.dealicious-inc"
                 artifactId = "ssm-mobile-android-design-system"
                 version = "0.0.1"
