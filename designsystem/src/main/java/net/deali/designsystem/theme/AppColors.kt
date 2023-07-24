@@ -15,8 +15,8 @@ private val primary04 = Color(0xFFFFFFFF)
 private val primary05 = Color(0xFF000000)
 
 // secondary
-private val secondary01 = Color(0xFF3668F4)
-private val secondary02 = Color(0xFF0E46E4)
+private val secondary01 = Color(0xFF4759FB)
+private val secondary02 = Color(0xFF2B3EE7)
 private val secondary03 = Color(0xFFEAEFFF)
 private val secondary04 = Color(0xFFFF7C44)
 private val secondary05 = Color(0xFFFF6827)
