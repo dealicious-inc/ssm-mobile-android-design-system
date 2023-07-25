@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="SsmTextStyle">
-        <item name="android:typeface">@font/pretendard_fontfamily</item>
+    <style name="SsmRootTheme" parent="Theme.MaterialComponents.Light">
+        <item name="android:fontFamily">@font/pretendard_fontfamily</item>
     </style>
 
     <style name="SsmTextStyleH1b32" tools:ignore="NewApi">

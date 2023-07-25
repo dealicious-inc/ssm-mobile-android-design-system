@@ -18,6 +18,8 @@ compose-foundation = "1.4.3"
 compose-material = "1.4.3"
 compose-compiler = "1.4.4"
 
+android-material = "1.7.0"
+
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
@@ -38,4 +40,6 @@ compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "co
 compoes-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 compoes-compiler = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
-maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin"}
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+
+maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
