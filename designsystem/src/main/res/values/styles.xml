@@ -5,141 +5,141 @@
         <item name="android:fontFamily">@font/pretendard_fontfamily</item>
     </style>
 
-    <style name="h1b32" tools:ignore="NewApi">
+    <style name="TextViewH1b32" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">32dp</item>
         <item name="android:lineHeight">40dp</item>
     </style>
 
-    <style name="h2b24" tools:ignore="NewApi">
+    <style name="TextViewH2b24" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">24dp</item>
         <item name="android:lineHeight">32dp</item>
     </style>
 
-    <style name="sh1b20" tools:ignore="NewApi">
+    <style name="TextViewSh1b20" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">20dp</item>
         <item name="android:lineHeight">28dp</item>
     </style>
 
-    <style name="sh1m20" tools:ignore="NewApi">
+    <style name="TextViewSh1m20" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
         <item name="android:textSize">20dp</item>
         <item name="android:lineHeight">28dp</item>
     </style>
 
-    <style name="sh2b18" tools:ignore="NewApi">
+    <style name="TextViewSh2b18" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">18dp</item>
         <item name="android:lineHeight">26dp</item>
     </style>
 
-    <style name="sh2r18" tools:ignore="NewApi">
+    <style name="TextViewSh2r18" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">18dp</item>
         <item name="android:lineHeight">26dp</item>
     </style>
 
-    <style name="sh3b16" tools:ignore="NewApi">
+    <style name="TextViewSh3b16" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">16dp</item>
         <item name="android:lineHeight">22dp</item>
     </style>
 
-    <style name="sh3r16" tools:ignore="NewApi">
+    <style name="TextViewSh3r16" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">16dp</item>
         <item name="android:lineHeight">22dp</item>
     </style>
 
-    <style name="b1b15" tools:ignore="NewApi">
+    <style name="TextViewB1b15" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">15dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="b1r15" tools:ignore="NewApi">
+    <style name="TextViewB1r15" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">15dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="b2b14" tools:ignore="NewApi">
+    <style name="TextViewB2b14" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="b2m14" tools:ignore="NewApi">
+    <style name="TextViewB2m14" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="b2r14" tools:ignore="NewApi">
+    <style name="TextViewB2r14" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="b3b13" tools:ignore="NewApi">
+    <style name="TextViewB3b13" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">13dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="b3m13" tools:ignore="NewApi">
+    <style name="TextViewB3m13" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
         <item name="android:textSize">13dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="b3r13" tools:ignore="NewApi">
+    <style name="TextViewB3r13" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">13dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="b4b12" tools:ignore="NewApi">
+    <style name="TextViewB4b12" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">12dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="b4m12" tools:ignore="NewApi">
+    <style name="TextViewB4m12" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
         <item name="android:textSize">12dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="b4r12" tools:ignore="NewApi">
+    <style name="TextViewB4r12" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">12dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="c1b10" tools:ignore="NewApi">
+    <style name="TextViewC1b10" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
         <item name="android:textSize">10dp</item>
         <item name="android:lineHeight">14dp</item>
     </style>
 
-    <style name="c1r10" tools:ignore="NewApi">
+    <style name="TextViewC1r10" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
         <item name="android:textSize">10dp</item>
         <item name="android:lineHeight">14dp</item>
     </style>
 
-    <style name="bold" tools:ignore="NewApi">
+    <style name="TextViewBold" tools:ignore="NewApi">
         <item name="android:fontWeight">700</item>
     </style>
 
-    <style name="medium" tools:ignore="NewApi">
+    <style name="TextViewMedium" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
     </style>
 
-    <style name="regular" tools:ignore="NewApi">
+    <style name="TextViewRegular" tools:ignore="NewApi">
         <item name="android:fontWeight">400</item>
     </style>
 </resources>
