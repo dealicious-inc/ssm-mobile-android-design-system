@@ -138,8 +138,4 @@
     <style name="SsmTextStyleMedium" tools:ignore="NewApi">
         <item name="android:fontWeight">500</item>
     </style>
-
-    <style name="SsmTextStyleRegular" tools:ignore="NewApi">
-        <item name="android:fontWeight">400</item>
-    </style>
 </resources>
