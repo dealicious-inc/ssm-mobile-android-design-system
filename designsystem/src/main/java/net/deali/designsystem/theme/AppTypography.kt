@@ -1,5 +1,6 @@
 package net.deali.designsystem.theme
 
+import androidx.compose.material.Typography
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -265,11 +266,13 @@ fun defaultTypography(
     c1r10 = c1r10,
 )
 
-internal val Pretendard = FontFamily(
+private val Pretendard = FontFamily(
     Font(R.font.pretendard_regular, FontWeight.Normal),
     Font(R.font.pretendard_medium, FontWeight.Medium),
     Font(R.font.pretendard_bold, FontWeight.Bold)
 )
+
+internal val MaterialTypography = Typography(Pretendard)
 
 private val baseH1b32: TextStyle = TextStyle(
     fontWeight = FontWeight.Bold,

@@ -3,7 +3,6 @@ package net.deali.designsystem.theme
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
@@ -30,16 +29,15 @@ fun AppTheme(
         remember { typography.copy() }.apply { updateTypographyFrom(typography) }
     val rippleIndication = rememberRipple()
 
-    CompositionLocalProvider(
-        LocalColors provides rememberedColors,
-        LocalIndication provides rippleIndication,
-        LocalRippleTheme provides AppRippleTheme,
-        LocalTypography provides rememberedTypography,
-        LocalShapes provides AppTheme.shapes,
-    ) {
-        ProvideTextStyle(value = MaterialTheme.typography.body1.copy(fontFamily = Pretendard)) {
-            content()
-        }
+    MaterialTheme(typography = MaterialTypography) {
+        CompositionLocalProvider(
+            LocalColors provides rememberedColors,
+            LocalIndication provides rippleIndication,
+            LocalRippleTheme provides AppRippleTheme,
+            LocalTypography provides rememberedTypography,
+            LocalShapes provides AppTheme.shapes,
+            content = content
+        )
     }
 }
 
