@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="SsmTextStyle">
-        <item name="android:fontFamily">@font/pretendard_fontfamily</item>
+        <item name="android:typeface">@font/pretendard_fontfamily</item>
     </style>
 
     <style name="SsmTextStyleH1b32" tools:ignore="NewApi">
