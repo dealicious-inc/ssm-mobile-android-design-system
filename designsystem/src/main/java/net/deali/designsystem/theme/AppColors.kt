@@ -62,6 +62,7 @@ private val etc02 = Color(0x33000000)
 private val etc03 = Color(0x66000000)
 private val etc04 = Color(0x33FFFFFF)
 private val etc05 = Color(0x80FFFFFF)
+private val etc06 = Color(0xB3FFFFFF)
 
 // transparent
 private val transparent = Color(0x00FFFFFF)
@@ -111,6 +112,7 @@ class AppColors(
     etc03: Color,
     etc04: Color,
     etc05: Color,
+    etc06: Color,
     transparent: Color,
     ripple: Color,
     isLight: Boolean
@@ -235,6 +237,9 @@ class AppColors(
     var etc05 by mutableStateOf(etc05)
         private set
 
+    var etc06 by mutableStateOf(etc06)
+        private set
+
     var transparent by mutableStateOf(transparent)
         private set
 
@@ -285,6 +290,7 @@ class AppColors(
         etc03: Color = this.etc03,
         etc04: Color = this.etc04,
         etc05: Color = this.etc05,
+        etc06: Color = this.etc06,
         transparent: Color = this.transparent,
         ripple: Color = this.ripple,
         isLight: Boolean = this.isLight
@@ -329,6 +335,7 @@ class AppColors(
         etc03,
         etc04,
         etc05,
+        etc06,
         transparent,
         ripple,
         isLight
@@ -375,6 +382,7 @@ class AppColors(
         etc03 = other.etc03
         etc04 = other.etc04
         etc05 = other.etc05
+        etc06 = other.etc06
         transparent = other.transparent
         ripple = other.ripple
         isLight = other.isLight
@@ -424,6 +432,7 @@ fun lightColors(
     etc03: Color = etc03Light,
     etc04: Color = etc04Light,
     etc05: Color = etc05Light,
+    etc06: Color = etc06Light,
     transparent: Color = transparentLight,
     ripple: Color = rippleLight,
 ): AppColors = AppColors(
@@ -467,6 +476,7 @@ fun lightColors(
     etc03 = etc03,
     etc04 = etc04,
     etc05 = etc05,
+    etc06 = etc06,
     transparent = transparent,
     ripple = ripple,
     isLight = true
@@ -513,6 +523,7 @@ fun darkColors(
     etc03: Color = etc03Dark,
     etc04: Color = etc04Dark,
     etc05: Color = etc05Dark,
+    etc06: Color = etc06Dark,
     transparent: Color = transparentDark,
     ripple: Color = rippleDark,
 ): AppColors = AppColors(
@@ -556,6 +567,7 @@ fun darkColors(
     etc03 = etc03,
     etc04 = etc04,
     etc05 = etc05,
+    etc06 = etc06,
     transparent = transparent,
     ripple = ripple,
     isLight = false
@@ -602,6 +614,7 @@ private val etc02Light = etc02
 private val etc03Light = etc03
 private val etc04Light = etc04
 private val etc05Light = etc05
+private val etc06Light = etc06
 private val transparentLight = transparent
 private val rippleLight = ripple
 
@@ -646,5 +659,6 @@ private val etc02Dark = etc02
 private val etc03Dark = etc03
 private val etc04Dark = etc04
 private val etc05Dark = etc05
+private val etc06Dark = etc06
 private val transparentDark = transparent
 private val rippleDark = ripple

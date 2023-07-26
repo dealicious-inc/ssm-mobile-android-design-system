@@ -69,6 +69,7 @@ fun ColorsScreen(
         ColorScreenItem(AppTheme.colors.etc03, "etc03"),
         ColorScreenItem(AppTheme.colors.etc04, "etc04"),
         ColorScreenItem(AppTheme.colors.etc05, "etc05"),
+        ColorScreenItem(AppTheme.colors.etc06, "etc06"),
     )
 
     NavigationContainer(
