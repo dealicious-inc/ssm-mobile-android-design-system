@@ -38,7 +38,7 @@ fun Tooltip(
                             vertical = 12.dp
                         ),
                     text = text,
-                    style = AppTheme.typography.b3m13,
+                    style = AppTheme.typography.b3r13,
                     color = AppTheme.colors.primary04,
                 )
             }

@@ -53,8 +53,8 @@
         <item name="android:lineHeight">22dp</item>
     </style>
 
-    <style name="SsmTextStyleB1b15" tools:ignore="NewApi">
-        <item name="android:textFontWeight">700</item>
+    <style name="SsmTextStyleB1sb15" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
         <item name="android:textSize">15dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
@@ -65,14 +65,8 @@
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="SsmTextStyleB2b14" tools:ignore="NewApi">
-        <item name="android:textFontWeight">700</item>
-        <item name="android:textSize">14dp</item>
-        <item name="android:lineHeight">20dp</item>
-    </style>
-
-    <style name="SsmTextStyleB2m14" tools:ignore="NewApi">
-        <item name="android:textFontWeight">500</item>
+    <style name="SsmTextStyleB2sb14" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
         <item name="android:textSize">14dp</item>
         <item name="android:lineHeight">20dp</item>
     </style>
@@ -83,14 +77,8 @@
         <item name="android:lineHeight">20dp</item>
     </style>
 
-    <style name="SsmTextStyleB3b13" tools:ignore="NewApi">
-        <item name="android:textFontWeight">700</item>
-        <item name="android:textSize">13dp</item>
-        <item name="android:lineHeight">18dp</item>
-    </style>
-
-    <style name="SsmTextStyleB3m13" tools:ignore="NewApi">
-        <item name="android:textFontWeight">500</item>
+    <style name="SsmTextStyleB3sb13" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
         <item name="android:textSize">13dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>
@@ -101,14 +89,8 @@
         <item name="android:lineHeight">18dp</item>
     </style>
 
-    <style name="SsmTextStyleB4b12" tools:ignore="NewApi">
-        <item name="android:textFontWeight">700</item>
-        <item name="android:textSize">12dp</item>
-        <item name="android:lineHeight">18dp</item>
-    </style>
-
-    <style name="SsmTextStyleB4m12" tools:ignore="NewApi">
-        <item name="android:textFontWeight">500</item>
+    <style name="SsmTextStyleB4sb12" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
         <item name="android:textSize">12dp</item>
         <item name="android:lineHeight">18dp</item>
     </style>

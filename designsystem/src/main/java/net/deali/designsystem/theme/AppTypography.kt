@@ -24,16 +24,13 @@ class AppTypography(
     sh2r18: TextStyle,
     sh3b16: TextStyle,
     sh3r16: TextStyle,
-    b1b15: TextStyle,
+    b1sb15: TextStyle,
     b1r15: TextStyle,
-    b2b14: TextStyle,
-    b2m14: TextStyle,
+    b2sb14: TextStyle,
     b2r14: TextStyle,
-    b3b13: TextStyle,
-    b3m13: TextStyle,
+    b3sb13: TextStyle,
     b3r13: TextStyle,
-    b4b12: TextStyle,
-    b4m12: TextStyle,
+    b4sb12: TextStyle,
     b4r12: TextStyle,
     c1b10: TextStyle,
     c1r10: TextStyle,
@@ -62,34 +59,25 @@ class AppTypography(
     var sh3r16 by mutableStateOf(sh3r16)
         private set
 
-    var b1b15 by mutableStateOf(b1b15)
+    var b1sb15 by mutableStateOf(b1sb15)
         private set
 
     var b1r15 by mutableStateOf(b1r15)
         private set
 
-    var b2b14 by mutableStateOf(b2b14)
-        private set
-
-    var b2m14 by mutableStateOf(b2m14)
+    var b2sb14 by mutableStateOf(b2sb14)
         private set
 
     var b2r14 by mutableStateOf(b2r14)
         private set
 
-    var b3b13 by mutableStateOf(b3b13)
-        private set
-
-    var b3m13 by mutableStateOf(b3m13)
+    var b3sb13 by mutableStateOf(b3sb13)
         private set
 
     var b3r13 by mutableStateOf(b3r13)
         private set
 
-    var b4b12 by mutableStateOf(b4b12)
-        private set
-
-    var b4m12 by mutableStateOf(b4m12)
+    var b4sb12 by mutableStateOf(b4sb12)
         private set
 
     var b4r12 by mutableStateOf(b4r12)
@@ -110,16 +98,13 @@ class AppTypography(
         sh2r18: TextStyle = this.sh2r18,
         sh3b16: TextStyle = this.sh3b16,
         sh3r16: TextStyle = this.sh3r16,
-        b1b15: TextStyle = this.b1b15,
+        b1sb15: TextStyle = this.b1sb15,
         b1r15: TextStyle = this.b1r15,
-        b2b14: TextStyle = this.b2b14,
-        b2m14: TextStyle = this.b2m14,
+        b2sb14: TextStyle = this.b2sb14,
         b2r14: TextStyle = this.b2r14,
-        b3b13: TextStyle = this.b3b13,
-        b3m13: TextStyle = this.b3m13,
+        b3sb13: TextStyle = this.b3sb13,
         b3r13: TextStyle = this.b3r13,
-        b4b12: TextStyle = this.b4b12,
-        b4m12: TextStyle = this.b4m12,
+        b4sb12: TextStyle = this.b4sb12,
         b4r12: TextStyle = this.b4r12,
         c1b10: TextStyle = this.c1b10,
         c1r10: TextStyle = this.c1r10,
@@ -132,16 +117,13 @@ class AppTypography(
         sh2r18,
         sh3b16,
         sh3r16,
-        b1b15,
+        b1sb15,
         b1r15,
-        b2b14,
-        b2m14,
+        b2sb14,
         b2r14,
-        b3b13,
-        b3m13,
+        b3sb13,
         b3r13,
-        b4b12,
-        b4m12,
+        b4sb12,
         b4r12,
         c1b10,
         c1r10,
@@ -156,16 +138,13 @@ class AppTypography(
         sh2r18 = other.sh2r18
         sh3b16 = other.sh3b16
         sh3r16 = other.sh3r16
-        b1b15 = other.b1b15
+        b1sb15 = other.b1sb15
         b1r15 = other.b1r15
-        b2b14 = other.b2b14
-        b2m14 = other.b2m14
+        b2sb14 = other.b2sb14
         b2r14 = other.b2r14
-        b3b13 = other.b3b13
-        b3m13 = other.b3m13
+        b3sb13 = other.b3sb13
         b3r13 = other.b3r13
-        b4b12 = other.b4b12
-        b4m12 = other.b4m12
+        b4sb12 = other.b4sb12
         b4r12 = other.b4r12
         c1b10 = other.c1b10
         c1r10 = other.c1r10
@@ -183,16 +162,13 @@ fun pretendardTypography(
     sh2r18: TextStyle = baseSh2r18.copy(fontFamily = Pretendard),
     sh3b16: TextStyle = baseSh3b16.copy(fontFamily = Pretendard),
     sh3r16: TextStyle = baseSh3r16.copy(fontFamily = Pretendard),
-    b1b15: TextStyle = baseB1b15.copy(fontFamily = Pretendard),
+    b1sb15: TextStyle = baseB1sb15.copy(fontFamily = Pretendard),
     b1r15: TextStyle = baseB1r15.copy(fontFamily = Pretendard),
-    b2b14: TextStyle = baseB2b14.copy(fontFamily = Pretendard),
-    b2m14: TextStyle = baseB2m14.copy(fontFamily = Pretendard),
+    b2sb14: TextStyle = baseB2sb14.copy(fontFamily = Pretendard),
     b2r14: TextStyle = baseB2r14.copy(fontFamily = Pretendard),
-    b3b13: TextStyle = baseB3b13.copy(fontFamily = Pretendard),
-    b3m13: TextStyle = baseB3m13.copy(fontFamily = Pretendard),
+    b3sb13: TextStyle = baseB3sb13.copy(fontFamily = Pretendard),
     b3r13: TextStyle = baseB3r13.copy(fontFamily = Pretendard),
-    b4b12: TextStyle = baseB4b12.copy(fontFamily = Pretendard),
-    b4m12: TextStyle = baseB4m12.copy(fontFamily = Pretendard),
+    b4sb12: TextStyle = baseB4sb12.copy(fontFamily = Pretendard),
     b4r12: TextStyle = baseB4r12.copy(fontFamily = Pretendard),
     c1b10: TextStyle = baseC1b10.copy(fontFamily = Pretendard),
     c1r10: TextStyle = baseC1r10.copy(fontFamily = Pretendard),
@@ -205,16 +181,13 @@ fun pretendardTypography(
     sh2r18 = sh2r18,
     sh3b16 = sh3b16,
     sh3r16 = sh3r16,
-    b1b15 = b1b15,
+    b1sb15 = b1sb15,
     b1r15 = b1r15,
-    b2b14 = b2b14,
-    b2m14 = b2m14,
+    b2sb14 = b2sb14,
     b2r14 = b2r14,
-    b3b13 = b3b13,
-    b3m13 = b3m13,
+    b3sb13 = b3sb13,
     b3r13 = b3r13,
-    b4b12 = b4b12,
-    b4m12 = b4m12,
+    b4sb12 = b4sb12,
     b4r12 = b4r12,
     c1b10 = c1b10,
     c1r10 = c1r10,
@@ -229,16 +202,13 @@ fun defaultTypography(
     sh2r18: TextStyle = baseSh2r18,
     sh3b16: TextStyle = baseSh3b16,
     sh3r16: TextStyle = baseSh3r16,
-    b1b15: TextStyle = baseB1b15,
+    b1sb15: TextStyle = baseB1sb15,
     b1r15: TextStyle = baseB1r15,
-    b2b14: TextStyle = baseB2b14,
-    b2m14: TextStyle = baseB2m14,
+    b2sb14: TextStyle = baseB2sb14,
     b2r14: TextStyle = baseB2r14,
-    b3b13: TextStyle = baseB3b13,
-    b3m13: TextStyle = baseB3m13,
+    b3sb13: TextStyle = baseB3sb13,
     b3r13: TextStyle = baseB3r13,
-    b4b12: TextStyle = baseB4b12,
-    b4m12: TextStyle = baseB4m12,
+    b4sb12: TextStyle = baseB4sb12,
     b4r12: TextStyle = baseB4r12,
     c1b10: TextStyle = baseC1b10,
     c1r10: TextStyle = baseC1r10,
@@ -251,16 +221,13 @@ fun defaultTypography(
     sh2r18 = sh2r18,
     sh3b16 = sh3b16,
     sh3r16 = sh3r16,
-    b1b15 = b1b15,
+    b1sb15 = b1sb15,
     b1r15 = b1r15,
-    b2b14 = b2b14,
-    b2m14 = b2m14,
+    b2sb14 = b2sb14,
     b2r14 = b2r14,
-    b3b13 = b3b13,
-    b3m13 = b3m13,
+    b3sb13 = b3sb13,
     b3r13 = b3r13,
-    b4b12 = b4b12,
-    b4m12 = b4m12,
+    b4sb12 = b4sb12,
     b4r12 = b4r12,
     c1b10 = c1b10,
     c1r10 = c1r10,
@@ -322,8 +289,8 @@ private val baseSh3r16: TextStyle = TextStyle(
     lineHeight = (22.sp).tu
 )
 
-private val baseB1b15: TextStyle = TextStyle(
-    fontWeight = FontWeight.Bold,
+private val baseB1sb15: TextStyle = TextStyle(
+    fontWeight = FontWeight.SemiBold,
     fontSize = (15.sp).tu,
     lineHeight = (20.sp).tu
 )
@@ -334,14 +301,8 @@ private val baseB1r15: TextStyle = TextStyle(
     lineHeight = (20.sp).tu
 )
 
-private val baseB2b14: TextStyle = TextStyle(
-    fontWeight = FontWeight.Bold,
-    fontSize = (14.sp).tu,
-    lineHeight = (20.sp).tu
-)
-
-private val baseB2m14: TextStyle = TextStyle(
-    fontWeight = FontWeight.Medium,
+private val baseB2sb14: TextStyle = TextStyle(
+    fontWeight = FontWeight.SemiBold,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu
 )
@@ -352,14 +313,8 @@ private val baseB2r14: TextStyle = TextStyle(
     lineHeight = (20.sp).tu
 )
 
-private val baseB3b13: TextStyle = TextStyle(
-    fontWeight = FontWeight.Bold,
-    fontSize = (13.sp).tu,
-    lineHeight = (18.sp).tu
-)
-
-private val baseB3m13: TextStyle = TextStyle(
-    fontWeight = FontWeight.Medium,
+private val baseB3sb13: TextStyle = TextStyle(
+    fontWeight = FontWeight.SemiBold,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu
 )
@@ -370,14 +325,8 @@ private val baseB3r13: TextStyle = TextStyle(
     lineHeight = (18.sp).tu
 )
 
-private val baseB4b12: TextStyle = TextStyle(
-    fontWeight = FontWeight.Bold,
-    fontSize = (12.sp).tu,
-    lineHeight = (18.sp).tu
-)
-
-private val baseB4m12: TextStyle = TextStyle(
-    fontWeight = FontWeight.Medium,
+private val baseB4sb12: TextStyle = TextStyle(
+    fontWeight = FontWeight.SemiBold,
     fontSize = (12.sp).tu,
     lineHeight = (18.sp).tu
 )

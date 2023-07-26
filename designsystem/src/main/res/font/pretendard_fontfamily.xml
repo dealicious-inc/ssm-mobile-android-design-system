@@ -10,6 +10,10 @@
         android:fontWeight="500"
         tools:ignore="UnusedAttribute" />
     <font
+        android:font="@font/pretendard_semibold"
+        android:fontWeight="600"
+        tools:ignore="UnusedAttribute" />
+    <font
         android:font="@font/pretendard_bold"
         android:fontWeight="700"
         tools:ignore="UnusedAttribute" />

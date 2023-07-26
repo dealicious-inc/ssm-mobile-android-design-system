@@ -145,7 +145,7 @@ fun IndicatorNumber(
     ) {
         DealiText(
             text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
-            style = AppTheme.typography.b3b13,
+            style = AppTheme.typography.b3sb13,
             color = AppTheme.colors.primary04
         )
 
@@ -186,7 +186,7 @@ fun IndicatorPagination(
     ) {
         DealiText(
             text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
-            style = AppTheme.typography.b3b13,
+            style = AppTheme.typography.b3sb13,
             color = AppTheme.colors.primary04
         )
 

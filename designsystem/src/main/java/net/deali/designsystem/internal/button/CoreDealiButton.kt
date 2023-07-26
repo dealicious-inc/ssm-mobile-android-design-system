@@ -69,7 +69,7 @@ internal fun ButtonSmall(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b2m14,
+                style = AppTheme.typography.b4r12,
                 color = textColor
             )
 
@@ -124,7 +124,7 @@ internal fun ButtonMedium(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b2b14,
+                style = AppTheme.typography.b2sb14,
                 color = textColor
             )
 
@@ -179,7 +179,7 @@ internal fun ButtonLarge(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b1b15,
+                style = AppTheme.typography.b1sb15,
                 color = textColor
             )
 

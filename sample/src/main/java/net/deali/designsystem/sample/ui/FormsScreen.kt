@@ -243,7 +243,7 @@ fun FormsScreenOld(
                 TextInput(
                     value = text10,
                     onValueChange = { text10 = it },
-                    textStyle = AppTheme.typography.b2b14,
+                    textStyle = AppTheme.typography.b2r14,
                     placeholder = "Text input",
                     label = "Custom text style"
                 )
