@@ -32,11 +32,14 @@ fun ActionBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
+    backgroundColor: Color = AppTheme.colors.primary04,
+    titleColor: Color = AppTheme.colors.text01,
+    backButtonColor: Color = AppTheme.colors.primary05,
     menuContent: @Composable (ActionBarScope.() -> Unit)? = null,
 ) {
     CoreActionBarLayout(
         modifier = modifier,
-        backgroundBrush = SolidColor(AppTheme.colors.primary04),
+        backgroundBrush = SolidColor(backgroundColor),
         mainContent = {
             Row(
                 modifier = modifier,
@@ -45,13 +48,13 @@ fun ActionBar(
             ) {
                 Icon24(
                     iconRes = R.drawable.ic_arrow_left_24_ver01,
-                    color = AppTheme.colors.primary05,
+                    color = backButtonColor,
                     onClick = onBack,
                 )
                 DealiText(
                     text = title,
                     style = AppTheme.typography.sh3b16,
-                    color = AppTheme.colors.text01,
+                    color = titleColor,
                 )
             }
         },
@@ -222,6 +225,18 @@ private fun ActionBarPreview3() {
                 modifier = Modifier.badge(count = 99),
             )
         }
+    )
+}
+
+@Composable
+@Preview
+private fun ActionBarPreview4() {
+    ActionBar(
+        onBack = {},
+        title = "Preview",
+        backgroundColor = AppTheme.colors.secondary02,
+        titleColor = AppTheme.colors.primary04,
+        backButtonColor = AppTheme.colors.primary04,
     )
 }
 
