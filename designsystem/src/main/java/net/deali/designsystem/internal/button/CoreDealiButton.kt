@@ -48,7 +48,7 @@ internal fun ButtonSmall(
         enabled = enabled && !process,
         shape = AppTheme.shapes.radius4,
         backgroundColor = backgroundColor,
-        contentPadding = PaddingValues(horizontal = 16.dp),
+        contentPadding = getButtonHorizontalPadding(ButtonSize.SMALL, leftIcon, rightIcon),
         border = border,
         onClick = onClick
     ) {
@@ -103,7 +103,7 @@ internal fun ButtonMedium(
         enabled = enabled && !process,
         shape = AppTheme.shapes.radius6,
         backgroundColor = backgroundColor,
-        contentPadding = PaddingValues(horizontal = 20.dp),
+        contentPadding = getButtonHorizontalPadding(ButtonSize.MEDIUM, leftIcon, rightIcon),
         border = border,
         onClick = onClick
     ) {
@@ -158,7 +158,7 @@ internal fun ButtonLarge(
         enabled = enabled && !process,
         shape = AppTheme.shapes.radius6,
         backgroundColor = backgroundColor,
-        contentPadding = PaddingValues(horizontal = 40.dp),
+        contentPadding = getButtonHorizontalPadding(ButtonSize.LARGE, leftIcon, rightIcon),
         border = border,
         onClick = onClick
     ) {
@@ -222,4 +222,41 @@ private fun CoreDealiButton(
     ) {
         content()
     }
+}
+
+private fun getButtonHorizontalPadding(
+    buttonSize: ButtonSize,
+    @DrawableRes leftIcon: Int?,
+    @DrawableRes rightIcon: Int?
+) = PaddingValues(
+    start = getButtonHorizontalPaddingCalc(buttonSize, leftIcon, rightIcon),
+    end = getButtonHorizontalPaddingCalc(buttonSize, rightIcon, leftIcon)
+)
+
+private fun getButtonHorizontalPaddingCalc(
+    buttonSize: ButtonSize,
+    @DrawableRes anchorIcon: Int?,
+    @DrawableRes otherSideIcon: Int?
+) = when {
+    anchorIcon != null -> when (buttonSize) {
+        ButtonSize.LARGE -> 16.dp
+        ButtonSize.MEDIUM -> 16.dp
+        ButtonSize.SMALL -> 12.dp
+    }
+    otherSideIcon != null -> when (buttonSize) {
+        ButtonSize.LARGE -> 20.dp
+        ButtonSize.MEDIUM -> 20.dp
+        ButtonSize.SMALL -> 16.dp
+    }
+    else -> when (buttonSize) {
+        ButtonSize.LARGE -> 40.dp
+        ButtonSize.MEDIUM -> 20.dp
+        ButtonSize.SMALL -> 20.dp
+    }
+}
+
+private enum class ButtonSize {
+    LARGE,
+    MEDIUM,
+    SMALL
 }
