@@ -1,6 +1,5 @@
 package net.deali.designsystem.theme
 
-import android.graphics.Typeface
 import androidx.compose.material.Typography
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -235,11 +234,9 @@ fun defaultTypography(
 )
 
 private val Pretendard = FontFamily(
-    Typeface.DEFAULT,
-//    Font(R.font.pretendard_regular, FontWeight.Normal),
-//    Font(R.font.pretendard_medium, FontWeight.Medium),
-//    Font(R.font.pretendard_semibold, FontWeight.SemiBold),
-//    Font(R.font.pretendard_bold, FontWeight.Bold)
+    Font(R.font.pretendard_regular, FontWeight.Normal),
+    Font(R.font.pretendard_medium, FontWeight.Medium),
+    Font(R.font.pretendard_bold, FontWeight.Bold)
 )
 
 internal val MaterialTypography = Typography(Pretendard)
