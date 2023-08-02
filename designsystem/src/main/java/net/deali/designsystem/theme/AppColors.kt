@@ -62,7 +62,8 @@ private val etc02 = Color(0x33000000)
 private val etc03 = Color(0x66000000)
 private val etc04 = Color(0x33FFFFFF)
 private val etc05 = Color(0x80FFFFFF)
-private val etc06 = Color(0xB3FFFFFF)
+private val etc06 = Color(0xB2000000)
+private val etc07 = Color(0xE5FFFFFF)
 
 // transparent
 private val transparent = Color(0x00FFFFFF)
@@ -113,6 +114,7 @@ class AppColors(
     etc04: Color,
     etc05: Color,
     etc06: Color,
+    etc07: Color,
     transparent: Color,
     ripple: Color,
     isLight: Boolean
@@ -240,6 +242,9 @@ class AppColors(
     var etc06 by mutableStateOf(etc06)
         private set
 
+    var etc07 by mutableStateOf(etc07)
+        private set
+
     var transparent by mutableStateOf(transparent)
         private set
 
@@ -291,6 +296,7 @@ class AppColors(
         etc04: Color = this.etc04,
         etc05: Color = this.etc05,
         etc06: Color = this.etc06,
+        etc07: Color = this.etc07,
         transparent: Color = this.transparent,
         ripple: Color = this.ripple,
         isLight: Boolean = this.isLight
@@ -336,6 +342,7 @@ class AppColors(
         etc04,
         etc05,
         etc06,
+        etc07,
         transparent,
         ripple,
         isLight
@@ -433,6 +440,7 @@ fun lightColors(
     etc04: Color = etc04Light,
     etc05: Color = etc05Light,
     etc06: Color = etc06Light,
+    etc07: Color = etc07Light,
     transparent: Color = transparentLight,
     ripple: Color = rippleLight,
 ): AppColors = AppColors(
@@ -477,6 +485,7 @@ fun lightColors(
     etc04 = etc04,
     etc05 = etc05,
     etc06 = etc06,
+    etc07 = etc07,
     transparent = transparent,
     ripple = ripple,
     isLight = true
@@ -524,6 +533,7 @@ fun darkColors(
     etc04: Color = etc04Dark,
     etc05: Color = etc05Dark,
     etc06: Color = etc06Dark,
+    etc07: Color = etc07Dark,
     transparent: Color = transparentDark,
     ripple: Color = rippleDark,
 ): AppColors = AppColors(
@@ -568,6 +578,7 @@ fun darkColors(
     etc04 = etc04,
     etc05 = etc05,
     etc06 = etc06,
+    etc07 = etc07,
     transparent = transparent,
     ripple = ripple,
     isLight = false
@@ -615,6 +626,7 @@ private val etc03Light = etc03
 private val etc04Light = etc04
 private val etc05Light = etc05
 private val etc06Light = etc06
+private val etc07Light = etc07
 private val transparentLight = transparent
 private val rippleLight = ripple
 
@@ -660,5 +672,6 @@ private val etc03Dark = etc03
 private val etc04Dark = etc04
 private val etc05Dark = etc05
 private val etc06Dark = etc06
+private val etc07Dark = etc07
 private val transparentDark = transparent
 private val rippleDark = ripple
