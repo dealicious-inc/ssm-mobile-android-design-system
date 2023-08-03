@@ -108,7 +108,7 @@
     </style>
 
     <style name="SsmTextStyleC1sb10" tools:ignore="NewApi">
-        <item name="android:textFontWeight">700</item>
+        <item name="android:textFontWeight">600</item>
         <item name="android:textSize">10dp</item>
         <item name="android:lineHeight">14dp</item>
     </style>
