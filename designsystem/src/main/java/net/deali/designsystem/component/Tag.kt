@@ -271,7 +271,7 @@ private fun TagSmall(
         modifier = modifier,
         text = text,
         color = textColor,
-        style = AppTheme.typography.c1b10,
+        style = AppTheme.typography.c1sb10,
         paddingValues = PaddingValues(4.dp, 1.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor

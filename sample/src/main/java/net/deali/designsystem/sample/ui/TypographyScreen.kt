@@ -46,13 +46,14 @@ fun TypographyScreen(
     dataStoreUtil: DataStoreUtil
 ) {
     val typographyScreenItems = listOf(
-        TypographyScreenItem("h1b32", AppTheme.typography.h1b32),
-        TypographyScreenItem("h2b24", AppTheme.typography.h2b24),
-        TypographyScreenItem("sh1b20", AppTheme.typography.sh1b20),
-        TypographyScreenItem("sh1m20", AppTheme.typography.sh1m20),
-        TypographyScreenItem("sh2b18", AppTheme.typography.sh2b18),
+        TypographyScreenItem("h1sb32", AppTheme.typography.h1sb32),
+        TypographyScreenItem("h3sb28", AppTheme.typography.h3sb28),
+        TypographyScreenItem("h2sb24", AppTheme.typography.h2sb24),
+        TypographyScreenItem("sh1sb20", AppTheme.typography.sh1sb20),
+        TypographyScreenItem("sh1r20", AppTheme.typography.sh1r20),
+        TypographyScreenItem("sh2sb18", AppTheme.typography.sh2sb18),
         TypographyScreenItem("sh2r18", AppTheme.typography.sh2r18),
-        TypographyScreenItem("sh3b16", AppTheme.typography.sh3b16),
+        TypographyScreenItem("sh3sb16", AppTheme.typography.sh3sb16),
         TypographyScreenItem("sh3r16", AppTheme.typography.sh3r16),
         TypographyScreenItem("b1sb15", AppTheme.typography.b1sb15),
         TypographyScreenItem("b1r15", AppTheme.typography.b1r15),
@@ -62,7 +63,7 @@ fun TypographyScreen(
         TypographyScreenItem("b3r13", AppTheme.typography.b3r13),
         TypographyScreenItem("b4sb12", AppTheme.typography.b4sb12),
         TypographyScreenItem("b4r12", AppTheme.typography.b4r12),
-        TypographyScreenItem("c1b10", AppTheme.typography.c1b10),
+        TypographyScreenItem("c1sb10", AppTheme.typography.c1sb10),
         TypographyScreenItem("c1r10", AppTheme.typography.c1r10),
     )
 

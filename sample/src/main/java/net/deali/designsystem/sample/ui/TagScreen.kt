@@ -214,7 +214,7 @@ private fun Item(
                 .fillMaxWidth()
                 .padding(10.dp),
             text = text,
-            style = AppTheme.typography.h2b24,
+            style = AppTheme.typography.h3sb28,
             color = AppTheme.colors.text01
         )
 

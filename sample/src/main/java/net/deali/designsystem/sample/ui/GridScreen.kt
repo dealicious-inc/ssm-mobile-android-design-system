@@ -27,7 +27,7 @@ fun GridScreen(
     ) {
         DealiText(
             text = "GRID SCREEN EMPTY",
-            style = AppTheme.typography.h1b32,
+            style = AppTheme.typography.h1sb32,
             color = AppTheme.colors.text01
         )
     }

@@ -53,7 +53,7 @@ fun ActionBar(
                 )
                 DealiText(
                     text = title,
-                    style = AppTheme.typography.sh3b16,
+                    style = AppTheme.typography.sh3sb16,
                     color = titleColor,
                 )
             }
@@ -122,7 +122,7 @@ private object ActionBarScopeImpl : ActionBarScope {
         val textColor = AppTheme.colors.primary04
 
         val textMeasurer = rememberTextMeasurer()
-        val textStyle = AppTheme.typography.c1b10.merge(
+        val textStyle = AppTheme.typography.c1sb10.merge(
             TextStyle(color = textColor)
         )
 

@@ -41,7 +41,7 @@ fun Popup(
                     end = 8.dp
                 ),
             text = title,
-            style = AppTheme.typography.sh1b20,
+            style = AppTheme.typography.sh1sb20,
             color = AppTheme.colors.text01
         )
 
@@ -147,7 +147,7 @@ fun PopupSingleButton(
                     end = 8.dp
                 ),
             text = title,
-            style = AppTheme.typography.sh1b20,
+            style = AppTheme.typography.sh1sb20,
             color = AppTheme.colors.text01
         )
 
