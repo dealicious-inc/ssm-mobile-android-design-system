@@ -1,5 +1,7 @@
 # SinsangMarket Design System for Android
 
+[![jitpack](https://jitpack.io/v/dealicious-inc/ssm-mobile-android-design-system.svg)](https://jitpack.io/#dealicious-inc/ssm-mobile-android-design-system)
+
 딜리셔스 신상마켓 디자인 시스템 Android Component 및 Sample App
 
 ## Design Specs
