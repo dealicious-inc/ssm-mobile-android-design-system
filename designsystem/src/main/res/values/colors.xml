@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- primary -->
+    <color name="primary01">#FFFB4760</color>
+    <color name="primary02">#FFEC2843</color>
+    <color name="primary03">#FFFEECEF</color>
+    <color name="primary04">#FFFFFFFF</color>
+    <color name="primary05">#FF000000</color>
+
+    <!-- secondary -->
+    <color name="secondary01">#FF4759FB</color>
+    <color name="secondary02">#FF2B3EE7</color>
+    <color name="secondary03">#FFEAEFFF</color>
+    <color name="secondary04">#FFFF7C44</color>
+    <color name="secondary05">#FFFF6827</color>
+    <color name="secondary06">#FFFFECDB</color>
+
+    <!-- text -->
+    <color name="text01">#FF222222</color>
+    <color name="text02">#FF686E7B</color>
+    <color name="text03">#FF8F97A7</color>
+    <color name="text04">#FFA6ADBD</color>
+    <color name="text05">#FFBEC5D2</color>
+
+    <!-- divider -->
+    <color name="divider01">#FFDFE3ED</color>
+    <color name="divider02">#FFEBEEF6</color>
+    <color name="divider03">#FFF5F6FB</color>
+
+    <!-- line -->
+    <color name="line01">#FF222222</color>
+    <color name="line02">#FFBEC5D2</color>
+    <color name="line03">#FFDFE3ED</color>
+    <color name="line04">#FFEBEEF6</color>
+
+    <!-- bg -->
+    <color name="bg01">#FF222222</color>
+    <color name="bg02">#FFA6ADBD</color>
+    <color name="bg03">#FFBEC5D2</color>
+    <color name="bg04">#FFD0D6E1</color>
+    <color name="bg05">#FFDFE3ED</color>
+    <color name="bg06">#FFEBEEF6</color>
+    <color name="bg07">#FFF5F6FB</color>
+    <color name="bg08">#FFF6F6F7</color>
+
+    <!-- service -->
+    <color name="error">#FFFA1818</color>
+    <color name="linkAndInfo">#FF2B66FD</color>
+    <color name="warning">#FFFFD600</color>
+    <color name="success">#FF1BDA17</color>
+
+    <!-- etc -->
+    <color name="etc01">#1A000000</color>
+    <color name="etc02">#33000000</color>
+    <color name="etc03">#66000000</color>
+    <color name="etc04">#33FFFFFF</color>
+    <color name="etc05">#80FFFFFF</color>
+    <color name="etc06">#B2000000</color>
+    <color name="etc07">#E5FFFFFF</color>
+
+</resources>
