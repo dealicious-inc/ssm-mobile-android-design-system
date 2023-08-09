@@ -18,13 +18,13 @@ import net.deali.designsystem.util.getRandomText
 @Composable
 fun ButtonSmallFilled(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonSmall(
         modifier = modifier,
@@ -43,13 +43,13 @@ fun ButtonSmallFilled(
 @Composable
 fun ButtonMediumFilled(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonMedium(
         modifier = modifier,
@@ -68,13 +68,13 @@ fun ButtonMediumFilled(
 @Composable
 fun ButtonLargeFilled(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonLarge(
         modifier = modifier,
@@ -93,13 +93,13 @@ fun ButtonLargeFilled(
 @Composable
 fun ButtonSmallOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonSmall(
         modifier = modifier,
@@ -119,13 +119,13 @@ fun ButtonSmallOutlined(
 @Composable
 fun ButtonMediumOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonMedium(
         modifier = modifier,
@@ -145,13 +145,13 @@ fun ButtonMediumOutlined(
 @Composable
 fun ButtonLargeOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonLarge(
         modifier = modifier,
@@ -171,13 +171,13 @@ fun ButtonLargeOutlined(
 @Composable
 fun ButtonSmallTonalOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonSmall(
         modifier = modifier,
@@ -197,13 +197,13 @@ fun ButtonSmallTonalOutlined(
 @Composable
 fun ButtonMediumTonalOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonMedium(
         modifier = modifier,
@@ -223,13 +223,13 @@ fun ButtonMediumTonalOutlined(
 @Composable
 fun ButtonLargeTonalOutlined(
     text: String,
-    enabled: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonLarge(
         modifier = modifier,
@@ -249,13 +249,13 @@ fun ButtonLargeTonalOutlined(
 @Composable
 fun ButtonSmallText(
     text: String,
-    enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonSmall(
         modifier = modifier,
@@ -274,13 +274,13 @@ fun ButtonSmallText(
 @Composable
 fun ButtonMediumText(
     text: String,
-    enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonMedium(
         modifier = modifier,
@@ -299,13 +299,13 @@ fun ButtonMediumText(
 @Composable
 fun ButtonLargeText(
     text: String,
-    enabled: Boolean,
-    process: Boolean,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
     @DrawableRes processIcon: Int? = null,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     ButtonLarge(
         modifier = modifier,
