@@ -19,15 +19,28 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import net.deali.designsystem.theme.AppTheme
 
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param title 팝업 타이틀.
+ * @param content 팝업 문구.
+ * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
+ * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
+ * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
 @Composable
 fun Popup(
     title: String,
     content: String,
-    dismissText: String,
-    confirmText: String,
-    properties: DialogProperties = DialogProperties(),
+    leftButtonText: String,
+    rightButtonText: String,
+    onLeftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: () -> Unit
+    properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
         onDismissRequest = onDismiss,
@@ -36,10 +49,7 @@ fun Popup(
         Spacer(modifier = Modifier.height(18.dp))
 
         DealiText(
-            modifier = Modifier
-                .padding(
-                    end = 8.dp
-                ),
+            modifier = Modifier.padding(end = 8.dp),
             text = title,
             style = AppTheme.typography.sh1sb20,
             color = AppTheme.colors.text01
@@ -56,37 +66,46 @@ fun Popup(
         Spacer(modifier = Modifier.height(24.dp))
 
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             ButtonMediumOutlined(
-                modifier = Modifier
-                    .weight(1f),
-                text = dismissText,
+                modifier = Modifier.weight(1f),
+                text = leftButtonText,
                 enabled = true,
-                onClick = onDismiss
+                onClick = onLeftButtonClick
             )
 
             ButtonMediumFilled(
-                modifier = Modifier
-                    .weight(1f),
-                text = confirmText,
+                modifier = Modifier.weight(1f),
+                text = rightButtonText,
                 enabled = true,
-                onClick = onConfirm
+                onClick = onRightButtonClick
             )
         }
     }
 }
 
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param content 팝업 문구.
+ * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
+ * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
+ * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
 @Composable
 fun Popup(
     content: String,
-    dismissText: String,
-    confirmText: String,
-    properties: DialogProperties = DialogProperties(),
+    leftButtonText: String,
+    rightButtonText: String,
+    onLeftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: () -> Unit
+    properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
         onDismissRequest = onDismiss,
@@ -103,37 +122,44 @@ fun Popup(
         Spacer(modifier = Modifier.height(24.dp))
 
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             ButtonMediumOutlined(
-                modifier = Modifier
-                    .weight(1f),
-                text = dismissText,
+                modifier = Modifier.weight(1f),
+                text = leftButtonText,
                 enabled = true,
-                onClick = onDismiss
+                onClick = onLeftButtonClick
             )
 
             ButtonMediumFilled(
-                modifier = Modifier
-                    .weight(1f),
-                text = confirmText,
+                modifier = Modifier.weight(1f),
+                text = rightButtonText,
                 enabled = true,
-                onClick = onConfirm
+                onClick = onRightButtonClick
             )
         }
     }
 }
 
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param title 팝업 타이틀.
+ * @param content 팝업 문구.
+ * @param buttonText 팝업의 버튼 문구.
+ * @param onButtonClick 팝업의 버튼 클릭 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
 @Composable
 fun PopupSingleButton(
     title: String,
     content: String,
-    confirmText: String,
-    properties: DialogProperties = DialogProperties(),
+    buttonText: String,
+    onButtonClick: () -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: () -> Unit
+    properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
         onDismissRequest = onDismiss,
@@ -142,10 +168,7 @@ fun PopupSingleButton(
         Spacer(modifier = Modifier.height(18.dp))
 
         DealiText(
-            modifier = Modifier
-                .padding(
-                    end = 8.dp
-                ),
+            modifier = Modifier.padding(end = 8.dp),
             text = title,
             style = AppTheme.typography.sh1sb20,
             color = AppTheme.colors.text01
@@ -162,22 +185,30 @@ fun PopupSingleButton(
         Spacer(modifier = Modifier.height(24.dp))
 
         ButtonMediumFilled(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = confirmText,
+            modifier = Modifier.fillMaxWidth(),
+            text = buttonText,
             enabled = true,
-            onClick = onConfirm
+            onClick = onButtonClick
         )
     }
 }
 
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param content 팝업 문구.
+ * @param buttonText 팝업의 버튼 문구.
+ * @param onButtonClick 팝업의 버튼 클릭 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
 @Composable
 fun PopupSingleButton(
     content: String,
-    confirmText: String,
-    properties: DialogProperties = DialogProperties(),
+    buttonText: String,
+    onButtonClick: () -> Unit,
     onDismiss: () -> Unit,
-    onConfirm: () -> Unit
+    properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
         onDismissRequest = onDismiss,
@@ -194,11 +225,10 @@ fun PopupSingleButton(
         Spacer(modifier = Modifier.height(24.dp))
 
         ButtonMediumFilled(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = confirmText,
+            modifier = Modifier.fillMaxWidth(),
+            text = buttonText,
             enabled = true,
-            onClick = onConfirm
+            onClick = onButtonClick
         )
     }
 }
@@ -234,10 +264,11 @@ private fun PopupPreview() {
     Popup(
         title = "title",
         content = "댓글을 삭제하시겠습니까?",
-        dismissText = "취소",
-        confirmText = "확인",
+        leftButtonText = "취소",
+        rightButtonText = "확인",
+        onLeftButtonClick = {},
+        onRightButtonClick = {},
         onDismiss = {},
-        onConfirm = {}
     )
 }
 
@@ -246,10 +277,11 @@ private fun PopupPreview() {
 private fun PopupWithoutTitlePreview() {
     Popup(
         content = "댓글을 삭제하시겠습니까?",
-        dismissText = "취소",
-        confirmText = "확인",
+        leftButtonText = "취소",
+        rightButtonText = "확인",
+        onLeftButtonClick = {},
+        onRightButtonClick = {},
         onDismiss = {},
-        onConfirm = {}
     )
 }
 
@@ -259,9 +291,9 @@ private fun PopupSingleButtonPreview() {
     PopupSingleButton(
         title = "title",
         content = "댓글을 삭제하시겠습니까?",
-        confirmText = "확인",
+        buttonText = "확인",
+        onButtonClick = {},
         onDismiss = {},
-        onConfirm = {}
     )
 }
 
@@ -270,8 +302,8 @@ private fun PopupSingleButtonPreview() {
 private fun PopupSingleButtonWithoutTitlePreview() {
     PopupSingleButton(
         content = "댓글을 삭제하시겠습니까?",
-        confirmText = "확인",
+        buttonText = "확인",
+        onButtonClick = {},
         onDismiss = {},
-        onConfirm = {}
     )
 }

@@ -52,51 +52,49 @@ fun PopupScreen(
         ) {
             ButtonSmallTonalOutlined(
                 text = "popup title content dismiss confirm",
-                enabled = true
-            ) {
-                popupState1 = true
-            }
+                enabled = true,
+                onClick = { popupState1 = true },
+            )
 
             ButtonSmallTonalOutlined(
                 text = "popup title content confirm",
-                enabled = true
-            ) {
-                popupState2 = true
-            }
+                enabled = true,
+                onClick =  { popupState2 = true },
+            )
 
             ButtonSmallTonalOutlined(
                 text = "content dismiss confirm",
-                enabled = true
-            ) {
-                popupState3 = true
-            }
+                enabled = true,
+                onClick = { popupState3 = true },
+            )
 
             ButtonSmallTonalOutlined(
                 text = "content confirm",
-                enabled = true
-            ) {
-                popupState4 = true
-            }
+                enabled = true,
+                onClick = { popupState4 = true },
+            )
         }
 
         if (popupState1) {
             Popup(
                 title = "title",
                 content = "댓글을 삭제하시겠습니까?",
-                dismissText = "취소",
-                confirmText = "확인",
+                leftButtonText = "취소",
+                rightButtonText = "확인",
+                onLeftButtonClick = { popupState1 = false },
+                onRightButtonClick = { popupState1 = false },
                 onDismiss = { popupState1 = false },
-                onConfirm = { popupState1 = false }
             )
         }
 
         if (popupState2) {
             Popup(
                 content = "댓글을 삭제하시겠습니까?",
-                dismissText = "취소",
-                confirmText = "확인",
+                leftButtonText = "취소",
+                rightButtonText = "확인",
+                onLeftButtonClick = { popupState2 = false },
+                onRightButtonClick = { popupState2 = false },
                 onDismiss = { popupState2 = false },
-                onConfirm = { popupState2 = false }
             )
         }
 
@@ -104,18 +102,18 @@ fun PopupScreen(
             PopupSingleButton(
                 title = "title",
                 content = "댓글을 삭제하시겠습니까?",
-                confirmText = "확인",
+                buttonText = "확인",
+                onButtonClick = { popupState3 = false },
                 onDismiss = { popupState3 = false },
-                onConfirm = { popupState3 = false }
             )
         }
 
         if (popupState4) {
             PopupSingleButton(
                 content = "댓글을 삭제하시겠습니까?",
-                confirmText = "확인",
+                buttonText = "확인",
+                onButtonClick = { popupState4 = false },
                 onDismiss = { popupState4 = false },
-                onConfirm = { popupState4 = false }
             )
         }
     }
