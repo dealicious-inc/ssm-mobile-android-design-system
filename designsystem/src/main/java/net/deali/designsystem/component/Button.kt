@@ -29,6 +29,7 @@ fun ButtonSmallFilled(
     ButtonSmall(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b4sb12,
         textColor = AppTheme.colors.primary04,
         backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         enabled = enabled,
@@ -54,6 +55,7 @@ fun ButtonMediumFilled(
     ButtonMedium(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b2sb14,
         textColor = AppTheme.colors.primary04,
         backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         enabled = enabled,
@@ -79,6 +81,7 @@ fun ButtonLargeFilled(
     ButtonLarge(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b1sb15,
         textColor = AppTheme.colors.primary04,
         backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         enabled = enabled,
@@ -104,6 +107,7 @@ fun ButtonSmallOutlined(
     ButtonSmall(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b4sb12,
         textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.primary04,
         enabled = enabled,
@@ -130,6 +134,7 @@ fun ButtonMediumOutlined(
     ButtonMedium(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b2sb14,
         textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.primary04,
         enabled = enabled,
@@ -156,6 +161,7 @@ fun ButtonLargeOutlined(
     ButtonLarge(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b1sb15,
         textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.primary04,
         enabled = enabled,
@@ -182,6 +188,7 @@ fun ButtonSmallTonalOutlined(
     ButtonSmall(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b4sb12,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
@@ -208,6 +215,7 @@ fun ButtonMediumTonalOutlined(
     ButtonMedium(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b2sb14,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
@@ -234,6 +242,7 @@ fun ButtonLargeTonalOutlined(
     ButtonLarge(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b1sb15,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.bg07,
         enabled = enabled,
@@ -260,6 +269,7 @@ fun ButtonSmallText(
     ButtonSmall(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b4r12,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.transparent,
         enabled = enabled,
@@ -285,6 +295,7 @@ fun ButtonMediumText(
     ButtonMedium(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b2r14,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.transparent,
         enabled = enabled,
@@ -310,6 +321,7 @@ fun ButtonLargeText(
     ButtonLarge(
         modifier = modifier,
         text = text,
+        textStyle = AppTheme.typography.b1sb15,
         textColor = if (enabled) AppTheme.colors.text02 else AppTheme.colors.bg04,
         backgroundColor = AppTheme.colors.transparent,
         enabled = enabled,

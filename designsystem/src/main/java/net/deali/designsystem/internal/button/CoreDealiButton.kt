@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
@@ -33,6 +34,7 @@ internal fun ButtonSmall(
     text: String,
     enabled: Boolean,
     process: Boolean,
+    textStyle: TextStyle,
     textColor: Color,
     backgroundColor: Color,
     modifier: Modifier = Modifier,
@@ -69,7 +71,7 @@ internal fun ButtonSmall(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b4r12,
+                style = textStyle,
                 color = textColor
             )
 
@@ -88,6 +90,7 @@ internal fun ButtonMedium(
     text: String,
     enabled: Boolean,
     process: Boolean,
+    textStyle: TextStyle,
     textColor: Color,
     backgroundColor: Color,
     modifier: Modifier = Modifier,
@@ -124,7 +127,7 @@ internal fun ButtonMedium(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b2sb14,
+                style = textStyle,
                 color = textColor
             )
 
@@ -143,6 +146,7 @@ internal fun ButtonLarge(
     text: String,
     enabled: Boolean,
     process: Boolean,
+    textStyle: TextStyle,
     textColor: Color,
     backgroundColor: Color,
     modifier: Modifier = Modifier,
@@ -179,7 +183,7 @@ internal fun ButtonLarge(
 
             DealiText(
                 text = text,
-                style = AppTheme.typography.b1sb15,
+                style = textStyle,
                 color = textColor
             )
 
@@ -243,11 +247,13 @@ private fun getButtonHorizontalPaddingCalc(
         ButtonSize.MEDIUM -> 16.dp
         ButtonSize.SMALL -> 12.dp
     }
+
     otherSideIcon != null -> when (buttonSize) {
         ButtonSize.LARGE -> 20.dp
         ButtonSize.MEDIUM -> 20.dp
         ButtonSize.SMALL -> 16.dp
     }
+
     else -> when (buttonSize) {
         ButtonSize.LARGE -> 40.dp
         ButtonSize.MEDIUM -> 20.dp
