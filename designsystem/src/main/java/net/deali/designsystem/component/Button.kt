@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonLarge
@@ -32,6 +33,33 @@ fun ButtonSmallFilled(
         textStyle = AppTheme.typography.b4sb12,
         textColor = AppTheme.colors.primary04,
         backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
+        enabled = enabled,
+        process = process,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick
+    )
+}
+
+@Composable
+fun ButtonSmallFilled(
+    text: String,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    ButtonSmall(
+        modifier = modifier,
+        text = text,
+        textStyle = AppTheme.typography.b4sb12,
+        textColor = AppTheme.colors.primary04,
+        backgroundBrush = backgroundBrush,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -68,6 +96,33 @@ fun ButtonMediumFilled(
 }
 
 @Composable
+fun ButtonMediumFilled(
+    text: String,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    ButtonMedium(
+        modifier = modifier,
+        text = text,
+        textStyle = AppTheme.typography.b2sb14,
+        textColor = AppTheme.colors.primary04,
+        backgroundBrush = backgroundBrush,
+        enabled = enabled,
+        process = process,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick
+    )
+}
+
+@Composable
 fun ButtonLargeFilled(
     text: String,
     modifier: Modifier = Modifier,
@@ -84,6 +139,33 @@ fun ButtonLargeFilled(
         textStyle = AppTheme.typography.b1sb15,
         textColor = AppTheme.colors.primary04,
         backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.bg04,
+        enabled = enabled,
+        process = process,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick
+    )
+}
+
+@Composable
+fun ButtonLargeFilled(
+    text: String,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    process: Boolean = false,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    ButtonLarge(
+        modifier = modifier,
+        text = text,
+        textStyle = AppTheme.typography.b1sb15,
+        textColor = AppTheme.colors.primary04,
+        backgroundBrush = backgroundBrush,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -337,12 +419,19 @@ fun ButtonLargeText(
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonSmallFilledPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonSmallFilled(
             text = getRandomText(1),
+            enabled = true,
+            process = false,
+            onClick = {}
+        )
+
+        ButtonSmallFilled(
+            text = getRandomText(1),
+            backgroundBrush = AppTheme.colors.gradient,
             enabled = true,
             process = false,
             onClick = {}
@@ -361,12 +450,19 @@ private fun ButtonSmallFilledPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonMediumFilledPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonMediumFilled(
             text = getRandomText(1),
+            enabled = true,
+            process = false,
+            onClick = {}
+        )
+
+        ButtonMediumFilled(
+            text = getRandomText(1),
+            backgroundBrush = AppTheme.colors.gradient,
             enabled = true,
             process = false,
             onClick = {}
@@ -385,12 +481,19 @@ private fun ButtonMediumFilledPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonLargeFilledPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
-        horizontalArrangement = Arrangement.spacedBy(10.dp)
+        modifier = Modifier.padding(4.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         ButtonLargeFilled(
             text = getRandomText(1),
+            enabled = true,
+            process = false,
+            onClick = {}
+        )
+
+        ButtonLargeFilled(
+            text = getRandomText(1),
+            backgroundBrush = AppTheme.colors.gradient,
             enabled = true,
             process = false,
             onClick = {}
@@ -409,8 +512,7 @@ private fun ButtonLargeFilledPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonSmallOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonSmallOutlined(
@@ -433,8 +535,7 @@ private fun ButtonSmallOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonMediumOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonMediumOutlined(
@@ -457,8 +558,7 @@ private fun ButtonMediumOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonLargeOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonLargeOutlined(
@@ -481,8 +581,7 @@ private fun ButtonLargeOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonSmallTonalOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonSmallTonalOutlined(
@@ -505,8 +604,7 @@ private fun ButtonSmallTonalOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonMediumTonalOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonMediumTonalOutlined(
@@ -529,8 +627,7 @@ private fun ButtonMediumTonalOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonLargeTonalOutlinedPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonLargeTonalOutlined(
@@ -554,8 +651,7 @@ private fun ButtonLargeTonalOutlinedPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonSmallTextPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonSmallText(
@@ -578,8 +674,7 @@ private fun ButtonSmallTextPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonMediumTextPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonMediumText(
@@ -602,8 +697,7 @@ private fun ButtonMediumTextPreview() {
 @Preview(showBackground = true, backgroundColor = 0XFFFFFF)
 private fun ButtonLargeTextPreview() {
     Row(
-        modifier = Modifier
-            .padding(10.dp),
+        modifier = Modifier.padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         ButtonLargeText(

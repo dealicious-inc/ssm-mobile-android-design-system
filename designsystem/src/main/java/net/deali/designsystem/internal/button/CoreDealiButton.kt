@@ -19,8 +19,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -44,14 +46,44 @@ internal fun ButtonSmall(
     @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
-    CoreDealiButton(
-        modifier = modifier
-            .height(32.dp),
-        enabled = enabled && !process,
-        shape = AppTheme.shapes.radius4,
-        backgroundColor = backgroundColor,
-        contentPadding = getButtonHorizontalPadding(ButtonSize.SMALL, leftIcon, rightIcon),
+    ButtonSmall(
+        text = text,
+        enabled = enabled,
+        process = process,
+        textStyle = textStyle,
+        textColor = textColor,
+        backgroundBrush = SolidColor(backgroundColor),
+        modifier = modifier,
         border = border,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick,
+    )
+}
+
+@Composable
+internal fun ButtonSmall(
+    text: String,
+    enabled: Boolean,
+    process: Boolean,
+    textStyle: TextStyle,
+    textColor: Color,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    border: BorderStroke? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    CoreDealiButton(
+        shape = AppTheme.shapes.radius4,
+        enabled = enabled && !process,
+        modifier = modifier.height(32.dp),
+        backgroundBrush = backgroundBrush,
+        border = border,
+        contentPadding = getButtonHorizontalPadding(ButtonSize.SMALL, leftIcon, rightIcon),
         onClick = onClick
     ) {
         if (process && processIcon != null) {
@@ -100,14 +132,44 @@ internal fun ButtonMedium(
     @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
-    CoreDealiButton(
-        modifier = modifier
-            .height(46.dp),
-        enabled = enabled && !process,
-        shape = AppTheme.shapes.radius6,
-        backgroundColor = backgroundColor,
-        contentPadding = getButtonHorizontalPadding(ButtonSize.MEDIUM, leftIcon, rightIcon),
+    ButtonMedium(
+        text = text,
+        enabled = enabled,
+        process = process,
+        textStyle = textStyle,
+        textColor = textColor,
+        backgroundBrush = SolidColor(backgroundColor),
+        modifier = modifier,
         border = border,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick,
+    )
+}
+
+@Composable
+internal fun ButtonMedium(
+    text: String,
+    enabled: Boolean,
+    process: Boolean,
+    textStyle: TextStyle,
+    textColor: Color,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    border: BorderStroke? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    CoreDealiButton(
+        shape = AppTheme.shapes.radius6,
+        enabled = enabled && !process,
+        modifier = modifier.height(46.dp),
+        backgroundBrush = backgroundBrush,
+        border = border,
+        contentPadding = getButtonHorizontalPadding(ButtonSize.MEDIUM, leftIcon, rightIcon),
         onClick = onClick
     ) {
         if (process && processIcon != null) {
@@ -156,14 +218,44 @@ internal fun ButtonLarge(
     @DrawableRes processIcon: Int? = null,
     onClick: () -> Unit,
 ) {
-    CoreDealiButton(
-        modifier = modifier
-            .height(50.dp),
-        enabled = enabled && !process,
-        shape = AppTheme.shapes.radius6,
-        backgroundColor = backgroundColor,
-        contentPadding = getButtonHorizontalPadding(ButtonSize.LARGE, leftIcon, rightIcon),
+    ButtonLarge(
+        text = text,
+        enabled = enabled,
+        process = process,
+        textStyle = textStyle,
+        textColor = textColor,
+        backgroundBrush = SolidColor(backgroundColor),
+        modifier = modifier,
         border = border,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        processIcon = processIcon,
+        onClick = onClick,
+    )
+}
+
+@Composable
+internal fun ButtonLarge(
+    text: String,
+    enabled: Boolean,
+    process: Boolean,
+    textStyle: TextStyle,
+    textColor: Color,
+    backgroundBrush: Brush,
+    modifier: Modifier = Modifier,
+    border: BorderStroke? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    @DrawableRes processIcon: Int? = null,
+    onClick: () -> Unit,
+) {
+    CoreDealiButton(
+        shape = AppTheme.shapes.radius6,
+        enabled = enabled && !process,
+        modifier = modifier.height(50.dp),
+        backgroundBrush = backgroundBrush,
+        border = border,
+        contentPadding = getButtonHorizontalPadding(ButtonSize.LARGE, leftIcon, rightIcon),
         onClick = onClick
     ) {
         if (process && processIcon != null) {
@@ -202,16 +294,16 @@ private fun CoreDealiButton(
     shape: Shape,
     enabled: Boolean,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = AppTheme.colors.transparent,
+    backgroundBrush: Brush = SolidColor(AppTheme.colors.transparent),
     border: BorderStroke? = null,
     contentPadding: PaddingValues = PaddingValues(),
     onClick: () -> Unit,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable (RowScope.() -> Unit)
 ) {
     Row(
         modifier = modifier
             .then(if (border != null) Modifier.border(border, shape) else Modifier)
-            .background(color = backgroundColor, shape = shape)
+            .background(brush = backgroundBrush, shape = shape)
             .clip(shape)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
