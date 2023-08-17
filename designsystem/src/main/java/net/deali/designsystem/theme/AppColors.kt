@@ -5,6 +5,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 // primary
@@ -49,6 +50,10 @@ private val bg05 = Color(0xFFDFE3ED)
 private val bg06 = Color(0xFFEBEEF6)
 private val bg07 = Color(0xFFF5F6FB)
 private val bg08 = Color(0xFFF6F6F7)
+
+// gradient
+private val gradientStart = Color(0xFFFB4760)
+private val gradientEnd = Color(0xFFFE1EA4)
 
 // service
 private val error = Color(0xFFFA1818)
@@ -104,6 +109,8 @@ class AppColors(
     bg06: Color,
     bg07: Color,
     bg08: Color,
+    gradientStart: Color,
+    gradientEnd: Color,
     error: Color,
     linkAndInfo: Color,
     warning: Color,
@@ -212,6 +219,14 @@ class AppColors(
     var bg08 by mutableStateOf(bg08)
         private set
 
+    private var gradientStart by mutableStateOf(gradientStart)
+
+    private var gradientEnd by mutableStateOf(gradientEnd)
+
+    val gradient: Brush by mutableStateOf(
+        Brush.horizontalGradient(colors = listOf(gradientStart, gradientEnd))
+    )
+
     var error by mutableStateOf(error)
         private set
 
@@ -286,6 +301,8 @@ class AppColors(
         bg06: Color = this.bg06,
         bg07: Color = this.bg07,
         bg08: Color = this.bg08,
+        gradientStart: Color = this.gradientStart,
+        gradientEnd: Color = this.gradientEnd,
         error: Color = this.error,
         linkAndInfo: Color = this.linkAndInfo,
         warning: Color = this.warning,
@@ -332,6 +349,8 @@ class AppColors(
         bg06,
         bg07,
         bg08,
+        gradientStart,
+        gradientEnd,
         error,
         linkAndInfo,
         warning,
@@ -380,6 +399,8 @@ class AppColors(
         bg06 = other.bg06
         bg07 = other.bg07
         bg08 = other.bg08
+        gradientStart = other.gradientStart
+        gradientEnd = other.gradientEnd
         error = other.error
         linkAndInfo = other.linkAndInfo
         warning = other.warning
@@ -430,6 +451,8 @@ fun lightColors(
     bg06: Color = bg06Light,
     bg07: Color = bg07Light,
     bg08: Color = bg08Light,
+    gradientStart: Color = gradientStartLight,
+    gradientEnd: Color = gradientEndLight,
     error: Color = errorLight,
     linkAndInfo: Color = linkAndInfoLight,
     warning: Color = warningLight,
@@ -475,6 +498,8 @@ fun lightColors(
     bg06 = bg06,
     bg07 = bg07,
     bg08 = bg08,
+    gradientStart = gradientStart,
+    gradientEnd = gradientEnd,
     error = error,
     linkAndInfo = linkAndInfo,
     warning = warning,
@@ -523,6 +548,8 @@ fun darkColors(
     bg06: Color = bg06Dark,
     bg07: Color = bg07Dark,
     bg08: Color = bg08Dark,
+    gradientStart: Color = gradientStartDark,
+    gradientEnd: Color = gradientEndDark,
     error: Color = errorDark,
     linkAndInfo: Color = linkAndInfoDark,
     warning: Color = warningDark,
@@ -568,6 +595,8 @@ fun darkColors(
     bg06 = bg06,
     bg07 = bg07,
     bg08 = bg08,
+    gradientStart = gradientStart,
+    gradientEnd = gradientEnd,
     error = error,
     linkAndInfo = linkAndInfo,
     warning = warning,
@@ -616,6 +645,8 @@ private val bg05Light = bg05
 private val bg06Light = bg06
 private val bg07Light = bg07
 private val bg08Light = bg08
+private val gradientStartLight = gradientStart
+private val gradientEndLight = gradientEnd
 private val errorLight = error
 private val linkAndInfoLight = linkAndInfo
 private val warningLight = warning
@@ -662,6 +693,8 @@ private val bg05Dark = bg05
 private val bg06Dark = bg06
 private val bg07Dark = bg07
 private val bg08Dark = bg08
+private val gradientStartDark = gradientStart
+private val gradientEndDark = gradientEnd
 private val errorDark = error
 private val linkAndInfoDark = linkAndInfo
 private val warningDark = warning
