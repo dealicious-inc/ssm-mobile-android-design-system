@@ -22,7 +22,8 @@ fun AppTheme(
 
     val typography = when (language) {
         Locale.SIMPLIFIED_CHINESE.language -> defaultTypography()
-        else -> pretendardTypography()
+//        else -> pretendardTypography() // 폰트제거 테스트
+        else -> defaultTypography()
     }
 
     val rememberedTypography =

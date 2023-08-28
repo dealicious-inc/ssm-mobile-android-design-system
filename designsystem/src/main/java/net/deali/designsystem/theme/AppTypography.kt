@@ -158,7 +158,8 @@ class AppTypography(
     }
 }
 
-internal val LocalTypography = staticCompositionLocalOf { pretendardTypography() }
+//internal val LocalTypography = staticCompositionLocalOf { pretendardTypography() } // 폰트제거 테스트
+internal val LocalTypography = staticCompositionLocalOf { defaultTypography() }
 
 fun pretendardTypography(
     h1sb32: TextStyle = baseH1sb32.copy(fontFamily = Pretendard),
