@@ -69,6 +69,8 @@ private val etc04 = Color(0x33FFFFFF)
 private val etc05 = Color(0x80FFFFFF)
 private val etc06 = Color(0xB2000000)
 private val etc07 = Color(0xE5FFFFFF)
+private val etc08 = Color(0x0DFFFFFF)
+private val etc09 = Color(0x1AFFFFFF)
 
 // transparent
 private val transparent = Color(0x00FFFFFF)
