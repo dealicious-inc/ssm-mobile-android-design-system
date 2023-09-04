@@ -105,7 +105,7 @@ private fun ButtonSmallContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -130,7 +130,7 @@ private fun ButtonSmallContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -157,7 +157,7 @@ private fun ButtonSmallContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -187,7 +187,7 @@ private fun ButtonSmallContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -212,7 +212,7 @@ private fun ButtonSmallContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -239,7 +239,7 @@ private fun ButtonSmallContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -269,7 +269,7 @@ private fun ButtonSmallContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -294,7 +294,7 @@ private fun ButtonSmallContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -321,7 +321,7 @@ private fun ButtonSmallContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -351,7 +351,7 @@ private fun ButtonSmallContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -376,7 +376,7 @@ private fun ButtonSmallContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -403,7 +403,7 @@ private fun ButtonSmallContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -440,7 +440,7 @@ private fun ButtonMediumContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -465,7 +465,7 @@ private fun ButtonMediumContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -492,7 +492,7 @@ private fun ButtonMediumContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -522,7 +522,7 @@ private fun ButtonMediumContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -547,7 +547,7 @@ private fun ButtonMediumContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -574,7 +574,7 @@ private fun ButtonMediumContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -604,7 +604,7 @@ private fun ButtonMediumContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -629,7 +629,7 @@ private fun ButtonMediumContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -656,7 +656,7 @@ private fun ButtonMediumContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -686,7 +686,7 @@ private fun ButtonMediumContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -711,7 +711,7 @@ private fun ButtonMediumContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -738,7 +738,7 @@ private fun ButtonMediumContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -775,7 +775,7 @@ private fun ButtonLargeContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -800,7 +800,7 @@ private fun ButtonLargeContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -827,7 +827,7 @@ private fun ButtonLargeContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -857,7 +857,7 @@ private fun ButtonLargeContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -882,7 +882,7 @@ private fun ButtonLargeContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -909,7 +909,7 @@ private fun ButtonLargeContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -939,7 +939,7 @@ private fun ButtonLargeContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -964,7 +964,7 @@ private fun ButtonLargeContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -991,7 +991,7 @@ private fun ButtonLargeContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
@@ -1021,7 +1021,7 @@ private fun ButtonLargeContainer() {
                     text = "Default",
                     enabled = true,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -1046,7 +1046,7 @@ private fun ButtonLargeContainer() {
                     text = "Disabled",
                     enabled = false,
                     process = false,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     onClick = {}
                 )
             }
@@ -1073,7 +1073,7 @@ private fun ButtonLargeContainer() {
                     text = "Loading",
                     enabled = true,
                     process = true,
-                    rightIcon = R.drawable.ic_arrow_left_16_ver01,
+                    rightIcon = R.drawable.ic_arrow_right_16_ver01,
                     processIcon = R.drawable.ic_loading_filled_24_ver01,
                     onClick = {}
                 )
