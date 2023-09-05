@@ -31,7 +31,7 @@ internal object DealiTextFieldDefaults {
 
     @Composable
     fun cursor(): Brush {
-        return SolidColor(AppTheme.colors.text01)
+        return SolidColor(AppTheme.colors.g100)
     }
 
     @Composable
@@ -49,15 +49,15 @@ internal object DealiTextFieldDefaults {
     fun colors(): DealiTextFieldColors {
         return DefaultDealiTextFieldColors(
             backgroundColor = AppTheme.colors.primary04,
-            disabledBackgroundColor = AppTheme.colors.divider03,
-            outlineColor = AppTheme.colors.line04,
-            focusedOutlineColor = AppTheme.colors.line01,
+            disabledBackgroundColor = AppTheme.colors.g10,
+            outlineColor = AppTheme.colors.g20,
+            focusedOutlineColor = AppTheme.colors.g100,
             errorOutlineColor = AppTheme.colors.error,
-            textColor = AppTheme.colors.text01,
-            disabledTextColor = AppTheme.colors.text05,
-            placeholderTextColor = AppTheme.colors.text03,
-            labelTextColor = AppTheme.colors.text01,
-            helperTextColor = AppTheme.colors.text03,
+            textColor = AppTheme.colors.g100,
+            disabledTextColor = AppTheme.colors.g50,
+            placeholderTextColor = AppTheme.colors.g70,
+            labelTextColor = AppTheme.colors.g100,
+            helperTextColor = AppTheme.colors.g70,
             errorHelperTextColor = AppTheme.colors.error,
         )
     }

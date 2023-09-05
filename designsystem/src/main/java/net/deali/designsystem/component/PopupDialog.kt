@@ -76,13 +76,13 @@ class PopupDialog private constructor(
                                 modifier = Modifier.padding(end = 8.dp),
                                 text = contentStrategy.title,
                                 style = AppTheme.typography.sh1sb20,
-                                color = AppTheme.colors.text01
+                                color = AppTheme.colors.g100
                             )
                             Spacer(modifier = Modifier.height(18.dp))
                             DealiText(
                                 text = contentStrategy.message,
                                 style = AppTheme.typography.sh3r16,
-                                color = AppTheme.colors.text03
+                                color = AppTheme.colors.g70
                             )
                         }
 
@@ -91,7 +91,7 @@ class PopupDialog private constructor(
                             DealiText(
                                 text = contentStrategy.message,
                                 style = AppTheme.typography.sh3r16,
-                                color = AppTheme.colors.text03
+                                color = AppTheme.colors.g70
                             )
                         }
                     }

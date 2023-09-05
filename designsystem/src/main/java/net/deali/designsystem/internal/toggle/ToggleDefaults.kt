@@ -23,12 +23,12 @@ internal object ToggleDefaults {
     @Composable
     fun colors(): ToggleColors {
         return DefaultToggleColors(
-            slideColor = AppTheme.colors.bg02,
+            slideColor = AppTheme.colors.g60,
             selectedSlideColor = AppTheme.colors.primary03,
-            disabledSlideColor = AppTheme.colors.divider02,
+            disabledSlideColor = AppTheme.colors.g20,
             handleColor = AppTheme.colors.primary04,
             selectedHandleColor = AppTheme.colors.primary01,
-            disabledHandleColor = AppTheme.colors.divider03,
+            disabledHandleColor = AppTheme.colors.g10,
         )
     }
 }

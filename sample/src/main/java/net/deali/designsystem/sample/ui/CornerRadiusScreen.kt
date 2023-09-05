@@ -77,7 +77,7 @@ private fun Item(
             .width(200.dp)
             .height(50.dp)
             .border(
-                border = BorderStroke(1.dp, AppTheme.colors.line01),
+                border = BorderStroke(1.dp, AppTheme.colors.g100),
                 shape = shape
             ),
         contentAlignment = Alignment.Center
@@ -85,7 +85,7 @@ private fun Item(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
     }
 }

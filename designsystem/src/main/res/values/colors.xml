@@ -16,32 +16,16 @@
     <color name="secondary06">#FFFFECDB</color>
 
     <!-- text -->
-    <color name="text01">#FF222222</color>
-    <color name="text02">#FF686E7B</color>
-    <color name="text03">#FF8F97A7</color>
-    <color name="text04">#FFA6ADBD</color>
-    <color name="text05">#FFBEC5D2</color>
-
-    <!-- divider -->
-    <color name="divider01">#FFDFE3ED</color>
-    <color name="divider02">#FFEBEEF6</color>
-    <color name="divider03">#FFF5F6FB</color>
-
-    <!-- line -->
-    <color name="line01">#FF222222</color>
-    <color name="line02">#FFBEC5D2</color>
-    <color name="line03">#FFDFE3ED</color>
-    <color name="line04">#FFEBEEF6</color>
-
-    <!-- bg -->
-    <color name="bg01">#FF222222</color>
-    <color name="bg02">#FFA6ADBD</color>
-    <color name="bg03">#FFBEC5D2</color>
-    <color name="bg04">#FFD0D6E1</color>
-    <color name="bg05">#FFDFE3ED</color>
-    <color name="bg06">#FFEBEEF6</color>
-    <color name="bg07">#FFF5F6FB</color>
-    <color name="bg08">#FFF6F6F7</color>
+    <color name="g100">#FF222222</color>
+    <color name="g80">#FF686E7B</color>
+    <color name="g70">#FF8F97A7</color>
+    <color name="g60">#FFA6ADBD</color>
+    <color name="g50">#FFBEC5D2</color>
+    <color name="g40">#FFD0D6E1</color>
+    <color name="g30">#FFDFE3ED</color>
+    <color name="g20">#FFEBEEF6</color>
+    <color name="g10">#FFF5F6FB</color>
+    <color name="g05">#FFF6F6F7</color>
 
     <!-- service -->
     <color name="error">#FFFA1818</color>

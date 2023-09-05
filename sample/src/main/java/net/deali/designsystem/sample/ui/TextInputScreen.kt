@@ -15,7 +15,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -186,7 +185,7 @@ private fun SampleDivider() = Box(
     modifier = Modifier
         .fillMaxWidth()
         .height(1.dp)
-        .background(color = AppTheme.colors.divider02)
+        .background(color = AppTheme.colors.g20)
 )
 
 @Composable
@@ -202,7 +201,7 @@ private fun ToggleOption(
         DealiText(
             text = title,
             style = AppTheme.typography.b4r12,
-            color = AppTheme.colors.text01,
+            color = AppTheme.colors.g100,
         )
         Toggle(
             selected = selected,

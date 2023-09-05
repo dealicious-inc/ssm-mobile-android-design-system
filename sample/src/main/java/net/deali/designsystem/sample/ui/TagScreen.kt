@@ -65,7 +65,7 @@ fun TagScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.divider03),
+                .background(color = AppTheme.colors.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -215,7 +215,7 @@ private fun Item(
                 .padding(10.dp),
             text = text,
             style = AppTheme.typography.h3sb28,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
 
         Column(
@@ -246,7 +246,7 @@ private fun SubContainer(
             ),
         text = text,
         style = AppTheme.typography.sh2r18,
-        color = AppTheme.colors.text01
+        color = AppTheme.colors.g100
     )
 
     Row(

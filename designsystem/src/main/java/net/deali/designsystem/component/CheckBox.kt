@@ -49,9 +49,9 @@ fun CheckBox(
             text = text,
             style = AppTheme.typography.b3r13,
             color = when {
-                enabled.not() -> AppTheme.colors.text05
+                enabled.not() -> AppTheme.colors.g50
                 checked -> AppTheme.colors.primary01
-                else -> AppTheme.colors.text01
+                else -> AppTheme.colors.g100
             },
             maxLines = 1
         )

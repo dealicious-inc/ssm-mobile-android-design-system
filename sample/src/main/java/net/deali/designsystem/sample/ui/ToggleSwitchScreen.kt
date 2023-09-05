@@ -49,7 +49,7 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
             DealiText(
                 text = "Toggle",
                 style = AppTheme.typography.b2r14,
-                color = AppTheme.colors.text01,
+                color = AppTheme.colors.g100,
             )
 
             Row(
@@ -80,7 +80,7 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
             DealiText(
                 text = "Switch",
                 style = AppTheme.typography.b2r14,
-                color = AppTheme.colors.text01,
+                color = AppTheme.colors.g100,
             )
 
             Row(
@@ -114,7 +114,7 @@ private fun SampleDivider() = Box(
     modifier = Modifier
         .fillMaxWidth()
         .height(1.dp)
-        .background(color = AppTheme.colors.divider03)
+        .background(color = AppTheme.colors.g10)
 )
 
 @Composable

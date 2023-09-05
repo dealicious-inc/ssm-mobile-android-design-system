@@ -50,8 +50,8 @@ fun TagLargePrimaryFilledGray(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
-        backgroundColor = AppTheme.colors.divider03
+        textColor = AppTheme.colors.g80,
+        backgroundColor = AppTheme.colors.g10
     )
 }
 
@@ -91,9 +91,9 @@ fun TagLargeSecondaryOutlinedGray(
     TagLarge(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
+        textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.divider03
+        borderColor = AppTheme.colors.g10
     )
 }
 
@@ -131,8 +131,8 @@ fun TagMediumPrimaryFilledGray(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
-        backgroundColor = AppTheme.colors.divider03
+        textColor = AppTheme.colors.g80,
+        backgroundColor = AppTheme.colors.g10
     )
 }
 
@@ -172,9 +172,9 @@ fun TagMediumSecondaryOutlinedGray(
     TagMedium(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
+        textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.divider03
+        borderColor = AppTheme.colors.g10
     )
 }
 
@@ -212,8 +212,8 @@ fun TagSmallPrimaryFilledGray(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
-        backgroundColor = AppTheme.colors.divider03
+        textColor = AppTheme.colors.g80,
+        backgroundColor = AppTheme.colors.g10
     )
 }
 
@@ -253,9 +253,9 @@ fun TagSmallSecondaryOutlinedGray(
     TagSmall(
         modifier = modifier,
         text = text,
-        textColor = AppTheme.colors.text02,
+        textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.divider03
+        borderColor = AppTheme.colors.g10
     )
 }
 

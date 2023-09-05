@@ -40,26 +40,16 @@ fun ColorsScreen(
         ColorScreenItem(AppTheme.colors.secondary04, "secondary04"),
         ColorScreenItem(AppTheme.colors.secondary05, "secondary05"),
         ColorScreenItem(AppTheme.colors.secondary06, "secondary06"),
-        ColorScreenItem(AppTheme.colors.text01, "text01"),
-        ColorScreenItem(AppTheme.colors.text02, "text02"),
-        ColorScreenItem(AppTheme.colors.text03, "text03"),
-        ColorScreenItem(AppTheme.colors.text04, "text04"),
-        ColorScreenItem(AppTheme.colors.text05, "text05"),
-        ColorScreenItem(AppTheme.colors.divider01, "divider01"),
-        ColorScreenItem(AppTheme.colors.divider02, "divider02"),
-        ColorScreenItem(AppTheme.colors.divider03, "divider03"),
-        ColorScreenItem(AppTheme.colors.line01, "line01"),
-        ColorScreenItem(AppTheme.colors.line02, "line02"),
-        ColorScreenItem(AppTheme.colors.line03, "line03"),
-        ColorScreenItem(AppTheme.colors.line04, "line04"),
-        ColorScreenItem(AppTheme.colors.bg01, "bg01"),
-        ColorScreenItem(AppTheme.colors.bg02, "bg02"),
-        ColorScreenItem(AppTheme.colors.bg03, "bg03"),
-        ColorScreenItem(AppTheme.colors.bg04, "bg04"),
-        ColorScreenItem(AppTheme.colors.bg05, "bg05"),
-        ColorScreenItem(AppTheme.colors.bg06, "bg06"),
-        ColorScreenItem(AppTheme.colors.bg07, "bg07"),
-        ColorScreenItem(AppTheme.colors.bg08, "bg08"),
+        ColorScreenItem(AppTheme.colors.g100, "g100"),
+        ColorScreenItem(AppTheme.colors.g80, "g80"),
+        ColorScreenItem(AppTheme.colors.g70, "g70"),
+        ColorScreenItem(AppTheme.colors.g60, "g60"),
+        ColorScreenItem(AppTheme.colors.g50, "g50"),
+        ColorScreenItem(AppTheme.colors.g40, "g40"),
+        ColorScreenItem(AppTheme.colors.g30, "g30"),
+        ColorScreenItem(AppTheme.colors.g20, "g20"),
+        ColorScreenItem(AppTheme.colors.g10, "g10"),
+        ColorScreenItem(AppTheme.colors.g05, "g05"),
         ColorScreenItem(AppTheme.colors.error, "error"),
         ColorScreenItem(AppTheme.colors.linkAndInfo, "linkAndInfo"),
         ColorScreenItem(AppTheme.colors.warning, "warning"),
@@ -119,7 +109,7 @@ private fun Item(
     ) {
         Spacer(
             modifier = Modifier
-                .then(if (name.contains("white")) Modifier.border(1.dp, AppTheme.colors.divider03) else Modifier)
+                .then(if (name.contains("white")) Modifier.border(1.dp, AppTheme.colors.g10) else Modifier)
                 .background(color)
                 .aspectRatio(1f)
         )
@@ -127,13 +117,13 @@ private fun Item(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
 
         DealiText(
             text = code,
             style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
     }
 }

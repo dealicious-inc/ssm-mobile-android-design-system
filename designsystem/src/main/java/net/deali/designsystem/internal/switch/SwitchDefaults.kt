@@ -19,9 +19,9 @@ internal object SwitchDefaults {
     @Composable
     fun colors(): SwitchColors {
         return DefaultSwitchColors(
-            slideColor = AppTheme.colors.bg05,
+            slideColor = AppTheme.colors.g30,
             selectedSlideColor = AppTheme.colors.primary01,
-            disabledSlideColor = AppTheme.colors.divider01.copy(0.5f),
+            disabledSlideColor = AppTheme.colors.g30.copy(0.5f),
             handleColor = AppTheme.colors.primary04,
         )
     }

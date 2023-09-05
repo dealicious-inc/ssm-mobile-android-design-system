@@ -323,7 +323,7 @@ private fun FormsSampleTitleText(
 ) = DealiText(
     text = text,
     style = AppTheme.typography.sh3sb16,
-    color = AppTheme.colors.text01,
+    color = AppTheme.colors.g100,
     modifier = modifier
 )
 

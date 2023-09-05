@@ -52,7 +52,7 @@ fun Popup(
             modifier = Modifier.padding(end = 8.dp),
             text = title,
             style = AppTheme.typography.sh1sb20,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
 
         Spacer(modifier = Modifier.height(18.dp))
@@ -60,7 +60,7 @@ fun Popup(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = AppTheme.colors.text03
+            color = AppTheme.colors.g70
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -116,7 +116,7 @@ fun Popup(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = AppTheme.colors.text03
+            color = AppTheme.colors.g70
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -171,7 +171,7 @@ fun PopupSingleButton(
             modifier = Modifier.padding(end = 8.dp),
             text = title,
             style = AppTheme.typography.sh1sb20,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
 
         Spacer(modifier = Modifier.height(18.dp))
@@ -179,7 +179,7 @@ fun PopupSingleButton(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = AppTheme.colors.text03
+            color = AppTheme.colors.g70
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -219,7 +219,7 @@ fun PopupSingleButton(
         DealiText(
             text = content,
             style = AppTheme.typography.sh3r16,
-            color = AppTheme.colors.text03
+            color = AppTheme.colors.g70
         )
 
         Spacer(modifier = Modifier.height(24.dp))

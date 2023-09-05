@@ -33,7 +33,7 @@ fun ActionBar(
     modifier: Modifier = Modifier,
     title: String = "",
     backgroundColor: Color = AppTheme.colors.primary04,
-    titleColor: Color = AppTheme.colors.text01,
+    titleColor: Color = AppTheme.colors.g100,
     backButtonColor: Color = AppTheme.colors.primary05,
     menuContent: @Composable (ActionBarScope.() -> Unit)? = null,
 ) {

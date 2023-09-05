@@ -60,7 +60,7 @@ fun ShadowsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(AppTheme.colors.divider03),
+                .background(AppTheme.colors.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -95,7 +95,7 @@ private fun Container(
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .background(AppTheme.colors.bg07)
+                .background(AppTheme.colors.g10)
                 .padding(20.dp)
                 .fillMaxWidth(),
             contentAlignment = Alignment.Center
@@ -112,7 +112,7 @@ private fun Container(
                     )
                     .clip(AppTheme.shapes.radius10)
                     .background(AppTheme.colors.primary04)
-                    .border(1.dp, AppTheme.colors.line03, AppTheme.shapes.radius10)
+                    .border(1.dp, AppTheme.colors.g30, AppTheme.shapes.radius10)
             )
         }
 
@@ -121,7 +121,7 @@ private fun Container(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
     }
 }

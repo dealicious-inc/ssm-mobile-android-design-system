@@ -94,7 +94,7 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 DealiText(
                     text = "Visible 옵션",
                     style = AppTheme.typography.b4r12,
-                    color = AppTheme.colors.text01,
+                    color = AppTheme.colors.g100,
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -148,7 +148,7 @@ private fun SampleDivider() = Box(
     modifier = Modifier
         .fillMaxWidth()
         .height(1.dp)
-        .background(color = AppTheme.colors.divider02)
+        .background(color = AppTheme.colors.g20)
 )
 
 @Composable
@@ -164,7 +164,7 @@ private fun ToggleOption(
         DealiText(
             text = title,
             style = AppTheme.typography.b4r12,
-            color = AppTheme.colors.text01,
+            color = AppTheme.colors.g100,
         )
         Toggle(
             selected = selected,

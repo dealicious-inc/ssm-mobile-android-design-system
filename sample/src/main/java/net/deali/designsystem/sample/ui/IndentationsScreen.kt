@@ -28,7 +28,7 @@ fun IndentationsScreen(
         DealiText(
             text = "INDENTATIONS SCREEN EMPTY",
             style = AppTheme.typography.h1sb32,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
     }
 }

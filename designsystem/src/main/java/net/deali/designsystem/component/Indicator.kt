@@ -44,7 +44,7 @@ fun IndicatorPinkDot(
         pagerState = pagerState,
         pageCount = pageCount,
         activeColor = AppTheme.colors.primary01,
-        inactiveColor = AppTheme.colors.line03,
+        inactiveColor = AppTheme.colors.g30,
         indicatorSize = 6.dp,
         space = 6.dp,
         pageIndexMapping = pageIndexMapping

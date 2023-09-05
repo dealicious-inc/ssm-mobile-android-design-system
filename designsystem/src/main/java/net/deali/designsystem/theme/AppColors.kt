@@ -23,35 +23,18 @@ private val secondary04 = Color(0xFFFF7C44)
 private val secondary05 = Color(0xFFFF6827)
 private val secondary06 = Color(0xFFFFECDB)
 
-// text
-private val text01 = Color(0xFF222222)
-private val text02 = Color(0xFF686E7B)
-private val text03 = Color(0xFF8F97A7)
-private val text04 = Color(0xFFA6ADBD)
-private val text05 = Color(0xFFBEC5D2)
+// gray
+private val g100 = Color(0xFF222222)
+private val g80 = Color(0xFF686E7B)
+private val g70 = Color(0xFF8F97A7)
+private val g60 = Color(0xFFA6ADBD)
+private val g50 = Color(0xFFBEC5D2)
+private val g40 = Color(0xFFD0D6E1)
+private val g30 = Color(0xFFDFE3ED)
+private val g20 = Color(0xFFEBEEF6)
+private val g10 = Color(0xFFF5F6FB)
+private val g05 = Color(0xFFF6F6F7)
 
-// divider
-private val divider01 = Color(0xFFDFE3ED)
-private val divider02 = Color(0xFFEBEEF6)
-private val divider03 = Color(0xFFF5F6FB)
-
-// line
-private val line01 = Color(0xFF222222)
-private val line02 = Color(0xFFBEC5D2)
-private val line03 = Color(0xFFDFE3ED)
-private val line04 = Color(0xFFEBEEF6)
-
-// bg
-private val bg01 = Color(0xFF222222)
-private val bg02 = Color(0xFFA6ADBD)
-private val bg03 = Color(0xFFBEC5D2)
-private val bg04 = Color(0xFFD0D6E1)
-private val bg05 = Color(0xFFDFE3ED)
-private val bg06 = Color(0xFFEBEEF6)
-private val bg07 = Color(0xFFF5F6FB)
-private val bg08 = Color(0xFFF6F6F7)
-
-// gradient
 private val gradientStart = Color(0xFFFB4760)
 private val gradientEnd = Color(0xFFFE1EA4)
 
@@ -91,26 +74,16 @@ class AppColors(
     secondary04: Color,
     secondary05: Color,
     secondary06: Color,
-    text01: Color,
-    text02: Color,
-    text03: Color,
-    text04: Color,
-    text05: Color,
-    divider01: Color,
-    divider02: Color,
-    divider03: Color,
-    line01: Color,
-    line02: Color,
-    line03: Color,
-    line04: Color,
-    bg01: Color,
-    bg02: Color,
-    bg03: Color,
-    bg04: Color,
-    bg05: Color,
-    bg06: Color,
-    bg07: Color,
-    bg08: Color,
+    g100: Color,
+    g80: Color,
+    g70: Color,
+    g60: Color,
+    g50: Color,
+    g40: Color,
+    g30: Color,
+    g20: Color,
+    g10: Color,
+    g05: Color,
     gradientStart: Color,
     gradientEnd: Color,
     error: Color,
@@ -161,64 +134,34 @@ class AppColors(
     var secondary06 by mutableStateOf(secondary06)
         private set
 
-    var text01 by mutableStateOf(text01)
+    var g100 by mutableStateOf(g100)
         private set
 
-    var text02 by mutableStateOf(text02)
+    var g80 by mutableStateOf(g80)
         private set
 
-    var text03 by mutableStateOf(text03)
+    var g70 by mutableStateOf(g70)
         private set
 
-    var text04 by mutableStateOf(text04)
+    var g60 by mutableStateOf(g60)
         private set
 
-    var text05 by mutableStateOf(text05)
+    var g50 by mutableStateOf(g50)
         private set
 
-    var divider01 by mutableStateOf(divider01)
+    var g40 by mutableStateOf(g40)
         private set
 
-    var divider02 by mutableStateOf(divider02)
+    var g30 by mutableStateOf(g30)
         private set
 
-    var divider03 by mutableStateOf(divider03)
+    var g20 by mutableStateOf(g20)
         private set
 
-    var line01 by mutableStateOf(line01)
+    var g10 by mutableStateOf(g10)
         private set
 
-    var line02 by mutableStateOf(line02)
-        private set
-
-    var line03 by mutableStateOf(line03)
-        private set
-
-    var line04 by mutableStateOf(line04)
-        private set
-
-    var bg01 by mutableStateOf(bg01)
-        private set
-
-    var bg02 by mutableStateOf(bg02)
-        private set
-
-    var bg03 by mutableStateOf(bg03)
-        private set
-
-    var bg04 by mutableStateOf(bg04)
-        private set
-
-    var bg05 by mutableStateOf(bg05)
-        private set
-
-    var bg06 by mutableStateOf(bg06)
-        private set
-
-    var bg07 by mutableStateOf(bg07)
-        private set
-
-    var bg08 by mutableStateOf(bg08)
+    var g05 by mutableStateOf(g05)
         private set
 
     private var gradientStart by mutableStateOf(gradientStart)
@@ -283,26 +226,16 @@ class AppColors(
         secondary04: Color = this.secondary04,
         secondary05: Color = this.secondary05,
         secondary06: Color = this.secondary06,
-        text01: Color = this.text01,
-        text02: Color = this.text02,
-        text03: Color = this.text03,
-        text04: Color = this.text04,
-        text05: Color = this.text05,
-        divider01: Color = this.divider01,
-        divider02: Color = this.divider02,
-        divider03: Color = this.divider03,
-        line01: Color = this.line01,
-        line02: Color = this.line02,
-        line03: Color = this.line03,
-        line04: Color = this.line04,
-        bg01: Color = this.bg01,
-        bg02: Color = this.bg02,
-        bg03: Color = this.bg03,
-        bg04: Color = this.bg04,
-        bg05: Color = this.bg05,
-        bg06: Color = this.bg06,
-        bg07: Color = this.bg07,
-        bg08: Color = this.bg08,
+        g100: Color = this.g100,
+        g80: Color = this.g80,
+        g70: Color = this.g70,
+        g60: Color = this.g60,
+        g50: Color = this.g50,
+        g40: Color = this.g40,
+        g30: Color = this.g30,
+        g20: Color = this.g20,
+        g10: Color = this.g10,
+        g05: Color = this.g05,
         gradientStart: Color = this.gradientStart,
         gradientEnd: Color = this.gradientEnd,
         error: Color = this.error,
@@ -331,26 +264,16 @@ class AppColors(
         secondary04,
         secondary05,
         secondary06,
-        text01,
-        text02,
-        text03,
-        text04,
-        text05,
-        divider01,
-        divider02,
-        divider03,
-        line01,
-        line02,
-        line03,
-        line04,
-        bg01,
-        bg02,
-        bg03,
-        bg04,
-        bg05,
-        bg06,
-        bg07,
-        bg08,
+        g100,
+        g80,
+        g70,
+        g60,
+        g50,
+        g40,
+        g30,
+        g20,
+        g10,
+        g05,
         gradientStart,
         gradientEnd,
         error,
@@ -366,7 +289,7 @@ class AppColors(
         etc07,
         transparent,
         ripple,
-        isLight
+        isLight,
     )
 
     fun updateColorsFrom(other: AppColors) {
@@ -381,26 +304,16 @@ class AppColors(
         secondary04 = other.secondary04
         secondary05 = other.secondary05
         secondary06 = other.secondary06
-        text01 = other.text01
-        text02 = other.text02
-        text03 = other.text03
-        text04 = other.text04
-        text05 = other.text05
-        divider01 = other.divider01
-        divider02 = other.divider02
-        divider03 = other.divider03
-        line01 = other.line01
-        line02 = other.line02
-        line03 = other.line03
-        line04 = other.line04
-        bg01 = other.bg01
-        bg02 = other.bg02
-        bg03 = other.bg03
-        bg04 = other.bg04
-        bg05 = other.bg05
-        bg06 = other.bg06
-        bg07 = other.bg07
-        bg08 = other.bg08
+        g100 = other.g100
+        g80 = other.g80
+        g70 = other.g70
+        g60 = other.g60
+        g50 = other.g50
+        g40 = other.g40
+        g30 = other.g30
+        g20 = other.g20
+        g10 = other.g10
+        g05 = other.g05
         gradientStart = other.gradientStart
         gradientEnd = other.gradientEnd
         error = other.error
@@ -433,26 +346,16 @@ fun lightColors(
     secondary04: Color = secondary04Light,
     secondary05: Color = secondary05Light,
     secondary06: Color = secondary06Light,
-    text01: Color = text01Light,
-    text02: Color = text02Light,
-    text03: Color = text03Light,
-    text04: Color = text04Light,
-    text05: Color = text05Light,
-    divider01: Color = divider01Light,
-    divider02: Color = divider02Light,
-    divider03: Color = divider03Light,
-    line01: Color = line01Light,
-    line02: Color = line02Light,
-    line03: Color = line03Light,
-    line04: Color = line04Light,
-    bg01: Color = bg01Light,
-    bg02: Color = bg02Light,
-    bg03: Color = bg03Light,
-    bg04: Color = bg04Light,
-    bg05: Color = bg05Light,
-    bg06: Color = bg06Light,
-    bg07: Color = bg07Light,
-    bg08: Color = bg08Light,
+    g100: Color = g100Common,
+    g80: Color = g80Common,
+    g70: Color = g70Common,
+    g60: Color = g60Common,
+    g50: Color = g50Common,
+    g40: Color = g40Common,
+    g30: Color = g30Common,
+    g20: Color = g20Common,
+    g10: Color = g10Common,
+    g05: Color = g05Common,
     gradientStart: Color = gradientStartLight,
     gradientEnd: Color = gradientEndLight,
     error: Color = errorLight,
@@ -480,28 +383,18 @@ fun lightColors(
     secondary04 = secondary04,
     secondary05 = secondary05,
     secondary06 = secondary06,
-    text01 = text01,
-    text02 = text02,
-    text03 = text03,
-    text04 = text04,
-    text05 = text05,
-    divider01 = divider01,
-    divider02 = divider02,
-    divider03 = divider03,
-    line01 = line01,
-    line02 = line02,
-    line03 = line03,
-    line04 = line04,
-    bg01 = bg01,
-    bg02 = bg02,
-    bg03 = bg03,
-    bg04 = bg04,
-    bg05 = bg05,
-    bg06 = bg06,
-    bg07 = bg07,
-    bg08 = bg08,
-    gradientStart = gradientStart,
-    gradientEnd = gradientEnd,
+    g100 = g100,
+    g80 = g80,
+    g70 = g70,
+    g60 = g60,
+    g50 = g50,
+    g40 = g40,
+    g30 = g30,
+    g20 = g20,
+    g10 = g10,
+    g05 = g05,
+    gradientStart,
+    gradientEnd,
     error = error,
     linkAndInfo = linkAndInfo,
     warning = warning,
@@ -515,7 +408,7 @@ fun lightColors(
     etc07 = etc07,
     transparent = transparent,
     ripple = ripple,
-    isLight = true
+    isLight = true,
 )
 
 fun darkColors(
@@ -530,26 +423,16 @@ fun darkColors(
     secondary04: Color = secondary04Dark,
     secondary05: Color = secondary05Dark,
     secondary06: Color = secondary06Dark,
-    text01: Color = text01Dark,
-    text02: Color = text02Dark,
-    text03: Color = text03Dark,
-    text04: Color = text04Dark,
-    text05: Color = text05Dark,
-    divider01: Color = divider01Dark,
-    divider02: Color = divider02Dark,
-    divider03: Color = divider03Dark,
-    line01: Color = line01Dark,
-    line02: Color = line02Dark,
-    line03: Color = line03Dark,
-    line04: Color = line04Dark,
-    bg01: Color = bg01Dark,
-    bg02: Color = bg02Dark,
-    bg03: Color = bg03Dark,
-    bg04: Color = bg04Dark,
-    bg05: Color = bg05Dark,
-    bg06: Color = bg06Dark,
-    bg07: Color = bg07Dark,
-    bg08: Color = bg08Dark,
+    g100: Color = g100Common,
+    g80: Color = g80Common,
+    g70: Color = g70Common,
+    g60: Color = g60Common,
+    g50: Color = g50Common,
+    g40: Color = g40Common,
+    g30: Color = g30Common,
+    g20: Color = g20Common,
+    g10: Color = g10Common,
+    g05: Color = g05Common,
     gradientStart: Color = gradientStartDark,
     gradientEnd: Color = gradientEndDark,
     error: Color = errorDark,
@@ -577,28 +460,18 @@ fun darkColors(
     secondary04 = secondary04,
     secondary05 = secondary05,
     secondary06 = secondary06,
-    text01 = text01,
-    text02 = text02,
-    text03 = text03,
-    text04 = text04,
-    text05 = text05,
-    divider01 = divider01,
-    divider02 = divider02,
-    divider03 = divider03,
-    line01 = line01,
-    line02 = line02,
-    line03 = line03,
-    line04 = line04,
-    bg01 = bg01,
-    bg02 = bg02,
-    bg03 = bg03,
-    bg04 = bg04,
-    bg05 = bg05,
-    bg06 = bg06,
-    bg07 = bg07,
-    bg08 = bg08,
-    gradientStart = gradientStart,
-    gradientEnd = gradientEnd,
+    g100 = g100,
+    g80 = g80,
+    g70 = g70,
+    g60 = g60,
+    g50 = g50,
+    g40 = g40,
+    g30 = g30,
+    g20 = g20,
+    g10 = g10,
+    g05 = g05,
+    gradientStart,
+    gradientEnd,
     error = error,
     linkAndInfo = linkAndInfo,
     warning = warning,
@@ -612,8 +485,20 @@ fun darkColors(
     etc07 = etc07,
     transparent = transparent,
     ripple = ripple,
-    isLight = false
+    isLight = false,
 )
+
+// common color
+private val g100Common = g100
+private val g80Common = g80
+private val g70Common = g70
+private val g60Common = g60
+private val g50Common = g50
+private val g40Common = g40
+private val g30Common = g30
+private val g20Common = g20
+private val g10Common = g10
+private val g05Common = g05
 
 // light color
 private val primary01Light = primary01
@@ -627,26 +512,6 @@ private val secondary03Light = secondary03
 private val secondary04Light = secondary04
 private val secondary05Light = secondary05
 private val secondary06Light = secondary06
-private val text01Light = text01
-private val text02Light = text02
-private val text03Light = text03
-private val text04Light = text04
-private val text05Light = text05
-private val divider01Light = divider01
-private val divider02Light = divider02
-private val divider03Light = divider03
-private val line01Light = line01
-private val line02Light = line02
-private val line03Light = line03
-private val line04Light = line04
-private val bg01Light = bg01
-private val bg02Light = bg02
-private val bg03Light = bg03
-private val bg04Light = bg04
-private val bg05Light = bg05
-private val bg06Light = bg06
-private val bg07Light = bg07
-private val bg08Light = bg08
 private val gradientStartLight = gradientStart
 private val gradientEndLight = gradientEnd
 private val errorLight = error
@@ -675,26 +540,6 @@ private val secondary03Dark = secondary03
 private val secondary04Dark = secondary04
 private val secondary05Dark = secondary05
 private val secondary06Dark = secondary06
-private val text01Dark = text01
-private val text02Dark = text02
-private val text03Dark = text03
-private val text04Dark = text04
-private val text05Dark = text05
-private val divider01Dark = divider01
-private val divider02Dark = divider02
-private val divider03Dark = divider03
-private val line01Dark = line01
-private val line02Dark = line02
-private val line03Dark = line03
-private val line04Dark = line04
-private val bg01Dark = bg01
-private val bg02Dark = bg02
-private val bg03Dark = bg03
-private val bg04Dark = bg04
-private val bg05Dark = bg05
-private val bg06Dark = bg06
-private val bg07Dark = bg07
-private val bg08Dark = bg08
 private val gradientStartDark = gradientStart
 private val gradientEndDark = gradientEnd
 private val errorDark = error

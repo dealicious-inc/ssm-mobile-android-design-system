@@ -55,7 +55,7 @@ fun NavigationBar(
             style = AppTheme.typography.sh3sb16,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
 
         Row(

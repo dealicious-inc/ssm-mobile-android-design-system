@@ -55,7 +55,7 @@ fun NavigationScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.divider03),
+                .background(color = AppTheme.colors.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -71,14 +71,14 @@ fun NavigationScreen(
 private fun PagerContainer() {
     Container(
         name = "Indicator",
-        backgroundColor = AppTheme.colors.bg04
+        backgroundColor = AppTheme.colors.g40
     ) {
         val colors = listOf(
             AppTheme.colors.primary01,
             AppTheme.colors.secondary01,
-            AppTheme.colors.text01,
-            AppTheme.colors.divider01,
-            AppTheme.colors.line01
+            AppTheme.colors.g100,
+            AppTheme.colors.g30,
+            AppTheme.colors.g100
         )
 
         val pagerDataState = rememberPageDataState(
@@ -140,7 +140,7 @@ private fun PagerContainer() {
 @Composable
 private fun Container(
     name: String,
-    backgroundColor: Color = AppTheme.colors.bg07,
+    backgroundColor: Color = AppTheme.colors.g10,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(
@@ -155,7 +155,7 @@ private fun Container(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(6.dp))
                 .background(backgroundColor)
-                .border(1.dp, AppTheme.colors.line03, RoundedCornerShape(6.dp)),
+                .border(1.dp, AppTheme.colors.g30, RoundedCornerShape(6.dp)),
             content = content,
             horizontalAlignment = Alignment.CenterHorizontally
         )
@@ -165,7 +165,7 @@ private fun Container(
         DealiText(
             text = name,
             style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.text01
+            color = AppTheme.colors.g100
         )
     }
 }

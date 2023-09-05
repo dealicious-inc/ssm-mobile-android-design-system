@@ -87,7 +87,7 @@ fun TypographyScreen(
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
-                .background(color = AppTheme.colors.divider03),
+                .background(color = AppTheme.colors.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -190,7 +190,7 @@ private fun Item(
                     Modifier
                         .fillMaxWidth()
                         .height(1.dp)
-                        .background(color = AppTheme.colors.line03)
+                        .background(color = AppTheme.colors.g30)
                 )
 
                 DealiText(
@@ -198,7 +198,7 @@ private fun Item(
                         .padding(30.dp),
                     text = getRandomText(),
                     style = style,
-                    color = AppTheme.colors.text01
+                    color = AppTheme.colors.g100
                 )
             }
         }

@@ -56,9 +56,9 @@ fun RadioButton(
             text = text,
             style = AppTheme.typography.b3r13,
             color = when {
-                enabled.not() -> AppTheme.colors.text05
+                enabled.not() -> AppTheme.colors.g50
                 selected -> AppTheme.colors.primary01
-                else -> AppTheme.colors.text01
+                else -> AppTheme.colors.g100
             }
         )
     }
@@ -79,14 +79,14 @@ private fun RadioIcon(
     )
 
     val backgroundColor = when {
-        enabled.not() -> AppTheme.colors.divider03
+        enabled.not() -> AppTheme.colors.g10
         else -> AppTheme.colors.transparent
     }
 
     val borderColor = when {
-        enabled.not() -> AppTheme.colors.line03
+        enabled.not() -> AppTheme.colors.g30
         selected -> AppTheme.colors.primary01
-        else -> AppTheme.colors.text01
+        else -> AppTheme.colors.g100
     }
 
     val dotColor = when {
