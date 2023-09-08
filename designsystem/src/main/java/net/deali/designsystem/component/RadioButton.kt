@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.semantics.Role
@@ -34,6 +36,7 @@ fun RadioButton(
 ) {
     Row(
         modifier = Modifier
+            .clip(RoundedCornerShape(4.dp))
             .selectable(
                 selected = selected,
                 interactionSource = remember { MutableInteractionSource() },
@@ -52,12 +55,11 @@ fun RadioButton(
 
         DealiText(
             modifier = Modifier
-                .padding(start = 4.dp),
+                .padding(start = 8.dp),
             text = text,
             style = AppTheme.typography.b3r13,
             color = when {
                 enabled.not() -> AppTheme.colors.g50
-                selected -> AppTheme.colors.primary01
                 else -> AppTheme.colors.g100
             }
         )
@@ -80,7 +82,7 @@ private fun RadioIcon(
 
     val backgroundColor = when {
         enabled.not() -> AppTheme.colors.g10
-        else -> AppTheme.colors.transparent
+        else -> AppTheme.colors.primary04
     }
 
     val borderColor = when {
