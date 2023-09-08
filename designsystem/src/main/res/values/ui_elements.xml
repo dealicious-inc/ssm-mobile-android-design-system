@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 태그 -->
+    <style name="TagLargePrimaryFilledPink" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
+    </style>
+
+    <style name="TagLargePrimaryFilledBlue" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+    </style>
+
+    <style name="TagLargePrimaryFilledGray" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagLargeSecondaryOutlinedPink" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
+    </style>
+
+    <style name="TagLargeSecondaryOutlinedBlue" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
+    </style>
+
+    <style name="TagLargeSecondaryOutlinedGray" parent="TagLarge">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumPrimaryFilledPink" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumPrimaryFilledBlue" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumPrimaryFilledGray" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumSecondaryOutlinedPink" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumSecondaryOutlinedBlue" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
+    </style>
+
+    <style name="TagMediumSecondaryOutlinedGray" parent="TagMedium">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallPrimaryFilledPink" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallPrimaryFilledBlue" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallPrimaryFilledGray" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallSecondaryOutlinedPink" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallSecondaryOutlinedBlue" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
+    </style>
+
+    <style name="TagSmallSecondaryOutlinedGray" parent="TagSmall">
+        <item name="android:textColor">@color/primary01</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+    </style>
+
+    <style name="TagLarge" parent="Tag" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineHeight">20dp</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="TagMedium" parent="Tag" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineHeight">18dp</item>
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:paddingVertical">4dp</item>
+    </style>
+
+    <style name="TagSmall" parent="Tag" tools:ignore="NewApi">
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineHeight">14dp</item>
+        <item name="android:paddingHorizontal">4dp</item>
+        <item name="android:paddingVertical">1dp</item>
+    </style>
+
+    <style name="Tag" parent="Widget.AppCompat.TextView">
+        <item name="android:maxLines">1</item>
+    </style>
+
+</resources>
