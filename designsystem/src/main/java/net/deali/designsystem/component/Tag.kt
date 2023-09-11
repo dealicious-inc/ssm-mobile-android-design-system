@@ -93,7 +93,7 @@ fun TagLargeSecondaryOutlinedGray(
         text = text,
         textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.g10
+        borderColor = AppTheme.colors.g20
     )
 }
 
@@ -174,7 +174,7 @@ fun TagMediumSecondaryOutlinedGray(
         text = text,
         textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.g10
+        borderColor = AppTheme.colors.g20
     )
 }
 
@@ -255,7 +255,7 @@ fun TagSmallSecondaryOutlinedGray(
         text = text,
         textColor = AppTheme.colors.g80,
         backgroundColor = AppTheme.colors.primary04,
-        borderColor = AppTheme.colors.g10
+        borderColor = AppTheme.colors.g20
     )
 }
 

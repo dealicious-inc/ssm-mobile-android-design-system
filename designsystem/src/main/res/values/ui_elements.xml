@@ -19,7 +19,7 @@
     </style>
 
     <style name="TagLargeSecondaryOutlinedPink" parent="TagLarge">
-        <item name="android:textColor">@color/primary01</item>
+        <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
     </style>
 
@@ -30,7 +30,7 @@
 
     <style name="TagLargeSecondaryOutlinedGray" parent="TagLarge">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>
 
     <!-- medium -->
@@ -50,7 +50,7 @@
     </style>
 
     <style name="TagMediumSecondaryOutlinedPink" parent="TagMedium">
-        <item name="android:textColor">@color/primary01</item>
+        <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
     </style>
 
@@ -61,12 +61,12 @@
 
     <style name="TagMediumSecondaryOutlinedGray" parent="TagMedium">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>
 
     <!-- small -->
     <style name="TagSmallPrimaryFilledPink" parent="TagSmall">
-        <item name="android:textColor">@color/primary01</item>
+        <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
     </style>
 
@@ -92,7 +92,7 @@
 
     <style name="TagSmallSecondaryOutlinedGray" parent="TagSmall">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_primary04_stroke_g10_radius_4dp</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>
 
     <!-- core -->
