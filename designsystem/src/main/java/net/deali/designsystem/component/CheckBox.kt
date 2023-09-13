@@ -15,7 +15,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -47,11 +48,11 @@ fun CheckBox(
             modifier = Modifier
                 .padding(start = 8.dp),
             text = text,
-            style = AppTheme.typography.b3r13,
+            style = DealiFont.b3r13,
             color = when {
-                enabled.not() -> AppTheme.colors.g50
-                checked -> AppTheme.colors.primary01
-                else -> AppTheme.colors.g100
+                enabled.not() -> DealiColor.g50
+                checked -> DealiColor.primary01
+                else -> DealiColor.g100
             },
             maxLines = 1
         )

@@ -21,6 +21,8 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun CornerRadiusScreen(
@@ -52,7 +54,7 @@ fun CornerRadiusScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04),
+                .background(color = DealiColor.primary04),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -77,15 +79,15 @@ private fun Item(
             .width(200.dp)
             .height(50.dp)
             .border(
-                border = BorderStroke(1.dp, AppTheme.colors.g100),
+                border = BorderStroke(1.dp, DealiColor.g100),
                 shape = shape
             ),
         contentAlignment = Alignment.Center
     ) {
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.g100
+            style = DealiFont.b1r15,
+            color = DealiColor.g100
         )
     }
 }

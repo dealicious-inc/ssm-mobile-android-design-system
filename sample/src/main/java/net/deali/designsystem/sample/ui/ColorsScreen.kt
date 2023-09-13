@@ -22,44 +22,45 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.sample.util.toHexString
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun ColorsScreen(
     onBackPress: () -> Unit
 ) {
     val colorScreenItems = listOf(
-        ColorScreenItem(AppTheme.colors.primary01, "primary01"),
-        ColorScreenItem(AppTheme.colors.primary02, "primary02"),
-        ColorScreenItem(AppTheme.colors.primary03, "primary03"),
-        ColorScreenItem(AppTheme.colors.primary04, "primary04"),
-        ColorScreenItem(AppTheme.colors.primary05, "primary05"),
-        ColorScreenItem(AppTheme.colors.secondary01, "secondary01"),
-        ColorScreenItem(AppTheme.colors.secondary02, "secondary02"),
-        ColorScreenItem(AppTheme.colors.secondary03, "secondary03"),
-        ColorScreenItem(AppTheme.colors.secondary04, "secondary04"),
-        ColorScreenItem(AppTheme.colors.secondary05, "secondary05"),
-        ColorScreenItem(AppTheme.colors.secondary06, "secondary06"),
-        ColorScreenItem(AppTheme.colors.g100, "g100"),
-        ColorScreenItem(AppTheme.colors.g80, "g80"),
-        ColorScreenItem(AppTheme.colors.g70, "g70"),
-        ColorScreenItem(AppTheme.colors.g60, "g60"),
-        ColorScreenItem(AppTheme.colors.g50, "g50"),
-        ColorScreenItem(AppTheme.colors.g40, "g40"),
-        ColorScreenItem(AppTheme.colors.g30, "g30"),
-        ColorScreenItem(AppTheme.colors.g20, "g20"),
-        ColorScreenItem(AppTheme.colors.g10, "g10"),
-        ColorScreenItem(AppTheme.colors.g05, "g05"),
-        ColorScreenItem(AppTheme.colors.error, "error"),
-        ColorScreenItem(AppTheme.colors.linkAndInfo, "linkAndInfo"),
-        ColorScreenItem(AppTheme.colors.warning, "warning"),
-        ColorScreenItem(AppTheme.colors.success, "success"),
-        ColorScreenItem(AppTheme.colors.etc01, "etc01"),
-        ColorScreenItem(AppTheme.colors.etc02, "etc02"),
-        ColorScreenItem(AppTheme.colors.etc03, "etc03"),
-        ColorScreenItem(AppTheme.colors.etc04, "etc04"),
-        ColorScreenItem(AppTheme.colors.etc05, "etc05"),
-        ColorScreenItem(AppTheme.colors.etc06, "etc06"),
+        ColorScreenItem(DealiColor.primary01, "primary01"),
+        ColorScreenItem(DealiColor.primary02, "primary02"),
+        ColorScreenItem(DealiColor.primary03, "primary03"),
+        ColorScreenItem(DealiColor.primary04, "primary04"),
+        ColorScreenItem(DealiColor.primary05, "primary05"),
+        ColorScreenItem(DealiColor.secondary01, "secondary01"),
+        ColorScreenItem(DealiColor.secondary02, "secondary02"),
+        ColorScreenItem(DealiColor.secondary03, "secondary03"),
+        ColorScreenItem(DealiColor.secondary04, "secondary04"),
+        ColorScreenItem(DealiColor.secondary05, "secondary05"),
+        ColorScreenItem(DealiColor.secondary06, "secondary06"),
+        ColorScreenItem(DealiColor.g100, "g100"),
+        ColorScreenItem(DealiColor.g80, "g80"),
+        ColorScreenItem(DealiColor.g70, "g70"),
+        ColorScreenItem(DealiColor.g60, "g60"),
+        ColorScreenItem(DealiColor.g50, "g50"),
+        ColorScreenItem(DealiColor.g40, "g40"),
+        ColorScreenItem(DealiColor.g30, "g30"),
+        ColorScreenItem(DealiColor.g20, "g20"),
+        ColorScreenItem(DealiColor.g10, "g10"),
+        ColorScreenItem(DealiColor.g05, "g05"),
+        ColorScreenItem(DealiColor.error, "error"),
+        ColorScreenItem(DealiColor.linkAndInfo, "linkAndInfo"),
+        ColorScreenItem(DealiColor.warning, "warning"),
+        ColorScreenItem(DealiColor.success, "success"),
+        ColorScreenItem(DealiColor.etc01, "etc01"),
+        ColorScreenItem(DealiColor.etc02, "etc02"),
+        ColorScreenItem(DealiColor.etc03, "etc03"),
+        ColorScreenItem(DealiColor.etc04, "etc04"),
+        ColorScreenItem(DealiColor.etc05, "etc05"),
+        ColorScreenItem(DealiColor.etc06, "etc06"),
     )
 
     NavigationContainer(
@@ -78,7 +79,7 @@ fun ColorsScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04),
+                .background(color = DealiColor.primary04),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -109,21 +110,21 @@ private fun Item(
     ) {
         Spacer(
             modifier = Modifier
-                .then(if (name.contains("white")) Modifier.border(1.dp, AppTheme.colors.g10) else Modifier)
+                .then(if (name.contains("white")) Modifier.border(1.dp, DealiColor.g10) else Modifier)
                 .background(color)
                 .aspectRatio(1f)
         )
 
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.g100
+            style = DealiFont.b1r15,
+            color = DealiColor.g100
         )
 
         DealiText(
             text = code,
-            style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.g100
+            style = DealiFont.b1r15,
+            color = DealiColor.g100
         )
     }
 }

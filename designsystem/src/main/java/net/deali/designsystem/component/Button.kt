@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonLarge
 import net.deali.designsystem.internal.button.ButtonMedium
 import net.deali.designsystem.internal.button.ButtonSmall
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -30,9 +31,9 @@ fun ButtonSmallFilled(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b4sb12,
-        textColor = AppTheme.colors.primary04,
-        backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
+        textStyle = DealiFont.b4sb12,
+        textColor = DealiColor.primary04,
+        backgroundColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -57,8 +58,8 @@ fun ButtonSmallFilled(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b4sb12,
-        textColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b4sb12,
+        textColor = DealiColor.primary04,
         backgroundBrush = backgroundBrush,
         enabled = enabled,
         process = process,
@@ -83,9 +84,9 @@ fun ButtonMediumFilled(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b2sb14,
-        textColor = AppTheme.colors.primary04,
-        backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
+        textStyle = DealiFont.b2sb14,
+        textColor = DealiColor.primary04,
+        backgroundColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -110,8 +111,8 @@ fun ButtonMediumFilled(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b2sb14,
-        textColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b2sb14,
+        textColor = DealiColor.primary04,
         backgroundBrush = backgroundBrush,
         enabled = enabled,
         process = process,
@@ -136,9 +137,9 @@ fun ButtonLargeFilled(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b1sb15,
-        textColor = AppTheme.colors.primary04,
-        backgroundColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
+        textStyle = DealiFont.b1sb15,
+        textColor = DealiColor.primary04,
+        backgroundColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -163,8 +164,8 @@ fun ButtonLargeFilled(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b1sb15,
-        textColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b1sb15,
+        textColor = DealiColor.primary04,
         backgroundBrush = backgroundBrush,
         enabled = enabled,
         process = process,
@@ -189,12 +190,12 @@ fun ButtonSmallOutlined(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b4sb12,
-        textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b4sb12,
+        textColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
+        backgroundColor = DealiColor.primary04,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40),
+        border = BorderStroke(1.dp, if (enabled) DealiColor.primary01 else DealiColor.g40),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -216,12 +217,12 @@ fun ButtonMediumOutlined(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b2sb14,
-        textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b2sb14,
+        textColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
+        backgroundColor = DealiColor.primary04,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40),
+        border = BorderStroke(1.dp, if (enabled) DealiColor.primary01 else DealiColor.g40),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -243,12 +244,12 @@ fun ButtonLargeOutlined(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b1sb15,
-        textColor = if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.primary04,
+        textStyle = DealiFont.b1sb15,
+        textColor = if (enabled) DealiColor.primary01 else DealiColor.g40,
+        backgroundColor = DealiColor.primary04,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, if (enabled) AppTheme.colors.primary01 else AppTheme.colors.g40),
+        border = BorderStroke(1.dp, if (enabled) DealiColor.primary01 else DealiColor.g40),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -270,12 +271,12 @@ fun ButtonSmallTonalOutlined(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b4sb12,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.g10,
+        textStyle = DealiFont.b4sb12,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.g10,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, AppTheme.colors.g30),
+        border = BorderStroke(1.dp, DealiColor.g30),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -297,12 +298,12 @@ fun ButtonMediumTonalOutlined(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b2sb14,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.g10,
+        textStyle = DealiFont.b2sb14,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.g10,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, AppTheme.colors.g30),
+        border = BorderStroke(1.dp, DealiColor.g30),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -324,12 +325,12 @@ fun ButtonLargeTonalOutlined(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b1sb15,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.g10,
+        textStyle = DealiFont.b1sb15,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.g10,
         enabled = enabled,
         process = process,
-        border = BorderStroke(1.dp, AppTheme.colors.g30),
+        border = BorderStroke(1.dp, DealiColor.g30),
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         processIcon = processIcon,
@@ -351,9 +352,9 @@ fun ButtonSmallText(
     ButtonSmall(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b4r12,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.transparent,
+        textStyle = DealiFont.b4r12,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.transparent,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -377,9 +378,9 @@ fun ButtonMediumText(
     ButtonMedium(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b2r14,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.transparent,
+        textStyle = DealiFont.b2r14,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.transparent,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -403,9 +404,9 @@ fun ButtonLargeText(
     ButtonLarge(
         modifier = modifier,
         text = text,
-        textStyle = AppTheme.typography.b1sb15,
-        textColor = if (enabled) AppTheme.colors.g80 else AppTheme.colors.g40,
-        backgroundColor = AppTheme.colors.transparent,
+        textStyle = DealiFont.b1sb15,
+        textColor = if (enabled) DealiColor.g80 else DealiColor.g40,
+        backgroundColor = DealiColor.transparent,
         enabled = enabled,
         process = process,
         leftIcon = leftIcon,
@@ -431,7 +432,7 @@ private fun ButtonSmallFilledPreview() {
 
         ButtonSmallFilled(
             text = getRandomText(1),
-            backgroundBrush = AppTheme.colors.gradient,
+            backgroundBrush = DealiColor.gradient,
             enabled = true,
             process = false,
             onClick = {}
@@ -462,7 +463,7 @@ private fun ButtonMediumFilledPreview() {
 
         ButtonMediumFilled(
             text = getRandomText(1),
-            backgroundBrush = AppTheme.colors.gradient,
+            backgroundBrush = DealiColor.gradient,
             enabled = true,
             process = false,
             onClick = {}
@@ -493,7 +494,7 @@ private fun ButtonLargeFilledPreview() {
 
         ButtonLargeFilled(
             text = getRandomText(1),
-            backgroundBrush = AppTheme.colors.gradient,
+            backgroundBrush = DealiColor.gradient,
             enabled = true,
             process = false,
             onClick = {}

@@ -26,6 +26,8 @@ import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 /**
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.
@@ -61,7 +63,7 @@ class PopupDialog private constructor(
                 Column(
                     modifier = Modifier
                         .clip(AppTheme.shapes.radius10)
-                        .background(AppTheme.colors.primary04)
+                        .background(DealiColor.primary04)
                         .width(280.dp)
                         .padding(
                             bottom = 20.dp,
@@ -75,14 +77,14 @@ class PopupDialog private constructor(
                             DealiText(
                                 modifier = Modifier.padding(end = 8.dp),
                                 text = contentStrategy.title,
-                                style = AppTheme.typography.sh1sb20,
-                                color = AppTheme.colors.g100
+                                style = DealiFont.sh1sb20,
+                                color = DealiColor.g100
                             )
                             Spacer(modifier = Modifier.height(18.dp))
                             DealiText(
                                 text = contentStrategy.message,
-                                style = AppTheme.typography.sh3r16,
-                                color = AppTheme.colors.g70
+                                style = DealiFont.sh3r16,
+                                color = DealiColor.g70
                             )
                         }
 
@@ -90,8 +92,8 @@ class PopupDialog private constructor(
                             Spacer(modifier = Modifier.height(28.dp))
                             DealiText(
                                 text = contentStrategy.message,
-                                style = AppTheme.typography.sh3r16,
-                                color = AppTheme.colors.g70
+                                style = DealiFont.sh3r16,
+                                color = DealiColor.g70
                             )
                         }
                     }

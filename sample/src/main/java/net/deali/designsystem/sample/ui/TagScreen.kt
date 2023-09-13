@@ -42,7 +42,8 @@ import net.deali.designsystem.component.TagSmallPrimaryFilledPink
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
 import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -65,7 +66,7 @@ fun TagScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.g10),
+                .background(color = DealiColor.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -207,15 +208,15 @@ private fun Item(
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(AppTheme.colors.primary04)
+            .background(DealiColor.primary04)
     ) {
         DealiText(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(10.dp),
             text = text,
-            style = AppTheme.typography.h3sb28,
-            color = AppTheme.colors.g100
+            style = DealiFont.h3sb28,
+            color = DealiColor.g100
         )
 
         Column(
@@ -245,8 +246,8 @@ private fun SubContainer(
                 bottom = 10.dp
             ),
         text = text,
-        style = AppTheme.typography.sh2r18,
-        color = AppTheme.colors.g100
+        style = DealiFont.sh2r18,
+        color = DealiColor.g100
     )
 
     Row(

@@ -6,7 +6,8 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun IndentationsScreen(
@@ -27,8 +28,8 @@ fun IndentationsScreen(
     ) {
         DealiText(
             text = "INDENTATIONS SCREEN EMPTY",
-            style = AppTheme.typography.h1sb32,
-            color = AppTheme.colors.g100
+            style = DealiFont.h1sb32,
+            color = DealiColor.g100
         )
     }
 }

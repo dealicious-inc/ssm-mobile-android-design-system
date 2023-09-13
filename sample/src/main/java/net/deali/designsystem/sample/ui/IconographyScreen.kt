@@ -35,7 +35,8 @@ import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_16
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_24
 import net.deali.designsystem.sample.ui.IconographyScreenItem.Companion.SIZE_32
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun IconographyScreen(
@@ -292,7 +293,7 @@ fun IconographyScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(AppTheme.colors.g10),
+                .background(DealiColor.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -321,7 +322,7 @@ private fun Container(
         modifier = Modifier
             .padding(10.dp)
             .clip(RoundedCornerShape(6.dp))
-            .background(AppTheme.colors.primary04)
+            .background(DealiColor.primary04)
             .padding(10.dp)
     ) {
         val scrollState = rememberScrollState()
@@ -331,17 +332,17 @@ private fun Container(
                 .fillMaxWidth()
                 .aspectRatio(5 / 2f)
                 .clip(RoundedCornerShape(6.dp))
-                .background(AppTheme.colors.g10)
-                .border(1.dp, AppTheme.colors.g30, RoundedCornerShape(6.dp))
+                .background(DealiColor.g10)
+                .border(1.dp, DealiColor.g30, RoundedCornerShape(6.dp))
                 .horizontalScroll(scrollState),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterHorizontally),
         ) {
             val colors = listOf(
-                AppTheme.colors.g100,
-                AppTheme.colors.primary01,
-                AppTheme.colors.g60,
-                AppTheme.colors.primary04,
+                DealiColor.g100,
+                DealiColor.primary01,
+                DealiColor.g60,
+                DealiColor.primary04,
             )
 
             Spacer(modifier = Modifier.width(10.dp))
@@ -360,8 +361,8 @@ private fun Container(
 
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.g100
+            style = DealiFont.b1r15,
+            color = DealiColor.g100
         )
     }
 }
@@ -378,7 +379,7 @@ private fun Item(
             if (filledIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -388,18 +389,19 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon16(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
                 )
             }
         }
+
         SIZE_24 -> {
             if (filledIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -409,18 +411,19 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon24(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}
                 )
             }
         }
+
         SIZE_32 -> {
             if (filledIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = filledIconRes,
                     color = color,
                     onClick = {}
@@ -430,7 +433,7 @@ private fun Item(
             if (outlinedIconRes != null) {
                 Icon32(
                     modifier = Modifier
-                        .background(if (color == AppTheme.colors.primary04) AppTheme.colors.g100 else AppTheme.colors.transparent),
+                        .background(if (color == DealiColor.primary04) DealiColor.g100 else DealiColor.transparent),
                     iconRes = outlinedIconRes,
                     color = color,
                     onClick = {}

@@ -31,6 +31,7 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 import kotlin.math.roundToInt
 
 
@@ -75,7 +76,7 @@ private fun TooltipLayout(
     var alignment = Alignment.TopCenter
     var offset = position.offset
 
-    val color = AppTheme.colors.secondary01
+    val color = DealiColor.secondary01
     val arrowHeight = 6.dp
     val horizontalPadding = 16.dp
     val horizontalPaddingInPx = with(LocalDensity.current) {

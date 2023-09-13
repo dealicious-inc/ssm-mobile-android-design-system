@@ -19,7 +19,7 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Popup
 import net.deali.designsystem.component.PopupSingleButton
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun PopupScreen(
@@ -46,7 +46,7 @@ fun PopupScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04)
+                .background(color = DealiColor.primary04)
                 .padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
@@ -59,7 +59,7 @@ fun PopupScreen(
             ButtonSmallTonalOutlined(
                 text = "popup title content confirm",
                 enabled = true,
-                onClick =  { popupState2 = true },
+                onClick = { popupState2 = true },
             )
 
             ButtonSmallTonalOutlined(

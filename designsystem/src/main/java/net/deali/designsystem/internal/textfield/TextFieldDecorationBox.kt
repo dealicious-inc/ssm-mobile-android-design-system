@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 internal fun DealiTextFieldDecorationBox(
@@ -108,7 +108,7 @@ private fun LabelText(
             val textColor by colors.labelTextColor()
             DealiText(
                 text = label ?: "",
-                style = AppTheme.typography.b2r14,
+                style = DealiFont.b2r14,
                 color = textColor,
                 overflow = TextOverflow.Clip,
                 maxLines = 1
@@ -187,7 +187,7 @@ private fun PlaceholderText(
         val textColor by colors.placeholderTextColor()
         DealiText(
             text = placeholder ?: "",
-            style = AppTheme.typography.b2r14,
+            style = DealiFont.b2r14,
             color = textColor,
             modifier = modifier
         )
@@ -211,7 +211,7 @@ private fun HelperText(
                 append(DealiTextFieldDefaults.HelperTextBullet)
                 append(helperText ?: "")
             },
-            style = AppTheme.typography.b4r12,
+            style = DealiFont.b4r12,
             color = textColor,
             overflow = TextOverflow.Clip,
             maxLines = 1

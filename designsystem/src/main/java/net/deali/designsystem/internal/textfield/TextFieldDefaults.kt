@@ -14,7 +14,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 internal object DealiTextFieldDefaults {
     val BorderWidth: Dp = 1.dp
@@ -27,11 +28,11 @@ internal object DealiTextFieldDefaults {
 
     val TextStyle: TextStyle
         @Composable
-        get() = AppTheme.typography.b2r14
+        get() = DealiFont.b2r14
 
     @Composable
     fun cursor(): Brush {
-        return SolidColor(AppTheme.colors.g100)
+        return SolidColor(DealiColor.g100)
     }
 
     @Composable
@@ -48,17 +49,17 @@ internal object DealiTextFieldDefaults {
     @Composable
     fun colors(): DealiTextFieldColors {
         return DefaultDealiTextFieldColors(
-            backgroundColor = AppTheme.colors.primary04,
-            disabledBackgroundColor = AppTheme.colors.g10,
-            outlineColor = AppTheme.colors.g20,
-            focusedOutlineColor = AppTheme.colors.g100,
-            errorOutlineColor = AppTheme.colors.error,
-            textColor = AppTheme.colors.g100,
-            disabledTextColor = AppTheme.colors.g50,
-            placeholderTextColor = AppTheme.colors.g70,
-            labelTextColor = AppTheme.colors.g100,
-            helperTextColor = AppTheme.colors.g70,
-            errorHelperTextColor = AppTheme.colors.error,
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.g10,
+            outlineColor = DealiColor.g20,
+            focusedOutlineColor = DealiColor.g100,
+            errorOutlineColor = DealiColor.error,
+            textColor = DealiColor.g100,
+            disabledTextColor = DealiColor.g50,
+            placeholderTextColor = DealiColor.g70,
+            labelTextColor = DealiColor.g100,
+            helperTextColor = DealiColor.g70,
+            errorHelperTextColor = DealiColor.error,
         )
     }
 }

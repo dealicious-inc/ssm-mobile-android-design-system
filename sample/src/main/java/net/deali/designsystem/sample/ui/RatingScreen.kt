@@ -13,7 +13,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Rating
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun RatingScreen(
@@ -35,11 +35,11 @@ fun RatingScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04)
+                .background(color = DealiColor.primary04)
                 .padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            for (rating in 0 .. 10) {
+            for (rating in 0..10) {
                 Rating(
                     modifier = Modifier,
                     totalCount = 5,

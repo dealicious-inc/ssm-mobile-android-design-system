@@ -33,7 +33,8 @@ import net.deali.designsystem.component.IndicatorPinkDot
 import net.deali.designsystem.component.IndicatorWhiteDot
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.rememberPageDataState
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun NavigationScreen(
@@ -55,7 +56,7 @@ fun NavigationScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.g10),
+                .background(color = DealiColor.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -71,14 +72,14 @@ fun NavigationScreen(
 private fun PagerContainer() {
     Container(
         name = "Indicator",
-        backgroundColor = AppTheme.colors.g40
+        backgroundColor = DealiColor.g40
     ) {
         val colors = listOf(
-            AppTheme.colors.primary01,
-            AppTheme.colors.secondary01,
-            AppTheme.colors.g100,
-            AppTheme.colors.g30,
-            AppTheme.colors.g100
+            DealiColor.primary01,
+            DealiColor.secondary01,
+            DealiColor.g100,
+            DealiColor.g30,
+            DealiColor.g100
         )
 
         val pagerDataState = rememberPageDataState(
@@ -140,14 +141,14 @@ private fun PagerContainer() {
 @Composable
 private fun Container(
     name: String,
-    backgroundColor: Color = AppTheme.colors.g10,
+    backgroundColor: Color = DealiColor.g10,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(
         modifier = Modifier
             .padding(10.dp)
             .clip(RoundedCornerShape(6.dp))
-            .background(AppTheme.colors.primary04)
+            .background(DealiColor.primary04)
             .padding(10.dp)
     ) {
         Column(
@@ -155,7 +156,7 @@ private fun Container(
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(6.dp))
                 .background(backgroundColor)
-                .border(1.dp, AppTheme.colors.g30, RoundedCornerShape(6.dp)),
+                .border(1.dp, DealiColor.g30, RoundedCornerShape(6.dp)),
             content = content,
             horizontalAlignment = Alignment.CenterHorizontally
         )
@@ -164,8 +165,8 @@ private fun Container(
 
         DealiText(
             text = name,
-            style = AppTheme.typography.b1r15,
-            color = AppTheme.colors.g100
+            style = DealiFont.b1r15,
+            color = DealiColor.g100
         )
     }
 }

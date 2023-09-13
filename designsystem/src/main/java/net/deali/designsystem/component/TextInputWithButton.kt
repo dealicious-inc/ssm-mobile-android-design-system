@@ -15,7 +15,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun TextInputWithButton(
@@ -31,7 +31,7 @@ fun TextInputWithButton(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    iconColor: Color = AppTheme.colors.g100,
+    iconColor: Color = DealiColor.g100,
     onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,
@@ -123,7 +123,7 @@ fun TextInputWithButton(
     isError: Boolean = false,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    iconColor: Color = AppTheme.colors.g100,
+    iconColor: Color = DealiColor.g100,
     onIconClick: (() -> Unit)? = null,
     placeholder: String? = null,
     label: String? = null,

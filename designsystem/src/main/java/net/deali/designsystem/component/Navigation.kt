@@ -16,13 +16,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun NavigationBar(
     modifier: Modifier = Modifier,
     title: String = "",
-    backgroundColor: Color = AppTheme.colors.primary04,
+    backgroundColor: Color = DealiColor.primary04,
     actions: @Composable RowScope.() -> Unit = {},
     navigationIcon: @Composable BoxScope.() -> Unit = {},
 ) {
@@ -52,10 +53,10 @@ fun NavigationBar(
                     width = Dimension.fillToConstraints
                 },
             text = title,
-            style = AppTheme.typography.sh3sb16,
+            style = DealiFont.sh3sb16,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
-            color = AppTheme.colors.g100
+            color = DealiColor.g100
         )
 
         Row(

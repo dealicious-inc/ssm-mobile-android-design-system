@@ -24,7 +24,8 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.Toggle
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun TextFieldScreen(onBackPress: () -> Unit) {
@@ -93,8 +94,8 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
             Column {
                 DealiText(
                     text = "Visible 옵션",
-                    style = AppTheme.typography.b4r12,
-                    color = AppTheme.colors.g100,
+                    style = DealiFont.b4r12,
+                    color = DealiColor.g100,
                 )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -148,7 +149,7 @@ private fun SampleDivider() = Box(
     modifier = Modifier
         .fillMaxWidth()
         .height(1.dp)
-        .background(color = AppTheme.colors.g20)
+        .background(color = DealiColor.g20)
 )
 
 @Composable
@@ -163,8 +164,8 @@ private fun ToggleOption(
     ) {
         DealiText(
             text = title,
-            style = AppTheme.typography.b4r12,
-            color = AppTheme.colors.g100,
+            style = DealiFont.b4r12,
+            color = DealiColor.g100,
         )
         Toggle(
             selected = selected,

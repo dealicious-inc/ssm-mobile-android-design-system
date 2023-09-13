@@ -23,7 +23,8 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Switch
 import net.deali.designsystem.component.Toggle
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun ToggleSwitchScreen(onBackPress: () -> Unit) {
@@ -48,8 +49,8 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
         ) {
             DealiText(
                 text = "Toggle",
-                style = AppTheme.typography.b2r14,
-                color = AppTheme.colors.g100,
+                style = DealiFont.b2r14,
+                color = DealiColor.g100,
             )
 
             Row(
@@ -79,8 +80,8 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
 
             DealiText(
                 text = "Switch",
-                style = AppTheme.typography.b2r14,
-                color = AppTheme.colors.g100,
+                style = DealiFont.b2r14,
+                color = DealiColor.g100,
             )
 
             Row(
@@ -114,7 +115,7 @@ private fun SampleDivider() = Box(
     modifier = Modifier
         .fillMaxWidth()
         .height(1.dp)
-        .background(color = AppTheme.colors.g10)
+        .background(color = DealiColor.g10)
 )
 
 @Composable

@@ -13,7 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import net.deali.designsystem.sample.datastore.DataStoreUtil
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun Nav(
@@ -24,7 +24,7 @@ fun Nav(
     NavHost(
         modifier = Modifier
             .fillMaxSize()
-            .background(AppTheme.colors.primary04),
+            .background(DealiColor.primary04),
         navController = navController,
         startDestination = Screen.Menu.route
     ) {
@@ -201,6 +201,7 @@ sealed class Screen(val route: String) {
     object UIElements : Screen("uiElements") {
         val menu = this.route + "Menu"
     }
+
     object Forms : Screen("forms") {
         val menu = this.route + "Menu"
     }
@@ -215,7 +216,7 @@ sealed class Screen(val route: String) {
     object Tag : Screen("tag")
     object TextInput : Screen("textInput")
     object TextInputWithButton : Screen("textInputWithButton")
-    object TextField: Screen("textField")
+    object TextField : Screen("textField")
 }
 
 @Composable

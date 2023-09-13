@@ -11,7 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.tooltip.CoreDealiTooltip
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun Tooltip(
@@ -38,8 +39,8 @@ fun Tooltip(
                             vertical = 12.dp
                         ),
                     text = text,
-                    style = AppTheme.typography.b3r13,
-                    color = AppTheme.colors.primary04,
+                    style = DealiFont.b3r13,
+                    color = DealiColor.primary04,
                 )
             }
         )

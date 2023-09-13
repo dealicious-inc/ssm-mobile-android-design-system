@@ -30,6 +30,7 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.IconRotating
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 internal fun ButtonSmall(
@@ -294,7 +295,7 @@ private fun CoreDealiButton(
     shape: Shape,
     enabled: Boolean,
     modifier: Modifier = Modifier,
-    backgroundBrush: Brush = SolidColor(AppTheme.colors.transparent),
+    backgroundBrush: Brush = SolidColor(DealiColor.transparent),
     border: BorderStroke? = null,
     contentPadding: PaddingValues = PaddingValues(),
     onClick: () -> Unit,

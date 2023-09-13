@@ -23,10 +23,11 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
-import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.BigPasswordVisualTransformation
 
 @Composable
@@ -134,7 +135,7 @@ fun FormsScreenOld(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04),
+                .background(color = DealiColor.primary04),
             contentPadding = PaddingValues(all = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
@@ -232,8 +233,8 @@ fun FormsScreenOld(
                     trailingContent = {
                         DealiText(
                             text = timerText9,
-                            style = AppTheme.typography.b2r14,
-                            color = AppTheme.colors.error,
+                            style = DealiFont.b2r14,
+                            color = DealiColor.error,
                         )
                     }
                 )
@@ -243,7 +244,7 @@ fun FormsScreenOld(
                 TextInput(
                     value = text10,
                     onValueChange = { text10 = it },
-                    textStyle = AppTheme.typography.b2r14,
+                    textStyle = DealiFont.b2r14,
                     placeholder = "Text input",
                     label = "Custom text style"
                 )
@@ -322,8 +323,8 @@ private fun FormsSampleTitleText(
     modifier: Modifier = Modifier
 ) = DealiText(
     text = text,
-    style = AppTheme.typography.sh3sb16,
-    color = AppTheme.colors.g100,
+    style = DealiFont.sh3sb16,
+    color = DealiColor.g100,
     modifier = modifier
 )
 

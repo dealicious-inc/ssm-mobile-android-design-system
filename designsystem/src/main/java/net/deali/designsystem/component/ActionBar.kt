@@ -25,16 +25,17 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.actionbar.CoreActionBarLayout
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun ActionBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
-    backgroundColor: Color = AppTheme.colors.primary04,
-    titleColor: Color = AppTheme.colors.g100,
-    backButtonColor: Color = AppTheme.colors.primary05,
+    backgroundColor: Color = DealiColor.primary04,
+    titleColor: Color = DealiColor.g100,
+    backButtonColor: Color = DealiColor.primary05,
     menuContent: @Composable (ActionBarScope.() -> Unit)? = null,
 ) {
     CoreActionBarLayout(
@@ -53,7 +54,7 @@ fun ActionBar(
                 )
                 DealiText(
                     text = title,
-                    style = AppTheme.typography.sh3sb16,
+                    style = DealiFont.sh3sb16,
                     color = titleColor,
                 )
             }
@@ -118,11 +119,11 @@ private object ActionBarScopeImpl : ActionBarScope {
     override fun Modifier.badge(count: Int): Modifier = composed {
         require(count > 0) { "badge count must be positive." }
 
-        val badgeColor = AppTheme.colors.primary01
-        val textColor = AppTheme.colors.primary04
+        val badgeColor = DealiColor.primary01
+        val textColor = DealiColor.primary04
 
         val textMeasurer = rememberTextMeasurer()
-        val textStyle = AppTheme.typography.c1sb10.merge(
+        val textStyle = DealiFont.c1sb10.merge(
             TextStyle(color = textColor)
         )
 
@@ -234,9 +235,9 @@ private fun ActionBarPreview4() {
     ActionBar(
         onBack = {},
         title = "Preview",
-        backgroundColor = AppTheme.colors.secondary02,
-        titleColor = AppTheme.colors.primary04,
-        backButtonColor = AppTheme.colors.primary04,
+        backgroundColor = DealiColor.secondary02,
+        titleColor = DealiColor.primary04,
+        backButtonColor = DealiColor.primary04,
     )
 }
 
@@ -249,13 +250,13 @@ private fun ProductDetailsActionBarPreview() {
             Icon24(
                 onClick = {},
                 iconRes = R.drawable.ic_search_24_ver01,
-                color = AppTheme.colors.primary04,
+                color = DealiColor.primary04,
             )
             Icon24(
                 onClick = {},
                 iconRes = R.drawable.ic_cart_24_ver01,
                 modifier = Modifier.badge(count = 1),
-                color = AppTheme.colors.primary04,
+                color = DealiColor.primary04,
             )
         }
     )

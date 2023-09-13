@@ -18,7 +18,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.util.getRandomText
 
 @Composable
@@ -52,7 +52,7 @@ fun RadioButtonScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AppTheme.colors.primary04)
+                .background(color = DealiColor.primary04)
                 .padding(10.dp)
                 .selectableGroup(),
             verticalArrangement = Arrangement.spacedBy(10.dp)

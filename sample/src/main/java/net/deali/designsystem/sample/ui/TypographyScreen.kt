@@ -36,7 +36,8 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.sample.datastore.DataStoreUtil
-import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 import java.util.Locale
 
@@ -46,25 +47,25 @@ fun TypographyScreen(
     dataStoreUtil: DataStoreUtil
 ) {
     val typographyScreenItems = listOf(
-        TypographyScreenItem("h1sb32", AppTheme.typography.h1sb32),
-        TypographyScreenItem("h3sb28", AppTheme.typography.h3sb28),
-        TypographyScreenItem("h2sb24", AppTheme.typography.h2sb24),
-        TypographyScreenItem("sh1sb20", AppTheme.typography.sh1sb20),
-        TypographyScreenItem("sh1r20", AppTheme.typography.sh1r20),
-        TypographyScreenItem("sh2sb18", AppTheme.typography.sh2sb18),
-        TypographyScreenItem("sh2r18", AppTheme.typography.sh2r18),
-        TypographyScreenItem("sh3sb16", AppTheme.typography.sh3sb16),
-        TypographyScreenItem("sh3r16", AppTheme.typography.sh3r16),
-        TypographyScreenItem("b1sb15", AppTheme.typography.b1sb15),
-        TypographyScreenItem("b1r15", AppTheme.typography.b1r15),
-        TypographyScreenItem("b2sb14", AppTheme.typography.b2sb14),
-        TypographyScreenItem("b2r14", AppTheme.typography.b2r14),
-        TypographyScreenItem("b3sb13", AppTheme.typography.b3sb13),
-        TypographyScreenItem("b3r13", AppTheme.typography.b3r13),
-        TypographyScreenItem("b4sb12", AppTheme.typography.b4sb12),
-        TypographyScreenItem("b4r12", AppTheme.typography.b4r12),
-        TypographyScreenItem("c1sb10", AppTheme.typography.c1sb10),
-        TypographyScreenItem("c1r10", AppTheme.typography.c1r10),
+        TypographyScreenItem("h1sb32", DealiFont.h1sb32),
+        TypographyScreenItem("h3sb28", DealiFont.h3sb28),
+        TypographyScreenItem("h2sb24", DealiFont.h2sb24),
+        TypographyScreenItem("sh1sb20", DealiFont.sh1sb20),
+        TypographyScreenItem("sh1r20", DealiFont.sh1r20),
+        TypographyScreenItem("sh2sb18", DealiFont.sh2sb18),
+        TypographyScreenItem("sh2r18", DealiFont.sh2r18),
+        TypographyScreenItem("sh3sb16", DealiFont.sh3sb16),
+        TypographyScreenItem("sh3r16", DealiFont.sh3r16),
+        TypographyScreenItem("b1sb15", DealiFont.b1sb15),
+        TypographyScreenItem("b1r15", DealiFont.b1r15),
+        TypographyScreenItem("b2sb14", DealiFont.b2sb14),
+        TypographyScreenItem("b2r14", DealiFont.b2r14),
+        TypographyScreenItem("b3sb13", DealiFont.b3sb13),
+        TypographyScreenItem("b3r13", DealiFont.b3r13),
+        TypographyScreenItem("b4sb12", DealiFont.b4sb12),
+        TypographyScreenItem("b4r12", DealiFont.b4r12),
+        TypographyScreenItem("c1sb10", DealiFont.c1sb10),
+        TypographyScreenItem("c1r10", DealiFont.c1r10),
     )
 
     NavigationContainer(
@@ -87,7 +88,7 @@ fun TypographyScreen(
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
-                .background(color = AppTheme.colors.g10),
+                .background(color = DealiColor.g10),
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
@@ -123,7 +124,7 @@ private fun LocaleContainer(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = AppTheme.colors.primary04)
+            .background(color = DealiColor.primary04)
             .padding(10.dp)
             .selectableGroup(),
         horizontalArrangement = Arrangement.SpaceAround,
@@ -154,7 +155,7 @@ private fun Item(
     Column(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
-            .background(AppTheme.colors.primary04)
+            .background(DealiColor.primary04)
             .clickable(
                 onClick = { isVisible = !isVisible }
             )
@@ -190,7 +191,7 @@ private fun Item(
                     Modifier
                         .fillMaxWidth()
                         .height(1.dp)
-                        .background(color = AppTheme.colors.g30)
+                        .background(color = DealiColor.g30)
                 )
 
                 DealiText(
@@ -198,7 +199,7 @@ private fun Item(
                         .padding(30.dp),
                     text = getRandomText(),
                     style = style,
-                    color = AppTheme.colors.g100
+                    color = DealiColor.g100
                 )
             }
         }
