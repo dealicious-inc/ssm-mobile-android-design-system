@@ -20,6 +20,8 @@ compose-compiler = "1.4.4"
 
 android-material = "1.7.0"
 
+accompanist = "0.30.1"
+
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
@@ -41,5 +43,7 @@ compoes-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.r
 compoes-compiler = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 
 maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
