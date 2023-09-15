@@ -12,13 +12,13 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 internal object ButtonDefaults {
-
     @Composable
     fun colors(
         backgroundColor: Color,
@@ -153,6 +153,16 @@ internal object ButtonDefaults {
             } else {
                 DealiFont.b4sb12
             }
+        }
+    }
+
+    @Composable
+    fun loadingIconSize(buttonSize: ButtonSize): DpSize {
+        return when (buttonSize) {
+            ButtonSize.Large,
+            ButtonSize.Medium -> DpSize(24.dp, 24.dp)
+
+            ButtonSize.Small -> DpSize(16.dp, 16.dp)
         }
     }
 }

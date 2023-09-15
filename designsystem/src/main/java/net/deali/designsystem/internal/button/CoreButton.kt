@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -22,8 +23,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.IconRotating
 
 @Composable
 internal fun CoreButton(
@@ -60,8 +63,25 @@ internal fun CoreButton(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        if (loading) {
-            // TODO 천재웅 구현 필요
+        if (loading && buttonStyle != ButtonStyle.Text) {
+            Box(
+                modifier = Modifier
+                    .padding(
+                        ButtonDefaults.buttonPaddings(
+                            buttonSize = buttonSize,
+                            buttonStyle = buttonStyle,
+                            useLeftIcon = leftIcon != null,
+                            useRightIcon = rightIcon != null,
+                        )
+                    ),
+                contentAlignment = Alignment.Center,
+            ) {
+                IconRotating(
+                    modifier = Modifier.size(ButtonDefaults.loadingIconSize(buttonSize)),
+                    iconRes = R.drawable.ic_loading_filled_24_ver01,
+                    color = contentColor,
+                )
+            }
         } else {
             Row(
                 modifier = Modifier
