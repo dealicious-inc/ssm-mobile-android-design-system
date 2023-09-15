@@ -20,12 +20,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import net.deali.designsystem.R
-import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
+import net.deali.designsystem.component.btnOutlineMediumPrimary01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.BigPasswordVisualTransformation
@@ -54,19 +54,19 @@ fun FormsScreen(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 text = "Text Input",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInput,
             )
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 text = "Text Input + Button",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInputWithButton,
             )
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 text = "Text Field",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),

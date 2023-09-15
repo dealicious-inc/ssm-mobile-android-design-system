@@ -8,8 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ButtonMediumFilled
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.btnFilledMediumPrimary01
 
 @Composable
 fun MenuScreen(
@@ -38,101 +38,101 @@ fun MenuScreen(
                 .weight(1f),
             verticalArrangement = Arrangement.SpaceBetween
         ) {
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "1. Typography",
                 onClick = navigateToTypography
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "2. Grid",
                 onClick = navigateToGrid
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "3. Colors",
                 onClick = navigateToColors
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "4. Indentations",
                 onClick = navigateToIndentations
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "5. Iconography",
                 onClick = navigateToIconography
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "6. Shadows",
                 onClick = navigateToShadows
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "7. Corner radius",
                 onClick = navigateToCornerRadius
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "8. Navigation",
                 onClick = navigateToNavigation
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "9. Buttons",
                 onClick = navigateToButtons
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "10. UI Elements",
                 onClick = navigateToUIElements
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier
                     .fillMaxWidth(),
                 enabled = true,
-                process = false,
+                loading = false,
                 text = "11. Forms",
                 onClick = navigateToForms
             )

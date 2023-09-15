@@ -56,7 +56,7 @@ fun TextInputWithButton(
             helperText = helperText,
             isHelperTextVisible = isHelperTextVisible,
         )
-        ButtonMediumOutlined(
+        btnOutlineMediumPrimary01(
             text = buttonText,
             enabled = buttonEnabled,
             modifier = Modifier,
@@ -100,7 +100,7 @@ fun TextInputWithButton(
             isHelperTextVisible = isHelperTextVisible,
             trailingContent = trailingContent,
         )
-        ButtonMediumOutlined(
+        btnOutlineLargePrimary01(
             text = buttonText,
             enabled = buttonEnabled,
             modifier = Modifier,
@@ -148,7 +148,7 @@ fun TextInputWithButton(
             helperText = helperText,
             isHelperTextVisible = isHelperTextVisible,
         )
-        ButtonMediumOutlined(
+        btnOutlineLargePrimary01(
             text = buttonText,
             enabled = buttonEnabled,
             modifier = Modifier,
@@ -192,7 +192,7 @@ fun TextInputWithButton(
             isHelperTextVisible = isHelperTextVisible,
             trailingContent = trailingContent,
         )
-        ButtonMediumOutlined(
+        btnOutlineLargePrimary01(
             text = buttonText,
             enabled = buttonEnabled,
             modifier = Modifier,

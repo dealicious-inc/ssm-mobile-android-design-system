@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.ButtonSmallTonalOutlined
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.Popup
 import net.deali.designsystem.component.PopupSingleButton
+import net.deali.designsystem.component.btnFilledSmallPrimary01
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -50,25 +50,25 @@ fun PopupScreen(
                 .padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            ButtonSmallTonalOutlined(
+            btnFilledSmallPrimary01(
                 text = "popup title content dismiss confirm",
                 enabled = true,
                 onClick = { popupState1 = true },
             )
 
-            ButtonSmallTonalOutlined(
+            btnFilledSmallPrimary01(
                 text = "popup title content confirm",
                 enabled = true,
                 onClick = { popupState2 = true },
             )
 
-            ButtonSmallTonalOutlined(
+            btnFilledSmallPrimary01(
                 text = "content dismiss confirm",
                 enabled = true,
                 onClick = { popupState3 = true },
             )
 
-            ButtonSmallTonalOutlined(
+            btnFilledSmallPrimary01(
                 text = "content confirm",
                 enabled = true,
                 onClick = { popupState4 = true },

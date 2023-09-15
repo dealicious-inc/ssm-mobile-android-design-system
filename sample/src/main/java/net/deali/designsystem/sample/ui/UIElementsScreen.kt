@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.ButtonMediumOutlined
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.btnOutlineMediumPrimary01
 
 @Composable
 fun UIElementsScreen(
@@ -42,56 +42,56 @@ fun UIElementsScreen(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "CheckBox",
                 onClick = navigateToCheckBox
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Checkcircle",
                 onClick = navigateToCheckcircle
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Radio Button",
                 onClick = navigateToRadioButton
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Toggle/Switch",
                 onClick = navigateToToggleSwitch
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Tooltip",
                 onClick = navigateToTooltip
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Rating",
                 onClick = navigateToRating
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Popup",
                 onClick = navigateToPopup
             )
 
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Tag",

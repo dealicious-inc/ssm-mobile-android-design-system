@@ -71,14 +71,14 @@ fun Popup(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = leftButtonText,
                 enabled = true,
                 onClick = onLeftButtonClick
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
                 enabled = true,
@@ -127,14 +127,14 @@ fun Popup(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            ButtonMediumOutlined(
+            btnOutlineMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = leftButtonText,
                 enabled = true,
                 onClick = onLeftButtonClick
             )
 
-            ButtonMediumFilled(
+            btnFilledMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
                 enabled = true,
@@ -186,7 +186,7 @@ fun PopupSingleButton(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        ButtonMediumFilled(
+        btnFilledMediumPrimary01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,
@@ -226,7 +226,7 @@ fun PopupSingleButton(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        ButtonMediumFilled(
+        btnFilledMediumPrimary01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,
