@@ -2,6 +2,7 @@ package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
@@ -101,10 +103,11 @@ internal fun ButtonSampleLayout(
         modifier = Modifier
             .fillMaxWidth()
             .background(if (dark) DealiColor.primary05 else DealiColor.primary04)
-            .padding(all = 16.dp),
+            .padding(vertical = 16.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         DealiText(
+            modifier = Modifier.padding(horizontal = 16.dp),
             text = title,
             style = DealiFont.sh3sb16,
             color = if (dark) DealiColor.g10 else DealiColor.g100,
@@ -117,12 +120,21 @@ internal fun ButtonSampleLayout(
 internal fun ButtonsByStatus(
     leftIcon: Int?,
     rightIcon: Int?,
+    scrollEnabled: Boolean = false,
     content: @Composable (String, Int?, Int?, Boolean, Boolean) -> Unit
 ) {
     val texts = listOf("Default", "Disabled", "Loading")
     val enableds = listOf(true, false, true)
     val loadings = listOf(false, false, true)
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(
+        modifier = Modifier
+            .horizontalScroll(
+                state = rememberScrollState(),
+                enabled = scrollEnabled,
+            )
+            .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
         for (i in 0 until 3) {
             content(texts[i], leftIcon, rightIcon, enableds[i], loadings[i])
         }

@@ -120,6 +120,7 @@ private fun BtnFilledLargePrimary01Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledLargePrimary01(
                     onClick = {},
@@ -144,6 +145,7 @@ private fun BtnFilledLargePrimary02Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledLargePrimary02(
                     onClick = {},
@@ -168,6 +170,7 @@ private fun BtnFilledTonalLargePrimary01Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalLargePrimary01(
                     onClick = {},
@@ -192,6 +195,7 @@ private fun BtnFilledTonalLargePrimary02Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalLargePrimary02(
                     onClick = {},
@@ -216,6 +220,7 @@ private fun BtnFilledTonalLargeSecondary01Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalLargeSecondary01(
                     onClick = {},
@@ -240,6 +245,7 @@ private fun BtnFilledTonalLargeSecondary02Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalLargeSecondary02(
                     onClick = {},
@@ -264,6 +270,7 @@ private fun BtnFilledLargeGradientSamples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledLargeGradient(
                     onClick = {},
@@ -288,6 +295,7 @@ private fun BtnFilledTonalLargeSecondary03Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalLargeSecondary03(
                     onClick = {},
@@ -312,6 +320,7 @@ private fun BtnOutlineLargePrimary01Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargePrimary01(
                     onClick = {},
@@ -336,6 +345,7 @@ private fun BtnOutlineLargePrimary02Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargePrimary02(
                     onClick = {},
@@ -360,6 +370,7 @@ private fun BtnOutlineLargeSecondary01Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargeSecondary01(
                     onClick = {},
@@ -384,6 +395,7 @@ private fun BtnOutlineLargeSecondary02Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargeSecondary02(
                     onClick = {},
@@ -408,6 +420,7 @@ private fun BtnOutlineLargeSecondary03Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargeSecondary03(
                     onClick = {},
@@ -432,6 +445,7 @@ private fun BtnOutlineLargeSecondary04Samples() {
             ButtonsByStatus(
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineLargeSecondary04(
                     onClick = {},
