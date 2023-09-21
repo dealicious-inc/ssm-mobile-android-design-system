@@ -43,7 +43,7 @@ fun FormsScreen(
                 title = "Forms",
                 navigationIcon = {
                     Icon24(
-                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        iconRes = R.drawable.ic_arrow_left,
                         onClick = onBackPress
                     )
                 }
@@ -90,7 +90,7 @@ fun FormsScreenOld(
                 title = "Forms",
                 navigationIcon = {
                     Icon24(
-                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        iconRes = R.drawable.ic_arrow_left,
                         onClick = onBackPress
                     )
                 }
@@ -202,7 +202,7 @@ fun FormsScreenOld(
                 TextInput(
                     value = text7,
                     onValueChange = { text7 = it },
-                    trailingIconRes = R.drawable.ic_x_24_ver01,
+                    trailingIconRes = R.drawable.ic_x,
                     onIconClick = { text7 = "" },
                     placeholder = "Text input with icon"
                 )
@@ -213,7 +213,7 @@ fun FormsScreenOld(
                     value = text8,
                     onValueChange = { text8 = it },
                     trailingIconRes = if (text8.isNotEmpty()) {
-                        R.drawable.ic_x_24_ver01
+                        R.drawable.ic_x
                     } else {
                         null
                     },

@@ -74,7 +74,7 @@ fun TypographyScreen(
                 title = "Typography",
                 navigationIcon = {
                     Icon24(
-                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        iconRes = R.drawable.ic_arrow_left,
                         onClick = onBackPress
                     )
                 }
@@ -177,7 +177,7 @@ private fun Item(
             Icon24(
                 modifier = Modifier
                     .rotate(rotate),
-                iconRes = R.drawable.ic_arrow_left_24_ver01
+                iconRes = R.drawable.ic_arrow_left
             )
         }
 

@@ -78,7 +78,7 @@ internal fun CoreButton(
             ) {
                 IconRotating(
                     modifier = Modifier.size(ButtonDefaults.loadingIconSize(buttonSize)),
-                    iconRes = R.drawable.ic_loading_filled_24_ver01,
+                    iconRes = R.drawable.ic_loading_filled,
                     color = contentColor,
                 )
             }

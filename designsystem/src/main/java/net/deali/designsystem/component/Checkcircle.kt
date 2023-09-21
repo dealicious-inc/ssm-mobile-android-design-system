@@ -52,10 +52,10 @@ private fun CheckcircleIcon(
     Icon24(
         modifier = modifier,
         iconRes = when {
-            enabled.not() -> R.drawable.ic_checkcircle_disabled_ver01
-            checked && isAd -> R.drawable.ic_checkcircle_on_ad_ver01
-            checked && isAd.not() -> R.drawable.ic_checkcircle_on_ver01
-            else -> R.drawable.ic_checkcircle_off_ver01
+            enabled.not() -> R.drawable.ic_checkcircle_disabled
+            checked && isAd -> R.drawable.ic_checkcircle_on_ad
+            checked && isAd.not() -> R.drawable.ic_checkcircle_on
+            else -> R.drawable.ic_checkcircle_off
         },
         enabled = enabled,
         onClick = onCheck

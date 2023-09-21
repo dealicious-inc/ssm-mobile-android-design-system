@@ -68,9 +68,9 @@ private fun CheckBoxIcon(
     Icon24(
         modifier = modifier,
         iconRes = when {
-            enabled.not() -> R.drawable.ic_checkbox_disabled_ver01
-            checked -> R.drawable.ic_checkbox_on_ver01
-            else -> R.drawable.ic_checkbox_off_ver01
+            enabled.not() -> R.drawable.ic_checkbox_disabled
+            checked -> R.drawable.ic_checkbox_on
+            else -> R.drawable.ic_checkbox_off
         }
     )
 }

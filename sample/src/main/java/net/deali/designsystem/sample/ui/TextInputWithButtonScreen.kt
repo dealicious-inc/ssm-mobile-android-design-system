@@ -37,7 +37,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 title = "Input + Button",
                 navigationIcon = {
                     Icon24(
-                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        iconRes = R.drawable.ic_arrow_left,
                         onClick = onBackPress
                     )
                 }
@@ -67,7 +67,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
             TextInputWithButton(
                 value = text,
                 onValueChange = { text = it },
-                trailingIconRes = if (isIconVisible) R.drawable.ic_x_16_ver01 else null,
+                trailingIconRes = if (isIconVisible) R.drawable.ic_x else null,
                 onIconClick = if (isIconClickable) {
                     { text = "" }
                 } else {

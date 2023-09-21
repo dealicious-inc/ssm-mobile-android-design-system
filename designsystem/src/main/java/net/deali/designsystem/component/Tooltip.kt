@@ -78,7 +78,7 @@ private fun TooltipPreview() {
             ) { innerModifier ->
                 Icon16(
                     modifier = innerModifier,
-                    iconRes = R.drawable.ic_info_16_ver01,
+                    iconRes = R.drawable.ic_info,
                     onClick = {}
                 )
             }
