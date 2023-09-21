@@ -10,6 +10,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple.rememberRipple
@@ -23,8 +24,10 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
 
 @Composable
 fun Icon16(
@@ -202,5 +205,23 @@ fun IconRotating(
                 )
             }
         }
+    }
+}
+
+@Composable
+@Preview
+private fun IconPreview() {
+    Row {
+        Icon16(
+            iconRes = R.drawable.ic_bookmark
+        )
+
+        Icon24(
+            iconRes = R.drawable.ic_bookmark
+        )
+
+        Icon32(
+            iconRes = R.drawable.ic_bookmark
+        )
     }
 }

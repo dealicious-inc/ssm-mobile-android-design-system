@@ -118,8 +118,8 @@ private fun BtnFilledMediumGradientSamples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMediumGradient(
                     onClick = {},
@@ -142,8 +142,8 @@ private fun BtnFilledMediumPrimary01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMediumPrimary01(
                     onClick = {},
@@ -166,8 +166,8 @@ private fun BtnFilledMediumPrimary02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMediumPrimary02(
                     onClick = {},
@@ -190,8 +190,8 @@ private fun BtnFilledTonalMediumPrimary01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMediumPrimary01(
                     onClick = {},
@@ -214,8 +214,8 @@ private fun BtnFilledTonalMediumPrimary02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMediumPrimary02(
                     onClick = {},
@@ -238,8 +238,8 @@ private fun BtnFilledTonalMediumSecondary01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMediumSecondary01(
                     onClick = {},
@@ -262,8 +262,8 @@ private fun BtnFilledTonalMediumSecondary02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMediumSecondary02(
                     onClick = {},
@@ -286,8 +286,8 @@ private fun BtnFilledTonalMediumSecondary03Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMediumSecondary03(
                     onClick = {},
@@ -310,8 +310,8 @@ private fun BtnOutlineMediumPrimary01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumPrimary01(
                     onClick = {},
@@ -334,8 +334,8 @@ private fun BtnOutlineMediumPrimary02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumPrimary02(
                     onClick = {},
@@ -358,8 +358,8 @@ private fun BtnOutlineMediumSecond01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumSecondary01(
                     onClick = {},
@@ -382,8 +382,8 @@ private fun BtnOutlineMediumSecond02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumSecondary02(
                     onClick = {},
@@ -406,8 +406,8 @@ private fun BtnOutlineMediumSecond03Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumSecondary03(
                     onClick = {},
@@ -430,8 +430,8 @@ private fun BtnOutlineMediumSecond04Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMediumSecondary04(
                     onClick = {},
@@ -454,8 +454,8 @@ private fun BtnTextMediumPrimary01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumPrimary01(
                     onClick = {},
@@ -478,8 +478,8 @@ private fun BtnTextMediumPrimary02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumPrimary02(
                     onClick = {},
@@ -502,8 +502,8 @@ private fun BtnTextMediumSecond01Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumSecondary01(
                     onClick = {},
@@ -526,8 +526,8 @@ private fun BtnTextMediumSecond02Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumSecondary02(
                     onClick = {},
@@ -550,8 +550,8 @@ private fun BtnTextMediumSecond03Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumSecondary03(
                     onClick = {},
@@ -574,8 +574,8 @@ private fun BtnTextMediumSecond04Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumSecondary04(
                     onClick = {},
@@ -598,8 +598,8 @@ private fun BtnTextMediumSecond05Samples() {
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
-                leftIcon = if (i == 1) R.drawable.ic_arrow_left_16_ver01 else null,
-                rightIcon = if (i == 2) R.drawable.ic_arrow_right_16_ver01 else null,
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMediumSecondary05(
                     onClick = {},

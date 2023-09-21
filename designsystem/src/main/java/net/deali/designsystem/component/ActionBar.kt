@@ -48,7 +48,7 @@ fun ActionBar(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon24(
-                    iconRes = R.drawable.ic_arrow_left_24_ver01,
+                    iconRes = R.drawable.ic_arrow_left,
                     color = backButtonColor,
                     onClick = onBack,
                 )
@@ -87,7 +87,7 @@ fun ProductDetailsActionBar(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon24(
-                    iconRes = R.drawable.ic_arrow_left_24_ver01,
+                    iconRes = R.drawable.ic_arrow_left,
                     color = Color(0xFFFFFFFF),
                     onClick = onBack,
                 )
@@ -194,11 +194,11 @@ private fun ActionBarPreview2() {
         menuContent = {
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_search_24_ver01,
+                iconRes = R.drawable.ic_search,
             )
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_cart_24_ver01,
+                iconRes = R.drawable.ic_cart,
                 modifier = Modifier.badge(count = 1),
             )
         }
@@ -214,15 +214,15 @@ private fun ActionBarPreview3() {
         menuContent = {
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_search_24_ver01,
+                iconRes = R.drawable.ic_search,
             )
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_bookmark_24_ver01,
+                iconRes = R.drawable.ic_bookmark,
             )
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_cart_24_ver01,
+                iconRes = R.drawable.ic_cart,
                 modifier = Modifier.badge(count = 99),
             )
         }
@@ -249,12 +249,12 @@ private fun ProductDetailsActionBarPreview() {
         menuContent = {
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_search_24_ver01,
+                iconRes = R.drawable.ic_search,
                 color = DealiColor.primary04,
             )
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_cart_24_ver01,
+                iconRes = R.drawable.ic_cart,
                 modifier = Modifier.badge(count = 1),
                 color = DealiColor.primary04,
             )

@@ -35,7 +35,7 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 title = "TextField",
                 navigationIcon = {
                     Icon24(
-                        iconRes = R.drawable.ic_arrow_left_16_ver01,
+                        iconRes = R.drawable.ic_arrow_left,
                         onClick = onBackPress
                     )
                 }
