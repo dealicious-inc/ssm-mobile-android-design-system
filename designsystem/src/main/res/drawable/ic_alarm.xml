@@ -3,14 +3,12 @@
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-  <path
-      android:pathData="M14.5,18.5C14.5,19.881 13.381,21 12,21C10.619,21 9.5,19.881 9.5,18.5"
-      android:strokeWidth="1.2"
-      android:fillColor="#00000000"
-      android:strokeColor="#222222"/>
-  <path
-      android:pathData="M4.6,10.5C4.6,6.413 7.913,3.1 12,3.1C16.087,3.1 19.4,6.413 19.4,10.5V17.594C19.4,17.763 19.263,17.9 19.094,17.9H4.906C4.737,17.9 4.6,17.763 4.6,17.594V10.5Z"
-      android:strokeWidth="1.2"
-      android:fillColor="#00000000"
-      android:strokeColor="#222222"/>
+  <group>
+    <clip-path
+        android:pathData="M0,0h24v24h-24z"/>
+    <path
+        android:pathData="M18.8,10.5V17.3H5.2V10.5C5.2,6.744 8.244,3.7 12,3.7C15.755,3.7 18.8,6.744 18.8,10.5ZM4,10.5C4,6.082 7.582,2.5 12,2.5C16.418,2.5 20,6.082 20,10.5V17.594C20,18.094 19.594,18.5 19.094,18.5H15.1C15.1,20.212 13.712,21.6 12,21.6C10.288,21.6 8.9,20.212 8.9,18.5H4.906C4.405,18.5 4,18.094 4,17.594V10.5ZM10.1,18.5C10.1,19.549 10.951,20.4 12,20.4C13.05,20.4 13.9,19.549 13.9,18.5H10.1Z"
+        android:fillColor="#000000"
+        android:fillType="evenOdd"/>
+  </group>
 </vector>
