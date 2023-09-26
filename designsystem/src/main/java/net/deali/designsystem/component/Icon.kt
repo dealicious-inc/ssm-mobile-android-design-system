@@ -213,15 +213,15 @@ fun IconRotating(
 private fun IconPreview() {
     Row {
         Icon16(
-            iconRes = R.drawable.ic_bookmark
+            iconRes = R.drawable.ic_bookmark1
         )
 
         Icon24(
-            iconRes = R.drawable.ic_bookmark
+            iconRes = R.drawable.ic_bookmark1
         )
 
         Icon32(
-            iconRes = R.drawable.ic_bookmark
+            iconRes = R.drawable.ic_bookmark1
         )
     }
 }

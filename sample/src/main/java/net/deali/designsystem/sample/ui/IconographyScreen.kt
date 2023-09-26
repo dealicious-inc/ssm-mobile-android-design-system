@@ -45,7 +45,7 @@ fun IconographyScreen(
     val iconographyScreenItems = listOf(
         IconographyScreenItem("ic_ssmk", SIZE_24, R.drawable.ic_ssmk_filled, R.drawable.ic_ssmk),
         IconographyScreenItem("ic_cart", SIZE_24, R.drawable.ic_cart_filled, R.drawable.ic_cart),
-        IconographyScreenItem("ic_bookmark", SIZE_24, R.drawable.ic_bookmark_filled, R.drawable.ic_bookmark),
+        IconographyScreenItem("ic_bookmark", SIZE_24, R.drawable.ic_bookmark_filled, R.drawable.ic_bookmark1),
         IconographyScreenItem("ic_search", SIZE_24, R.drawable.ic_search_filled, R.drawable.ic_search),
         IconographyScreenItem("ic_category", SIZE_24, R.drawable.ic_category_filled, R.drawable.ic_category),
         IconographyScreenItem("ic_store", SIZE_24, R.drawable.ic_store_filled, R.drawable.ic_store),
