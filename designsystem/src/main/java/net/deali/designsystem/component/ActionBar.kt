@@ -218,7 +218,7 @@ private fun ActionBarPreview3() {
             )
             Icon24(
                 onClick = {},
-                iconRes = R.drawable.ic_bookmark1,
+                iconRes = R.drawable.ic_bookmark,
             )
             Icon24(
                 onClick = {},
