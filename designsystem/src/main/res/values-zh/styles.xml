@@ -2,7 +2,7 @@
 <resources>
 
     <style name="SsmRootTheme" parent="Theme.MaterialComponents.Light">
-        <!-- 중국어는 기본 폰트를 사용하기로 결정 -->
+        <!-- 중국어는 시스템 폰트 사용 -->
         <!--<item name="android:fontFamily">@font/pretendard_fontfamily</item>-->
     </style>
 </resources>

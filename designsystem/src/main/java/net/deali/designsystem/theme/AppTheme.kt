@@ -15,7 +15,7 @@ fun AppTheme(
     content: @Composable () -> Unit
 ) {
     val typography = when (language) {
-        Locale.SIMPLIFIED_CHINESE.language -> defaultTypography()
+        Locale.SIMPLIFIED_CHINESE.language -> chineseTypography()
         else -> pretendardTypography()
     }
 

@@ -117,7 +117,27 @@ internal class AppTypography(
 
 internal val LocalTypography = staticCompositionLocalOf { AppTypography() }
 
-internal fun defaultTypography(): AppTypography = AppTypography()
+internal fun chineseTypography(): AppTypography = AppTypography(
+    h1sb32 = _h1sb32.copy(fontWeight = FontWeight.Bold),
+    h3sb28 = _h3sb28.copy(fontWeight = FontWeight.Bold),
+    h2sb24 = _h2sb24.copy(fontWeight = FontWeight.Bold),
+    sh1sb20 = _sh1sb20.copy(fontWeight = FontWeight.Bold),
+    sh1r20 = _sh1r20.copy(fontWeight = FontWeight.Normal),
+    sh2sb18 = _sh2sb18.copy(fontWeight = FontWeight.Bold),
+    sh2r18 = _sh2r18.copy(fontWeight = FontWeight.Normal),
+    sh3sb16 = _sh3sb16.copy(fontWeight = FontWeight.Bold),
+    sh3r16 = _sh3r16.copy(fontWeight = FontWeight.Normal),
+    b1sb15 = _b1sb15.copy(fontWeight = FontWeight.Bold),
+    b1r15 = _b1r15.copy(fontWeight = FontWeight.Normal),
+    b2sb14 = _b2sb14.copy(fontWeight = FontWeight.Bold),
+    b2r14 = _b2r14.copy(fontWeight = FontWeight.Normal),
+    b3sb13 = _b3sb13.copy(fontWeight = FontWeight.Bold),
+    b3r13 = _b3r13.copy(fontWeight = FontWeight.Normal),
+    b4sb12 = _b4sb12.copy(fontWeight = FontWeight.Bold),
+    b4r12 = _b4r12.copy(fontWeight = FontWeight.Normal),
+    c1sb10 = _c1sb10.copy(fontWeight = FontWeight.Bold),
+    c1r10 = _c1r10.copy(fontWeight = FontWeight.Normal),
+)
 
 internal fun pretendardTypography(): AppTypography = AppTypography(
     h1sb32 = _h1sb32.copy(fontFamily = Pretendard),
