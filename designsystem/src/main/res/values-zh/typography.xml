@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="SsmTextStyleH1sb32" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:lineHeight">40dp</item>
+    </style>
+
+    <style name="SsmTextStyleH3sb28" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:lineHeight">36dp</item>
+    </style>
+
+    <style name="SsmTextStyleH2sb24" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:lineHeight">32dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh1sb20" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:lineHeight">28dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh1r20" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:lineHeight">28dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh2sb18" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineHeight">26dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh2r18" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:lineHeight">26dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh3sb16" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineHeight">22dp</item>
+    </style>
+
+    <style name="SsmTextStyleSh3r16" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:lineHeight">22dp</item>
+    </style>
+
+    <style name="SsmTextStyleB1sb15" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+    <style name="SsmTextStyleB1r15" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+    <style name="SsmTextStyleB2sb14" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+    <style name="SsmTextStyleB2r14" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+    <style name="SsmTextStyleB3sb13" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:lineHeight">18dp</item>
+    </style>
+
+    <style name="SsmTextStyleB3r13" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:lineHeight">18dp</item>
+    </style>
+
+    <style name="SsmTextStyleB4sb12" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineHeight">18dp</item>
+    </style>
+
+    <style name="SsmTextStyleB4r12" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:lineHeight">18dp</item>
+    </style>
+
+    <style name="SsmTextStyleC1sb10" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineHeight">14dp</item>
+    </style>
+
+    <style name="SsmTextStyleC1r10" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">10dp</item>
+        <item name="android:lineHeight">14dp</item>
+    </style>
+
+    <style name="SsmTextStyleBold" tools:ignore="NewApi">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SsmTextStyleMedium" tools:ignore="NewApi">
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

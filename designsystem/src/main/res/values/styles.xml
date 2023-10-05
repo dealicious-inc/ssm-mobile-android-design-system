@@ -4,4 +4,5 @@
     <style name="SsmRootTheme" parent="Theme.MaterialComponents.Light">
         <item name="android:fontFamily">@font/pretendard_fontfamily</item>
     </style>
+
 </resources>
