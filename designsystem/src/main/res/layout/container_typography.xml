@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp">
+
+    <TextView
+        style="@style/SsmTextStyleSh1sb20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SsmTextStyleSh1sb20 g20 取引先追加"
+        android:textColor="@color/g100" />
+
+    <TextView
+        style="@style/SsmTextStyleSh1r20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="SsmTextStyleSh1r20 g20 取引先追加"
+        android:textColor="@color/g100" />
+</LinearLayout>
