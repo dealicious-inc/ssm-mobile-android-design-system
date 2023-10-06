@@ -1,5 +1,7 @@
 package net.deali.designsystem.sample.ui
 
+import android.widget.TextView
+import androidx.appcompat.view.ContextThemeWrapper
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
@@ -29,6 +31,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
@@ -92,6 +96,10 @@ fun TypographyScreen(
             verticalArrangement = Arrangement.spacedBy(10.dp),
             contentPadding = PaddingValues(10.dp)
         ) {
+            item {
+                XmlTextContainer()
+            }
+
             items(typographyScreenItems.size) { index ->
                 val typographyScreenItem = typographyScreenItems[index]
 
@@ -141,6 +149,68 @@ private fun LocaleContainer(
                 }
             )
         }
+    }
+}
+
+@Composable
+private fun XmlTextContainer() {
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(6.dp))
+            .background(DealiColor.primary04)
+    ) {
+        DealiText(
+            text = "거래처관리 sh1sb20 compose",
+            style = DealiFont.sh1sb20,
+            color = DealiColor.g100
+        )
+
+        AndroidView(
+            factory = { context ->
+                TextView(ContextThemeWrapper(context, R.style.SsmTextStyleSh1sb20)).apply {
+                    text = "거래처관리 sh1sb20 xml"
+                    setTextColor(ContextCompat.getColor(context, R.color.g100))
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                        Log.d("DRG_TEST", "set typeface!!")
+//                        typeface = Typeface.create(typeface, 600, false)
+//                    }
+                }
+            }
+        )
+
+        DealiText(
+            text = "取引先追加 sh1r20 compose",
+            style = DealiFont.sh1r20,
+            color = DealiColor.g100
+        )
+
+        AndroidView(
+            factory = { context ->
+                TextView(ContextThemeWrapper(context, R.style.SsmTextStyleSh1r20)).apply {
+                    text = "取引先追加 sh1r20 xml"
+                    setTextColor(ContextCompat.getColor(context, R.color.g100))
+                }
+            }
+        )
+
+        DealiText(
+            text = "取引先追加 sh1sb20 compose",
+            style = DealiFont.sh1sb20,
+            color = DealiColor.g100
+        )
+
+        AndroidView(
+            factory = { context ->
+                TextView(ContextThemeWrapper(context, R.style.SsmTextStyleSh1sb20)).apply {
+                    text = "取引先追加 sh1sb20 xml"
+                    setTextColor(ContextCompat.getColor(context, R.color.g100))
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                        Log.d("DRG_TEST", "set typeface!!")
+//                        typeface = Typeface.create(typeface, 600, false)
+//                    }
+                }
+            }
+        )
     }
 }
 

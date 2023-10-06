@@ -2,7 +2,7 @@
 <resources>
 
     <style name="SsmRootTheme" parent="Theme.MaterialComponents.Light">
-        <item name="android:fontFamily">@font/pretendard_fontfamily</item>
+<!--        <item name="android:fontFamily">@font/pretendard_fontfamily</item>-->
     </style>
 
 </resources>
