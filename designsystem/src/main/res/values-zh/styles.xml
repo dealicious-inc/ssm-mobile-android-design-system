@@ -3,6 +3,6 @@
 
     <style name="SsmRootTheme" parent="Theme.MaterialComponents.Light">
         <!-- 중국어는 기본 폰트를 사용하기로 결정 -->
-        <!--<item name="android:fontFamily">@font/pretendard_fontfamily</item>-->
+        <item name="android:fontFamily">@font/pretendard_fontfamily</item>
     </style>
 </resources>
