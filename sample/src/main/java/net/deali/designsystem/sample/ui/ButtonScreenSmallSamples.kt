@@ -866,7 +866,7 @@ private fun BtnTextSmallPrimary01Samples() {
 private fun BtnTextSmallPrimary02Samples() {
     ButtonSampleLayout(
         title = "btnTextSmallPrimary02",
-        dark = false,
+        dark = true,
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(
