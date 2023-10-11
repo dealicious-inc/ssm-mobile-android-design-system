@@ -84,11 +84,12 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
+        isLoading: Boolean,
     ): PaddingValues {
         return when (buttonSize) {
-            ButtonSize.Large -> largeButtonPaddings(buttonStyle, useLeftIcon, useRightIcon)
-            ButtonSize.Medium -> mediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon)
-            ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon)
+            ButtonSize.Large -> largeButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
+            ButtonSize.Medium -> mediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
+            ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
         }
     }
 
@@ -96,13 +97,11 @@ internal object ButtonDefaults {
     private fun largeButtonPaddings(
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
-        useRightIcon: Boolean
+        useRightIcon: Boolean,
+        isLoading: Boolean,
     ): PaddingValues {
-        if (buttonStyle == ButtonStyle.Text) {
+        if (isLoading || buttonStyle == ButtonStyle.Text) {
             return PaddingValues(horizontal = 16.dp)
-        }
-        if (!useLeftIcon && !useRightIcon) {
-            return PaddingValues(horizontal = 40.dp)
         }
         val leftPadding = if (useLeftIcon) 16.dp else 20.dp
         val rightPadding = if (useRightIcon) 16.dp else 20.dp
@@ -113,9 +112,10 @@ internal object ButtonDefaults {
     private fun mediumButtonPaddings(
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
-        useRightIcon: Boolean
+        useRightIcon: Boolean,
+        isLoading: Boolean,
     ): PaddingValues {
-        if (buttonStyle == ButtonStyle.Text) {
+        if (isLoading || buttonStyle == ButtonStyle.Text) {
             return PaddingValues(horizontal = 16.dp)
         }
         val leftPadding = if (useLeftIcon) 16.dp else 20.dp
@@ -127,13 +127,17 @@ internal object ButtonDefaults {
     private fun smallButtonPaddings(
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
-        useRightIcon: Boolean
+        useRightIcon: Boolean,
+        isLoading: Boolean,
     ): PaddingValues {
         if (buttonStyle == ButtonStyle.Text) {
             return PaddingValues(horizontal = 16.dp)
         }
-        val leftPadding = if (useLeftIcon) 12.dp else 16.dp
-        val rightPadding = if (useRightIcon) 12.dp else 16.dp
+        if (isLoading || useLeftIcon && useRightIcon) {
+            return PaddingValues(horizontal = 12.dp)
+        }
+        val leftPadding = if (useLeftIcon) 8.dp else 12.dp
+        val rightPadding = if (useRightIcon) 8.dp else 12.dp
         return PaddingValues(start = leftPadding, end = rightPadding)
     }
 
