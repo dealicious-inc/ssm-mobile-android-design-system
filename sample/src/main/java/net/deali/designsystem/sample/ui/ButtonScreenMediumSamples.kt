@@ -1,5 +1,9 @@
 package net.deali.designsystem.sample.ui
 
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.appcompat.widget.AppCompatButton
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import net.deali.designsystem.R
 import net.deali.designsystem.component.btnFilledMediumGradient
 import net.deali.designsystem.component.btnFilledMediumPrimary01
@@ -440,6 +445,38 @@ private fun BtnOutlineMediumSecond04Samples() {
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                )
+
+                AndroidView(
+                    factory = { context ->
+                        TextView(ContextThemeWrapper(context, R.style.btnOutlineMediumSecondary04)).apply {
+                            setText(text)
+                            isClickable = enabled
+                            isEnabled = enabled
+                        }
+                    }
+                )
+
+                AndroidView(
+                    factory = { context ->
+                        val style = R.style.btnOutlineMediumSecondary04
+                        AppCompatButton(ContextThemeWrapper(context, style), null, style).apply {
+                            setText(text)
+                            isClickable = enabled
+                            isEnabled = enabled
+                        }
+                    }
+                )
+
+                AndroidView(
+                    factory = { context ->
+                        val style = R.style.btnOutlineMediumSecondary04
+                        Button(ContextThemeWrapper(context, style), null, style).apply {
+                            setText(text)
+                            isClickable = enabled
+                            isEnabled = enabled
+                        }
+                    }
                 )
             }
         }

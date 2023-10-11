@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ** Button ** -->
+    <!-- Medium -->
+    <style name="btnOutlineMediumSecondary04" parent="ButtonMedium">
+        <item name="android:foreground">@drawable/ripple_rounded_6dp</item>
+        <item name="android:background">@drawable/selector_btn_outline_medium_secondary04</item>
+        <item name="android:textColor">@drawable/selector_g80_disabled_g50</item>
+    </style>
+
+    <!-- Core -->
+    <style name="ButtonMedium" tools:ignore="NewApi">
+        <item name="android:layout_height">46dp</item>
+        <item name="android:minHeight">46dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineHeight">20dp</item>
+    </style>
+
+</resources>

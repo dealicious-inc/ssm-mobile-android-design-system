@@ -419,7 +419,7 @@ fun btnOutlineMediumSecondary04(
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
-            outlineColor = DealiColor.g20,
+            outlineColor = DealiColor.g30,
             disabledOutlineColor = DealiColor.g20,
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,

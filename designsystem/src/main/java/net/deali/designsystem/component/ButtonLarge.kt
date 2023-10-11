@@ -88,10 +88,10 @@ fun btnFilledLargePrimary02(
         buttonStyle = ButtonStyle.Filled,
         buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
-            backgroundColor = DealiColor.b40,
-            disabledBackgroundColor = DealiColor.b20,
+            backgroundColor = DealiColor.b40.copy(alpha = 0.4f),
+            disabledBackgroundColor = DealiColor.b20.copy(alpha = 0.2f),
             contentColor = DealiColor.primary04,
-            disabledContentColor = DealiColor.w50,
+            disabledContentColor = DealiColor.w50.copy(alpha = 0.5f),
         ),
         modifier = modifier,
     )
