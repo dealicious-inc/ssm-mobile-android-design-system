@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,6 +24,7 @@ fun MenuScreen(
     navigateToCornerRadius: () -> Unit,
     navigateToNavigation: () -> Unit,
     navigateToButtons: () -> Unit,
+    navigateToChips: () -> Unit,
     navigateToUIElements: () -> Unit,
     navigateToForms: () -> Unit,
 ) {
@@ -35,105 +38,103 @@ fun MenuScreen(
         Column(
             modifier = Modifier
                 .padding(10.dp)
-                .weight(1f),
-            verticalArrangement = Arrangement.SpaceBetween
+                .weight(1f)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "1. Typography",
+                text = "Typography",
                 onClick = navigateToTypography
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "2. Grid",
+                text = "Grid",
                 onClick = navigateToGrid
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "3. Colors",
+                text = "Colors",
                 onClick = navigateToColors
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "4. Indentations",
+                text = "Indentations",
                 onClick = navigateToIndentations
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "5. Iconography",
+                text = "Iconography",
                 onClick = navigateToIconography
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "6. Shadows",
+                text = "Shadows",
                 onClick = navigateToShadows
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "7. Corner radius",
+                text = "Corner radius",
                 onClick = navigateToCornerRadius
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "8. Navigation",
+                text = "Navigation",
                 onClick = navigateToNavigation
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "9. Buttons",
+                text = "Buttons",
                 onClick = navigateToButtons
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "10. UI Elements",
+                text = "Chips",
+                onClick = navigateToChips
+            )
+
+            btnFilledMediumPrimary01(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = true,
+                loading = false,
+                text = "UI Elements",
                 onClick = navigateToUIElements
             )
 
             btnFilledMediumPrimary01(
-                modifier = Modifier
-                    .fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "11. Forms",
+                text = "Forms",
                 onClick = navigateToForms
             )
         }
@@ -153,6 +154,7 @@ private fun MenuScreenPreview() {
         navigateToCornerRadius = {},
         navigateToNavigation = {},
         navigateToButtons = {},
+        navigateToChips = {},
         navigateToUIElements = {},
         navigateToForms = {},
     )

@@ -49,6 +49,7 @@ private fun NavGraphBuilder.menuGraph(
             navigateToCornerRadius = { navController.navigate(Screen.CornerRadius.route) },
             navigateToNavigation = { navController.navigate(Screen.Navigation.route) },
             navigateToButtons = { navController.navigate(Screen.Buttons.route) },
+            navigateToChips = { navController.navigate(Screen.Chips.route) },
             navigateToUIElements = { navController.navigate(Screen.UIElements.route) },
             navigateToForms = { navController.navigate(Screen.Forms.route) },
         )
@@ -96,6 +97,11 @@ private fun NavGraphBuilder.menuGraph(
     }
     composable(Screen.Buttons.route) {
         ButtonsScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.Chips.route) {
+        ChipsScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -198,6 +204,7 @@ sealed class Screen(val route: String) {
     object CornerRadius : Screen("cornerRadius")
     object Navigation : Screen("navigation")
     object Buttons : Screen("buttons")
+    object Chips : Screen("chips")
     object UIElements : Screen("uiElements") {
         val menu = this.route + "Menu"
     }

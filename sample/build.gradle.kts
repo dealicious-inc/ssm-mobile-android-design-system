@@ -46,4 +46,5 @@ dependencies {
     debugImplementation(libs.compoes.preview)
     implementation(libs.compose.material)
     implementation(libs.accompanist.pager.indicators)
+    implementation(libs.gridlayout.compose)
 }
