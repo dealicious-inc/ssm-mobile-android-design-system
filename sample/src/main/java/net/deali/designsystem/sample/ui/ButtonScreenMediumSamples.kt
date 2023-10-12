@@ -451,29 +451,6 @@ private fun BtnOutlineMediumSecond04Samples() {
                     factory = { context ->
                         TextView(ContextThemeWrapper(context, R.style.btnOutlineMediumSecondary04)).apply {
                             setText(text)
-                            isClickable = enabled
-                            isEnabled = enabled
-                        }
-                    }
-                )
-
-                AndroidView(
-                    factory = { context ->
-                        val style = R.style.btnOutlineMediumSecondary04
-                        AppCompatButton(ContextThemeWrapper(context, style), null, style).apply {
-                            setText(text)
-                            isClickable = enabled
-                            isEnabled = enabled
-                        }
-                    }
-                )
-
-                AndroidView(
-                    factory = { context ->
-                        val style = R.style.btnOutlineMediumSecondary04
-                        Button(ContextThemeWrapper(context, style), null, style).apply {
-                            setText(text)
-                            isClickable = enabled
                             isEnabled = enabled
                         }
                     }
