@@ -44,7 +44,10 @@ internal object ChipsDefaults {
     fun chipsShape(style: ChipsStyle): Shape {
         return when (style) {
             is ChipsStyle.Square,
-            ChipsStyle.FilledSquare -> {
+            ChipsStyle.FilledSquare,
+            ChipsStyle.FilledDepth,
+            ChipsStyle.FilledImage,
+            ChipsStyle.FilledImageDepth -> {
                 AppTheme.shapes.radius4
             }
 

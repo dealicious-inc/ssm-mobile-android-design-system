@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.tooling)
     implementation(libs.compose.material)
+    implementation(libs.coil.compose)
     implementation(libs.android.material)
 
     debugImplementation(libs.compoes.preview)

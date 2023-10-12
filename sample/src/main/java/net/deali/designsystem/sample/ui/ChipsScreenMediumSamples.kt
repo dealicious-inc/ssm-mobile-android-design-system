@@ -14,9 +14,11 @@ import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.chipsFilledImageMediumSecondary01
 import net.deali.designsystem.component.chipsFilledMediumPrimary01
 import net.deali.designsystem.component.chipsFilledMediumSquarePrimary01
 import net.deali.designsystem.component.chipsFilledSquareMediumSecondary01
+import net.deali.designsystem.component.chipsOutlineImageMediumSecondary01
 import net.deali.designsystem.component.chipsOutlineMediumPrimary01
 import net.deali.designsystem.component.chipsSquareBoldMediumPrimary01
 import net.deali.designsystem.component.chipsSquareRegularMediumPrimary01
@@ -756,13 +758,53 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
 
 @Composable
 private fun ChipsFilledImageMediumSecondary01Samples() {
+    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageMediumSecondary01") {
-        DealiText(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "TODO",
-            style = DealiFont.sh3sb16,
-            color = DealiColor.g100
-        )
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsFilledImageMediumSecondary01(
+                    onClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                )
+            }
+            Box {
+                chipsFilledImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                    useRemoveIcon = true,
+                )
+            }
+            Box {
+                chipsFilledImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Selected",
+                    useRemoveIcon = true,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Disabled",
+                    useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+        }
     }
 }
 
@@ -780,12 +822,52 @@ private fun ChipsFilledImageDepthMediumSecondary01Samples() {
 
 @Composable
 private fun ChipsOutlineImageMediumSecondary01Samples() {
+    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsOutlineImageMediumSecondary01") {
-        DealiText(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "TODO",
-            style = DealiFont.sh3sb16,
-            color = DealiColor.g100
-        )
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsOutlineImageMediumSecondary01(
+                    onClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                )
+            }
+            Box {
+                chipsOutlineImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                    useRemoveIcon = true,
+                )
+            }
+            Box {
+                chipsOutlineImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Selected",
+                    useRemoveIcon = true,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineImageMediumSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Disabled",
+                    useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.chipsFilledImageSmallSecondary01
 import net.deali.designsystem.component.chipsFilledSmallPrimary01
 import net.deali.designsystem.component.chipsFilledSquareSmallPrimary01
 import net.deali.designsystem.component.chipsFilledSquareSmallSecondary01
@@ -638,13 +639,53 @@ private fun ChipsFilledDepthSmallSecondary01Samples() {
 
 @Composable
 private fun ChipsFilledImageSmallSecondary01Samples() {
+    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageSmallSecondary01") {
-        DealiText(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "TODO",
-            style = DealiFont.sh3sb16,
-            color = DealiColor.g100
-        )
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(2),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsFilledImageSmallSecondary01(
+                    onClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                )
+            }
+            Box {
+                chipsFilledImageSmallSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Default",
+                    useRemoveIcon = true,
+                )
+            }
+            Box {
+                chipsFilledImageSmallSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Selected",
+                    useRemoveIcon = true,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledImageSmallSecondary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    imageUrl = sampleImage,
+                    text = "Disabled",
+                    useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+        }
     }
 }
 
