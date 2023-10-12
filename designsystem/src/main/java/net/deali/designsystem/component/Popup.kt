@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -48,25 +49,26 @@ fun Popup(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
-        Spacer(modifier = Modifier.height(18.dp))
-
-        DealiText(
-            modifier = Modifier.padding(end = 8.dp),
-            text = title,
-            style = DealiFont.sh1sb20,
-            color = DealiColor.g100
-        )
-
-        Spacer(modifier = Modifier.height(18.dp))
-
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .defaultMinSize(minHeight = 60.dp)
+        ) {
+            Spacer(modifier = Modifier.height(24.dp))
+            DealiText(
+                text = title,
+                style = DealiFont.sh2sb18,
+                color = DealiColor.g100
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+        Spacer(modifier = Modifier.height(4.dp))
         DealiText(
             text = content,
             style = DealiFont.sh3r16,
             color = DealiColor.g70
         )
-
         Spacer(modifier = Modifier.height(24.dp))
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -77,7 +79,6 @@ fun Popup(
                 enabled = true,
                 onClick = onLeftButtonClick
             )
-
             btnFilledMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
@@ -85,6 +86,7 @@ fun Popup(
                 onClick = onRightButtonClick
             )
         }
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
 
@@ -114,15 +116,12 @@ fun Popup(
         properties = properties
     ) {
         Spacer(modifier = Modifier.height(28.dp))
-
         DealiText(
             text = content,
             style = DealiFont.sh3r16,
             color = DealiColor.g70
         )
-
         Spacer(modifier = Modifier.height(24.dp))
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -133,7 +132,6 @@ fun Popup(
                 enabled = true,
                 onClick = onLeftButtonClick
             )
-
             btnFilledMediumPrimary01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
@@ -141,6 +139,7 @@ fun Popup(
                 onClick = onRightButtonClick
             )
         }
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
 
@@ -167,31 +166,33 @@ fun PopupSingleButton(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
-        Spacer(modifier = Modifier.height(18.dp))
-
-        DealiText(
-            modifier = Modifier.padding(end = 8.dp),
-            text = title,
-            style = DealiFont.sh1sb20,
-            color = DealiColor.g100
-        )
-
-        Spacer(modifier = Modifier.height(18.dp))
-
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .defaultMinSize(minHeight = 60.dp)
+        ) {
+            Spacer(modifier = Modifier.height(24.dp))
+            DealiText(
+                text = title,
+                style = DealiFont.sh2sb18,
+                color = DealiColor.g100
+            )
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+        Spacer(modifier = Modifier.height(4.dp))
         DealiText(
             text = content,
             style = DealiFont.sh3r16,
             color = DealiColor.g70
         )
-
         Spacer(modifier = Modifier.height(24.dp))
-
         btnFilledMediumPrimary01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,
             onClick = onButtonClick
         )
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
 
@@ -217,21 +218,19 @@ fun PopupSingleButton(
         properties = properties
     ) {
         Spacer(modifier = Modifier.height(28.dp))
-
         DealiText(
             text = content,
             style = DealiFont.sh3r16,
             color = DealiColor.g70
         )
-
         Spacer(modifier = Modifier.height(24.dp))
-
         btnFilledMediumPrimary01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,
             onClick = onButtonClick
         )
+        Spacer(modifier = Modifier.height(20.dp))
     }
 }
 
@@ -250,11 +249,7 @@ private fun Popup(
                 .clip(AppTheme.shapes.radius10)
                 .background(DealiColor.primary04)
                 .width(280.dp)
-                .padding(
-                    bottom = 20.dp,
-                    start = 20.dp,
-                    end = 20.dp
-                ),
+                .padding(horizontal = 20.dp),
             content = content
         )
     }

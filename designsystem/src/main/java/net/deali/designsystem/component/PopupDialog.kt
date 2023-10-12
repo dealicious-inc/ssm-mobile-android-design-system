@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -65,22 +66,25 @@ class PopupDialog private constructor(
                         .clip(AppTheme.shapes.radius10)
                         .background(DealiColor.primary04)
                         .width(280.dp)
-                        .padding(
-                            bottom = 20.dp,
-                            start = 20.dp,
-                            end = 20.dp
-                        ),
+                        .padding(horizontal = 20.dp),
                 ) {
                     when (contentStrategy) {
                         is ContentStrategy.TitleAndMessage -> {
-                            Spacer(modifier = Modifier.height(18.dp))
-                            DealiText(
-                                modifier = Modifier.padding(end = 8.dp),
-                                text = contentStrategy.title,
-                                style = DealiFont.sh1sb20,
-                                color = DealiColor.g100
-                            )
-                            Spacer(modifier = Modifier.height(18.dp))
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .defaultMinSize(minHeight = 60.dp)
+                            ) {
+                                Spacer(modifier = Modifier.height(24.dp))
+                                DealiText(
+                                    text = contentStrategy.title,
+                                    style = DealiFont.sh2sb18,
+                                    color = DealiColor.g100
+                                )
+                                Spacer(modifier = Modifier.height(10.dp))
+                            }
+                            Spacer(modifier = Modifier.height(4.dp))
+                            Spacer(modifier = Modifier.height(4.dp))
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
@@ -135,6 +139,8 @@ class PopupDialog private constructor(
                             )
                         }
                     }
+
+                    Spacer(modifier = Modifier.height(20.dp))
                 }
             }
         }
