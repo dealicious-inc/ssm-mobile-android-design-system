@@ -224,7 +224,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 btnOutlineMediumPrimary01(
                     modifier = Modifier.fillMaxWidth(),
                     enabled = true,
-                    text = "타이틀X 버튼 X 핸들O",
+                    text = "타이틀O 버튼 X 핸들O",
                     onClick = remember {
                         {
                             coroutineScope.launch {
