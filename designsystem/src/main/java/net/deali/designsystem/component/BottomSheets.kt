@@ -69,7 +69,7 @@ fun BottomSheet(
             onDismiss = onDismiss
         )
         content()
-        BottomSheetTail(
+        BottomSheetFooter(
             buttonText = buttonText,
             isButtonEnabled = isButtonEnabled,
             isButtonLoading = isButtonLoading,
@@ -99,7 +99,7 @@ fun BottomSheet(
             onDismiss = onDismiss
         )
         content()
-        BottomSheetTail(
+        BottomSheetFooter(
             primaryButtonText = primaryButtonText,
             secondaryButtonText = secondaryButtonText,
             isPrimaryButtonEnabled = isPrimaryButtonEnabled,
@@ -161,7 +161,7 @@ fun BottomSheetHeader(
 }
 
 @Composable
-private fun BottomSheetTail(
+private fun BottomSheetFooter(
     primaryButtonText: String,
     secondaryButtonText: String,
     modifier: Modifier = Modifier,
@@ -199,7 +199,7 @@ private fun BottomSheetTail(
 }
 
 @Composable
-private fun BottomSheetTail(
+private fun BottomSheetFooter(
     buttonText: String,
     modifier: Modifier = Modifier,
     isButtonEnabled: Boolean = true,
