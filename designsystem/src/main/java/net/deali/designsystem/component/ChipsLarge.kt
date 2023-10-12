@@ -1,16 +1,22 @@
 package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.chips.ChipsDefaults
 import net.deali.designsystem.internal.chips.ChipsImage
@@ -304,7 +310,91 @@ fun chipsFilledImageLargeSecondary01(
             text = text,
             style = textStyle.copy(textAlign = textAlign),
             color = contentColor,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
+    }
+}
+
+@Composable
+fun chipsFilledImageDepthLargeSecondary01(
+    onClick: () -> Unit,
+    onRemoveClick: () -> Unit,
+    imageUrl: String,
+    texts: List<String>,
+    modifier: Modifier = Modifier,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val chipsStyle = ChipsStyle.FilledImageDepth
+    val chipsSize = ChipsSize.Large
+    val chipsColors = ChipsDefaults.colors(
+        backgroundColor = DealiColor.primary04,
+        selectedBackgroundColor = DealiColor.g10,
+        disabledBackgroundColor = DealiColor.g10,
+        contentColor = DealiColor.g100,
+        disabledContentColor = DealiColor.g50,
+        outlineColor = DealiColor.g20,
+        selectedOutlineColor = DealiColor.transparent,
+        disabledOutlineColor = DealiColor.transparent,
+    )
+
+    CoreCustomChips(
+        onClick = onClick,
+        onRemoveClick = onRemoveClick,
+        removeIcon = R.drawable.ic_x,
+        useRemoveIcon = true,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = chipsStyle,
+        chipsSize = chipsSize,
+        chipsColors = chipsColors,
+        spacingBetweenContentAndRemove = 8.dp,
+        modifier = modifier,
+        interactionSource = interactionSource,
+    ) {
+        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val contentColor by chipsColors.contentColor(enabled)
+
+        for ((index, text) in texts.withIndex()) {
+            if (index == 0) {
+                Row(
+                    modifier = Modifier.weight(0.3f),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    ChipsImage(
+                        imageUrl = imageUrl,
+                        enabled = enabled,
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    DealiText(
+                        modifier = Modifier.weight(weight = 1f),
+                        text = text,
+                        style = textStyle,
+                        color = contentColor,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            } else {
+                Box(
+                    modifier = Modifier
+                        .padding(horizontal = 12.dp, vertical = 13.dp)
+                        .width(1.dp)
+                        .fillMaxHeight()
+                        .background(color = DealiColor.g30)
+                )
+                DealiText(
+                    modifier = Modifier.weight(weight = 0.3f),
+                    text = text,
+                    style = textStyle,
+                    color = contentColor,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+        }
     }
 }
 
@@ -361,6 +451,8 @@ fun chipsOutlineImageLargeSecondary01(
             text = text,
             style = textStyle.copy(textAlign = textAlign),
             color = contentColor,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
     }
 }

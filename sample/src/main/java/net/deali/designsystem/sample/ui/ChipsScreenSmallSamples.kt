@@ -3,6 +3,7 @@ package net.deali.designsystem.sample.ui
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.chipsFilledImageDepthSmallSecondary01
 import net.deali.designsystem.component.chipsFilledImageSmallSecondary01
 import net.deali.designsystem.component.chipsFilledSmallPrimary01
 import net.deali.designsystem.component.chipsFilledSquareSmallPrimary01
@@ -691,12 +693,34 @@ private fun ChipsFilledImageSmallSecondary01Samples() {
 
 @Composable
 private fun ChipsFilledImageDepthSmallSecondary01Samples() {
+    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageDepthSmallSecondary01") {
-        DealiText(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "TODO",
-            style = DealiFont.sh3sb16,
-            color = DealiColor.g100
-        )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            chipsFilledImageDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                texts = listOf("Default", "Text", "999,999"),
+            )
+            chipsFilledImageDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                texts = listOf("Selected", "Text", "999,999"),
+                selected = true,
+            )
+            chipsFilledImageDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                texts = listOf("Disabled", "Text", "999,999"),
+                enabled = false,
+            )
+        }
     }
 }
