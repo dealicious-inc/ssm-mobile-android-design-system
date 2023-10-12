@@ -52,6 +52,7 @@ private fun NavGraphBuilder.menuGraph(
             navigateToChips = { navController.navigate(Screen.Chips.route) },
             navigateToUIElements = { navController.navigate(Screen.UIElements.route) },
             navigateToForms = { navController.navigate(Screen.Forms.route) },
+            navigateToBottomSheets = { navController.navigate(Screen.BottomSheets.route) },
         )
     }
     composable(Screen.Typography.route) {
@@ -102,6 +103,11 @@ private fun NavGraphBuilder.menuGraph(
     }
     composable(Screen.Chips.route) {
         ChipsScreen(
+            onBackPress = navController::popBackStack
+        )
+    }
+    composable(Screen.BottomSheets.route) {
+        BottomSheetScreen(
             onBackPress = navController::popBackStack
         )
     }
@@ -213,6 +219,7 @@ sealed class Screen(val route: String) {
         val menu = this.route + "Menu"
     }
 
+    object BottomSheets : Screen("bottomSheets")
     object CheckBox : Screen("checkBox")
     object Checkcircle : Screen("checkcircle")
     object RadioButton : Screen("radioButton")
@@ -236,7 +243,6 @@ internal fun NavigationContainer(
             .fillMaxSize()
     ) {
         navigationBar()
-
         content()
     }
 }

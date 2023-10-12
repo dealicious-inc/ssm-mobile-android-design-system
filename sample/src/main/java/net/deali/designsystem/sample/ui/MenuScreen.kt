@@ -27,6 +27,7 @@ fun MenuScreen(
     navigateToChips: () -> Unit,
     navigateToUIElements: () -> Unit,
     navigateToForms: () -> Unit,
+    navigateToBottomSheets: () -> Unit,
 ) {
     NavigationContainer(
         navigationBar = {
@@ -37,10 +38,12 @@ fun MenuScreen(
     ) {
         Column(
             modifier = Modifier
-                .padding(10.dp)
                 .weight(1f)
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
+                .padding(top = 12.dp)
+                .padding(horizontal = 16.dp)
+                .verticalScroll(rememberScrollState())
+                .padding(bottom = 24.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             btnFilledMediumPrimary01(
                 modifier = Modifier.fillMaxWidth(),
@@ -137,6 +140,15 @@ fun MenuScreen(
                 text = "Forms",
                 onClick = navigateToForms
             )
+
+            btnFilledMediumPrimary01(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = true,
+                loading = false,
+                text = "BottomSheets",
+                onClick = navigateToBottomSheets
+            )
         }
     }
 }
@@ -157,5 +169,6 @@ private fun MenuScreenPreview() {
         navigateToChips = {},
         navigateToUIElements = {},
         navigateToForms = {},
+        navigateToBottomSheets = {},
     )
 }
