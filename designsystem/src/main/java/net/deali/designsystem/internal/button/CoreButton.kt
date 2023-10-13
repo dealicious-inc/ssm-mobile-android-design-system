@@ -34,6 +34,7 @@ internal fun CoreButton(
     text: String,
     @DrawableRes leftIcon: Int?,
     @DrawableRes rightIcon: Int?,
+    clickable: Boolean,
     enabled: Boolean,
     loading: Boolean,
     buttonStyle: ButtonStyle,
@@ -57,7 +58,7 @@ internal fun CoreButton(
             .clickable(
                 interactionSource = interactionSource,
                 indication = rememberRipple(),
-                enabled = enabled,
+                enabled = if (clickable) enabled else false,
                 role = Role.Button,
                 onClick = onClick,
             ),
