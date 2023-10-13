@@ -212,6 +212,7 @@ private fun CoreChipsLayout(
     ) {
         Row(
             modifier = Modifier
+                .width(IntrinsicSize.Max)
                 .padding(
                     ChipsDefaults.chipsPaddings(
                         size = chipsSize,
