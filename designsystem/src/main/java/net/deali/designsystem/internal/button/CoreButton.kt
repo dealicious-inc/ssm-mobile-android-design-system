@@ -55,12 +55,19 @@ internal fun CoreButton(
             .outlineBorder(buttonStyle = buttonStyle, color = outlineColor, shape = buttonShape)
             .defaultMinSize(minHeight = ButtonDefaults.buttonMinHeight(buttonSize = buttonSize))
             .background(brush = backgroundColor)
-            .clickable(
-                interactionSource = interactionSource,
-                indication = rememberRipple(),
-                enabled = if (clickable) enabled else false,
-                role = Role.Button,
-                onClick = onClick,
+            .then(
+                if (clickable) {
+                    Modifier
+                        .clickable(
+                        interactionSource = interactionSource,
+                        indication = rememberRipple(),
+                        enabled = enabled,
+                        role = Role.Button,
+                        onClick = onClick,
+                    )
+                } else {
+                    Modifier
+                }
             ),
         contentAlignment = Alignment.Center,
     ) {

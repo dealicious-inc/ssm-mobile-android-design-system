@@ -201,12 +201,19 @@ private fun CoreChipsLayout(
             )
             .height(chipsMinSize)
             .background(color = backgroundColor)
-            .clickable(
-                interactionSource = interactionSource,
-                indication = rememberRipple(),
-                enabled = if (clickable) enabled else false,
-                role = Role.Button,
-                onClick = onClick,
+            .then(
+                if (clickable) {
+                    Modifier
+                        .clickable(
+                            interactionSource = interactionSource,
+                            indication = rememberRipple(),
+                            enabled = enabled,
+                            role = Role.Button,
+                            onClick = onClick,
+                        )
+                } else {
+                    Modifier
+                }
             ),
         contentAlignment = Alignment.Center,
     ) {
