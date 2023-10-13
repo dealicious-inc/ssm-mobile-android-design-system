@@ -264,6 +264,195 @@ fun chipsFilledSquareMediumSecondary01(
 }
 
 @Composable
+@JvmName("chipsFilledDepthMediumSecondary01OnlyTexts")
+fun chipsFilledDepthMediumSecondary01(
+    onClick: () -> Unit,
+    onRemoveClick: () -> Unit,
+    texts: List<String>,
+    modifier: Modifier = Modifier,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val chipsStyle = ChipsStyle.FilledImageDepth
+    val chipsSize = ChipsSize.Medium
+    val chipsColors = ChipsDefaults.colors(
+        backgroundColor = DealiColor.g10,
+        selectedBackgroundColor = DealiColor.g20,
+        disabledBackgroundColor = DealiColor.g10,
+        contentColor = DealiColor.g100,
+        disabledContentColor = DealiColor.g50,
+    )
+
+    CoreCustomChips(
+        onClick = onClick,
+        onRemoveClick = onRemoveClick,
+        removeIcon = R.drawable.ic_x,
+        useRemoveIcon = true,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = chipsStyle,
+        chipsSize = chipsSize,
+        chipsColors = chipsColors,
+        spacingBetweenContentAndRemove = 16.dp,
+        modifier = modifier,
+        interactionSource = interactionSource,
+    ) {
+        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val contentColor by chipsColors.contentColor(enabled)
+
+        for ((index, text) in texts.withIndex()) {
+            if (index != 0) {
+                Spacer(modifier = Modifier.width(4.dp))
+                Icon16(
+                    iconRes = R.drawable.ic_arrow_right,
+                    color = contentColor,
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+            }
+            DealiText(
+                text = text,
+                style = textStyle,
+                color = contentColor,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
+    }
+}
+
+@Composable
+@JvmName("chipsFilledDepthMediumSecondary01OnlyIcons")
+fun chipsFilledDepthMediumSecondary01(
+    onClick: () -> Unit,
+    onRemoveClick: () -> Unit,
+    icons: List<Int>,
+    modifier: Modifier = Modifier,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val chipsStyle = ChipsStyle.FilledImageDepth
+    val chipsSize = ChipsSize.Medium
+    val chipsColors = ChipsDefaults.colors(
+        backgroundColor = DealiColor.g10,
+        selectedBackgroundColor = DealiColor.g20,
+        disabledBackgroundColor = DealiColor.g10,
+        contentColor = DealiColor.g100,
+        disabledContentColor = DealiColor.g50,
+    )
+
+    CoreCustomChips(
+        onClick = onClick,
+        onRemoveClick = onRemoveClick,
+        removeIcon = R.drawable.ic_x,
+        useRemoveIcon = true,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = chipsStyle,
+        chipsSize = chipsSize,
+        chipsColors = chipsColors,
+        spacingBetweenContentAndRemove = 16.dp,
+        modifier = modifier,
+        interactionSource = interactionSource,
+    ) {
+        val contentColor by chipsColors.contentColor(enabled)
+
+        for ((index, icon) in icons.withIndex()) {
+            if (index != 0) {
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon16(
+                    iconRes = R.drawable.ic_arrow_right,
+                    color = contentColor,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
+            Icon16(
+                iconRes = icon,
+                color = contentColor,
+            )
+        }
+    }
+}
+
+@Composable
+@JvmName("chipsFilledDepthMediumSecondary01TextsAndIcons")
+fun chipsFilledDepthMediumSecondary01(
+    onClick: () -> Unit,
+    onRemoveClick: () -> Unit,
+    contents: List<Triple<Int?, String, Int?>>,
+    modifier: Modifier = Modifier,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    val chipsStyle = ChipsStyle.FilledImageDepth
+    val chipsSize = ChipsSize.Medium
+    val chipsColors = ChipsDefaults.colors(
+        backgroundColor = DealiColor.g10,
+        selectedBackgroundColor = DealiColor.g20,
+        disabledBackgroundColor = DealiColor.g10,
+        contentColor = DealiColor.g100,
+        disabledContentColor = DealiColor.g50,
+    )
+
+    CoreCustomChips(
+        onClick = onClick,
+        onRemoveClick = onRemoveClick,
+        removeIcon = R.drawable.ic_x,
+        useRemoveIcon = true,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = chipsStyle,
+        chipsSize = chipsSize,
+        chipsColors = chipsColors,
+        spacingBetweenContentAndRemove = 16.dp,
+        modifier = modifier,
+        interactionSource = interactionSource,
+    ) {
+        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val contentColor by chipsColors.contentColor(enabled)
+
+        for ((index, content) in contents.withIndex()) {
+            if (index != 0) {
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon16(
+                    iconRes = R.drawable.ic_arrow_right,
+                    color = contentColor,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
+
+            val leftIcon = content.first
+            val text = content.second
+            val rightIcon = content.third
+
+            if (leftIcon != null) {
+                Icon16(
+                    iconRes = leftIcon,
+                    color = contentColor,
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+            }
+            DealiText(
+                text = text,
+                style = textStyle,
+                color = contentColor,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+            if (rightIcon != null) {
+                Spacer(modifier = Modifier.width(4.dp))
+                Icon16(
+                    iconRes = rightIcon,
+                    color = contentColor,
+                )
+            }
+        }
+    }
+}
+
+@Composable
 fun chipsFilledImageMediumSecondary01(
     onClick: () -> Unit,
     imageUrl: String,

@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import net.deali.designsystem.R
-import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.chipsFilledDepthSmallSecondary01
 import net.deali.designsystem.component.chipsFilledImageDepthSmallSecondary01
 import net.deali.designsystem.component.chipsFilledImageSmallSecondary01
 import net.deali.designsystem.component.chipsFilledSmallPrimary01
@@ -23,7 +23,6 @@ import net.deali.designsystem.component.chipsFilledSquareSmallSecondary01
 import net.deali.designsystem.component.chipsOutlineSmallPrimary01
 import net.deali.designsystem.component.chipsSquareSmallPrimary01
 import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun SmallChipsSamples(
@@ -630,12 +629,148 @@ private fun ChipsFilledSquareSmallSecondary01Samples() {
 @Composable
 private fun ChipsFilledDepthSmallSecondary01Samples() {
     ChipsSampleLayout(title = "chipsFilledDepthSmallSecondary01") {
-        DealiText(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "TODO",
-            style = DealiFont.sh3sb16,
-            color = DealiColor.g100
-        )
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                texts = listOf("First", "Second", "Third"),
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                icons = listOf(
+                    R.drawable.ic_category,
+                    R.drawable.ic_edit_line,
+                    R.drawable.ic_file_copy,
+                ),
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", null),
+                    Triple(R.drawable.ic_bookmark, "Second", null),
+                    Triple(R.drawable.ic_bookmark, "Third", null),
+                ),
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(null, "First", R.drawable.ic_check),
+                    Triple(null, "Second", R.drawable.ic_check),
+                    Triple(null, "Third", R.drawable.ic_check),
+                ),
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Third", R.drawable.ic_check),
+                ),
+            )
+
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                texts = listOf("First", "Second", "Third"),
+                selected = true,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                icons = listOf(
+                    R.drawable.ic_category,
+                    R.drawable.ic_edit_line,
+                    R.drawable.ic_file_copy,
+                ),
+                selected = true,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", null),
+                    Triple(R.drawable.ic_bookmark, "Second", null),
+                    Triple(R.drawable.ic_bookmark, "Third", null),
+                ),
+                selected = true,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(null, "First", R.drawable.ic_check),
+                    Triple(null, "Second", R.drawable.ic_check),
+                    Triple(null, "Third", R.drawable.ic_check),
+                ),
+                selected = true,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Third", R.drawable.ic_check),
+                ),
+                selected = true,
+            )
+
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                texts = listOf("First", "Second", "Third"),
+                enabled = false,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                icons = listOf(
+                    R.drawable.ic_category,
+                    R.drawable.ic_edit_line,
+                    R.drawable.ic_file_copy,
+                ),
+                enabled = false,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", null),
+                    Triple(R.drawable.ic_bookmark, "Second", null),
+                    Triple(R.drawable.ic_bookmark, "Third", null),
+                ),
+                enabled = false,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(null, "First", R.drawable.ic_check),
+                    Triple(null, "Second", R.drawable.ic_check),
+                    Triple(null, "Third", R.drawable.ic_check),
+                ),
+                enabled = false,
+            )
+            chipsFilledDepthSmallSecondary01(
+                onClick = {},
+                onRemoveClick = {},
+                contents = listOf(
+                    Triple(R.drawable.ic_bookmark, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_bookmark, "Third", R.drawable.ic_check),
+                ),
+                enabled = false,
+            )
+        }
     }
 }
 
