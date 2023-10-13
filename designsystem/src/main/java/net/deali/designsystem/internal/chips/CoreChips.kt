@@ -79,6 +79,7 @@ internal fun CoreChips(
             leftIcon = leftIcon,
             removeIcon = removeIcon,
             useRemoveIcon = useRemoveIcon,
+            enabled = enabled,
             contentColor = contentColor,
         )
     }
@@ -118,6 +119,7 @@ internal fun CoreCustomChips(
             onRemoveClick = onRemoveClick,
             removeIcon = removeIcon,
             useRemoveIcon = useRemoveIcon,
+            enabled = enabled,
             contentColor = contentColor,
             spacingBetweenContentAndRemove = spacingBetweenContentAndRemove,
             content = content,
@@ -229,6 +231,7 @@ private fun RowScope.NormalContent(
     @DrawableRes leftIcon: Int?,
     @DrawableRes removeIcon: Int,
     useRemoveIcon: Boolean,
+    enabled: Boolean,
     contentColor: Color,
 ) {
     if (leftIcon != null) {
@@ -250,6 +253,7 @@ private fun RowScope.NormalContent(
         Spacer(modifier = Modifier.width(4.dp))
         Icon16(
             onClick = onRemoveClick,
+            enabled = enabled,
             iconRes = removeIcon,
             color = contentColor,
         )
@@ -261,6 +265,7 @@ private fun RowScope.DepthContent(
     onRemoveClick: () -> Unit,
     @DrawableRes removeIcon: Int,
     useRemoveIcon: Boolean,
+    enabled: Boolean,
     contentColor: Color,
     spacingBetweenContentAndRemove: Dp,
     content: @Composable RowScope.() -> Unit,
@@ -270,6 +275,7 @@ private fun RowScope.DepthContent(
         Spacer(modifier = Modifier.width(spacingBetweenContentAndRemove))
         Icon16(
             onClick = onRemoveClick,
+            enabled = enabled,
             iconRes = removeIcon,
             color = contentColor,
         )
