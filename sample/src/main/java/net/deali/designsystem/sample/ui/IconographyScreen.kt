@@ -151,6 +151,7 @@ fun IconographyScreen(
         IconographyScreenItem("ic_more_horiz", SIZE_24, null, R.drawable.ic_more_horiz),
         IconographyScreenItem("ic_more_vert", SIZE_24, null, R.drawable.ic_more_vert),
         IconographyScreenItem("ic_hashtag", SIZE_24, null, R.drawable.ic_hashtag),
+        IconographyScreenItem("ic_camera", SIZE_24, R.drawable.ic_camera_filled, R.drawable.ic_camera),
     )
 
     NavigationContainer(
