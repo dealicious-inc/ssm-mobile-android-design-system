@@ -956,12 +956,14 @@ private fun ChipsFilledImageDepthMediumSecondary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             chipsFilledImageDepthMediumSecondary01(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
                 texts = listOf("Default", "Text", "999,999"),
             )
             chipsFilledImageDepthMediumSecondary01(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
@@ -969,6 +971,7 @@ private fun ChipsFilledImageDepthMediumSecondary01Samples() {
                 selected = true,
             )
             chipsFilledImageDepthMediumSecondary01(
+                modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,

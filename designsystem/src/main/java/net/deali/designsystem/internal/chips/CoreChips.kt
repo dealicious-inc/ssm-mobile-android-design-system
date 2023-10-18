@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -192,13 +193,7 @@ private fun CoreChipsLayout(
                 minWidth = chipsMinSize,
                 minHeight = chipsMinSize,
             )
-            .then(
-                if (chipsStyle == ChipsStyle.FilledImageDepth || chipsStyle == ChipsStyle.FilledDepth) {
-                    Modifier
-                } else {
-                    Modifier.width(IntrinsicSize.Min)
-                }
-            )
+            .width(IntrinsicSize.Min)
             .height(chipsMinSize)
             .background(color = backgroundColor)
             .then(
@@ -219,7 +214,7 @@ private fun CoreChipsLayout(
     ) {
         Row(
             modifier = Modifier
-                .width(IntrinsicSize.Max)
+                .fillMaxWidth()
                 .padding(
                     ChipsDefaults.chipsPaddings(
                         size = chipsSize,
@@ -283,7 +278,11 @@ private fun RowScope.DepthContent(
     spacingBetweenContentAndRemove: Dp,
     content: @Composable RowScope.() -> Unit,
 ) {
-    content()
+    Row(
+        modifier = Modifier.weight(1f),
+        verticalAlignment = Alignment.CenterVertically,
+        content = content,
+    )
     if (useRemoveIcon) {
         Spacer(modifier = Modifier.width(spacingBetweenContentAndRemove))
         Icon16(
