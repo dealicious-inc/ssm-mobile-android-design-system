@@ -42,5 +42,23 @@
     <color name="etc06">#B2000000</color>
     <color name="etc07">#E5FFFFFF</color>
 
+    <color name="b70">#B2000000</color>
+    <color name="b50">#80000000</color>
+    <color name="b40">#66000000</color>
+    <color name="b30">#4D000000</color>
+    <color name="b20">#33000000</color>
+    <color name="b10">#1A000000</color>
+    <color name="b5">#33000000</color>
+
+    <color name="w90">#E5FFFFFF</color>
+    <color name="w70">#B2FFFFFF</color>
+    <color name="w50">#80FFFFFF</color>
+    <color name="w30">#4DFFFFFF</color>
+    <color name="w20">#33FFFFFF</color>
+    <color name="w15">#26FFFFFF</color>
+    <color name="w10">#1AFFFFFF</color>
+    <color name="w5">#0DFFFFFF</color>
+
+    <color name="transparent">#00FFFFFF</color>
     <color name="ripple">#22000000</color>
 </resources>
