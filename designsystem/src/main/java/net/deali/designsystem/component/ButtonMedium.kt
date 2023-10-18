@@ -1,7 +1,9 @@
 package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import net.deali.designsystem.internal.button.ButtonDefaults
@@ -20,6 +22,7 @@ fun btnFilledMediumGradient(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -37,6 +40,7 @@ fun btnFilledMediumGradient(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.primary04,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -51,6 +55,7 @@ fun btnFilledMediumPrimary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -68,6 +73,7 @@ fun btnFilledMediumPrimary01(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.primary04,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -82,6 +88,7 @@ fun btnFilledMediumPrimary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -99,6 +106,7 @@ fun btnFilledMediumPrimary02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50.copy(alpha = 0.5f),
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -113,6 +121,7 @@ fun btnFilledTonalMediumPrimary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -130,6 +139,7 @@ fun btnFilledTonalMediumPrimary01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -144,6 +154,7 @@ fun btnFilledTonalMediumPrimary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -161,6 +172,7 @@ fun btnFilledTonalMediumPrimary02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -175,6 +187,7 @@ fun btnFilledTonalMediumSecondary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -192,6 +205,7 @@ fun btnFilledTonalMediumSecondary01(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -206,6 +220,7 @@ fun btnFilledTonalMediumSecondary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -223,6 +238,7 @@ fun btnFilledTonalMediumSecondary02(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -237,6 +253,7 @@ fun btnFilledTonalMediumSecondary03(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -254,6 +271,7 @@ fun btnFilledTonalMediumSecondary03(
             contentColor = DealiColor.g70,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -268,6 +286,7 @@ fun btnOutlineMediumPrimary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -287,6 +306,7 @@ fun btnOutlineMediumPrimary01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -301,6 +321,7 @@ fun btnOutlineMediumPrimary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -320,6 +341,7 @@ fun btnOutlineMediumPrimary02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -334,6 +356,7 @@ fun btnOutlineMediumSecondary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -353,6 +376,7 @@ fun btnOutlineMediumSecondary01(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -367,6 +391,7 @@ fun btnOutlineMediumSecondary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -386,6 +411,7 @@ fun btnOutlineMediumSecondary02(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -400,6 +426,7 @@ fun btnOutlineMediumSecondary03(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -419,6 +446,7 @@ fun btnOutlineMediumSecondary03(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -433,6 +461,7 @@ fun btnOutlineMediumSecondary04(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -452,6 +481,7 @@ fun btnOutlineMediumSecondary04(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -466,6 +496,7 @@ fun btnTextMediumPrimary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -483,6 +514,7 @@ fun btnTextMediumPrimary01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -497,6 +529,7 @@ fun btnTextMediumPrimary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -514,6 +547,7 @@ fun btnTextMediumPrimary02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -528,6 +562,7 @@ fun btnTextMediumSecondary01(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -545,6 +580,7 @@ fun btnTextMediumSecondary01(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -559,6 +595,7 @@ fun btnTextMediumSecondary02(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -576,6 +613,7 @@ fun btnTextMediumSecondary02(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -590,6 +628,7 @@ fun btnTextMediumSecondary03(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -607,6 +646,7 @@ fun btnTextMediumSecondary03(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -621,6 +661,7 @@ fun btnTextMediumSecondary04(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -638,6 +679,7 @@ fun btnTextMediumSecondary04(
             contentColor = DealiColor.g70,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
@@ -652,6 +694,7 @@ fun btnTextMediumSecondary05(
     clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
         onClick = onClick,
@@ -669,6 +712,7 @@ fun btnTextMediumSecondary05(
             contentColor = DealiColor.g60,
             disabledContentColor = DealiColor.g50,
         ),
+        interactionSource = interactionSource,
         modifier = modifier,
     )
 }
