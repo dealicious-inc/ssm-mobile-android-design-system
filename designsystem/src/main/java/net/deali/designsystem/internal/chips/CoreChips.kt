@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -29,16 +28,27 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.IntrinsicMeasurable
+import androidx.compose.ui.layout.IntrinsicMeasureScope
+import androidx.compose.ui.layout.LayoutModifier
+import androidx.compose.ui.layout.Measurable
+import androidx.compose.ui.layout.MeasureResult
+import androidx.compose.ui.layout.MeasureScope
+import androidx.compose.ui.platform.InspectorInfo
+import androidx.compose.ui.platform.InspectorValueInfo
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.theme.DealiColor
+import kotlin.math.max
+import kotlin.math.min
 
 @Composable
 internal fun CoreChips(
@@ -214,7 +224,7 @@ private fun CoreChipsLayout(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
+                .idealChipsWidth()
                 .padding(
                     ChipsDefaults.chipsPaddings(
                         size = chipsSize,
@@ -304,5 +314,100 @@ private fun Modifier.outlineBorderOrNothing(
         this.then(Modifier.border(width = 1.dp, color = color, shape = shape))
     } else {
         this
+    }
+}
+
+/**
+ * `Modifier.fillMaxWidth()`와 `Modifier.width(IntrinsicSize.Max)`를 사용 했을 때의 너비 중 가장 이상적인
+ * 값을 너비로 적용시키는 Size Modifier.
+ *
+ * Chips는 width를 별도 지정하지 않은 경우 최소한의 크기를 가져야 하고, 너비를 지정 한 경우 양 옆의 아이콘은 최대한 끝에
+ * 붙으면서 중심의 텍스트 영역은 남은 공간을 전부 차지해야 한다.
+ * 기본 size modifier로는 이 조건을 모두 맞추기 어려워 커스텀 modifier로 개발.
+ */
+@Stable
+private fun Modifier.idealChipsWidth(): Modifier {
+    return this.then(
+        MaxOfParentWidthAndIntrinsicWidthModifier(
+            inspectorInfo = {
+                name = ""
+            }
+        )
+    )
+}
+
+private class MaxOfParentWidthAndIntrinsicWidthModifier(
+    inspectorInfo: InspectorInfo.() -> Unit
+) : LayoutModifier, InspectorValueInfo(inspectorInfo) {
+
+    override fun MeasureScope.measure(
+        measurable: Measurable,
+        constraints: Constraints
+    ): MeasureResult {
+        val constraintsWhenFillParent = calculateFillParentContentConstraints(constraints)
+        val constraintsWhenIntrinsic = calculateIntrinsicContentConstraints(measurable, constraints)
+
+        // `Modifier.fillMaxWidth()`와 `Modifier.width(IntrinsicSize.Max)`시의 width 중 최대값 사용.
+        val contentConstraints = maxOf(constraintsWhenFillParent, constraintsWhenIntrinsic)
+        // 앞서 계산한 최대 너비는 부모의 최대 너비를 벗어나면 안되기에 최소값 계산.
+        val finalConstraints = minOf(contentConstraints, constraints)
+
+        val placeable = measurable.measure(finalConstraints)
+        return layout(placeable.width, placeable.height) {
+            placeable.placeRelative(0, 0)
+        }
+    }
+
+    /**
+     * 부모 Composable 내에서 가능 한 최대 width를 계산.
+     * `Modifier.fillMaxWidth()`를 사용 했을 때 계산되는 너비와 같음.
+     */
+    private fun calculateFillParentContentConstraints(constraints: Constraints): Constraints {
+        val minWidth: Int
+        val maxWidth: Int
+        if (constraints.hasBoundedWidth) {
+            val width = constraints.maxWidth.coerceIn(constraints.minWidth, constraints.maxWidth)
+            minWidth = width
+            maxWidth = width
+        } else {
+            minWidth = constraints.minWidth
+            maxWidth = constraints.maxWidth
+        }
+        return Constraints(minWidth, maxWidth)
+    }
+
+    /**
+     * 부모 Composable 내에서 자식 Composable이 가질 수 있는 최대 width를 계산.
+     * `Modifier.width(IntrinsicSize.Max)`를 사용 했을 때 계산되는 너비와 같음.
+     */
+    private fun calculateIntrinsicContentConstraints(
+        measurable: IntrinsicMeasurable,
+        constraints: Constraints
+    ): Constraints {
+        val width = measurable.maxIntrinsicWidth(constraints.maxHeight)
+        return Constraints.fixedWidth(width)
+    }
+
+    override fun IntrinsicMeasureScope.minIntrinsicWidth(
+        measurable: IntrinsicMeasurable,
+        height: Int
+    ) = measurable.maxIntrinsicWidth(height)
+
+    private fun minOf(constraints1: Constraints, constraints2: Constraints): Constraints {
+        return Constraints(
+            minWidth = min(constraints1.minWidth, constraints2.minWidth),
+            maxWidth = min(constraints1.maxWidth, constraints2.maxWidth),
+            minHeight = min(constraints1.minHeight, constraints2.minHeight),
+            maxHeight = min(constraints1.maxHeight, constraints2.maxHeight),
+        )
+    }
+
+    private fun maxOf(constraints1: Constraints, constraints2: Constraints): Constraints {
+        return Constraints(
+            minWidth = max(constraints1.minWidth, constraints2.minWidth),
+            maxWidth = max(constraints1.maxWidth, constraints2.maxWidth),
+            minHeight = max(constraints1.minHeight, constraints2.minHeight),
+            maxHeight = max(constraints1.maxHeight, constraints2.maxHeight),
+        )
     }
 }

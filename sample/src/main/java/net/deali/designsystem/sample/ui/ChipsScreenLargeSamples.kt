@@ -4,10 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -36,6 +38,27 @@ fun LargeChipsSamples(
             .background(color = DealiColor.g10),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        item {
+            val sampleImage =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+            LazyRow(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .background(color = DealiColor.primary04),
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                items(10) {
+                    chipsFilledImageLargeSecondary01(
+                        onClick = {},
+                        onRemoveClick = {},
+                        imageUrl = sampleImage,
+                        text = "테스트",
+                        useRemoveIcon = true,
+                    )
+                }
+            }
+        }
         item { ChipsOutlineLargePrimary01Samples() }
         item { ChipsSquareLargePrimary01Samples() }
         item { ChipsFilledLargePrimary01Samples() }
@@ -62,8 +85,9 @@ private fun ChipsOutlineLargePrimary01Samples() {
         ) {
             Box {
                 chipsOutlineLargePrimary01(
+                    modifier = Modifier.fillMaxWidth(),
                     onClick = {},
-                    text = "Text",
+                    text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
                 )
             }
             Box {
@@ -83,9 +107,10 @@ private fun ChipsOutlineLargePrimary01Samples() {
 
             Box {
                 chipsOutlineLargePrimary01(
+                    modifier = Modifier.fillMaxWidth(),
                     onClick = {},
                     onRemoveClick = {},
-                    text = "TTT",
+                    text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
                     leftIcon = R.drawable.ic_bookmark_filled,
                     useRemoveIcon = true,
                 )
@@ -895,7 +920,8 @@ private fun ChipsFilledDepthLargeSecondary01Samples() {
 
 @Composable
 private fun ChipsFilledImageLargeSecondary01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageLargeSecondary01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
@@ -947,7 +973,8 @@ private fun ChipsFilledImageLargeSecondary01Samples() {
 
 @Composable
 private fun ChipsFilledImageDepthLargeSecondary01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageDepthLargeSecondary01") {
         Column(
             modifier = Modifier
@@ -984,7 +1011,8 @@ private fun ChipsFilledImageDepthLargeSecondary01Samples() {
 
 @Composable
 private fun ChipsOutlineImageLargeSecondary01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsOutlineImageLargeSecondary01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
