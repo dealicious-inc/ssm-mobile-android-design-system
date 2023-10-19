@@ -100,7 +100,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     isHelperTextVisible: Boolean = true,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    var isValueEmpty by remember { mutableStateOf(value.text.isEmpty()) }
+    var isValueEmpty by remember(value) { mutableStateOf(value.text.isEmpty()) }
 
     val colors = DealiTextFieldDefaults.colors()
 

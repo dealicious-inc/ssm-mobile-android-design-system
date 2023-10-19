@@ -43,7 +43,7 @@ internal fun DealiTextFieldDecorationBox(
     innerTextField: @Composable () -> Unit,
     trailingContent: @Composable (() -> Unit)?,
 ) {
-    val focused = interactionSource.collectIsFocusedAsState().value
+    val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty()
     val isPlaceholderVisible = if (focused) false else !placeholder.isNullOrEmpty() && isValueEmpty
     val spacing = 4.dp
