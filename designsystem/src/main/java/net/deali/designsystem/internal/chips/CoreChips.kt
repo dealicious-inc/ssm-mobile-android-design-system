@@ -323,14 +323,18 @@ private fun Modifier.outlineBorderOrNothing(
  *
  * Chips는 width를 별도 지정하지 않은 경우 최소한의 크기를 가져야 하고, 너비를 지정 한 경우 양 옆의 아이콘은 최대한 끝에
  * 붙으면서 중심의 텍스트 영역은 남은 공간을 전부 차지해야 한다.
- * 기본 size modifier로는 이 조건을 모두 맞추기 어려워 커스텀 modifier로 개발.
+ *
+ * 최소한의 크기를 가지려면 상위 레이아웃에 `IntrinsicSize.Min`을 주고, 하위 content에 `IntrinsicSize.Max`를 주어야 한다.
+ * 하지만 너비를 직접 주어 필요한 영역보다 넓어진 경우 text 영역을 늘이기 위해서는 상위 레이아웃에 `IntrinsicSize.Min`을 주고,
+ * 하위 content에 `fillMaxWidth`를 주어야 한다.
+ * 기본 Modifier로는 두 경우 모두를 만족하는 것이 불가능하기 때문에 커스텀 Modifier로 개발함.
  */
 @Stable
 private fun Modifier.idealChipsWidth(): Modifier {
     return this.then(
         MaxOfParentWidthAndIntrinsicWidthModifier(
             inspectorInfo = {
-                name = ""
+                name = "idealChipsWidth"
             }
         )
     )
@@ -346,10 +350,10 @@ private class MaxOfParentWidthAndIntrinsicWidthModifier(
     ): MeasureResult {
         val constraintsWhenFillParent = calculateFillParentContentConstraints(constraints)
         val constraintsWhenIntrinsic = calculateIntrinsicContentConstraints(measurable, constraints)
-
-        // `Modifier.fillMaxWidth()`와 `Modifier.width(IntrinsicSize.Max)`시의 width 중 최대값 사용.
+        // `Modifier.fillMaxWidth()`와 `Modifier.width(IntrinsicSize.Max)`의 너비 중 더 넓은 값 사용.
+        // content는 허용 되는 한 최대한 공간을 차지해야 내부 text가 충분히 늘어날 수 있기 때문.
         val contentConstraints = maxOf(constraintsWhenFillParent, constraintsWhenIntrinsic)
-        // 앞서 계산한 최대 너비는 부모의 최대 너비를 벗어나면 안되기에 최소값 계산.
+        // 하지만 Chips의 껍데기를 넘어가서는 안되기 때문에 제한.
         val finalConstraints = minOf(contentConstraints, constraints)
 
         val placeable = measurable.measure(finalConstraints)
