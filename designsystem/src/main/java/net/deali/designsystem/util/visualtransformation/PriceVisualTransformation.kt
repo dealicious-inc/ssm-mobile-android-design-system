@@ -13,14 +13,23 @@ import java.util.Locale
  * 예를 들어 TextField가 1000000을 value로 가지고 있고 [prefix]가 ₩라면, '₩1,000,000'로 보여줍니다.
  *
  * @param prefix 가격 형태의 숫자 앞에 표기 할 문자. (e.g. '$')
+ * @param alwaysShowPrefix `true`인 경우 value가 비어 있어도 [prefix]를 보여줌. `false`인 경우
+ * value가 비어 있지 않은 경우에만 [prefix]를 보여줌.
  */
-class PriceVisualTransformation(private val prefix: String = "") : VisualTransformation {
+class PriceVisualTransformation(
+    private val prefix: String = "",
+    private val alwaysShowPrefix: Boolean = false,
+) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         val priceText = text.text.toCommaTextOrEmpty()
-        val priceTextWithSymbol = prefix + priceText
+        val transformedText = if (alwaysShowPrefix || priceText.isNotEmpty()) {
+            prefix + priceText
+        } else {
+            priceText
+        }
         return TransformedText(
-            text = AnnotatedString(priceTextWithSymbol),
-            offsetMapping = PriceOffsetMapping(prefix, priceTextWithSymbol)
+            text = AnnotatedString(transformedText),
+            offsetMapping = PriceOffsetMapping(prefix, transformedText)
         )
     }
 
@@ -31,7 +40,7 @@ class PriceVisualTransformation(private val prefix: String = "") : VisualTransfo
         return try {
             String.format(Locale.KOREA, "%,.0f", this.toDouble())
         } catch (e: NumberFormatException) {
-            return ""
+            throw IllegalStateException("PriceVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
         }
     }
 
