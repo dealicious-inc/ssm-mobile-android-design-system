@@ -5,6 +5,8 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -29,6 +31,8 @@ fun TextInputWithButton(
     inputEnabled: Boolean = true,
     buttonEnabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     iconColor: Color = DealiColor.g100,
@@ -47,6 +51,8 @@ fun TextInputWithButton(
             textStyle = textStyle,
             enabled = inputEnabled,
             isError = isError,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
             iconColor = iconColor,
@@ -76,6 +82,8 @@ fun TextInputWithButton(
     inputEnabled: Boolean = true,
     buttonEnabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
@@ -92,6 +100,8 @@ fun TextInputWithButton(
             textStyle = textStyle,
             enabled = inputEnabled,
             isError = isError,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
             placeholder = placeholder,
@@ -121,6 +131,8 @@ fun TextInputWithButton(
     inputEnabled: Boolean = true,
     buttonEnabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     iconColor: Color = DealiColor.g100,
@@ -139,6 +151,8 @@ fun TextInputWithButton(
             textStyle = textStyle,
             enabled = inputEnabled,
             isError = isError,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
             iconColor = iconColor,
@@ -168,6 +182,8 @@ fun TextInputWithButton(
     inputEnabled: Boolean = true,
     buttonEnabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
@@ -184,6 +200,8 @@ fun TextInputWithButton(
             textStyle = textStyle,
             enabled = inputEnabled,
             isError = isError,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             visualTransformation = visualTransformation,
             interactionSource = interactionSource,
             placeholder = placeholder,

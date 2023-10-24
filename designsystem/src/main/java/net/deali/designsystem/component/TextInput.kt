@@ -2,6 +2,8 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -23,6 +25,8 @@ fun TextInput(
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     iconColor: Color = DealiColor.g100,
@@ -42,6 +46,8 @@ fun TextInput(
         singleLine = true,
         minLines = 1,
         maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
@@ -71,6 +77,8 @@ fun TextInput(
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
@@ -89,6 +97,8 @@ fun TextInput(
         singleLine = true,
         minLines = 1,
         maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
@@ -108,6 +118,8 @@ fun TextInput(
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     iconColor: Color = DealiColor.g100,
@@ -127,6 +139,8 @@ fun TextInput(
         singleLine = true,
         minLines = 1,
         maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
@@ -156,6 +170,8 @@ fun TextInput(
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
@@ -174,6 +190,8 @@ fun TextInput(
         singleLine = true,
         minLines = 1,
         maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
