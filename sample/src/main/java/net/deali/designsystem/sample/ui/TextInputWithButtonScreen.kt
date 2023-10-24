@@ -27,7 +27,7 @@ import net.deali.designsystem.component.TextInputWithButton
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.BigPasswordVisualTransformation
+import net.deali.designsystem.util.visualtransformation.PriceVisualTransformation
 
 @Composable
 fun InputWithButtonScreen(onBackPress: () -> Unit) {
@@ -47,7 +47,6 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         var text by remember { mutableStateOf("") }
         var enabled by remember { mutableStateOf(true) }
         var isError by remember { mutableStateOf(false) }
-        var masking by remember { mutableStateOf(VisualTransformation.None) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isLabelVisible by remember { mutableStateOf(true) }
@@ -57,6 +56,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         var isIconVisible by remember { mutableStateOf(true) }
         var isIconClickable by remember { mutableStateOf(true) }
         var isButtonEnabled by remember { mutableStateOf(true) }
+        var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
 
         Column(
             modifier = Modifier
@@ -78,7 +78,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 inputEnabled = enabled,
                 buttonEnabled = isButtonEnabled,
                 isError = isError,
-                visualTransformation = masking,
+                visualTransformation = visualTransformation,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
                 helperText = helperText,
@@ -101,17 +101,6 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                     title = "Error",
                     selected = isError,
                     onSelectedChange = { isError = it }
-                )
-                ToggleOption(
-                    title = "마스킹",
-                    selected = masking != VisualTransformation.None,
-                    onSelectedChange = { masked ->
-                        masking = if (masked) {
-                            BigPasswordVisualTransformation()
-                        } else {
-                            VisualTransformation.None
-                        }
-                    }
                 )
                 ToggleOption(
                     title = "Button\nEnabled",
@@ -165,6 +154,26 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                         onSelectedChange = { isIconClickable = it }
                     )
                 }
+            }
+
+            SampleDivider()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ToggleOption(
+                    title = "Visual Transformation (Price Style)",
+                    selected = visualTransformation != VisualTransformation.None,
+                    onSelectedChange = {
+                        visualTransformation = if (it) {
+                            PriceVisualTransformation(prefix = "$ ")
+                        } else {
+                            VisualTransformation.None
+                        }
+                    }
+                )
             }
 
             SampleDivider()

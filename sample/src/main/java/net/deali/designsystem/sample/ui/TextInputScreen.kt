@@ -26,7 +26,7 @@ import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.BigPasswordVisualTransformation
+import net.deali.designsystem.util.visualtransformation.PriceVisualTransformation
 
 @Composable
 fun InputScreen(onBackPress: () -> Unit) {
@@ -46,7 +46,6 @@ fun InputScreen(onBackPress: () -> Unit) {
         var text by remember { mutableStateOf("") }
         var enabled by remember { mutableStateOf(true) }
         var isError by remember { mutableStateOf(false) }
-        var masking by remember { mutableStateOf(VisualTransformation.None) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isLabelVisible by remember { mutableStateOf(true) }
@@ -55,6 +54,7 @@ fun InputScreen(onBackPress: () -> Unit) {
         var helperText by remember { mutableStateOf("") }
         var isIconVisible by remember { mutableStateOf(true) }
         var isIconClickable by remember { mutableStateOf(true) }
+        var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
 
         Column(
             modifier = Modifier
@@ -73,7 +73,7 @@ fun InputScreen(onBackPress: () -> Unit) {
                 },
                 enabled = enabled,
                 isError = isError,
-                visualTransformation = masking,
+                visualTransformation = visualTransformation,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
                 helperText = helperText,
@@ -97,64 +97,69 @@ fun InputScreen(onBackPress: () -> Unit) {
                     selected = isError,
                     onSelectedChange = { isError = it }
                 )
+            }
+
+            SampleDivider()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
                 ToggleOption(
-                    title = "마스킹",
-                    selected = masking != VisualTransformation.None,
-                    onSelectedChange = { masked ->
-                        masking = if (masked) {
-                            BigPasswordVisualTransformation()
-                        } else {
-                            VisualTransformation.None
-                        }
-                    }
+                    title = "Placeholder\nVisible",
+                    selected = isPlaceholderVisible,
+                    onSelectedChange = { isPlaceholderVisible = it }
+                )
+                ToggleOption(
+                    title = "Label\nVisible",
+                    selected = isLabelVisible,
+                    onSelectedChange = { isLabelVisible = it }
+                )
+                ToggleOption(
+                    title = "Helper Text\nVisible",
+                    selected = isHelperTextVisible,
+                    onSelectedChange = { isHelperTextVisible = it }
                 )
             }
 
             SampleDivider()
 
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    ToggleOption(
-                        title = "Placeholder\nVisible",
-                        selected = isPlaceholderVisible,
-                        onSelectedChange = { isPlaceholderVisible = it }
-                    )
-                    ToggleOption(
-                        title = "Label\nVisible",
-                        selected = isLabelVisible,
-                        onSelectedChange = { isLabelVisible = it }
-                    )
-                    ToggleOption(
-                        title = "Helper Text\nVisible",
-                        selected = isHelperTextVisible,
-                        onSelectedChange = { isHelperTextVisible = it }
-                    )
-                }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ToggleOption(
+                    title = "Icon\nVisible",
+                    selected = isIconVisible,
+                    onSelectedChange = { isIconVisible = it }
+                )
+                ToggleOption(
+                    title = "Icon\nClickable",
+                    selected = isIconClickable,
+                    onSelectedChange = { isIconClickable = it }
+                )
             }
 
             SampleDivider()
 
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    ToggleOption(
-                        title = "Icon\nVisible",
-                        selected = isIconVisible,
-                        onSelectedChange = { isIconVisible = it }
-                    )
-                    ToggleOption(
-                        title = "Icon\nClickable",
-                        selected = isIconClickable,
-                        onSelectedChange = { isIconClickable = it }
-                    )
-                }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ToggleOption(
+                    title = "Visual Transformation (Price Style)",
+                    selected = visualTransformation != VisualTransformation.None,
+                    onSelectedChange = {
+                        visualTransformation = if (it) {
+                            PriceVisualTransformation(prefix = "$ ")
+                        } else {
+                            VisualTransformation.None
+                        }
+                    }
+                )
             }
 
             SampleDivider()
