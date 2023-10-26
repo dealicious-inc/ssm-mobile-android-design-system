@@ -26,7 +26,7 @@ fun Nav(
             .fillMaxSize()
             .background(DealiColor.primary04),
         navController = navController,
-        startDestination = Screen.Menu.route
+        startDestination = Screen.UIElements.menu
     ) {
         menuGraph(navController, dataStoreUtil)
         uiElementsGraph(navController)
@@ -94,7 +94,7 @@ private fun NavGraphBuilder.menuGraph(
 }
 
 fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
-    navigation(startDestination = Screen.UIElements.route, route = Screen.UIElements.menu) {
+    navigation(startDestination = Screen.Slider.route, route = Screen.UIElements.menu) {
         composable(Screen.UIElements.route) {
             UIElementsScreen(
                 navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },
@@ -106,6 +106,7 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
                 navigateToPopup = { navController.navigate(Screen.Popup.route) },
                 navigateToTag = { navController.navigate(Screen.Tag.route) },
                 navigateToDateTimePicker = { navController.navigate(Screen.DateTimePicker.route) },
+                navigateToSlider = { navController.navigate(Screen.Slider.route) },
                 onBackPress = navController::popBackStack
             )
         }
@@ -135,6 +136,11 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
         }
         composable(Screen.DateTimePicker.route) {
             DateTimePickerScreen(onBackPress = navController::popBackStack)
+        }
+        composable(Screen.Slider.route) {
+            SliderScreen(
+                onBackPress = navController::popBackStack
+            )
         }
     }
 }
@@ -200,6 +206,7 @@ sealed class Screen(val route: String) {
     object Rating : Screen("rating")
     object Popup : Screen("popup")
     object Tag : Screen("tag")
+    object Slider : Screen("slider")
     object TextInput : Screen("textInput")
     object TextInputWithButton : Screen("textInputWithButton")
     object TextField : Screen("textField")

@@ -24,6 +24,7 @@ fun UIElementsScreen(
     navigateToPopup: () -> Unit,
     navigateToTag: () -> Unit,
     navigateToDateTimePicker: () -> Unit,
+    navigateToSlider: () -> Unit,
     onBackPress: () -> Unit
 ) {
     NavigationContainer(
@@ -105,6 +106,13 @@ fun UIElementsScreen(
                 text = "Date Time Picker",
                 onClick = navigateToDateTimePicker
             )
+
+            btnOutlineMediumPrimary01(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = true,
+                text = "Slider",
+                onClick = navigateToSlider
+            )
         }
     }
 }
@@ -122,6 +130,7 @@ private fun UIElementsScreenPreview() {
         navigateToPopup = {},
         navigateToTag = {},
         navigateToDateTimePicker = {},
+        navigateToSlider = {},
         onBackPress = {}
     )
 }
