@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.runtime.Composable
@@ -82,15 +83,16 @@ internal fun DealiTextFieldDecorationBox(
             enter = expandVertically(),
             exit = shrinkVertically(),
         ) {
-            HelperText(
-                helperText = helperText,
-                isError = isError,
-                colors = colors,
-                topSpacing = spacing,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .requiredHeight(18.dp + spacing),
-            )
+            Column {
+                Spacer(modifier = Modifier.height(spacing))
+                HelperText(
+                    helperText = helperText,
+                    isError = isError,
+                    colors = colors,
+                    topSpacing = spacing,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }
@@ -214,7 +216,6 @@ private fun HelperText(
             style = DealiFont.b4r12,
             color = textColor,
             overflow = TextOverflow.Clip,
-            maxLines = 1
         )
     }
 }
