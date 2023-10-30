@@ -21,6 +21,7 @@ internal fun CoreDealiTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    colors: DealiTextFieldColors =  DealiTextFieldDefaults.colors(),
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
@@ -34,7 +35,7 @@ internal fun CoreDealiTextField(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
-    isHelperTextVisible: Boolean = true,
+    isHelperTextVisible: Boolean = true,  // Todo helper Text가 null이면 false로 되어야될듯..?
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     // TextFieldValue를 사용하는 BasicDealiTextField를 String을 사용 하는 BasicDealiTextField로 만들기 위한 코드.
@@ -70,6 +71,7 @@ internal fun CoreDealiTextField(
         },
         modifier = modifier,
         textStyle = textStyle,
+        colors = colors,
         enabled = enabled,
         isError = isError,
         singleLine = singleLine,
@@ -93,6 +95,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
+    colors: DealiTextFieldColors =  DealiTextFieldDefaults.colors(),
     enabled: Boolean = true,
     isError: Boolean = false,
     singleLine: Boolean = true,
@@ -109,8 +112,6 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     var isValueEmpty by remember(value) { mutableStateOf(value.text.isEmpty()) }
-
-    val colors = DealiTextFieldDefaults.colors()
 
     val mergedTextStyle = if (enabled) {
         textStyle

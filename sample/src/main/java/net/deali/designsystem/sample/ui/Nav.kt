@@ -178,6 +178,7 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
                 navigateToInput = { navController.navigate(Screen.TextInput.route) },
                 navigateToInputWithButton = { navController.navigate(Screen.TextInputWithButton.route) },
                 navigateToTextField = { navController.navigate(Screen.TextField.route) },
+                navigateToSearchInput = { navController.navigate(Screen.SearchInput.route) },
                 onBackPress = navController::popBackStack,
             )
         }
@@ -193,6 +194,11 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
         }
         composable(Screen.TextField.route) {
             TextFieldScreen(
+                onBackPress = navController::popBackStack
+            )
+        }
+        composable(Screen.SearchInput.route) {
+            SearchInputScreen(
                 onBackPress = navController::popBackStack
             )
         }
@@ -231,6 +237,7 @@ sealed class Screen(val route: String) {
     object TextInput : Screen("textInput")
     object TextInputWithButton : Screen("textInputWithButton")
     object TextField : Screen("textField")
+    object SearchInput : Screen("searchInput")
 }
 
 @Composable
