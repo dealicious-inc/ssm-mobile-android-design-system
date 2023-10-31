@@ -23,6 +23,7 @@ fun UIElementsScreen(
     navigateToRating: () -> Unit,
     navigateToPopup: () -> Unit,
     navigateToTag: () -> Unit,
+    navigateToDateTimePicker: () -> Unit,
     onBackPress: () -> Unit
 ) {
     NavigationContainer(
@@ -97,6 +98,13 @@ fun UIElementsScreen(
                 text = "Tag",
                 onClick = navigateToTag
             )
+
+            btnOutlineMediumPrimary01(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = true,
+                text = "Date Time Picker",
+                onClick = navigateToDateTimePicker
+            )
         }
     }
 }
@@ -113,6 +121,7 @@ private fun UIElementsScreenPreview() {
         navigateToRating = {},
         navigateToPopup = {},
         navigateToTag = {},
+        navigateToDateTimePicker = {},
         onBackPress = {}
     )
 }

@@ -62,54 +62,34 @@ private fun NavGraphBuilder.menuGraph(
         )
     }
     composable(Screen.Grid.route) {
-        GridScreen(
-            onBackPress = navController::popBackStack
-        )
+        GridScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Colors.route) {
-        ColorsScreen(
-            onBackPress = navController::popBackStack
-        )
+        ColorsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Indentations.route) {
-        IndentationsScreen(
-            onBackPress = navController::popBackStack
-        )
+        IndentationsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Iconography.route) {
-        IconographyScreen(
-            onBackPress = navController::popBackStack
-        )
+        IconographyScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Shadows.route) {
-        ShadowsScreen(
-            onBackPress = navController::popBackStack
-        )
+        ShadowsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.CornerRadius.route) {
-        CornerRadiusScreen(
-            onBackPress = navController::popBackStack
-        )
+        CornerRadiusScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Navigation.route) {
-        NavigationScreen(
-            onBackPress = navController::popBackStack
-        )
+        NavigationScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Buttons.route) {
-        ButtonsScreen(
-            onBackPress = navController::popBackStack
-        )
+        ButtonsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Chips.route) {
-        ChipsScreen(
-            onBackPress = navController::popBackStack
-        )
+        ChipsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.BottomSheets.route) {
-        BottomSheetScreen(
-            onBackPress = navController::popBackStack
-        )
+        BottomSheetScreen(onBackPress = navController::popBackStack)
     }
 }
 
@@ -125,48 +105,36 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
                 navigateToRating = { navController.navigate(Screen.Rating.route) },
                 navigateToPopup = { navController.navigate(Screen.Popup.route) },
                 navigateToTag = { navController.navigate(Screen.Tag.route) },
+                navigateToDateTimePicker = { navController.navigate(Screen.DateTimePicker.route) },
                 onBackPress = navController::popBackStack
             )
         }
         composable(Screen.CheckBox.route) {
-            CheckBoxScreen(
-                onBackPress = navController::popBackStack
-            )
+            CheckBoxScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Checkcircle.route) {
-            CheckcircleScreen(
-                onBackPress = navController::popBackStack
-            )
+            CheckcircleScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.RadioButton.route) {
-            RadioButtonScreen(
-                onBackPress = navController::popBackStack
-            )
+            RadioButtonScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.ToggleSwitch.route) {
-            ToggleSwitchScreen(
-                onBackPress = navController::popBackStack
-            )
+            ToggleSwitchScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Tooltip.route) {
-            TooltipScreen(
-                onBackPress = navController::popBackStack
-            )
+            TooltipScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Rating.route) {
-            RatingScreen(
-                onBackPress = navController::popBackStack
-            )
+            RatingScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Popup.route) {
-            PopupScreen(
-                onBackPress = navController::popBackStack
-            )
+            PopupScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Tag.route) {
-            TagScreen(
-                onBackPress = navController::popBackStack
-            )
+            TagScreen(onBackPress = navController::popBackStack)
+        }
+        composable(Screen.DateTimePicker.route) {
+            DateTimePickerScreen(onBackPress = navController::popBackStack)
         }
     }
 }
@@ -183,24 +151,16 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
             )
         }
         composable(Screen.TextInput.route) {
-            InputScreen(
-                onBackPress = navController::popBackStack
-            )
+            InputScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.TextInputWithButton.route) {
-            InputWithButtonScreen(
-                onBackPress = navController::popBackStack
-            )
+            InputWithButtonScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.TextField.route) {
-            TextFieldScreen(
-                onBackPress = navController::popBackStack
-            )
+            TextFieldScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.SearchInput.route) {
-            SearchInputScreen(
-                onBackPress = navController::popBackStack
-            )
+            SearchInputScreen(onBackPress = navController::popBackStack)
         }
     }
 }
@@ -238,6 +198,7 @@ sealed class Screen(val route: String) {
     object TextInputWithButton : Screen("textInputWithButton")
     object TextField : Screen("textField")
     object SearchInput : Screen("searchInput")
+    object DateTimePicker : Screen("dateTimePicker")
 }
 
 @Composable
