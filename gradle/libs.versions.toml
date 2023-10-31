@@ -22,6 +22,7 @@ android-material = "1.7.0"
 
 accompanist = "0.30.1"
 coil = "2.4.0"
+snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
 [plugins]
@@ -48,6 +49,7 @@ android-material = { module = "com.google.android.material:material", version.re
 
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
 gridlayout-compose = { module = "io.woong.compose.grid:grid", version.ref = "gridlayout-compose" }
 
 maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
