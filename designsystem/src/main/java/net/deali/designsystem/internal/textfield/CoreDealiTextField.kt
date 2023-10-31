@@ -35,16 +35,15 @@ internal fun CoreDealiTextField(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
-    isHelperTextVisible: Boolean = true,  // Todo helper Text가 null이면 false로 되어야될듯..?
+    isHelperTextVisible: Boolean = false,
+    leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    // TextFieldValue를 사용하는 BasicDealiTextField를 String을 사용 하는 BasicDealiTextField로 만들기 위한 코드.
-    // 구현은 androidx.compose.foundation.text.BasicTextField()를 참고 했습니다.
-
+    // String을 사용 하는 BasicDealiTextField를 TextFieldValue를 사용하는 BasicDealiTextField로 만들기 위한 코드
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
     val textFieldValue = textFieldValueState.copy(text = value)
 
-    // Recomposition이 발생할 때 마다 textFieldValueState와 textFieldValue가 다른지 확인 후 동기화.
+    // Recomposition이 발생할 때 마다 textFieldValueState와 textFieldValue가 다른지 확인 후 동기화
     SideEffect {
         if (
             textFieldValue.selection != textFieldValueState.selection ||
@@ -54,9 +53,7 @@ internal fun CoreDealiTextField(
         }
     }
 
-    // 가장 최근의 String 값을 저장.
-    // TextFieldValue는 text 말고 다른 속성도 함께 가지고 있습니다. 하지만 TextFieldValue의 String 값이 변할
-    // 때만 onValueChange()를 호출하기 위해서 마지막 composition 에서의 text 값을 저장합니다.
+    // 가장 최근의 String 값을 저장
     var latestString by remember(value) { mutableStateOf(value) }
 
     CoreDealiTextFieldForTextFieldValue(
@@ -85,7 +82,8 @@ internal fun CoreDealiTextField(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
-        trailingContent = trailingContent
+        leadingContent = leadingContent,
+        trailingContent = trailingContent,
     )
 }
 
@@ -108,7 +106,8 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     placeholder: String? = null,
     label: String? = null,
     helperText: String? = null,
-    isHelperTextVisible: Boolean = true,
+    isHelperTextVisible: Boolean = false,
+    leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
     var isValueEmpty by remember(value) { mutableStateOf(value.text.isEmpty()) }
@@ -152,6 +151,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 isHelperTextVisible = isHelperTextVisible,
                 modifier = Modifier.fillMaxWidth(),
                 innerTextField = innerTextField,
+                leadingContent = leadingContent,
                 trailingContent = trailingContent,
             )
         }

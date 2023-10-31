@@ -42,6 +42,7 @@ internal fun DealiTextFieldDecorationBox(
     isHelperTextVisible: Boolean,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
+    leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
@@ -62,7 +63,7 @@ internal fun DealiTextFieldDecorationBox(
                 .fillMaxWidth()
                 .requiredHeight(20.dp + spacing),
         )
-        OutlinedTextField(
+        InnerTextField(
             colors = colors,
             paddings = DealiTextFieldDefaults.paddings(),
             placeholder = placeholder,
@@ -76,6 +77,7 @@ internal fun DealiTextFieldDecorationBox(
                 .defaultMinSize(minHeight = 46.dp)
                 .zIndex(1f),
             innerTextField = innerTextField,
+            leadingContent = leadingContent,
             trailingContent = trailingContent,
         )
         AnimatedVisibility(
@@ -122,7 +124,7 @@ private fun LabelText(
 }
 
 @Composable
-private fun OutlinedTextField(
+private fun InnerTextField(
     colors: DealiTextFieldColors,
     paddings: DealiTextFieldPaddingValues,
     placeholder: String?,
@@ -133,11 +135,24 @@ private fun OutlinedTextField(
     singleLine: Boolean,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
+    leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
 ) {
     val backgroundColor by colors.backgroundColor(enabled)
     val outlineColor by colors.outlineColor(enabled, focused, isError)
-    val paddingValues by paddings.padding(singleLine = singleLine, decorated = trailingContent != null)
+    val paddingValues by paddings.padding(
+        singleLine = singleLine,
+        hasLeadingContent = leadingContent != null,
+        hasTrailingContent = trailingContent != null,
+    )
+
+    val borderModifier = outlineColor?.let { color ->
+        Modifier.border(
+            width = DealiTextFieldDefaults.BorderWidth,
+            color = color,
+            shape = DealiTextFieldDefaults.BorderShape
+        )
+    } ?: Modifier
 
     val mergedModifier = modifier.then(
         Modifier
@@ -145,23 +160,24 @@ private fun OutlinedTextField(
                 color = backgroundColor,
                 shape = DealiTextFieldDefaults.BorderShape
             )
-            .border(
-                width = DealiTextFieldDefaults.BorderWidth,
-                color = outlineColor,
-                shape = DealiTextFieldDefaults.BorderShape
-            )
+            .then(borderModifier)
             .padding(paddingValues)
     )
 
     Row(
         modifier = mergedModifier,
-        horizontalArrangement = if (trailingContent != null) {
-            Arrangement.spacedBy(20.dp)
-        } else {
-            Arrangement.Start
+        horizontalArrangement = when {
+            leadingContent != null -> Arrangement.spacedBy(8.dp)
+            trailingContent != null -> Arrangement.spacedBy(16.dp)
+            else -> Arrangement.Start
         },
         verticalAlignment = Alignment.CenterVertically
     ) {
+        if (leadingContent != null) {
+            Box {
+                leadingContent()
+            }
+        }
         Box(modifier = Modifier.weight(1f)) {
             PlaceholderText(
                 placeholder = placeholder,

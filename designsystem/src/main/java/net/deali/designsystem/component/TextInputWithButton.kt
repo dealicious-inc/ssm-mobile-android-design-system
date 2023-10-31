@@ -226,6 +226,6 @@ private fun TextInputWithButtonRow(
 ) = Row(
     modifier = modifier,
     horizontalArrangement = Arrangement.spacedBy(8.dp),
-    verticalAlignment = Alignment.CenterVertically,
+    verticalAlignment = Alignment.Top,
     content = content,
 )

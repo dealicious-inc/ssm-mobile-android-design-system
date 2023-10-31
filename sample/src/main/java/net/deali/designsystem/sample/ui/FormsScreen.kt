@@ -19,6 +19,7 @@ fun FormsScreen(
     navigateToInputWithButton: () -> Unit,
     navigateToTextField: () -> Unit,
     navigateToSearchInput: () -> Unit,
+    navigateToSearchInputWithTag: () -> Unit,
     onBackPress: () -> Unit,
 ) {
     NavigationContainer(
@@ -62,6 +63,12 @@ fun FormsScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToSearchInput,
             )
+            btnOutlineMediumPrimary01(
+                text = "Search Input + Tag",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToSearchInputWithTag,
+            )
         }
     }
 }
@@ -74,6 +81,7 @@ private fun FormsScreenPreview() {
         navigateToInputWithButton = {},
         navigateToTextField = {},
         navigateToSearchInput = {},
+        navigateToSearchInputWithTag = {},
         onBackPress = {},
     )
 }

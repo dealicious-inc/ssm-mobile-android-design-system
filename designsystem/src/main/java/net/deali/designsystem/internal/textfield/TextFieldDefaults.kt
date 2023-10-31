@@ -38,11 +38,9 @@ internal object DealiTextFieldDefaults {
     @Composable
     fun paddings(): DealiTextFieldPaddingValues {
         return DefaultDealiTextFieldPaddingValues(
-            start = 12.dp,
-            top = 12.dp,
-            end = 12.dp,
-            decoratedEnd = 16.dp,
-            bottom = 12.dp,
+            horizontal = 12.dp,
+            decoratedStart = 6.dp,
+            vertical = 12.dp
         )
     }
 
@@ -66,32 +64,42 @@ internal object DealiTextFieldDefaults {
 
 @Stable
 internal interface DealiTextFieldPaddingValues {
+
     @Composable
-    fun padding(singleLine: Boolean, decorated: Boolean): State<PaddingValues>
+    fun padding(
+        singleLine: Boolean,
+        hasLeadingContent: Boolean,
+        hasTrailingContent: Boolean,
+    ): State<PaddingValues>
 }
 
 @Immutable
 private class DefaultDealiTextFieldPaddingValues(
-    private val start: Dp,
-    private val top: Dp,
-    private val end: Dp,
-    private val decoratedEnd: Dp,
-    private val bottom: Dp,
+    private val decoratedStart: Dp,
+    private val horizontal: Dp,
+    private val vertical: Dp,
 ) : DealiTextFieldPaddingValues {
+
     @Composable
-    override fun padding(singleLine: Boolean, decorated: Boolean): State<PaddingValues> {
+    override fun padding(
+        singleLine: Boolean,
+        hasLeadingContent: Boolean,
+        hasTrailingContent: Boolean,
+    ): State<PaddingValues> {
+
         return rememberUpdatedState(
             if (singleLine) {
-                if (decorated) {
-                    PaddingValues(start = start, end = decoratedEnd)
+                if (hasLeadingContent) {
+                    PaddingValues(start = decoratedStart, end = horizontal)
                 } else {
-                    PaddingValues(start = start, end = end)
+                    PaddingValues(horizontal = horizontal)
                 }
             } else {
-                PaddingValues(start, top, end, bottom)
+                PaddingValues(horizontal = horizontal, vertical = vertical)
             }
         )
     }
+
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -100,17 +108,17 @@ private class DefaultDealiTextFieldPaddingValues(
 
         other as DefaultDealiTextFieldPaddingValues
 
-        if (this.start != other.start) return false
-        if (this.end != other.end) return false
-        if (this.decoratedEnd != other.decoratedEnd) return false
+        if (this.horizontal != other.horizontal) return false
+        if (this.decoratedStart != other.decoratedStart) return false
+        if (this.vertical != other.vertical) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var hash = start.hashCode()
-        hash = 31 * hash + end.hashCode()
-        hash = 31 * hash + decoratedEnd.hashCode()
+        var hash = horizontal.hashCode()
+        hash = 31 * hash + decoratedStart.hashCode()
+        hash = 31 * hash + vertical.hashCode()
         return hash
     }
 }
@@ -121,7 +129,7 @@ internal interface DealiTextFieldColors {
     fun backgroundColor(enabled: Boolean): State<Color>
 
     @Composable
-    fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color>
+    fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color?>
 
     @Composable
     fun textColor(enabled: Boolean): State<Color>
