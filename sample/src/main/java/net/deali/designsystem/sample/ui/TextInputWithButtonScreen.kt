@@ -27,7 +27,7 @@ import net.deali.designsystem.component.TextInputWithButton
 import net.deali.designsystem.component.Toggle
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.visualtransformation.PriceVisualTransformation
+import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
 
 @Composable
 fun InputWithButtonScreen(onBackPress: () -> Unit) {
@@ -168,7 +168,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                     selected = visualTransformation != VisualTransformation.None,
                     onSelectedChange = {
                         visualTransformation = if (it) {
-                            PriceVisualTransformation(prefix = "$ ")
+                            DecimalSeparatorVisualTransformation(prefix = "$ ")
                         } else {
                             VisualTransformation.None
                         }
