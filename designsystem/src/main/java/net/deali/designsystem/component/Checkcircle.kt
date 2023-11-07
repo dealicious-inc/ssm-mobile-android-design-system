@@ -14,7 +14,7 @@ fun Checkcircle(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: () -> Unit
+    onCheck: (() -> Unit)? = null
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -30,7 +30,7 @@ fun CheckcircleAd(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: () -> Unit
+    onCheck: (() -> Unit)? = null
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -47,7 +47,7 @@ private fun CheckcircleIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean,
     isAd: Boolean,
-    onCheck: () -> Unit
+    onCheck: (() -> Unit)? = null
 ) {
     Icon24(
         modifier = modifier,
