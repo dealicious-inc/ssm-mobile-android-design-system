@@ -86,22 +86,16 @@ fun Icon24(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
-    onClick: (() -> Unit)? = null
+    onClick: () -> Unit = {},
 ) {
-    onClick?.let {
-        modifier.then(
-            Modifier.clickable(
-                onClick = onClick,
-                role = Role.Image,
-                enabled = enabled,
-                interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = false, radius = 24.dp)
-            )
-        )
-    }
-
     Icon(
-        modifier = modifier,
+        modifier = modifier.clickable(
+            onClick = onClick,
+            role = Role.Image,
+            enabled = enabled,
+            interactionSource = remember { MutableInteractionSource() },
+            indication = rememberRipple(bounded = false, radius = 24.dp)
+        ),
         iconRes = iconRes,
         size = 24.dp,
         color = color
