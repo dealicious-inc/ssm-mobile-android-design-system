@@ -234,7 +234,7 @@ private fun BottomSheetFooter(
 }
 
 @Composable
-private fun BottomSheetOption(
+fun BottomSheetOption(
     text: String,
     isChecked: Boolean,
     icon: @Composable () -> Unit = {},
