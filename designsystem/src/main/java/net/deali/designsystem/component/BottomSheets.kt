@@ -1,6 +1,7 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,11 +15,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
@@ -231,6 +234,47 @@ private fun BottomSheetFooter(
 }
 
 @Composable
+private fun BottomSheetOption(
+    text: String,
+    isChecked: Boolean,
+    icon: @Composable () -> Unit = {},
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(52.dp)
+            .background(DealiColor.primary04)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterVertically)
+        ) {
+            icon()
+        }
+
+        DealiText(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = text,
+            style = if (isChecked) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = if (isChecked) DealiColor.primary01 else DealiColor.g100,
+        )
+
+        if (isChecked) {
+            Icon24(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                iconRes = R.drawable.ic_check,
+                color = DealiColor.primary01,
+            )
+        }
+    }
+}
+
+@Composable
 private fun BottomSheetHandle(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
@@ -243,6 +287,51 @@ private fun BottomSheetHandle(modifier: Modifier = Modifier) {
                 .size(32.dp, 4.dp)
                 .clip(RoundedCornerShape(100.dp))
                 .background(DealiColor.g40)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheet() {
+    BottomSheet(
+        title = "제목인데용",
+        buttonText = "버튼명1",
+        onButtonClick = {},
+        onDismiss = {}
+    ) {
+        Text(
+            text = "텍스트 컨텐츠.\n형식 자유"
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetOption() {
+    Column {
+        BottomSheetOption(
+            text = "옵션명",
+            isChecked = false,
+            onClick = {}
+        )
+
+        BottomSheetOption(
+            text = "옵션명",
+            isChecked = true,
+            onClick = {}
+        )
+
+        BottomSheetOption(
+            text = "옵션명",
+            isChecked = false,
+            onClick = {},
+            icon = {
+                Icon24(
+                    modifier = Modifier.padding(end = 12.dp),
+                    iconRes = R.drawable.ic_trash
+                )
+            }
         )
     }
 }
