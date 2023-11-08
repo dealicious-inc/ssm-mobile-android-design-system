@@ -14,14 +14,16 @@ fun Checkcircle(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: (() -> Unit)? = null
+    onCheck: () -> Unit = {},
+    noRipple: Boolean = false,
 ) {
     CheckcircleIcon(
         modifier = modifier,
         checked = checked,
         enabled = enabled,
         isAd = false,
-        onCheck = onCheck
+        onCheck = onCheck,
+        noRipple = noRipple,
     )
 }
 
@@ -30,14 +32,16 @@ fun CheckcircleAd(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: (() -> Unit)? = null
+    onCheck: () -> Unit = {},
+    noRipple: Boolean = false,
 ) {
     CheckcircleIcon(
         modifier = modifier,
         checked = checked,
         enabled = enabled,
         isAd = true,
-        onCheck = onCheck
+        onCheck = onCheck,
+        noRipple = noRipple,
     )
 }
 
@@ -47,7 +51,8 @@ private fun CheckcircleIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean,
     isAd: Boolean,
-    onCheck: (() -> Unit)? = null
+    onCheck: () -> Unit = {},
+    noRipple: Boolean = false,
 ) {
     Icon24(
         modifier = modifier,
@@ -58,7 +63,8 @@ private fun CheckcircleIcon(
             else -> R.drawable.ic_checkcircle_off
         },
         enabled = enabled,
-        onClick = onCheck
+        onClick = onCheck,
+        noRipple = noRipple,
     )
 }
 

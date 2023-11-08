@@ -51,7 +51,7 @@ fun CheckcircleScreen(
                 checked = checked,
                 onCheck = {
                     checked = !checked
-                }
+                },
             )
 
             Checkcircle(

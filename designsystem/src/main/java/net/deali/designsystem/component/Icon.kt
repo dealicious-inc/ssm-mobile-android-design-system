@@ -49,7 +49,8 @@ fun Icon16(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    noRipple: Boolean = false,
 ) {
     Icon(
         modifier = modifier
@@ -58,7 +59,7 @@ fun Icon16(
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = false, radius = 16.dp)
+                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 16.dp)
             ),
         iconRes = iconRes,
         size = 16.dp,
@@ -70,13 +71,13 @@ fun Icon16(
 fun Icon24(
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified
+    color: Color = Color.Unspecified,
 ) {
     Icon(
         modifier = modifier,
         iconRes = iconRes,
         size = 24.dp,
-        color = color
+        color = color,
     )
 }
 
@@ -87,6 +88,7 @@ fun Icon24(
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
     onClick: () -> Unit = {},
+    noRipple: Boolean = false,
 ) {
     Icon(
         modifier = modifier.clickable(
@@ -94,7 +96,7 @@ fun Icon24(
             role = Role.Image,
             enabled = enabled,
             interactionSource = remember { MutableInteractionSource() },
-            indication = rememberRipple(bounded = false, radius = 24.dp)
+            indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
         ),
         iconRes = iconRes,
         size = 24.dp,
@@ -122,7 +124,8 @@ fun Icon32(
     @DrawableRes iconRes: Int,
     enabled: Boolean = true,
     color: Color = Color.Unspecified,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    noRipple: Boolean = false,
 ) {
     Icon(
         modifier = modifier
@@ -131,7 +134,7 @@ fun Icon32(
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = false, radius = 24.dp)
+                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
             ),
         iconRes = iconRes,
         size = 32.dp,
