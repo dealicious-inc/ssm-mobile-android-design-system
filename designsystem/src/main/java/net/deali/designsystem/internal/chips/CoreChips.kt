@@ -57,6 +57,7 @@ internal fun CoreChips(
     text: String,
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
+    leftIconColor: Color?,
     @DrawableRes removeIcon: Int,
     useRemoveIcon: Boolean,
     clickable: Boolean,
@@ -90,6 +91,7 @@ internal fun CoreChips(
             textStyle = textStyle,
             textAlign = textAlign,
             leftIcon = leftIcon,
+            leftIconColor = leftIconColor,
             removeIcon = removeIcon,
             useRemoveIcon = useRemoveIcon,
             enabled = enabled,
@@ -247,6 +249,7 @@ private fun RowScope.NormalContent(
     textStyle: TextStyle,
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
+    leftIconColor: Color?,
     @DrawableRes removeIcon: Int,
     useRemoveIcon: Boolean,
     enabled: Boolean,
@@ -255,7 +258,11 @@ private fun RowScope.NormalContent(
     if (leftIcon != null) {
         Icon16(
             iconRes = leftIcon,
-            color = contentColor,
+            color = when {
+                leftIconColor == Color.Unspecified || enabled.not() -> contentColor
+                leftIconColor == null -> Color.Unspecified
+                else -> leftIconColor
+            },
         )
         Spacer(modifier = Modifier.width(4.dp))
     }

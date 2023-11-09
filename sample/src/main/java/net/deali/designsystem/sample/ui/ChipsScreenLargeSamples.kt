@@ -38,27 +38,6 @@ fun LargeChipsSamples(
             .background(color = DealiColor.g10),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        item {
-            val sampleImage =
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-            LazyRow(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(color = DealiColor.primary04),
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-            ) {
-                items(10) {
-                    chipsFilledImageLargeSecondary01(
-                        onClick = {},
-                        onRemoveClick = {},
-                        imageUrl = sampleImage,
-                        text = "테스트",
-                        useRemoveIcon = true,
-                    )
-                }
-            }
-        }
         item { ChipsOutlineLargePrimary01Samples() }
         item { ChipsSquareLargePrimary01Samples() }
         item { ChipsFilledLargePrimary01Samples() }
@@ -135,7 +114,6 @@ private fun ChipsOutlineLargePrimary01Samples() {
                     enabled = false,
                 )
             }
-
             Box {
                 chipsOutlineLargePrimary01(
                     onClick = {},
@@ -363,6 +341,39 @@ private fun ChipsFilledLargePrimary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
+                    useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledLargePrimary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    leftIconColor = null,
+                    useRemoveIcon = true,
+                )
+            }
+            Box {
+                chipsFilledLargePrimary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    leftIconColor = null,
+                    useRemoveIcon = true,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledLargePrimary01(
+                    onClick = {},
+                    onRemoveClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    leftIconColor = null,
                     useRemoveIcon = true,
                     enabled = false,
                 )

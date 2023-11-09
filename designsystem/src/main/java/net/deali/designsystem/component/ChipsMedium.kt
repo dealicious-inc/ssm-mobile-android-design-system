@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,7 @@ fun chipsOutlineMediumPrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -46,6 +48,7 @@ fun chipsOutlineMediumPrimary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
@@ -74,6 +77,7 @@ fun chipsSquareBoldMediumPrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -88,6 +92,7 @@ fun chipsSquareBoldMediumPrimary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
@@ -116,6 +121,7 @@ fun chipsSquareRegularMediumPrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -130,6 +136,7 @@ fun chipsSquareRegularMediumPrimary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
@@ -158,6 +165,7 @@ fun chipsFilledMediumPrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -172,6 +180,7 @@ fun chipsFilledMediumPrimary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
@@ -200,6 +209,7 @@ fun chipsFilledMediumSquarePrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -214,6 +224,7 @@ fun chipsFilledMediumSquarePrimary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
@@ -242,6 +253,7 @@ fun chipsFilledSquareMediumSecondary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
@@ -256,6 +268,7 @@ fun chipsFilledSquareMediumSecondary01(
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        leftIconColor = leftIconColor,
         removeIcon = R.drawable.ic_x_s,
         useRemoveIcon = useRemoveIcon,
         clickable = clickable,
