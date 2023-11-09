@@ -43,13 +43,15 @@ fun BottomSheet(
 fun BottomSheet(
     title: String,
     modifier: Modifier = Modifier,
+    hideXButton: Boolean = false,
     onDismiss: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
         BottomSheetHeader(
             title = title,
-            onDismiss = onDismiss
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
         )
         content()
     }
@@ -62,6 +64,7 @@ fun BottomSheet(
     modifier: Modifier = Modifier,
     isButtonEnabled: Boolean = true,
     isButtonLoading: Boolean = false,
+    hideXButton: Boolean = false,
     onButtonClick: () -> Unit,
     onDismiss: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
@@ -69,7 +72,8 @@ fun BottomSheet(
     Column(modifier = modifier) {
         BottomSheetHeader(
             title = title,
-            onDismiss = onDismiss
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
         )
         content()
         BottomSheetFooter(
@@ -91,6 +95,7 @@ fun BottomSheet(
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
+    hideXButton: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
     onDismiss: () -> Unit,
@@ -99,7 +104,8 @@ fun BottomSheet(
     Column(modifier = modifier) {
         BottomSheetHeader(
             title = title,
-            onDismiss = onDismiss
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
         )
         content()
         BottomSheetFooter(
@@ -119,6 +125,7 @@ fun BottomSheet(
 fun BottomSheetWithHandle(
     title: String,
     modifier: Modifier = Modifier,
+    hideXButton: Boolean = false,
     onDismiss: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -126,6 +133,7 @@ fun BottomSheetWithHandle(
         BottomSheetHandle()
         BottomSheetHeader(
             title = title,
+            hideXButton = hideXButton,
             onDismiss = onDismiss,
         )
         content()
@@ -135,9 +143,10 @@ fun BottomSheetWithHandle(
 
 @Composable
 fun BottomSheetHeader(
-    title: String,
     modifier: Modifier = Modifier,
-    onDismiss: () -> Unit,
+    title: String,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit = {},
 ) {
     Row(
         modifier = modifier
@@ -156,10 +165,13 @@ fun BottomSheetHeader(
             maxLines = 1,
         )
         Spacer(modifier = Modifier.width(16.dp))
-        Icon24(
-            iconRes = R.drawable.ic_x,
-            onClick = onDismiss,
-        )
+
+        if (hideXButton.not()) {
+            Icon24(
+                iconRes = R.drawable.ic_x,
+                onClick = onDismiss,
+            )
+        }
     }
 }
 
