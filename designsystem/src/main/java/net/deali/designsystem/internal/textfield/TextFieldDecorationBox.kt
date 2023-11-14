@@ -16,13 +16,11 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import net.deali.designsystem.component.DealiText
@@ -48,22 +46,31 @@ internal fun DealiTextFieldDecorationBox(
     val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty()
     val isPlaceholderVisible = if (focused) false else !placeholder.isNullOrEmpty() && isValueEmpty
-    val spacing = 4.dp
+    val columnSpacing = 4.dp
 
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.Start,
     ) {
-        LabelText(
-            label = label,
-            isVisible = isLabelVisible,
-            colors = colors,
-            bottomSpacing = spacing,
+        AnimatedVisibility(
+            visible = isLabelVisible,
+            enter = expandVertically(expandFrom = Alignment.Top),
+            exit = shrinkVertically(shrinkTowards = Alignment.Top)
+        ) {
+            Column {
+                LabelText(
+                    modifier = Modifier.fillMaxWidth(),
+                    label = label,
+                    colors = colors,
+                )
+                Spacer(modifier = Modifier.height(columnSpacing))
+            }
+        }
+        InnerTextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .requiredHeight(20.dp + spacing),
-        )
-        InnerTextField(
+                .defaultMinSize(minHeight = 46.dp)
+                .zIndex(1f),
             colors = colors,
             paddings = DealiTextFieldDefaults.paddings(),
             placeholder = placeholder,
@@ -72,27 +79,22 @@ internal fun DealiTextFieldDecorationBox(
             isError = isError,
             focused = focused,
             singleLine = singleLine,
-            modifier = Modifier
-                .fillMaxWidth()
-                .defaultMinSize(minHeight = 46.dp)
-                .zIndex(1f),
             innerTextField = innerTextField,
             leadingContent = leadingContent,
             trailingContent = trailingContent,
         )
         AnimatedVisibility(
-            visible = isHelperTextVisible,
+            visible = isHelperTextVisible && !helperText.isNullOrEmpty(),
             enter = expandVertically(),
             exit = shrinkVertically(),
         ) {
             Column {
-                Spacer(modifier = Modifier.height(spacing))
+                Spacer(modifier = Modifier.height(columnSpacing))
                 HelperText(
+                    modifier = Modifier.fillMaxWidth(),
                     helperText = helperText,
                     isError = isError,
                     colors = colors,
-                    topSpacing = spacing,
-                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
@@ -102,25 +104,51 @@ internal fun DealiTextFieldDecorationBox(
 @Composable
 private fun LabelText(
     label: String?,
+    colors: DealiTextFieldColors,
+    modifier: Modifier = Modifier
+) {
+    val textColor by colors.labelTextColor()
+    DealiText(
+        modifier = modifier,
+        text = label ?: "",
+        style = DealiFont.b2r14,
+        color = textColor,
+    )
+}
+
+@Composable
+private fun PlaceholderText(
+    placeholder: String?,
     isVisible: Boolean,
     colors: DealiTextFieldColors,
-    bottomSpacing: Dp,
     modifier: Modifier = Modifier
 ) {
     if (isVisible) {
-        Column(modifier = modifier) {
-            val textColor by colors.labelTextColor()
-            DealiText(
-                text = label ?: "",
-                style = DealiFont.b2r14,
-                color = textColor,
-                overflow = TextOverflow.Clip,
-                maxLines = 1
-            )
-
-            Spacer(modifier = Modifier.requiredHeight(bottomSpacing))
-        }
+        val textColor by colors.placeholderTextColor()
+        DealiText(
+            text = placeholder ?: "",
+            style = DealiFont.b2r14,
+            color = textColor,
+            modifier = modifier
+        )
     }
+}
+
+@Composable
+private fun HelperText(
+    helperText: String?,
+    isError: Boolean,
+    colors: DealiTextFieldColors,
+    modifier: Modifier = Modifier
+) {
+    val textColor by colors.helperTextColor(isError)
+    DealiText(
+        modifier = modifier.padding(horizontal = 4.dp),
+        text = helperText ?: "",
+        style = DealiFont.b4r12,
+        color = textColor,
+        overflow = TextOverflow.Clip,
+    )
 }
 
 @Composable
@@ -191,45 +219,5 @@ private fun InnerTextField(
                 trailingContent()
             }
         }
-    }
-}
-
-@Composable
-private fun PlaceholderText(
-    placeholder: String?,
-    isVisible: Boolean,
-    colors: DealiTextFieldColors,
-    modifier: Modifier = Modifier
-) {
-    if (isVisible) {
-        val textColor by colors.placeholderTextColor()
-        DealiText(
-            text = placeholder ?: "",
-            style = DealiFont.b2r14,
-            color = textColor,
-            modifier = modifier
-        )
-    }
-}
-
-@Composable
-private fun HelperText(
-    helperText: String?,
-    isError: Boolean,
-    colors: DealiTextFieldColors,
-    topSpacing: Dp,
-    modifier: Modifier = Modifier
-) {
-    Column(modifier = modifier) {
-        Spacer(modifier = Modifier.requiredHeight(topSpacing))
-
-        val textColor by colors.helperTextColor(isError)
-        DealiText(
-            modifier = modifier.padding(horizontal = 4.dp),
-            text = helperText ?: "",
-            style = DealiFont.b4r12,
-            color = textColor,
-            overflow = TextOverflow.Clip,
-        )
     }
 }
