@@ -66,8 +66,10 @@ fun SearchInput(
                     enabled = true,
                     onClick = remember {
                         {
-                            onValueChange("")
-                            focusRequester.requestFocus()
+                            if (enabled) {
+                                onValueChange("")
+                                focusRequester.requestFocus()
+                            }
                         }
                     },
                 )
@@ -124,8 +126,10 @@ fun SearchInput(
                     enabled = true,
                     onClick = remember {
                         {
-                            onValueChange(TextFieldValue())
-                            focusRequester.requestFocus()
+                            if (enabled) {
+                                onValueChange(TextFieldValue())
+                                focusRequester.requestFocus()
+                            }
                         }
                     },
                 )
@@ -190,8 +194,10 @@ fun SearchInput(
                     enabled = true,
                     onClick = remember {
                         {
-                            onValueChange("")
-                            focusRequester.requestFocus()
+                            if (enabled) {
+                                onValueChange("")
+                                focusRequester.requestFocus()
+                            }
                         }
                     },
                 )
@@ -248,8 +254,10 @@ fun SearchInput(
                     enabled = true,
                     onClick = remember {
                         {
-                            onValueChange(TextFieldValue())
-                            focusRequester.requestFocus()
+                            if (enabled) {
+                                onValueChange(TextFieldValue())
+                                focusRequester.requestFocus()
+                            }
                         }
                     },
                 )
