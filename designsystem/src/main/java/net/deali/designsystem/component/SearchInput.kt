@@ -36,6 +36,7 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -64,14 +65,13 @@ fun SearchInput(
                     iconRes = R.drawable.ic_x,
                     color = DealiColor.primary05,
                     enabled = true,
-                    onClick = remember {
-                        {
-                            if (enabled) {
-                                onValueChange("")
-                                focusRequester.requestFocus()
-                            }
+                    onClick = {
+                        if (enabled) {
+                            onValueChange("")
+                            focusRequester.requestFocus()
                         }
-                    },
+                        onRemoveIconClick()
+                    }
                 )
             }
         } else {
@@ -96,6 +96,7 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -124,14 +125,13 @@ fun SearchInput(
                     iconRes = R.drawable.ic_x,
                     color = DealiColor.primary05,
                     enabled = true,
-                    onClick = remember {
-                        {
-                            if (enabled) {
-                                onValueChange(TextFieldValue())
-                                focusRequester.requestFocus()
-                            }
+                    onClick = {
+                        if (enabled) {
+                            onValueChange(TextFieldValue())
+                            focusRequester.requestFocus()
                         }
-                    },
+                        onRemoveIconClick()
+                    }
                 )
             }
         } else {
@@ -157,6 +157,7 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -192,14 +193,13 @@ fun SearchInput(
                     iconRes = R.drawable.ic_x,
                     color = DealiColor.primary05,
                     enabled = true,
-                    onClick = remember {
-                        {
-                            if (enabled) {
-                                onValueChange("")
-                                focusRequester.requestFocus()
-                            }
+                    onClick = {
+                        if (enabled) {
+                            onValueChange("")
+                            focusRequester.requestFocus()
                         }
-                    },
+                        onRemoveIconClick()
+                    }
                 )
             }
         } else null
@@ -217,6 +217,7 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -252,14 +253,13 @@ fun SearchInput(
                     iconRes = R.drawable.ic_x,
                     color = DealiColor.primary05,
                     enabled = true,
-                    onClick = remember {
-                        {
-                            if (enabled) {
-                                onValueChange(TextFieldValue())
-                                focusRequester.requestFocus()
-                            }
+                    onClick = {
+                        if (enabled) {
+                            onValueChange(TextFieldValue())
+                            focusRequester.requestFocus()
                         }
-                    },
+                        onRemoveIconClick()
+                    }
                 )
             }
         } else null
