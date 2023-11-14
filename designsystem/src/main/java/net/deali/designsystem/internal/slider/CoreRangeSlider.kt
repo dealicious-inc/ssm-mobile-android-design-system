@@ -1,10 +1,11 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package net.deali.designsystem.internal.slider
 
-
 import android.view.MotionEvent
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -18,26 +19,26 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.scale
 import androidx.compose.ui.input.pointer.pointerInteropFilter
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun DealiRangeSlider(
-    modifier: Modifier,
-    trackColor: Color,
-    trackBackgroundColor: Color,
-    trackCornerRadius: CornerRadius,
-    trackHeight: Dp,
-    thumbRadius: Dp,
+fun CoreRangeSlider(
+    modifier: Modifier = Modifier,
     leftInitValue: Float = 0f,
     rightInitValue: Float = 1f,
+    trackColor: Color = DealiColor.primary01,
+    trackBackgroundColor: Color = DealiColor.g30,
+    trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
+    trackHeight: Dp = 6.dp,
+    thumbRadius: Dp = 11.dp,
     onValueChanged: (left: Float, right: Float) -> Unit
 ) {
     /** 왼쪽 thumb의 소수점값 (0f~1f) */
@@ -46,7 +47,7 @@ fun DealiRangeSlider(
     /** 오른쪽 thumb의 소수점값 (0f~1f) */
     var rightThumbValue by remember { mutableStateOf(rightInitValue) }
 
-    /** thumb의 반지름 toPx*/
+    /** thumb의 반지름.toPx */
     val thumbRadiusPx = with(LocalDensity.current) { thumbRadius.toPx() }
 
     /** 전체 width */
@@ -70,26 +71,14 @@ fun DealiRangeSlider(
     /** 오른쪽 thumb 가 0~width 사이에서 움직인 offset 값 */
     var rightThumbOffset by remember { mutableStateOf(Offset.Zero) }
 
-    val leftScaleAnim by animateFloatAsState(
-        targetValue = if (isLeftThumbDragging) 2f else 1f,
-        animationSpec = tween(durationMillis = 300),
-        label = "leftScaleAnim"
-    )
-
-    val rightScaleAnim by animateFloatAsState(
-        targetValue = if (isRightThumbDragging) 2f else 1f,
-        animationSpec = tween(durationMillis = 300),
-        label = "rightScaleAnim"
-    )
-
     /** 동그라미만 드래그 영역으로 지정하면 너무 작아서 편의성을 위해 클릭영역 크기 증폭 */
     val extraClickAreaSize = 50
 
     /** thumb 그림자 브러쉬 */
-    val thumbShadowBrush: Brush = run {
+    val thumbShadowBrush: Brush = kotlin.run {
         Brush.radialGradient(
             colorStops = arrayOf(
-                0.0f to DealiColor.transparent,
+                0.1f to DealiColor.transparent,
                 0.8f to DealiColor.b10,
             ),
         )
@@ -190,20 +179,11 @@ fun DealiRangeSlider(
             size = Size(width = width * (rightThumbValue - leftThumbValue), height = height)
         )
 
-//        //Left ripple effect
-//        scale(leftScaleAnim, pivot = leftThumbOffset) {
-//            drawCircle(
-//                color = DealiColor.g30.copy(alpha = 0.3f),
-//                radius = thumbRadiusPx,
-//                center = leftThumbOffset
-//            )
-//        }
-
         //Left Shadow
         drawCircle(
             brush = thumbShadowBrush,
-            radius = (thumbRadiusPx + 1),
-            center = Offset(leftThumbOffset.x + 0.7f, leftThumbOffset.y + 0.7f),
+            radius = (thumbRadiusPx + 1.5f),
+            center = Offset(leftThumbOffset.x + 0.8f, leftThumbOffset.y + 0.8f),
         )
 
         //Left Thumb
@@ -213,20 +193,11 @@ fun DealiRangeSlider(
             center = leftThumbOffset,
         )
 
-//        //Right ripple effect
-//        scale(rightScaleAnim, pivot = rightThumbOffset) {
-//            drawCircle(
-//                color = DealiColor.g30.copy(alpha = 0.3f),
-//                radius = thumbRadiusPx,
-//                center = rightThumbOffset
-//            )
-//        }
-
         //Right Shadow
         drawCircle(
             brush = thumbShadowBrush,
-            radius = (thumbRadiusPx + 1),
-            center = Offset(rightThumbOffset.x + 0.7f, rightThumbOffset.y + 0.7f),
+            radius = (thumbRadiusPx + 1.5f),
+            center = Offset(rightThumbOffset.x + 0.8f, rightThumbOffset.y + 0.8f),
         )
 
         //Right Thumb
@@ -239,6 +210,22 @@ fun DealiRangeSlider(
 }
 
 /** 소수점 둘째 자리까지 정리 */
-fun Float.arrangeFloat(): Float {
+private fun Float.arrangeFloat(): Float {
     return ((this * 100).toInt()) / 100f
+}
+
+@Preview
+@Composable
+private fun PreviewCoreRangeSlider() {
+    Column {
+        CoreRangeSlider(onValueChanged = {_,_->})
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        CoreRangeSlider(
+            leftInitValue = 0.2f,
+            rightInitValue = 0.7f,
+            onValueChanged = { _, _ -> }
+        )
+    }
 }

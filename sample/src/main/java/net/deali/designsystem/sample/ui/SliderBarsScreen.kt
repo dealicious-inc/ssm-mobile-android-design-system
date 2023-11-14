@@ -18,7 +18,8 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.internal.slider.DealiRangeSlider
+import net.deali.designsystem.internal.slider.CoreRangeSlider
+import net.deali.designsystem.internal.slider.PriceRangeSlider
 import net.deali.designsystem.theme.DealiColor
 
 
@@ -44,23 +45,19 @@ fun SliderScreen(
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            val leftInitValue by remember { mutableStateOf(0f) }
-            val rightInitValue by remember { mutableStateOf(1f) }
-
             var leftValue by remember { mutableStateOf(0f) }
-            var rightValue by remember { mutableStateOf(0f) }
+            var rightValue by remember { mutableStateOf(1f) }
 
-            DealiRangeSlider(
+            PriceRangeSlider(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 8.dp),
+                rangePoints = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
                 trackColor = DealiColor.primary01,
                 trackBackgroundColor = DealiColor.g30,
                 trackHeight = 6.dp,
                 thumbRadius = 11.dp,
                 trackCornerRadius = CornerRadius(32f, 32f),
-                leftInitValue = leftInitValue,
-                rightInitValue = rightInitValue,
                 onValueChanged = { left, right ->
                     leftValue = left
                     rightValue = right
