@@ -21,11 +21,6 @@ internal object DealiTextFieldDefaults {
     val BorderWidth: Dp = 1.dp
     val BorderShape: Shape = RoundedCornerShape(6.dp)
 
-    /** Unicode character '▪' */
-    private const val SquareBullet: Char = '\u25aa'
-    private const val Space: Char = ' '
-    const val HelperTextBullet: String = "${SquareBullet}${Space}"
-
     val TextStyle: TextStyle
         @Composable
         get() = DealiFont.b2r14

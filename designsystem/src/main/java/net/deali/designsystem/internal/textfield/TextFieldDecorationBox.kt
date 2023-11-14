@@ -225,10 +225,8 @@ private fun HelperText(
 
         val textColor by colors.helperTextColor(isError)
         DealiText(
-            text = buildString {
-                append(DealiTextFieldDefaults.HelperTextBullet)
-                append(helperText ?: "")
-            },
+            modifier = modifier.padding(horizontal = 4.dp),
+            text = helperText ?: "",
             style = DealiFont.b4r12,
             color = textColor,
             overflow = TextOverflow.Clip,
