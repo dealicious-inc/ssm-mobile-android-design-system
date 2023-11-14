@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.Icon24
@@ -45,37 +44,32 @@ fun SliderScreen(
                 .padding(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            var minValue by remember { mutableStateOf(0f) }
-            var maxValue by remember { mutableStateOf(1f) }
-            var offset by remember { mutableStateOf(0f) }
-            val density = LocalDensity.current
+            val leftInitValue by remember { mutableStateOf(0f) }
+            val rightInitValue by remember { mutableStateOf(1f) }
 
-            var resultMin by remember { mutableStateOf(0f) }
-            var resultMax by remember { mutableStateOf(0f) }
-
-//            Slider(
-//                modifier = Modifier.fillMaxWidth()
-//            )
+            var leftValue by remember { mutableStateOf(0f) }
+            var rightValue by remember { mutableStateOf(0f) }
 
             DealiRangeSlider(
                 modifier = Modifier
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
                 trackColor = DealiColor.primary01,
-                backColor = DealiColor.g30,
-                barHeight = 6.dp,
+                trackBackgroundColor = DealiColor.g30,
+                trackHeight = 6.dp,
                 thumbRadius = 11.dp,
-                cornerRadius = CornerRadius(32f, 32f),
-                progress1InitialValue = minValue,
-                progress2InitialValue = maxValue,
-                onProgressChanged = { min, max ->
-                    resultMin = min
-                    resultMax = max
+                trackCornerRadius = CornerRadius(32f, 32f),
+                leftInitValue = leftInitValue,
+                rightInitValue = rightInitValue,
+                onValueChanged = { left, right ->
+                    leftValue = left
+                    rightValue = right
                 }
             )
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            Text(text = "MIN $resultMin\nMAX $resultMax")
+            Text(text = "MIN $leftValue\nMAX $rightValue")
         }
     }
 }
