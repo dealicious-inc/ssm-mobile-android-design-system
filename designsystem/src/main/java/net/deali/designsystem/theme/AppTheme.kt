@@ -1,6 +1,8 @@
 package net.deali.designsystem.theme
 
 import androidx.compose.foundation.LocalIndication
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
+import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.rememberRipple
@@ -21,6 +23,11 @@ fun AppTheme(
 
     val rippleIndication = rememberRipple()
 
+    val textSelectionColors = TextSelectionColors(
+        handleColor = DealiColor.primary01,
+        backgroundColor = DealiColor.primary01.copy(alpha = 0.4f)
+    )
+
     MaterialTheme(typography = MaterialTypography) {
         CompositionLocalProvider(
             LocalColors provides DealiColor,
@@ -28,6 +35,7 @@ fun AppTheme(
             LocalRippleTheme provides AppRippleTheme,
             LocalTypography provides typography,
             LocalShapes provides AppTheme.shapes,
+            LocalTextSelectionColors provides textSelectionColors,
             content = content
         )
     }
