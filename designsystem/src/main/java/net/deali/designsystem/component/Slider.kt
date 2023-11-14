@@ -1,7 +1,8 @@
+@file:OptIn(ExperimentalMaterialApi::class)
+
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,7 +29,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.slider.CoreSlider
-import net.deali.designsystem.internal.slider.touchInteraction
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -35,12 +36,12 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 fun Slider(modifier: Modifier = Modifier) {
     var minValue by remember { mutableStateOf(0.0f) }
-    var maxValue by remember { mutableStateOf(0.7f) }
+    var maxValue by remember { mutableStateOf(1.0f) }
     val density = LocalDensity.current
 
     CoreSlider(
         modifier = modifier
-            .width(300.dp)
+            .fillMaxWidth()
             .background(DealiColor.primary03),
         minValue = minValue,
         maxValue = maxValue,
