@@ -35,6 +35,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    enabled: Boolean = true,
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -47,7 +48,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = true,
+        enabled = enabled,
         isError = false,
         singleLine = true,
         minLines = 1,
@@ -92,6 +93,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    enabled: Boolean = true,
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -104,7 +106,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = true,
+        enabled = enabled,
         isError = false,
         singleLine = true,
         minLines = 1,
@@ -150,6 +152,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    enabled: Boolean = true,
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -162,7 +165,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = true,
+        enabled = enabled,
         isError = false,
         singleLine = true,
         minLines = 1,
@@ -207,6 +210,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    enabled: Boolean = true,
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -219,7 +223,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = true,
+        enabled = enabled,
         isError = false,
         singleLine = true,
         minLines = 1,
