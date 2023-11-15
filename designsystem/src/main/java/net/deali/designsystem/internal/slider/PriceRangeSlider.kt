@@ -57,7 +57,7 @@ fun PriceRangeSlider(
             onValueChanged = onValueChanged,
         )
 
-        Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(16.dp))
 
         PriceRangePoints(rangePoints = rangePoints)
     }
@@ -71,7 +71,7 @@ private fun PriceRangePoints(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 11.dp)
+            .padding(horizontal = 8.dp)
     ) {
         rangePoints.forEach {
             RangePoint(
