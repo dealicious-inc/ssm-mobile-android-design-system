@@ -10,8 +10,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navigation
 import net.deali.designsystem.sample.datastore.DataStoreUtil
 import net.deali.designsystem.theme.DealiColor
 
@@ -94,7 +94,7 @@ private fun NavGraphBuilder.menuGraph(
 }
 
 fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
-    navigation(startDestination = Screen.Slider.route, route = Screen.UIElements.menu) {
+    navigation(startDestination = Screen.UIElements.route, route = Screen.UIElements.menu) {
         composable(Screen.UIElements.route) {
             UIElementsScreen(
                 navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },

@@ -1,137 +1,164 @@
-@file:OptIn(ExperimentalMaterialApi::class)
-
 package net.deali.designsystem.component
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import android.util.Log
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Divider
-import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.internal.slider.CoreSlider
+import net.deali.designsystem.internal.slider.CoreRangeSlider
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 
 @Composable
-fun Slider(modifier: Modifier = Modifier) {
-    var minValue by remember { mutableStateOf(0.0f) }
-    var maxValue by remember { mutableStateOf(1.0f) }
-    val density = LocalDensity.current
-
-    CoreSlider(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(DealiColor.primary03),
-        minValue = minValue,
-        maxValue = maxValue,
-        onMinValueChange = { value -> minValue = value },
-        onMaxValueChange = { value -> maxValue = value },
-        thumb = {
-            Thumb()
-        },
-        track = {
-            Track(
-                minValue = minValue,
-                maxValue = maxValue,
-            )
-        }
+fun RangeSlider(
+    modifier: Modifier = Modifier,
+    leftInitValue: Float = 0f,
+    rightInitValue: Float = 1f,
+    trackColor: Color = DealiColor.primary01,
+    trackBackgroundColor: Color = DealiColor.g30,
+    trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
+    trackHeight: Dp = 6.dp,
+    thumbRadius: Dp = 11.dp,
+    onValueChanged: (left: Float, right: Float) -> Unit
+) {
+    CoreRangeSlider(
+        modifier = modifier,
+        leftInitValue = leftInitValue,
+        rightInitValue = rightInitValue,
+        trackColor = trackColor,
+        trackBackgroundColor = trackBackgroundColor,
+        trackCornerRadius = trackCornerRadius,
+        trackHeight = trackHeight,
+        thumbRadius = thumbRadius,
+        onValueChanged = onValueChanged,
     )
 }
 
 @Composable
-fun Thumb(
+fun PriceRangeSlider(
     modifier: Modifier = Modifier,
+    leftInitValue: Float = 0f,
+    rightInitValue: Float = 1f,
+    indicators: List<String>,
+    trackColor: Color = DealiColor.primary01,
+    trackBackgroundColor: Color = DealiColor.g30,
+    trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
+    trackHeight: Dp = 6.dp,
+    thumbRadius: Dp = 11.dp,
+    onValueChanged: (left: Float, right: Float) -> Unit,
 ) {
-    Box(
-        modifier = modifier
-            .size(22.dp)
-            .clip(CircleShape)
-            .background(DealiColor.secondary01),
-    )
-}
+    if (indicators.isEmpty()) {
+        Log.e("PriceRangeSlider", "rangePoints가 비어 있습니다.")
+        return
+    }
 
-@Composable
-private fun Track(
-    minValue: Float,
-    maxValue: Float,
-    modifier: Modifier = Modifier,
-    valueRange: ClosedFloatingPointRange<Float> = 0f..1f,
-) {
-    Row(
-        modifier = modifier
-            .height(8.dp)
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(100.dp))
-            .background(DealiColor.g30),  // Todo 색상 문의
+    Column(
+        modifier = modifier,
     ) {
-        val denominator = valueRange.endInclusive - valueRange.start
+        Spacer(modifier = Modifier.height(4.dp))
 
-        TrackSpan(weight = minValue / denominator)
-        TrackSpan(
-            weight = (maxValue - minValue) / denominator,
-            color = DealiColor.primary01,
+        CoreRangeSlider(
+            leftInitValue = leftInitValue,
+            rightInitValue = rightInitValue,
+            trackColor = trackColor,
+            trackBackgroundColor = trackBackgroundColor,
+            trackCornerRadius = trackCornerRadius,
+            trackHeight = trackHeight,
+            thumbRadius = thumbRadius,
+            onValueChanged = onValueChanged,
         )
-        TrackSpan(weight = 1 - (maxValue / denominator))
 
+        Spacer(modifier = Modifier.height(8.dp))
+
+        PriceIndicators(indicators = indicators)
     }
 }
 
 @Composable
-private fun RowScope.TrackSpan(
+private fun PriceIndicators(
     modifier: Modifier = Modifier,
-    weight: Float,
-    color: Color = DealiColor.transparent,
+    indicators: List<String>,
 ) {
-    if (weight > 0f) {
-        Box(
-            modifier = modifier
-                .fillMaxHeight()
-                .weight(weight)
-                .background(color = color)
-        )
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 11.dp)
+    ) {
+        indicators.forEach {
+            Indicator(
+                modifier = Modifier.weight(1f),
+                text = it,
+            )
+        }
     }
 }
 
 @Composable
 private fun Indicator(
-    text: String,
     modifier: Modifier = Modifier,
+    text: String
 ) {
     Column(
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Divider(
-            modifier = Modifier.height(6.dp),
-            color = DealiColor.g30,
-            thickness = 1.dp,
-        )
-        Spacer(modifier = Modifier.height(4.dp))
+        Canvas(
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            val lineWidth = 1f
+            val lineHeight = 6f
+
+            val centerOffsetX = size.width / 2
+            val startY = (size.height - lineHeight.dp.toPx()) / 2
+            val endY = startY + lineHeight.dp.toPx()
+
+            drawLine(
+                color = DealiColor.g30,
+                start = Offset(centerOffsetX + lineWidth.dp.toPx() / 2, startY),
+                end = Offset(centerOffsetX + lineWidth.dp.toPx() / 2, endY)
+            )
+        }
+
         DealiText(
+            modifier = Modifier
+                .padding(top = 4.dp)
+                .align(Alignment.CenterHorizontally),
             text = text,
             style = DealiFont.b4r12,
-            color = DealiColor.g80,
+            color = DealiColor.g80
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewRangeSlider() {
+    RangeSlider(onValueChanged = {_, _->})
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewPriceRangeSlider() {
+    PriceRangeSlider(
+        indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
+        onValueChanged = {_, _->}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewRangePoints() {
+    PriceIndicators(indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"))
 }
