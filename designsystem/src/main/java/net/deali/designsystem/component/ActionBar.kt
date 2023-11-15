@@ -1,27 +1,14 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.ExperimentalTextApi
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.actionbar.CoreActionBarLayout
@@ -36,7 +23,7 @@ fun ActionBar(
     backgroundColor: Color = DealiColor.primary04,
     titleColor: Color = DealiColor.g100,
     backButtonColor: Color = DealiColor.primary05,
-    menuContent: @Composable (ActionBarScope.() -> Unit)? = null,
+    menuContent: @Composable (() -> Unit)? = null,
 ) {
     CoreActionBarLayout(
         modifier = modifier,
@@ -60,7 +47,7 @@ fun ActionBar(
             }
         },
         menuContent = if (menuContent != null) {
-            { ActionBarScopeImpl.menuContent() }
+            { menuContent() }
         } else {
             null
         },
@@ -71,7 +58,7 @@ fun ActionBar(
 fun ProductDetailsActionBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
-    menuContent: @Composable (ActionBarScope.() -> Unit)? = null,
+    menuContent: @Composable (() -> Unit)? = null,
 ) {
     CoreActionBarLayout(
         modifier = modifier,
@@ -94,86 +81,11 @@ fun ProductDetailsActionBar(
             }
         },
         menuContent = if (menuContent != null) {
-            { ActionBarScopeImpl.menuContent() }
+            { menuContent() }
         } else {
             null
         },
     )
-}
-
-@LayoutScopeMarker
-@Immutable
-interface ActionBarScope {
-    /**
-     * Composable 우측 상단에 숫자가 표기되는 배지 추가.
-     *
-     * @param count 배지에 표시 할 숫자.
-     */
-    @Stable
-    fun Modifier.badge(count: Int): Modifier
-}
-
-@Immutable
-private object ActionBarScopeImpl : ActionBarScope {
-    @OptIn(ExperimentalTextApi::class)
-    override fun Modifier.badge(count: Int): Modifier = composed {
-        require(count > 0) { "badge count must be positive." }
-
-        val badgeColor = DealiColor.primary01
-        val textColor = DealiColor.primary04
-
-        val textMeasurer = rememberTextMeasurer()
-        val textStyle = DealiFont.c1sb10.merge(
-            TextStyle(color = textColor)
-        )
-
-        val isSingleDigit = count < 10
-        val singleDigitBadgeRadius = with(LocalDensity.current) {
-            8.dp.toPx()
-        }
-        val multiDigitBadgeSize = with(LocalDensity.current) {
-            DpSize(21.dp, 14.dp).toSize()
-        }
-
-        drawWithCache {
-            val measuredText = textMeasurer.measure(
-                text = count.toString(),
-                style = textStyle
-            )
-            val badgeCenter = Offset(x = size.width, y = 0f)
-            val badgeRadius = CornerRadius(x = 100f, y = 100f)
-
-            onDrawWithContent {
-                drawContent()
-
-                if (isSingleDigit) {
-                    drawCircle(
-                        color = badgeColor,
-                        radius = singleDigitBadgeRadius,
-                        center = badgeCenter,
-                    )
-                } else {
-                    drawRoundRect(
-                        color = badgeColor,
-                        topLeft = Offset(
-                            x = badgeCenter.x - multiDigitBadgeSize.width / 2f,
-                            y = badgeCenter.y - multiDigitBadgeSize.height / 2f
-                        ),
-                        size = multiDigitBadgeSize,
-                        cornerRadius = badgeRadius,
-                    )
-                }
-
-                drawText(
-                    textLayoutResult = measuredText,
-                    topLeft = Offset(
-                        x = badgeCenter.x - measuredText.size.width / 2f,
-                        y = badgeCenter.y - measuredText.size.height / 2f
-                    ),
-                )
-            }
-        }
-    }
 }
 
 @Composable
