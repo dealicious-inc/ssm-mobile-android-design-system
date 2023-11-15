@@ -20,6 +20,7 @@ import net.deali.designsystem.component.chipsFilledImageMediumSecondary01
 import net.deali.designsystem.component.chipsFilledMediumPrimary01
 import net.deali.designsystem.component.chipsFilledMediumSquarePrimary01
 import net.deali.designsystem.component.chipsFilledSquareMediumSecondary01
+import net.deali.designsystem.component.chipsFilledSquareSmallSecondary01
 import net.deali.designsystem.component.chipsOutlineImageMediumSecondary01
 import net.deali.designsystem.component.chipsOutlineMediumPrimary01
 import net.deali.designsystem.component.chipsSquareBoldMediumPrimary01
@@ -161,6 +162,30 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsOutlineMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsOutlineMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -274,6 +299,30 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsSquareBoldMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsSquareBoldMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsSquareBoldMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }
@@ -393,6 +442,30 @@ private fun ChipsSquareRegularMediumPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsSquareRegularMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsSquareRegularMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsSquareRegularMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -509,6 +582,31 @@ private fun ChipsFilledMediumPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledMediumPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
+
         }
     }
 }
@@ -622,6 +720,30 @@ private fun ChipsFilledMediumSquarePrimary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledMediumSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledMediumSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledMediumSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }
@@ -741,6 +863,31 @@ private fun ChipsFilledSquareMediumSecondary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledSquareMediumSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledSquareMediumSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMediumSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
+
         }
     }
 }

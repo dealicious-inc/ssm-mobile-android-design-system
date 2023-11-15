@@ -158,6 +158,30 @@ private fun ChipsOutlineSmallPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsOutlineSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsOutlineSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -271,6 +295,30 @@ private fun ChipsSquareSmallPrimary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }
@@ -390,6 +438,30 @@ private fun ChipsFilledSmallPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -506,6 +578,30 @@ private fun ChipsFilledSquareSmallPrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareSmallPrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -619,6 +715,30 @@ private fun ChipsFilledSquareSmallSecondary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareSmallSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledSquareSmallSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareSmallSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }

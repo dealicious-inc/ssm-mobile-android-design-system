@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -82,6 +83,7 @@ internal fun CoreChips(
         chipsStyle = chipsStyle,
         chipsSize = chipsSize,
         chipsColors = chipsColors,
+        isOnlyLeftIcon = text.isEmpty() && leftIcon != null && !useRemoveIcon,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
@@ -129,6 +131,7 @@ internal fun CoreCustomChips(
         chipsStyle = chipsStyle,
         chipsSize = chipsSize,
         chipsColors = chipsColors,
+        isOnlyLeftIcon = false,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
@@ -183,6 +186,7 @@ private fun CoreChipsLayout(
     chipsStyle: ChipsStyle,
     chipsSize: ChipsSize,
     chipsColors: ChipsColors,
+    isOnlyLeftIcon: Boolean ,
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
@@ -228,13 +232,15 @@ private fun CoreChipsLayout(
             modifier = Modifier
                 .idealChipsWidth()
                 .padding(
-                    ChipsDefaults.chipsPaddings(
-                        size = chipsSize,
-                        style = chipsStyle,
-                        useLeftIcon = leftIcon != null,
-                        useRemoveIcon = useRemoveIcon,
-                        fontWeight = textStyle.fontWeight,
-                    )
+
+                        ChipsDefaults.chipsPaddings(
+                            size = chipsSize,
+                            style = chipsStyle,
+                            useLeftIcon = leftIcon != null,
+                            useRemoveIcon = useRemoveIcon,
+                            isOnlyLeftIcon = isOnlyLeftIcon,
+                            fontWeight = textStyle.fontWeight,
+                        )
                 ),
             verticalAlignment = Alignment.CenterVertically,
             content = content,
@@ -264,7 +270,9 @@ private fun RowScope.NormalContent(
                 else -> leftIconColor
             },
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        if(text.isNotEmpty()){
+            Spacer(modifier = Modifier.width(4.dp))
+        }
     }
     DealiText(
         modifier = Modifier.weight(weight = 1f),

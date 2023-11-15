@@ -22,6 +22,7 @@ import net.deali.designsystem.component.chipsFilledImageLargeSecondary01
 import net.deali.designsystem.component.chipsFilledLargePrimary01
 import net.deali.designsystem.component.chipsFilledLargeSquarePrimary01
 import net.deali.designsystem.component.chipsFilledLargeSquarePrimary02
+import net.deali.designsystem.component.chipsFilledMediumSquarePrimary01
 import net.deali.designsystem.component.chipsFilledSquareLargeSecondary01
 import net.deali.designsystem.component.chipsOutlineImageLargeSecondary01
 import net.deali.designsystem.component.chipsOutlineLargePrimary01
@@ -164,6 +165,30 @@ private fun ChipsOutlineLargePrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsOutlineLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsOutlineLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -280,6 +305,31 @@ private fun ChipsSquareLargePrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsSquareLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsSquareLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsSquareLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
+
         }
     }
 }
@@ -429,6 +479,30 @@ private fun ChipsFilledLargePrimary01Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledLargePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -542,6 +616,30 @@ private fun ChipsFilledLargeSquarePrimary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledLargeSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledLargeSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledLargeSquarePrimary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }
@@ -661,6 +759,30 @@ private fun ChipsFilledLargeSquarePrimary02Samples() {
                     enabled = false,
                 )
             }
+
+            Box {
+                chipsFilledLargeSquarePrimary02(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledLargeSquarePrimary02(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledLargeSquarePrimary02(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    enabled = false,
+                )
+            }
         }
     }
 }
@@ -774,6 +896,30 @@ private fun ChipsFilledSquareLargeSecondary01Samples() {
                     onRemoveClick = {},
                     text = "DDD",
                     useRemoveIcon = true,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareLargeSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                )
+            }
+            Box {
+                chipsFilledSquareLargeSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareLargeSecondary01(
+                    leftIcon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    text = "",
                     enabled = false,
                 )
             }

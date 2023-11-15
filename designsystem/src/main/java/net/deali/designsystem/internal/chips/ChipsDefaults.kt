@@ -72,18 +72,21 @@ internal object ChipsDefaults {
         style: ChipsStyle,
         useLeftIcon: Boolean,
         useRemoveIcon: Boolean,
+        isOnlyLeftIcon: Boolean,
         fontWeight: FontWeight?,
     ): PaddingValues {
         return when (size) {
-            ChipsSize.Large -> largeChipsPaddings(style)
-            ChipsSize.Medium -> mediumChipsPaddings(style, useLeftIcon, useRemoveIcon, fontWeight)
-            ChipsSize.Small -> smallChipsPaddings(style, useLeftIcon, useRemoveIcon)
+            ChipsSize.Large -> largeChipsPaddings(style, isOnlyLeftIcon)
+            ChipsSize.Medium -> mediumChipsPaddings(style, useLeftIcon, useRemoveIcon, fontWeight, isOnlyLeftIcon)
+            ChipsSize.Small -> smallChipsPaddings(style, useLeftIcon, useRemoveIcon, isOnlyLeftIcon)
         }
     }
 
     @Composable
-    private fun largeChipsPaddings(style: ChipsStyle): PaddingValues {
-        return if (style == ChipsStyle.Outline || style == ChipsStyle.Filled) {
+    private fun largeChipsPaddings(style: ChipsStyle, isOnlyLeftIcon: Boolean): PaddingValues {
+        return if(isOnlyLeftIcon) {
+            PaddingValues(start = 15.dp)
+        } else if (style == ChipsStyle.Outline || style == ChipsStyle.Filled) {
             PaddingValues(horizontal = 16.dp)
         } else {
             PaddingValues(horizontal = 12.dp)
@@ -96,46 +99,51 @@ internal object ChipsDefaults {
         useLeftIcon: Boolean,
         useRemoveIcon: Boolean,
         fontWeight: FontWeight?,
+        isOnlyLeftIcon: Boolean,
     ): PaddingValues {
-        return when (style) {
-            ChipsStyle.Outline,
-            ChipsStyle.Filled -> {
-                PaddingValues(horizontal = 16.dp)
-            }
+        return if (isOnlyLeftIcon) {
+            PaddingValues(start = 12.dp)
+        } else {
+             when (style) {
+                ChipsStyle.Outline,
+                ChipsStyle.Filled -> {
+                    PaddingValues(horizontal = 16.dp)
+                }
 
-            is ChipsStyle.Square -> {
-                if (fontWeight == FontWeight.Bold) {
-                    PaddingValues(horizontal = 12.dp)
-                } else {
+                is ChipsStyle.Square -> {
+                    if (fontWeight == FontWeight.Bold) {
+                        PaddingValues(horizontal = 12.dp)
+                    } else {
+                        PaddingValues(
+                            start = if (useLeftIcon) 12.dp else 16.dp,
+                            end = if (useRemoveIcon) 12.dp else 16.dp,
+                        )
+                    }
+                }
+
+                ChipsStyle.FilledSquare -> {
                     PaddingValues(
                         start = if (useLeftIcon) 12.dp else 16.dp,
                         end = if (useRemoveIcon) 12.dp else 16.dp,
                     )
                 }
-            }
 
-            ChipsStyle.FilledSquare -> {
-                PaddingValues(
-                    start = if (useLeftIcon) 12.dp else 16.dp,
-                    end = if (useRemoveIcon) 12.dp else 16.dp,
-                )
-            }
+                ChipsStyle.FilledDepth -> {
+                    PaddingValues(
+                        end = 12.dp,
+                    )
+                }
 
-            ChipsStyle.FilledDepth -> {
-                PaddingValues(
-                    end = 12.dp,
-                )
-            }
+                ChipsStyle.FilledImage -> {
+                    PaddingValues(
+                        start = 12.dp,
+                        end = if (useRemoveIcon) 12.dp else 16.dp,
+                    )
+                }
 
-            ChipsStyle.FilledImage -> {
-                PaddingValues(
-                    start = 12.dp,
-                    end = if (useRemoveIcon) 12.dp else 16.dp,
-                )
-            }
-
-            ChipsStyle.FilledImageDepth -> {
-                PaddingValues(horizontal = 12.dp)
+                ChipsStyle.FilledImageDepth -> {
+                    PaddingValues(horizontal = 12.dp)
+                }
             }
         }
     }
@@ -145,22 +153,27 @@ internal object ChipsDefaults {
         style: ChipsStyle,
         useLeftIcon: Boolean,
         useRemoveIcon: Boolean,
+        isOnlyLeftIcon: Boolean,
     ): PaddingValues {
-        return when (style) {
-            ChipsStyle.Outline,
-            ChipsStyle.Filled,
-            ChipsStyle.FilledDepth,
-            ChipsStyle.FilledImageDepth -> {
-                PaddingValues(horizontal = 12.dp)
-            }
+        return if (isOnlyLeftIcon) {
+            PaddingValues(start = 8.dp)
+        } else {
+            when (style) {
+                ChipsStyle.Outline,
+                ChipsStyle.Filled,
+                ChipsStyle.FilledDepth,
+                ChipsStyle.FilledImageDepth -> {
+                    PaddingValues(horizontal = 12.dp)
+                }
 
-            is ChipsStyle.Square,
-            ChipsStyle.FilledSquare,
-            ChipsStyle.FilledImage -> {
-                PaddingValues(
-                    start = if (useLeftIcon) 8.dp else 12.dp,
-                    end = if (useRemoveIcon) 8.dp else 12.dp,
-                )
+                is ChipsStyle.Square,
+                ChipsStyle.FilledSquare,
+                ChipsStyle.FilledImage -> {
+                    PaddingValues(
+                        start = if (useLeftIcon) 8.dp else 12.dp,
+                        end = if (useRemoveIcon) 8.dp else 12.dp,
+                    )
+                }
             }
         }
     }
