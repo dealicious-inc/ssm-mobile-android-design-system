@@ -4,7 +4,6 @@ package net.deali.designsystem.internal.slider
 
 import android.view.MotionEvent
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -36,21 +35,16 @@ import kotlin.math.sqrt
 @Composable
 internal fun CoreRangeSlider(
     modifier: Modifier = Modifier,
-    leftInitValue: Float = 0f,
-    rightInitValue: Float = 1f,
+    minValue: Float = 0f,
+    maxValue: Float = 1f,
     trackColor: Color = DealiColor.primary01,
     trackBackgroundColor: Color = DealiColor.g30,
     trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
     trackHeight: Dp = 6.dp,
     thumbRadius: Dp = 11.dp,
-    onValueChanged: (left: Float, right: Float) -> Unit
+    onValueChanged: (min: Float, max: Float) -> Unit,
+    onTouchEventChanged: (MotionEvent) -> Unit = {},
 ) {
-    /** 왼쪽 thumb의 소수점값 (0f~1f) */
-    var leftThumbValue by remember { mutableStateOf(leftInitValue) }
-
-    /** 오른쪽 thumb의 소수점값 (0f~1f) */
-    var rightThumbValue by remember { mutableStateOf(rightInitValue) }
-
     /** thumb의 반지름.toPx */
     val thumbRadiusPx = with(LocalDensity.current) { thumbRadius.toPx() }
 
@@ -64,16 +58,16 @@ internal fun CoreRangeSlider(
     var isBothThumbClicked by remember { mutableStateOf(false) }
 
     /** 왼쪽 thumb 움직이고 있는지 여부 */
-    var isLeftThumbDragging by remember { mutableStateOf(false) }
+    var isMinThumbDragging by remember { mutableStateOf(false) }
 
     /** 오른쪽 thumb 움직이고 있는지 여부 */
-    var isRightThumbDragging by remember { mutableStateOf(false) }
+    var isMaxThumbDragging by remember { mutableStateOf(false) }
 
     /** 왼쪽 thumb 가 0~width 사이에서 움직인 offset 값 */
-    var leftThumbOffset by remember { mutableStateOf(Offset.Zero) }
+    var minThumbOffset by remember { mutableStateOf(Offset.Zero) }
 
     /** 오른쪽 thumb 가 0~width 사이에서 움직인 offset 값 */
-    var rightThumbOffset by remember { mutableStateOf(Offset.Zero) }
+    var maxThumbOffset by remember { mutableStateOf(Offset.Zero) }
 
     /** thumb 만 드래그 영역으로 지정하면 너무 작아서 편의성을 위해 클릭영역 크기 증폭 */
     val extraClickAreaSize = 50
@@ -99,18 +93,20 @@ internal fun CoreRangeSlider(
                 .height(trackHeight)
                 .pointerInteropFilter(
                     onTouchEvent = { motionEvent ->
+                        onTouchEventChanged(motionEvent)
+
                         when (motionEvent.action) {
                             MotionEvent.ACTION_DOWN -> {
                                 val x = motionEvent.x
                                 val y = motionEvent.y
-                                val leftTouched = sqrt((x - leftThumbOffset.x).pow(2) + (y - leftThumbOffset.y).pow(2))
-                                val rightTouched = sqrt((x - rightThumbOffset.x).pow(2) + (y - rightThumbOffset.y).pow(2))
+                                val leftTouched = sqrt((x - minThumbOffset.x).pow(2) + (y - minThumbOffset.y).pow(2))
+                                val rightTouched = sqrt((x - maxThumbOffset.x).pow(2) + (y - maxThumbOffset.y).pow(2))
                                 if (leftTouched < (thumbRadiusPx + extraClickAreaSize) && rightTouched < (thumbRadiusPx + extraClickAreaSize)) {
                                     isBothThumbClicked = true
                                 } else if (leftTouched < (thumbRadiusPx + extraClickAreaSize)) {
-                                    isLeftThumbDragging = true
+                                    isMinThumbDragging = true
                                 } else if (rightTouched < (thumbRadiusPx + extraClickAreaSize)) {
-                                    isRightThumbDragging = true
+                                    isMaxThumbDragging = true
                                 }
                             }
 
@@ -119,50 +115,50 @@ internal fun CoreRangeSlider(
 
                                 //겹쳐있을 때에는 움직이는 방향의 thumb 선택
                                 if (isBothThumbClicked) {
-                                    if (x <= rightThumbOffset.x) {
+                                    if (x <= maxThumbOffset.x) {
                                         isBothThumbClicked = false
-                                        isLeftThumbDragging = true
+                                        isMinThumbDragging = true
                                     } else {
                                         isBothThumbClicked = false
-                                        isRightThumbDragging = true
+                                        isMaxThumbDragging = true
                                     }
                                 }
 
-                                if (isLeftThumbDragging) {
-                                    leftThumbValue = if (x <= 0) {
+                                if (isMinThumbDragging) {
+                                    val newMinValue = if (x <= 0) {
                                         0f
-                                    } else if (x >= width * rightThumbValue) {
-                                        rightThumbValue.arrangeFloat()
+                                    } else if (x >= width * maxValue) {
+                                        maxValue.arrangeFloat()
                                     } else {
                                         (x / width).arrangeFloat()
                                     }
-                                    leftThumbOffset = leftThumbOffset.copy(x = width * leftThumbValue)
-                                    onValueChanged(leftThumbValue, rightThumbValue)
+                                    minThumbOffset = minThumbOffset.copy(x = width * newMinValue)
+                                    onValueChanged(newMinValue, maxValue)
 
-                                } else if (isRightThumbDragging) {
-                                    rightThumbValue = if (x >= width) {
+                                } else if (isMaxThumbDragging) {
+                                    val newMaxValue = if (x >= width) {
                                         1f
-                                    } else if (x <= width * leftThumbValue) {
-                                        leftThumbValue.arrangeFloat()
+                                    } else if (x <= width * minValue) {
+                                        minValue.arrangeFloat()
                                     } else {
                                         (x / width).arrangeFloat()
                                     }
-                                    rightThumbOffset = rightThumbOffset.copy(x = width * rightThumbValue)
-                                    onValueChanged(leftThumbValue, rightThumbValue)
+                                    maxThumbOffset = maxThumbOffset.copy(x = width * newMaxValue)
+                                    onValueChanged(minValue, newMaxValue)
                                 }
                             }
 
                             MotionEvent.ACTION_UP -> {
-                                isLeftThumbDragging = false
-                                isRightThumbDragging = false
+                                isMinThumbDragging = false
+                                isMaxThumbDragging = false
                             }
                         }
                         true
                     }
                 )
                 .onGloballyPositioned {
-                    leftThumbOffset = Offset(x = it.size.width * leftThumbValue, y = it.size.height / 2f)
-                    rightThumbOffset = Offset(x = it.size.width * rightThumbValue, y = it.size.height / 2f)
+                    minThumbOffset = Offset(x = it.size.width * minValue, y = it.size.height / 2f)
+                    maxThumbOffset = Offset(x = it.size.width * maxValue, y = it.size.height / 2f)
                 }
         ) {
             width = this.size.width
@@ -172,43 +168,43 @@ internal fun CoreRangeSlider(
             drawRoundRect(
                 color = trackBackgroundColor,
                 cornerRadius = trackCornerRadius,
-                topLeft = Offset(x = 0f, y = trackHeight.toPx() / 4f),
+                topLeft = Offset(x = 0f, y = 0f),
                 size = Size(width = width, height = trackHeight.toPx())
             )
 
             //Track
             drawRect(
                 color = trackColor,
-                topLeft = Offset(x = width * leftThumbValue, y = 0f),
-                size = Size(width = width * (rightThumbValue - leftThumbValue), height = height)
+                topLeft = Offset(x = width * minValue, y = 0f),
+                size = Size(width = width * (maxValue - minValue), height = trackHeight.toPx())
             )
 
             //Left Shadow
             drawCircle(
                 brush = thumbShadowBrush,
                 radius = (thumbRadiusPx + 1.5f),
-                center = Offset(leftThumbOffset.x + 0.8f, leftThumbOffset.y + 0.8f),
+                center = Offset(minThumbOffset.x + 0.8f, minThumbOffset.y + 0.8f),
             )
 
             //Left Thumb
             drawCircle(
                 color = DealiColor.primary04,
                 radius = thumbRadiusPx,
-                center = leftThumbOffset,
+                center = minThumbOffset,
             )
 
             //Right Shadow
             drawCircle(
                 brush = thumbShadowBrush,
                 radius = (thumbRadiusPx + 1.5f),
-                center = Offset(rightThumbOffset.x + 0.8f, rightThumbOffset.y + 0.8f),
+                center = Offset(maxThumbOffset.x + 0.8f, maxThumbOffset.y + 0.8f),
             )
 
             //Right Thumb
             drawCircle(
                 color = DealiColor.primary04,
                 radius = thumbRadiusPx,
-                center = rightThumbOffset,
+                center = maxThumbOffset,
             )
         }
     }
@@ -228,8 +224,8 @@ private fun PreviewCoreRangeSlider() {
         Spacer(modifier = Modifier.height(20.dp))
 
         CoreRangeSlider(
-            leftInitValue = 0.2f,
-            rightInitValue = 0.7f,
+            minValue = 0.2f,
+            maxValue = 0.7f,
             onValueChanged = { _, _ -> }
         )
     }

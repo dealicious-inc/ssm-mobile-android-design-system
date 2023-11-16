@@ -2,6 +2,7 @@ package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -13,9 +14,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.DealiTextField
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.PriceRangeSlider
@@ -41,38 +44,69 @@ fun SliderScreen(
             )
         }
     ) {
+        val focusManager = LocalFocusManager.current
+
         Column(
-            modifier = Modifier,
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            var rangeLeftValue by remember { mutableStateOf(0f) }
-            var rangeRightValue by remember { mutableStateOf(1f) }
+            var minValue by remember { mutableStateOf(0f) }
+            var maxValue by remember { mutableStateOf(1f) }
 
             DealiText(text = "RangeSlider", style = DealiFont.b1sb15, color = DealiColor.g100)
 
             RangeSlider(
                 modifier = Modifier,
-                leftInitValue = rangeLeftValue,
-                rightInitValue = rangeRightValue,
+                minValue = minValue,
+                maxValue = maxValue,
                 trackColor = DealiColor.primary01,
                 trackBackgroundColor = DealiColor.g30,
                 trackHeight = 6.dp,
                 thumbRadius = 11.dp,
-                onValueChanged = { left, right ->
-                    rangeLeftValue = left
-                    rangeRightValue = right
+                onValueChanged = { min, max ->
+                    minValue = min
+                    maxValue = max
                 }
             )
 
-            Text(text = "MIN $rangeLeftValue\nMAX $rangeRightValue")
+            Text(text = "MIN $minValue\nMAX $maxValue")
 
             Divider(
                 modifier = Modifier.padding(20.dp),
                 color = DealiColor.g30
             )
 
-            var priceLeftValue by remember { mutableStateOf(0.3f) }
-            var priceRightValue by remember { mutableStateOf(0.7f) }
+            var priceMinValue by remember { mutableStateOf(0.3f) }
+            var priceMaxValue by remember { mutableStateOf(0.7f) }
+
+            Row {
+                DealiTextField(
+                    modifier = Modifier
+                        .weight(1f),
+                    value = priceMinValue.toString(),
+                    onValueChange = {
+                        priceMinValue = try {
+                            it.toFloat()
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            0f
+                        }
+                    },
+                )
+
+                DealiTextField(
+                    modifier = Modifier
+                        .weight(1f),
+                    value = priceMaxValue.toString(),
+                    onValueChange = {
+                        priceMaxValue = try {
+                            it.toFloat()
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            0f
+                        }
+                    },
+                )
+            }
 
             DealiText(
                 text = "PriceRangeSlider init - 0.3~0.7 ",
@@ -82,18 +116,18 @@ fun SliderScreen(
 
             PriceRangeSlider(
                 modifier = Modifier,
-                leftInitValue = priceLeftValue,
-                rightInitValue = priceRightValue,
+                minValue = priceMinValue,
+                maxValue = priceMaxValue,
                 indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
-                onValueChanged = { left, right ->
-                    priceLeftValue = left
-                    priceRightValue = right
+                onValueChanged = { min, max ->
+                    priceMinValue = min
+                    priceMaxValue = max
                 }
             )
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            Text(text = "MIN $priceLeftValue\nMAX $priceRightValue")
+            Text(text = "MIN $priceMinValue\nMAX $priceMaxValue")
         }
     }
 }

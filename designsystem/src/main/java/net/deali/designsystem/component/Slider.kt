@@ -1,6 +1,7 @@
 package net.deali.designsystem.component
 
 import android.util.Log
+import android.view.MotionEvent
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,40 +26,43 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 fun RangeSlider(
     modifier: Modifier = Modifier,
-    leftInitValue: Float = 0f,
-    rightInitValue: Float = 1f,
+    minValue: Float = 0f,
+    maxValue: Float = 1f,
     trackColor: Color = DealiColor.primary01,
     trackBackgroundColor: Color = DealiColor.g30,
     trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
     trackHeight: Dp = 6.dp,
     thumbRadius: Dp = 11.dp,
-    onValueChanged: (left: Float, right: Float) -> Unit
+    onValueChanged: (min: Float, max: Float) -> Unit,
+    onTouchEventChanged: (MotionEvent) -> Unit = {},
 ) {
     CoreRangeSlider(
         modifier = modifier,
-        leftInitValue = leftInitValue,
-        rightInitValue = rightInitValue,
+        minValue = minValue,
+        maxValue = maxValue,
         trackColor = trackColor,
         trackBackgroundColor = trackBackgroundColor,
         trackCornerRadius = trackCornerRadius,
         trackHeight = trackHeight,
         thumbRadius = thumbRadius,
         onValueChanged = onValueChanged,
+        onTouchEventChanged = onTouchEventChanged,
     )
 }
 
 @Composable
 fun PriceRangeSlider(
     modifier: Modifier = Modifier,
-    leftInitValue: Float = 0f,
-    rightInitValue: Float = 1f,
+    minValue: Float = 0f,
+    maxValue: Float = 1f,
     indicators: List<String>,
     trackColor: Color = DealiColor.primary01,
     trackBackgroundColor: Color = DealiColor.g30,
     trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
     trackHeight: Dp = 6.dp,
     thumbRadius: Dp = 11.dp,
-    onValueChanged: (left: Float, right: Float) -> Unit,
+    onValueChanged: (min: Float, max: Float) -> Unit,
+    onTouchEventChanged: (MotionEvent) -> Unit = {},
 ) {
     if (indicators.isEmpty()) {
         Log.e("PriceRangeSlider", "rangePoints가 비어 있습니다.")
@@ -71,14 +75,15 @@ fun PriceRangeSlider(
         Spacer(modifier = Modifier.height(4.dp))
 
         CoreRangeSlider(
-            leftInitValue = leftInitValue,
-            rightInitValue = rightInitValue,
+            minValue = minValue,
+            maxValue = maxValue,
             trackColor = trackColor,
             trackBackgroundColor = trackBackgroundColor,
             trackCornerRadius = trackCornerRadius,
             trackHeight = trackHeight,
             thumbRadius = thumbRadius,
             onValueChanged = onValueChanged,
+            onTouchEventChanged = onTouchEventChanged,
         )
 
         Spacer(modifier = Modifier.height(8.dp))
