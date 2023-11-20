@@ -1,86 +1,44 @@
 package net.deali.designsystem.internal.switch
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 
 internal object SwitchDefaults {
-    val MinSize: DpSize = DpSize(width = 50.dp, height = 30.dp)
-    val SlideSize: DpSize = DpSize(width = 50.dp, height = 30.dp)
-    val HandleRadius: Dp = 13.dp
-
     @Composable
-    fun colors(): SwitchColors {
+    fun colors(): DefaultSwitchColors {
         return DefaultSwitchColors(
-            slideColor = DealiColor.g30,
-            selectedSlideColor = DealiColor.primary01,
-            disabledSlideColor = DealiColor.g30.copy(0.5f),
+            onSlideColor = DealiColor.primary01,
+            onDisabledSlideColor = DealiColor.primary01.copy(0.5f),
+            offSlideColor = DealiColor.g30,
+            offDisabledSlideColor = DealiColor.g30.copy(0.5f),
             handleColor = DealiColor.primary04,
         )
     }
-}
 
-@Stable
-internal interface SwitchColors {
     @Composable
-    fun slideColor(selected: Boolean, enabled: Boolean): State<Color>
-
-    fun handleColor(): Color
-}
-
-@Immutable
-private class DefaultSwitchColors(
-    private val slideColor: Color,
-    private val selectedSlideColor: Color,
-    private val disabledSlideColor: Color,
-    private val handleColor: Color,
-) : SwitchColors {
-    @Composable
-    override fun slideColor(selected: Boolean, enabled: Boolean): State<Color> {
-        return rememberUpdatedState(
-            if (enabled) {
-                if (selected) {
-                    selectedSlideColor
-                } else {
-                    slideColor
-                }
-            } else {
-                disabledSlideColor
+    fun switchSize(size: SwitchSize): DpSize {
+        return when (size) {
+            SwitchSize.Large -> {
+                DpSize(width = 50.dp, height = 30.dp)
             }
-        )
+            SwitchSize.Small -> {
+                DpSize(width = 36.dp, height = 22.dp)
+            }
+        }
     }
 
-    override fun handleColor(): Color {
-        return handleColor
-    }
-
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other == null) return false
-        if (this::class != other::class) return false
-
-        other as DefaultSwitchColors
-
-        if (this.slideColor != other.slideColor) return false
-        if (this.selectedSlideColor != other.selectedSlideColor) return false
-        if (this.disabledSlideColor != other.disabledSlideColor) return false
-        if (this.handleColor != other.handleColor) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var hash = slideColor.hashCode()
-        hash = 31 * hash + selectedSlideColor.hashCode()
-        hash = 31 * hash + disabledSlideColor.hashCode()
-        hash = 31 * hash + handleColor.hashCode()
-        return hash
+    @Composable
+    fun switchHandleRadius(size: SwitchSize): Dp {
+        return when (size) {
+            SwitchSize.Large -> {
+                13.dp
+            }
+            SwitchSize.Small -> {
+                9.dp
+            }
+        }
     }
 }

@@ -26,7 +26,7 @@ fun Nav(
             .fillMaxSize()
             .background(DealiColor.primary04),
         navController = navController,
-        startDestination = Screen.UIElements.menu
+        startDestination = Screen.Menu.route
     ) {
         menuGraph(navController, dataStoreUtil)
         uiElementsGraph(navController)
@@ -100,7 +100,7 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
                 navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },
                 navigateToCheckcircle = { navController.navigate(Screen.Checkcircle.route) },
                 navigateToRadioButton = { navController.navigate(Screen.RadioButton.route) },
-                navigateToToggleSwitch = { navController.navigate(Screen.ToggleSwitch.route) },
+                navigateToToggleSwitch = { navController.navigate(Screen.Switch.route) },
                 navigateToTooltip = { navController.navigate(Screen.Tooltip.route) },
                 navigateToRating = { navController.navigate(Screen.Rating.route) },
                 navigateToPopup = { navController.navigate(Screen.Popup.route) },
@@ -119,8 +119,8 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
         composable(Screen.RadioButton.route) {
             RadioButtonScreen(onBackPress = navController::popBackStack)
         }
-        composable(Screen.ToggleSwitch.route) {
-            ToggleSwitchScreen(onBackPress = navController::popBackStack)
+        composable(Screen.Switch.route) {
+            SwitchScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.Tooltip.route) {
             TooltipScreen(onBackPress = navController::popBackStack)
@@ -201,7 +201,7 @@ sealed class Screen(val route: String) {
     object CheckBox : Screen("checkBox")
     object Checkcircle : Screen("checkcircle")
     object RadioButton : Screen("radioButton")
-    object ToggleSwitch : Screen("toggleSwitch")
+    object Switch : Screen("switch")
     object Tooltip : Screen("tooltip")
     object Rating : Screen("rating")
     object Popup : Screen("popup")

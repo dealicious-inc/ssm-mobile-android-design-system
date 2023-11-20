@@ -21,17 +21,17 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.Switch
-import net.deali.designsystem.component.Toggle
+import net.deali.designsystem.component.switchLarge
+import net.deali.designsystem.component.switchSmall
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 @Composable
-fun ToggleSwitchScreen(onBackPress: () -> Unit) {
+fun SwitchScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
             NavigationBar(
-                title = "Toggle/Switch",
+                title = "Switch",
                 navigationIcon = {
                     Icon24(
                         iconRes = R.drawable.ic_arrow_left,
@@ -48,7 +48,7 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             DealiText(
-                text = "Toggle",
+                text = "Switch Large",
                 style = DealiFont.b2r14,
                 color = DealiColor.g100,
             )
@@ -57,29 +57,35 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                var selected1 by remember { mutableStateOf(false) }
-                var selected2 by remember { mutableStateOf(true) }
-                var selected3 by remember { mutableStateOf(false) }
+                var on1 by remember { mutableStateOf(true) }
+                var on2 by remember { mutableStateOf(true) }
+                var on3 by remember { mutableStateOf(false) }
+                var on4 by remember { mutableStateOf(false) }
 
-                Toggle(
-                    selected = selected1,
-                    onSelectedChange = { selected1 = it },
+                switchLarge(
+                    isOn = on1,
+                    onChange = { on1 = it }
                 )
-                Toggle(
-                    selected = selected2,
-                    onSelectedChange = { selected2 = it },
-                )
-                Toggle(
-                    selected = selected3,
+                switchLarge(
+                    isOn = on2,
                     enabled = false,
-                    onSelectedChange = { selected3 = it },
+                    onChange = { on2 = it }
+                )
+                switchLarge(
+                    isOn = on3,
+                    onChange = { on3 = it }
+                )
+                switchLarge(
+                    isOn = on4,
+                    enabled = false,
+                    onChange = { on4 = it }
                 )
             }
 
             SampleDivider()
 
             DealiText(
-                text = "Switch",
+                text = "Switch Small",
                 style = DealiFont.b2r14,
                 color = DealiColor.g100,
             )
@@ -88,22 +94,28 @@ fun ToggleSwitchScreen(onBackPress: () -> Unit) {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
-                var selected1 by remember { mutableStateOf(false) }
-                var selected2 by remember { mutableStateOf(true) }
-                var selected3 by remember { mutableStateOf(false) }
+                var on1 by remember { mutableStateOf(true) }
+                var on2 by remember { mutableStateOf(true) }
+                var on3 by remember { mutableStateOf(false) }
+                var on4 by remember { mutableStateOf(false) }
 
-                Switch(
-                    selected = selected1,
-                    onSelectedChange = { selected1 = it },
+                switchSmall(
+                    isOn = on1,
+                    onChange = { on1 = it }
                 )
-                Switch(
-                    selected = selected2,
-                    onSelectedChange = { selected2 = it },
-                )
-                Switch(
-                    selected = selected3,
+                switchSmall(
+                    isOn = on2,
                     enabled = false,
-                    onSelectedChange = { selected3 = it },
+                    onChange = { on2 = it }
+                )
+                switchSmall(
+                    isOn = on3,
+                    onChange = { on3 = it }
+                )
+                switchSmall(
+                    isOn = on4,
+                    enabled = false,
+                    onChange = { on4 = it }
                 )
             }
         }
@@ -121,5 +133,5 @@ private fun SampleDivider() = Box(
 @Composable
 @Preview(showBackground = true)
 private fun InputScreenPreview() {
-    ToggleSwitchScreen(onBackPress = {})
+    SwitchScreen(onBackPress = {})
 }
