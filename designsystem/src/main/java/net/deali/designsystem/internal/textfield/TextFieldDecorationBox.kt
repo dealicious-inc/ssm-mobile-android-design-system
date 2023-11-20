@@ -45,7 +45,7 @@ internal fun DealiTextFieldDecorationBox(
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty()
-    val isPlaceholderVisible = if (focused) false else !placeholder.isNullOrEmpty() && isValueEmpty
+    val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
     val columnSpacing = 4.dp
 
     Column(
