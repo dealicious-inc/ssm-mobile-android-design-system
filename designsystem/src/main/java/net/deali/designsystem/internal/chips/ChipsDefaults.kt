@@ -71,22 +71,32 @@ internal object ChipsDefaults {
         size: ChipsSize,
         style: ChipsStyle,
         useLeftIcon: Boolean,
-        useRemoveIcon: Boolean,
-        isOnlyLeftIcon: Boolean,
+        useRightIcon: Boolean,
+        useOnlyCenterIcon: Boolean,
         fontWeight: FontWeight?,
     ): PaddingValues {
+        if (useOnlyCenterIcon) return PaddingValues(all = 0.dp)
+
         return when (size) {
-            ChipsSize.Large -> largeChipsPaddings(style, isOnlyLeftIcon)
-            ChipsSize.Medium -> mediumChipsPaddings(style, useLeftIcon, useRemoveIcon, fontWeight, isOnlyLeftIcon)
-            ChipsSize.Small -> smallChipsPaddings(style, useLeftIcon, useRemoveIcon, isOnlyLeftIcon)
+            ChipsSize.Large -> largeChipsPaddings(style)
+            ChipsSize.Medium -> mediumChipsPaddings(
+                style = style,
+                useLeftIcon = useLeftIcon,
+                useRightIcon = useRightIcon,
+                fontWeight = fontWeight
+            )
+
+            ChipsSize.Small -> smallChipsPaddings(
+                style = style,
+                useLeftIcon = useLeftIcon,
+                useRightIcon = useRightIcon,
+            )
         }
     }
 
     @Composable
-    private fun largeChipsPaddings(style: ChipsStyle, isOnlyLeftIcon: Boolean): PaddingValues {
-        return if(isOnlyLeftIcon) {
-            PaddingValues(start = 15.dp)
-        } else if (style == ChipsStyle.Outline || style == ChipsStyle.Filled) {
+    private fun largeChipsPaddings(style: ChipsStyle): PaddingValues {
+        return if (style == ChipsStyle.Outline || style == ChipsStyle.Filled) {
             PaddingValues(horizontal = 16.dp)
         } else {
             PaddingValues(horizontal = 12.dp)
@@ -97,53 +107,48 @@ internal object ChipsDefaults {
     private fun mediumChipsPaddings(
         style: ChipsStyle,
         useLeftIcon: Boolean,
-        useRemoveIcon: Boolean,
+        useRightIcon: Boolean,
         fontWeight: FontWeight?,
-        isOnlyLeftIcon: Boolean,
     ): PaddingValues {
-        return if (isOnlyLeftIcon) {
-            PaddingValues(start = 12.dp)
-        } else {
-             when (style) {
-                ChipsStyle.Outline,
-                ChipsStyle.Filled -> {
-                    PaddingValues(horizontal = 16.dp)
-                }
+        return when (style) {
+            ChipsStyle.Outline,
+            ChipsStyle.Filled -> {
+                PaddingValues(horizontal = 16.dp)
+            }
 
-                is ChipsStyle.Square -> {
-                    if (fontWeight == FontWeight.Bold) {
-                        PaddingValues(horizontal = 12.dp)
-                    } else {
-                        PaddingValues(
-                            start = if (useLeftIcon) 12.dp else 16.dp,
-                            end = if (useRemoveIcon) 12.dp else 16.dp,
-                        )
-                    }
-                }
-
-                ChipsStyle.FilledSquare -> {
+            is ChipsStyle.Square -> {
+                if (fontWeight == FontWeight.Bold) {
+                    PaddingValues(horizontal = 12.dp)
+                } else {
                     PaddingValues(
                         start = if (useLeftIcon) 12.dp else 16.dp,
-                        end = if (useRemoveIcon) 12.dp else 16.dp,
+                        end = if (useRightIcon) 12.dp else 16.dp,
                     )
                 }
+            }
 
-                ChipsStyle.FilledDepth -> {
-                    PaddingValues(
-                        end = 12.dp,
-                    )
-                }
+            ChipsStyle.FilledSquare -> {
+                PaddingValues(
+                    start = if (useLeftIcon) 12.dp else 16.dp,
+                    end = if (useRightIcon) 12.dp else 16.dp,
+                )
+            }
 
-                ChipsStyle.FilledImage -> {
-                    PaddingValues(
-                        start = 12.dp,
-                        end = if (useRemoveIcon) 12.dp else 16.dp,
-                    )
-                }
+            ChipsStyle.FilledDepth -> {
+                PaddingValues(
+                    end = 12.dp,
+                )
+            }
 
-                ChipsStyle.FilledImageDepth -> {
-                    PaddingValues(horizontal = 12.dp)
-                }
+            ChipsStyle.FilledImage -> {
+                PaddingValues(
+                    start = 12.dp,
+                    end = if (useRightIcon) 12.dp else 16.dp,
+                )
+            }
+
+            ChipsStyle.FilledImageDepth -> {
+                PaddingValues(horizontal = 12.dp)
             }
         }
     }
@@ -152,28 +157,23 @@ internal object ChipsDefaults {
     private fun smallChipsPaddings(
         style: ChipsStyle,
         useLeftIcon: Boolean,
-        useRemoveIcon: Boolean,
-        isOnlyLeftIcon: Boolean,
+        useRightIcon: Boolean,
     ): PaddingValues {
-        return if (isOnlyLeftIcon) {
-            PaddingValues(start = 8.dp)
-        } else {
-            when (style) {
-                ChipsStyle.Outline,
-                ChipsStyle.Filled,
-                ChipsStyle.FilledDepth,
-                ChipsStyle.FilledImageDepth -> {
-                    PaddingValues(horizontal = 12.dp)
-                }
+        return when (style) {
+            ChipsStyle.Outline,
+            ChipsStyle.Filled,
+            ChipsStyle.FilledDepth,
+            ChipsStyle.FilledImageDepth -> {
+                PaddingValues(horizontal = 12.dp)
+            }
 
-                is ChipsStyle.Square,
-                ChipsStyle.FilledSquare,
-                ChipsStyle.FilledImage -> {
-                    PaddingValues(
-                        start = if (useLeftIcon) 8.dp else 12.dp,
-                        end = if (useRemoveIcon) 8.dp else 12.dp,
-                    )
-                }
+            is ChipsStyle.Square,
+            ChipsStyle.FilledSquare,
+            ChipsStyle.FilledImage -> {
+                PaddingValues(
+                    start = if (useLeftIcon) 8.dp else 12.dp,
+                    end = if (useRightIcon) 8.dp else 12.dp,
+                )
             }
         }
     }

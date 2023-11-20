@@ -26,9 +26,7 @@ import net.deali.designsystem.component.chipsSquareBoldMediumPrimary01
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun MediumChipsSamples(
-    modifier: Modifier = Modifier,
-) {
+fun MediumChipsSamples(modifier: Modifier = Modifier) {
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
@@ -82,29 +80,29 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
@@ -136,50 +134,47 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
 
             Box {
                 chipsOutlineMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsOutlineMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }
@@ -222,29 +217,29 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
@@ -276,50 +271,47 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
 
             Box {
                 chipsSquareBoldMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }
@@ -362,29 +354,29 @@ private fun ChipsFilledMediumPrimary01Samples() {
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
@@ -416,50 +408,47 @@ private fun ChipsFilledMediumPrimary01Samples() {
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
 
             Box {
                 chipsFilledMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }
@@ -503,29 +492,29 @@ private fun ChipsFilledMediumSquarePrimary01Samples() {
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
@@ -557,50 +546,47 @@ private fun ChipsFilledMediumSquarePrimary01Samples() {
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
 
             Box {
                 chipsFilledMediumSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsFilledMediumSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }
@@ -643,29 +629,29 @@ private fun ChipsFilledSquareMediumSecondary01Samples() {
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
@@ -697,50 +683,47 @@ private fun ChipsFilledSquareMediumSecondary01Samples() {
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "TTT",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "SSS",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     selected = true,
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
                     onClick = {},
-                    onRemoveClick = {},
+                    onRightIconClick = {},
                     text = "DDD",
-                    useRemoveIcon = true,
+                    rightIcon = R.drawable.ic_x_s,
                     enabled = false,
                 )
             }
 
             Box {
                 chipsFilledSquareMediumSecondary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsFilledSquareMediumSecondary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }

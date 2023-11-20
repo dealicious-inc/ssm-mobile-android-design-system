@@ -1,13 +1,14 @@
 package net.deali.designsystem.internal.chips
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -52,52 +53,92 @@ import kotlin.math.max
 import kotlin.math.min
 
 @Composable
-internal fun CoreChips(
+internal fun CoreRegularChips(
     onClick: () -> Unit,
-    onRemoveClick: () -> Unit,
     text: String,
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
-    leftIconColor: Color?,
-    @DrawableRes removeIcon: Int,
-    useRemoveIcon: Boolean,
+    @DrawableRes rightIcon: Int?,
+    leftIconColor: Color,
+    rightIconColor: Color,
+    onLeftIconClick: (() -> Unit)?,
+    onRightIconClick: (() -> Unit)?,
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
     chipsStyle: ChipsStyle,
     chipsSize: ChipsSize,
     chipsColors: ChipsColors,
+    interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
     val contentColor by chipsColors.contentColor(enabled)
 
     CoreChipsLayout(
         onClick = onClick,
-        leftIcon = leftIcon,
-        useRemoveIcon = useRemoveIcon,
+        useLeftIcon = leftIcon != null,
+        useRightIcon = rightIcon != null,
+        useOnlyCenterIcon = false,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
         chipsStyle = chipsStyle,
         chipsSize = chipsSize,
         chipsColors = chipsColors,
-        isOnlyLeftIcon = text.isEmpty() && leftIcon != null && !useRemoveIcon,
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier,
     ) {
-        NormalContent(
-            onRemoveClick = onRemoveClick,
+        RegularContent(
             text = text,
             textStyle = textStyle,
             textAlign = textAlign,
             leftIcon = leftIcon,
-            leftIconColor = leftIconColor,
-            removeIcon = removeIcon,
-            useRemoveIcon = useRemoveIcon,
+            rightIcon = rightIcon,
+            customLeftIconColor = leftIconColor,
+            customRightIconColor = rightIconColor,
+            onLeftIconClick = onLeftIconClick,
+            onRightIconClick = onRightIconClick,
             enabled = enabled,
-            contentColor = contentColor,
+            defaultContentColor = contentColor
+        )
+    }
+}
+
+@Composable
+internal fun CoreIconOnlyChips(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    iconColor: Color,
+    clickable: Boolean,
+    selected: Boolean,
+    enabled: Boolean,
+    chipsStyle: ChipsStyle,
+    chipsSize: ChipsSize,
+    chipsColors: ChipsColors,
+    interactionSource: MutableInteractionSource,
+    modifier: Modifier = Modifier,
+) {
+    val contentColor by chipsColors.contentColor(enabled)
+
+    CoreChipsLayout(
+        onClick = onClick,
+        useLeftIcon = false,
+        useRightIcon = false,
+        useOnlyCenterIcon = true,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = chipsStyle,
+        chipsSize = chipsSize,
+        chipsColors = chipsColors,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    ) {
+        IconOnlyContent(
+            icon = icon,
+            customIconColor = iconColor,
+            defaultContentColor = contentColor
         )
     }
 }
@@ -123,17 +164,17 @@ internal fun CoreCustomChips(
 
     CoreChipsLayout(
         onClick = onClick,
-        leftIcon = null,
-        useRemoveIcon = useRemoveIcon,
+        useLeftIcon = false,
+        useRightIcon = useRemoveIcon,
+        useOnlyCenterIcon = false,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
         chipsStyle = chipsStyle,
         chipsSize = chipsSize,
         chipsColors = chipsColors,
-        isOnlyLeftIcon = false,
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier,
     ) {
         DepthContent(
             onRemoveClick = onRemoveClick,
@@ -178,17 +219,17 @@ internal fun ChipsImage(
 @Composable
 private fun CoreChipsLayout(
     onClick: () -> Unit,
-    @DrawableRes leftIcon: Int?,
-    useRemoveIcon: Boolean,
+    useLeftIcon: Boolean,
+    useRightIcon: Boolean,
+    useOnlyCenterIcon: Boolean,
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
     chipsStyle: ChipsStyle,
     chipsSize: ChipsSize,
     chipsColors: ChipsColors,
-    isOnlyLeftIcon: Boolean ,
+    interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
     val chipsShape = ChipsDefaults.chipsShape(style = chipsStyle)
@@ -212,19 +253,13 @@ private fun CoreChipsLayout(
             .width(IntrinsicSize.Min)
             .height(chipsMinSize)
             .background(color = backgroundColor)
-            .then(
-                if (clickable) {
-                    Modifier
-                        .clickable(
-                            interactionSource = interactionSource,
-                            indication = rememberRipple(),
-                            enabled = enabled,
-                            role = Role.Button,
-                            onClick = onClick,
-                        )
-                } else {
-                    Modifier
-                }
+            .clickableOrNothing(
+                clickable = clickable,
+                interactionSource = interactionSource,
+                indication = rememberRipple(),
+                enabled = enabled,
+                role = Role.Button,
+                onClick = onClick,
             ),
         contentAlignment = Alignment.Center,
     ) {
@@ -232,16 +267,16 @@ private fun CoreChipsLayout(
             modifier = Modifier
                 .idealChipsWidth()
                 .padding(
-
-                        ChipsDefaults.chipsPaddings(
-                            size = chipsSize,
-                            style = chipsStyle,
-                            useLeftIcon = leftIcon != null,
-                            useRemoveIcon = useRemoveIcon,
-                            isOnlyLeftIcon = isOnlyLeftIcon,
-                            fontWeight = textStyle.fontWeight,
-                        )
+                    ChipsDefaults.chipsPaddings(
+                        size = chipsSize,
+                        style = chipsStyle,
+                        useLeftIcon = if (useOnlyCenterIcon) false else useLeftIcon,
+                        useRightIcon = if (useOnlyCenterIcon) false else useRightIcon,
+                        useOnlyCenterIcon = useOnlyCenterIcon,
+                        fontWeight = textStyle.fontWeight,
+                    )
                 ),
+            horizontalArrangement = if (useOnlyCenterIcon) Arrangement.Center else Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically,
             content = content,
         )
@@ -249,48 +284,81 @@ private fun CoreChipsLayout(
 }
 
 @Composable
-private fun RowScope.NormalContent(
-    onRemoveClick: () -> Unit,
+private fun RowScope.RegularContent(
     text: String,
     textStyle: TextStyle,
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
-    leftIconColor: Color?,
-    @DrawableRes removeIcon: Int,
-    useRemoveIcon: Boolean,
+    @DrawableRes rightIcon: Int?,
+    customLeftIconColor: Color,
+    customRightIconColor: Color,
+    onLeftIconClick: (() -> Unit)?,
+    onRightIconClick: (() -> Unit)?,
     enabled: Boolean,
-    contentColor: Color,
+    defaultContentColor: Color,
 ) {
     if (leftIcon != null) {
-        Icon16(
-            iconRes = leftIcon,
-            color = when {
-                leftIconColor == Color.Unspecified || enabled.not() -> contentColor
-                leftIconColor == null -> Color.Unspecified
-                else -> leftIconColor
-            },
-        )
-        if(text.isNotEmpty()){
-            Spacer(modifier = Modifier.width(4.dp))
+        val useCustomLeftIconColor = customLeftIconColor != Color.Unspecified
+        if (onLeftIconClick == null) {
+            Icon16(
+                iconRes = leftIcon,
+                color = if (useCustomLeftIconColor) customLeftIconColor else defaultContentColor,
+            )
+        } else {
+            Icon16(
+                onClick = onLeftIconClick,
+                iconRes = leftIcon,
+                color = if (useCustomLeftIconColor) customLeftIconColor else defaultContentColor,
+                enabled = enabled,
+            )
         }
+
+        Spacer(modifier = Modifier.width(4.dp))
     }
+
     DealiText(
         modifier = Modifier.weight(weight = 1f),
         text = text,
         style = textStyle.copy(textAlign = textAlign),
-        color = contentColor,
+        color = defaultContentColor,
         maxLines = 1,
         overflow = TextOverflow.Ellipsis,
     )
-    if (useRemoveIcon) {
+
+    if (rightIcon != null) {
         Spacer(modifier = Modifier.width(4.dp))
-        Icon16(
-            onClick = onRemoveClick,
-            enabled = enabled,
-            iconRes = removeIcon,
-            color = contentColor,
-        )
+
+        val useCustomRightIconColor = customRightIconColor != Color.Unspecified
+        if (onRightIconClick == null) {
+            Icon16(
+                iconRes = rightIcon,
+                color = if (useCustomRightIconColor) customRightIconColor else defaultContentColor,
+            )
+        } else {
+            Icon16(
+                onClick = onRightIconClick,
+                iconRes = rightIcon,
+                color = if (useCustomRightIconColor) customRightIconColor else defaultContentColor,
+                enabled = enabled,
+            )
+        }
     }
+}
+
+@Composable
+private fun IconOnlyContent(
+    @DrawableRes icon: Int,
+    customIconColor: Color,
+    defaultContentColor: Color,
+    modifier: Modifier = Modifier,
+) {
+    val useCustomIconColor = customIconColor != Color.Unspecified
+
+    Icon16(
+        iconRes = icon,
+        color = if (useCustomIconColor) customIconColor else defaultContentColor,
+        modifier = modifier,
+    )
 }
 
 @Composable
@@ -319,6 +387,39 @@ private fun RowScope.DepthContent(
     }
 }
 
+/**
+ * 클릭을 사용하는 경우 [clickable] Modifier를 적용하고 사용하지 않는 경우 아무 것도 적용하지 않아
+ * 클릭 이벤트를 잡지 않도록 만드는 편의성 Modifier.
+ */
+@Stable
+private fun Modifier.clickableOrNothing(
+    clickable: Boolean,
+    interactionSource: MutableInteractionSource,
+    indication: Indication?,
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    role: Role? = null,
+    onClick: () -> Unit
+): Modifier {
+    return if (clickable) {
+        this.then(
+            Modifier.clickable(
+                interactionSource = interactionSource,
+                indication = indication,
+                enabled = enabled,
+                onClickLabel = onClickLabel,
+                role = role,
+                onClick = onClick
+            )
+        )
+    } else {
+        this
+    }
+}
+
+/**
+ * 테두리를 사용하는 경우 테두리 Modifier를 적용하고 사용하지 않는 경우 아무 것도 적용하지 않는 Modifier.
+ */
 @Stable
 private fun Modifier.outlineBorderOrNothing(
     enableBorder: Boolean,

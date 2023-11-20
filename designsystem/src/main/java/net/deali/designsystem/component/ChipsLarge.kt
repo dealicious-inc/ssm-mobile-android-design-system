@@ -23,8 +23,9 @@ import net.deali.designsystem.internal.chips.ChipsDefaults
 import net.deali.designsystem.internal.chips.ChipsImage
 import net.deali.designsystem.internal.chips.ChipsSize
 import net.deali.designsystem.internal.chips.ChipsStyle
-import net.deali.designsystem.internal.chips.CoreChips
 import net.deali.designsystem.internal.chips.CoreCustomChips
+import net.deali.designsystem.internal.chips.CoreIconOnlyChips
+import net.deali.designsystem.internal.chips.CoreRegularChips
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -33,24 +34,27 @@ fun chipsOutlineLargePrimary01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
-    onRemoveClick: () -> Unit = {},
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
     clickable: Boolean = true,
     selected: Boolean = false,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    CoreRegularChips(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        rightIcon = rightIcon,
         leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
@@ -66,13 +70,49 @@ fun chipsOutlineLargePrimary01(
             selectedOutlineColor = DealiColor.g100,
             disabledOutlineColor = DealiColor.g20,
         ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier
     )
 }
 
 @Composable
-fun chipsSquareLargePrimary01(
+fun chipsOutlineLargePrimary01(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.Outline,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            selectedBackgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.g20,
+            selectedOutlineColor = DealiColor.g100,
+            disabledOutlineColor = DealiColor.g20,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
+@Composable
+fun chipsOutlineLargePrimary01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -86,15 +126,51 @@ fun chipsSquareLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    chipsOutlineLargePrimary01(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipsSquareLargePrimary01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChips(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
         leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
@@ -110,13 +186,49 @@ fun chipsSquareLargePrimary01(
             selectedOutlineColor = DealiColor.g100,
             disabledOutlineColor = DealiColor.g20,
         ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier
     )
 }
 
 @Composable
-fun chipsFilledLargePrimary01(
+fun chipsSquareLargePrimary01(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.Square,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            selectedBackgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.g20,
+            selectedOutlineColor = DealiColor.g100,
+            disabledOutlineColor = DealiColor.g20,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
+@Composable
+fun chipsSquareLargePrimary01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -130,15 +242,51 @@ fun chipsFilledLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    chipsOutlineLargePrimary01(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipsFilledLargePrimary01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChips(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
         leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
@@ -154,13 +302,49 @@ fun chipsFilledLargePrimary01(
             selectedOutlineColor = DealiColor.primary01,
             disabledOutlineColor = DealiColor.transparent,
         ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier
     )
 }
 
 @Composable
-fun chipsFilledLargeSquarePrimary01(
+fun chipsFilledLargePrimary01(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.Filled,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.primary03,
+            selectedBackgroundColor = DealiColor.primary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.primary01,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.transparent,
+            selectedOutlineColor = DealiColor.primary01,
+            disabledOutlineColor = DealiColor.transparent,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
+@Composable
+fun chipsFilledLargePrimary01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -174,15 +358,51 @@ fun chipsFilledLargeSquarePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    chipsFilledLargePrimary01(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipsFilledLargeSquarePrimary01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChips(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
         leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
@@ -198,11 +418,157 @@ fun chipsFilledLargeSquarePrimary01(
             selectedOutlineColor = DealiColor.primary01,
             disabledOutlineColor = DealiColor.transparent,
         ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier
     )
 }
 
+@Composable
+fun chipsFilledLargeSquarePrimary01(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.FilledSquare,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.primary03,
+            selectedBackgroundColor = DealiColor.primary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.primary01,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.transparent,
+            selectedOutlineColor = DealiColor.primary01,
+            disabledOutlineColor = DealiColor.transparent,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
+@Composable
+fun chipsFilledLargeSquarePrimary01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
+    useRemoveIcon: Boolean = false,
+    onRemoveClick: () -> Unit = {},
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    chipsFilledLargeSquarePrimary01(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipsFilledLargeSquarePrimary02(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChips(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        leftIconColor = leftIconColor,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.FilledSquare,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.secondary03,
+            selectedBackgroundColor = DealiColor.secondary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier
+    )
+}
+
+@Composable
+fun chipsFilledLargeSquarePrimary02(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.FilledSquare,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.secondary03,
+            selectedBackgroundColor = DealiColor.secondary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
 fun chipsFilledLargeSquarePrimary02(
     onClick: () -> Unit,
@@ -218,32 +584,101 @@ fun chipsFilledLargeSquarePrimary02(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    chipsFilledLargeSquarePrimary02(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipsFilledSquareLargeSecondary01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color = Color.Unspecified,
+    rightIconColor: Color = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChips(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
         leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
         chipsStyle = ChipsStyle.FilledSquare,
         chipsSize = ChipsSize.Large,
         chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.secondary03,
-            selectedBackgroundColor = DealiColor.secondary03,
+            backgroundColor = DealiColor.g10,
+            selectedBackgroundColor = DealiColor.g20,
             disabledBackgroundColor = DealiColor.g10,
-            contentColor = DealiColor.secondary01,
+            contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier
     )
 }
 
+@Composable
+fun chipsFilledSquareLargeSecondary01(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChips(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipsStyle = ChipsStyle.FilledSquare,
+        chipsSize = ChipsSize.Large,
+        chipsColors = ChipsDefaults.colors(
+            backgroundColor = DealiColor.g10,
+            selectedBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
 fun chipsFilledSquareLargeSecondary01(
     onClick: () -> Unit,
@@ -259,29 +694,21 @@ fun chipsFilledSquareLargeSecondary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreChips(
+    chipsFilledSquareLargeSecondary01(
         onClick = onClick,
-        onRemoveClick = onRemoveClick,
         text = text,
         textAlign = textAlign,
         leftIcon = leftIcon,
-        leftIconColor = leftIconColor,
-        removeIcon = R.drawable.ic_x_s,
-        useRemoveIcon = useRemoveIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor ?: Color.Unspecified,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.FilledSquare,
-        chipsSize = ChipsSize.Large,
-        chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.g10,
-            selectedBackgroundColor = DealiColor.g20,
-            disabledBackgroundColor = DealiColor.g10,
-            contentColor = DealiColor.g100,
-            disabledContentColor = DealiColor.g50,
-        ),
-        modifier = modifier,
         interactionSource = interactionSource,
+        modifier = modifier,
     )
 }
 
