@@ -20,11 +20,9 @@ import net.deali.designsystem.component.chipsFilledImageMediumSecondary01
 import net.deali.designsystem.component.chipsFilledMediumPrimary01
 import net.deali.designsystem.component.chipsFilledMediumSquarePrimary01
 import net.deali.designsystem.component.chipsFilledSquareMediumSecondary01
-import net.deali.designsystem.component.chipsFilledSquareSmallSecondary01
 import net.deali.designsystem.component.chipsOutlineImageMediumSecondary01
 import net.deali.designsystem.component.chipsOutlineMediumPrimary01
 import net.deali.designsystem.component.chipsSquareBoldMediumPrimary01
-import net.deali.designsystem.component.chipsSquareRegularMediumPrimary01
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -39,7 +37,6 @@ fun MediumChipsSamples(
     ) {
         item { ChipsOutlineMediumPrimary01Samples() }
         item { ChipsSquareBoldMediumPrimary01Samples() }
-        item { ChipsSquareRegularMediumPrimary01Samples() }
         item { ChipsFilledMediumPrimary01Samples() }
         item { ChipsFilledMediumSquarePrimary01Samples() }
         item { ChipsFilledSquareMediumSecondary01Samples() }
@@ -320,146 +317,6 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             }
             Box {
                 chipsSquareBoldMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    text = "",
-                    enabled = false,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun ChipsSquareRegularMediumPrimary01Samples() {
-    ChipsSampleLayout(title = "chipsSquareRegularMediumPrimary01") {
-        VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    useRemoveIcon = true,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "TTT",
-                    useRemoveIcon = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "SSS",
-                    useRemoveIcon = true,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    text = "DDD",
-                    useRemoveIcon = true,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    text = "",
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    text = "",
-                    selected = true,
-                )
-            }
-            Box {
-                chipsSquareRegularMediumPrimary01(
                     leftIcon = R.drawable.ic_refresh1,
                     onClick = {},
                     text = "",
