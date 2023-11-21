@@ -24,7 +24,7 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
-import net.deali.designsystem.component.switchSmall
+import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
@@ -223,7 +223,7 @@ private fun ToggleOption(
             style = DealiFont.b4r12,
             color = DealiColor.g100,
         )
-        switchSmall(
+        SwitchSmall(
             isOn = selected,
             onChange = onSelectedChange,
         )

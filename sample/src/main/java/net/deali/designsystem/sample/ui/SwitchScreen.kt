@@ -21,8 +21,8 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
-import net.deali.designsystem.component.switchLarge
-import net.deali.designsystem.component.switchSmall
+import net.deali.designsystem.component.SwitchLarge
+import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -62,20 +62,20 @@ fun SwitchScreen(onBackPress: () -> Unit) {
                 var on3 by remember { mutableStateOf(false) }
                 var on4 by remember { mutableStateOf(false) }
 
-                switchLarge(
+                SwitchLarge(
                     isOn = on1,
                     onChange = { on1 = it }
                 )
-                switchLarge(
+                SwitchLarge(
                     isOn = on2,
                     enabled = false,
                     onChange = { on2 = it }
                 )
-                switchLarge(
+                SwitchLarge(
                     isOn = on3,
                     onChange = { on3 = it }
                 )
-                switchLarge(
+                SwitchLarge(
                     isOn = on4,
                     enabled = false,
                     onChange = { on4 = it }
@@ -99,20 +99,20 @@ fun SwitchScreen(onBackPress: () -> Unit) {
                 var on3 by remember { mutableStateOf(false) }
                 var on4 by remember { mutableStateOf(false) }
 
-                switchSmall(
+                SwitchSmall(
                     isOn = on1,
                     onChange = { on1 = it }
                 )
-                switchSmall(
+                SwitchSmall(
                     isOn = on2,
                     enabled = false,
                     onChange = { on2 = it }
                 )
-                switchSmall(
+                SwitchSmall(
                     isOn = on3,
                     onChange = { on3 = it }
                 )
-                switchSmall(
+                SwitchSmall(
                     isOn = on4,
                     enabled = false,
                     onChange = { on4 = it }
