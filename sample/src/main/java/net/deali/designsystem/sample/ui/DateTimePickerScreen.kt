@@ -120,7 +120,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     )
                     Spacer(modifier = Modifier.width(16.dp))
                     DealiText(
-                        text = "${datePicker2State.currentYear}/${datePicker2State.currentMonth}/${datePicker2State.currentDate}",
+                        text = "${datePicker2State.currentYear}/${datePicker2State.currentMonth}",
                         style = DealiFont.sh3r16,
                         color = DealiColor.g80
                     )
