@@ -27,6 +27,23 @@ import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
 import net.deali.designsystem.internal.datetimepicker.calculateRepeatedLazyListMidIndex
 import java.util.Calendar
 import java.util.Date
+import kotlin.math.min
+
+/**
+ * 피커에서 선택 가능 한 기본 최소 날짜. 기본값은 [Date]에서 표현 가능 한 최소 날짜로, 1970년 1월 1일 00:00:00 GMT 이다.
+ */
+private val defaultMinimumDate = Date(0)
+
+/**
+ * 피커에서 선택 가능 한 기본 최대 날짜. 기본값은 [Date]의 최소값의 200년 후인 2170년 1월 1일 00:00:00 GMT 이다.
+ */
+private val defaultMaximumDate = Date().apply {
+    val maxCalendar = Calendar.getInstance()
+    maxCalendar.set(Calendar.YEAR, 2170)
+    maxCalendar.set(Calendar.MONTH, Calendar.JANUARY)
+    maxCalendar.set(Calendar.DAY_OF_MONTH, 1)
+    this.time = maxCalendar.timeInMillis
+}
 
 /**
  * 디자인 시스템 날짜 피커 컴포넌트.
@@ -36,6 +53,8 @@ import java.util.Date
  * @param yearEnabled year 피커 활성화 여부.
  * @param monthEnabled month 피커 활성화 여부.
  * @param dateEnabled date 피커 활성화 여부.
+ * @param minimumDate 선택 가능 한 최소 날짜.
+ * @param maximumDate 선택 가능 한 최대 날짜.
  * @param itemHeight 피커 내부에 그려지는 [yearItemContent], [monthItemContent], [dateItemContent]들의 높이.
  * @param pickerSpacing year, month, date 피커 사이의 간격.
  * @param contentPadding year, month, date 피커 바깥을 감싸는 패딩.
@@ -51,6 +70,8 @@ fun DatePicker(
     yearEnabled: Boolean = true,
     monthEnabled: Boolean = true,
     dateEnabled: Boolean = true,
+    minimumDate: Date = remember { defaultMinimumDate },
+    maximumDate: Date = remember { defaultMaximumDate },
     itemHeight: Dp = 48.dp,
     pickerSpacing: Dp = 0.dp,
     contentPadding: PaddingValues = PaddingValues(all = 0.dp),
@@ -69,21 +90,92 @@ fun DatePicker(
         DefaultPickerItemContent(text = if (date >= 10) date.toString() else "0${date}")
     }
 ) {
+    val minimumYearMonthDate = remember(minimumDate.time) { getYearMonthDateFrom(minimumDate) }
+    val maximumYearMonthDate = remember(maximumDate.time) { getYearMonthDateFrom(maximumDate) }
+    val (minYear, minMonth, minDate) = minimumYearMonthDate
+    val (maxYear, maxMonth, maxDate) = maximumYearMonthDate
+
     val years = remember { (1..9999).toList() }
     val months = remember { (1..12).toList() }
     val dates = remember { (1..31).toList() }
 
     LaunchedEffect(state.isScrollInProgress) {
         if (!state.isScrollInProgress) {
-            val currentDateIndex = state.datePickerState.currentIndex
-            val lastDateOfMonth = calculateLastDate(state.currentYear, state.currentMonth)
-            if (currentDateIndex + 1 > lastDateOfMonth) {
-                state.datePickerState.animateScrollToItem(
-                    calculateRepeatedLazyListMidIndex(
-                        index = lastDateOfMonth - 1,
-                        valuesCount = dates.size
+            val currentYearIndex = state.yearPickerState.currentIndex
+            when {
+                currentYearIndex + 1 < minYear -> {
+                    state.yearPickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = minYear - 1,
+                            valuesCount = years.size
+                        )
                     )
-                )
+                }
+
+                currentYearIndex + 1 > maxYear -> {
+                    state.yearPickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = maxYear - 1,
+                            valuesCount = years.size
+                        )
+                    )
+                }
+            }
+            val isSameToMinYear = currentYearIndex + 1 == minYear
+            val isSameToMaxYear = currentYearIndex + 1 == maxYear
+
+            val currentMonthIndex = state.monthPickerState.currentIndex
+            when {
+                isSameToMinYear && currentMonthIndex + 1 < minMonth -> {
+                    state.monthPickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = minMonth - 1,
+                            valuesCount = months.size
+                        )
+                    )
+                }
+
+                isSameToMaxYear && currentMonthIndex + 1 > maxMonth -> {
+                    state.monthPickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = maxMonth - 1,
+                            valuesCount = months.size
+                        )
+                    )
+                }
+            }
+            val isSameToMinMonth = currentMonthIndex + 1 == minMonth
+            val isSameToMaxMonth = currentMonthIndex + 1 == maxMonth
+
+            val currentDateIndex = state.datePickerState.currentIndex
+            val lastDateOfMonth = calculateLastDateOfMonth(state.currentYear, state.currentMonth)
+            when {
+                isSameToMinYear && isSameToMinMonth && currentDateIndex + 1 < minDate -> {
+                    state.datePickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = minDate - 1,
+                            valuesCount = dates.size
+                        )
+                    )
+                }
+
+                isSameToMaxYear && isSameToMaxMonth && currentDateIndex + 1 > maxDate -> {
+                    state.datePickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = min(maxDate - 1, lastDateOfMonth - 1),
+                            valuesCount = dates.size
+                        )
+                    )
+                }
+
+                currentDateIndex + 1 > lastDateOfMonth -> {
+                    state.datePickerState.animateScrollToItem(
+                        calculateRepeatedLazyListMidIndex(
+                            index = lastDateOfMonth - 1,
+                            valuesCount = dates.size
+                        )
+                    )
+                }
             }
         }
     }
@@ -103,10 +195,37 @@ fun DatePicker(
             val yearIndex = it[0].currentIndex
             val monthIndex = it[1].currentIndex
             val dateIndex = it[2].currentIndex
-            state.currentYear = years[yearIndex]
-            state.currentMonth = months[monthIndex]
-            val lastDateOfMonth = calculateLastDate(state.currentYear, state.currentMonth)
-            state.currentDate = dates[dateIndex].coerceIn(dates.first(), lastDateOfMonth)
+
+            val selectedYear = years[yearIndex]
+            val actualSelectedYear = when {
+                selectedYear < minYear -> minYear
+                selectedYear > maxYear -> maxYear
+                else -> selectedYear
+            }
+            val isSameToMinYear = actualSelectedYear == minYear
+            val isSameToMaxYear = actualSelectedYear == maxYear
+
+            val selectedMonth = months[monthIndex]
+            val actualSelectedMonth = when {
+                isSameToMinYear && selectedMonth < minMonth -> minMonth
+                isSameToMaxYear && selectedMonth > maxMonth -> maxMonth
+                else -> selectedMonth
+            }
+            val isSameToMinMonth = actualSelectedMonth == minMonth
+            val isSameToMaxMonth = actualSelectedMonth == maxMonth
+
+            val selectedDate = dates[dateIndex]
+            val filteredSelectedDate = when {
+                isSameToMinYear && isSameToMinMonth && selectedDate < minDate -> minDate
+                isSameToMaxYear && isSameToMaxMonth && selectedDate > maxDate -> maxDate
+                else -> selectedDate
+            }
+            val lastDateOfMonth = calculateLastDateOfMonth(actualSelectedYear, actualSelectedMonth)
+            val actualSelectedDate = filteredSelectedDate.coerceIn(1, lastDateOfMonth)
+
+            state.currentYear = actualSelectedYear
+            state.currentMonth = actualSelectedMonth
+            state.currentDate = actualSelectedDate
         }
     }
 
@@ -276,7 +395,21 @@ class DatePickerState(
     }
 }
 
-private fun calculateLastDate(year: Int, month: Int): Int {
+/**
+ * [Date] 객체의 시간을 year, month, dayOfMonth 3개의 숫자로 분리.
+ */
+private fun getYearMonthDateFrom(date: Date): Triple<Int, Int, Int> {
+    val calendar = Calendar.getInstance()
+    calendar.time = date
+
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH) + 1
+    val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+    return Triple(year, month, dayOfMonth)
+}
+
+/** 주어진 연월의 가장 마지막 날짜 반환 */
+private fun calculateLastDateOfMonth(year: Int, month: Int): Int {
     return when (month) {
         1 -> 31
         2 -> if (isLeafYear(year)) 29 else 28
@@ -294,6 +427,7 @@ private fun calculateLastDate(year: Int, month: Int): Int {
     }
 }
 
+/** 주어진 연도가 윤년인지 확인 */
 private fun isLeafYear(year: Int): Boolean {
     return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)
 }
