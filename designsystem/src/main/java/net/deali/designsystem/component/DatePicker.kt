@@ -20,6 +20,8 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.datetimepicker.CorePicker
 import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
@@ -95,24 +97,24 @@ fun DatePicker(
     val (minYear, minMonth, minDate) = minimumYearMonthDate
     val (maxYear, maxMonth, maxDate) = maximumYearMonthDate
 
-    val years = remember { (1..9999).toList() }
+    val years = remember { (minYear..maxYear).toList() }
     val months = remember { (1..12).toList() }
     val dates = remember { (1..31).toList() }
+
+    LaunchedEffect(Unit) {
+        val initialYear = state.currentYear
+        val initialMonth = state.currentMonth
+        val initialDate = state.currentDate
+        state.updateMinMax(minYear, maxYear, minMonth, maxMonth, minDate, maxDate)
+        state.scrollTo(initialYear, initialMonth, initialDate)
+    }
 
     LaunchedEffect(state.isScrollInProgress) {
         if (!state.isScrollInProgress) {
             val currentYearIndex = state.yearPickerState.currentIndex
-            when {
-                currentYearIndex + 1 < minYear -> {
-                    state.yearPickerState.animateScrollToItem(minYear - 1)
-                }
-
-                currentYearIndex + 1 > maxYear -> {
-                    state.yearPickerState.animateScrollToItem(maxYear - 1)
-                }
-            }
-            val isSameToMinYear = currentYearIndex + 1 == minYear
-            val isSameToMaxYear = currentYearIndex + 1 == maxYear
+            val currentYear = minYear + currentYearIndex
+            val isSameToMinYear = currentYear == minYear
+            val isSameToMaxYear = currentYear == maxYear
 
             val currentMonthIndex = state.monthPickerState.currentIndex
             when {
@@ -187,13 +189,8 @@ fun DatePicker(
             val dateIndex = it[2].currentIndex
 
             val selectedYear = years[yearIndex]
-            val actualSelectedYear = when {
-                selectedYear < minYear -> minYear
-                selectedYear > maxYear -> maxYear
-                else -> selectedYear
-            }
-            val isSameToMinYear = actualSelectedYear == minYear
-            val isSameToMaxYear = actualSelectedYear == maxYear
+            val isSameToMinYear = selectedYear == minYear
+            val isSameToMaxYear = selectedYear == maxYear
 
             val selectedMonth = months[monthIndex]
             val actualSelectedMonth = when {
@@ -210,10 +207,10 @@ fun DatePicker(
                 isSameToMaxYear && isSameToMaxMonth && selectedDate > maxDate -> maxDate
                 else -> selectedDate
             }
-            val lastDateOfMonth = calculateLastDateOfMonth(actualSelectedYear, actualSelectedMonth)
+            val lastDateOfMonth = calculateLastDateOfMonth(selectedYear, actualSelectedMonth)
             val actualSelectedDate = filteredSelectedDate.coerceIn(1, lastDateOfMonth)
 
-            state.currentYear = actualSelectedYear
+            state.currentYear = selectedYear
             state.currentMonth = actualSelectedMonth
             state.currentDate = actualSelectedDate
         }
@@ -278,9 +275,9 @@ fun rememberDatePickerState(): DatePickerState {
 
     return rememberSaveable(saver = DatePickerState.Saver) {
         DatePickerState(
-            initialYearIndex = todayYear - 1,
-            initialMonthIndex = todayMonth - 1,
-            initialDateIndex = todayDate - 1
+            initialYear = todayYear,
+            initialMonth = todayMonth,
+            initialDate = todayDate
         )
     }
 }
@@ -311,26 +308,26 @@ fun rememberDatePickerState(
 
     return rememberSaveable(saver = DatePickerState.Saver) {
         DatePickerState(
-            initialYearIndex = initialYear - 1,
-            initialMonthIndex = initialMonth - 1,
-            initialDateIndex = initialDate - 1
+            initialYear = initialYear,
+            initialMonth = initialMonth,
+            initialDate = initialDate
         )
     }
 }
 
 @Stable
 class DatePickerState(
-    initialYearIndex: Int = 2022,
-    initialMonthIndex: Int = 0,
-    initialDateIndex: Int = 0
+    initialYear: Int,
+    initialMonth: Int,
+    initialDate: Int
 ) {
-    internal val yearPickerState = CorePickerState(initialIndex = initialYearIndex)
-    internal val monthPickerState = CorePickerState(initialIndex = initialMonthIndex)
-    internal var datePickerState = CorePickerState(initialIndex = initialDateIndex)
+    internal val yearPickerState = CorePickerState()
+    internal val monthPickerState = CorePickerState()
+    internal val datePickerState = CorePickerState()
 
-    private var _currentYear: Int by mutableStateOf(initialYearIndex + 1)
-    private var _currentMonth: Int by mutableStateOf(initialMonthIndex + 1)
-    private var _currentDate: Int by mutableStateOf(initialDateIndex + 1)
+    private var _currentYear: Int by mutableStateOf(initialYear)
+    private var _currentMonth: Int by mutableStateOf(initialMonth)
+    private var _currentDate: Int by mutableStateOf(initialDate)
 
     /** 현재 선택 된 연도. */
     var currentYear: Int
@@ -359,29 +356,126 @@ class DatePickerState(
             }
         }
 
+    private var minYear: Int by mutableStateOf(NotInitialized)
+    private var maxYear: Int by mutableStateOf(NotInitialized)
+    private var minMonth: Int by mutableStateOf(NotInitialized)
+    private var maxMonth: Int by mutableStateOf(NotInitialized)
+    private var minDate: Int by mutableStateOf(NotInitialized)
+    private var maxDate: Int by mutableStateOf(NotInitialized)
+
     /** 현재 피커가 스크롤 중인지 여부. */
     val isScrollInProgress: Boolean
         get() = yearPickerState.lazyListState.isScrollInProgress ||
                 monthPickerState.lazyListState.isScrollInProgress ||
                 datePickerState.lazyListState.isScrollInProgress
 
+    /** 특정 날짜로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollTo(year: Int, month: Int, date: Int) {
+        scrollToYear(year)
+        scrollToMonth(month)
+        scrollToDate(date)
+    }
+
+    /** 특정 연도로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollToYear(year: Int) {
+        if (minYear == NotInitialized || maxYear == NotInitialized) return
+        val targetYearIndex = (year - minYear).coerceIn(0, maxYear - minYear)
+        yearPickerState.scrollToItem(targetYearIndex)
+    }
+
+    /** 특정 달로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollToMonth(month: Int) {
+        if (minMonth == NotInitialized || maxMonth == NotInitialized) return
+        monthPickerState.scrollToItem(month - 1)
+    }
+
+    /** 특정 날짜로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollToDate(date: Int) {
+        if (minDate == NotInitialized || maxDate == NotInitialized) return
+        datePickerState.scrollToItem(date - 1)
+    }
+
+    /** 특정 날짜로 스크롤 이동 */
+    suspend fun animateScrollTo(year: Int, month: Int, date: Int) {
+        coroutineScope {
+            launch {
+                animateScrollToYear(year)
+            }
+            launch {
+                animateScrollToMonth(month)
+            }
+            launch {
+                animateScrollToDate(date)
+            }
+        }
+    }
+
+    /** 특정 연도로 스크롤 이동 */
+    suspend fun animateScrollToYear(year: Int) {
+        if (minYear == NotInitialized || maxYear == NotInitialized) return
+        val targetYearIndex = (year - minYear).coerceIn(0, maxYear - minYear)
+        yearPickerState.animateScrollToItem(targetYearIndex)
+    }
+
+    /** 특정 달로 스크롤 이동 */
+    suspend fun animateScrollToMonth(month: Int) {
+        if (minMonth == NotInitialized || maxMonth == NotInitialized) return
+        monthPickerState.animateScrollToItem(month - 1)
+    }
+
+    /** 특정 날짜로 스크롤 이동 */
+    suspend fun animateScrollToDate(date: Int) {
+        if (minDate == NotInitialized || maxDate == NotInitialized) return
+        datePickerState.animateScrollToItem(date - 1)
+    }
+
+    internal fun updateMinMax(
+        minYear: Int,
+        maxYear: Int,
+        minMonth: Int,
+        maxMonth: Int,
+        minDate: Int,
+        maxDate: Int,
+    ) {
+        if (this.minYear != minYear) {
+            this.minYear = minYear
+        }
+        if (this.maxYear != maxYear) {
+            this.maxYear = maxYear
+        }
+        if (this.minMonth != minMonth) {
+            this.minMonth = minMonth
+        }
+        if (this.maxMonth != maxMonth) {
+            this.maxMonth = maxMonth
+        }
+        if (this.minDate != minDate) {
+            this.minDate = minDate
+        }
+        if (this.maxDate != maxDate) {
+            this.maxDate = maxDate
+        }
+    }
+
     companion object {
         val Saver: Saver<DatePickerState, List<Int>> = Saver(
             save = {
                 listOf(
-                    it.yearPickerState.currentIndex,
-                    it.monthPickerState.currentIndex,
-                    it.datePickerState.currentIndex
+                    it.currentYear,
+                    it.currentMonth,
+                    it.currentDate
                 )
             },
             restore = {
                 DatePickerState(
-                    initialYearIndex = it[0],
-                    initialMonthIndex = it[1],
-                    initialDateIndex = it[2]
+                    initialYear = it[0],
+                    initialMonth = it[1],
+                    initialDate = it[2]
                 )
             }
         )
+
+        private const val NotInitialized: Int = -1
     }
 }
 
