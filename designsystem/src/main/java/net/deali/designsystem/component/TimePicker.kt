@@ -27,6 +27,21 @@ import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
 import java.util.Calendar
 import java.util.Date
 
+/**
+ * 12시간제에서 시간 interval로 사용 가능 한 12의 약수이면서 6 이하인 값.
+ */
+private val divisorsOf12 = listOf(1, 2, 3, 4, 6)
+
+/**
+ * 24시간제에서 시간 interval로 사용 가능 한 24의 약수이면서 12 이하인 값.
+ */
+private val divisorsOf24 = listOf(1, 2, 3, 4, 6, 8, 12)
+
+/**
+ * 분 또는 초 interval로 사용 가능 한 60의 약수이면서 30 이하인 값.
+ */
+private val divisorsOf60 = listOf(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30)
+
 enum class TimePickerFormat {
     Format12Hour, Format24Hour
 }
@@ -44,8 +59,13 @@ enum class TimePickerPeriod {
  * @param hourEnabled hour 피커 활성화 여부.
  * @param minuteEnabled minute 피커 활성화 여부.
  * @param secondEnabled second 피커 활성화 여부.
+ * @param hourInterval hour 피커에서 선택 할 수 있는 시간 간격. 예를 들어 5라면 5시간 간격으로 선택 가능하다.
+ * [timeFormat]이 12시간제인 경우 interval 값은 반드시 12의 약수이면서 6 이하 값(1, 2, 3, 4, 6)만 선택 할 수 있고,
+ * 24시간제인 경우에는 반드시 24의 약수이면서 12 이하 값(1, 2, 3, 4, 6, 8, 12)만 선택 할 수 있습니다.
  * @param minuteInterval minute 피커에서 선택 할 수 있는 분 간격. 예를 들어 5라면 5분 간격으로 선택 가능하다.
+ * interval 값은 반드시 60의 약수이면서 30 이하 값(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30)만 선택 할 수 있습니다.
  * @param secondInterval second 피커에서 선택 할 수 있는 초 간격. 예를 들어 5라면 5초 간격으로 선택 가능하다.
+ * interval 값은 반드시 60의 약수이면서 30 이하 값(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30)만 선택 할 수 있습니다.
  * @param itemHeight 피커 내부에서 그려지는 [hourItemContent], [minuteItemContent], [secondItemContent], [periodItemContent]들의 높이.
  * @param pickerSpacing hour, minute, second, period 피커 사이의 간격.
  * @param contentPadding hour, minute, second, period 피커 바깥을 감싸는 패딩.
@@ -63,6 +83,7 @@ fun TimePicker(
     hourEnabled: Boolean = true,
     minuteEnabled: Boolean = true,
     secondEnabled: Boolean = true,
+    hourInterval: Int = 1,
     minuteInterval: Int = 1,
     secondInterval: Int = 1,
     itemHeight: Dp = 48.dp,
@@ -86,6 +107,21 @@ fun TimePicker(
         DefaultPickerItemContent(text = if (second >= 10) second.toString() else "0${second}")
     }
 ) {
+    when (timeFormat) {
+        TimePickerFormat.Format12Hour -> check(hourInterval in divisorsOf12) {
+            "hourInterval은 12의 약수이면서 6 이하의 자연수만 사용 가능합니다."
+        }
+        TimePickerFormat.Format24Hour -> check(hourInterval in divisorsOf24) {
+            "hourInterval은 24의 약수이면서 12 이하의 자연수만 사용 가능합니다."
+        }
+    }
+    check(minuteInterval in divisorsOf60) {
+        "minuteInterval은 60의 약수이면서 30 이하의 자연수만 사용 가능합니다."
+    }
+    check(secondInterval in divisorsOf60) {
+        "secondInterval은 60의 약수이면서 30 이하의 자연수만 사용 가능합니다."
+    }
+
     val amPm = remember { listOf(TimePickerPeriod.Am, TimePickerPeriod.Pm) }
     val hours = remember {
         when (timeFormat) {
