@@ -52,7 +52,7 @@ internal fun <T> CorePicker(
 
     if (repeated) {
         LaunchedEffect(Unit) {
-            state.scrollToItem(calculateRepeatedLazyListMidIndex(
+            state.scrollToItem(calculateFarIndexForRepeatedPicker(
                 index = state.currentIndex,
                 valuesCount = values.size
             ))
@@ -60,7 +60,7 @@ internal fun <T> CorePicker(
 
         LaunchedEffect(state.isScrollInProgress) {
             if (!state.isScrollInProgress) {
-                state.scrollToItem(calculateRepeatedLazyListMidIndex(
+                state.scrollToItem(calculateFarIndexForRepeatedPicker(
                     index = state.currentIndex,
                     valuesCount = values.size
                 ))
@@ -111,7 +111,10 @@ internal fun <T> CorePicker(
     }
 }
 
-internal fun calculateRepeatedLazyListMidIndex(index: Int, valuesCount: Int): Int {
+/**
+ * 피커의 반복 옵션이 활성화된 상태일 때, 무한히 아이템이 반복되는 것 처럼 보이기 위해서 적당히 먼 곳으로 이동할 위치 계산.
+ */
+internal fun calculateFarIndexForRepeatedPicker(index: Int, valuesCount: Int): Int {
     return valuesCount * 1000 + index
 }
 

@@ -24,7 +24,7 @@ import net.deali.designsystem.internal.datetimepicker.CorePicker
 import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
-import net.deali.designsystem.internal.datetimepicker.calculateRepeatedLazyListMidIndex
+import net.deali.designsystem.internal.datetimepicker.calculateFarIndexForRepeatedPicker
 import java.util.Calendar
 import java.util.Date
 import kotlin.math.min
@@ -104,21 +104,11 @@ fun DatePicker(
             val currentYearIndex = state.yearPickerState.currentIndex
             when {
                 currentYearIndex + 1 < minYear -> {
-                    state.yearPickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
-                            index = minYear - 1,
-                            valuesCount = years.size
-                        )
-                    )
+                    state.yearPickerState.animateScrollToItem(minYear - 1)
                 }
 
                 currentYearIndex + 1 > maxYear -> {
-                    state.yearPickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
-                            index = maxYear - 1,
-                            valuesCount = years.size
-                        )
-                    )
+                    state.yearPickerState.animateScrollToItem(maxYear - 1)
                 }
             }
             val isSameToMinYear = currentYearIndex + 1 == minYear
@@ -128,7 +118,7 @@ fun DatePicker(
             when {
                 isSameToMinYear && currentMonthIndex + 1 < minMonth -> {
                     state.monthPickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
+                        calculateFarIndexForRepeatedPicker(
                             index = minMonth - 1,
                             valuesCount = months.size
                         )
@@ -137,7 +127,7 @@ fun DatePicker(
 
                 isSameToMaxYear && currentMonthIndex + 1 > maxMonth -> {
                     state.monthPickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
+                        calculateFarIndexForRepeatedPicker(
                             index = maxMonth - 1,
                             valuesCount = months.size
                         )
@@ -152,7 +142,7 @@ fun DatePicker(
             when {
                 isSameToMinYear && isSameToMinMonth && currentDateIndex + 1 < minDate -> {
                     state.datePickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
+                        calculateFarIndexForRepeatedPicker(
                             index = minDate - 1,
                             valuesCount = dates.size
                         )
@@ -161,7 +151,7 @@ fun DatePicker(
 
                 isSameToMaxYear && isSameToMaxMonth && currentDateIndex + 1 > maxDate -> {
                     state.datePickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
+                        calculateFarIndexForRepeatedPicker(
                             index = min(maxDate - 1, lastDateOfMonth - 1),
                             valuesCount = dates.size
                         )
@@ -170,7 +160,7 @@ fun DatePicker(
 
                 currentDateIndex + 1 > lastDateOfMonth -> {
                     state.datePickerState.animateScrollToItem(
-                        calculateRepeatedLazyListMidIndex(
+                        calculateFarIndexForRepeatedPicker(
                             index = lastDateOfMonth - 1,
                             valuesCount = dates.size
                         )
@@ -242,7 +232,7 @@ fun DatePicker(
                         values = years,
                         state = state.yearPickerState,
                         modifier = Modifier.weight(1f),
-                        repeated = true,
+                        repeated = false,
                         itemHeight = itemHeight,
                         itemContent = yearItemContent
                     )
