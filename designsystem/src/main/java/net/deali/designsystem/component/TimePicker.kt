@@ -370,6 +370,10 @@ class TimePickerState(
     private var _currentMinute: Int by mutableStateOf(initialMinute)
     private var _currentSecond: Int by mutableStateOf(initialSecond)
 
+    /** 현재 선택 된 시간이 오전인지 오후인지. */
+    val currentPeriod: TimePickerPeriod
+        get() = if (currentHour < 12) TimePickerPeriod.Am else TimePickerPeriod.Pm
+
     /** 현재 선택 된 시간. 12/24시간제 상관 없이 항상 0~23 사이의 값으로 반환합니다. */
     var currentHour: Int
         get() = _currentHour
@@ -378,6 +382,17 @@ class TimePickerState(
                 _currentHour = value
             }
         }
+
+    /** 현재 선택 된 시간을 12시간제 방식으로 표현. 1에서 12 사이의 값으로 반환합니다. */
+    val currentHour12: Int
+        get() {
+            val (hour12, _) = deconstructHour24ToHour12AndPeriod(currentHour)
+            return hour12
+        }
+
+    /** 현재 선택 된 시간을 24시간제 방식으로 표현. 0에서 23 사이의 값으로 반환합니다. */
+    val currentHour24: Int
+        get() = currentHour
 
     /** 현재 선택 된 분. */
     var currentMinute: Int
