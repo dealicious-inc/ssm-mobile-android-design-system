@@ -1,9 +1,14 @@
 package net.deali.designsystem.sample.ui
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +20,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -46,10 +55,15 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
             )
         }
     ) {
+        var expanded1 by remember { mutableStateOf(true) }
+        var expanded2 by remember { mutableStateOf(false) }
+        var expanded3 by remember { mutableStateOf(true) }
+        var expanded4 by remember { mutableStateOf(false) }
+
         val datePicker1State = rememberDatePickerState()
-        val datePicker2State = rememberDatePickerState()
-        val timePicker1State = rememberTimePickerState(TimePickerFormat.Format24Hour)
-        val timePicker2State = rememberTimePickerState(TimePickerFormat.Format12Hour)
+        val datePicker2State = rememberDatePickerState(2000, 1, 1)
+        val timePicker1State = rememberTimePickerState()
+        val timePicker2State = rememberTimePickerState(12, 12, 12)
 
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
@@ -57,41 +71,54 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             item {
-                DealiText(
-                    text = "DatePicker",
-                    style = DealiFont.sh1sb20,
-                    color = DealiColor.g100
-                )
-            }
+                SampleAccordion(
+                    onHeaderClick = { expanded1 = !expanded1 },
+                    expanded = expanded1,
+                    modifier = Modifier.fillMaxWidth(),
+                    headerContent = {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(48.dp),
+                            contentAlignment = Alignment.CenterStart
+                        ) {
+                            DealiText(
+                                text = "DatePicker Sample 1",
+                                style = DealiFont.sh1sb20,
+                                color = DealiColor.g100
+                            )
+                        }
+                    },
+                    collapsableContent = {
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                DealiText(
+                                    text = "Selected Date:",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                DealiText(
+                                    text = "${datePicker1State.currentYear}/${datePicker1State.currentMonth}/${datePicker1State.currentDate}",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                            }
 
-            item {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    DealiText(
-                        text = "Selected Date:",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    DealiText(
-                        text = "${datePicker1State.currentYear}/${datePicker1State.currentMonth}/${datePicker1State.currentDate}",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                }
-            }
-
-            item {
-                DatePicker(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .border(
-                            width = 1.dp,
-                            color = DealiColor.g20,
-                            shape = AppTheme.shapes.radius10
-                        ),
-                    state = datePicker1State,
-                    contentPadding = PaddingValues(horizontal = 36.dp),
+                            DatePicker(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp)
+                                    .border(
+                                        width = 1.dp,
+                                        color = DealiColor.g20,
+                                        shape = AppTheme.shapes.radius10
+                                    ),
+                                state = datePicker1State,
+                                contentPadding = PaddingValues(horizontal = 36.dp),
+                            )
+                        }
+                    }
                 )
             }
 
@@ -104,41 +131,53 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
             }
 
             item {
-                DealiText(
-                    text = "DatePicker (Year & Month)",
-                    style = DealiFont.sh1sb20,
-                    color = DealiColor.g100
-                )
-            }
+                SampleAccordion(
+                    onHeaderClick = { expanded2 = !expanded2 },
+                    expanded = expanded2,
+                    modifier = Modifier.fillMaxWidth(),
+                    headerContent = {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(48.dp),
+                            contentAlignment = Alignment.CenterStart
+                        ) {
+                            DealiText(
+                                text = "DatePicker Sample 2",
+                                style = DealiFont.sh1sb20,
+                                color = DealiColor.g100
+                            )
+                        }
+                    },
+                    collapsableContent = {
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                DealiText(
+                                    text = "Selected Date:",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                DealiText(
+                                    text = "${datePicker2State.currentYear}/${datePicker2State.currentMonth}",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                            }
 
-            item {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    DealiText(
-                        text = "Selected Date:",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    DealiText(
-                        text = "${datePicker2State.currentYear}/${datePicker2State.currentMonth}",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                }
-            }
-
-            item {
-                DatePicker(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .border(
-                            width = 1.dp,
-                            color = DealiColor.g20,
-                            shape = AppTheme.shapes.radius10
-                        ),
-                    state = datePicker2State,
-                    dateEnabled = false,
+                            DatePicker(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp)
+                                    .border(
+                                        width = 1.dp,
+                                        color = DealiColor.g20,
+                                        shape = AppTheme.shapes.radius10
+                                    ),
+                                state = datePicker2State,
+                            )
+                        }
+                    }
                 )
             }
 
@@ -151,133 +190,194 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
             }
 
             item {
-                DealiText(
-                    text = "TimePicker (24Hours)",
-                    style = DealiFont.sh1sb20,
-                    color = DealiColor.g100
-                )
-            }
-
-            item {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    DealiText(
-                        text = "Selected Time:",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    DealiText(
-                        text = "${timePicker1State.currentHour.toTimePickerContentText()}:" +
-                                "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
-                                timePicker1State.currentSecond.toTimePickerContentText(),
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                }
-            }
-
-            item {
-                TimePicker(
-                    timeFormat = TimePickerFormat.Format24Hour,
-                    state = timePicker1State,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .border(
-                            width = 1.dp,
-                            color = DealiColor.g20,
-                            shape = AppTheme.shapes.radius10
-                        ),
-                    decorationBox = { innerPickers ->
-                        Row(
+                SampleAccordion(
+                    onHeaderClick = { expanded3 = !expanded3 },
+                    expanded = expanded3,
+                    modifier = Modifier.fillMaxWidth(),
+                    headerContent = {
+                        Box(
                             modifier = Modifier
-                                .align(Alignment.Center)
                                 .fillMaxWidth()
-                                .height(26.dp)
-                                .background(color = DealiColor.g10),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.CenterVertically,
+                                .height(48.dp),
+                            contentAlignment = Alignment.CenterStart
                         ) {
                             DealiText(
-                                text = ":",
-                                style = DealiFont.sh3sb16,
-                                color = DealiColor.g100
-                            )
-                            DealiText(
-                                text = ":",
-                                style = DealiFont.sh3sb16,
+                                text = "TimePicker Sample 1",
+                                style = DealiFont.sh1sb20,
                                 color = DealiColor.g100
                             )
                         }
-                        innerPickers()
                     },
-                )
-            }
+                    collapsableContent = {
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                DealiText(
+                                    text = "Selected Time:",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                DealiText(
+                                    text = "${timePicker1State.currentHour.toTimePickerContentText()}:" +
+                                            "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
+                                            timePicker1State.currentSecond.toTimePickerContentText(),
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                            }
 
-            item {
-                DealiText(
-                    text = "TimePicker (12 Hours)",
-                    style = DealiFont.sh1sb20,
-                    color = DealiColor.g100
-                )
-            }
-
-            item {
-                Row(modifier = Modifier.fillMaxWidth()) {
-                    DealiText(
-                        text = "Selected Time:",
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    DealiText(
-                        text = "${timePicker2State.currentHour.toTimePickerContentText()}:" +
-                                "${timePicker2State.currentMinute.toTimePickerContentText()}:" +
-                                timePicker2State.currentSecond.toTimePickerContentText(),
-                        style = DealiFont.sh3r16,
-                        color = DealiColor.g80
-                    )
-                }
-            }
-
-            item {
-                TimePicker(
-                    timeFormat = TimePickerFormat.Format12Hour,
-                    state = timePicker2State,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .border(
-                            width = 1.dp,
-                            color = DealiColor.g20,
-                            shape = AppTheme.shapes.radius10
-                        ),
-                    decorationBox = { innerPickers ->
-                        Row(
-                            modifier = Modifier
-                                .align(Alignment.Center)
-                                .fillMaxWidth()
-                                .height(26.dp)
-                                .background(color = DealiColor.g10),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            verticalAlignment = Alignment.CenterVertically,
-                        ) {
-                            Box {}
-                            DealiText(
-                                text = ":",
-                                style = DealiFont.sh3sb16,
-                                color = DealiColor.g100
+                            TimePicker(
+                                timeFormat = TimePickerFormat.Format24Hour,
+                                state = timePicker1State,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp)
+                                    .border(
+                                        width = 1.dp,
+                                        color = DealiColor.g20,
+                                        shape = AppTheme.shapes.radius10
+                                    ),
+                                minuteInterval = 5,
+                                secondInterval = 30,
+                                decorationBox = { innerPickers ->
+                                    Row(
+                                        modifier = Modifier
+                                            .align(Alignment.Center)
+                                            .fillMaxWidth()
+                                            .height(26.dp)
+                                            .background(color = DealiColor.g10),
+                                        horizontalArrangement = Arrangement.SpaceEvenly,
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        DealiText(
+                                            text = ":",
+                                            style = DealiFont.sh3sb16,
+                                            color = DealiColor.g100
+                                        )
+                                        DealiText(
+                                            text = ":",
+                                            style = DealiFont.sh3sb16,
+                                            color = DealiColor.g100
+                                        )
+                                    }
+                                    innerPickers()
+                                },
                             )
+                        }
+                    }
+                )
+            }
+
+            item {
+                Divider(
+                    modifier = Modifier.fillMaxWidth(),
+                    thickness = 1.dp,
+                    color = DealiColor.g10
+                )
+            }
+
+            item {
+                SampleAccordion(
+                    onHeaderClick = { expanded4 = !expanded4 },
+                    expanded = expanded4,
+                    modifier = Modifier.fillMaxWidth(),
+                    headerContent = {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(48.dp),
+                            contentAlignment = Alignment.CenterStart
+                        ) {
                             DealiText(
-                                text = ":",
-                                style = DealiFont.sh3sb16,
+                                text = "TimePicker Sample 2",
+                                style = DealiFont.sh1sb20,
                                 color = DealiColor.g100
                             )
                         }
-                        innerPickers()
                     },
+                    collapsableContent = {
+                        Column {
+                            Row(modifier = Modifier.fillMaxWidth()) {
+                                DealiText(
+                                    text = "Selected Time:",
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                                Spacer(modifier = Modifier.width(16.dp))
+                                DealiText(
+                                    text = "${timePicker1State.currentHour.toTimePickerContentText()}:" +
+                                            "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
+                                            timePicker1State.currentSecond.toTimePickerContentText(),
+                                    style = DealiFont.sh3r16,
+                                    color = DealiColor.g80
+                                )
+                            }
+
+                            TimePicker(
+                                timeFormat = TimePickerFormat.Format12Hour,
+                                state = timePicker2State,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(180.dp)
+                                    .border(
+                                        width = 1.dp,
+                                        color = DealiColor.g20,
+                                        shape = AppTheme.shapes.radius10
+                                    ),
+                                decorationBox = { innerPickers ->
+                                    Row(
+                                        modifier = Modifier
+                                            .align(Alignment.Center)
+                                            .fillMaxWidth()
+                                            .height(26.dp)
+                                            .background(color = DealiColor.g10),
+                                        horizontalArrangement = Arrangement.SpaceEvenly,
+                                        verticalAlignment = Alignment.CenterVertically,
+                                    ) {
+                                        Box {}
+                                        DealiText(
+                                            text = ":",
+                                            style = DealiFont.sh3sb16,
+                                            color = DealiColor.g100
+                                        )
+                                        DealiText(
+                                            text = ":",
+                                            style = DealiFont.sh3sb16,
+                                            color = DealiColor.g100
+                                        )
+                                    }
+                                    innerPickers()
+                                },
+                            )
+                        }
+                    }
                 )
             }
+
+        }
+    }
+}
+
+@Composable
+private fun SampleAccordion(
+    onHeaderClick: () -> Unit,
+    expanded: Boolean,
+    modifier: Modifier = Modifier,
+    headerContent: @Composable () -> Unit,
+    collapsableContent: @Composable () -> Unit
+) {
+    Column(modifier = modifier) {
+        Box(modifier = Modifier.clickable(onClick = onHeaderClick)) {
+            headerContent()
+        }
+
+        AnimatedVisibility(
+            visible = expanded,
+            enter = expandVertically(),
+            exit = shrinkVertically(),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            collapsableContent()
         }
     }
 }
