@@ -242,7 +242,7 @@ fun chipsSquareLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsOutlineLargePrimary01(
+    chipsSquareLargePrimary01(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
