@@ -34,6 +34,7 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TimePicker
 import net.deali.designsystem.component.TimePickerFormat
+import net.deali.designsystem.component.TimePickerPeriod
 import net.deali.designsystem.component.rememberDatePickerState
 import net.deali.designsystem.component.rememberTimePickerState
 import net.deali.designsystem.theme.AppTheme
@@ -218,7 +219,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${timePicker1State.currentHour.toTimePickerContentText()}:" +
+                                    text = "${timePicker1State.currentHour24.toTimePickerContentText()}:" +
                                             "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
                                             timePicker1State.currentSecond.toTimePickerContentText(),
                                     style = DealiFont.sh3r16,
@@ -305,9 +306,10 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${timePicker1State.currentHour.toTimePickerContentText()}:" +
-                                            "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
-                                            timePicker1State.currentSecond.toTimePickerContentText(),
+                                    text = "${if (timePicker2State.currentPeriod == TimePickerPeriod.Am) "AM" else "PM"} " +
+                                            "${timePicker2State.currentHour12.toTimePickerContentText()}:" +
+                                            "${timePicker2State.currentMinute.toTimePickerContentText()}:" +
+                                            timePicker2State.currentSecond.toTimePickerContentText(),
                                     style = DealiFont.sh3r16,
                                     color = DealiColor.g80
                                 )
