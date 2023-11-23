@@ -374,6 +374,9 @@ class DatePickerState(
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
      */
     suspend fun scrollTo(year: Int, month: Int, date: Int) {
+        if (year < 1) return
+        if (month < 1 || month > 12) return
+        if (date < 1 || date > 31) return
         if (
             minYear == NotInitialized || maxYear == NotInitialized ||
             minMonth == NotInitialized || maxMonth == NotInitialized ||
@@ -389,8 +392,10 @@ class DatePickerState(
     /**
      * 특정 연도로 애니메이션 없이 스크롤 이동.
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     * 만약 0보다 작은 값이 주어진 경우라면 이동하지 않습니다.
      */
     suspend fun scrollToYear(year: Int) {
+        if (year < 1) return
         if (minYear == NotInitialized || maxYear == NotInitialized) return
         yearPickerState.scrollToItem(calculateYearScrollTargetIndex(year))
     }
@@ -398,8 +403,10 @@ class DatePickerState(
     /**
      * 특정 달로 애니메이션 없이 스크롤 이동.
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     * 만약 1에서 12 사이의 값이 주어지지 않았다면 이동하지 않습니다.
      */
     suspend fun scrollToMonth(month: Int) {
+        if (month < 1 || month > 12) return
         if (minMonth == NotInitialized || maxMonth == NotInitialized) return
         monthPickerState.scrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
@@ -407,8 +414,10 @@ class DatePickerState(
     /**
      * 특정 날짜로 애니메이션 없이 스크롤 이동.
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     * 만약 1에서 31 사이의 값이 주어지지 않았다면 이동하지 않습니다.
      */
     suspend fun scrollToDate(date: Int) {
+        if (date < 1 || date > 31) return
         if (minDate == NotInitialized || maxDate == NotInitialized) return
         datePickerState.scrollToItem(
             calculateDateScrollTargetIndex(
@@ -424,6 +433,9 @@ class DatePickerState(
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
      */
     suspend fun animateScrollTo(year: Int, month: Int, date: Int) {
+        if (year < 1) return
+        if (month < 1 || month > 12) return
+        if (date < 1 || date > 31) return
         if (
             minYear == NotInitialized || maxYear == NotInitialized ||
             minMonth == NotInitialized || maxMonth == NotInitialized ||
@@ -455,6 +467,7 @@ class DatePickerState(
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
      */
     suspend fun animateScrollToYear(year: Int) {
+        if (year < 1) return
         if (minYear == NotInitialized || maxYear == NotInitialized) return
         yearPickerState.animateScrollToItem(calculateYearScrollTargetIndex(year))
     }
@@ -464,6 +477,7 @@ class DatePickerState(
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
      */
     suspend fun animateScrollToMonth(month: Int) {
+        if (month < 1 || month > 12) return
         if (minMonth == NotInitialized || maxMonth == NotInitialized) return
         monthPickerState.animateScrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
@@ -473,6 +487,7 @@ class DatePickerState(
      * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
      */
     suspend fun animateScrollToDate(date: Int) {
+        if (date < 1 || date > 31) return
         if (minDate == NotInitialized || maxDate == NotInitialized) return
         datePickerState.animateScrollToItem(
             calculateDateScrollTargetIndex(
