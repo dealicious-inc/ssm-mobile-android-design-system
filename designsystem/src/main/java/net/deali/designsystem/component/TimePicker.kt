@@ -20,10 +20,13 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.datetimepicker.CorePicker
 import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
+import net.deali.designsystem.internal.datetimepicker.calculateFarIndexForRepeatedPicker
 import java.util.Calendar
 import java.util.Date
 
@@ -111,6 +114,7 @@ fun TimePicker(
         TimePickerFormat.Format12Hour -> check(hourInterval in divisorsOf12) {
             "hourInterval은 12의 약수이면서 6 이하의 자연수만 사용 가능합니다."
         }
+
         TimePickerFormat.Format24Hour -> check(hourInterval in divisorsOf24) {
             "hourInterval은 24의 약수이면서 12 이하의 자연수만 사용 가능합니다."
         }
@@ -125,12 +129,21 @@ fun TimePicker(
     val amPm = remember { listOf(TimePickerPeriod.Am, TimePickerPeriod.Pm) }
     val hours = remember {
         when (timeFormat) {
-            TimePickerFormat.Format12Hour -> (1..12).toList()
-            TimePickerFormat.Format24Hour -> (0..23).toList()
+            TimePickerFormat.Format12Hour -> (1..12 step hourInterval).toList()
+            TimePickerFormat.Format24Hour -> (0..23 step hourInterval).toList()
         }
     }
     val minutes = remember { (0..59 step minuteInterval).toList() }
     val seconds = remember { (0..59 step secondInterval).toList() }
+
+    LaunchedEffect(Unit) {
+        val initialHour = state.currentHour
+        val initialMinute = state.currentMinute
+        val initialSecond = state.currentSecond
+        state.updateTimeFormat(timeFormat)
+        state.updateIntervals(hourInterval, minuteInterval, secondInterval)
+        state.scrollTo(initialHour, initialMinute, initialSecond)
+    }
 
     LaunchedEffect(
         state.periodPickerState.currentIndex,
@@ -311,6 +324,7 @@ fun rememberTimePickerState(
         TimePickerFormat.Format12Hour -> require(initialHour in 1..12) {
             "timeFormat이 12시간제인 경우 initialHour는 1에서 12 사이 값이여야 합니다: initialHour=$initialHour"
         }
+
         TimePickerFormat.Format24Hour -> require(initialHour in 0..23) {
             "timeFormat이 24시간제인 경우 initialHour는 0에서 23 사이 값이여야 합니다: initialHour=$initialHour"
         }
@@ -324,37 +338,39 @@ fun rememberTimePickerState(
 
     return rememberSaveable(saver = TimePickerState.Saver) {
         TimePickerState(
-            initialPeriodIndex = when (initialPeriod) {
-                TimePickerPeriod.Am -> 0
-                TimePickerPeriod.Pm -> 1
-            },
-            initialHourIndex = when (initialPeriod) {
-                TimePickerPeriod.Am -> initialHour - 1
-                TimePickerPeriod.Pm -> initialHour
-            },
-            initialMinuteIndex = initialMinute,
-            initialSecondIndex = initialSecond
+            initialHour = initialHour,
+            initialMinute = initialMinute,
+            initialSecond = initialSecond,
+//            initialPeriodIndex = when (initialPeriod) {
+//                TimePickerPeriod.Am -> 0
+//                TimePickerPeriod.Pm -> 1
+//            },
+//            initialHourIndex = when (initialPeriod) {
+//                TimePickerPeriod.Am -> initialHour - 1
+//                TimePickerPeriod.Pm -> initialHour
+//            },
+//            initialMinuteIndex = initialMinute,
+//            initialSecondIndex = initialSecond
         )
     }
 }
 
 @Stable
 class TimePickerState(
-    initialPeriodIndex: Int = 0,
-    initialHourIndex: Int = 0,
-    initialMinuteIndex: Int = 0,
-    initialSecondIndex: Int = 0
+    initialHour: Int,
+    initialMinute: Int,
+    initialSecond: Int,
 ) {
-    internal val periodPickerState = CorePickerState(initialIndex = initialPeriodIndex)
-    internal val hourPickerState = CorePickerState(initialIndex = initialHourIndex)
-    internal val minutePickerState = CorePickerState(initialIndex = initialMinuteIndex)
-    internal val secondPickerState = CorePickerState(initialIndex = initialSecondIndex)
+    internal val periodPickerState = CorePickerState()
+    internal val hourPickerState = CorePickerState()
+    internal val minutePickerState = CorePickerState()
+    internal val secondPickerState = CorePickerState()
 
-    private var _currentHour: Int by mutableStateOf(initialHourIndex)
-    private var _currentMinute: Int by mutableStateOf(initialMinuteIndex)
-    private var _currentSecond: Int by mutableStateOf(initialSecondIndex)
+    private var _currentHour: Int by mutableStateOf(initialHour)
+    private var _currentMinute: Int by mutableStateOf(initialMinute)
+    private var _currentSecond: Int by mutableStateOf(initialSecond)
 
-    /** 현재 선택 된 시간. 12시간제/24시간제와 상관 없이 항상 0~23 사이의 값으로 반환합니다. */
+    /** 현재 선택 된 시간. 12/24시간제 상관 없이 항상 0~23 사이의 값으로 반환합니다. */
     var currentHour: Int
         get() = _currentHour
         internal set(value) {
@@ -363,7 +379,7 @@ class TimePickerState(
             }
         }
 
-    /** 현재 선택 된 분. 0~59 사이의 값으로 반환합니다. */
+    /** 현재 선택 된 분. */
     var currentMinute: Int
         get() = _currentMinute
         internal set(value) {
@@ -372,7 +388,7 @@ class TimePickerState(
             }
         }
 
-    /** 현재 선택 된 초. 0~59 사이의 값으로 반환합니다. */
+    /** 현재 선택 된 초. */
     var currentSecond: Int
         get() = _currentSecond
         internal set(value) {
@@ -381,6 +397,12 @@ class TimePickerState(
             }
         }
 
+    private var timeFormat: TimePickerFormat? by mutableStateOf(null)
+
+    private var hourInterval: Int by mutableStateOf(NotInitialized)
+    private var minuteInterval: Int by mutableStateOf(NotInitialized)
+    private var secondInterval: Int by mutableStateOf(NotInitialized)
+
     /** 현재 피커가 스크롤 중인지 여부. */
     val isScrollInProgress: Boolean
         get() = periodPickerState.lazyListState.isScrollInProgress ||
@@ -388,24 +410,246 @@ class TimePickerState(
                 minutePickerState.lazyListState.isScrollInProgress ||
                 secondPickerState.lazyListState.isScrollInProgress
 
+    /** 특정 시간으로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollTo(hour: Int, minute: Int, second: Int) {
+        scrollToHour(hour)
+        scrollToMinute(minute)
+        scrollToSecond(second)
+    }
+
+    /**
+     * 특정한 AM/PM으로 애니메이션 없이 스크롤 이동 */
+    suspend fun scrollToPeriod(period: TimePickerPeriod) {
+        periodPickerState.scrollToItem(
+            when (period) {
+                TimePickerPeriod.Am -> 0
+                TimePickerPeriod.Pm -> 1
+            }
+        )
+    }
+
+    /**
+     * 특정 시간으로 애니메이션 없이 스크롤 이동. 피커의 12/24시간제와는 무관하게 항상 0~23 사이의 시간으로 주어져야 합니다.
+     * 피커가 12시간제인 경우, AM/PM도 함께 스크롤 될 수 있습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun scrollToHour(hour: Int) {
+        if (hour < 0 || hour > 23) return
+        val currentTimeFormat = timeFormat
+        if (hourInterval == NotInitialized || currentTimeFormat == null) return
+        when (currentTimeFormat) {
+            TimePickerFormat.Format12Hour -> {
+                val (hour12, period) = deconstructHour24ToHour12AndPeriod(hour)
+                val targetIndex = calculateHourScrollTargetIndex(hour12)
+                if (targetIndex == NoIndex) return
+                scrollToPeriod(period)
+                hourPickerState.scrollToItem(targetIndex)
+            }
+
+            TimePickerFormat.Format24Hour -> {
+                val targetIndex = calculateHourScrollTargetIndex(hour)
+                if (targetIndex == NoIndex) return
+                hourPickerState.scrollToItem(targetIndex)
+            }
+        }
+    }
+
+    /**
+     * 특정 분으로 애니메이션 없이 스크롤 이동. 항상 0에서 59 사이의 값이 주어져야 합니다. 그 외의 값은 이동하지 않습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun scrollToMinute(minute: Int) {
+        if (minute < 0 || minute > 59) return
+        if (minuteInterval == NotInitialized) return
+        val targetIndex = calculateMinuteScrollTargetIndex(minute)
+        if (targetIndex == NoIndex) return
+        minutePickerState.scrollToItem(targetIndex)
+    }
+
+    /**
+     * 특정 초로 애니메이션 없이 스크롤 이동. 항상 0에서 59 사이의 값이 주어져야 합니다. 그 외의 값은 이동하지 않습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun scrollToSecond(second: Int) {
+        if (second < 0 || second > 59) return
+        if (secondInterval == NotInitialized) return
+        val targetIndex = calculateSecondScrollTargetIndex(second)
+        if (targetIndex == NoIndex) return
+        secondPickerState.scrollToItem(targetIndex)
+    }
+
+    /** 특정 시간으로 스크롤 이동 */
+    suspend fun animateScrollTo(hour: Int, minute: Int, second: Int) {
+        coroutineScope {
+            launch {
+                animateScrollToHour(hour)
+            }
+            launch {
+                animateScrollToMinute(minute)
+            }
+            launch {
+                animateScrollToSecond(second)
+            }
+        }
+    }
+
+    /** 특정 AM/PM으로 스크롤 이동 */
+    suspend fun animateScrollToPeriod(period: TimePickerPeriod) {
+        periodPickerState.animateScrollToItem(
+            when (period) {
+                TimePickerPeriod.Am -> 0
+                TimePickerPeriod.Pm -> 1
+            }
+        )
+    }
+
+    /**
+     * 특정 시간으로 스크롤 이동. 피커의 12/24시간제와는 무관하게 항상 0~23 사이의 시간으로 주어져야 합니다.
+     * 피커가 12시간제인 경우, AM/PM도 함께 스크롤 될 수 있습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun animateScrollToHour(hour: Int) {
+        if (hour < 0 || hour > 23) return
+        val currentTimeFormat = timeFormat
+        if (hourInterval == NotInitialized || currentTimeFormat == null) return
+        when (currentTimeFormat) {
+            TimePickerFormat.Format12Hour -> {
+                val (hour12, period) = deconstructHour24ToHour12AndPeriod(hour)
+                val targetIndex = calculateHourScrollTargetIndex(hour12)
+                if (targetIndex == NoIndex) return
+                coroutineScope {
+                    launch {
+                        animateScrollToPeriod(period)
+                    }
+                    launch {
+                        hourPickerState.animateScrollToItem(targetIndex)
+                    }
+                }
+            }
+
+            TimePickerFormat.Format24Hour -> {
+                val targetIndex = calculateHourScrollTargetIndex(hour)
+                if (targetIndex == NoIndex) return
+                hourPickerState.animateScrollToItem(targetIndex)
+            }
+        }
+    }
+
+    /**
+     * 특정 분으로 스크롤 이동. 항상 0에서 59 사이의 값이 주어져야 합니다. 그 외의 값은 이동하지 않습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun animateScrollToMinute(minute: Int) {
+        if (minute < 0 || minute > 59) return
+        if (minuteInterval == NotInitialized) return
+        val targetIndex = calculateMinuteScrollTargetIndex(minute)
+        if (targetIndex == NoIndex) return
+        minutePickerState.animateScrollToItem(targetIndex)
+    }
+
+    /**
+     * 특정 초로 스크롤 이동. 항상 0에서 59 사이의 값이 주어져야 합니다. 그 외의 값은 이동하지 않습니다.
+     * 만약 주어진 값이 피커에서 선택할 수 없는 값이라면 이동하지 않습니다.
+     */
+    suspend fun animateScrollToSecond(second: Int) {
+        if (second < 0 || second > 59) return
+        if (secondInterval == NotInitialized) return
+        val targetIndex = calculateSecondScrollTargetIndex(second)
+        if (targetIndex == NoIndex) return
+        secondPickerState.scrollToItem(targetIndex)
+    }
+
+    internal fun updateTimeFormat(timeFormat: TimePickerFormat) {
+        if (this.timeFormat != timeFormat) {
+            this.timeFormat = timeFormat
+        }
+    }
+
+    internal fun updateIntervals(
+        hourInterval: Int,
+        minuteInterval: Int,
+        secondInterval: Int
+    ) {
+        if (this.hourInterval != hourInterval) {
+            this.hourInterval = hourInterval
+        }
+        if (this.minuteInterval != minuteInterval) {
+            this.minuteInterval = minuteInterval
+        }
+        if (this.secondInterval != secondInterval) {
+            this.secondInterval = secondInterval
+        }
+    }
+
+    private fun deconstructHour24ToHour12AndPeriod(hour24: Int): Pair<Int, TimePickerPeriod> {
+        val period = if (hour24 < 12) TimePickerPeriod.Am else TimePickerPeriod.Pm
+        val hour12 = if (period == TimePickerPeriod.Am) {
+            if (hour24 == 0) 12 else hour24
+        } else {
+            if (hour24 == 12) 12 else hour24 - 12
+        }
+        return Pair(hour12, period)
+    }
+
+    private fun calculateHourScrollTargetIndex(hour: Int): Int {
+        val possibleHours = getPossibleHours()
+        val hourIndexInPossibles = possibleHours?.indexOf(hour) ?: NoIndex
+        if (possibleHours == null || hourIndexInPossibles == NoIndex) return NoIndex
+        return calculateFarIndexForRepeatedPicker(hourIndexInPossibles, possibleHours.count())
+    }
+
+    private fun calculateMinuteScrollTargetIndex(minute: Int): Int {
+        val possibleMinutes = getPossibleMinutes()
+        val minuteIndexInPossibles = possibleMinutes?.indexOf(minute) ?: NoIndex
+        if (possibleMinutes == null || minuteIndexInPossibles == NoIndex) return NoIndex
+        return calculateFarIndexForRepeatedPicker(minuteIndexInPossibles, possibleMinutes.count())
+    }
+
+    private fun calculateSecondScrollTargetIndex(second: Int): Int {
+        val possibleSeconds = getPossibleSeconds()
+        val secondIndexInPossibles = possibleSeconds?.indexOf(second) ?: NoIndex
+        if (possibleSeconds == null || secondIndexInPossibles == NoIndex) return NoIndex
+        return calculateFarIndexForRepeatedPicker(secondIndexInPossibles, possibleSeconds.count())
+    }
+
+    private fun getPossibleHours(): IntProgression? {
+        if (hourInterval == NotInitialized) return null
+        return when (timeFormat) {
+            TimePickerFormat.Format12Hour -> (1..12 step hourInterval)
+            TimePickerFormat.Format24Hour -> (0..23 step hourInterval)
+            null -> null
+        }
+    }
+
+    private fun getPossibleMinutes(): IntProgression? {
+        if (minuteInterval == NotInitialized) return null
+        return (0..59 step minuteInterval)
+    }
+
+    private fun getPossibleSeconds(): IntProgression? {
+        if (secondInterval == NotInitialized) return null
+        return (0..59 step secondInterval)
+    }
+
     companion object {
         val Saver: Saver<TimePickerState, List<Int>> = Saver(
             save = {
                 listOf(
-                    it.periodPickerState.currentIndex,
-                    it.hourPickerState.currentIndex,
-                    it.minutePickerState.currentIndex,
-                    it.secondPickerState.currentIndex
+                    it.currentHour,
+                    it.currentMinute,
+                    it.currentSecond,
                 )
             },
             restore = {
                 TimePickerState(
-                    initialPeriodIndex = it[0],
-                    initialHourIndex = it[1],
-                    initialMinuteIndex = it[2],
-                    initialSecondIndex = it[3]
+                    initialHour = it[0],
+                    initialMinute = it[1],
+                    initialSecond = it[2],
                 )
             }
         )
+
+        private const val NotInitialized: Int = -1
+        private const val NoIndex: Int = -1
     }
 }
