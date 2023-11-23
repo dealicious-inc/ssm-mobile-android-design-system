@@ -256,9 +256,36 @@ fun TimePicker(
 /**
  * [TimePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
  * 현재 시간을 초기 값으로 사용합니다.
+ */
+@Composable
+fun rememberTimePickerState(): TimePickerState {
+    val today = Calendar.getInstance()
+    today.time = Date()
+
+    val todayHour = today.get(Calendar.HOUR_OF_DAY)
+    val todayMinute = today.get(Calendar.MINUTE)
+    val todaySecond = today.get(Calendar.SECOND)
+
+    return rememberSaveable(saver = TimePickerState.Saver) {
+        TimePickerState(
+            initialHour = todayHour,
+            initialMinute = todayMinute,
+            initialSecond = todaySecond,
+        )
+    }
+}
+
+/**
+ * [TimePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
+ * 현재 시간을 초기 값으로 사용합니다.
  *
  * @param timeFormat [TimePicker]가 사용하는 [TimePickerFormat].
  */
+@Deprecated(
+    "더 이상 timeFormat을 매개변수로 받지 않아도 됩니다. " +
+            "매개변수를 받지 않는 rememberTimePickerState()를 사용해 주세요",
+    ReplaceWith("rememberTimePickerState()")
+)
 @Composable
 fun rememberTimePickerState(timeFormat: TimePickerFormat): TimePickerState {
     val today = Calendar.getInstance()
@@ -268,37 +295,36 @@ fun rememberTimePickerState(timeFormat: TimePickerFormat): TimePickerState {
     val todayMinute = today.get(Calendar.MINUTE)
     val todaySecond = today.get(Calendar.SECOND)
 
-    return rememberTimePickerState(
-        timeFormat = timeFormat,
-        initialPeriod = when (timeFormat) {
-            TimePickerFormat.Format12Hour -> {
-                if (todayHour < 12) {
-                    TimePickerPeriod.Am
-                } else {
-                    TimePickerPeriod.Pm
-                }
-            }
+    return rememberSaveable(saver = TimePickerState.Saver) {
+        TimePickerState(
+            initialHour = todayHour,
+            initialMinute = todayMinute,
+            initialSecond = todaySecond,
+        )
+    }
+}
 
-            TimePickerFormat.Format24Hour -> {
-                TimePickerPeriod.Am
-            }
-        },
-        initialHour = when (timeFormat) {
-            TimePickerFormat.Format12Hour -> {
-                if (todayHour <= 12) {
-                    todayHour
-                } else {
-                    todayHour - 12
-                }
-            }
-
-            TimePickerFormat.Format24Hour -> {
-                todayHour
-            }
-        },
-        initialMinute = todayMinute,
-        initialSecond = todaySecond
-    )
+/**
+ * [TimePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
+ *
+ * @param initialHour 초기 시간 값. 피커의 12/24시간제와 무관하게 0~23 사이 값이여야 합니다.
+ * @param initialMinute 초기 분 값 0에서 59 사이 값이여야 합니다.
+ * @param initialSecond 초기 초 값. 0에서 59 사이 값이여야 합니다.
+ */
+@Composable
+@Stable
+fun rememberTimePickerState(
+    initialHour: Int,
+    initialMinute: Int,
+    initialSecond: Int
+): TimePickerState {
+    return rememberSaveable(saver = TimePickerState.Saver) {
+        TimePickerState(
+            initialHour = initialHour,
+            initialMinute = initialMinute,
+            initialSecond = initialSecond,
+        )
+    }
 }
 
 /**
@@ -308,9 +334,14 @@ fun rememberTimePickerState(timeFormat: TimePickerFormat): TimePickerState {
  * @param initialPeriod 초기 AM/PM 값. [timeFormat]이 24시간제인 경우 무시됩니다.
  * @param initialHour 초기 시간 값. [initialPeriod]가 [TimePickerPeriod.Am]인 경우 1에서 12 사이,
  * [TimePickerPeriod.Pm]인 경우 0에서 23 사이 값이여야 합니다.
- * @param initialMinute 초기 분 값 0에서 59 사이 값이여야 합니다..
+ * @param initialMinute 초기 분 값 0에서 59 사이 값이여야 합니다.
  * @param initialSecond 초기 초 값. 0에서 59 사이 값이여야 합니다.
  */
+@Deprecated(
+    "더 이상 timeFormat와 initialPeriod를 매개변수로 받지 않아도 됩니다." +
+            "rememberTimePickerState(initialHour, initialMinute, initialSecond)를 사용해 주세요.",
+    ReplaceWith("rememberTimePickerState(initialHour, initialMinute, initialSecond)")
+)
 @Composable
 @Stable
 fun rememberTimePickerState(
@@ -338,19 +369,23 @@ fun rememberTimePickerState(
 
     return rememberSaveable(saver = TimePickerState.Saver) {
         TimePickerState(
-            initialHour = initialHour,
+            initialHour = when (timeFormat) {
+                TimePickerFormat.Format12Hour -> {
+                    when (initialPeriod) {
+                        TimePickerPeriod.Am -> {
+                            if (initialHour == 12) 0 else initialHour - 1
+                        }
+
+                        TimePickerPeriod.Pm -> {
+                            if (initialHour == 12) 12 else initialHour + 12
+                        }
+                    }
+                }
+
+                TimePickerFormat.Format24Hour -> initialHour
+            },
             initialMinute = initialMinute,
             initialSecond = initialSecond,
-//            initialPeriodIndex = when (initialPeriod) {
-//                TimePickerPeriod.Am -> 0
-//                TimePickerPeriod.Pm -> 1
-//            },
-//            initialHourIndex = when (initialPeriod) {
-//                TimePickerPeriod.Am -> initialHour - 1
-//                TimePickerPeriod.Pm -> initialHour
-//            },
-//            initialMinuteIndex = initialMinute,
-//            initialSecondIndex = initialSecond
         )
     }
 }
