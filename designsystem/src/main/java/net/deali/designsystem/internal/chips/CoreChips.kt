@@ -59,8 +59,8 @@ internal fun CoreRegularChips(
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
     @DrawableRes rightIcon: Int?,
-    leftIconColor: Color,
-    rightIconColor: Color,
+    leftIconColor: Color?,
+    rightIconColor: Color?,
     onLeftIconClick: (() -> Unit)?,
     onRightIconClick: (() -> Unit)?,
     clickable: Boolean,
@@ -109,7 +109,7 @@ internal fun CoreRegularChips(
 internal fun CoreIconOnlyChips(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
-    iconColor: Color,
+    iconColor: Color?,
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
@@ -290,25 +290,34 @@ private fun RowScope.RegularContent(
     textAlign: TextAlign?,
     @DrawableRes leftIcon: Int?,
     @DrawableRes rightIcon: Int?,
-    customLeftIconColor: Color,
-    customRightIconColor: Color,
+    customLeftIconColor: Color?,
+    customRightIconColor: Color?,
     onLeftIconClick: (() -> Unit)?,
     onRightIconClick: (() -> Unit)?,
     enabled: Boolean,
     defaultContentColor: Color,
 ) {
     if (leftIcon != null) {
-        val useCustomLeftIconColor = customLeftIconColor != Color.Unspecified
+        val useIconDefaultColor = customLeftIconColor == null
+        val useCustomIconColor = customLeftIconColor != Color.Unspecified
         if (onLeftIconClick == null) {
             Icon16(
                 iconRes = leftIcon,
-                color = if (useCustomLeftIconColor) customLeftIconColor else defaultContentColor,
+                color = when {
+                    useIconDefaultColor -> Color.Unspecified
+                    useCustomIconColor -> customLeftIconColor!!
+                    else -> defaultContentColor
+                }
             )
         } else {
             Icon16(
                 onClick = onLeftIconClick,
                 iconRes = leftIcon,
-                color = if (useCustomLeftIconColor) customLeftIconColor else defaultContentColor,
+                color = when {
+                    useIconDefaultColor -> Color.Unspecified
+                    useCustomIconColor -> customLeftIconColor!!
+                    else -> defaultContentColor
+                },
                 enabled = enabled,
             )
         }
@@ -328,17 +337,26 @@ private fun RowScope.RegularContent(
     if (rightIcon != null) {
         Spacer(modifier = Modifier.width(4.dp))
 
-        val useCustomRightIconColor = customRightIconColor != Color.Unspecified
+        val useIconDefaultColor = customRightIconColor == null
+        val useCustomIconColor = customRightIconColor != Color.Unspecified
         if (onRightIconClick == null) {
             Icon16(
                 iconRes = rightIcon,
-                color = if (useCustomRightIconColor) customRightIconColor else defaultContentColor,
+                color = when {
+                    useIconDefaultColor -> Color.Unspecified
+                    useCustomIconColor -> customRightIconColor!!
+                    else -> defaultContentColor
+                }
             )
         } else {
             Icon16(
                 onClick = onRightIconClick,
                 iconRes = rightIcon,
-                color = if (useCustomRightIconColor) customRightIconColor else defaultContentColor,
+                color = when {
+                    useIconDefaultColor -> Color.Unspecified
+                    useCustomIconColor -> customRightIconColor!!
+                    else -> defaultContentColor
+                },
                 enabled = enabled,
             )
         }
@@ -348,15 +366,20 @@ private fun RowScope.RegularContent(
 @Composable
 private fun IconOnlyContent(
     @DrawableRes icon: Int,
-    customIconColor: Color,
+    customIconColor: Color?,
     defaultContentColor: Color,
     modifier: Modifier = Modifier,
 ) {
+    val useIconDefaultColor = customIconColor == null
     val useCustomIconColor = customIconColor != Color.Unspecified
 
     Icon16(
         iconRes = icon,
-        color = if (useCustomIconColor) customIconColor else defaultContentColor,
+        color = when {
+            useIconDefaultColor -> Color.Unspecified
+            useCustomIconColor -> customIconColor!!
+            else -> defaultContentColor
+        },
         modifier = modifier,
     )
 }
