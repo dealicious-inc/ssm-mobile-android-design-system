@@ -369,64 +369,118 @@ class DatePickerState(
                 monthPickerState.lazyListState.isScrollInProgress ||
                 datePickerState.lazyListState.isScrollInProgress
 
-    /** 특정 날짜로 애니메이션 없이 스크롤 이동 */
+    /**
+     * 특정 날짜로 애니메이션 없이 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun scrollTo(year: Int, month: Int, date: Int) {
-        scrollToYear(year)
-        scrollToMonth(month)
-        scrollToDate(date)
+        if (
+            minYear == NotInitialized || maxYear == NotInitialized ||
+            minMonth == NotInitialized || maxMonth == NotInitialized ||
+            minDate == NotInitialized || maxDate == NotInitialized
+        ) {
+            return
+        }
+        yearPickerState.scrollToItem(calculateYearScrollTargetIndex(year))
+        monthPickerState.scrollToItem(calculateMonthScrollTargetIndex(year, month))
+        datePickerState.scrollToItem(calculateDateScrollTargetIndex(year, month, date))
     }
 
-    /** 특정 연도로 애니메이션 없이 스크롤 이동 */
+    /**
+     * 특정 연도로 애니메이션 없이 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun scrollToYear(year: Int) {
         if (minYear == NotInitialized || maxYear == NotInitialized) return
-        val targetYearIndex = (year - minYear).coerceIn(0, maxYear - minYear)
-        yearPickerState.scrollToItem(targetYearIndex)
+        yearPickerState.scrollToItem(calculateYearScrollTargetIndex(year))
     }
 
-    /** 특정 달로 애니메이션 없이 스크롤 이동 */
+    /**
+     * 특정 달로 애니메이션 없이 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun scrollToMonth(month: Int) {
         if (minMonth == NotInitialized || maxMonth == NotInitialized) return
-        monthPickerState.scrollToItem(month - 1)
+        monthPickerState.scrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
 
-    /** 특정 날짜로 애니메이션 없이 스크롤 이동 */
+    /**
+     * 특정 날짜로 애니메이션 없이 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun scrollToDate(date: Int) {
         if (minDate == NotInitialized || maxDate == NotInitialized) return
-        datePickerState.scrollToItem(date - 1)
+        datePickerState.scrollToItem(
+            calculateDateScrollTargetIndex(
+                currentYear,
+                currentMonth,
+                date
+            )
+        )
     }
 
-    /** 특정 날짜로 스크롤 이동 */
+    /**
+     * 특정 날짜로 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun animateScrollTo(year: Int, month: Int, date: Int) {
+        if (
+            minYear == NotInitialized || maxYear == NotInitialized ||
+            minMonth == NotInitialized || maxMonth == NotInitialized ||
+            minDate == NotInitialized || maxDate == NotInitialized
+        ) {
+            return
+        }
         coroutineScope {
             launch {
-                animateScrollToYear(year)
+                yearPickerState.animateScrollToItem(calculateYearScrollTargetIndex(year))
             }
             launch {
-                animateScrollToMonth(month)
+                monthPickerState.animateScrollToItem(calculateMonthScrollTargetIndex(year, month))
             }
             launch {
-                animateScrollToDate(date)
+                datePickerState.animateScrollToItem(
+                    calculateDateScrollTargetIndex(
+                        year,
+                        month,
+                        date
+                    )
+                )
             }
         }
     }
 
-    /** 특정 연도로 스크롤 이동 */
+    /**
+     * 특정 연도로 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun animateScrollToYear(year: Int) {
         if (minYear == NotInitialized || maxYear == NotInitialized) return
-        val targetYearIndex = (year - minYear).coerceIn(0, maxYear - minYear)
-        yearPickerState.animateScrollToItem(targetYearIndex)
+        yearPickerState.animateScrollToItem(calculateYearScrollTargetIndex(year))
     }
 
-    /** 특정 달로 스크롤 이동 */
+    /**
+     * 특정 달로 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun animateScrollToMonth(month: Int) {
         if (minMonth == NotInitialized || maxMonth == NotInitialized) return
-        monthPickerState.animateScrollToItem(month - 1)
+        monthPickerState.animateScrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
 
-    /** 특정 날짜로 스크롤 이동 */
+    /**
+     * 특정 날짜로 스크롤 이동.
+     * 만약 주어진 값이 피커에서 선택 가능 한 최대, 최소 날짜를 벗어난다면 가능 한 만큼만 이동합니다.
+     */
     suspend fun animateScrollToDate(date: Int) {
         if (minDate == NotInitialized || maxDate == NotInitialized) return
-        datePickerState.animateScrollToItem(date - 1)
+        datePickerState.animateScrollToItem(
+            calculateDateScrollTargetIndex(
+                currentYear,
+                currentMonth,
+                date
+            )
+        )
     }
 
     internal fun updateMinMax(
@@ -454,6 +508,48 @@ class DatePickerState(
         }
         if (this.maxDate != maxDate) {
             this.maxDate = maxDate
+        }
+    }
+
+    private fun calculateYearScrollTargetIndex(year: Int): Int {
+        return (year - minYear).coerceIn(0, maxYear - minYear)
+    }
+
+    private fun calculateMonthScrollTargetIndex(year: Int, month: Int): Int {
+        return when {
+            year <= minYear && month <= minMonth -> {
+                calculateFarIndexForRepeatedPicker(minMonth - 1, 12)
+            }
+
+            year >= maxYear && month >= maxMonth -> {
+                calculateFarIndexForRepeatedPicker(maxMonth - 1, 12)
+            }
+
+            else -> {
+                calculateFarIndexForRepeatedPicker(month - 1, 12)
+            }
+        }
+    }
+
+    private fun calculateDateScrollTargetIndex(year: Int, month: Int, date: Int): Int {
+        return when {
+            year <= minYear && month <= minMonth && date <= minDate -> {
+                val lastDateOfMonth = calculateLastDateOfMonth(year, minMonth)
+                val targetDate = minDate.coerceIn(0, lastDateOfMonth)
+                calculateFarIndexForRepeatedPicker(targetDate - 1, 31)
+            }
+
+            year >= maxYear && month >= maxMonth && date >= maxDate -> {
+                val lastDateOfMonth = calculateLastDateOfMonth(year, maxMonth)
+                val targetDate = maxMonth.coerceIn(0, lastDateOfMonth)
+                calculateFarIndexForRepeatedPicker(targetDate - 1, 31)
+            }
+
+            else -> {
+                val lastDateOfMonth = calculateLastDateOfMonth(year, month)
+                val targetDate = date.coerceIn(0, lastDateOfMonth)
+                calculateFarIndexForRepeatedPicker(targetDate - 1, 31)
+            }
         }
     }
 
