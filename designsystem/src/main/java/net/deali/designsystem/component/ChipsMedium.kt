@@ -115,10 +115,10 @@ fun chipsOutlineMediumPrimary01(
 fun chipsOutlineMediumPrimary01(
     onClick: () -> Unit,
     text: String,
+    useRemoveIcon: Boolean,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -231,10 +231,10 @@ fun chipsSquareBoldMediumPrimary01(
 fun chipsSquareBoldMediumPrimary01(
     onClick: () -> Unit,
     text: String,
+    useRemoveIcon: Boolean,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -261,8 +261,9 @@ fun chipsSquareBoldMediumPrimary01(
 }
 
 @Deprecated(
-    "시스템에서 제외된 컴포넌트입니다. 향후 제거될 예정이며 사용 중인 부분이 있다면 chipsSquareBoldMediumPrimary01로 교체해 주세요.",
-    ReplaceWith("chipsSquareBoldMediumPrimary01")
+    "디자인 시스템에서 제외된 컴포넌트입니다. 향후 코드 자체가 제거될 예정이며 사용 중인 부분이 있다면 다른 컴포넌트로 교체해 주세요.",
+    ReplaceWith("chipsSquareBoldMediumPrimary01"),
+    DeprecationLevel.ERROR
 )
 @Composable
 fun chipsSquareRegularMediumPrimary01(
@@ -396,10 +397,10 @@ fun chipsFilledMediumPrimary01(
 fun chipsFilledMediumPrimary01(
     onClick: () -> Unit,
     text: String,
+    useRemoveIcon: Boolean,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -512,10 +513,10 @@ fun chipsFilledMediumSquarePrimary01(
 fun chipsFilledMediumSquarePrimary01(
     onClick: () -> Unit,
     text: String,
+    useRemoveIcon: Boolean,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -622,10 +623,10 @@ fun chipsFilledSquareMediumSecondary01(
 fun chipsFilledSquareMediumSecondary01(
     onClick: () -> Unit,
     text: String,
+    useRemoveIcon: Boolean,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     leftIconColor: Color? = Color.Unspecified,
-    useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
     clickable: Boolean = true,
     selected: Boolean = false,
