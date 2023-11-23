@@ -603,24 +603,21 @@ private fun ChipsFilledLargeSquarePrimary01Samples() {
 
             Box {
                 chipsFilledLargeSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                 )
             }
             Box {
                 chipsFilledLargeSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     selected = true,
                 )
             }
             Box {
                 chipsFilledLargeSquarePrimary01(
-                    leftIcon = R.drawable.ic_refresh1,
+                    icon = R.drawable.ic_refresh1,
                     onClick = {},
-                    text = "",
                     enabled = false,
                 )
             }
