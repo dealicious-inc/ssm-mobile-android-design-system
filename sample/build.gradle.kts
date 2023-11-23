@@ -43,7 +43,7 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.ui)
     implementation(libs.compose.tooling)
-    debugImplementation(libs.compoes.preview)
+    debugImplementation(libs.compose.preview)
     implementation(libs.compose.material)
     implementation(libs.accompanist.pager.indicators)
     implementation(libs.gridlayout.compose)

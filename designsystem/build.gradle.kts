@@ -44,8 +44,7 @@ dependencies {
     implementation(libs.android.material)
     implementation(libs.coil.compose)
     implementation(libs.snapper)
-
-    debugImplementation(libs.compoes.preview)
+    debugImplementation(libs.compose.preview)
 }
 
 afterEvaluate {

@@ -31,25 +31,29 @@ android-library = { id = "com.android.library", version.ref = "android-gradle-pl
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 
 [libraries]
+# 디자인 시스템에서 사용하는 dependencies
+android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
-androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidx-constraintlayout-compose" }
-androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-foundation" }
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
-compoes-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
-compoes-compiler = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
+compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
-
-accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
+
+# 샘플에서만 사용하는 dependencies
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
+androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidx-constraintlayout-compose" }
+
+accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanist" }
 gridlayout-compose = { module = "io.woong.compose.grid:grid", version.ref = "gridlayout-compose" }
 
+# 빌드스크립트에서 사용하는 dependencies
 maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
