@@ -284,6 +284,31 @@ fun rememberDatePickerState(): DatePickerState {
 
 /**
  * [DatePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
+ * [Long]형의 타임 스탬프로 초기 값을 지정합니다.
+ */
+@Composable
+@Stable
+fun rememberDatePickerState(initialTime: Long): DatePickerState {
+    val initialCalendar = Calendar.getInstance()
+    val dateInstance = Date()
+    dateInstance.time = initialTime
+    initialCalendar.time = dateInstance
+
+    val initialYear = initialCalendar.get(Calendar.YEAR)
+    val initialMonth = initialCalendar.get(Calendar.MONTH) + 1
+    val initialDate = initialCalendar.get(Calendar.DAY_OF_MONTH)
+
+    return rememberSaveable(saver = DatePickerState.Saver) {
+        DatePickerState(
+            initialYear = initialYear,
+            initialMonth = initialMonth,
+            initialDate = initialDate
+        )
+    }
+}
+
+/**
+ * [DatePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
  *
  * @param initialYear 초기 연도 값. 반드시 양수여야 합니다.
  * @param initialMonth 초기 달 값. 1에서 12 사이 값이여야 합니다.

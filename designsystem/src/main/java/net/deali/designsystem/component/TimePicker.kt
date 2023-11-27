@@ -277,6 +277,30 @@ fun rememberTimePickerState(): TimePickerState {
 
 /**
  * [TimePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
+ * [Long]형의 타임 스탬프로 초기 값을 지정합니다.
+ */
+@Composable
+fun rememberTimePickerState(initialTime: Long): TimePickerState {
+    val initialCalendar = Calendar.getInstance()
+    val dateInstance = Date()
+    dateInstance.time = initialTime
+    initialCalendar.time = dateInstance
+
+    val initialHour = initialCalendar.get(Calendar.HOUR_OF_DAY)
+    val initialMinute = initialCalendar.get(Calendar.MINUTE)
+    val initialSecond = initialCalendar.get(Calendar.SECOND)
+
+    return rememberSaveable(saver = TimePickerState.Saver) {
+        TimePickerState(
+            initialHour = initialHour,
+            initialMinute = initialMinute,
+            initialSecond = initialSecond,
+        )
+    }
+}
+
+/**
+ * [TimePicker]의 상태를 관리하고 호이스팅하기 위한 상태 관리 객체를 생성하고 remember.
  * 현재 시간을 초기 값으로 사용합니다.
  *
  * @param timeFormat [TimePicker]가 사용하는 [TimePickerFormat].
