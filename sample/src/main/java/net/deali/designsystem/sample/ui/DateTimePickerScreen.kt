@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,12 +35,13 @@ import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TimePicker
 import net.deali.designsystem.component.TimePickerFormat
-import net.deali.designsystem.component.TimePickerPeriod
 import net.deali.designsystem.component.rememberDatePickerState
 import net.deali.designsystem.component.rememberTimePickerState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Composable
 fun DateTimePickerScreen(onBackPress: () -> Unit) {
@@ -93,6 +95,14 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
+                                val timeFormat = remember { SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()) }
+                                val displayTime by remember(datePicker1State.currentAsTimeStamp) {
+                                    derivedStateOf {
+                                        val timeStamp = datePicker1State.currentAsTimeStamp
+                                        timeFormat.format(timeStamp)
+                                    }
+                                }
+
                                 DealiText(
                                     text = "Selected Date:",
                                     style = DealiFont.sh3r16,
@@ -100,7 +110,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${datePicker1State.currentYear}/${datePicker1State.currentMonth}/${datePicker1State.currentDate}",
+                                    text = displayTime,
                                     style = DealiFont.sh3r16,
                                     color = DealiColor.g80
                                 )
@@ -153,6 +163,14 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
+                                val timeFormat = remember { SimpleDateFormat("yyyy/MM", Locale.getDefault()) }
+                                val displayTime by remember(datePicker2State.currentAsTimeStamp) {
+                                    derivedStateOf {
+                                        val timeStamp = datePicker2State.currentAsTimeStamp
+                                        timeFormat.format(timeStamp)
+                                    }
+                                }
+
                                 DealiText(
                                     text = "Selected Date:",
                                     style = DealiFont.sh3r16,
@@ -160,7 +178,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${datePicker2State.currentYear}/${datePicker2State.currentMonth}",
+                                    text = displayTime,
                                     style = DealiFont.sh3r16,
                                     color = DealiColor.g80
                                 )
@@ -176,6 +194,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                         shape = AppTheme.shapes.radius10
                                     ),
                                 state = datePicker2State,
+                                dateEnabled = false
                             )
                         }
                     }
@@ -212,6 +231,14 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
+                                val timeFormat = remember { SimpleDateFormat("HH:mm:ss", Locale.getDefault()) }
+                                val displayTime by remember(timePicker1State.currentAsTimeStamp) {
+                                    derivedStateOf {
+                                        val timeStamp = timePicker1State.currentAsTimeStamp
+                                        timeFormat.format(timeStamp)
+                                    }
+                                }
+
                                 DealiText(
                                     text = "Selected Time:",
                                     style = DealiFont.sh3r16,
@@ -219,9 +246,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${timePicker1State.currentHour24.toTimePickerContentText()}:" +
-                                            "${timePicker1State.currentMinute.toTimePickerContentText()}:" +
-                                            timePicker1State.currentSecond.toTimePickerContentText(),
+                                    text = displayTime,
                                     style = DealiFont.sh3r16,
                                     color = DealiColor.g80
                                 )
@@ -299,6 +324,14 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
+                                val timeFormat = remember { SimpleDateFormat("a hh:mm:ss", Locale.US) }
+                                val displayTime by remember(timePicker2State.currentAsTimeStamp) {
+                                    derivedStateOf {
+                                        val timeStamp = timePicker2State.currentAsTimeStamp
+                                        timeFormat.format(timeStamp)
+                                    }
+                                }
+
                                 DealiText(
                                     text = "Selected Time:",
                                     style = DealiFont.sh3r16,
@@ -306,10 +339,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                 )
                                 Spacer(modifier = Modifier.width(16.dp))
                                 DealiText(
-                                    text = "${if (timePicker2State.currentPeriod == TimePickerPeriod.Am) "AM" else "PM"} " +
-                                            "${timePicker2State.currentHour12.toTimePickerContentText()}:" +
-                                            "${timePicker2State.currentMinute.toTimePickerContentText()}:" +
-                                            timePicker2State.currentSecond.toTimePickerContentText(),
+                                    text = displayTime,
                                     style = DealiFont.sh3r16,
                                     color = DealiColor.g80
                                 )

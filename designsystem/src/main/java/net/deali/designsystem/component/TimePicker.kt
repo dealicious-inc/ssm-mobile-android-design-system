@@ -447,6 +447,20 @@ class TimePickerState(
             }
         }
 
+    /** 현재 선택 된 시간을 [Date]객체로 반환 */
+    val currentAsDate: Date
+        get() {
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.HOUR_OF_DAY, currentHour)
+            calendar.set(Calendar.MINUTE, currentMinute)
+            calendar.set(Calendar.SECOND, currentSecond)
+            return calendar.time
+        }
+
+    /** 현재 선택 된 시간을 [Long]형 타임 스탭프로 반환 */
+    val currentAsTimeStamp: Long
+        get() = currentAsDate.time
+
     private var timeFormat: TimePickerFormat? by mutableStateOf(null)
 
     private var hourInterval: Int by mutableStateOf(NotInitialized)

@@ -356,6 +356,20 @@ class DatePickerState(
             }
         }
 
+    /** 현재 선택 된 날짜를 [Date]객체로 반환 */
+    val currentAsDate: Date
+        get() {
+            val calendar = Calendar.getInstance()
+            calendar.set(Calendar.YEAR, currentYear)
+            calendar.set(Calendar.MONTH, currentMonth - 1)
+            calendar.set(Calendar.DAY_OF_MONTH, currentDate)
+            return calendar.time
+        }
+
+    /** 현재 선택 된 날짜를 [Long]형 타임 스탭프로 반환 */
+    val currentAsTimeStamp: Long
+        get() = currentAsDate.time
+
     private var minYear: Int by mutableStateOf(NotInitialized)
     private var maxYear: Int by mutableStateOf(NotInitialized)
     private var minMonth: Int by mutableStateOf(NotInitialized)
