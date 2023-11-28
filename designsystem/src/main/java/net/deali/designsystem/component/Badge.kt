@@ -3,7 +3,10 @@ package net.deali.designsystem.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -27,7 +30,35 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
- * Composable 우측 상단에 뱃지 표현.
+ * Composable 우측 상단에 점 형태의 뱃지 표현.
+ *
+ * @param offset 뱃지의 위치를 조정할 수 있는 offset.
+ */
+@Stable
+fun Modifier.badge(offset: DpOffset = DpOffset.Zero): Modifier = this.drawWithCache {
+    val badgeColor = DealiColor.primary01
+    val badgeRadius = 2.dp.toPx()
+    val badgeCenter = Offset(x = size.width, y = 0f)
+    val badgeOffset = Offset(
+        x = offset.x.toPx(),
+        y = offset.y.toPx()
+    )
+
+    onDrawWithContent {
+        drawContent()
+        drawCircle(
+            color = badgeColor,
+            radius = badgeRadius,
+            center = Offset(
+                x = badgeCenter.x + badgeOffset.x,
+                y = badgeCenter.y + badgeOffset.y
+            )
+        )
+    }
+}
+
+/**
+ * Composable 우측 상단에 숫자가 포함 된 뱃지 표현.
  *
  * @param count 뱃지 내부에 표시 할 숫자.
  * @param offset 뱃지의 위치를 조정할 수 있는 offset.
@@ -104,46 +135,60 @@ fun Modifier.badge(
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-private fun BadgePreview() {
-    Row(
-        modifier = Modifier.size(width = 200.dp, height = 100.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
+private fun Preview() {
+    Column {
+        Row(
             modifier = Modifier
-                .size(50.dp)
-                .background(color = Color.Black)
-                .badge(count = 3)
-        )
-        Box(
-            modifier = Modifier
-                .size(50.dp)
-                .background(color = Color.Black)
-                .badge(count = 24)
-        )
-    }
-}
+                .fillMaxWidth()
+                .height(100.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge()
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 3)
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 24)
+            )
+        }
 
-@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
-@Composable
-private fun BadgePreview_Offset() {
-    Row(
-        modifier = Modifier.size(width = 200.dp, height = 100.dp),
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Box(
+        Row(
             modifier = Modifier
-                .size(50.dp)
-                .background(color = Color.Black)
-                .badge(count = 3, offset = DpOffset(x = 0.dp, y = 5.dp))
-        )
-        Box(
-            modifier = Modifier
-                .size(50.dp)
-                .background(color = Color.Black)
-                .badge(count = 24, offset = DpOffset(x = 0.dp, y = 5.dp))
-        )
+                .fillMaxWidth()
+                .height(100.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(offset = DpOffset(x = 0.dp, y = 5.dp))
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 3, offset = DpOffset(x = 0.dp, y = 5.dp))
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 24, offset = DpOffset(x = 0.dp, y = 5.dp))
+            )
+        }
     }
 }
