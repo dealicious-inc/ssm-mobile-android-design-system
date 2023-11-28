@@ -13,11 +13,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.R
+import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.Checkcircle
 import net.deali.designsystem.component.CheckcircleAd
-import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -26,14 +24,9 @@ fun CheckcircleScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            NavigationBar(
+            ActionBar(
                 title = "Checkcircle",
-                navigationIcon = {
-                    Icon24(
-                        iconRes = R.drawable.ic_arrow_left,
-                        onClick = onBackPress
-                    )
-                }
+                onBack = onBackPress,
             )
         }
     ) {

@@ -17,10 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.R
+import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.sample.util.toHexString
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -65,14 +63,9 @@ fun ColorsScreen(
 
     NavigationContainer(
         navigationBar = {
-            NavigationBar(
+            ActionBar(
                 title = "Colors",
-                navigationIcon = {
-                    Icon24(
-                        iconRes = R.drawable.ic_arrow_left,
-                        onClick = onBackPress
-                    )
-                }
+                onBack = onBackPress,
             )
         }
     ) {
@@ -110,7 +103,12 @@ private fun Item(
     ) {
         Spacer(
             modifier = Modifier
-                .then(if (name.contains("white")) Modifier.border(1.dp, DealiColor.g10) else Modifier)
+                .then(
+                    if (name.contains("white")) Modifier.border(
+                        1.dp,
+                        DealiColor.g10
+                    ) else Modifier
+                )
                 .background(color)
                 .aspectRatio(1f)
         )

@@ -28,11 +28,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.R
+import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DatePicker
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.TimePicker
 import net.deali.designsystem.component.TimePickerFormat
 import net.deali.designsystem.component.rememberDatePickerState
@@ -47,14 +45,9 @@ import java.util.Locale
 fun DateTimePickerScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
-            NavigationBar(
+            ActionBar(
                 title = "DateTimePicker",
-                navigationIcon = {
-                    Icon24(
-                        iconRes = R.drawable.ic_arrow_left,
-                        onClick = onBackPress
-                    )
-                }
+                onBack = onBackPress,
             )
         }
     ) {
@@ -95,7 +88,8 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
-                                val timeFormat = remember { SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()) }
+                                val timeFormat =
+                                    remember { SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()) }
                                 val displayTime by remember(datePicker1State.currentAsTimeStamp) {
                                     derivedStateOf {
                                         val timeStamp = datePicker1State.currentAsTimeStamp
@@ -163,7 +157,8 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
-                                val timeFormat = remember { SimpleDateFormat("yyyy/MM", Locale.getDefault()) }
+                                val timeFormat =
+                                    remember { SimpleDateFormat("yyyy/MM", Locale.getDefault()) }
                                 val displayTime by remember(datePicker2State.currentAsTimeStamp) {
                                     derivedStateOf {
                                         val timeStamp = datePicker2State.currentAsTimeStamp
@@ -231,7 +226,8 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
-                                val timeFormat = remember { SimpleDateFormat("HH:mm:ss", Locale.getDefault()) }
+                                val timeFormat =
+                                    remember { SimpleDateFormat("HH:mm:ss", Locale.getDefault()) }
                                 val displayTime by remember(timePicker1State.currentAsTimeStamp) {
                                     derivedStateOf {
                                         val timeStamp = timePicker1State.currentAsTimeStamp
@@ -324,7 +320,8 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                     collapsableContent = {
                         Column {
                             Row(modifier = Modifier.fillMaxWidth()) {
-                                val timeFormat = remember { SimpleDateFormat("a hh:mm:ss", Locale.US) }
+                                val timeFormat =
+                                    remember { SimpleDateFormat("a hh:mm:ss", Locale.US) }
                                 val displayTime by remember(timePicker2State.currentAsTimeStamp) {
                                     derivedStateOf {
                                         val timeStamp = timePicker2State.currentAsTimeStamp

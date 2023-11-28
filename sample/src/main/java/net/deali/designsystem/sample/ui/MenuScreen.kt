@@ -1,17 +1,22 @@
 package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.NavigationBar
+import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.btnFilledMediumPrimary01
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun MenuScreen(
@@ -31,9 +36,19 @@ fun MenuScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            NavigationBar(
-                title = "Deali Design System Sample"
-            )
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp)
+                    .padding(start = 20.dp)
+            ) {
+                DealiText(
+                    modifier = Modifier.align(Alignment.CenterStart),
+                    text = "Deali Design System Sample",
+                    style = DealiFont.sh3sb16,
+                    color = DealiColor.primary05,
+                )
+            }
         }
     ) {
         Column(

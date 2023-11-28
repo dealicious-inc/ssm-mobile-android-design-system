@@ -15,12 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.R
+import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.DealiTextField
-import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.NavigationBar
 import net.deali.designsystem.component.PriceRangeSlider
 import net.deali.designsystem.component.RangeSlider
 import net.deali.designsystem.theme.DealiColor
@@ -33,14 +32,9 @@ fun SliderScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            NavigationBar(
+            ActionBar(
                 title = "Slider Bars",
-                navigationIcon = {
-                    Icon24(
-                        iconRes = R.drawable.ic_arrow_left,
-                        onClick = onBackPress
-                    )
-                }
+                onBack = onBackPress,
             )
         }
     ) {
@@ -130,4 +124,10 @@ fun SliderScreen(
             Text(text = "MIN $priceMinValue\nMAX $priceMaxValue")
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewSliderScreen() {
+    SliderScreen {}
 }
