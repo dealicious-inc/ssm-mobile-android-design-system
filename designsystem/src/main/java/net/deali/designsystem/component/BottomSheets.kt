@@ -1,9 +1,6 @@
 package net.deali.designsystem.component
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
@@ -11,22 +8,21 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+/**
+ * 모든 content 직접 구성
+ */
 @Composable
 fun BottomSheet(
     modifier: Modifier = Modifier,
@@ -38,25 +34,28 @@ fun BottomSheet(
     )
 }
 
-
+/**
+ * 타이틀 Default
+ */
 @Composable
 fun BottomSheet(
     title: String,
     modifier: Modifier = Modifier,
-    hideXButton: Boolean = false,
     onDismiss: () -> Unit,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
         BottomSheetHeader(
             title = title,
-            hideXButton = hideXButton,
             onDismiss = onDismiss,
         )
         content()
     }
 }
 
+/**
+ * 타이틀, 버튼1 Default
+ */
 @Composable
 fun BottomSheet(
     title: String,
@@ -85,6 +84,9 @@ fun BottomSheet(
     }
 }
 
+/**
+ * 타이틀, 버튼1, 버튼2 Default
+ */
 @Composable
 fun BottomSheet(
     title: String,
@@ -121,6 +123,10 @@ fun BottomSheet(
     }
 }
 
+/**
+ * 상단 핸들이 있는 BottomSheet
+ * 타이틀 Default
+ */
 @Composable
 fun BottomSheetWithHandle(
     title: String,
@@ -137,6 +143,33 @@ fun BottomSheetWithHandle(
             onDismiss = onDismiss,
         )
         content()
+    }
+}
+
+/**
+ * 상단 핸들이 있는 BottomSheet
+ * 타이틀 Default
+ */
+@Composable
+fun BottomSheetSingleSelectOption(
+    title: String,
+    modifier: Modifier = Modifier,
+    singleSelectOptionList: List<SingleSelectOption>,
+    onSelectOption: (index: Int) -> Unit,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+
+        SingleSelectOptionList(
+            list = singleSelectOptionList,
+            onSelectOption = onSelectOption
+        )
     }
 }
 
@@ -175,133 +208,19 @@ fun BottomSheetHeader(
     }
 }
 
-@Composable
-private fun BottomSheetFooter(
-    primaryButtonText: String,
-    secondaryButtonText: String,
-    modifier: Modifier = Modifier,
-    isPrimaryButtonEnabled: Boolean = true,
-    isSecondaryButtonEnabled: Boolean = true,
-    isPrimaryButtonLoading: Boolean = false,
-    isSecondaryButtonLoading: Boolean = false,
-    onPrimaryButtonClick: () -> Unit,
-    onSecondaryButtonClick: () -> Unit,
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(74.dp)
-            .background(DealiColor.primary04)
-            .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        btnOutlineLargePrimary01(
-            modifier = Modifier.weight(1f),
-            text = secondaryButtonText,
-            enabled = isSecondaryButtonEnabled,
-            loading = isSecondaryButtonLoading,
-            onClick = onSecondaryButtonClick,
-        )
-        Spacer(modifier = Modifier.width(8.dp))
-        btnFilledLargePrimary01(
-            modifier = Modifier.weight(1f),
-            text = primaryButtonText,
-            enabled = isPrimaryButtonEnabled,
-            loading = isPrimaryButtonLoading,
-            onClick = onPrimaryButtonClick,
-        )
-    }
-}
 
-@Composable
-private fun BottomSheetFooter(
-    buttonText: String,
-    modifier: Modifier = Modifier,
-    isButtonEnabled: Boolean = true,
-    isButtonLoading: Boolean = false,
-    onButtonClick: () -> Unit,
-) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(DealiColor.primary04),
-    ) {
-        Divider(color = DealiColor.g20)
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(98.dp)
-                .padding(horizontal = 16.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            btnFilledLargePrimary01(
-                modifier = Modifier.fillMaxWidth(),
-                text = buttonText,
-                enabled = isButtonEnabled,
-                loading = isButtonLoading,
-                onClick = onButtonClick,
-            )
-        }
-    }
-}
+/**
+ * 단일 옵션 선택할 때 사용.
+ * 좌측에 아이콘이 붙는 경우 icon composable 작성
+ */
+data class SingleSelectOption(
+    val text: String,
+    val isSelected: Boolean,
+    val icon: @Composable () -> Unit = {},
+)
 
-@Composable
-fun BottomSheetOption(
-    text: String,
-    isChecked: Boolean,
-    icon: @Composable () -> Unit = {},
-    onClick: () -> Unit,
-) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(52.dp)
-            .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
-            .padding(horizontal = 16.dp)
-    ) {
-        Box(
-            modifier = Modifier
-                .align(Alignment.CenterVertically)
-        ) {
-            icon()
-        }
 
-        DealiText(
-            modifier = Modifier
-                .weight(1f)
-                .align(Alignment.CenterVertically),
-            text = text,
-            style = if (isChecked) DealiFont.b1sb15 else DealiFont.b1r15,
-            color = if (isChecked) DealiColor.primary01 else DealiColor.g100,
-        )
 
-        if (isChecked) {
-            Icon24(
-                modifier = Modifier.align(Alignment.CenterVertically),
-                iconRes = R.drawable.ic_check,
-                color = DealiColor.primary01,
-            )
-        }
-    }
-}
-
-@Composable
-private fun BottomSheetHandle(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(15.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        Box(
-            modifier = Modifier
-                .size(32.dp, 4.dp)
-                .clip(RoundedCornerShape(100.dp))
-                .background(DealiColor.g40)
-        )
-    }
-}
 
 @Preview(showBackground = true)
 @Composable
@@ -320,30 +239,31 @@ private fun PreviewBottomSheet() {
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewBottomSheetOption() {
-    Column {
-        BottomSheetOption(
-            text = "옵션명",
-            isChecked = false,
-            onClick = {}
-        )
+private fun PreviewBottomSheetSingleSelectOption() {
+    BottomSheetSingleSelectOption(
+        title = "단일 선택 바텀시트",
+        optionList = listOf(
+            SingleSelectOption(
+                text = "옵션명",
+                isSelected = true,
+            ),
+            SingleSelectOption(
+                text = "옵션명",
+                isSelected = false,
+            ),
+            SingleSelectOption(
+                text = "옵션명",
+                isSelected = false,
+                icon = {
+                    Icon24(
+                        modifier = Modifier.padding(end = 12.dp),
+                        iconRes = R.drawable.ic_trash
+                    )
+                }
+            )
+        ),
+        onDismiss = {},
+    ) {
 
-        BottomSheetOption(
-            text = "옵션명",
-            isChecked = true,
-            onClick = {}
-        )
-
-        BottomSheetOption(
-            text = "옵션명",
-            isChecked = false,
-            onClick = {},
-            icon = {
-                Icon24(
-                    modifier = Modifier.padding(end = 12.dp),
-                    iconRes = R.drawable.ic_trash
-                )
-            }
-        )
     }
 }
