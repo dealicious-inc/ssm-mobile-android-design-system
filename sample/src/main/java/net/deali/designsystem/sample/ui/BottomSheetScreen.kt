@@ -16,7 +16,6 @@ import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,14 +30,18 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.BottomSheet
+import net.deali.designsystem.component.BottomSheetSingleSelectOption
 import net.deali.designsystem.component.BottomSheetWithHandle
+import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.btnOutlineMediumPrimary01
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheetScreen(onBackPress: () -> Unit) {
     val coroutineScope = rememberCoroutineScope()
-    val bottomSheetState = rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+    val bottomSheetState =
+        rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
     var bottomSheetType by remember { mutableStateOf(BottomSheetType.Plain) }
     val hideBottomSheet: () -> Unit = remember {
         {
@@ -47,6 +50,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             }
         }
     }
+
+    var selectedOptionIndex: Int? by remember { mutableStateOf(null) }
 
     ModalBottomSheetLayout(
         sheetContent = when (bottomSheetType) {
@@ -147,6 +152,43 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     }
                 }
             }
+
+            BottomSheetType.SingleSelectOption -> {
+                {
+                    BottomSheetSingleSelectOption(
+                        title = "단일 옵션",
+                        singleSelectOptionList = listOf(
+                            SingleSelectOption(
+                                text = "옵션1",
+                                isSelected = selectedOptionIndex == 0,
+                            ),
+
+                            SingleSelectOption(
+                                text = "옵션2",
+                                isSelected = selectedOptionIndex == 1,
+                            ),
+
+                            SingleSelectOption(
+                                text = "옵션3",
+                                isSelected = selectedOptionIndex == 2,
+                                icon = {
+                                    Icon16(iconRes = net.deali.designsystem.R.drawable.ic_category_filled)
+                                }
+                            ),
+                        ),
+                        onSelectOption = {
+                            selectedOptionIndex = it
+                        },
+                        onDismiss = hideBottomSheet
+                    )
+                }
+            }
+
+            BottomSheetType.MultiSelectOption -> {
+                {
+
+                }
+            }
         },
         sheetState = bottomSheetState,
         sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
@@ -234,6 +276,20 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                         }
                     },
                 )
+
+                btnOutlineMediumPrimary01(
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = true,
+                    text = "단일 옵션 선택",
+                    onClick = remember {
+                        {
+                            coroutineScope.launch {
+                                bottomSheetType = BottomSheetType.SingleSelectOption
+                                bottomSheetState.show()
+                            }
+                        }
+                    },
+                )
             }
         }
     }
@@ -256,4 +312,6 @@ private enum class BottomSheetType {
     TitleAndButton,
     TitleAndTwoButton,
     TitleWithHandle,
+    SingleSelectOption,
+    MultiSelectOption,
 }
