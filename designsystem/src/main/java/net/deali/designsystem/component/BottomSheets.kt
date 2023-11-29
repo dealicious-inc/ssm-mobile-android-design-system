@@ -16,6 +16,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.internal.bottomsheet.BottomSheetFooter
+import net.deali.designsystem.internal.bottomsheet.BottomSheetHandle
 import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -42,11 +44,13 @@ fun BottomSheet(
     title: String,
     modifier: Modifier = Modifier,
     onDismiss: () -> Unit,
+    hideXButton: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
         BottomSheetHeader(
             title = title,
+            hideXButton = hideXButton,
             onDismiss = onDismiss,
         )
         content()
@@ -168,7 +172,8 @@ fun BottomSheetSingleSelectOption(
 
         SingleSelectOptionList(
             list = singleSelectOptionList,
-            onSelectOption = onSelectOption
+            onSelectOption = onSelectOption,
+            onDismiss = onDismiss,
         )
     }
 }
@@ -220,8 +225,6 @@ data class SingleSelectOption(
 )
 
 
-
-
 @Preview(showBackground = true)
 @Composable
 private fun PreviewBottomSheet() {
@@ -242,28 +245,24 @@ private fun PreviewBottomSheet() {
 private fun PreviewBottomSheetSingleSelectOption() {
     BottomSheetSingleSelectOption(
         title = "단일 선택 바텀시트",
-        optionList = listOf(
+        singleSelectOptionList = listOf(
             SingleSelectOption(
-                text = "옵션명",
+                text = "옵션명1",
                 isSelected = true,
             ),
             SingleSelectOption(
-                text = "옵션명",
+                text = "옵션명2",
                 isSelected = false,
             ),
             SingleSelectOption(
-                text = "옵션명",
+                text = "옵션명3",
                 isSelected = false,
                 icon = {
-                    Icon24(
-                        modifier = Modifier.padding(end = 12.dp),
-                        iconRes = R.drawable.ic_trash
-                    )
+                    Icon16(iconRes = R.drawable.ic_trash)
                 }
             )
         ),
         onDismiss = {},
-    ) {
-
-    }
+        onSelectOption = {}
+    )
 }

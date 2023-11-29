@@ -20,9 +20,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.btnFilledLargePrimary01
@@ -105,6 +107,7 @@ internal fun SingleSelectOptionList(
     modifier: Modifier = Modifier,
     list: List<SingleSelectOption>,
     onSelectOption: (index: Int) -> Unit,
+    onDismiss: () -> Unit,
 ) {
     val state = rememberLazyListState()
 
@@ -112,11 +115,14 @@ internal fun SingleSelectOptionList(
         modifier = modifier,
         state = state,
     ) {
-        itemsIndexed(list) {index, option ->
+        itemsIndexed(list) { index, option ->
             BottomSheetOption(
                 text = option.text,
                 isSelected = option.isSelected,
-                onClick = { onSelectOption(index) }
+                onClick = {
+                    onSelectOption(index)
+                    onDismiss()
+                }
             )
         }
     }
@@ -142,7 +148,11 @@ internal fun BottomSheetOption(
             modifier = Modifier
                 .align(Alignment.CenterVertically)
         ) {
-            icon()
+            Box(
+                modifier = Modifier.padding(end = 8.dp)
+            ) {
+                icon()
+            }
         }
 
         DealiText(
@@ -179,4 +189,48 @@ internal fun BottomSheetHandle(modifier: Modifier = Modifier) {
                 .background(DealiColor.g40)
         )
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetFooter() {
+    BottomSheetFooter(
+        buttonText = "버튼 이름",
+        onButtonClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetOption() {
+    BottomSheetOption(
+        text = "옵션이 여기 있습니다",
+        isSelected = false,
+        icon = {
+            Icon16(iconRes = R.drawable.ic_trash)
+        },
+        onClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewSingleSelectOptionList() {
+    SingleSelectOptionList(
+        list = listOf(
+            SingleSelectOption("옵션1", true),
+            SingleSelectOption("옵션2", false),
+            SingleSelectOption("옵션3", false),
+            SingleSelectOption("옵션4", false),
+        ),
+        onSelectOption = {},
+        onDismiss = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetHandle() {
+    BottomSheetHandle()
 }
