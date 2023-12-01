@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- ** Button ** -->
     <!-- Medium -->
     <style name="btnOutlineMediumSecondary04" parent="ButtonMedium">
-        <item name="android:foreground">@drawable/ripple_rounded_6dp</item>
         <item name="android:background">@drawable/selector_btn_outline_medium_secondary04</item>
         <item name="android:textColor">@drawable/selector_g80_disabled_g50</item>
+    </style>
+
+    <!-- Large -->
+    <style name="btnOutlineLargePrimary01" parent="ButtonLarge">
+        <item name="android:background">@drawable/selector_btn_outline_large_primary01</item>
+        <item name="android:textColor">@drawable/selector_primary01_disabled_g50</item>
+    </style>
+
+    <style name="btnFilledLargePrimary01" parent="ButtonLarge">
+        <item name="android:background">@drawable/selector_btn_filled_large_primary01</item>
+        <item name="android:textColor">@color/primary04</item>
     </style>
 
     <!-- Core -->
@@ -21,6 +30,20 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:gravity">center</item>
         <item name="android:clickable">true</item>
+        <item name="android:foreground">@drawable/ripple_rounded_6dp</item>
+    </style>
+
+    <style name="ButtonLarge" tools:ignore="NewApi">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:minHeight">50dp</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:lineHeight">20dp</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">@drawable/ripple_rounded_6dp</item>
     </style>
 
 </resources>

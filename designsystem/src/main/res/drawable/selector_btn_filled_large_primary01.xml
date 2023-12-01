@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/bg_g40_stroke_g40_radius_6dp" android:state_enabled="false" />
+    <item android:drawable="@drawable/bg_primary01_stroke_primary01_radius_6dp" />
+</selector>
