@@ -14,13 +14,22 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.FragmentManager
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.parcelize.Parcelize
+import net.deali.designsystem.R
 import net.deali.designsystem.databinding.FragmentBottomSheetBinding
 
 class BottomSheet : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
     private var onDismiss: (() -> Unit)? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setStyle(STYLE_NORMAL, R.style.SsmBottomSheetTheme)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +38,13 @@ class BottomSheet : BottomSheetDialogFragment() {
     ): View {
         binding = FragmentBottomSheetBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
+        processArguments()
+        configureBehavior()
 
+        return binding.root
+    }
+
+    private fun processArguments() {
         val arguments = requireArguments()
         val listenerHolder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arguments.getParcelable(KEY_LISTENER, ListenerHolder::class.java)
@@ -86,8 +101,14 @@ class BottomSheet : BottomSheetDialogFragment() {
         // dismiss
         binding.ivXButton.setOnClickListener { dismiss() }
         onDismiss = listenerHolder?.onDismiss
+    }
 
-        return binding.root
+    private fun configureBehavior() {
+        (dialog as BottomSheetDialog).behavior.run {
+            isDraggable = false
+            isHideable = false
+            state = BottomSheetBehavior.STATE_EXPANDED
+        }
     }
 
     private fun Bundle.getIntOrNull(key: String): Int? {
