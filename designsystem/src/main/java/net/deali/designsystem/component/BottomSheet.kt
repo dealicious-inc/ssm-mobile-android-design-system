@@ -14,8 +14,6 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.parcelize.Parcelize
 import net.deali.designsystem.R
@@ -25,11 +23,7 @@ class BottomSheet : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
     private var onDismiss: (() -> Unit)? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        setStyle(STYLE_NORMAL, R.style.SsmModalTheme)
-    }
+    override fun getTheme(): Int = R.style.SsmBottomSheetDialogTheme
 
     override fun onCreateView(
         inflater: LayoutInflater,

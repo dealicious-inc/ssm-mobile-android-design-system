@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="SsmBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/SsmModalTheme</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
     <style name="SsmModalTheme" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_primary04_stroke_primary04_top_radius_16</item>
         <item name="behavior_hideable">false</item>
         <item name="behavior_draggable">false</item>
     </style>
+
+
 </resources>
