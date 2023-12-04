@@ -22,11 +22,6 @@ class BottomSheet : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentBottomSheetBinding
     private var onDismiss: (() -> Unit)? = null
 
-    override fun dismiss() {
-        super.dismissAllowingStateLoss()
-        onDismiss?.invoke()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -78,8 +73,14 @@ class BottomSheet : BottomSheetDialogFragment() {
             binding.llButtons.isVisible = true
             binding.tvPrimaryButton.setText(primaryButtonTextResource)
             binding.tvSecondaryButton.setText(secondaryButtonTextResource)
-            binding.tvPrimaryButton.setOnClickListener { onPrimaryButtonClick() }
-            binding.tvSecondaryButton.setOnClickListener { onSecondaryButtonClick() }
+            binding.tvPrimaryButton.setOnClickListener {
+                onPrimaryButtonClick()
+                dismiss()
+            }
+            binding.tvSecondaryButton.setOnClickListener {
+                onSecondaryButtonClick()
+                dismiss()
+            }
         }
 
         // dismiss
@@ -93,6 +94,11 @@ class BottomSheet : BottomSheetDialogFragment() {
         val valueInBundle = getInt(key, -1)
 
         return valueInBundle.takeIf { it != -1 }
+    }
+
+    override fun dismiss() {
+        super.dismissAllowingStateLoss()
+        onDismiss?.invoke()
     }
 
     @Px
