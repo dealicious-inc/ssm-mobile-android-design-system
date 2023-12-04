@@ -144,6 +144,31 @@ class BottomSheet : BottomSheetDialogFragment() {
 
         fun show(
             fragmentManager: FragmentManager,
+            @StringRes contentTextResource: Int,
+            @StringRes primaryButtonTextResource: Int,
+            @StringRes secondaryButtonTextResource: Int,
+            onPrimaryButtonClick: () -> Unit,
+            onSecondaryButtonClick: () -> Unit,
+            onDismiss: (() -> Unit)? = null,
+        ): BottomSheet {
+            val bottomSheet = BottomSheet()
+            bottomSheet.arguments = bundleOf(
+                KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
+                KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
+                KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
+                KEY_LISTENER to ListenerHolder(
+                    onPrimaryButtonClick = onPrimaryButtonClick,
+                    onSecondaryButtonClick = onSecondaryButtonClick,
+                    onDismiss = onDismiss
+                ),
+            )
+            bottomSheet.show(fragmentManager, TAG)
+
+            return bottomSheet
+        }
+
+        fun show(
+            fragmentManager: FragmentManager,
             @StringRes titleResource: Int,
             @StringRes contentTextResource: Int,
             @StringRes primaryButtonTextResource: Int,
@@ -195,6 +220,58 @@ class BottomSheet : BottomSheetDialogFragment() {
                 KEY_TITLE_RESOURCE to titleResource,
                 KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
                 KEY_LISTENER to ListenerHolder(onDismiss = onDismiss),
+            )
+            bottomSheet.show(fragmentManager, TAG)
+
+            return bottomSheet
+        }
+
+        fun showWithImage(
+            fragmentManager: FragmentManager,
+            @DrawableRes contentImageResource: Int,
+            @StringRes primaryButtonTextResource: Int,
+            @StringRes secondaryButtonTextResource: Int,
+            onPrimaryButtonClick: () -> Unit,
+            onSecondaryButtonClick: () -> Unit,
+            onDismiss: (() -> Unit)? = null,
+        ): BottomSheet {
+            val bottomSheet = BottomSheet()
+            bottomSheet.arguments = bundleOf(
+                KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
+                KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
+                KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
+                KEY_LISTENER to ListenerHolder(
+                    onPrimaryButtonClick = onPrimaryButtonClick,
+                    onSecondaryButtonClick = onSecondaryButtonClick,
+                    onDismiss = onDismiss
+                ),
+            )
+            bottomSheet.show(fragmentManager, TAG)
+
+            return bottomSheet
+        }
+
+        fun showWithImage(
+            fragmentManager: FragmentManager,
+            @StringRes titleResource: Int,
+            @DrawableRes contentImageResource: Int,
+            @StringRes primaryButtonTextResource: Int,
+            @StringRes secondaryButtonTextResource: Int,
+            onPrimaryButtonClick: () -> Unit,
+            onSecondaryButtonClick: () -> Unit,
+            onDismiss: (() -> Unit)? = null,
+        ): BottomSheet {
+            val bottomSheet = BottomSheet()
+            bottomSheet.arguments = bundleOf(
+                KEY_TITLE_RESOURCE to titleResource,
+                KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
+                KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
+                KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
+                KEY_LISTENER to ListenerHolder(
+                    onPrimaryButtonClick = onPrimaryButtonClick,
+                    onSecondaryButtonClick = onSecondaryButtonClick,
+                    onDismiss = onDismiss
+                ),
             )
             bottomSheet.show(fragmentManager, TAG)
 
