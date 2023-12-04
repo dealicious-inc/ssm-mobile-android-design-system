@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="SsmBottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <style name="SsmModalTheme" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_primary04_stroke_primary04_top_radius_16</item>
-        <item name="android:statusBarColor">@color/transparent</item>
-        <item name="android:windowIsFloating">false</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="behavior_hideable">false</item>
+        <item name="behavior_draggable">false</item>
     </style>
 </resources>

@@ -28,7 +28,7 @@ class BottomSheet : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setStyle(STYLE_NORMAL, R.style.SsmBottomSheetTheme)
+        setStyle(STYLE_NORMAL, R.style.SsmModalTheme)
     }
 
     override fun onCreateView(
@@ -39,7 +39,6 @@ class BottomSheet : BottomSheetDialogFragment() {
         binding = FragmentBottomSheetBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
         processArguments()
-        configureBehavior()
 
         return binding.root
     }
@@ -101,14 +100,6 @@ class BottomSheet : BottomSheetDialogFragment() {
         // dismiss
         binding.ivXButton.setOnClickListener { dismiss() }
         onDismiss = listenerHolder?.onDismiss
-    }
-
-    private fun configureBehavior() {
-        (dialog as BottomSheetDialog).behavior.run {
-            isDraggable = false
-            isHideable = false
-            state = BottomSheetBehavior.STATE_EXPANDED
-        }
     }
 
     private fun Bundle.getIntOrNull(key: String): Int? {
