@@ -1,0 +1,57 @@
+name: Haena Test Workflow
+on:
+  workflow_dispatch:
+    inputs:
+      releaseNoteEnv:
+        description: '배포 환경'
+        required: true
+      releaseNoteSetting:
+        description: '배포 설정'
+        required: true
+#      release_note_cc:
+#        description: '추가 참조'
+#        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+      VERSION_NAME: 1.2.54
+    steps:
+      #      - name: Get Inputs
+      #        id: inputs
+      #        run: |
+      #          echo "::set-output name=release_note_env::${{ github.event.inputs.release_note_env }}"
+      #          echo "::set-output name=release_note_setting::${{ github.event.inputs.release_note_setting }}"
+
+      #      - name: Create Release
+      #        uses: actions/create-release@v1
+      #        env:
+      #          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
+      #        with:
+      #          release_name: ${{ env.VERSION_NAME }}
+
+      - name: Slack Notification With Success
+        uses: rtCamp/action-slack-notify@v2
+        #        if: success()
+        env:
+          SLACK_ICON_EMOJI: ":new_ssm:"
+          SLACK_TITLE: "테스트"
+          SLACK_USERNAME: "ssm-mobile-builder-bot"
+          SLACK_CHANNEL: "#해나-테스트"
+          SLACK_COLOR: "#00BFA5"
+          SLACK_MESSAGE: "배포 환경: ${{ inputs.releaseNoteEnv }}, 배포 설정: ${{ inputs.releaseNoteSetting }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+#      - name: Slack Notification With Fail
+#        uses: rtCamp/action-slack-notify@v2
+#        if: failure()
+#        env:
+#          SLACK_ICON_EMOJI: ":new_ssm:"
+#          SLACK_TITLE: ":android2: 디자인 시스템 버전업 실패"
+#          SLACK_USERNAME: "ssm-mobile-builder-bot"
+#          SLACK_CHANNEL: "#해나-테스트"
+#          SLACK_COLOR: "#FF5252"
+#          SLACK_MESSAGE: "commit : ${{ github.event.head_commit.message }}"
+#          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
