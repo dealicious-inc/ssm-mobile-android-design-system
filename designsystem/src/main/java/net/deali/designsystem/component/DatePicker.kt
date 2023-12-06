@@ -388,6 +388,10 @@ class DatePickerState(
             calendar.set(Calendar.YEAR, currentYear)
             calendar.set(Calendar.MONTH, currentMonth - 1)
             calendar.set(Calendar.DAY_OF_MONTH, currentDate)
+            calendar.set(Calendar.HOUR_OF_DAY, 0)
+            calendar.set(Calendar.MINUTE, 0)
+            calendar.set(Calendar.SECOND, 0)
+            calendar.set(Calendar.MILLISECOND, 0)
             return calendar.time
         }
 

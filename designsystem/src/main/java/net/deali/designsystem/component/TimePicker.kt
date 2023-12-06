@@ -478,6 +478,7 @@ class TimePickerState(
             calendar.set(Calendar.HOUR_OF_DAY, currentHour)
             calendar.set(Calendar.MINUTE, currentMinute)
             calendar.set(Calendar.SECOND, currentSecond)
+            calendar.set(Calendar.MILLISECOND, 0)
             return calendar.time
         }
 

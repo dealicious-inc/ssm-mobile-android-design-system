@@ -19,7 +19,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -260,7 +259,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                         shape = AppTheme.shapes.radius10
                                     ),
                                 minuteInterval = 5,
-                                secondInterval = 30,
+                                secondInterval = 10,
                                 decorationBox = { innerPickers ->
                                     Row(
                                         modifier = Modifier
@@ -409,9 +408,4 @@ private fun SampleAccordion(
             collapsableContent()
         }
     }
-}
-
-@Stable
-private fun Int.toTimePickerContentText(): String {
-    return if (this < 10) "0${this}" else this.toString()
 }
