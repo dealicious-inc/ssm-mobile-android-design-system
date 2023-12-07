@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import net.deali.designsystem.component.DealiText
@@ -38,6 +39,7 @@ internal fun DealiTextFieldDecorationBox(
     label: String?,
     helperText: String?,
     isHelperTextVisible: Boolean,
+    innerTextFieldMinHeight: Dp,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     leadingContent: @Composable (() -> Unit)?,
@@ -69,7 +71,7 @@ internal fun DealiTextFieldDecorationBox(
         InnerTextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .defaultMinSize(minHeight = 46.dp)
+                .defaultMinSize(minHeight = innerTextFieldMinHeight)
                 .zIndex(1f),
             colors = colors,
             paddings = DealiTextFieldDefaults.paddings(),
@@ -202,9 +204,7 @@ private fun InnerTextField(
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (leadingContent != null) {
-            Box {
-                leadingContent()
-            }
+            leadingContent()
         }
         Box(modifier = Modifier.weight(1f)) {
             PlaceholderText(
@@ -215,9 +215,7 @@ private fun InnerTextField(
             innerTextField()
         }
         if (trailingContent != null) {
-            Box {
-                trailingContent()
-            }
+            trailingContent()
         }
     }
 }

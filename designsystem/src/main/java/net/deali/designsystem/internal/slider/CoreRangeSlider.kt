@@ -83,9 +83,10 @@ internal fun CoreRangeSlider(
         )
     }
 
-    Box(modifier = modifier
-        .fillMaxWidth()
-        .padding(horizontal = 12.dp, vertical = 9.dp),
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 12.dp, vertical = 9.dp),
     ) {
         Canvas(
             modifier = Modifier
@@ -220,9 +221,7 @@ private fun Float.arrangeFloat(): Float {
 private fun PreviewCoreRangeSlider() {
     Column {
         CoreRangeSlider(onValueChanged = { _, _ -> })
-
         Spacer(modifier = Modifier.height(20.dp))
-
         CoreRangeSlider(
             minValue = 0.2f,
             maxValue = 0.7f,

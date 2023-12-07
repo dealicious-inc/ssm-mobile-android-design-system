@@ -1,6 +1,9 @@
 package net.deali.designsystem.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidthIn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -19,11 +22,13 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
+import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -59,6 +64,7 @@ fun SearchInput(
         interactionSource = interactionSource,
         placeholder = placeholder,
         isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
         trailingContent = if (isFocused || value.isNotEmpty()) {
             {
                 Icon16(
@@ -119,6 +125,7 @@ fun SearchInput(
         interactionSource = interactionSource,
         placeholder = placeholder,
         isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
         trailingContent = if (isFocused || value.text.isNotEmpty()) {
             {
                 Icon16(
@@ -180,6 +187,7 @@ fun SearchInput(
         interactionSource = interactionSource,
         placeholder = placeholder,
         isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
         leadingContent = {
             TagLargeSecondaryOutlinedGray(
                 modifier = Modifier
@@ -240,6 +248,7 @@ fun SearchInput(
         interactionSource = interactionSource,
         placeholder = placeholder,
         isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
         leadingContent = {
             TagLargeSecondaryOutlinedGray(
                 modifier = Modifier
@@ -304,4 +313,35 @@ private class SearchInputTextFieldColors : DealiTextFieldColors {
 
     private class UndefinedException : IllegalStateException("정의되지 않았습니다.")
 
+}
+
+@Preview
+@Composable
+private fun SearchInputPreview() = AppTheme {
+    Box(
+        modifier = Modifier
+            .background(DealiColor.primary04)
+            .padding(8.dp)
+    ) {
+        SearchInput(
+            value = "search input",
+            onValueChange = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun SearchInputWithTagPreview() = AppTheme {
+    Box(
+        modifier = Modifier
+            .background(DealiColor.primary04)
+            .padding(8.dp)
+    ) {
+        SearchInput(
+            value = "search input",
+            onValueChange = {},
+            tagText = "원피스"
+        )
+    }
 }

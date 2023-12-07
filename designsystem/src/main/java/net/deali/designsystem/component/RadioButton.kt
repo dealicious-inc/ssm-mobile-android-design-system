@@ -53,12 +53,11 @@ fun RadioButton(
             selected = selected,
             enabled = enabled
         )
-
         DealiText(
             modifier = Modifier
                 .padding(start = 8.dp),
             text = text,
-            style = DealiFont.b3r13,
+            style = DealiFont.b2r14,
             color = when {
                 enabled.not() -> DealiColor.g50
                 else -> DealiColor.g100
@@ -82,14 +81,14 @@ private fun RadioIcon(
     )
 
     val backgroundColor = when {
-        enabled.not() -> DealiColor.g10
+        enabled.not() -> DealiColor.g20
         else -> DealiColor.primary04
     }
 
     val borderColor = when {
         enabled.not() -> DealiColor.g30
         selected -> DealiColor.primary01
-        else -> DealiColor.g100
+        else -> DealiColor.g50
     }
 
     val dotColor = when {

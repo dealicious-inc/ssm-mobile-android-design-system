@@ -73,7 +73,6 @@ fun PriceRangeSlider(
         modifier = modifier,
     ) {
         Spacer(modifier = Modifier.height(4.dp))
-
         CoreRangeSlider(
             minValue = minValue,
             maxValue = maxValue,
@@ -85,9 +84,7 @@ fun PriceRangeSlider(
             onValueChanged = onValueChanged,
             onTouchEventChanged = onTouchEventChanged,
         )
-
         Spacer(modifier = Modifier.height(8.dp))
-
         PriceIndicators(indicators = indicators)
     }
 }
@@ -102,10 +99,10 @@ private fun PriceIndicators(
             .fillMaxWidth()
             .padding(horizontal = 11.dp)
     ) {
-        indicators.forEach {
+        indicators.forEach { text ->
             Indicator(
                 modifier = Modifier.weight(1f),
-                text = it,
+                text = text,
             )
         }
     }
@@ -150,7 +147,7 @@ private fun Indicator(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewRangeSlider() {
-    RangeSlider(onValueChanged = {_, _->})
+    RangeSlider(onValueChanged = { _, _ -> })
 }
 
 @Preview(showBackground = true)
@@ -158,7 +155,7 @@ private fun PreviewRangeSlider() {
 private fun PreviewPriceRangeSlider() {
     PriceRangeSlider(
         indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
-        onValueChanged = {_, _->}
+        onValueChanged = { _, _ -> }
     )
 }
 

@@ -15,13 +15,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 @Composable
 internal fun CoreDealiTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    colors: DealiTextFieldColors =  DealiTextFieldDefaults.colors(),
+    colors: DealiTextFieldColors = DealiTextFieldDefaults.colors(),
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     enabled: Boolean = true,
     isError: Boolean = false,
@@ -36,6 +38,7 @@ internal fun CoreDealiTextField(
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
+    innerTextFieldMinHeight: Dp = 46.dp,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
@@ -82,6 +85,7 @@ internal fun CoreDealiTextField(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
+        innerTextFieldMinHeight = innerTextFieldMinHeight,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
     )
@@ -93,7 +97,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
-    colors: DealiTextFieldColors =  DealiTextFieldDefaults.colors(),
+    colors: DealiTextFieldColors = DealiTextFieldDefaults.colors(),
     enabled: Boolean = true,
     isError: Boolean = false,
     singleLine: Boolean = true,
@@ -107,6 +111,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
+    innerTextFieldMinHeight: Dp = 46.dp,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
@@ -139,6 +144,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
         cursorBrush = DealiTextFieldDefaults.cursor(),
         decorationBox = { innerTextField ->
             DealiTextFieldDecorationBox(
+                modifier = Modifier.fillMaxWidth(),
                 enabled = enabled,
                 isError = isError,
                 singleLine = singleLine,
@@ -149,7 +155,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 label = label,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
-                modifier = Modifier.fillMaxWidth(),
+                innerTextFieldMinHeight = innerTextFieldMinHeight,
                 innerTextField = innerTextField,
                 leadingContent = leadingContent,
                 trailingContent = trailingContent,
