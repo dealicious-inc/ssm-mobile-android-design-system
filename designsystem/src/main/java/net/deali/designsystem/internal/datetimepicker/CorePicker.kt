@@ -7,12 +7,16 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +29,9 @@ import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.LazyListSnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberLazyListSnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
+import net.deali.designsystem.util.internal.calculateHorizontalPadding
+import net.deali.designsystem.util.internal.calculateVerticalPadding
+import net.deali.designsystem.util.internal.plus
 import kotlin.math.abs
 
 @OptIn(ExperimentalSnapperApi::class)
@@ -35,6 +42,7 @@ internal fun <T> CorePicker(
     itemHeight: Dp,
     repeated: Boolean,
     modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(),
     decorationBox: @Composable BoxScope.(innerPicker: @Composable () -> Unit) -> Unit =
         @Composable { innerPicker -> innerPicker() },
     itemContent: @Composable BoxScope.(value: T) -> Unit
@@ -69,11 +77,20 @@ internal fun <T> CorePicker(
     }
 
     BoxWithConstraints(modifier) {
+        // 피커의 선택된 아이템이 중앙에 위치하도록 만들기 위한 필수적인 수직 패딩 값.
+        val centralizerPadding by remember(maxHeight) {
+            derivedStateOf {
+                PaddingValues(vertical = (maxHeight / 2) - (itemHeight / 2))
+            }
+        }
+
         decorationBox {
             LazyColumn(
-                modifier = Modifier.size(maxWidth, maxHeight),
+                modifier = Modifier
+                    .size(maxWidth, maxHeight)
+                    .padding(contentPadding.calculateVerticalPadding()),
                 state = lazyListState,
-                contentPadding = PaddingValues(vertical = (maxHeight / 2) - (itemHeight / 2)),
+                contentPadding = centralizerPadding + contentPadding.calculateHorizontalPadding(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 flingBehavior = rememberSnapperFlingBehavior(lazyListState)

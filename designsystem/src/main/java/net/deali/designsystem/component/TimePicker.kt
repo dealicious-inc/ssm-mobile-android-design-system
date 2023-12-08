@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.coroutineScope
@@ -27,6 +30,9 @@ import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
 import net.deali.designsystem.internal.datetimepicker.calculateFarIndexForRepeatedPicker
+import net.deali.designsystem.util.internal.calculateHorizontalPadding
+import net.deali.designsystem.util.internal.calculateVerticalPadding
+import net.deali.designsystem.util.internal.countTrue
 import java.util.Calendar
 import java.util.Date
 
@@ -201,40 +207,124 @@ fun TimePicker(
     }
 
     BoxWithConstraints(modifier) {
+        val layoutDirection = LocalLayoutDirection.current
+        val horizontalContentPadding by remember(contentPadding) {
+            derivedStateOf {
+                contentPadding.calculateHorizontalPadding(layoutDirection)
+            }
+        }
+        val leftContentPadding by remember(horizontalContentPadding) {
+            derivedStateOf {
+                horizontalContentPadding.calculateLeftPadding(layoutDirection)
+            }
+        }
+        val rightContentPadding by remember(horizontalContentPadding) {
+            derivedStateOf {
+                horizontalContentPadding.calculateRightPadding(layoutDirection)
+            }
+        }
+        val periodEnabled by remember(timeFormat, hourEnabled) {
+            derivedStateOf {
+                timeFormat == TimePickerFormat.Format12Hour && hourEnabled
+            }
+        }
+        val itemPickerCount by remember(periodEnabled, hourEnabled, minuteEnabled, secondEnabled) {
+            derivedStateOf {
+                booleanArrayOf(periodEnabled, hourEnabled, minuteEnabled, secondEnabled).countTrue()
+            }
+        }
+        val itemPickerWidth by remember(maxWidth, itemPickerCount, horizontalContentPadding) {
+            derivedStateOf {
+                val maxWidthWithoutPadding = maxWidth - leftContentPadding - rightContentPadding
+                maxWidthWithoutPadding / itemPickerCount
+            }
+        }
+
         decorationBox {
             Row(
                 modifier = Modifier
                     .size(maxWidth, maxHeight)
-                    .padding(contentPadding),
+                    .padding(contentPadding.calculateVerticalPadding()),
                 horizontalArrangement = Arrangement.spacedBy(pickerSpacing)
             ) {
-                if (timeFormat == TimePickerFormat.Format12Hour && hourEnabled) {
+                if (periodEnabled) {
                     CorePicker(
                         values = amPm,
                         state = state.periodPickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(itemPickerWidth + leftContentPadding),
                         repeated = false,
                         itemHeight = itemHeight,
+                        contentPadding = PaddingValues.Absolute(left = leftContentPadding),
                         itemContent = periodItemContent
                     )
                 }
                 if (hourEnabled) {
+                    val widthAndPadding by remember(
+                        periodEnabled,
+                        minuteEnabled,
+                        secondEnabled,
+                        itemPickerWidth,
+                        contentPadding
+                    ) {
+                        derivedStateOf {
+                            val leftPadding = if (periodEnabled) 0.dp else leftContentPadding
+                            val rightPadding = if (minuteEnabled || secondEnabled) {
+                                0.dp
+                            } else {
+                                rightContentPadding
+                            }
+                            val width = itemPickerWidth + leftPadding + rightPadding
+                            val padding = PaddingValues.Absolute(
+                                left = leftPadding,
+                                right = rightPadding
+                            )
+                            Pair(width, padding)
+                        }
+                    }
+                    val (width, padding) = widthAndPadding
+
                     CorePicker(
                         values = hours,
                         state = state.hourPickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(width),
                         repeated = true,
                         itemHeight = itemHeight,
+                        contentPadding = padding,
                         itemContent = hourItemContent
                     )
                 }
                 if (minuteEnabled) {
+                    val widthAndPadding by remember(
+                        periodEnabled,
+                        hourEnabled,
+                        secondEnabled,
+                        itemPickerWidth,
+                        contentPadding
+                    ) {
+                        derivedStateOf {
+                            val leftPadding = if (periodEnabled || hourEnabled) {
+                                0.dp
+                            } else {
+                                leftContentPadding
+                            }
+                            val rightPadding = if (secondEnabled) 0.dp else rightContentPadding
+                            val width = itemPickerWidth + leftPadding + rightPadding
+                            val padding = PaddingValues.Absolute(
+                                left = leftPadding,
+                                right = rightPadding
+                            )
+                            Pair(width, padding)
+                        }
+                    }
+                    val (width, padding) = widthAndPadding
+
                     CorePicker(
                         values = minutes,
                         state = state.minutePickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(width),
                         repeated = true,
                         itemHeight = itemHeight,
+                        contentPadding = padding,
                         itemContent = minuteItemContent
                     )
                 }
@@ -242,9 +332,10 @@ fun TimePicker(
                     CorePicker(
                         values = seconds,
                         state = state.secondPickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(itemPickerWidth + rightContentPadding),
                         repeated = true,
                         itemHeight = itemHeight,
+                        contentPadding = PaddingValues.Absolute(right = rightContentPadding),
                         itemContent = secondItemContent
                     )
                 }

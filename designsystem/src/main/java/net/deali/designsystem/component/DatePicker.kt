@@ -7,9 +7,11 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -18,6 +20,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.coroutineScope
@@ -27,6 +30,9 @@ import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
 import net.deali.designsystem.internal.datetimepicker.calculateFarIndexForRepeatedPicker
+import net.deali.designsystem.util.internal.calculateHorizontalPadding
+import net.deali.designsystem.util.internal.calculateVerticalPadding
+import net.deali.designsystem.util.internal.countTrue
 import java.util.Calendar
 import java.util.Date
 import kotlin.math.min
@@ -217,30 +223,79 @@ fun DatePicker(
     }
 
     BoxWithConstraints(modifier) {
+        val layoutDirection = LocalLayoutDirection.current
+        val horizontalContentPadding by remember(contentPadding) {
+            derivedStateOf {
+                contentPadding.calculateHorizontalPadding(layoutDirection)
+            }
+        }
+        val leftContentPadding by remember(horizontalContentPadding) {
+            derivedStateOf {
+                horizontalContentPadding.calculateLeftPadding(layoutDirection)
+            }
+        }
+        val rightContentPadding by remember(horizontalContentPadding) {
+            derivedStateOf {
+                horizontalContentPadding.calculateRightPadding(layoutDirection)
+            }
+        }
+        val itemPickerCount by remember(yearEnabled, monthEnabled, dateEnabled) {
+            derivedStateOf {
+                booleanArrayOf(yearEnabled, monthEnabled, dateEnabled).countTrue()
+            }
+        }
+        val itemPickerWidth by remember(maxWidth, itemPickerCount, horizontalContentPadding) {
+            derivedStateOf {
+                val maxWidthWithoutPadding = maxWidth - leftContentPadding - rightContentPadding
+                maxWidthWithoutPadding / itemPickerCount
+            }
+        }
+
         decorationBox {
             Row(
                 modifier = Modifier
                     .size(maxWidth, maxHeight)
-                    .padding(contentPadding),
+                    .padding(contentPadding.calculateVerticalPadding()),
                 horizontalArrangement = Arrangement.spacedBy(pickerSpacing)
             ) {
                 if (yearEnabled) {
                     CorePicker(
                         values = years,
                         state = state.yearPickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(itemPickerWidth + leftContentPadding),
                         repeated = false,
                         itemHeight = itemHeight,
+                        contentPadding = PaddingValues.Absolute(left = leftContentPadding),
                         itemContent = yearItemContent
                     )
                 }
                 if (monthEnabled) {
+                    val widthAndPadding by remember(
+                        yearEnabled,
+                        dateEnabled,
+                        itemPickerWidth,
+                        contentPadding
+                    ) {
+                        derivedStateOf {
+                            val leftPadding = if (yearEnabled) 0.dp else leftContentPadding
+                            val rightPadding = if (dateEnabled) 0.dp else rightContentPadding
+                            val width = itemPickerWidth + leftPadding + rightPadding
+                            val padding = PaddingValues.Absolute(
+                                left = leftPadding,
+                                right = rightPadding
+                            )
+                            Pair(width, padding)
+                        }
+                    }
+                    val (width, padding) = widthAndPadding
+
                     CorePicker(
                         values = months,
                         state = state.monthPickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(width),
                         repeated = true,
                         itemHeight = itemHeight,
+                        contentPadding = padding,
                         itemContent = monthItemContent
                     )
                 }
@@ -248,9 +303,10 @@ fun DatePicker(
                     CorePicker(
                         values = dates,
                         state = state.datePickerState,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.width(itemPickerWidth + rightContentPadding),
                         repeated = true,
                         itemHeight = itemHeight,
+                        contentPadding = PaddingValues.Absolute(right = rightContentPadding),
                         itemContent = dateItemContent
                     )
                 }
