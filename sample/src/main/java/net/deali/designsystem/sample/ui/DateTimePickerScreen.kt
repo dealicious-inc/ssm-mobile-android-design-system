@@ -119,7 +119,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                         shape = AppTheme.shapes.radius10
                                     ),
                                 state = datePicker1State,
-                                contentPadding = PaddingValues(horizontal = 36.dp),
+                                contentPadding = PaddingValues(horizontal = 40.dp)
                             )
                         }
                     }
@@ -188,7 +188,8 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                         shape = AppTheme.shapes.radius10
                                     ),
                                 state = datePicker2State,
-                                dateEnabled = false
+                                dateEnabled = false,
+                                contentPadding = PaddingValues(horizontal = 50.dp)
                             )
                         }
                     }
@@ -260,6 +261,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                     ),
                                 minuteInterval = 5,
                                 secondInterval = 10,
+                                contentPadding = PaddingValues(horizontal = 40.dp),
                                 decorationBox = { innerPickers ->
                                     Row(
                                         modifier = Modifier
@@ -352,6 +354,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                         color = DealiColor.g20,
                                         shape = AppTheme.shapes.radius10
                                     ),
+                                contentPadding = PaddingValues(horizontal = 30.dp),
                                 decorationBox = { innerPickers ->
                                     Row(
                                         modifier = Modifier
