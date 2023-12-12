@@ -10,6 +10,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
@@ -115,7 +116,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    var isValueEmpty by remember(value) { mutableStateOf(value.text.isEmpty()) }
+    val isValueEmpty by rememberUpdatedState(newValue = value.text.isEmpty())
 
     val mergedTextStyle = if (enabled) {
         textStyle
@@ -126,10 +127,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
 
     BasicTextField(
         value = value,
-        onValueChange = { textFieldValue ->
-            onValueChange(textFieldValue)
-            isValueEmpty = textFieldValue.text.isEmpty()
-        },
+        onValueChange = onValueChange,
         modifier = modifier,
         textStyle = mergedTextStyle,
         enabled = enabled,
