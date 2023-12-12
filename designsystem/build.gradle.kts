@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.compose.material)
 
     implementation(libs.android.material)
+    implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.snapper)
 }

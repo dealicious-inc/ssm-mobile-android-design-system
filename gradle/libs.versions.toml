@@ -20,6 +20,7 @@ compose-compiler = "1.4.4"
 
 android-material = "1.7.0"
 
+immutable-collections = "0.3.6"
 accompanist = "0.30.1"
 coil = "2.4.0"
 snapper = "0.3.0"
@@ -43,6 +44,7 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
 compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
+kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutable-collections" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
 
