@@ -59,7 +59,8 @@ fun TooltipScreen(
                     }
                 ) { innerModifier ->
                     Icon16(
-                        modifier = innerModifier,
+                        modifier = innerModifier
+                            .padding(24.dp),
                         iconRes = R.drawable.ic_info,
                         onClick = {
                             isShow = true

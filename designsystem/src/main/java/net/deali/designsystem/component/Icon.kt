@@ -13,11 +13,13 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.rotate
@@ -53,14 +55,16 @@ fun Icon16(
     noRipple: Boolean = false,
 ) {
     Icon(
-        modifier = modifier
+        modifier = Modifier
+            .clip(CircleShape)
             .clickable(
                 onClick = onClick,
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 16.dp)
-            ),
+                indication = if (noRipple) null else rememberRipple()
+            )
+            .then(modifier),
         iconRes = iconRes,
         size = 16.dp,
         color = color
@@ -91,13 +95,16 @@ fun Icon24(
     noRipple: Boolean = false,
 ) {
     Icon(
-        modifier = modifier.clickable(
-            onClick = onClick,
-            role = Role.Image,
-            enabled = enabled,
-            interactionSource = remember { MutableInteractionSource() },
-            indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
-        ),
+        modifier = Modifier
+            .clip(CircleShape)
+            .clickable(
+                onClick = onClick,
+                role = Role.Image,
+                enabled = enabled,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = if (noRipple) null else rememberRipple(),
+            )
+            .then(modifier),
         iconRes = iconRes,
         size = 24.dp,
         color = color
@@ -128,14 +135,16 @@ fun Icon32(
     noRipple: Boolean = false,
 ) {
     Icon(
-        modifier = modifier
+        modifier = Modifier
+            .clip(CircleShape)
             .clickable(
                 onClick = onClick,
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
-            ),
+                indication = if (noRipple) null else rememberRipple(),
+            )
+            .then(modifier),
         iconRes = iconRes,
         size = 32.dp,
         color = color

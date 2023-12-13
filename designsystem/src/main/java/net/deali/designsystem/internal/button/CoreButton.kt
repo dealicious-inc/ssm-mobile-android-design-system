@@ -59,12 +59,12 @@ internal fun CoreButton(
                 if (clickable) {
                     Modifier
                         .clickable(
-                        interactionSource = interactionSource,
-                        indication = rememberRipple(),
-                        enabled = enabled,
-                        role = Role.Button,
-                        onClick = onClick,
-                    )
+                            interactionSource = interactionSource,
+                            indication = rememberRipple(),
+                            enabled = enabled,
+                            role = Role.Button,
+                            onClick = onClick,
+                        )
                 } else {
                     Modifier
                 }
