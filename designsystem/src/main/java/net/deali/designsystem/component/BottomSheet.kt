@@ -49,8 +49,8 @@ class BottomSheet : BottomSheetDialogFragment() {
 
     private fun processArguments() {
         val arguments = requireArguments()
-        val listenerHolder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            arguments.getParcelable(KEY_LISTENER, ListenerHolder::class.java)
+        val listener = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments.getParcelable(KEY_LISTENER, Listener::class.java)
         } else {
             arguments.getParcelable(KEY_LISTENER)
         }
@@ -59,8 +59,6 @@ class BottomSheet : BottomSheetDialogFragment() {
         val contentImageResource = arguments.getIntOrNull(KEY_CONTENT_IMAGE_RESOURCE)
         val primaryButtonTextResource = arguments.getIntOrNull(KEY_PRIMARY_BUTTON_TEXT_RESOURCE)
         val secondaryButtonTextResource = arguments.getIntOrNull(KEY_SECONDARY_BUTTON_TEXT_RESOURCE)
-        val onPrimaryButtonClick = listenerHolder?.onPrimaryButtonClick
-        val onSecondaryButtonClick = listenerHolder?.onSecondaryButtonClick
 
         // title
         if (titleResource != null) {
@@ -85,25 +83,25 @@ class BottomSheet : BottomSheetDialogFragment() {
         if (
             primaryButtonTextResource != null
             && secondaryButtonTextResource != null
-            && onPrimaryButtonClick != null
-            && onSecondaryButtonClick != null
         ) {
             binding.llButtons.isVisible = true
             binding.tvPrimaryButton.setText(primaryButtonTextResource)
             binding.tvSecondaryButton.setText(secondaryButtonTextResource)
             binding.tvPrimaryButton.setOnClickListener {
-                onPrimaryButtonClick()
+                listener?.onPrimaryButtonClick()
                 dismiss()
             }
             binding.tvSecondaryButton.setOnClickListener {
-                onSecondaryButtonClick()
+                listener?.onSecondaryButtonClick()
                 dismiss()
             }
         }
 
         // dismiss
         binding.ivXButton.setOnClickListener { dismiss() }
-        onDismiss = listenerHolder?.onDismiss
+        if (listener != null) {
+            onDismiss = listener::onDismiss
+        }
     }
 
     private fun Bundle.getIntOrNull(key: String): Int? {
@@ -142,7 +140,11 @@ class BottomSheet : BottomSheetDialogFragment() {
                 val bottomSheet = BottomSheet()
                 bottomSheet.arguments = bundleOf(
                     KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_LISTENER to ListenerHolder(onDismiss = onDismiss),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -160,7 +162,11 @@ class BottomSheet : BottomSheetDialogFragment() {
                 bottomSheet.arguments = bundleOf(
                     KEY_TITLE_RESOURCE to titleResource,
                     KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_LISTENER to ListenerHolder(onDismiss = onDismiss),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -182,11 +188,19 @@ class BottomSheet : BottomSheetDialogFragment() {
                     KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
                     KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
                     KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to ListenerHolder(
-                        onPrimaryButtonClick = onPrimaryButtonClick,
-                        onSecondaryButtonClick = onSecondaryButtonClick,
-                        onDismiss = onDismiss
-                    ),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onPrimaryButtonClick() {
+                            onPrimaryButtonClick()
+                        }
+
+                        override fun onSecondaryButtonClick() {
+                            onSecondaryButtonClick()
+                        }
+
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -210,11 +224,19 @@ class BottomSheet : BottomSheetDialogFragment() {
                     KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
                     KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
                     KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to ListenerHolder(
-                        onPrimaryButtonClick = onPrimaryButtonClick,
-                        onSecondaryButtonClick = onSecondaryButtonClick,
-                        onDismiss = onDismiss
-                    ),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onPrimaryButtonClick() {
+                            onPrimaryButtonClick()
+                        }
+
+                        override fun onSecondaryButtonClick() {
+                            onSecondaryButtonClick()
+                        }
+
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -230,7 +252,11 @@ class BottomSheet : BottomSheetDialogFragment() {
                 val bottomSheet = BottomSheet()
                 bottomSheet.arguments = bundleOf(
                     KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_LISTENER to ListenerHolder(onDismiss = onDismiss),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -248,7 +274,11 @@ class BottomSheet : BottomSheetDialogFragment() {
                 bottomSheet.arguments = bundleOf(
                     KEY_TITLE_RESOURCE to titleResource,
                     KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_LISTENER to ListenerHolder(onDismiss = onDismiss),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -270,11 +300,19 @@ class BottomSheet : BottomSheetDialogFragment() {
                     KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
                     KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
                     KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to ListenerHolder(
-                        onPrimaryButtonClick = onPrimaryButtonClick,
-                        onSecondaryButtonClick = onSecondaryButtonClick,
-                        onDismiss = onDismiss
-                    ),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onPrimaryButtonClick() {
+                            onPrimaryButtonClick()
+                        }
+
+                        override fun onSecondaryButtonClick() {
+                            onSecondaryButtonClick()
+                        }
+
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -298,11 +336,19 @@ class BottomSheet : BottomSheetDialogFragment() {
                     KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
                     KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
                     KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to ListenerHolder(
-                        onPrimaryButtonClick = onPrimaryButtonClick,
-                        onSecondaryButtonClick = onSecondaryButtonClick,
-                        onDismiss = onDismiss
-                    ),
+                    KEY_LISTENER to object : Listener() {
+                        override fun onPrimaryButtonClick() {
+                            onPrimaryButtonClick()
+                        }
+
+                        override fun onSecondaryButtonClick() {
+                            onSecondaryButtonClick()
+                        }
+
+                        override fun onDismiss() {
+                            onDismiss?.invoke()
+                        }
+                    },
                 )
                 bottomSheet.show(fragmentManager, tag)
             }
@@ -310,9 +356,9 @@ class BottomSheet : BottomSheetDialogFragment() {
     }
 
     @Parcelize
-    data class ListenerHolder(
-        val onPrimaryButtonClick: (() -> Unit)? = null,
-        val onSecondaryButtonClick: (() -> Unit)? = null,
-        val onDismiss: (() -> Unit)? = null,
-    ) : Parcelable
+    private open class Listener : Parcelable {
+        open fun onPrimaryButtonClick() {}
+        open fun onSecondaryButtonClick() {}
+        open fun onDismiss() {}
+    }
 }
