@@ -2,7 +2,6 @@ package net.deali.designsystem.component
 
 import android.os.Build
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,7 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import net.deali.designsystem.R
 import net.deali.designsystem.databinding.FragmentBottomSheetBinding
 
@@ -112,8 +111,14 @@ class BottomSheet : BottomSheetDialogFragment() {
         return valueInBundle.takeIf { it != -1 }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        showing = true
+    }
+
     override fun dismiss() {
         super.dismissAllowingStateLoss()
+        showing = false
         onDismiss?.invoke()
     }
 
@@ -124,6 +129,8 @@ class BottomSheet : BottomSheetDialogFragment() {
     }
 
     companion object {
+        var showing = false
+
         private const val TAG = "BottomSheet"
         private const val KEY_TITLE_RESOURCE = "KEY_TITLE_RESOURCE"
         private const val KEY_CONTENT_TEXT_RESOURCE = "KEY_CONTENT_TEXT_RESOURCE"
@@ -309,10 +316,10 @@ class BottomSheet : BottomSheetDialogFragment() {
         }
     }
 
-    @Parcelize
+    @Serializable
     data class ListenerHolder(
         val onPrimaryButtonClick: (() -> Unit)? = null,
         val onSecondaryButtonClick: (() -> Unit)? = null,
         val onDismiss: (() -> Unit)? = null,
-    ) : Parcelable
+    )
 }
