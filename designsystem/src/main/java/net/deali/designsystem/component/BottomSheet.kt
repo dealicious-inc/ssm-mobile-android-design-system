@@ -321,5 +321,5 @@ class BottomSheet : BottomSheetDialogFragment() {
         val onPrimaryButtonClick: (() -> Unit)? = null,
         val onSecondaryButtonClick: (() -> Unit)? = null,
         val onDismiss: (() -> Unit)? = null,
-    )
+    ) : java.io.Serializable
 }
