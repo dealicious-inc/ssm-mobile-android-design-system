@@ -20,6 +20,7 @@ compose-compiler = "1.4.4"
 
 android-material = "1.7.0"
 
+kotlin-serialization = "1.6.0"
 immutable-collections = "0.3.6"
 accompanist = "0.30.1"
 coil = "2.4.0"
@@ -30,6 +31,7 @@ gridlayout-compose = "0.2.0"
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-gradle-plugin" }
 
 [libraries]
 # 디자인 시스템에서 사용하는 dependencies
@@ -44,6 +46,7 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
 compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
 
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization" }
 kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutable-collections" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }

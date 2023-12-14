@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlinx.serialization)
     id("maven-publish")
     id("kotlin-parcelize")
     id("kotlin-kapt")
@@ -64,6 +65,7 @@ dependencies {
     implementation(libs.compose.material)
 
     implementation(libs.android.material)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.snapper)
