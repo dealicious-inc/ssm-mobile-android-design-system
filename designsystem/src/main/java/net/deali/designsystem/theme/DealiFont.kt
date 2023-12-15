@@ -263,13 +263,13 @@ private val _b3r13: TextStyle = TextStyle(
 private val _b4sb12: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (12.sp).tu,
-    lineHeight = (18.sp).tu,
+    lineHeight = (16.sp).tu,
 )
 
 private val _b4r12: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (12.sp).tu,
-    lineHeight = (18.sp).tu,
+    lineHeight = (16.sp).tu,
 )
 
 private val _c1sb10: TextStyle = TextStyle(
