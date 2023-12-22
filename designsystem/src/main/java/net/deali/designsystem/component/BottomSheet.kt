@@ -1,364 +1,320 @@
 package net.deali.designsystem.component
 
-import android.os.Build
-import android.os.Bundle
-import android.os.Parcelable
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
-import androidx.annotation.DrawableRes
-import androidx.annotation.Px
-import androidx.annotation.StringRes
-import androidx.core.os.bundleOf
-import androidx.core.view.isVisible
-import androidx.core.view.updateLayoutParams
-import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.parcelize.Parcelize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.databinding.FragmentBottomSheetBinding
+import net.deali.designsystem.internal.bottomsheet.BottomSheetFooter
+import net.deali.designsystem.internal.bottomsheet.BottomSheetHandle
+import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
-class BottomSheet : BottomSheetDialogFragment() {
-    private lateinit var binding: FragmentBottomSheetBinding
-    private var onDismiss: (() -> Unit)? = null
+/**
+ * 모든 content 직접 구성
+ */
+@Composable
+fun BottomSheet(
+    modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(
+        modifier = modifier.padding(top = 8.dp),
+        content = content,
+    )
+}
 
-    override fun getTheme(): Int = R.style.SsmBottomSheetDialogTheme
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentBottomSheetBinding.inflate(layoutInflater)
-        binding.lifecycleOwner = this
-        configureBottomSheet()
-        processArguments()
-
-        return binding.root
+/**
+ * 타이틀 Default
+ */
+@Composable
+fun BottomSheet(
+    title: String,
+    modifier: Modifier = Modifier,
+    onDismiss: () -> Unit,
+    hideXButton: Boolean = false,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+        content()
     }
+}
 
-    private fun configureBottomSheet() {
-        (dialog as BottomSheetDialog).behavior.run {
-            peekHeight = binding.root.height
-            state = BottomSheetBehavior.STATE_EXPANDED
-        }
+/**
+ * 타이틀, 버튼1 Default
+ */
+@Composable
+fun BottomSheet(
+    title: String,
+    buttonText: String,
+    modifier: Modifier = Modifier,
+    isButtonEnabled: Boolean = true,
+    isButtonLoading: Boolean = false,
+    hideXButton: Boolean = false,
+    onButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+        content()
+        BottomSheetFooter(
+            buttonText = buttonText,
+            isButtonEnabled = isButtonEnabled,
+            isButtonLoading = isButtonLoading,
+            onButtonClick = onButtonClick,
+        )
     }
+}
 
-    private fun processArguments() {
-        val arguments = requireArguments()
-        val listener = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            arguments.getParcelable(KEY_LISTENER, Listener::class.java)
-        } else {
-            arguments.getParcelable(KEY_LISTENER)
-        }
-        val titleResource = arguments.getIntOrNull(KEY_TITLE_RESOURCE)
-        val contentTextResource = arguments.getIntOrNull(KEY_CONTENT_TEXT_RESOURCE)
-        val contentImageResource = arguments.getIntOrNull(KEY_CONTENT_IMAGE_RESOURCE)
-        val primaryButtonTextResource = arguments.getIntOrNull(KEY_PRIMARY_BUTTON_TEXT_RESOURCE)
-        val secondaryButtonTextResource = arguments.getIntOrNull(KEY_SECONDARY_BUTTON_TEXT_RESOURCE)
-
-        // title
-        if (titleResource != null) {
-            binding.llHeader.isVisible = true
-            binding.tvTitle.setText(titleResource)
-            binding.ivContent.updateLayoutParams<FrameLayout.LayoutParams> { bottomMargin = 0f.toDp() }
-        } else {
-            binding.ivContent.updateLayoutParams<FrameLayout.LayoutParams> { bottomMargin = 8f.toDp() }
-        }
-
-        // content
-        if (contentTextResource != null) {
-            binding.tvContent.setText(contentTextResource)
-            binding.tvContent.isVisible = true
-
-        } else if (contentImageResource != null) {
-            binding.ivContent.setImageResource(contentImageResource)
-            binding.ivContent.isVisible = true
-        }
-
-        // button
-        if (
-            primaryButtonTextResource != null
-            && secondaryButtonTextResource != null
-        ) {
-            binding.llButtons.isVisible = true
-            binding.tvPrimaryButton.setText(primaryButtonTextResource)
-            binding.tvSecondaryButton.setText(secondaryButtonTextResource)
-            binding.tvPrimaryButton.setOnClickListener {
-                listener?.onPrimaryButtonClick()
-                dismiss()
-            }
-            binding.tvSecondaryButton.setOnClickListener {
-                listener?.onSecondaryButtonClick()
-                dismiss()
-            }
-        }
-
-        // dismiss
-        binding.ivXButton.setOnClickListener { dismiss() }
-        if (listener != null) {
-            onDismiss = listener::onDismiss
-        }
+/**
+ * 타이틀, 버튼1, 버튼2 Default
+ */
+@Composable
+fun BottomSheet(
+    title: String,
+    primaryButtonText: String,
+    secondaryButtonText: String,
+    modifier: Modifier = Modifier,
+    isPrimaryButtonEnabled: Boolean = true,
+    isSecondaryButtonEnabled: Boolean = true,
+    isPrimaryButtonLoading: Boolean = false,
+    isSecondaryButtonLoading: Boolean = false,
+    hideXButton: Boolean = false,
+    onPrimaryButtonClick: () -> Unit,
+    onSecondaryButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+        content()
+        BottomSheetFooter(
+            primaryButtonText = primaryButtonText,
+            secondaryButtonText = secondaryButtonText,
+            isPrimaryButtonEnabled = isPrimaryButtonEnabled,
+            isSecondaryButtonEnabled = isSecondaryButtonEnabled,
+            isPrimaryButtonLoading = isPrimaryButtonLoading,
+            isSecondaryButtonLoading = isSecondaryButtonLoading,
+            onPrimaryButtonClick = onPrimaryButtonClick,
+            onSecondaryButtonClick = onSecondaryButtonClick,
+        )
     }
+}
 
-    private fun Bundle.getIntOrNull(key: String): Int? {
-        val valueInBundle = getInt(key, -1)
-
-        return valueInBundle.takeIf { it != -1 }
+/**
+ * 타이틀X, 버튼 2개
+ */
+@Composable
+fun BottomSheet(
+    primaryButtonText: String,
+    secondaryButtonText: String,
+    modifier: Modifier = Modifier,
+    isPrimaryButtonEnabled: Boolean = true,
+    isSecondaryButtonEnabled: Boolean = true,
+    isPrimaryButtonLoading: Boolean = false,
+    isSecondaryButtonLoading: Boolean = false,
+    onPrimaryButtonClick: () -> Unit,
+    onSecondaryButtonClick: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier = modifier) {
+        content()
+        BottomSheetFooter(
+            primaryButtonText = primaryButtonText,
+            secondaryButtonText = secondaryButtonText,
+            isPrimaryButtonEnabled = isPrimaryButtonEnabled,
+            isSecondaryButtonEnabled = isSecondaryButtonEnabled,
+            isPrimaryButtonLoading = isPrimaryButtonLoading,
+            isSecondaryButtonLoading = isSecondaryButtonLoading,
+            onPrimaryButtonClick = onPrimaryButtonClick,
+            onSecondaryButtonClick = onSecondaryButtonClick,
+        )
     }
+}
 
-    override fun dismiss() {
-        super.dismissAllowingStateLoss()
-        onDismiss?.invoke()
+/**
+ * 상단 핸들이 있는 BottomSheet
+ * 타이틀 Default
+ */
+@Composable
+fun BottomSheetWithHandle(
+    title: String,
+    modifier: Modifier = Modifier,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHandle()
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+        content()
     }
+}
 
-    @Px
-    private fun Float.toDp(): Int {
-        val scale = resources.displayMetrics.density
-        return (this * scale + 0.5f).toInt()
+/**
+ * 상단 핸들이 있는 BottomSheet
+ * 타이틀 Default
+ */
+@Composable
+fun BottomSheetSingleSelectOption(
+    title: String,
+    modifier: Modifier = Modifier,
+    singleSelectOptionList: List<SingleSelectOption>,
+    onSelectOption: (index: Int) -> Unit,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit,
+) {
+    Column(modifier = modifier) {
+        BottomSheetHeader(
+            title = title,
+            hideXButton = hideXButton,
+            onDismiss = onDismiss,
+        )
+
+        SingleSelectOptionList(
+            list = singleSelectOptionList,
+            onSelectOption = onSelectOption,
+            onDismiss = onDismiss,
+        )
     }
+}
 
-    companion object {
-        private const val TAG = "BottomSheet"
-        private const val KEY_TITLE_RESOURCE = "KEY_TITLE_RESOURCE"
-        private const val KEY_CONTENT_TEXT_RESOURCE = "KEY_CONTENT_TEXT_RESOURCE"
-        private const val KEY_CONTENT_IMAGE_RESOURCE = "KEY_CONTENT_IMAGE_RESOURCE"
-        private const val KEY_PRIMARY_BUTTON_TEXT_RESOURCE = "KEY_PRIMARY_BUTTON_TEXT_RESOURCE"
-        private const val KEY_SECONDARY_BUTTON_TEXT_RESOURCE = "KEY_SECONDARY_BUTTON_TEXT_RESOURCE"
-        private const val KEY_LISTENER = "KEY_LISTENER"
 
-        fun show(
-            fragmentManager: FragmentManager,
-            @StringRes contentTextResource: Int,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
+@Composable
+fun BottomSheetHeader(
+    modifier: Modifier = Modifier,
+    title: String,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit = {},
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(60.dp)
+            .padding(top = 24.dp)
+            .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+    ) {
+        DealiText(
+            modifier = Modifier.weight(1f),
+            text = title,
+            style = DealiFont.sh2sb18,
+            color = DealiColor.g100,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1,
+        )
+        Spacer(modifier = Modifier.width(16.dp))
 
-        fun show(
-            fragmentManager: FragmentManager,
-            @StringRes titleResource: Int,
-            @StringRes contentTextResource: Int,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_TITLE_RESOURCE to titleResource,
-                    KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun show(
-            fragmentManager: FragmentManager,
-            @StringRes contentTextResource: Int,
-            @StringRes primaryButtonTextResource: Int,
-            @StringRes secondaryButtonTextResource: Int,
-            onPrimaryButtonClick: () -> Unit,
-            onSecondaryButtonClick: () -> Unit,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
-                    KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onPrimaryButtonClick() {
-                            onPrimaryButtonClick()
-                        }
-
-                        override fun onSecondaryButtonClick() {
-                            onSecondaryButtonClick()
-                        }
-
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun show(
-            fragmentManager: FragmentManager,
-            @StringRes titleResource: Int,
-            @StringRes contentTextResource: Int,
-            @StringRes primaryButtonTextResource: Int,
-            @StringRes secondaryButtonTextResource: Int,
-            onPrimaryButtonClick: () -> Unit,
-            onSecondaryButtonClick: () -> Unit,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_TITLE_RESOURCE to titleResource,
-                    KEY_CONTENT_TEXT_RESOURCE to contentTextResource,
-                    KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
-                    KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onPrimaryButtonClick() {
-                            onPrimaryButtonClick()
-                        }
-
-                        override fun onSecondaryButtonClick() {
-                            onSecondaryButtonClick()
-                        }
-
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun showWithImage(
-            fragmentManager: FragmentManager,
-            @DrawableRes contentImageResource: Int,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun showWithImage(
-            fragmentManager: FragmentManager,
-            @StringRes titleResource: Int,
-            @DrawableRes contentImageResource: Int,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_TITLE_RESOURCE to titleResource,
-                    KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun showWithImage(
-            fragmentManager: FragmentManager,
-            @DrawableRes contentImageResource: Int,
-            @StringRes primaryButtonTextResource: Int,
-            @StringRes secondaryButtonTextResource: Int,
-            onPrimaryButtonClick: () -> Unit,
-            onSecondaryButtonClick: () -> Unit,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
-                    KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onPrimaryButtonClick() {
-                            onPrimaryButtonClick()
-                        }
-
-                        override fun onSecondaryButtonClick() {
-                            onSecondaryButtonClick()
-                        }
-
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
-        }
-
-        fun showWithImage(
-            fragmentManager: FragmentManager,
-            @StringRes titleResource: Int,
-            @DrawableRes contentImageResource: Int,
-            @StringRes primaryButtonTextResource: Int,
-            @StringRes secondaryButtonTextResource: Int,
-            onPrimaryButtonClick: () -> Unit,
-            onSecondaryButtonClick: () -> Unit,
-            tag: String = TAG,
-            onDismiss: (() -> Unit)? = null,
-        ) {
-            if (fragmentManager.findFragmentByTag(tag) == null) {
-                val bottomSheet = BottomSheet()
-                bottomSheet.arguments = bundleOf(
-                    KEY_TITLE_RESOURCE to titleResource,
-                    KEY_CONTENT_IMAGE_RESOURCE to contentImageResource,
-                    KEY_PRIMARY_BUTTON_TEXT_RESOURCE to primaryButtonTextResource,
-                    KEY_SECONDARY_BUTTON_TEXT_RESOURCE to secondaryButtonTextResource,
-                    KEY_LISTENER to object : Listener() {
-                        override fun onPrimaryButtonClick() {
-                            onPrimaryButtonClick()
-                        }
-
-                        override fun onSecondaryButtonClick() {
-                            onSecondaryButtonClick()
-                        }
-
-                        override fun onDismiss() {
-                            onDismiss?.invoke()
-                        }
-                    },
-                )
-                bottomSheet.show(fragmentManager, tag)
-            }
+        if (hideXButton.not()) {
+            Icon24(
+                iconRes = R.drawable.ic_x,
+                onClick = onDismiss,
+            )
         }
     }
+}
 
-    @Parcelize
-    private open class Listener : Parcelable {
-        open fun onPrimaryButtonClick() {}
-        open fun onSecondaryButtonClick() {}
-        open fun onDismiss() {}
+
+/**
+ * 단일 옵션 선택할 때 사용.
+ * 좌측에 아이콘이 붙는 경우 icon composable 작성
+ */
+data class SingleSelectOption(
+    val text: String,
+    val isSelected: Boolean,
+    val icon: @Composable () -> Unit = {},
+)
+
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheet1() {
+    BottomSheet(
+        title = "제목인데용",
+        buttonText = "버튼명1",
+        onButtonClick = {},
+        onDismiss = {}
+    ) {
+        Text(
+            text = "텍스트 컨텐츠.\n형식 자유"
+        )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheet_TwoButton() {
+    BottomSheet(
+        primaryButtonText = "탈퇴",
+        secondaryButtonText = "취소",
+        onPrimaryButtonClick = {},
+        onSecondaryButtonClick = {},
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(114.dp)
+                .background(color = Color(0xFFFFE0E0))
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetSingleSelectOption() {
+    BottomSheetSingleSelectOption(
+        title = "단일 선택 바텀시트",
+        singleSelectOptionList = listOf(
+            SingleSelectOption(
+                text = "옵션명1",
+                isSelected = true,
+            ),
+            SingleSelectOption(
+                text = "옵션명2",
+                isSelected = false,
+            ),
+            SingleSelectOption(
+                text = "옵션명3",
+                isSelected = false,
+                icon = {
+                    Icon16(iconRes = R.drawable.ic_trash)
+                }
+            )
+        ),
+        onDismiss = {},
+        onSelectOption = {}
+    )
 }

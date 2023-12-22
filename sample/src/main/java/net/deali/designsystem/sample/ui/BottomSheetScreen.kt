@@ -43,14 +43,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
     val bottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
     var bottomSheetType by remember { mutableStateOf(BottomSheetType.Plain) }
-    val hideBottomSheet: () -> Unit = remember {
-        {
-            coroutineScope.launch {
-                bottomSheetState.hide()
-            }
-        }
+    val hideBottomSheet: () -> Unit = {
+        coroutineScope.launch { bottomSheetState.hide() }
     }
-
     var selectedOptionIndex: Int? by remember { mutableStateOf(null) }
 
     ModalBottomSheetLayout(
@@ -71,6 +66,18 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     ) {
                         EmptyBox()
                     }
+                }
+            }
+
+            BottomSheetType.TwoButton -> {
+                {
+                    BottomSheet(
+                        primaryButtonText = "탈퇴",
+                        secondaryButtonText = "취소",
+                        onPrimaryButtonClick = {},
+                        onSecondaryButtonClick = {},
+                        content = { EmptyBox() }
+                    )
                 }
             }
 
@@ -193,6 +200,26 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
         sheetState = bottomSheetState,
         sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
     ) {
+
+        @Composable
+        fun OpenBottomSheetButton(
+            text: String,
+            type: BottomSheetType,
+            modifier: Modifier = Modifier,
+        ) {
+            btnOutlineMediumPrimary01(
+                modifier = modifier.fillMaxWidth(),
+                enabled = true,
+                text = text,
+                onClick = {
+                    coroutineScope.launch {
+                        bottomSheetType = type
+                        bottomSheetState.show()
+                    }
+                },
+            )
+        }
+
         Column {
             ActionBar(
                 modifier = Modifier.fillMaxWidth(),
@@ -207,93 +234,39 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     .padding(top = 24.dp, start = 16.dp, bottom = 40.dp, end = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
-                    text = "타이틀X 버튼 X 핸들X",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.Plain
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                OpenBottomSheetButton(
+                    text = "타이틀X 버튼 X",
+                    type = BottomSheetType.Plain,
                 )
-
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
+                OpenBottomSheetButton(
+                    text = "타이틀X, 버튼 2개",
+                    type = BottomSheetType.TwoButton,
+                )
+                OpenBottomSheetButton(
                     text = "타이틀O 버튼 X",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.Title
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                    type = BottomSheetType.Title,
                 )
-
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
+                OpenBottomSheetButton(
                     text = "타이틀O 버튼 1개",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.TitleAndButton
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                    type = BottomSheetType.TitleAndButton,
                 )
-
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
+                OpenBottomSheetButton(
                     text = "타이틀O 버튼 2개",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.TitleAndTwoButton
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                    type = BottomSheetType.TitleAndTwoButton,
                 )
-
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
+                OpenBottomSheetButton(
                     text = "타이틀O 버튼 X 핸들O",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.TitleWithHandle
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                    type = BottomSheetType.TitleWithHandle,
                 )
-
-                btnOutlineMediumPrimary01(
-                    modifier = Modifier.fillMaxWidth(),
-                    enabled = true,
+                OpenBottomSheetButton(
                     text = "단일 옵션 선택",
-                    onClick = remember {
-                        {
-                            coroutineScope.launch {
-                                bottomSheetType = BottomSheetType.SingleSelectOption
-                                bottomSheetState.show()
-                            }
-                        }
-                    },
+                    type = BottomSheetType.SingleSelectOption,
                 )
             }
         }
     }
 }
+
 
 @Composable
 private fun EmptyBox(modifier: Modifier = Modifier) {
@@ -308,6 +281,7 @@ private fun EmptyBox(modifier: Modifier = Modifier) {
 
 private enum class BottomSheetType {
     Plain,
+    TwoButton,
     Title,
     TitleAndButton,
     TitleAndTwoButton,
