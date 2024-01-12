@@ -135,7 +135,7 @@ fun btnFilledTonalMediumPrimary01(
         buttonSize = ButtonSize.Medium,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary03,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
@@ -201,7 +201,7 @@ fun btnFilledTonalMediumSecondary01(
         buttonSize = ButtonSize.Medium,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.g10,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),

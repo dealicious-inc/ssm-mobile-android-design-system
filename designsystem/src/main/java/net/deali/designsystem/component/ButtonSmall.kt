@@ -402,7 +402,7 @@ fun btnRoundFilledTonalSmallPrimary01(
         buttonSize = ButtonSize.Small,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary03,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
@@ -963,7 +963,7 @@ fun btnRoundOutlineSmallSecondary04(
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
-            outlineColor = DealiColor.g20,
+            outlineColor = DealiColor.g30,
             disabledOutlineColor = DealiColor.g20,
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,

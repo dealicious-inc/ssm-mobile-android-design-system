@@ -135,7 +135,7 @@ fun btnFilledTonalLargePrimary01(
         buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary03,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
