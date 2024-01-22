@@ -52,6 +52,13 @@ fun CheckBoxScreen(
                 text = "CheckBox / checked: false / enabled: false",
                 onCheck = { }
             )
+
+            CheckBox(
+                checked = true,
+                enabled = false,
+                text = "CheckBox / checked: true / enabled: false",
+                onCheck = { }
+            )
         }
     }
 }

@@ -68,7 +68,8 @@ private fun CheckBoxIcon(
     Icon24(
         modifier = modifier,
         iconRes = when {
-            enabled.not() -> R.drawable.ic_checkbox_disabled
+            enabled.not() && checked -> R.drawable.ic_checkbox_ondisable
+            enabled.not() && checked.not() -> R.drawable.ic_checkbox_disable
             checked -> R.drawable.ic_checkbox_on
             else -> R.drawable.ic_checkbox_off
         }
@@ -85,17 +86,23 @@ private fun CheckBoxPreview() {
     ) {
         CheckBox(
             checked = false,
-            text = getRandomText(2),
+            text = "checkbox_off",
             onCheck = {}
         )
         CheckBox(
             checked = true,
-            text = getRandomText(2),
+            text = "checkbox_on",
+            onCheck = {}
+        )
+        CheckBox(
+            checked = false,
+            text = "checkbox_disable",
+            enabled = false,
             onCheck = {}
         )
         CheckBox(
             checked = true,
-            text = getRandomText(2),
+            text = "checkbox_ondisable",
             enabled = false,
             onCheck = {}
         )
