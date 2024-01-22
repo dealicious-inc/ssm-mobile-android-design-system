@@ -14,15 +14,15 @@ import androidx.compose.ui.unit.dp
 import io.woong.compose.grid.SimpleGridCells
 import io.woong.compose.grid.VerticalGrid
 import net.deali.designsystem.R
-import net.deali.designsystem.component.chipsFilledDepthMediumSecondary01
-import net.deali.designsystem.component.chipsFilledImageDepthMediumSecondary01
-import net.deali.designsystem.component.chipsFilledImageMediumSecondary01
-import net.deali.designsystem.component.chipsFilledMediumPrimary01
-import net.deali.designsystem.component.chipsFilledMediumSquarePrimary01
-import net.deali.designsystem.component.chipsFilledSquareMediumSecondary01
-import net.deali.designsystem.component.chipsOutlineImageMediumSecondary01
-import net.deali.designsystem.component.chipsOutlineMediumPrimary01
-import net.deali.designsystem.component.chipsSquareBoldMediumPrimary01
+import net.deali.designsystem.component.chipsFilledDepthMedium01
+import net.deali.designsystem.component.chipsFilledImageDepthMedium01
+import net.deali.designsystem.component.chipsFilledImageMedium01
+import net.deali.designsystem.component.chipsFilledMedium01
+import net.deali.designsystem.component.chipsFilledSquareMedium01
+import net.deali.designsystem.component.chipsFilledSquareMedium02
+import net.deali.designsystem.component.chipsOutlineImageMedium01
+import net.deali.designsystem.component.chipsOutlineMedium01
+import net.deali.designsystem.component.chipsSquareBoldMedium01
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -33,21 +33,21 @@ fun MediumChipsSamples(modifier: Modifier = Modifier) {
             .background(color = DealiColor.g10),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        item { ChipsOutlineMediumPrimary01Samples() }
-        item { ChipsSquareBoldMediumPrimary01Samples() }
-        item { ChipsFilledMediumPrimary01Samples() }
-        item { ChipsFilledMediumSquarePrimary01Samples() }
-        item { ChipsFilledSquareMediumSecondary01Samples() }
-        item { ChipsFilledDepthMediumSecondary01Samples() }
-        item { ChipsFilledImageMediumSecondary01Samples() }
-        item { ChipsFilledImageDepthMediumSecondary01Samples() }
-        item { ChipsOutlineImageMediumSecondary01Samples() }
+        item { ChipsOutlineMedium01Samples() }
+        item { ChipsSquareBoldMedium01Samples() }
+        item { ChipsFilledMedium01Samples() }
+        item { ChipsFilledSquareMedium01Samples() }
+        item { ChipsFilledSquareMedium02Samples() }
+        item { ChipsFilledDepthMedium01Samples() }
+        item { ChipsFilledImageMedium01Samples() }
+        item { ChipsFilledImageDepthMedium01Samples() }
+        item { ChipsOutlineImageMedium01Samples() }
     }
 }
 
 @Composable
-private fun ChipsOutlineMediumPrimary01Samples() {
-    ChipsSampleLayout(title = "chipsOutlineMediumPrimary01") {
+private fun ChipsOutlineMedium01Samples() {
+    ChipsSampleLayout(title = "chipsOutlineMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -57,20 +57,20 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "Text",
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "Selected",
                     selected = true,
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "Disabled",
                     enabled = false,
@@ -78,7 +78,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             }
 
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -87,7 +87,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -97,7 +97,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -108,14 +108,14 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             }
 
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_check,
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_check,
@@ -123,7 +123,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_check,
@@ -132,7 +132,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             }
 
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -140,7 +140,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -149,7 +149,7 @@ private fun ChipsOutlineMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -159,20 +159,20 @@ private fun ChipsOutlineMediumPrimary01Samples() {
             }
 
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     selected = true,
                 )
             }
             Box {
-                chipsOutlineMediumPrimary01(
+                chipsOutlineMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     enabled = false,
@@ -183,8 +183,8 @@ private fun ChipsOutlineMediumPrimary01Samples() {
 }
 
 @Composable
-private fun ChipsSquareBoldMediumPrimary01Samples() {
-    ChipsSampleLayout(title = "chipsSquareBoldMediumPrimary01") {
+private fun ChipsSquareBoldMedium01Samples() {
+    ChipsSampleLayout(title = "chipsSquareBoldMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -194,20 +194,20 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "Text",
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "Selected",
                     selected = true,
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "Disabled",
                     enabled = false,
@@ -215,7 +215,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             }
 
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -224,7 +224,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -234,7 +234,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -245,14 +245,14 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             }
 
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_check,
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_check,
@@ -260,7 +260,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_check,
@@ -269,7 +269,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             }
 
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -277,7 +277,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -286,7 +286,7 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -296,20 +296,20 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
             }
 
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     selected = true,
                 )
             }
             Box {
-                chipsSquareBoldMediumPrimary01(
+                chipsSquareBoldMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     enabled = false,
@@ -320,8 +320,8 @@ private fun ChipsSquareBoldMediumPrimary01Samples() {
 }
 
 @Composable
-private fun ChipsFilledMediumPrimary01Samples() {
-    ChipsSampleLayout(title = "chipsFilledMediumPrimary01") {
+private fun ChipsFilledMedium01Samples() {
+    ChipsSampleLayout(title = "chipsFilledMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -331,20 +331,20 @@ private fun ChipsFilledMediumPrimary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "Text",
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "Selected",
                     selected = true,
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "Disabled",
                     enabled = false,
@@ -352,7 +352,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
             }
 
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -361,7 +361,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -371,7 +371,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -382,14 +382,14 @@ private fun ChipsFilledMediumPrimary01Samples() {
             }
 
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "TTT",
                     leftIcon = R.drawable.ic_check,
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "SSS",
                     leftIcon = R.drawable.ic_check,
@@ -397,7 +397,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     text = "DDD",
                     leftIcon = R.drawable.ic_check,
@@ -406,7 +406,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
             }
 
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "TTT",
@@ -414,7 +414,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "SSS",
@@ -423,7 +423,7 @@ private fun ChipsFilledMediumPrimary01Samples() {
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     onClick = {},
                     onRightIconClick = {},
                     text = "DDD",
@@ -433,295 +433,20 @@ private fun ChipsFilledMediumPrimary01Samples() {
             }
 
             Box {
-                chipsFilledMediumPrimary01(
+                chipsFilledMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                 )
             }
             Box {
-                chipsFilledMediumPrimary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledMediumPrimary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
-
-        }
-    }
-}
-
-@Composable
-private fun ChipsFilledMediumSquarePrimary01Samples() {
-    ChipsSampleLayout(title = "chipsFilledMediumSquarePrimary01") {
-        VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledMediumSquarePrimary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipsFilledMediumSquarePrimary01(
+                chipsFilledMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     selected = true,
                 )
             }
             Box {
-                chipsFilledMediumSquarePrimary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun ChipsFilledSquareMediumSecondary01Samples() {
-    ChipsSampleLayout(title = "chipsFilledSquareMediumSecondary01") {
-        VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
-
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
-                    icon = R.drawable.ic_refresh1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipsFilledSquareMediumSecondary01(
+                chipsFilledMedium01(
                     icon = R.drawable.ic_refresh1,
                     onClick = {},
                     enabled = false,
@@ -733,20 +458,295 @@ private fun ChipsFilledSquareMediumSecondary01Samples() {
 }
 
 @Composable
-private fun ChipsFilledDepthMediumSecondary01Samples() {
-    ChipsSampleLayout(title = "chipsFilledDepthMediumSecondary01") {
+private fun ChipsFilledSquareMedium01Samples() {
+    ChipsSampleLayout(title = "chipsFilledSquareMedium01") {
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(3),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "Text",
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "Selected",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "Disabled",
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_check,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_check,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_check,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium01(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium01(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    enabled = false,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ChipsFilledSquareMedium02Samples() {
+    ChipsSampleLayout(title = "chipsFilledSquareMedium02") {
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(3),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "Text",
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "Selected",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "Disabled",
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_bookmark_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_check,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_check,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_check,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsFilledSquareMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    selected = true,
+                )
+            }
+            Box {
+                chipsFilledSquareMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    enabled = false,
+                )
+            }
+
+        }
+    }
+}
+
+@Composable
+private fun ChipsFilledDepthMedium01Samples() {
+    ChipsSampleLayout(title = "chipsFilledDepthMedium01") {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 texts = listOf("First", "Second", "Third"),
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 icons = listOf(
@@ -755,7 +755,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                     R.drawable.ic_file_copy,
                 ),
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -764,7 +764,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                     Triple(R.drawable.ic_bookmark, "Third", null),
                 ),
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -773,7 +773,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                     Triple(null, "Third", R.drawable.ic_check),
                 ),
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -783,13 +783,13 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
             )
 
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 texts = listOf("First", "Second", "Third"),
                 selected = true,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 icons = listOf(
@@ -799,7 +799,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 selected = true,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -809,7 +809,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 selected = true,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -819,7 +819,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 selected = true,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -830,13 +830,13 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 selected = true,
             )
 
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 texts = listOf("First", "Second", "Third"),
                 enabled = false,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 icons = listOf(
@@ -846,7 +846,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 enabled = false,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -856,7 +856,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 enabled = false,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -866,7 +866,7 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
                 ),
                 enabled = false,
             )
-            chipsFilledDepthMediumSecondary01(
+            chipsFilledDepthMedium01(
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
@@ -881,9 +881,9 @@ private fun ChipsFilledDepthMediumSecondary01Samples() {
 }
 
 @Composable
-private fun ChipsFilledImageMediumSecondary01Samples() {
+private fun ChipsFilledImageMedium01Samples() {
     val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipsSampleLayout(title = "chipsFilledImageMediumSecondary01") {
+    ChipsSampleLayout(title = "chipsFilledImageMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
             modifier = Modifier
@@ -893,14 +893,14 @@ private fun ChipsFilledImageMediumSecondary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Box {
-                chipsFilledImageMediumSecondary01(
+                chipsFilledImageMedium01(
                     onClick = {},
                     imageUrl = sampleImage,
                     text = "Default",
                 )
             }
             Box {
-                chipsFilledImageMediumSecondary01(
+                chipsFilledImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,
@@ -909,7 +909,7 @@ private fun ChipsFilledImageMediumSecondary01Samples() {
                 )
             }
             Box {
-                chipsFilledImageMediumSecondary01(
+                chipsFilledImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,
@@ -919,7 +919,7 @@ private fun ChipsFilledImageMediumSecondary01Samples() {
                 )
             }
             Box {
-                chipsFilledImageMediumSecondary01(
+                chipsFilledImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,
@@ -933,23 +933,23 @@ private fun ChipsFilledImageMediumSecondary01Samples() {
 }
 
 @Composable
-private fun ChipsFilledImageDepthMediumSecondary01Samples() {
+private fun ChipsFilledImageDepthMedium01Samples() {
     val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipsSampleLayout(title = "chipsFilledImageDepthMediumSecondary01") {
+    ChipsSampleLayout(title = "chipsFilledImageDepthMedium01") {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            chipsFilledImageDepthMediumSecondary01(
+            chipsFilledImageDepthMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
                 texts = listOf("Default", "Text", "999,999"),
             )
-            chipsFilledImageDepthMediumSecondary01(
+            chipsFilledImageDepthMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
@@ -957,7 +957,7 @@ private fun ChipsFilledImageDepthMediumSecondary01Samples() {
                 texts = listOf("Selected", "Text", "999,999"),
                 selected = true,
             )
-            chipsFilledImageDepthMediumSecondary01(
+            chipsFilledImageDepthMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
@@ -970,9 +970,9 @@ private fun ChipsFilledImageDepthMediumSecondary01Samples() {
 }
 
 @Composable
-private fun ChipsOutlineImageMediumSecondary01Samples() {
+private fun ChipsOutlineImageMedium01Samples() {
     val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipsSampleLayout(title = "chipsOutlineImageMediumSecondary01") {
+    ChipsSampleLayout(title = "chipsOutlineImageMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
             modifier = Modifier
@@ -982,14 +982,14 @@ private fun ChipsOutlineImageMediumSecondary01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Box {
-                chipsOutlineImageMediumSecondary01(
+                chipsOutlineImageMedium01(
                     onClick = {},
                     imageUrl = sampleImage,
                     text = "Default",
                 )
             }
             Box {
-                chipsOutlineImageMediumSecondary01(
+                chipsOutlineImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,
@@ -998,7 +998,7 @@ private fun ChipsOutlineImageMediumSecondary01Samples() {
                 )
             }
             Box {
-                chipsOutlineImageMediumSecondary01(
+                chipsOutlineImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,
@@ -1008,7 +1008,7 @@ private fun ChipsOutlineImageMediumSecondary01Samples() {
                 )
             }
             Box {
-                chipsOutlineImageMediumSecondary01(
+                chipsOutlineImageMedium01(
                     onClick = {},
                     onRemoveClick = {},
                     imageUrl = sampleImage,

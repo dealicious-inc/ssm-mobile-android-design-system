@@ -29,7 +29,7 @@ import net.deali.designsystem.internal.chips.CoreRegularChips
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun chipsOutlineLargePrimary01(
+fun chipsOutlineLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -76,7 +76,7 @@ fun chipsOutlineLargePrimary01(
 }
 
 @Composable
-fun chipsOutlineLargePrimary01(
+fun chipsOutlineLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -112,7 +112,7 @@ fun chipsOutlineLargePrimary01(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsOutlineLargePrimary01(
+fun chipsOutlineLarge01(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -126,7 +126,7 @@ fun chipsOutlineLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsOutlineLargePrimary01(
+    chipsOutlineLarge01(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -145,7 +145,7 @@ fun chipsOutlineLargePrimary01(
 }
 
 @Composable
-fun chipsSquareLargePrimary01(
+fun chipsSquareLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -192,7 +192,7 @@ fun chipsSquareLargePrimary01(
 }
 
 @Composable
-fun chipsSquareLargePrimary01(
+fun chipsSquareLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -228,7 +228,7 @@ fun chipsSquareLargePrimary01(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsSquareLargePrimary01(
+fun chipsSquareLarge01(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -242,7 +242,7 @@ fun chipsSquareLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsSquareLargePrimary01(
+    chipsSquareLarge01(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -261,7 +261,7 @@ fun chipsSquareLargePrimary01(
 }
 
 @Composable
-fun chipsFilledLargePrimary01(
+fun chipsFilledLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -308,7 +308,7 @@ fun chipsFilledLargePrimary01(
 }
 
 @Composable
-fun chipsFilledLargePrimary01(
+fun chipsFilledLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -344,7 +344,7 @@ fun chipsFilledLargePrimary01(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledLargePrimary01(
+fun chipsFilledLarge01(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -358,7 +358,7 @@ fun chipsFilledLargePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsFilledLargePrimary01(
+    chipsFilledLarge01(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -377,7 +377,7 @@ fun chipsFilledLargePrimary01(
 }
 
 @Composable
-fun chipsFilledLargeSquarePrimary01(
+fun chipsFilledSquareLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -424,7 +424,7 @@ fun chipsFilledLargeSquarePrimary01(
 }
 
 @Composable
-fun chipsFilledLargeSquarePrimary01(
+fun chipsFilledSquareLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -460,7 +460,7 @@ fun chipsFilledLargeSquarePrimary01(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledLargeSquarePrimary01(
+fun chipsFilledSquareLarge01(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -474,7 +474,7 @@ fun chipsFilledLargeSquarePrimary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsFilledLargeSquarePrimary01(
+    chipsFilledSquareLarge01(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -493,7 +493,7 @@ fun chipsFilledLargeSquarePrimary01(
 }
 
 @Composable
-fun chipsFilledLargeSquarePrimary02(
+fun chipsFilledSquareLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -537,7 +537,7 @@ fun chipsFilledLargeSquarePrimary02(
 }
 
 @Composable
-fun chipsFilledLargeSquarePrimary02(
+fun chipsFilledSquareLarge02(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -570,7 +570,7 @@ fun chipsFilledLargeSquarePrimary02(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledLargeSquarePrimary02(
+fun chipsFilledSquareLarge02(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -584,7 +584,7 @@ fun chipsFilledLargeSquarePrimary02(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsFilledLargeSquarePrimary02(
+    chipsFilledSquareLarge02(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -603,7 +603,7 @@ fun chipsFilledLargeSquarePrimary02(
 }
 
 @Composable
-fun chipsFilledSquareLargeSecondary01(
+fun chipsFilledSquareLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -647,7 +647,7 @@ fun chipsFilledSquareLargeSecondary01(
 }
 
 @Composable
-fun chipsFilledSquareLargeSecondary01(
+fun chipsFilledSquareLarge03(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -680,7 +680,7 @@ fun chipsFilledSquareLargeSecondary01(
 
 @Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledSquareLargeSecondary01(
+fun chipsFilledSquareLarge03(
     onClick: () -> Unit,
     text: String,
     useRemoveIcon: Boolean,
@@ -694,7 +694,7 @@ fun chipsFilledSquareLargeSecondary01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    chipsFilledSquareLargeSecondary01(
+    chipsFilledSquareLarge03(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -713,8 +713,8 @@ fun chipsFilledSquareLargeSecondary01(
 }
 
 @Composable
-@JvmName("chipsFilledDepthLargeSecondary01OnlyTexts")
-fun chipsFilledDepthLargeSecondary01(
+@JvmName("chipsFilledDepthLarge01OnlyTexts")
+fun chipsFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     texts: List<String>,
@@ -773,8 +773,8 @@ fun chipsFilledDepthLargeSecondary01(
 }
 
 @Composable
-@JvmName("chipsFilledDepthLargeSecondary01OnlyIcons")
-fun chipsFilledDepthLargeSecondary01(
+@JvmName("chipsFilledDepthLarge01OnlyIcons")
+fun chipsFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     icons: List<Int>,
@@ -829,8 +829,8 @@ fun chipsFilledDepthLargeSecondary01(
 }
 
 @Composable
-@JvmName("chipsFilledDepthLargeSecondary01TextsAndIcons")
-fun chipsFilledDepthLargeSecondary01(
+@JvmName("chipsFilledDepthLarge01TextsAndIcons")
+fun chipsFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     contents: List<Triple<Int?, String, Int?>>,
@@ -908,7 +908,7 @@ fun chipsFilledDepthLargeSecondary01(
 }
 
 @Composable
-fun chipsFilledImageLargeSecondary01(
+fun chipsFilledImageLarge01(
     onClick: () -> Unit,
     imageUrl: String,
     text: String,
@@ -966,7 +966,7 @@ fun chipsFilledImageLargeSecondary01(
 }
 
 @Composable
-fun chipsFilledImageDepthLargeSecondary01(
+fun chipsFilledImageDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     imageUrl: String,
@@ -1050,7 +1050,7 @@ fun chipsFilledImageDepthLargeSecondary01(
 }
 
 @Composable
-fun chipsOutlineImageLargeSecondary01(
+fun chipsOutlineImageLarge01(
     onClick: () -> Unit,
     imageUrl: String,
     text: String,
