@@ -23,6 +23,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
@@ -66,57 +67,19 @@ fun RadioButton(
     }
 }
 
+
 @Composable
 private fun RadioIcon(
     selected: Boolean,
     enabled: Boolean = true,
-    radioButtonSize: Dp = 18.dp,
-    radioButtonDotSize: Dp = 8.dp,
-    radioButtonPadding: Dp = 3.dp
 ) {
-    val dotRadius = animateDpAsState(
-        targetValue = if (selected) radioButtonDotSize / 2 else 0.dp,
-        animationSpec = tween(durationMillis = 100),
-        label = "radius",
-    )
-
-    val backgroundColor = when {
-        enabled.not() -> DealiColor.g20
-        else -> DealiColor.primary04
-    }
-
-    val borderColor = when {
-        enabled.not() -> DealiColor.g30
-        selected -> DealiColor.primary01
-        else -> DealiColor.g50
-    }
-
-    val dotColor = when {
-        selected -> DealiColor.primary01
-        else -> DealiColor.transparent
-    }
-
-    Canvas(
-        modifier = Modifier
-            .padding(radioButtonPadding)
-            .requiredSize(radioButtonSize)
-    ) {
-        val strokeWidth = 1.dp.toPx()
-        drawCircle(
-            color = backgroundColor,
-            radius = (radioButtonSize / 2).toPx() - strokeWidth / 2,
-        )
-
-        drawCircle(
-            color = borderColor,
-            radius = (radioButtonSize / 2).toPx() - strokeWidth / 2,
-            style = Stroke(strokeWidth)
-        )
-
-        if (dotRadius.value > 0.dp) {
-            drawCircle(dotColor, dotRadius.value.toPx(), style = Fill)
+    Icon24(
+        iconRes = when {
+            enabled.not() -> R.drawable.ic_radiobutton_disable
+            selected -> R.drawable.ic_radiobutton_on
+            else -> R.drawable.ic_radiobutton_off
         }
-    }
+    )
 }
 
 @Composable
