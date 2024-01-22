@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
-import net.deali.designsystem.component.btnOutlineMediumPrimary01
+import net.deali.designsystem.component.btnOutlineMedium01
 
 @Composable
 fun FormsScreen(
@@ -32,31 +32,31 @@ fun FormsScreen(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 text = "Text Input",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInput,
             )
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 text = "Text Input + Button",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInputWithButton,
             )
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 text = "Text Field",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToTextField,
             )
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 text = "Search Input",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToSearchInput,
             )
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 text = "Search Input + Tag",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),

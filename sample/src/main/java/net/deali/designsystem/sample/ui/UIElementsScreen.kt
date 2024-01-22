@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
-import net.deali.designsystem.component.btnOutlineMediumPrimary01
+import net.deali.designsystem.component.btnOutlineMedium01
 
 @Composable
 fun UIElementsScreen(
@@ -37,70 +37,70 @@ fun UIElementsScreen(
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "CheckBox",
                 onClick = navigateToCheckBox
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Checkcircle",
                 onClick = navigateToCheckcircle
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Radio Button",
                 onClick = navigateToRadioButton
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Toggle/Switch",
                 onClick = navigateToToggleSwitch
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Tooltip",
                 onClick = navigateToTooltip
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Rating",
                 onClick = navigateToRating
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Popup",
                 onClick = navigateToPopup
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Tag",
                 onClick = navigateToTag
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Date Time Picker",
                 onClick = navigateToDateTimePicker
             )
 
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 text = "Slider",

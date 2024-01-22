@@ -13,40 +13,7 @@ import net.deali.designsystem.internal.button.CoreButton
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun btnFilledMediumGradient(
-    onClick: () -> Unit,
-    text: String,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
-    enabled: Boolean = true,
-    loading: Boolean = false,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-) {
-    CoreButton(
-        onClick = onClick,
-        text = text,
-        leftIcon = leftIcon,
-        rightIcon = rightIcon,
-        clickable = clickable,
-        enabled = enabled,
-        loading = loading,
-        buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Medium,
-        buttonColors = ButtonDefaults.colors(
-            backgroundColor = DealiColor.gradient,
-            disabledBackgroundColor = SolidColor(DealiColor.g40),
-            contentColor = DealiColor.primary04,
-            disabledContentColor = DealiColor.primary04,
-        ),
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun btnFilledMediumPrimary01(
+fun btnFilledMedium01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -78,8 +45,10 @@ fun btnFilledMediumPrimary01(
     )
 }
 
+
+/** 구 btnFilledMediumGradient */
 @Composable
-fun btnFilledMediumPrimary02(
+fun btnFilledMedium02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -101,10 +70,44 @@ fun btnFilledMediumPrimary02(
         buttonStyle = ButtonStyle.Filled,
         buttonSize = ButtonSize.Medium,
         buttonColors = ButtonDefaults.colors(
-            backgroundColor = DealiColor.b40.copy(alpha = 0.4f),
-            disabledBackgroundColor = DealiColor.b20.copy(alpha = 0.2f),
+            backgroundColor = DealiColor.gradient,
+            disabledBackgroundColor = SolidColor(DealiColor.g40),
             contentColor = DealiColor.primary04,
-            disabledContentColor = DealiColor.w50.copy(alpha = 0.5f),
+            disabledContentColor = DealiColor.primary04,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+/** 구 btnFilledMediumPrimary02 */
+@Composable
+fun btnFilledMedium03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Medium,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.b40,
+            disabledBackgroundColor = DealiColor.b20,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.w50,
         ),
         interactionSource = interactionSource,
         modifier = modifier,
@@ -112,7 +115,7 @@ fun btnFilledMediumPrimary02(
 }
 
 @Composable
-fun btnFilledTonalMediumPrimary01(
+fun btnFilledTonalMedium01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -145,7 +148,7 @@ fun btnFilledTonalMediumPrimary01(
 }
 
 @Composable
-fun btnFilledTonalMediumPrimary02(
+fun btnFilledTonalMedium02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -177,8 +180,9 @@ fun btnFilledTonalMediumPrimary02(
     )
 }
 
+/** 구 btnFilledTonalMediumSecondary01 */
 @Composable
-fun btnFilledTonalMediumSecondary01(
+fun btnFilledTonalMedium03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -210,8 +214,9 @@ fun btnFilledTonalMediumSecondary01(
     )
 }
 
+/** 구 btnFilledTonalMediumSecondary02 */
 @Composable
-fun btnFilledTonalMediumSecondary02(
+fun btnFilledTonalMedium04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -243,8 +248,9 @@ fun btnFilledTonalMediumSecondary02(
     )
 }
 
+/** 구 btnFilledTonalMediumSecondary03 */
 @Composable
-fun btnFilledTonalMediumSecondary03(
+fun btnFilledTonalMedium05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -277,7 +283,7 @@ fun btnFilledTonalMediumSecondary03(
 }
 
 @Composable
-fun btnOutlineMediumPrimary01(
+fun btnOutlineMedium01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -311,8 +317,9 @@ fun btnOutlineMediumPrimary01(
     )
 }
 
+/** 구 btnOutlineMediumPrimary02 */
 @Composable
-fun btnOutlineMediumPrimary02(
+fun btnOutlineMedium02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -346,8 +353,9 @@ fun btnOutlineMediumPrimary02(
     )
 }
 
+/** 구 btnOutlineMediumSecondary01 */
 @Composable
-fun btnOutlineMediumSecondary01(
+fun btnOutlineMedium03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -381,8 +389,9 @@ fun btnOutlineMediumSecondary01(
     )
 }
 
+/** 구 btnOutlineMediumSecondary02 */
 @Composable
-fun btnOutlineMediumSecondary02(
+fun btnOutlineMedium04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -416,8 +425,9 @@ fun btnOutlineMediumSecondary02(
     )
 }
 
+/** 구 btnOutlineMediumSecondary03 */
 @Composable
-fun btnOutlineMediumSecondary03(
+fun btnOutlineMedium05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -451,8 +461,9 @@ fun btnOutlineMediumSecondary03(
     )
 }
 
+/** 구 btnOutlineMediumSecondary04 */
 @Composable
-fun btnOutlineMediumSecondary04(
+fun btnOutlineMedium06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -487,7 +498,7 @@ fun btnOutlineMediumSecondary04(
 }
 
 @Composable
-fun btnTextMediumPrimary01(
+fun btnTextMedium01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -519,8 +530,9 @@ fun btnTextMediumPrimary01(
     )
 }
 
+/** 구 btnTextMediumPrimary02 */
 @Composable
-fun btnTextMediumPrimary02(
+fun btnTextMedium02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -552,8 +564,9 @@ fun btnTextMediumPrimary02(
     )
 }
 
+/** 구 btnTextMediumSecondary01 */
 @Composable
-fun btnTextMediumSecondary01(
+fun btnTextMedium03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -585,8 +598,9 @@ fun btnTextMediumSecondary01(
     )
 }
 
+/** 구 btnTextMediumSecondary02 */
 @Composable
-fun btnTextMediumSecondary02(
+fun btnTextMedium04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -618,8 +632,9 @@ fun btnTextMediumSecondary02(
     )
 }
 
+/** 구 btnTextMediumSecondary03 */
 @Composable
-fun btnTextMediumSecondary03(
+fun btnTextMedium05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -651,8 +666,9 @@ fun btnTextMediumSecondary03(
     )
 }
 
+/** 구 btnTextMediumSecondary04 */
 @Composable
-fun btnTextMediumSecondary04(
+fun btnTextMedium06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -684,8 +700,9 @@ fun btnTextMediumSecondary04(
     )
 }
 
+/** 구 btnTextMediumSecondary05 */
 @Composable
-fun btnTextMediumSecondary05(
+fun btnTextMedium07(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,

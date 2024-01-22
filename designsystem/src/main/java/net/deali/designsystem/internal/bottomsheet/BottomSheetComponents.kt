@@ -27,8 +27,8 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.SingleSelectOption
-import net.deali.designsystem.component.btnFilledLargePrimary01
-import net.deali.designsystem.component.btnOutlineLargePrimary01
+import net.deali.designsystem.component.btnFilledLarge01
+import net.deali.designsystem.component.btnOutlineLarge01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -52,7 +52,7 @@ internal fun BottomSheetFooter(
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        btnOutlineLargePrimary01(
+        btnOutlineLarge01(
             modifier = Modifier.weight(1f),
             text = secondaryButtonText,
             enabled = isSecondaryButtonEnabled,
@@ -60,7 +60,7 @@ internal fun BottomSheetFooter(
             onClick = onSecondaryButtonClick,
         )
         Spacer(modifier = Modifier.width(8.dp))
-        btnFilledLargePrimary01(
+        btnFilledLarge01(
             modifier = Modifier.weight(1f),
             text = primaryButtonText,
             enabled = isPrimaryButtonEnabled,
@@ -91,7 +91,7 @@ internal fun BottomSheetFooter(
                 .padding(horizontal = 16.dp),
             contentAlignment = Alignment.Center,
         ) {
-            btnFilledLargePrimary01(
+            btnFilledLarge01(
                 modifier = Modifier.fillMaxWidth(),
                 text = buttonText,
                 enabled = isButtonEnabled,

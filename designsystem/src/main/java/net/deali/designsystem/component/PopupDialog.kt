@@ -111,14 +111,14 @@ class PopupDialog private constructor(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                btnOutlineMediumPrimary01(
+                                btnOutlineMedium01(
                                     modifier = Modifier.weight(1f),
                                     text = buttonStrategy.leftButtonText,
                                     onClick = {
                                         popupListener?.onLeftButtonClick(this@PopupDialog)
                                     }
                                 )
-                                btnFilledMediumPrimary01(
+                                btnFilledMedium01(
                                     modifier = Modifier.weight(1f),
                                     text = buttonStrategy.rightButtonText,
                                     onClick = {
@@ -130,7 +130,7 @@ class PopupDialog private constructor(
 
                         is ButtonStrategy.Single -> {
                             check(popupListener is SingleButtonPopupListener?)
-                            btnFilledMediumPrimary01(
+                            btnFilledMedium01(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = buttonStrategy.buttonText,
                                 onClick = {

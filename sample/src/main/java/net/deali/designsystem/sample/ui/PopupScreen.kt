@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.Popup
 import net.deali.designsystem.component.PopupSingleButton
-import net.deali.designsystem.component.btnFilledSmallPrimary01
+import net.deali.designsystem.component.btnFilledSmall01
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -43,25 +43,25 @@ fun PopupScreen(
                 .padding(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            btnFilledSmallPrimary01(
+            btnFilledSmall01(
                 text = "popup title content dismiss confirm",
                 enabled = true,
                 onClick = { popupState1 = true },
             )
 
-            btnFilledSmallPrimary01(
+            btnFilledSmall01(
                 text = "popup title content confirm",
                 enabled = true,
                 onClick = { popupState2 = true },
             )
 
-            btnFilledSmallPrimary01(
+            btnFilledSmall01(
                 text = "content dismiss confirm",
                 enabled = true,
                 onClick = { popupState3 = true },
             )
 
-            btnFilledSmallPrimary01(
+            btnFilledSmall01(
                 text = "content confirm",
                 enabled = true,
                 onClick = { popupState4 = true },

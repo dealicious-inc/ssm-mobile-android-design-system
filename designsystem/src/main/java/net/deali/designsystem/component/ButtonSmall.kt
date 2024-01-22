@@ -13,40 +13,7 @@ import net.deali.designsystem.internal.button.CoreButton
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun btnFilledSmallGradient(
-    onClick: () -> Unit,
-    text: String,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
-    enabled: Boolean = true,
-    loading: Boolean = false,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-) {
-    CoreButton(
-        onClick = onClick,
-        text = text,
-        leftIcon = leftIcon,
-        rightIcon = rightIcon,
-        clickable = clickable,
-        enabled = enabled,
-        loading = loading,
-        buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Small,
-        buttonColors = ButtonDefaults.colors(
-            backgroundColor = DealiColor.gradient,
-            disabledBackgroundColor = SolidColor(DealiColor.g40),
-            contentColor = DealiColor.primary04,
-            disabledContentColor = DealiColor.primary04,
-        ),
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun btnFilledSmallPrimary01(
+fun btnFilledSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -78,41 +45,9 @@ fun btnFilledSmallPrimary01(
     )
 }
 
+/** 구 btnFilledSmallGradient */
 @Composable
-fun btnFilledSmallPrimary02(
-    onClick: () -> Unit,
-    text: String,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
-    enabled: Boolean = true,
-    loading: Boolean = false,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-) {
-    CoreButton(
-        onClick = onClick,
-        text = text,
-        leftIcon = leftIcon,
-        rightIcon = rightIcon,
-        clickable = clickable,
-        enabled = enabled,
-        loading = loading,
-        buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Small,
-        buttonColors = ButtonDefaults.colors(
-            backgroundColor = DealiColor.b40.copy(alpha = 0.4f),
-            disabledBackgroundColor = DealiColor.b20.copy(alpha = 0.2f),
-            contentColor = DealiColor.primary04,
-            disabledContentColor = DealiColor.w50.copy(alpha = 0.5f),
-        ),
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun btnRoundFilledSmallGradient(
+fun btnFilledSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -139,14 +74,47 @@ fun btnRoundFilledSmallGradient(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.primary04,
         ),
-        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+/** 구 btnFilledSmallPrimary02 */
+@Composable
+fun btnFilledSmall03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.b40,
+            disabledBackgroundColor = DealiColor.b20,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.w50,
+        ),
         interactionSource = interactionSource,
         modifier = modifier,
     )
 }
 
 @Composable
-fun btnRoundFilledSmallPrimary01(
+fun btnRoundFilledSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -179,8 +147,45 @@ fun btnRoundFilledSmallPrimary01(
     )
 }
 
+
+/** 구 btnRoundFilledSmallGradient */
 @Composable
-fun btnRoundFilledSmallPrimary02(
+fun btnRoundFilledSmall02(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.gradient,
+            disabledBackgroundColor = SolidColor(DealiColor.g40),
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+/** 구 btnRoundFilledSmallPrimary02 */
+@Composable
+fun btnRoundFilledSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -214,7 +219,7 @@ fun btnRoundFilledSmallPrimary02(
 }
 
 @Composable
-fun btnFilledTonalSmallPrimary01(
+fun btnFilledTonalSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -246,8 +251,9 @@ fun btnFilledTonalSmallPrimary01(
     )
 }
 
+/** 구 btnFilledTonalSmallPrimary02 */
 @Composable
-fun btnFilledTonalSmallPrimary02(
+fun btnFilledTonalSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -279,8 +285,9 @@ fun btnFilledTonalSmallPrimary02(
     )
 }
 
+/** 구 btnFilledTonalSmallSecondary01 */
 @Composable
-fun btnFilledTonalSmallSecondary01(
+fun btnFilledTonalSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -312,8 +319,9 @@ fun btnFilledTonalSmallSecondary01(
     )
 }
 
+/** 구 btnFilledTonalSmallSecondary02 */
 @Composable
-fun btnFilledTonalSmallSecondary02(
+fun btnFilledTonalSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -345,8 +353,9 @@ fun btnFilledTonalSmallSecondary02(
     )
 }
 
+/** 구 btnFilledTonalSmallSecondary03 */
 @Composable
-fun btnFilledTonalSmallSecondary03(
+fun btnFilledTonalSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -379,7 +388,7 @@ fun btnFilledTonalSmallSecondary03(
 }
 
 @Composable
-fun btnRoundFilledTonalSmallPrimary01(
+fun btnRoundFilledTonalSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -412,8 +421,9 @@ fun btnRoundFilledTonalSmallPrimary01(
     )
 }
 
+/** 구 btnRoundFilledTonalSmallPrimary02 */
 @Composable
-fun btnRoundFilledTonalSmallPrimary02(
+fun btnRoundFilledTonalSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -446,8 +456,9 @@ fun btnRoundFilledTonalSmallPrimary02(
     )
 }
 
+/** 구 btnRoundFilledTonalSmallSecondary01 */
 @Composable
-fun btnRoundFilledTonalSmallSecondary01(
+fun btnRoundFilledTonalSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -480,8 +491,9 @@ fun btnRoundFilledTonalSmallSecondary01(
     )
 }
 
+/** 구 btnRoundFilledTonalSmallSecondary02 */
 @Composable
-fun btnRoundFilledTonalSmallSecondary02(
+fun btnRoundFilledTonalSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -514,8 +526,9 @@ fun btnRoundFilledTonalSmallSecondary02(
     )
 }
 
+/** 구 btnRoundFilledTonalSmallSecondary03 */
 @Composable
-fun btnRoundFilledTonalSmallSecondary03(
+fun btnRoundFilledTonalSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -549,7 +562,7 @@ fun btnRoundFilledTonalSmallSecondary03(
 }
 
 @Composable
-fun btnOutlineSmallPrimary01(
+fun btnOutlineSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -583,8 +596,9 @@ fun btnOutlineSmallPrimary01(
     )
 }
 
+/** 구 btnOutlineSmallPrimary02 */
 @Composable
-fun btnOutlineSmallPrimary02(
+fun btnOutlineSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -618,8 +632,9 @@ fun btnOutlineSmallPrimary02(
     )
 }
 
+/** 구 btnOutlineSmallSecondary01 */
 @Composable
-fun btnOutlineSmallSecondary01(
+fun btnOutlineSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -653,8 +668,9 @@ fun btnOutlineSmallSecondary01(
     )
 }
 
+/** 구 btnOutlineSmallSecondary02 */
 @Composable
-fun btnOutlineSmallSecondary02(
+fun btnOutlineSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -688,8 +704,9 @@ fun btnOutlineSmallSecondary02(
     )
 }
 
+/** 구 btnOutlineSmallSecondary03 */
 @Composable
-fun btnOutlineSmallSecondary03(
+fun btnOutlineSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -723,8 +740,9 @@ fun btnOutlineSmallSecondary03(
     )
 }
 
+/** 구 btnOutlineSmallSecondary04 */
 @Composable
-fun btnOutlineSmallSecondary04(
+fun btnOutlineSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -759,7 +777,7 @@ fun btnOutlineSmallSecondary04(
 }
 
 @Composable
-fun btnRoundOutlineSmallPrimary01(
+fun btnRoundOutlineSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -794,8 +812,9 @@ fun btnRoundOutlineSmallPrimary01(
     )
 }
 
+/** 구 btnRoundOutlineSmallPrimary02 */
 @Composable
-fun btnRoundOutlineSmallPrimary02(
+fun btnRoundOutlineSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -830,8 +849,9 @@ fun btnRoundOutlineSmallPrimary02(
     )
 }
 
+/** 구 btnRoundOutlineSmallSecondary01 */
 @Composable
-fun btnRoundOutlineSmallSecondary01(
+fun btnRoundOutlineSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -866,8 +886,9 @@ fun btnRoundOutlineSmallSecondary01(
     )
 }
 
+/** 구 btnRoundOutlineSmallSecondary02 */
 @Composable
-fun btnRoundOutlineSmallSecondary02(
+fun btnRoundOutlineSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -902,8 +923,9 @@ fun btnRoundOutlineSmallSecondary02(
     )
 }
 
+/** 구 btnRoundOutlineSmallSecondary03 */
 @Composable
-fun btnRoundOutlineSmallSecondary03(
+fun btnRoundOutlineSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -938,8 +960,9 @@ fun btnRoundOutlineSmallSecondary03(
     )
 }
 
+/** 구 btnRoundOutlineSmallSecondary04 */
 @Composable
-fun btnRoundOutlineSmallSecondary04(
+fun btnRoundOutlineSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -975,7 +998,7 @@ fun btnRoundOutlineSmallSecondary04(
 }
 
 @Composable
-fun btnTextSmallPrimary01(
+fun btnTextSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1007,8 +1030,9 @@ fun btnTextSmallPrimary01(
     )
 }
 
+/** 구 btnTextSmallPrimary02 */
 @Composable
-fun btnTextSmallPrimary02(
+fun btnTextSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1040,8 +1064,9 @@ fun btnTextSmallPrimary02(
     )
 }
 
+/** 구 btnTextSmallSecondary01 */
 @Composable
-fun btnTextSmallSecondary01(
+fun btnTextSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1073,8 +1098,9 @@ fun btnTextSmallSecondary01(
     )
 }
 
+/** 구 btnTextSmallSecondary02 */
 @Composable
-fun btnTextSmallSecondary02(
+fun btnTextSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1106,8 +1132,9 @@ fun btnTextSmallSecondary02(
     )
 }
 
+/** 구 btnTextSmallSecondary03 */
 @Composable
-fun btnTextSmallSecondary03(
+fun btnTextSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1139,8 +1166,9 @@ fun btnTextSmallSecondary03(
     )
 }
 
+/** 구 btnTextSmallSecondary04 */
 @Composable
-fun btnTextSmallSecondary04(
+fun btnTextSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -1172,8 +1200,9 @@ fun btnTextSmallSecondary04(
     )
 }
 
+/** 구 btnTextSmallSecondary05 */
 @Composable
-fun btnTextSmallSecondary05(
+fun btnTextSmall07(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,

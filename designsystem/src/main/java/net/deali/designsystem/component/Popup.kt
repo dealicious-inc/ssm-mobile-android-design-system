@@ -73,13 +73,13 @@ fun Popup(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.weight(1f),
                 text = leftButtonText,
                 enabled = true,
                 onClick = onLeftButtonClick
             )
-            btnFilledMediumPrimary01(
+            btnFilledMedium01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
                 enabled = true,
@@ -126,13 +126,13 @@ fun Popup(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = Modifier.weight(1f),
                 text = leftButtonText,
                 enabled = true,
                 onClick = onLeftButtonClick
             )
-            btnFilledMediumPrimary01(
+            btnFilledMedium01(
                 modifier = Modifier.weight(1f),
                 text = rightButtonText,
                 enabled = true,
@@ -186,7 +186,7 @@ fun PopupSingleButton(
             color = DealiColor.g70
         )
         Spacer(modifier = Modifier.height(24.dp))
-        btnFilledMediumPrimary01(
+        btnFilledMedium01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,
@@ -224,7 +224,7 @@ fun PopupSingleButton(
             color = DealiColor.g70
         )
         Spacer(modifier = Modifier.height(24.dp))
-        btnFilledMediumPrimary01(
+        btnFilledMedium01(
             modifier = Modifier.fillMaxWidth(),
             text = buttonText,
             enabled = true,

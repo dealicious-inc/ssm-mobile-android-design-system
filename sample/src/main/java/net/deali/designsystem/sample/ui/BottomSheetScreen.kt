@@ -34,7 +34,7 @@ import net.deali.designsystem.component.BottomSheetSingleSelectOption
 import net.deali.designsystem.component.BottomSheetWithHandle
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.SingleSelectOption
-import net.deali.designsystem.component.btnOutlineMediumPrimary01
+import net.deali.designsystem.component.btnOutlineMedium01
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -207,7 +207,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             type: BottomSheetType,
             modifier: Modifier = Modifier,
         ) {
-            btnOutlineMediumPrimary01(
+            btnOutlineMedium01(
                 modifier = modifier.fillMaxWidth(),
                 enabled = true,
                 text = text,
