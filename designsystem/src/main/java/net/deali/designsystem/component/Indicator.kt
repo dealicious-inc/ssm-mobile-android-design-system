@@ -64,7 +64,7 @@ fun IndicatorWhiteDot(
         pagerState = pagerState,
         pageCount = pageCount,
         activeColor = DealiColor.primary04,
-        inactiveColor = DealiColor.etc05,
+        inactiveColor = DealiColor.w50,
         indicatorSize = 6.dp,
         space = 6.dp,
         pageIndexMapping = pageIndexMapping
@@ -175,7 +175,7 @@ fun IndicatorPagination(
     Row(
         modifier = modifier
             .background(
-                color = DealiColor.etc03,
+                color = DealiColor.b40,
                 shape = RoundedCornerShape(14.dp)
             )
             .padding(
@@ -194,13 +194,13 @@ fun IndicatorPagination(
         DealiText(
             text = "/",
             style = DealiFont.b3r13,
-            color = DealiColor.etc05
+            color = DealiColor.w50
         )
 
         DealiText(
             text = String.format("%02d", pageCount),
             style = DealiFont.b3r13,
-            color = DealiColor.etc05
+            color = DealiColor.w50
         )
     }
 }

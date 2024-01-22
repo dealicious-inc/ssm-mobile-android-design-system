@@ -9,7 +9,7 @@
 
     <!-- secondary -->
     <color name="secondary01">#FF4759FB</color>
-    <color name="secondary02">#FF2B3EE7</color>
+    <color name="secondary02">#FF2B3EE6</color>
     <color name="secondary03">#FFEAEFFF</color>
     <color name="secondary04">#FFFF7C44</color>
     <color name="secondary05">#FFFF6827</color>
@@ -34,14 +34,6 @@
     <color name="success">#FF1BDA17</color>
 
     <!-- etc -->
-    <color name="etc01">#1A000000</color>
-    <color name="etc02">#33000000</color>
-    <color name="etc03">#66000000</color>
-    <color name="etc04">#33FFFFFF</color>
-    <color name="etc05">#80FFFFFF</color>
-    <color name="etc06">#B2000000</color>
-    <color name="etc07">#E5FFFFFF</color>
-
     <color name="b70">#B2000000</color>
     <color name="b50">#80000000</color>
     <color name="b40">#66000000</color>
