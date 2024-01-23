@@ -18,8 +18,9 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 
+/** 구 TagLargePrimaryFilledPink */
 @Composable
-fun TagLargePrimaryFilledPink(
+fun TagFilledLarge01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -31,8 +32,9 @@ fun TagLargePrimaryFilledPink(
     )
 }
 
+/** 구 TagLargePrimaryFilledBlue */
 @Composable
-fun TagLargePrimaryFilledBlue(
+fun TagFilledLarge02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -45,7 +47,21 @@ fun TagLargePrimaryFilledBlue(
 }
 
 @Composable
-fun TagLargePrimaryFilledGray(
+fun TagFilledLarge03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagLarge(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.secondary06
+    )
+}
+
+/** 구 TagLargePrimaryFilledGray */
+@Composable
+fun TagFilledLarge04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -57,8 +73,9 @@ fun TagLargePrimaryFilledGray(
     )
 }
 
+/** 구 TagLargeSecondaryOutlinedPink */
 @Composable
-fun TagLargeSecondaryOutlinedPink(
+fun TagOutlineLarge01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -71,8 +88,9 @@ fun TagLargeSecondaryOutlinedPink(
     )
 }
 
+/** 구 TagLargeSecondaryOutlinedBlue */
 @Composable
-fun TagLargeSecondaryOutlinedBlue(
+fun TagOutlineLarge02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -86,7 +104,22 @@ fun TagLargeSecondaryOutlinedBlue(
 }
 
 @Composable
-fun TagLargeSecondaryOutlinedGray(
+fun TagOutlineLarge03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagLarge(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.primary04,
+        borderColor = DealiColor.secondary04
+    )
+}
+
+/** 구 TagLargeSecondaryOutlinedGray */
+@Composable
+fun TagOutlineLarge04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -99,8 +132,9 @@ fun TagLargeSecondaryOutlinedGray(
     )
 }
 
+/** 구 TagMediumPrimaryFilledPink */
 @Composable
-fun TagMediumPrimaryFilledPink(
+fun TagFilledMedium01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -112,8 +146,9 @@ fun TagMediumPrimaryFilledPink(
     )
 }
 
+/** 구 TagMediumPrimaryFilledBlue */
 @Composable
-fun TagMediumPrimaryFilledBlue(
+fun TagFilledMedium02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -126,7 +161,21 @@ fun TagMediumPrimaryFilledBlue(
 }
 
 @Composable
-fun TagMediumPrimaryFilledGray(
+fun TagFilledMedium03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagMedium(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.secondary06
+    )
+}
+
+/** 구 TagMediumPrimaryFilledGray */
+@Composable
+fun TagFilledMedium04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -138,8 +187,9 @@ fun TagMediumPrimaryFilledGray(
     )
 }
 
+/** 구 TagMediumSecondaryOutlinedPink */
 @Composable
-fun TagMediumSecondaryOutlinedPink(
+fun TagOutlinedMedium01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -152,8 +202,9 @@ fun TagMediumSecondaryOutlinedPink(
     )
 }
 
+/** 구 TagMediumSecondaryOutlinedBlue */
 @Composable
-fun TagMediumSecondaryOutlinedBlue(
+fun TagOutlinedMedium02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -167,7 +218,22 @@ fun TagMediumSecondaryOutlinedBlue(
 }
 
 @Composable
-fun TagMediumSecondaryOutlinedGray(
+fun TagOutlinedMedium03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagMedium(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.primary04,
+        borderColor = DealiColor.secondary04
+    )
+}
+
+/** 구 TagMediumSecondaryOutlinedGray */
+@Composable
+fun TagOutlinedMedium04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -180,8 +246,9 @@ fun TagMediumSecondaryOutlinedGray(
     )
 }
 
+/** 구 TagSmallPrimaryFilledPink */
 @Composable
-fun TagSmallPrimaryFilledPink(
+fun TagFilledSmall01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -193,8 +260,9 @@ fun TagSmallPrimaryFilledPink(
     )
 }
 
+/** 구 TagSmallPrimaryFilledBlue */
 @Composable
-fun TagSmallPrimaryFilledBlue(
+fun TagFilledSmall02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -207,7 +275,21 @@ fun TagSmallPrimaryFilledBlue(
 }
 
 @Composable
-fun TagSmallPrimaryFilledGray(
+fun TagFilledSmall03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagSmall(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.secondary06
+    )
+}
+
+/** 구 TagSmallPrimaryFilledGray */
+@Composable
+fun TagFilledSmall04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -219,8 +301,9 @@ fun TagSmallPrimaryFilledGray(
     )
 }
 
+/** 구 TagSmallSecondaryOutlinedPink */
 @Composable
-fun TagSmallSecondaryOutlinedPink(
+fun TagOutlineSmall01(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -233,8 +316,9 @@ fun TagSmallSecondaryOutlinedPink(
     )
 }
 
+/** 구 TagSmallSecondaryOutlinedBlue */
 @Composable
-fun TagSmallSecondaryOutlinedBlue(
+fun TagOutlineSmall02(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -248,7 +332,22 @@ fun TagSmallSecondaryOutlinedBlue(
 }
 
 @Composable
-fun TagSmallSecondaryOutlinedGray(
+fun TagOutlineSmall03(
+    text: String,
+    modifier: Modifier = Modifier
+) {
+    TagSmall(
+        modifier = modifier,
+        text = text,
+        textColor = DealiColor.secondary04,
+        backgroundColor = DealiColor.primary04,
+        borderColor = DealiColor.secondary04
+    )
+}
+
+/** 구 TagSmallSecondaryOutlinedGray */
+@Composable
+fun TagOutlineSmall04(
     text: String,
     modifier: Modifier = Modifier
 ) {
@@ -362,15 +461,19 @@ private fun LargePrimaryFilledTagPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagLargePrimaryFilledPink(
+        TagFilledLarge01(
             text = getRandomText(1)
         )
 
-        TagLargePrimaryFilledBlue(
+        TagFilledLarge02(
             text = getRandomText(1)
         )
 
-        TagLargePrimaryFilledGray(
+        TagFilledLarge03(
+            text = getRandomText(1)
+        )
+
+        TagFilledLarge04(
             text = getRandomText(1)
         )
     }
@@ -384,15 +487,19 @@ private fun TagLargeSecondaryOutlinedPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagLargeSecondaryOutlinedPink(
+        TagOutlineLarge01(
             text = getRandomText(1)
         )
 
-        TagLargeSecondaryOutlinedBlue(
+        TagOutlineLarge02(
             text = getRandomText(1)
         )
 
-        TagLargeSecondaryOutlinedGray(
+        TagOutlineLarge03(
+            text = getRandomText(1)
+        )
+
+        TagOutlineLarge04(
             text = getRandomText(1)
         )
     }
@@ -406,15 +513,19 @@ private fun TagMediumPrimaryFilledPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagMediumPrimaryFilledPink(
+        TagFilledMedium01(
             text = getRandomText(1)
         )
 
-        TagMediumPrimaryFilledBlue(
+        TagFilledMedium02(
             text = getRandomText(1)
         )
 
-        TagMediumPrimaryFilledGray(
+        TagFilledMedium03(
+            text = getRandomText(1)
+        )
+
+        TagFilledMedium04(
             text = getRandomText(1)
         )
     }
@@ -428,15 +539,19 @@ private fun TagMediumSecondaryOutlinedPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagMediumSecondaryOutlinedPink(
+        TagOutlinedMedium01(
             text = getRandomText(1)
         )
 
-        TagMediumSecondaryOutlinedBlue(
+        TagOutlinedMedium02(
             text = getRandomText(1)
         )
 
-        TagMediumSecondaryOutlinedGray(
+        TagOutlinedMedium03(
+            text = getRandomText(1)
+        )
+
+        TagOutlinedMedium04(
             text = getRandomText(1)
         )
     }
@@ -450,15 +565,19 @@ private fun TagSmallPrimaryFilledPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagSmallPrimaryFilledPink(
+        TagFilledSmall01(
             text = getRandomText(1)
         )
 
-        TagSmallPrimaryFilledBlue(
+        TagFilledSmall02(
             text = getRandomText(1)
         )
 
-        TagSmallPrimaryFilledGray(
+        TagFilledSmall03(
+            text = getRandomText(1)
+        )
+
+        TagFilledSmall04(
             text = getRandomText(1)
         )
     }
@@ -472,15 +591,19 @@ private fun TagSmallSecondaryOutlinedPreview() {
             .padding(10.dp),
         horizontalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        TagSmallSecondaryOutlinedPink(
+        TagOutlineSmall01(
             text = getRandomText(1)
         )
 
-        TagSmallSecondaryOutlinedBlue(
+        TagOutlineSmall02(
             text = getRandomText(1)
         )
 
-        TagSmallSecondaryOutlinedGray(
+        TagOutlineSmall03(
+            text = getRandomText(1)
+        )
+
+        TagOutlineSmall04(
             text = getRandomText(1)
         )
     }

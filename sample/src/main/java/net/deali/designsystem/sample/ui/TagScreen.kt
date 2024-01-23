@@ -22,24 +22,30 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.TagLargePrimaryFilledBlue
-import net.deali.designsystem.component.TagLargePrimaryFilledGray
-import net.deali.designsystem.component.TagLargePrimaryFilledPink
-import net.deali.designsystem.component.TagLargeSecondaryOutlinedBlue
-import net.deali.designsystem.component.TagLargeSecondaryOutlinedGray
-import net.deali.designsystem.component.TagLargeSecondaryOutlinedPink
-import net.deali.designsystem.component.TagMediumPrimaryFilledBlue
-import net.deali.designsystem.component.TagMediumPrimaryFilledGray
-import net.deali.designsystem.component.TagMediumPrimaryFilledPink
-import net.deali.designsystem.component.TagMediumSecondaryOutlinedBlue
-import net.deali.designsystem.component.TagMediumSecondaryOutlinedGray
-import net.deali.designsystem.component.TagMediumSecondaryOutlinedPink
-import net.deali.designsystem.component.TagSmallPrimaryFilledBlue
-import net.deali.designsystem.component.TagSmallPrimaryFilledGray
-import net.deali.designsystem.component.TagSmallPrimaryFilledPink
-import net.deali.designsystem.component.TagSmallSecondaryOutlinedBlue
-import net.deali.designsystem.component.TagSmallSecondaryOutlinedGray
-import net.deali.designsystem.component.TagSmallSecondaryOutlinedPink
+import net.deali.designsystem.component.TagFilledLarge02
+import net.deali.designsystem.component.TagFilledLarge04
+import net.deali.designsystem.component.TagFilledLarge01
+import net.deali.designsystem.component.TagFilledLarge03
+import net.deali.designsystem.component.TagOutlineLarge02
+import net.deali.designsystem.component.TagOutlineLarge04
+import net.deali.designsystem.component.TagOutlineLarge01
+import net.deali.designsystem.component.TagFilledMedium02
+import net.deali.designsystem.component.TagFilledMedium04
+import net.deali.designsystem.component.TagFilledMedium01
+import net.deali.designsystem.component.TagFilledMedium03
+import net.deali.designsystem.component.TagOutlinedMedium02
+import net.deali.designsystem.component.TagOutlinedMedium04
+import net.deali.designsystem.component.TagOutlinedMedium01
+import net.deali.designsystem.component.TagFilledSmall02
+import net.deali.designsystem.component.TagFilledSmall04
+import net.deali.designsystem.component.TagFilledSmall01
+import net.deali.designsystem.component.TagFilledSmall03
+import net.deali.designsystem.component.TagOutlineLarge03
+import net.deali.designsystem.component.TagOutlineSmall02
+import net.deali.designsystem.component.TagOutlineSmall04
+import net.deali.designsystem.component.TagOutlineSmall01
+import net.deali.designsystem.component.TagOutlineSmall03
+import net.deali.designsystem.component.TagOutlinedMedium03
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
@@ -84,15 +90,19 @@ private fun TagSmallContainer() {
         SubContainer(
             text = "Filled Tags"
         ) {
-            TagSmallPrimaryFilledPink(
+            TagFilledSmall01(
                 text = getRandomText(1)
             )
 
-            TagSmallPrimaryFilledBlue(
+            TagFilledSmall02(
                 text = getRandomText(1)
             )
 
-            TagSmallPrimaryFilledGray(
+            TagFilledSmall03(
+                text = getRandomText(1)
+            )
+
+            TagFilledSmall04(
                 text = getRandomText(1)
             )
         }
@@ -100,15 +110,19 @@ private fun TagSmallContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            TagSmallSecondaryOutlinedPink(
+            TagOutlineSmall01(
                 text = getRandomText(1)
             )
 
-            TagSmallSecondaryOutlinedBlue(
+            TagOutlineSmall02(
                 text = getRandomText(1)
             )
 
-            TagSmallSecondaryOutlinedGray(
+            TagOutlineSmall03(
+                text = getRandomText(1)
+            )
+
+            TagOutlineSmall04(
                 text = getRandomText(1)
             )
         }
@@ -123,15 +137,19 @@ private fun TagMediumContainer() {
         SubContainer(
             text = "Filled Tags"
         ) {
-            TagMediumPrimaryFilledPink(
+            TagFilledMedium01(
                 text = getRandomText(1)
             )
 
-            TagMediumPrimaryFilledBlue(
+            TagFilledMedium02(
                 text = getRandomText(1)
             )
 
-            TagMediumPrimaryFilledGray(
+            TagFilledMedium03(
+                text = getRandomText(1)
+            )
+
+            TagFilledMedium04(
                 text = getRandomText(1)
             )
         }
@@ -139,15 +157,19 @@ private fun TagMediumContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            TagMediumSecondaryOutlinedPink(
+            TagOutlinedMedium01(
                 text = getRandomText(1)
             )
 
-            TagMediumSecondaryOutlinedBlue(
+            TagOutlinedMedium02(
                 text = getRandomText(1)
             )
 
-            TagMediumSecondaryOutlinedGray(
+            TagOutlinedMedium03(
+                text = getRandomText(1)
+            )
+
+            TagOutlinedMedium04(
                 text = getRandomText(1)
             )
         }
@@ -162,15 +184,19 @@ private fun TagLargeContainer() {
         SubContainer(
             text = "Filled Tags"
         ) {
-            TagLargePrimaryFilledPink(
+            TagFilledLarge01(
                 text = getRandomText(1)
             )
 
-            TagLargePrimaryFilledBlue(
+            TagFilledLarge02(
                 text = getRandomText(1)
             )
 
-            TagLargePrimaryFilledGray(
+            TagFilledLarge03(
+                text = getRandomText(1)
+            )
+
+            TagFilledLarge04(
                 text = getRandomText(1)
             )
         }
@@ -178,15 +204,19 @@ private fun TagLargeContainer() {
         SubContainer(
             text = "Outlined Tags"
         ) {
-            TagLargeSecondaryOutlinedPink(
+            TagOutlineLarge01(
                 text = getRandomText(1)
             )
 
-            TagLargeSecondaryOutlinedBlue(
+            TagOutlineLarge02(
                 text = getRandomText(1)
             )
 
-            TagLargeSecondaryOutlinedGray(
+            TagOutlineLarge03(
+                text = getRandomText(1)
+            )
+
+            TagOutlineLarge04(
                 text = getRandomText(1)
             )
         }

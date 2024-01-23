@@ -189,7 +189,7 @@ fun SearchInput(
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
         leadingContent = {
-            TagLargeSecondaryOutlinedGray(
+            TagOutlineLarge04(
                 modifier = Modifier
                     .requiredWidthIn(max = 79.dp),
                 text = tagText,
@@ -250,7 +250,7 @@ fun SearchInput(
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
         leadingContent = {
-            TagLargeSecondaryOutlinedGray(
+            TagOutlineLarge04(
                 modifier = Modifier
                     .requiredWidthIn(max = 79.dp),
                 text = tagText,
