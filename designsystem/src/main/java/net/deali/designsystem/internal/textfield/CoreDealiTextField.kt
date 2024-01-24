@@ -40,6 +40,7 @@ internal fun CoreDealiTextField(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
+    buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
@@ -87,6 +88,7 @@ internal fun CoreDealiTextField(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         innerTextFieldMinHeight = innerTextFieldMinHeight,
+        buttonContent = buttonContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
     )
@@ -113,6 +115,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
+    buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
@@ -155,6 +158,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 isHelperTextVisible = isHelperTextVisible,
                 innerTextFieldMinHeight = innerTextFieldMinHeight,
                 innerTextField = innerTextField,
+                buttonContent = buttonContent,
                 leadingContent = leadingContent,
                 trailingContent = trailingContent,
             )

@@ -2,20 +2,17 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.dp
+import net.deali.designsystem.internal.textfield.CoreDealiTextField
+import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 import net.deali.designsystem.theme.DealiColor
 
@@ -42,33 +39,44 @@ fun TextInputWithButton(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
 ) {
-    TextInputWithButtonRow(modifier = modifier) {
-        TextInput(
-            value = value,
-            onValueChange = onValueChange,
-            trailingIconRes = trailingIconRes,
-            modifier = Modifier.weight(1f),
-            textStyle = textStyle,
-            enabled = inputEnabled,
-            isError = isError,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation,
-            interactionSource = interactionSource,
-            iconColor = iconColor,
-            onIconClick = onIconClick,
-            placeholder = placeholder,
-            label = label,
-            helperText = helperText,
-            isHelperTextVisible = isHelperTextVisible,
-        )
-        btnFilledTonalMedium03(
-            text = buttonText,
-            enabled = buttonEnabled,
-            modifier = Modifier,
-            onClick = onButtonClick,
-        )
-    }
+    CoreDealiTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        textStyle = textStyle,
+        enabled = inputEnabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
+        buttonContent = {
+            DealiTextFieldDefaults.TrailingButton(
+                text = buttonText,
+                onClick = onButtonClick,
+                enabled = buttonEnabled
+            )
+        },
+        trailingContent = if (trailingIconRes != null) {
+            @Composable {
+                Icon16(
+                    iconRes = trailingIconRes,
+                    color = iconColor,
+                    enabled = onIconClick != null,
+                    onClick = onIconClick ?: {},
+                )
+            }
+        } else {
+            null
+        },
+    )
 }
 
 @Composable
@@ -92,31 +100,33 @@ fun TextInputWithButton(
     isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    TextInputWithButtonRow(modifier = modifier) {
-        TextInput(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier.weight(1f),
-            textStyle = textStyle,
-            enabled = inputEnabled,
-            isError = isError,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation,
-            interactionSource = interactionSource,
-            placeholder = placeholder,
-            label = label,
-            helperText = helperText,
-            isHelperTextVisible = isHelperTextVisible,
-            trailingContent = trailingContent,
-        )
-        btnFilledTonalMedium03(
-            text = buttonText,
-            enabled = buttonEnabled,
-            modifier = Modifier,
-            onClick = onButtonClick,
-        )
-    }
+    CoreDealiTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        textStyle = textStyle,
+        enabled = inputEnabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
+        buttonContent = {
+            DealiTextFieldDefaults.TrailingButton(
+                text = buttonText,
+                onClick = onButtonClick,
+                enabled = buttonEnabled
+            )
+        },
+        trailingContent = trailingContent,
+    )
 }
 
 @Composable
@@ -142,33 +152,44 @@ fun TextInputWithButton(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
 ) {
-    TextInputWithButtonRow(modifier = modifier) {
-        TextInput(
-            value = value,
-            onValueChange = onValueChange,
-            trailingIconRes = trailingIconRes,
-            modifier = Modifier.weight(1f),
-            textStyle = textStyle,
-            enabled = inputEnabled,
-            isError = isError,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation,
-            interactionSource = interactionSource,
-            iconColor = iconColor,
-            onIconClick = onIconClick,
-            placeholder = placeholder,
-            label = label,
-            helperText = helperText,
-            isHelperTextVisible = isHelperTextVisible,
-        )
-        btnFilledTonalMedium03(
-            text = buttonText,
-            enabled = buttonEnabled,
-            modifier = Modifier,
-            onClick = onButtonClick,
-        )
-    }
+    CoreDealiTextFieldForTextFieldValue(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        textStyle = textStyle,
+        enabled = inputEnabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
+        buttonContent = {
+            DealiTextFieldDefaults.TrailingButton(
+                text = buttonText,
+                onClick = onButtonClick,
+                enabled = buttonEnabled
+            )
+        },
+        trailingContent = if (trailingIconRes != null) {
+            @Composable {
+                Icon16(
+                    iconRes = trailingIconRes,
+                    color = iconColor,
+                    enabled = onIconClick != null,
+                    onClick = onIconClick ?: {},
+                )
+            }
+        } else {
+            null
+        },
+    )
 }
 
 @Composable
@@ -192,40 +213,31 @@ fun TextInputWithButton(
     isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
 ) {
-    TextInputWithButtonRow(modifier = modifier) {
-        TextInput(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier.weight(1f),
-            textStyle = textStyle,
-            enabled = inputEnabled,
-            isError = isError,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            visualTransformation = visualTransformation,
-            interactionSource = interactionSource,
-            placeholder = placeholder,
-            label = label,
-            helperText = helperText,
-            isHelperTextVisible = isHelperTextVisible,
-            trailingContent = trailingContent,
-        )
-        btnFilledTonalMedium03(
-            text = buttonText,
-            enabled = buttonEnabled,
-            modifier = Modifier,
-            onClick = onButtonClick,
-        )
-    }
+    CoreDealiTextFieldForTextFieldValue(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        textStyle = textStyle,
+        enabled = inputEnabled,
+        isError = isError,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        label = label,
+        helperText = helperText,
+        isHelperTextVisible = isHelperTextVisible,
+        buttonContent = {
+            DealiTextFieldDefaults.TrailingButton(
+                text = buttonText,
+                onClick = onButtonClick,
+                enabled = buttonEnabled
+            )
+        },
+        trailingContent = trailingContent,
+    )
 }
-
-@Composable
-private fun TextInputWithButtonRow(
-    modifier: Modifier = Modifier,
-    content: @Composable RowScope.() -> Unit,
-) = Row(
-    modifier = modifier,
-    horizontalArrangement = Arrangement.spacedBy(8.dp),
-    verticalAlignment = Alignment.Top,
-    content = content,
-)

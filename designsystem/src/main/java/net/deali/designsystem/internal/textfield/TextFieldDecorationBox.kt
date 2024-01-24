@@ -42,6 +42,7 @@ internal fun DealiTextFieldDecorationBox(
     innerTextFieldMinHeight: Dp,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
+    buttonContent: @Composable (() -> Unit)?,
     leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
 ) {
@@ -68,23 +69,34 @@ internal fun DealiTextFieldDecorationBox(
                 Spacer(modifier = Modifier.height(columnSpacing))
             }
         }
-        InnerTextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .defaultMinSize(minHeight = innerTextFieldMinHeight)
-                .zIndex(1f),
-            colors = colors,
-            paddings = DealiTextFieldDefaults.paddings(),
-            placeholder = placeholder,
-            isPlaceholderVisible = isPlaceholderVisible,
-            enabled = enabled,
-            isError = isError,
-            focused = focused,
-            singleLine = singleLine,
-            innerTextField = innerTextField,
-            leadingContent = leadingContent,
-            trailingContent = trailingContent,
-        )
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            InnerTextField(
+                colors = colors,
+                paddings = DealiTextFieldDefaults.paddings(),
+                placeholder = placeholder,
+                isPlaceholderVisible = isPlaceholderVisible,
+                enabled = enabled,
+                isError = isError,
+                focused = focused,
+                singleLine = singleLine,
+                modifier = Modifier
+                    .weight(1f)
+                    .defaultMinSize(minHeight = innerTextFieldMinHeight)
+                    .zIndex(1f),
+                innerTextField = innerTextField,
+                leadingContent = leadingContent,
+                trailingContent = trailingContent,
+            )
+
+            if (buttonContent != null) {
+                buttonContent()
+            }
+        }
+
         AnimatedVisibility(
             visible = isHelperTextVisible && !helperText.isNullOrEmpty(),
             enter = expandVertically(),

@@ -7,6 +7,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -14,6 +15,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -53,6 +55,21 @@ internal object DealiTextFieldDefaults {
             labelTextColor = DealiColor.g100,
             helperTextColor = DealiColor.g70,
             errorHelperTextColor = DealiColor.error,
+        )
+    }
+
+    @Composable
+    fun TrailingButton(
+        text: String,
+        onClick: () -> Unit,
+        enabled: Boolean,
+        modifier: Modifier = Modifier,
+    ) {
+        btnFilledTonalMedium03(
+            text = text,
+            enabled = enabled,
+            modifier = modifier,
+            onClick = onClick,
         )
     }
 }
