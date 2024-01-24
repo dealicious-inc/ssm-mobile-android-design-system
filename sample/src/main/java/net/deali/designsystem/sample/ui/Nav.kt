@@ -71,7 +71,7 @@ private fun NavGraphBuilder.menuGraph(
         IndentationsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Iconography.route) {
-        IconographyScreen(onBackPress = navController::popBackStack)
+        IconographyScreen2(onBackPress = navController::popBackStack)
     }
     composable(Screen.Shadows.route) {
         ShadowsScreen(onBackPress = navController::popBackStack)

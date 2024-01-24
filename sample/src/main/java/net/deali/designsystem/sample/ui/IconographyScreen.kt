@@ -236,14 +236,14 @@ val iconographyScreenItems = listOf(
     IconographyScreenItem("ic_search", SIZE_24, R.drawable.ic_search_filled, R.drawable.ic_search),
     IconographyScreenItem("ic_category", SIZE_24, R.drawable.ic_category_filled, R.drawable.ic_category),
     IconographyScreenItem("ic_profile", SIZE_24, R.drawable.ic_profile_filled, R.drawable.ic_profile),
-    IconographyScreenItem("ic_store1", SIZE_24, R.drawable.ic_store_filled, R.drawable.ic_store1),
+    IconographyScreenItem("ic_store1", SIZE_24, R.drawable.ic_store1_filled, R.drawable.ic_store1),
     IconographyScreenItem("ic_home", SIZE_24, R.drawable.ic_home_filled, R.drawable.ic_home),
     IconographyScreenItem("ic_store2", SIZE_24, null, R.drawable.ic_store2),
 
     IconographyScreenItem("ic_alarm", SIZE_24, R.drawable.ic_alarm_filled, R.drawable.ic_alarm),
     IconographyScreenItem("ic_notify", SIZE_24, R.drawable.ic_notify_filled, R.drawable.ic_notify),
     IconographyScreenItem("ic_trash", SIZE_24, R.drawable.ic_trash_filled, R.drawable.ic_trash),
-    IconographyScreenItem("ic_bookmark", SIZE_24, R.drawable.ic_bookmark_filled, R.drawable.ic_bookmark),
+    IconographyScreenItem("ic_bookmark1", SIZE_24, R.drawable.ic_bookmark1_filled, R.drawable.ic_bookmark1),
     IconographyScreenItem("ic_heart", SIZE_24, R.drawable.ic_heart_filled, R.drawable.ic_heart),
     IconographyScreenItem("ic_star", SIZE_24, R.drawable.ic_star_filled, R.drawable.ic_star),
     IconographyScreenItem("ic_talk", SIZE_24, R.drawable.ic_talk_filled, R.drawable.ic_talk),
@@ -291,7 +291,7 @@ val iconographyScreenItems = listOf(
     IconographyScreenItem("ic_history", SIZE_24, null, R.drawable.ic_history),
     IconographyScreenItem("ic_file_text", SIZE_24, null, R.drawable.ic_file_text),
     IconographyScreenItem("ic_certificate", SIZE_24, null, R.drawable.ic_certificate),
-    IconographyScreenItem("ic_bookmark2", SIZE_24, null, R.drawable.ic_bookmark2), //TODO bookmark2 이름확인
+    IconographyScreenItem("ic_bookmark2", SIZE_24, null, R.drawable.ic_bookmark2),
     IconographyScreenItem("ic_orderlist", SIZE_24, R.drawable.ic_orderlist_filled, R.drawable.ic_orderlist),
     IconographyScreenItem("ic_restocked", SIZE_24, null, R.drawable.ic_restocked),
     IconographyScreenItem("ic_soldout", SIZE_24, null, R.drawable.ic_soldout),
@@ -351,7 +351,7 @@ val iconographyScreenItems = listOf(
     IconographyScreenItem("ic_report", SIZE_24, null, R.drawable.ic_report),
     IconographyScreenItem("ic_camera", SIZE_24, null, R.drawable.ic_camera),
     IconographyScreenItem("ic_image", SIZE_24, null, R.drawable.ic_image),
-    IconographyScreenItem("ic_error", SIZE_24, null, R.drawable.ic_error2), //TODO error 중복 이름확인
+    IconographyScreenItem("ic_notice", SIZE_24, null, R.drawable.ic_notice), //TODO error 중복 이름확인
 
     //Stroke 에외
     IconographyScreenItem("ic_x_s", SIZE_24, null, R.drawable.ic_x_s),
