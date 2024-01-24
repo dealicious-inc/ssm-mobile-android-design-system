@@ -73,7 +73,7 @@ internal fun CoreRegularChips(
     modifier: Modifier = Modifier,
 ) {
     val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-    val contentColor by chipsColors.contentColor(enabled)
+    val contentColor by chipsColors.contentColor(enabled, selected)
 
     CoreChipsLayout(
         onClick = onClick,
@@ -119,7 +119,7 @@ internal fun CoreIconOnlyChips(
     interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
 ) {
-    val contentColor by chipsColors.contentColor(enabled)
+    val contentColor by chipsColors.contentColor(enabled, selected)
 
     CoreChipsLayout(
         onClick = onClick,
@@ -160,7 +160,7 @@ internal fun CoreCustomChips(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val contentColor by chipsColors.contentColor(enabled)
+    val contentColor by chipsColors.contentColor(enabled, selected)
 
     CoreChipsLayout(
         onClick = onClick,

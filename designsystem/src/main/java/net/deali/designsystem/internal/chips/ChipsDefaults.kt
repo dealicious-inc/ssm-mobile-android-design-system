@@ -23,6 +23,7 @@ internal object ChipsDefaults {
         selectedBackgroundColor: Color,
         disabledBackgroundColor: Color,
         contentColor: Color,
+        selectedContentColor: Color,
         disabledContentColor: Color,
         outlineColor: Color = DealiColor.transparent,
         selectedOutlineColor: Color = DealiColor.transparent,
@@ -33,6 +34,7 @@ internal object ChipsDefaults {
             selectedBackgroundColor = selectedBackgroundColor,
             disabledBackgroundColor = disabledBackgroundColor,
             contentColor = contentColor,
+            selectedContentColor = selectedContentColor,
             disabledContentColor = disabledContentColor,
             outlineColor = outlineColor,
             selectedOutlineColor = selectedOutlineColor,
@@ -219,7 +221,7 @@ internal interface ChipsColors {
     fun backgroundColor(enabled: Boolean, selected: Boolean): State<Color>
 
     @Composable
-    fun contentColor(enabled: Boolean): State<Color>
+    fun contentColor(enabled: Boolean, selected: Boolean): State<Color>
 
     @Composable
     fun outlineColor(enabled: Boolean, selected: Boolean): State<Color>
@@ -231,6 +233,7 @@ private class DefaultChipsColors(
     val selectedBackgroundColor: Color,
     val disabledBackgroundColor: Color,
     val contentColor: Color,
+    val selectedContentColor: Color,
     val disabledContentColor: Color,
     val outlineColor: Color,
     val selectedOutlineColor: Color,
@@ -239,34 +242,32 @@ private class DefaultChipsColors(
     @Composable
     override fun backgroundColor(enabled: Boolean, selected: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) {
-                if (selected) {
-                    selectedBackgroundColor
-                } else {
-                    backgroundColor
-                }
-            } else {
-                disabledBackgroundColor
+            when {
+                enabled && selected -> selectedBackgroundColor
+                enabled && !selected -> backgroundColor
+                else -> disabledBackgroundColor
             }
         )
     }
 
     @Composable
-    override fun contentColor(enabled: Boolean): State<Color> {
-        return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
+    override fun contentColor(enabled: Boolean, selected: Boolean): State<Color> {
+        return rememberUpdatedState(
+            when {
+                enabled && selected -> selectedContentColor
+                enabled && !selected -> contentColor
+                else -> disabledContentColor
+            }
+        )
     }
 
     @Composable
     override fun outlineColor(enabled: Boolean, selected: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (enabled) {
-                if (selected) {
-                    selectedOutlineColor
-                } else {
-                    outlineColor
-                }
-            } else {
-                disabledOutlineColor
+            when {
+                enabled && selected -> selectedOutlineColor
+                enabled && !selected -> outlineColor
+                else -> disabledOutlineColor
             }
         )
     }

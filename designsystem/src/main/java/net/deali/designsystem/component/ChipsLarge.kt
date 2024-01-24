@@ -65,6 +65,7 @@ fun chipsOutlineLarge01(
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.g20,
             selectedOutlineColor = DealiColor.g100,
@@ -100,6 +101,7 @@ fun chipsOutlineLarge01(
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.g20,
             selectedOutlineColor = DealiColor.g100,
@@ -181,6 +183,7 @@ fun chipsSquareLarge01(
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.g20,
             selectedOutlineColor = DealiColor.g100,
@@ -216,6 +219,7 @@ fun chipsSquareLarge01(
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.g20,
             selectedOutlineColor = DealiColor.g100,
@@ -297,6 +301,7 @@ fun chipsFilledLarge01(
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
+            selectedContentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.transparent,
             selectedOutlineColor = DealiColor.primary01,
@@ -332,6 +337,7 @@ fun chipsFilledLarge01(
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
+            selectedContentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.transparent,
             selectedOutlineColor = DealiColor.primary01,
@@ -413,6 +419,7 @@ fun chipsFilledSquareLarge01(
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
+            selectedContentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.transparent,
             selectedOutlineColor = DealiColor.primary01,
@@ -448,6 +455,7 @@ fun chipsFilledSquareLarge01(
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
+            selectedContentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.transparent,
             selectedOutlineColor = DealiColor.primary01,
@@ -525,10 +533,11 @@ fun chipsFilledSquareLarge02(
         chipsStyle = ChipsStyle.FilledSquare,
         chipsSize = ChipsSize.Large,
         chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.secondary03,
+            backgroundColor = DealiColor.g10,
             selectedBackgroundColor = DealiColor.secondary03,
             disabledBackgroundColor = DealiColor.g10,
-            contentColor = DealiColor.secondary01,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
@@ -557,10 +566,11 @@ fun chipsFilledSquareLarge02(
         chipsStyle = ChipsStyle.FilledSquare,
         chipsSize = ChipsSize.Large,
         chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.secondary03,
+            backgroundColor = DealiColor.g10,
             selectedBackgroundColor = DealiColor.secondary03,
             disabledBackgroundColor = DealiColor.g10,
-            contentColor = DealiColor.secondary01,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
@@ -639,6 +649,7 @@ fun chipsFilledSquareLarge03(
             selectedBackgroundColor = DealiColor.g20,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
@@ -671,6 +682,7 @@ fun chipsFilledSquareLarge03(
             selectedBackgroundColor = DealiColor.g20,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
@@ -731,6 +743,7 @@ fun chipsFilledDepthLarge01(
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
     )
 
@@ -750,7 +763,7 @@ fun chipsFilledDepthLarge01(
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
             if (index != 0) {
@@ -791,6 +804,7 @@ fun chipsFilledDepthLarge01(
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
     )
 
@@ -809,7 +823,7 @@ fun chipsFilledDepthLarge01(
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, icon) in icons.withIndex()) {
             if (index != 0) {
@@ -847,6 +861,7 @@ fun chipsFilledDepthLarge01(
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
     )
 
@@ -866,7 +881,7 @@ fun chipsFilledDepthLarge01(
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, content) in contents.withIndex()) {
             if (index != 0) {
@@ -928,6 +943,7 @@ fun chipsFilledImageLarge01(
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
     )
 
@@ -947,7 +963,7 @@ fun chipsFilledImageLarge01(
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         ChipsImage(
             imageUrl = imageUrl,
@@ -984,6 +1000,7 @@ fun chipsFilledImageDepthLarge01(
         selectedBackgroundColor = DealiColor.g10,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
         outlineColor = DealiColor.g20,
         selectedOutlineColor = DealiColor.transparent,
@@ -1006,7 +1023,7 @@ fun chipsFilledImageDepthLarge01(
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
             if (index == 0) {
@@ -1070,6 +1087,7 @@ fun chipsOutlineImageLarge01(
         selectedBackgroundColor = DealiColor.primary04,
         disabledBackgroundColor = DealiColor.primary04,
         contentColor = DealiColor.g100,
+        selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
         outlineColor = DealiColor.g20,
         selectedOutlineColor = DealiColor.g100,
@@ -1092,7 +1110,7 @@ fun chipsOutlineImageLarge01(
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled)
+        val contentColor by chipsColors.contentColor(enabled, selected)
 
         ChipsImage(
             imageUrl = imageUrl,
