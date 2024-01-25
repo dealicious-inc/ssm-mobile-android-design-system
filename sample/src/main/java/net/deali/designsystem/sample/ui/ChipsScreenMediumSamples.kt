@@ -22,6 +22,7 @@ import net.deali.designsystem.component.chipsFilledSquareMedium01
 import net.deali.designsystem.component.chipsFilledSquareMedium02
 import net.deali.designsystem.component.chipsOutlineImageMedium01
 import net.deali.designsystem.component.chipsOutlineMedium01
+import net.deali.designsystem.component.chipsOutlineMedium02
 import net.deali.designsystem.component.chipsSquareBoldMedium01
 import net.deali.designsystem.theme.DealiColor
 
@@ -34,6 +35,7 @@ fun MediumChipsSamples(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         item { ChipsOutlineMedium01Samples() }
+        item { ChipsOutlineMedium02Samples() }
         item { ChipsSquareBoldMedium01Samples() }
         item { ChipsFilledMedium01Samples() }
         item { ChipsFilledSquareMedium01Samples() }
@@ -181,6 +183,144 @@ private fun ChipsOutlineMedium01Samples() {
         }
     }
 }
+
+@Composable
+private fun ChipsOutlineMedium02Samples() {
+    ChipsSampleLayout(title = "chipsOutlineMedium02") {
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(3),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "Text",
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "Selected",
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "Disabled",
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_bookmark1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_bookmark1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_bookmark1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_check,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_check,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_check,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipsOutlineMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    selected = true,
+                )
+            }
+            Box {
+                chipsOutlineMedium02(
+                    icon = R.drawable.ic_refresh1,
+                    onClick = {},
+                    enabled = false,
+                )
+            }
+        }
+    }
+}
+
 
 @Composable
 private fun ChipsSquareBoldMedium01Samples() {
@@ -882,7 +1022,8 @@ private fun ChipsFilledDepthMedium01Samples() {
 
 @Composable
 private fun ChipsFilledImageMedium01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
@@ -934,7 +1075,8 @@ private fun ChipsFilledImageMedium01Samples() {
 
 @Composable
 private fun ChipsFilledImageDepthMedium01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsFilledImageDepthMedium01") {
         Column(
             modifier = Modifier
@@ -971,7 +1113,8 @@ private fun ChipsFilledImageDepthMedium01Samples() {
 
 @Composable
 private fun ChipsOutlineImageMedium01Samples() {
-    val sampleImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val sampleImage =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipsSampleLayout(title = "chipsOutlineImageMedium01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
