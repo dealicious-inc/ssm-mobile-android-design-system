@@ -447,7 +447,7 @@ private fun BtnOutlineMedium06Samples() {
 
                 AndroidView(
                     factory = { context ->
-                        TextView(ContextThemeWrapper(context, R.style.btnOutlineMediumSecondary04)).apply {
+                        TextView(ContextThemeWrapper(context, R.style.btnOutlineMedium06)).apply {
                             setText(text)
                             isEnabled = enabled
                         }

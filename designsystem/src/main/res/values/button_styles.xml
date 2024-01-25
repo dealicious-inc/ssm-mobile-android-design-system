@@ -3,19 +3,19 @@
 
     <!-- ** Button ** -->
     <!-- Medium -->
-    <style name="btnOutlineMediumSecondary04" parent="ButtonMedium">
-        <item name="android:background">@drawable/selector_btn_outline_medium_secondary04</item>
+    <style name="btnOutlineMedium06" parent="ButtonMedium">
+        <item name="android:background">@drawable/selector_btn_outline_medium_06</item>
         <item name="android:textColor">@drawable/selector_g80_disabled_g50</item>
     </style>
 
     <!-- Large -->
-    <style name="btnOutlineLargePrimary01" parent="ButtonLarge">
-        <item name="android:background">@drawable/selector_btn_outline_large_primary01</item>
+    <style name="btnOutlineLarge01" parent="ButtonLarge">
+        <item name="android:background">@drawable/selector_btn_outline_large_01</item>
         <item name="android:textColor">@drawable/selector_primary01_disabled_g50</item>
     </style>
 
-    <style name="btnFilledLargePrimary01" parent="ButtonLarge">
-        <item name="android:background">@drawable/selector_btn_filled_large_primary01</item>
+    <style name="btnFilledLarge01" parent="ButtonLarge">
+        <item name="android:background">@drawable/selector_btn_filled_large_01</item>
         <item name="android:textColor">@color/primary04</item>
     </style>
 

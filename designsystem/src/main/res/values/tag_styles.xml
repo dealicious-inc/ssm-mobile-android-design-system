@@ -3,94 +3,124 @@
 
     <!-- ** Tag ** -->
     <!-- large -->
-    <style name="TagLargePrimaryFilledPink" parent="TagLarge">
+    <style name="TagFilledLarge01" parent="TagLarge">
         <item name="android:textColor">@color/primary01</item>
         <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
     </style>
 
-    <style name="TagLargePrimaryFilledBlue" parent="TagLarge">
+    <style name="TagFilledLarge02" parent="TagLarge">
         <item name="android:textColor">@color/secondary01</item>
         <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
     </style>
 
-    <style name="TagLargePrimaryFilledGray" parent="TagLarge">
+    <style name="TagFilledLarge03" parent="TagLarge">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+    </style>
+
+    <style name="TagFilledLarge04" parent="TagLarge">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
     </style>
 
-    <style name="TagLargeSecondaryOutlinedPink" parent="TagLarge">
+    <style name="TagOutlineLarge01" parent="TagLarge">
         <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
     </style>
 
-    <style name="TagLargeSecondaryOutlinedBlue" parent="TagLarge">
+    <style name="TagOutlineLarge02" parent="TagLarge">
         <item name="android:textColor">@color/secondary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
     </style>
 
-    <style name="TagLargeSecondaryOutlinedGray" parent="TagLarge">
+    <style name="TagOutlineLarge03" parent="TagLarge">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary04_radius_4dp</item>
+    </style>
+
+    <style name="TagOutlineLarge04" parent="TagLarge">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>
 
     <!-- medium -->
-    <style name="TagMediumPrimaryFilledPink" parent="TagMedium">
+    <style name="TagFilledMedium01" parent="TagMedium">
         <item name="android:textColor">@color/primary01</item>
         <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
     </style>
 
-    <style name="TagMediumPrimaryFilledBlue" parent="TagMedium">
+    <style name="TagFilledMedium02" parent="TagMedium">
         <item name="android:textColor">@color/secondary01</item>
         <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
     </style>
 
-    <style name="TagMediumPrimaryFilledGray" parent="TagMedium">
+    <style name="TagFilledMedium03" parent="TagMedium">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+    </style>
+
+    <style name="TagFilledMedium04" parent="TagMedium">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
     </style>
 
-    <style name="TagMediumSecondaryOutlinedPink" parent="TagMedium">
+    <style name="TagOutlinedMedium01" parent="TagMedium">
         <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
     </style>
 
-    <style name="TagMediumSecondaryOutlinedBlue" parent="TagMedium">
+    <style name="TagOutlinedMedium02" parent="TagMedium">
         <item name="android:textColor">@color/secondary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
     </style>
 
-    <style name="TagMediumSecondaryOutlinedGray" parent="TagMedium">
+    <style name="TagOutlinedMedium03" parent="TagMedium">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary04_radius_4dp</item>
+    </style>
+
+    <style name="TagOutlinedMedium04" parent="TagMedium">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>
 
     <!-- small -->
-    <style name="TagSmallPrimaryFilledPink" parent="TagSmall">
+    <style name="TagFilledSmall01" parent="TagSmall">
         <item name="android:textColor">@color/primary02</item>
         <item name="android:background">@drawable/bg_primary03_stroke_primary03_radius_4dp</item>
     </style>
 
-    <style name="TagSmallPrimaryFilledBlue" parent="TagSmall">
+    <style name="TagFilledSmall02" parent="TagSmall">
         <item name="android:textColor">@color/secondary01</item>
         <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
     </style>
 
-    <style name="TagSmallPrimaryFilledGray" parent="TagSmall">
+    <style name="TagFilledSmall03" parent="TagSmall">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+    </style>
+
+    <style name="TagFilledSmall04" parent="TagSmall">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_g10_stroke_g10_radius_4dp</item>
     </style>
 
-    <style name="TagSmallSecondaryOutlinedPink" parent="TagSmall">
+    <style name="TagOutlineSmall01" parent="TagSmall">
         <item name="android:textColor">@color/primary01</item>
         <item name="android:background">@drawable/bg_primary04_stroke_primary01_radius_4dp</item>
     </style>
 
-    <style name="TagSmallSecondaryOutlinedBlue" parent="TagSmall">
+    <style name="TagOutlineSmall02" parent="TagSmall">
         <item name="android:textColor">@color/secondary02</item>
         <item name="android:background">@drawable/bg_primary04_stroke_secondary01_radius_4dp</item>
     </style>
 
-    <style name="TagSmallSecondaryOutlinedGray" parent="TagSmall">
+    <style name="TagOutlineSmall03" parent="TagSmall">
+        <item name="android:textColor">@color/g80</item>
+        <item name="android:background">@drawable/bg_primary04_stroke_secondary04_radius_4dp</item>
+    </style>
+
+    <style name="TagOutlineSmall04" parent="TagSmall">
         <item name="android:textColor">@color/g80</item>
         <item name="android:background">@drawable/bg_primary04_stroke_g20_radius_4dp</item>
     </style>

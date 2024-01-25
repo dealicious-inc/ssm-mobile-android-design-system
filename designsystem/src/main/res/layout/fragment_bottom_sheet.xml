@@ -83,7 +83,7 @@
 
                 <TextView
                     android:id="@+id/tvSecondaryButton"
-                    style="@style/btnOutlineLargePrimary01"
+                    style="@style/btnOutlineLarge01"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     tools:text="취소" />
@@ -91,7 +91,7 @@
 
                 <TextView
                     android:id="@+id/tvPrimaryButton"
-                    style="@style/btnFilledLargePrimary01"
+                    style="@style/btnFilledLarge01"
                     android:layout_width="0dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
