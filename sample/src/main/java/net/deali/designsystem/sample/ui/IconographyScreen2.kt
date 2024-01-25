@@ -3,8 +3,6 @@ package net.deali.designsystem.sample.ui
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,10 +12,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
@@ -345,7 +341,7 @@ val outlineIcons = listOf(
 
     IconItem("ic_outlink", R.drawable.ic_outlink),
     IconItem("ic_out", R.drawable.ic_out),
-    IconItem("ic_download2", R.drawable.ic_download2), //TODO filled 확인
+    IconItem("ic_download2", R.drawable.ic_download2),
     IconItem("ic_share3", R.drawable.ic_share3),
     IconItem("ic_share2", R.drawable.ic_share2),
     IconItem("ic_x", R.drawable.ic_x),
@@ -382,7 +378,7 @@ val outlineIcons = listOf(
     IconItem("ic_report", R.drawable.ic_report),
     IconItem("ic_camera", R.drawable.ic_camera),
     IconItem("ic_image", R.drawable.ic_image),
-    IconItem("ic_notice", R.drawable.ic_notice), //TODO error 중복 이름확인
+    IconItem("ic_notice", R.drawable.ic_notice),
 )
 
 /** Stroke 에외 아이콘 */
@@ -395,7 +391,66 @@ val noStrokeIcons = listOf(
 
 /** Filled 아이콘 */
 val filledIcons = listOf(
-    IconItem("ic_x_s", R.drawable.ic_x_s),
+    IconItem("ic_ssmk_filled", R.drawable.ic_ssmk_filled),
+    IconItem("ic_cart_filled", R.drawable.ic_cart_filled),
+    IconItem("ic_alarm_order_filled", R.drawable.ic_alarm_order_filled),
+    IconItem("ic_search_filled", R.drawable.ic_search_filled),
+    IconItem("ic_category_filled", R.drawable.ic_category_filled),
+    IconItem("ic_profile_filled", R.drawable.ic_profile_filled),
+    IconItem("ic_store1_filled", R.drawable.ic_store1_filled),
+    IconItem("ic_home_filled", R.drawable.ic_home_filled),
+    IconItem("ic_alarm_filled", R.drawable.ic_alarm_filled),
+    IconItem("ic_notify_filled", R.drawable.ic_notify_filled),
+    IconItem("ic_trash_filled", R.drawable.ic_trash_filled),
+
+    IconItem("ic_bookmark1_filled", R.drawable.ic_bookmark1_filled),
+    IconItem("ic_heart_filled", R.drawable.ic_heart_filled),
+    IconItem("ic_star_filled", R.drawable.ic_star_filled),
+    IconItem("ic_talk_filled", R.drawable.ic_talk_filled),
+    IconItem("ic_alarm_request_filled", R.drawable.ic_alarm_request_filled),
+    IconItem("ic_plus_circle_filled", R.drawable.ic_plus_circle_filled),
+    IconItem("ic_minus_circle_filled", R.drawable.ic_minus_circle_filled),
+    IconItem("ic_lens_filled", R.drawable.ic_lens_filled),
+    IconItem("ic_info_filled", R.drawable.ic_info_filled),
+    IconItem("ic_x_circle_filled", R.drawable.ic_x_circle_filled),
+    IconItem("ic_checkcircle_filled", R.drawable.ic_checkcircle_filled),
+
+    IconItem("ic_money_kr_filled", R.drawable.ic_money_kr_filled),
+    IconItem("ic_money_jpy_filled", R.drawable.ic_money_jpy_filled),
+    IconItem("ic_money_usa_filled", R.drawable.ic_money_usa_filled),
+    IconItem("ic_cash_filled", R.drawable.ic_cash_filled),
+    IconItem("ic_time_filled", R.drawable.ic_time_filled),
+    IconItem("ic_download1_filled", R.drawable.ic_download1_filled),
+    IconItem("ic_checkcircleno1_filled", R.drawable.ic_checkcircleno1_filled),
+    IconItem("ic_checkcircleno2_filled", R.drawable.ic_checkcircleno2_filled),
+    IconItem("ic_checkcircleno3_filled", R.drawable.ic_checkcircleno3_filled),
+    IconItem("ic_error_filled", R.drawable.ic_error_filled),
+    IconItem("ic_stockcheck_filled", R.drawable.ic_stockcheck_filled),
+
+    IconItem("ic_stockanswer_filled", R.drawable.ic_stockanswer_filled),
+    IconItem("ic_orderlist_filled", R.drawable.ic_orderlist_filled),
+    IconItem("ic_calendar_filled", R.drawable.ic_calendar_filled),
+    IconItem("ic_movelist_filled", R.drawable.ic_movelist_filled),
+    IconItem("ic_arrow_open", R.drawable.ic_arrow_open),
+    IconItem("ic_location_filled", R.drawable.ic_location_filled),
+    IconItem("ic_phone_filled", R.drawable.ic_phone_filled),
+    IconItem("ic_alarm_announce_filled", R.drawable.ic_alarm_announce_filled),
+    IconItem("ic_alarm_etc_filled", R.drawable.ic_alarm_etc_filled),
+    IconItem("ic_alarm_ad_filled", R.drawable.ic_alarm_ad_filled),
+    IconItem("ic_store2_filled", R.drawable.ic_store2_filled),
+
+    IconItem("ic_speechbubble_filled", R.drawable.ic_speechbubble_filled),
+    IconItem("ic_thumbsup_filled", R.drawable.ic_thumbsup_filled),
+    IconItem("ic_thumbsdw_filled", R.drawable.ic_thumbsdw_filled),
+    IconItem("ic_deliverybox_filled", R.drawable.ic_deliverybox_filled),
+    IconItem("ic_pen_filled", R.drawable.ic_pen_filled),
+    IconItem("ic_refresh_filled", R.drawable.ic_refresh_filled),
+    IconItem("ic_message2_filled", R.drawable.ic_message2_filled),
+    IconItem("ic_message1_filled", R.drawable.ic_message1_filled),
+    IconItem("ic_camera_filled", R.drawable.ic_camera_filled),
+    IconItem("ic_image1_filled", R.drawable.ic_image1_filled),
+    IconItem("ic_image2_filled", R.drawable.ic_image2_filled),
+    IconItem("ic_notice_filled", R.drawable.ic_notice_filled),
 )
 
 /** 카테고리 아이콘 */
@@ -415,18 +470,39 @@ val categoryIcons = listOf(
 
 /** 마이페이지 아이콘 */
 val myPageIcons = listOf(
-    IconItem("ic_x_s", R.drawable.ic_x_s),
-    IconItem("ic_filter", R.drawable.ic_filter),
-    IconItem("ic_list_sort", R.drawable.ic_list_sort),
-    IconItem("ic_check_s", R.drawable.ic_check_s),
+    IconItem("ic_calculate", R.drawable.ic_calculate),
+    IconItem("ic_studio", R.drawable.ic_studio),
+    IconItem("ic_ad", R.drawable.ic_ad),
 )
 
 /** Etc 아이콘 */
 val etcIcons = listOf(
-    IconItem("ic_x_s", R.drawable.ic_x_s),
-    IconItem("ic_filter", R.drawable.ic_filter),
-    IconItem("ic_list_sort", R.drawable.ic_list_sort),
-    IconItem("ic_check_s", R.drawable.ic_check_s),
+    IconItem("ic_mbs", R.drawable.ic_mbs),
+    IconItem("ic_ssmall", R.drawable.ic_ssmall),
+    IconItem("ic_qrcode", R.drawable.ic_qrcode),
+    IconItem("ic_mbs_filled", R.drawable.ic_mbs_filled),
+    IconItem("ic_mbs_filled_w", R.drawable.ic_mbs_filled_w),
+    IconItem("ic_flight_filled", R.drawable.ic_flight_filled),
+    IconItem("ic_kakaotalk", R.drawable.ic_kakaotalk),
+    IconItem("ic_line", R.drawable.ic_line),
+    IconItem("ic_wechat", R.drawable.ic_wechat),
+    IconItem("ic_email", R.drawable.ic_email),
+    IconItem("ic_imgsearch", R.drawable.ic_imgsearch),
+    IconItem("ic_expander_filled", R.drawable.ic_expander_filled),
+
+    IconItem("ic_checkbox_off", R.drawable.ic_checkbox_off),
+    IconItem("ic_checkbox_on", R.drawable.ic_checkbox_on),
+    IconItem("ic_checkbox_disable", R.drawable.ic_checkbox_disable),
+    IconItem("ic_checkbox_ondisable", R.drawable.ic_checkbox_ondisable),
+    IconItem("ic_checkcircle_off", R.drawable.ic_checkcircle_off),
+    IconItem("ic_checkcircle_on", R.drawable.ic_checkcircle_on),
+    IconItem("ic_checkcircle_onad", R.drawable.ic_checkcircle_onad),
+    IconItem("ic_checkcircle_disable", R.drawable.ic_checkcircle_disable),
+    IconItem("ic_radiobutton_off", R.drawable.ic_radiobutton_off),
+    IconItem("ic_radiobutton_on", R.drawable.ic_radiobutton_on),
+    IconItem("ic_radiobutton_disable", R.drawable.ic_radiobutton_disable),
+
+    IconItem("ic_empty40", R.drawable.ic_empty40),
 )
 
 val SIZE_16 = 16
