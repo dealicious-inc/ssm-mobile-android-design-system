@@ -182,7 +182,7 @@ fun chipsOutlineMedium02(
             backgroundColor = DealiColor.primary04,
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
-            contentColor = DealiColor.g100,
+            contentColor = DealiColor.g80,
             selectedContentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
             outlineColor = DealiColor.g30,
