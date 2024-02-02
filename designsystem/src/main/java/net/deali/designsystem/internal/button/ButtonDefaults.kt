@@ -153,9 +153,9 @@ internal object ButtonDefaults {
             }
 
             ButtonSize.Small -> if (buttonStyle == ButtonStyle.Text) {
-                DealiFont.b4r12
+                DealiFont.b3r13
             } else {
-                DealiFont.b4sb12
+                DealiFont.b3sb13
             }
         }
     }
