@@ -85,11 +85,12 @@ internal object ButtonDefaults {
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
         isLoading: Boolean,
+        rounded: Boolean,
     ): PaddingValues {
         return when (buttonSize) {
             ButtonSize.Large -> largeButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
             ButtonSize.Medium -> mediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
-            ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
+            ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading, rounded)
         }
     }
 
@@ -129,15 +130,24 @@ internal object ButtonDefaults {
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
         isLoading: Boolean,
+        rounded: Boolean
     ): PaddingValues {
         if (buttonStyle == ButtonStyle.Text) {
             return PaddingValues(horizontal = 16.dp)
         }
+        if (rounded) {
+            return PaddingValues(
+                start = if (useLeftIcon) 12.dp else 16.dp,
+                end = if (useRightIcon) 12.dp else 16.dp
+            )
+        }
         if (isLoading || useLeftIcon && useRightIcon) {
             return PaddingValues(horizontal = 12.dp)
         }
+
         val leftPadding = if (useLeftIcon) 8.dp else 12.dp
         val rightPadding = if (useRightIcon) 8.dp else 12.dp
+
         return PaddingValues(start = leftPadding, end = rightPadding)
     }
 

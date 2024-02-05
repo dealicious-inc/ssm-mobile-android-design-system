@@ -81,6 +81,7 @@ internal fun CoreButton(
                             useLeftIcon = leftIcon != null,
                             useRightIcon = rightIcon != null,
                             isLoading = true,
+                            rounded = isRoundShape
                         )
                     ),
                 contentAlignment = Alignment.Center,
@@ -101,6 +102,7 @@ internal fun CoreButton(
                             useLeftIcon = leftIcon != null,
                             useRightIcon = rightIcon != null,
                             isLoading = false,
+                            rounded = isRoundShape
                         )
                     ),
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
