@@ -6,7 +6,7 @@ import org.junit.Test
 
 class DecimalSeparatorVisualTransformationTest {
 
-    @Test(expected = IllegalStateException::class)
+    @Test(expected = IllegalArgumentException::class)
     fun onlyNumbers() {
         val visualTransformation = DecimalSeparatorVisualTransformation()
         visualTransformation.filter(AnnotatedString("$"))

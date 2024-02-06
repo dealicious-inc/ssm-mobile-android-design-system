@@ -41,7 +41,7 @@ class DecimalSeparatorVisualTransformation(
         return try {
             String.format(Locale.getDefault(), "%,.0f", this.toDouble())
         } catch (e: NumberFormatException) {
-            throw IllegalStateException("DecimalSeparatorVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
+            throw IllegalArgumentException("DecimalSeparatorVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
         }
     }
 
