@@ -4,6 +4,9 @@
 
 딜리셔스 신상마켓 디자인 시스템 Android Component 및 Sample App
 
+## 디자인시스템 버전 관리
+https://dealicious.atlassian.net/wiki/spaces/design/pages/3758096531
+
 ## Design Specs
 
 디자인 스펙은 Figma에서 관리하고 있습니다.
