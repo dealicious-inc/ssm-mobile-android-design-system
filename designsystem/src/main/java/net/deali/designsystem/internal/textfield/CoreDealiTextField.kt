@@ -31,6 +31,7 @@ internal fun CoreDealiTextField(
     singleLine: Boolean = true,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
+    maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -79,6 +80,7 @@ internal fun CoreDealiTextField(
         singleLine = singleLine,
         minLines = minLines,
         maxLines = maxLines,
+        maxLength = maxLength,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
@@ -106,6 +108,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     singleLine: Boolean = true,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
+    maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -130,7 +133,14 @@ internal fun CoreDealiTextFieldForTextFieldValue(
 
     BasicTextField(
         value = value,
-        onValueChange = onValueChange,
+        onValueChange = {
+            val changedText = it.text
+            if (changedText.length > maxLength) {
+                onValueChange(it.copy(text = changedText.substring(0, maxLength)))
+            } else {
+                onValueChange(it)
+            }
+        },
         modifier = modifier,
         textStyle = mergedTextStyle,
         enabled = enabled,
