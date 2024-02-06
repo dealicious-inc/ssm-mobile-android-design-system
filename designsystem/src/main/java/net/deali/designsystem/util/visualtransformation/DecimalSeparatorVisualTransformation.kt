@@ -22,6 +22,10 @@ class DecimalSeparatorVisualTransformation(
     private val alwaysShowPrefix: Boolean = false,
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
+        if (!text.text.isNumberOrEmpty()) {
+            throw IllegalArgumentException("DecimalSeparatorVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
+        }
+
         val textWithComma = text.text.toCommaTextOrEmpty()
         val textWithCommaAndPrefix = if (alwaysShowPrefix || textWithComma.isNotEmpty()) {
             prefix + textWithComma
@@ -72,27 +76,6 @@ class DecimalSeparatorVisualTransformation(
             val stringUntilOffset = transformedText.substring(0, offset)
             val commaCount = stringUntilOffset.commaCount()
             return offset - commaCount - prefixOffset
-        }
-
-        private fun String.substringWithout(
-            startIndex: Int,
-            endIndex: Int,
-            predicate: (Char) -> Boolean,
-        ): String {
-            val subStr = StringBuilder()
-            var i = startIndex
-            for (c in this) {
-                if (predicate(c)) {
-                    subStr.append(c)
-                    continue
-                }
-                if (i == endIndex) {
-                    break
-                }
-                subStr.append(c)
-                i++
-            }
-            return subStr.toString()
         }
 
         private fun String.commaCount(): Int {

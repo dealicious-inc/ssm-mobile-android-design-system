@@ -24,9 +24,11 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
+import net.deali.designsystem.component.chipsOutlineSmall01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
+import net.deali.designsystem.util.visualtransformation.PhoneNumberVisualTransformation
 
 @Composable
 fun InputWithButtonScreen(onBackPress: () -> Unit) {
@@ -152,22 +154,47 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
 
             SampleDivider()
 
-            Row(
+            Column(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
-                ToggleOption(
-                    title = "Visual Transformation (Price Style)",
-                    selected = visualTransformation != VisualTransformation.None,
-                    onSelectedChange = {
-                        visualTransformation = if (it) {
-                            DecimalSeparatorVisualTransformation(prefix = "$ ")
-                        } else {
-                            VisualTransformation.None
-                        }
-                    }
+                DealiText(
+                    text = "Visual Transformation",
+                    style = DealiFont.b4r12,
+                    color = DealiColor.g100,
                 )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    chipsOutlineSmall01(
+                        onClick = {
+                            text = ""
+                            visualTransformation =
+                                if (visualTransformation is DecimalSeparatorVisualTransformation) {
+                                    VisualTransformation.None
+                                } else {
+                                    DecimalSeparatorVisualTransformation(prefix = "$ ")
+                                }
+                        },
+                        text = "Decimal",
+                        selected = visualTransformation is DecimalSeparatorVisualTransformation
+                    )
+                    chipsOutlineSmall01(
+                        onClick = {
+                            text = ""
+                            visualTransformation =
+                                if (visualTransformation is PhoneNumberVisualTransformation) {
+                                    VisualTransformation.None
+                                } else {
+                                    PhoneNumberVisualTransformation()
+                                }
+                        },
+                        text = "Phone",
+                        selected = visualTransformation is PhoneNumberVisualTransformation
+                    )
+                }
             }
 
             SampleDivider()
