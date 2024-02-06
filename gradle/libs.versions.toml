@@ -26,6 +26,8 @@ coil = "2.4.0"
 snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
+junit4 = "4.13.2"
+
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
@@ -47,6 +49,8 @@ compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.r
 kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutable-collections" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
+
+junit4 = { module = "junit:junit", version.ref = "junit4" }
 
 # 샘플에서만 사용하는 dependencies
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
