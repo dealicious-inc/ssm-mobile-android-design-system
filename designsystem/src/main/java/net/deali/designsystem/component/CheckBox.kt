@@ -54,7 +54,6 @@ fun CheckBox(
             style = DealiFont.b3r13,
             color = when {
                 enabled.not() -> DealiColor.g50
-                checked -> DealiColor.primary01
                 else -> DealiColor.g100
             },
             maxLines = 1
