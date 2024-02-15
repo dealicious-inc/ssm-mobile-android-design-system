@@ -1,29 +1,24 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.bottomsheet.BottomSheetFooter
-import net.deali.designsystem.internal.bottomsheet.BottomSheetHandle
+import net.deali.designsystem.internal.bottomsheet.BottomSheetFooterOneButton
+import net.deali.designsystem.internal.bottomsheet.BottomSheetFooterTwoButtons
+import net.deali.designsystem.internal.bottomsheet.BottomSheetHeader
+import net.deali.designsystem.internal.bottomsheet.SingleSelectOption
 import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
-import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiFont
 
 /**
  * 모든 content 직접 구성
@@ -82,7 +77,7 @@ fun BottomSheet(
             onDismiss = onDismiss,
         )
         content()
-        BottomSheetFooter(
+        BottomSheetFooterOneButton(
             buttonText = buttonText,
             isButtonEnabled = isButtonEnabled,
             isButtonLoading = isButtonLoading,
@@ -117,7 +112,7 @@ fun BottomSheet(
             onDismiss = onDismiss,
         )
         content()
-        BottomSheetFooter(
+        BottomSheetFooterTwoButtons(
             primaryButtonText = primaryButtonText,
             secondaryButtonText = secondaryButtonText,
             isPrimaryButtonEnabled = isPrimaryButtonEnabled,
@@ -148,7 +143,7 @@ fun BottomSheet(
 ) {
     Column(modifier = modifier) {
         content()
-        BottomSheetFooter(
+        BottomSheetFooterTwoButtons(
             primaryButtonText = primaryButtonText,
             secondaryButtonText = secondaryButtonText,
             isPrimaryButtonEnabled = isPrimaryButtonEnabled,
@@ -158,29 +153,6 @@ fun BottomSheet(
             onPrimaryButtonClick = onPrimaryButtonClick,
             onSecondaryButtonClick = onSecondaryButtonClick,
         )
-    }
-}
-
-/**
- * 상단 핸들이 있는 BottomSheet
- * 타이틀 Default
- */
-@Composable
-fun BottomSheetWithHandle(
-    title: String,
-    modifier: Modifier = Modifier,
-    hideXButton: Boolean = false,
-    onDismiss: () -> Unit,
-    content: @Composable ColumnScope.() -> Unit,
-) {
-    Column(modifier = modifier) {
-        BottomSheetHandle()
-        BottomSheetHeader(
-            title = title,
-            hideXButton = hideXButton,
-            onDismiss = onDismiss,
-        )
-        content()
     }
 }
 
@@ -212,51 +184,51 @@ fun BottomSheetSingleSelectOption(
     }
 }
 
-
-@Composable
-fun BottomSheetHeader(
-    modifier: Modifier = Modifier,
-    title: String,
-    hideXButton: Boolean = false,
-    onDismiss: () -> Unit = {},
-) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(60.dp)
-            .padding(top = 24.dp)
-            .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        DealiText(
-            modifier = Modifier.weight(1f),
-            text = title,
-            style = DealiFont.sh2sb18,
-            color = DealiColor.g100,
-            overflow = TextOverflow.Ellipsis,
-            maxLines = 1,
-        )
-        Spacer(modifier = Modifier.width(16.dp))
-
-        if (hideXButton.not()) {
-            Icon24(
-                iconRes = R.drawable.ic_x,
-                onClick = onDismiss,
-            )
-        }
-    }
-}
-
-
-/**
- * 단일 옵션 선택할 때 사용.
- * 좌측에 아이콘이 붙는 경우 icon composable 작성
- */
-data class SingleSelectOption(
-    val text: String,
-    val isSelected: Boolean,
-    val icon: @Composable () -> Unit = {},
-)
+//
+//@Composable
+//fun BottomSheetHeader(
+//    modifier: Modifier = Modifier,
+//    title: String,
+//    hideXButton: Boolean = false,
+//    onDismiss: () -> Unit = {},
+//) {
+//    Row(
+//        modifier = modifier
+//            .fillMaxWidth()
+//            .height(60.dp)
+//            .padding(top = 24.dp)
+//            .padding(horizontal = 16.dp),
+//        horizontalArrangement = Arrangement.SpaceBetween,
+//    ) {
+//        DealiText(
+//            modifier = Modifier.weight(1f),
+//            text = title,
+//            style = DealiFont.sh2sb18,
+//            color = DealiColor.g100,
+//            overflow = TextOverflow.Ellipsis,
+//            maxLines = 1,
+//        )
+//        Spacer(modifier = Modifier.width(16.dp))
+//
+//        if (hideXButton.not()) {
+//            Icon24(
+//                iconRes = R.drawable.ic_x,
+//                onClick = onDismiss,
+//            )
+//        }
+//    }
+//}
+//
+//
+///**
+// * 단일 옵션 선택할 때 사용.
+// * 좌측에 아이콘이 붙는 경우 icon composable 작성
+// */
+//data class SingleSelectOption(
+//    val text: String,
+//    val isSelected: Boolean,
+//    val icon: @Composable () -> Unit = {},
+//)
 
 
 @Preview(showBackground = true)
