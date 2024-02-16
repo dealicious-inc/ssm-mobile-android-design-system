@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.tooltip.CoreDealiTooltip
+import net.deali.designsystem.internal.tooltip.TooltipAlignment
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -20,6 +21,7 @@ fun Tooltip(
     isShow: Boolean,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
+    absoluteAlignment: TooltipAlignment? = null,
     content: @Composable (Modifier) -> Unit
 ) {
     Box(
@@ -29,6 +31,7 @@ fun Tooltip(
         CoreDealiTooltip(
             modifier = Modifier,
             isShow = isShow,
+            absoluteAlignment = absoluteAlignment,
             onDismiss = onDismiss,
             anchorContent = content,
             tooltipContent = {

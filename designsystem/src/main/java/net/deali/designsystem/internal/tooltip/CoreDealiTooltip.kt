@@ -40,13 +40,20 @@ import kotlin.math.roundToInt
  */
 @Composable
 internal fun CoreDealiTooltip(
-    modifier: Modifier,
     isShow: Boolean,
+    modifier: Modifier,
+    absoluteAlignment: TooltipAlignment? = null,
     onDismiss: () -> Unit,
     anchorContent: @Composable (Modifier) -> Unit,
     tooltipContent: @Composable () -> Unit,
 ) {
-    var position by remember { mutableStateOf(TooltipPopupPosition()) }
+    var position by remember {
+        mutableStateOf(
+            TooltipPopupPosition(
+                alignment = absoluteAlignment ?: TooltipAlignment.TopCenter
+            )
+        )
+    }
 
     val view = LocalView.current.rootView
 
@@ -61,7 +68,7 @@ internal fun CoreDealiTooltip(
     anchorContent(
         modifier
             .onGloballyPositioned { coordinates ->
-                position = calculateTooltipPopupPosition(view, coordinates)
+                position = calculateTooltipPopupPosition(view, coordinates, absoluteAlignment)
             }
     )
 }
@@ -304,6 +311,7 @@ private data class TooltipPopupPosition(
 private fun calculateTooltipPopupPosition(
     view: View,
     coordinates: LayoutCoordinates?,
+    absoluteAlignment: TooltipAlignment? = null,
 ): TooltipPopupPosition {
     coordinates ?: return TooltipPopupPosition()
 
@@ -317,31 +325,20 @@ private fun calculateTooltipPopupPosition(
 
     val centerPositionX = boundsInWindow.right - (boundsInWindow.right - boundsInWindow.left) / 2
 
-    val offsetX = centerPositionX - visibleWindowBounds.centerX()
+    val alignment = absoluteAlignment ?: if (heightAbove < heightBelow) TooltipAlignment.TopCenter else TooltipAlignment.BottomCenter
 
-    return if (heightAbove < heightBelow) {
-        val offset = IntOffset(
-            y = coordinates.size.height,
-            x = offsetX.toInt()
-        )
-        TooltipPopupPosition(
-            offset = offset,
-            alignment = TooltipAlignment.TopCenter,
-            centerPositionX = centerPositionX,
-        )
-    } else {
-        TooltipPopupPosition(
-            offset = IntOffset(
-                y = -coordinates.size.height,
-                x = offsetX.toInt()
-            ),
-            alignment = TooltipAlignment.BottomCenter,
-            centerPositionX = centerPositionX,
-        )
-    }
+    val offsetX = centerPositionX - visibleWindowBounds.centerX()
+    val offsetY = if (alignment == TooltipAlignment.TopCenter) coordinates.size.height else -coordinates.size.height
+
+    val offset = IntOffset(y = offsetY, x = offsetX.toInt())
+    return TooltipPopupPosition(
+        offset = offset,
+        alignment = alignment,
+        centerPositionX = centerPositionX
+    )
 }
 
-private enum class TooltipAlignment {
+enum class TooltipAlignment {
     BottomCenter,
     TopCenter,
 }

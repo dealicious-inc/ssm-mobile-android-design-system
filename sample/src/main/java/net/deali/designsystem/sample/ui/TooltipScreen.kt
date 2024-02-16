@@ -16,6 +16,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Tooltip
+import net.deali.designsystem.internal.tooltip.TooltipAlignment
 
 @Composable
 fun TooltipScreen(
@@ -54,6 +55,7 @@ fun TooltipScreen(
                         .padding(30.dp),
                     text = "신상마켓",
                     isShow = isShow,
+                    absoluteAlignment = if (alignment == Alignment.Center) TooltipAlignment.TopCenter else null,
                     onDismiss = {
                         isShow = false
                     }
