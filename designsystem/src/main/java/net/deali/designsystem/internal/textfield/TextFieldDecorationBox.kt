@@ -36,6 +36,8 @@ internal fun DealiTextFieldDecorationBox(
     interactionSource: MutableInteractionSource,
     isValueEmpty: Boolean,
     placeholder: String?,
+    placeholderMaxLines: Int,
+    placeholderOverflow: TextOverflow,
     label: String?,
     helperText: String?,
     isHelperTextVisible: Boolean,
@@ -79,6 +81,8 @@ internal fun DealiTextFieldDecorationBox(
                 paddings = DealiTextFieldDefaults.paddings(),
                 placeholder = placeholder,
                 isPlaceholderVisible = isPlaceholderVisible,
+                placeholderMaxLines = placeholderMaxLines,
+                placeholderOverflow = placeholderOverflow,
                 enabled = enabled,
                 isError = isError,
                 focused = focused,
@@ -135,6 +139,8 @@ private fun PlaceholderText(
     placeholder: String?,
     isVisible: Boolean,
     colors: DealiTextFieldColors,
+    maxLines: Int,
+    overflow: TextOverflow,
     modifier: Modifier = Modifier
 ) {
     if (isVisible) {
@@ -143,6 +149,8 @@ private fun PlaceholderText(
             text = placeholder ?: "",
             style = DealiFont.b2r14,
             color = textColor,
+            maxLines = maxLines,
+            overflow = overflow,
             modifier = modifier
         )
     }
@@ -171,6 +179,8 @@ private fun InnerTextField(
     paddings: DealiTextFieldPaddingValues,
     placeholder: String?,
     isPlaceholderVisible: Boolean,
+    placeholderMaxLines: Int,
+    placeholderOverflow: TextOverflow,
     enabled: Boolean,
     isError: Boolean,
     focused: Boolean,
@@ -222,7 +232,9 @@ private fun InnerTextField(
             PlaceholderText(
                 placeholder = placeholder,
                 isVisible = isPlaceholderVisible,
-                colors = colors
+                colors = colors,
+                maxLines = placeholderMaxLines,
+                overflow = placeholderOverflow,
             )
             innerTextField()
         }

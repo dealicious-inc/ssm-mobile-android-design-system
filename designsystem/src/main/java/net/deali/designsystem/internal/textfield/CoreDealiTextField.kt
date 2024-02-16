@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -37,6 +38,7 @@ internal fun CoreDealiTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
@@ -86,6 +88,7 @@ internal fun CoreDealiTextField(
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         placeholder = placeholder,
+        placeholderOverflow = placeholderOverflow,
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
@@ -114,6 +117,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
@@ -163,6 +167,8 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 interactionSource = interactionSource,
                 isValueEmpty = isValueEmpty,
                 placeholder = placeholder,
+                placeholderMaxLines = if (singleLine) 1 else maxLines,
+                placeholderOverflow = placeholderOverflow,
                 label = label,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
