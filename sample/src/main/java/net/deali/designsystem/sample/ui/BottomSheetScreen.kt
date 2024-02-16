@@ -28,10 +28,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.BottomSheet
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
-import net.deali.designsystem.component.BottomSheetWithHandle
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.btnOutlineMedium01
@@ -42,7 +42,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
     val coroutineScope = rememberCoroutineScope()
     val bottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
-    var bottomSheetType by remember { mutableStateOf(BottomSheetType.Plain) }
+    var bottomSheetType by remember { mutableStateOf(BottomSheetType.Empty) }
     val hideBottomSheet: () -> Unit = {
         coroutineScope.launch { bottomSheetState.hide() }
     }
@@ -50,7 +50,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
     ModalBottomSheetLayout(
         sheetContent = when (bottomSheetType) {
-            BottomSheetType.Plain -> {
+            BottomSheetType.Empty -> {
                 {
                     BottomSheet {
                         EmptyBox()
@@ -58,30 +58,53 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 }
             }
 
-            BottomSheetType.Title -> {
+            BottomSheetType.TextNoButton -> {
                 {
                     BottomSheet(
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
                         onDismiss = hideBottomSheet,
-                    ) {
-                        EmptyBox()
-                    }
+                    )
                 }
             }
 
-            BottomSheetType.TwoButton -> {
+            BottomSheetType.TextOneButton -> {
                 {
                     BottomSheet(
-                        primaryButtonText = "탈퇴",
-                        secondaryButtonText = "취소",
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        text = "텍스트",
+                        buttonText = "버튼명",
+                        onButtonClick = {},
+                        onDismiss = hideBottomSheet,
+                    )
+                }
+            }
+
+            BottomSheetType.TextTwoButtons -> {
+                {
+                    BottomSheet(
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        text = "텍스트",
+                        primaryButtonText = "버튼1",
+                        secondaryButtonText = "버튼2",
                         onPrimaryButtonClick = {},
                         onSecondaryButtonClick = {},
+                        onDismiss = hideBottomSheet,
+                    )
+                }
+            }
+
+            BottomSheetType.NoButton -> {
+                {
+                    BottomSheet(
+                        title = "타이틀",
+                        onDismiss = hideBottomSheet,
                         content = { EmptyBox() }
                     )
                 }
             }
 
-            BottomSheetType.TitleAndButton -> {
+            BottomSheetType.OneButton -> {
                 {
                     var isLoading by remember { mutableStateOf(false) }
                     var delayJob by remember { mutableStateOf<Job?>(null) }
@@ -114,7 +137,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 }
             }
 
-            BottomSheetType.TitleAndTwoButton -> {
+            BottomSheetType.TwoButton -> {
                 {
                     var isLoading by remember { mutableStateOf(false) }
                     var delayJob by remember { mutableStateOf<Job?>(null) }
@@ -149,18 +172,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 }
             }
 
-            BottomSheetType.TitleWithHandle -> {
-                {
-                    BottomSheetWithHandle(
-                        title = "타이틀",
-                        onDismiss = hideBottomSheet,
-                    ) {
-                        EmptyBox()
-                    }
-                }
-            }
-
-            BottomSheetType.SingleSelectOption -> {
+            BottomSheetType.SingleSelect -> {
                 {
                     BottomSheetSingleSelectOption(
                         title = "단일 옵션",
@@ -179,7 +191,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 text = "옵션3",
                                 isSelected = selectedOptionIndex == 2,
                                 icon = {
-                                    Icon16(iconRes = net.deali.designsystem.R.drawable.ic_category_filled)
+                                    Icon16(iconRes = R.drawable.ic_category_filled)
                                 }
                             ),
                         ),
@@ -188,12 +200,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                         },
                         onDismiss = hideBottomSheet
                     )
-                }
-            }
-
-            BottomSheetType.MultiSelectOption -> {
-                {
-
                 }
             }
         },
@@ -234,33 +240,44 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     .padding(top = 24.dp, start = 16.dp, bottom = 40.dp, end = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
+              OpenBottomSheetButton(
+                  text = "Empty",
+                  type = BottomSheetType.Empty,
+              )
+
                 OpenBottomSheetButton(
-                    text = "타이틀X 버튼 X",
-                    type = BottomSheetType.Plain,
+                    text = "텍스트 | 버튼X",
+                    type = BottomSheetType.TextNoButton,
                 )
+
                 OpenBottomSheetButton(
-                    text = "타이틀X, 버튼 2개",
+                    text = "텍스트 | 버튼1",
+                    type = BottomSheetType.TextOneButton,
+                )
+
+                OpenBottomSheetButton(
+                    text = "텍스트 | 버튼2",
+                    type = BottomSheetType.TextTwoButtons,
+                )
+
+                OpenBottomSheetButton(
+                    text = "자유형식 | 버튼X",
+                    type = BottomSheetType.NoButton,
+                )
+
+                OpenBottomSheetButton(
+                    text = "자유형식 | 버튼1",
+                    type = BottomSheetType.OneButton,
+                )
+
+                OpenBottomSheetButton(
+                    text = "자유형식 | 버튼2",
                     type = BottomSheetType.TwoButton,
                 )
-                OpenBottomSheetButton(
-                    text = "타이틀O 버튼 X",
-                    type = BottomSheetType.Title,
-                )
-                OpenBottomSheetButton(
-                    text = "타이틀O 버튼 1개",
-                    type = BottomSheetType.TitleAndButton,
-                )
-                OpenBottomSheetButton(
-                    text = "타이틀O 버튼 2개",
-                    type = BottomSheetType.TitleAndTwoButton,
-                )
-                OpenBottomSheetButton(
-                    text = "타이틀O 버튼 X 핸들O",
-                    type = BottomSheetType.TitleWithHandle,
-                )
+
                 OpenBottomSheetButton(
                     text = "단일 옵션 선택",
-                    type = BottomSheetType.SingleSelectOption,
+                    type = BottomSheetType.SingleSelect,
                 )
             }
         }
@@ -280,12 +297,12 @@ private fun EmptyBox(modifier: Modifier = Modifier) {
 }
 
 private enum class BottomSheetType {
-    Plain,
+    Empty,
+    TextNoButton,
+    TextOneButton,
+    TextTwoButtons,
+    NoButton,
+    OneButton,
     TwoButton,
-    Title,
-    TitleAndButton,
-    TitleAndTwoButton,
-    TitleWithHandle,
-    SingleSelectOption,
-    MultiSelectOption,
+    SingleSelect,
 }
