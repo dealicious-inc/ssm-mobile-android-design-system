@@ -30,16 +30,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
-import net.deali.designsystem.component.BottomSheetEmpty
-import net.deali.designsystem.component.BottomSheetNoButton
-import net.deali.designsystem.component.BottomSheetOneButton
+import net.deali.designsystem.component.BottomSheet
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
-import net.deali.designsystem.component.BottomSheetTwoButtons
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.SingleSelectOption
-import net.deali.designsystem.component.TextBottomSheetNoButton
-import net.deali.designsystem.component.TextBottomSheetOneButton
-import net.deali.designsystem.component.TextBottomSheetTwoButtons
 import net.deali.designsystem.component.btnOutlineMedium01
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -58,7 +52,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
         sheetContent = when (bottomSheetType) {
             BottomSheetType.Empty -> {
                 {
-                    BottomSheetEmpty {
+                    BottomSheet {
                         EmptyBox()
                     }
                 }
@@ -66,7 +60,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
             BottomSheetType.TextNoButton -> {
                 {
-                    TextBottomSheetNoButton(
+                    BottomSheet(
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
                         onDismiss = hideBottomSheet,
@@ -76,7 +70,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
             BottomSheetType.TextOneButton -> {
                 {
-                    TextBottomSheetOneButton(
+                    BottomSheet(
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트",
                         buttonText = "버튼명",
@@ -88,7 +82,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
             BottomSheetType.TextTwoButtons -> {
                 {
-                    TextBottomSheetTwoButtons(
+                    BottomSheet(
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트",
                         primaryButtonText = "버튼1",
@@ -102,7 +96,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
             BottomSheetType.NoButton -> {
                 {
-                    BottomSheetNoButton(
+                    BottomSheet(
                         title = "타이틀",
                         onDismiss = hideBottomSheet,
                         content = { EmptyBox() }
@@ -115,7 +109,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var isLoading by remember { mutableStateOf(false) }
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
-                    BottomSheetOneButton(
+                    BottomSheet(
                         title = "타이틀",
                         buttonText = "확인",
                         isButtonLoading = isLoading,
@@ -148,7 +142,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var isLoading by remember { mutableStateOf(false) }
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
-                    BottomSheetTwoButtons(
+                    BottomSheet(
                         title = "타이틀",
                         primaryButtonText = "탈퇴",
                         secondaryButtonText = "취소",
