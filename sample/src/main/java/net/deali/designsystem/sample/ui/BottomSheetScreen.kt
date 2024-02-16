@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.BottomSheetEmpty
 import net.deali.designsystem.component.BottomSheetNoButton
@@ -35,11 +36,11 @@ import net.deali.designsystem.component.BottomSheetOneButton
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
 import net.deali.designsystem.component.BottomSheetTwoButtons
 import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.TextBottomSheetNoButton
 import net.deali.designsystem.component.TextBottomSheetOneButton
 import net.deali.designsystem.component.TextBottomSheetTwoButtons
 import net.deali.designsystem.component.btnOutlineMedium01
-import net.deali.designsystem.internal.bottomsheet.SingleSelectOption
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -196,7 +197,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 text = "옵션3",
                                 isSelected = selectedOptionIndex == 2,
                                 icon = {
-                                    Icon16(iconRes = net.deali.designsystem.R.drawable.ic_category_filled)
+                                    Icon16(iconRes = R.drawable.ic_category_filled)
                                 }
                             ),
                         ),

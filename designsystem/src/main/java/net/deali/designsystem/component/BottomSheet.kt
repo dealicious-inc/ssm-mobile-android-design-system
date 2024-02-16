@@ -14,11 +14,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.bottomsheet.BottomSheetFooterOneButton
-import net.deali.designsystem.internal.bottomsheet.BottomSheetFooterTwoButtons
-import net.deali.designsystem.internal.bottomsheet.BottomSheetHeader
-import net.deali.designsystem.internal.bottomsheet.SingleSelectOption
-import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
 
 /**
  * 모든 content 직접 구성
@@ -156,81 +151,6 @@ fun BottomSheet(
     }
 }
 
-/**
- * 상단 핸들이 있는 BottomSheet
- * 타이틀 Default
- */
-@Composable
-fun BottomSheetSingleSelectOption(
-    title: String,
-    modifier: Modifier = Modifier,
-    singleSelectOptionList: List<SingleSelectOption>,
-    onSelectOption: (index: Int) -> Unit,
-    hideXButton: Boolean = false,
-    onDismiss: () -> Unit,
-) {
-    Column(modifier = modifier) {
-        BottomSheetHeader(
-            title = title,
-            hideXButton = hideXButton,
-            onDismiss = onDismiss,
-        )
-
-        SingleSelectOptionList(
-            list = singleSelectOptionList,
-            onSelectOption = onSelectOption,
-            onDismiss = onDismiss,
-        )
-    }
-}
-
-//
-//@Composable
-//fun BottomSheetHeader(
-//    modifier: Modifier = Modifier,
-//    title: String,
-//    hideXButton: Boolean = false,
-//    onDismiss: () -> Unit = {},
-//) {
-//    Row(
-//        modifier = modifier
-//            .fillMaxWidth()
-//            .height(60.dp)
-//            .padding(top = 24.dp)
-//            .padding(horizontal = 16.dp),
-//        horizontalArrangement = Arrangement.SpaceBetween,
-//    ) {
-//        DealiText(
-//            modifier = Modifier.weight(1f),
-//            text = title,
-//            style = DealiFont.sh2sb18,
-//            color = DealiColor.g100,
-//            overflow = TextOverflow.Ellipsis,
-//            maxLines = 1,
-//        )
-//        Spacer(modifier = Modifier.width(16.dp))
-//
-//        if (hideXButton.not()) {
-//            Icon24(
-//                iconRes = R.drawable.ic_x,
-//                onClick = onDismiss,
-//            )
-//        }
-//    }
-//}
-//
-//
-///**
-// * 단일 옵션 선택할 때 사용.
-// * 좌측에 아이콘이 붙는 경우 icon composable 작성
-// */
-//data class SingleSelectOption(
-//    val text: String,
-//    val isSelected: Boolean,
-//    val icon: @Composable () -> Unit = {},
-//)
-
-
 @Preview(showBackground = true)
 @Composable
 private fun PreviewBottomSheet1() {
@@ -262,31 +182,4 @@ private fun PreviewBottomSheet_TwoButton() {
                 .background(color = Color(0xFFFFE0E0))
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewBottomSheetSingleSelectOption() {
-    BottomSheetSingleSelectOption(
-        title = "단일 선택 바텀시트",
-        singleSelectOptionList = listOf(
-            SingleSelectOption(
-                text = "옵션명1",
-                isSelected = true,
-            ),
-            SingleSelectOption(
-                text = "옵션명2",
-                isSelected = false,
-            ),
-            SingleSelectOption(
-                text = "옵션명3",
-                isSelected = false,
-                icon = {
-                    Icon16(iconRes = R.drawable.ic_trash)
-                }
-            )
-        ),
-        onDismiss = {},
-        onSelectOption = {}
-    )
 }
