@@ -197,7 +197,7 @@ fun SearchInput(
         leadingContent = {
             TagOutlineLarge04(
                 modifier = Modifier
-                    .requiredWidthIn(max = 88.dp),
+                    .requiredWidthIn(max = 92.dp),
                 text = tagText,
             )
         },
