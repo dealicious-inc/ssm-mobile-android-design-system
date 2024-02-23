@@ -196,6 +196,43 @@ fun chipOutlineSquareLarge01(
     )
 }
 
+@Deprecated(
+    message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요." +
+            "1.4v에서 지울 것"
+)
+@Composable
+fun chipOutlineSquareLarge01(
+    onClick: () -> Unit,
+    text: String,
+    useRemoveIcon: Boolean,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
+    onRemoveClick: () -> Unit = {},
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    chipOutlineSquareLarge01(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
+        leftIconColor = leftIconColor,
+        rightIconColor = Color.Unspecified,
+        onLeftIconClick = null,
+        onRightIconClick = onRemoveClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
 @Composable
 fun chipFilledLarge01(
     onClick: () -> Unit,
@@ -534,7 +571,7 @@ fun chipFilledDepthLarge01(
 ) {
     val chipStyle = ChipStyle.FilledImageDepth
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -553,13 +590,13 @@ fun chipFilledDepthLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
             if (index != 0) {
@@ -595,7 +632,7 @@ fun chipFilledDepthLarge01(
 ) {
     val chipStyle = ChipStyle.FilledImageDepth
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -614,12 +651,12 @@ fun chipFilledDepthLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         for ((index, icon) in icons.withIndex()) {
             if (index != 0) {
@@ -652,7 +689,7 @@ fun chipFilledDepthLarge01(
 ) {
     val chipStyle = ChipStyle.FilledImageDepth
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -671,13 +708,13 @@ fun chipFilledDepthLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         for ((index, content) in contents.withIndex()) {
             if (index != 0) {
@@ -734,7 +771,7 @@ fun chipFilledImageLarge01(
 ) {
     val chipStyle = ChipStyle.FilledImage
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -753,13 +790,13 @@ fun chipFilledImageLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         ChipImage(
             imageUrl = imageUrl,
@@ -791,7 +828,7 @@ fun chipFilledImageDepthLarge01(
 ) {
     val chipStyle = ChipStyle.FilledImageDepth
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.primary04,
         selectedBackgroundColor = DealiColor.g10,
         disabledBackgroundColor = DealiColor.g10,
@@ -813,13 +850,13 @@ fun chipFilledImageDepthLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
             if (index == 0) {
@@ -878,7 +915,7 @@ fun chipOutlineImageLarge01(
 ) {
     val chipStyle = ChipStyle.Outline
     val chipSize = ChipSize.Large
-    val chipsColors = ChipDefaults.colors(
+    val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.primary04,
         selectedBackgroundColor = DealiColor.primary04,
         disabledBackgroundColor = DealiColor.primary04,
@@ -900,13 +937,13 @@ fun chipOutlineImageLarge01(
         enabled = enabled,
         chipStyle = chipStyle,
         chipSize = chipSize,
-        chipColors = chipsColors,
+        chipColors = chipColors,
         spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
         val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        val contentColor by chipsColors.contentColor(enabled, selected)
+        val contentColor by chipColors.contentColor(enabled, selected)
 
         ChipImage(
             imageUrl = imageUrl,

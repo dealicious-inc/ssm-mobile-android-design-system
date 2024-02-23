@@ -232,26 +232,26 @@ private fun CoreChipLayout(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
-    val chipsShape = ChipDefaults.chipShape(style = chipStyle)
-    val chipsMinSize = ChipDefaults.chipMinSize(size = chipSize)
+    val chipShape = ChipDefaults.chipShape(style = chipStyle)
+    val chipMinSize = ChipDefaults.chipMinSize(size = chipSize)
     val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
     val backgroundColor by chipColors.backgroundColor(enabled, selected)
     val outlineColor by chipColors.outlineColor(enabled, selected)
 
     Box(
         modifier = modifier
-            .clip(shape = chipsShape)
+            .clip(shape = chipShape)
             .outlineBorderOrNothing(
                 enableBorder = true,
                 color = outlineColor,
-                shape = chipsShape
+                shape = chipShape
             )
             .defaultMinSize(
-                minWidth = chipsMinSize,
-                minHeight = chipsMinSize,
+                minWidth = chipMinSize,
+                minHeight = chipMinSize,
             )
             .width(IntrinsicSize.Min)
-            .height(chipsMinSize)
+            .height(chipMinSize)
             .background(color = backgroundColor)
             .clickableOrNothing(
                 clickable = clickable,
