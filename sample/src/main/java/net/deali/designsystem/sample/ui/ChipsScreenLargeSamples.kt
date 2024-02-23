@@ -323,7 +323,7 @@ private fun ChipOutlineSquareLarge01Samples() {
 
 @Composable
 private fun ChipFilledLarge01Samples() {
-    ChipSampleLayout(title = "chipsFilledLarge01") {
+    ChipSampleLayout(title = "chipFilledLarge01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -490,7 +490,7 @@ private fun ChipFilledLarge01Samples() {
 
 @Composable
 private fun ChipFilledSquareLarge01Samples() {
-    ChipSampleLayout(title = "chipsFilledSquareLarge01") {
+    ChipSampleLayout(title = "chipFilledSquareLarge01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -627,7 +627,7 @@ private fun ChipFilledSquareLarge01Samples() {
 
 @Composable
 private fun ChipFilledSquareLarge02Samples() {
-    ChipSampleLayout(title = "chipsFilledSquareLarge02") {
+    ChipSampleLayout(title = "chipFilledSquareLarge02") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -764,7 +764,7 @@ private fun ChipFilledSquareLarge02Samples() {
 
 @Composable
 private fun ChipFilledSquareLarge03Samples() {
-    ChipSampleLayout(title = "chipsFilledSquareLarge03") {
+    ChipSampleLayout(title = "chipFilledSquareLarge03") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(3),
             modifier = Modifier
@@ -901,7 +901,7 @@ private fun ChipFilledSquareLarge03Samples() {
 
 @Composable
 private fun ChipFilledDepthLarge01Samples() {
-    ChipSampleLayout(title = "chipsFilledDepthLarge01") {
+    ChipSampleLayout(title = "chipFilledDepthLarge01") {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -1051,7 +1051,7 @@ private fun ChipFilledDepthLarge01Samples() {
 private fun ChipFilledImageLarge01Samples() {
     val sampleImage =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipSampleLayout(title = "chipsFilledImageLarge01") {
+    ChipSampleLayout(title = "chipFilledImageLarge01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
             modifier = Modifier
@@ -1104,7 +1104,7 @@ private fun ChipFilledImageLarge01Samples() {
 private fun ChipFilledImageDepthLarge01Samples() {
     val sampleImage =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipSampleLayout(title = "chipsFilledImageDepthLarge01") {
+    ChipSampleLayout(title = "chipFilledImageDepthLarge01") {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -1142,7 +1142,7 @@ private fun ChipFilledImageDepthLarge01Samples() {
 private fun ChipOutlineImageLarge01Samples() {
     val sampleImage =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-    ChipSampleLayout(title = "chipsOutlineImageLarge01") {
+    ChipSampleLayout(title = "chipOutlineImageLarge01") {
         VerticalGrid(
             columns = SimpleGridCells.Fixed(2),
             modifier = Modifier
