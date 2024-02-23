@@ -12,9 +12,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 
 internal object ChipsDefaults {
     @Composable
@@ -50,11 +50,11 @@ internal object ChipsDefaults {
             ChipsStyle.FilledDepth,
             ChipsStyle.FilledImage,
             ChipsStyle.FilledImageDepth -> {
-                AppTheme.shapes.radius4
+                DealiShape.radius4
             }
 
             else -> {
-                AppTheme.shapes.radius100percent
+                DealiShape.radius100
             }
         }
     }

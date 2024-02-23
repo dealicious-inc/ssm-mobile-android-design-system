@@ -8,7 +8,6 @@ import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.ReadOnlyComposable
 import java.util.Locale
 
 @Composable
@@ -34,16 +33,9 @@ fun AppTheme(
             LocalIndication provides rippleIndication,
             LocalRippleTheme provides AppRippleTheme,
             LocalTypography provides typography,
-            LocalShapes provides AppTheme.shapes,
+            LocalShapes provides DealiShape,
             LocalTextSelectionColors provides textSelectionColors,
             content = content
         )
     }
-}
-
-object AppTheme {
-    val shapes: AppShape
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalShapes.current
 }

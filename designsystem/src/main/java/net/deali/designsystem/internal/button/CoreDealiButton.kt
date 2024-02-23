@@ -31,8 +31,8 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.IconRotating
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiShape
 
 @Deprecated("더 이상 사용하지 않는 컴포넌트입니다. 신규 디자인 시스템 컴포넌트를 사용하세요.")
 @Composable
@@ -83,7 +83,7 @@ internal fun ButtonSmall(
     onClick: () -> Unit,
 ) {
     CoreDealiButton(
-        shape = AppTheme.shapes.radius4,
+        shape = DealiShape.radius4,
         enabled = enabled && !process,
         modifier = modifier.height(32.dp),
         backgroundBrush = backgroundBrush,
@@ -171,7 +171,7 @@ internal fun ButtonMedium(
     onClick: () -> Unit,
 ) {
     CoreDealiButton(
-        shape = AppTheme.shapes.radius6,
+        shape = DealiShape.radius6,
         enabled = enabled && !process,
         modifier = modifier.height(46.dp),
         backgroundBrush = backgroundBrush,
@@ -259,7 +259,7 @@ internal fun ButtonLarge(
     onClick: () -> Unit,
 ) {
     CoreDealiButton(
-        shape = AppTheme.shapes.radius6,
+        shape = DealiShape.radius6,
         enabled = enabled && !process,
         modifier = modifier.height(50.dp),
         backgroundBrush = backgroundBrush,

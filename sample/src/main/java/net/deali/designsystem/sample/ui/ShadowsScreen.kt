@@ -105,9 +105,9 @@ private fun Container(
                         blurRadius = blurRadius,
                         cornerRadius = 10.dp,
                     )
-                    .clip(AppTheme.shapes.radius10)
+                    .clip(DealiShape.radius10)
                     .background(DealiColor.primary04)
-                    .border(1.dp, DealiColor.g30, AppTheme.shapes.radius10)
+                    .border(1.dp, DealiColor.g30, DealiShape.radius10)
             )
         }
 

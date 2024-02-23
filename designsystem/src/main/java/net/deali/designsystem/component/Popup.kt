@@ -18,9 +18,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 
 /**
  * 신상마켓 디자인 시스템 팝업 컴포넌트.
@@ -246,7 +246,7 @@ private fun Popup(
     ) {
         Column(
             modifier = Modifier
-                .clip(AppTheme.shapes.radius10)
+                .clip(DealiShape.radius10)
                 .background(DealiColor.primary04)
                 .width(280.dp)
                 .padding(horizontal = 20.dp),
