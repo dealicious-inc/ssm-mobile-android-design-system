@@ -1,4 +1,4 @@
-package net.deali.designsystem.internal.chips
+package net.deali.designsystem.internal.chip
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
@@ -53,7 +53,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 @Composable
-internal fun CoreRegularChips(
+internal fun CoreRegularChip(
     onClick: () -> Unit,
     text: String,
     textAlign: TextAlign?,
@@ -66,16 +66,16 @@ internal fun CoreRegularChips(
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
-    chipsStyle: ChipsStyle,
-    chipsSize: ChipsSize,
-    chipsColors: ChipsColors,
+    chipStyle: ChipStyle,
+    chipSize: ChipSize,
+    chipColors: ChipColors,
     interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
 ) {
-    val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-    val contentColor by chipsColors.contentColor(enabled, selected)
+    val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+    val contentColor by chipColors.contentColor(enabled, selected)
 
-    CoreChipsLayout(
+    CoreChipLayout(
         onClick = onClick,
         useLeftIcon = leftIcon != null,
         useRightIcon = rightIcon != null,
@@ -83,9 +83,9 @@ internal fun CoreRegularChips(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipColors,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -106,22 +106,22 @@ internal fun CoreRegularChips(
 }
 
 @Composable
-internal fun CoreIconOnlyChips(
+internal fun CoreIconOnlyChip(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     iconColor: Color?,
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
-    chipsStyle: ChipsStyle,
-    chipsSize: ChipsSize,
-    chipsColors: ChipsColors,
+    chipStyle: ChipStyle,
+    chipSize: ChipSize,
+    chipColors: ChipColors,
     interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
 ) {
-    val contentColor by chipsColors.contentColor(enabled, selected)
+    val contentColor by chipColors.contentColor(enabled, selected)
 
-    CoreChipsLayout(
+    CoreChipLayout(
         onClick = onClick,
         useLeftIcon = false,
         useRightIcon = false,
@@ -129,9 +129,9 @@ internal fun CoreIconOnlyChips(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipColors,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -144,7 +144,7 @@ internal fun CoreIconOnlyChips(
 }
 
 @Composable
-internal fun CoreCustomChips(
+internal fun CoreCustomChip(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     @DrawableRes removeIcon: Int,
@@ -152,17 +152,17 @@ internal fun CoreCustomChips(
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
-    chipsStyle: ChipsStyle,
-    chipsSize: ChipsSize,
-    chipsColors: ChipsColors,
+    chipStyle: ChipStyle,
+    chipSize: ChipSize,
+    chipColors: ChipColors,
     spacingBetweenContentAndRemove: Dp,
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val contentColor by chipsColors.contentColor(enabled, selected)
+    val contentColor by chipColors.contentColor(enabled, selected)
 
-    CoreChipsLayout(
+    CoreChipLayout(
         onClick = onClick,
         useLeftIcon = false,
         useRightIcon = useRemoveIcon,
@@ -170,9 +170,9 @@ internal fun CoreCustomChips(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipColors,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -189,7 +189,7 @@ internal fun CoreCustomChips(
 }
 
 @Composable
-internal fun ChipsImage(
+internal fun ChipImage(
     imageUrl: String,
     enabled: Boolean,
     modifier: Modifier = Modifier,
@@ -217,7 +217,7 @@ internal fun ChipsImage(
 }
 
 @Composable
-private fun CoreChipsLayout(
+private fun CoreChipLayout(
     onClick: () -> Unit,
     useLeftIcon: Boolean,
     useRightIcon: Boolean,
@@ -225,18 +225,18 @@ private fun CoreChipsLayout(
     clickable: Boolean,
     selected: Boolean,
     enabled: Boolean,
-    chipsStyle: ChipsStyle,
-    chipsSize: ChipsSize,
-    chipsColors: ChipsColors,
+    chipStyle: ChipStyle,
+    chipSize: ChipSize,
+    chipColors: ChipColors,
     interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
-    val chipsShape = ChipsDefaults.chipsShape(style = chipsStyle)
-    val chipsMinSize = ChipsDefaults.chipsMinSize(size = chipsSize)
-    val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
-    val backgroundColor by chipsColors.backgroundColor(enabled, selected)
-    val outlineColor by chipsColors.outlineColor(enabled, selected)
+    val chipsShape = ChipDefaults.chipShape(style = chipStyle)
+    val chipsMinSize = ChipDefaults.chipMinSize(size = chipSize)
+    val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+    val backgroundColor by chipColors.backgroundColor(enabled, selected)
+    val outlineColor by chipColors.outlineColor(enabled, selected)
 
     Box(
         modifier = modifier
@@ -267,9 +267,9 @@ private fun CoreChipsLayout(
             modifier = Modifier
                 .idealChipsWidth()
                 .padding(
-                    ChipsDefaults.chipsPaddings(
-                        size = chipsSize,
-                        style = chipsStyle,
+                    ChipDefaults.chipPaddings(
+                        size = chipSize,
+                        style = chipStyle,
                         useLeftIcon = if (useOnlyCenterIcon) false else useLeftIcon,
                         useRightIcon = if (useOnlyCenterIcon) false else useRightIcon,
                         useOnlyCenterIcon = useOnlyCenterIcon,

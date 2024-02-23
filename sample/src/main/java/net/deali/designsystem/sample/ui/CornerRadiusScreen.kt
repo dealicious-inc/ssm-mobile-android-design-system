@@ -18,23 +18,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 
 @Composable
 fun CornerRadiusScreen(
     onBackPress: () -> Unit
 ) {
     val radiusItems = listOf(
-        CornerRadiusScreenItem("Radius : 0", AppTheme.shapes.radius0),
+        CornerRadiusScreenItem("Radius : 0", DealiShape.radius0),
         CornerRadiusScreenItem("Radius : 6", DealiShape.radius6),
         CornerRadiusScreenItem("Radius : 4", DealiShape.radius4),
-        CornerRadiusScreenItem("Radius : 3", AppTheme.shapes.radius3),
-        CornerRadiusScreenItem("Radius : 100%", DealiShape.radius100percent),
-        CornerRadiusScreenItem("Radius : 20", AppTheme.shapes.radius20),
+        CornerRadiusScreenItem("Radius : 3", DealiShape.radius3),
+        CornerRadiusScreenItem("Radius : 100%", DealiShape.radius100),
+        CornerRadiusScreenItem("Radius : 20", DealiShape.radius20),
         CornerRadiusScreenItem("Radius : 10", DealiShape.radius10),
-        CornerRadiusScreenItem("Radius : 8", AppTheme.shapes.radius8)
     )
 
     NavigationContainer(

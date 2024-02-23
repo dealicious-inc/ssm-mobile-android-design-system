@@ -27,11 +27,11 @@ import net.deali.designsystem.theme.DealiFont
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
 @Composable
-fun ChipsScreen(onBackPress: () -> Unit) {
+fun ChipScreen(onBackPress: () -> Unit) {
     Column {
         ActionBar(
             onBack = onBackPress,
-            title = "Chips",
+            title = "Chip",
             modifier = Modifier.fillMaxWidth(),
         )
 
@@ -79,16 +79,16 @@ fun ChipsScreen(onBackPress: () -> Unit) {
             state = pagerState,
         ) { page ->
             when (page) {
-                0 -> LargeChipsSamples()
-                1 -> MediumChipsSamples()
-                2 -> SmallChipsSamples()
+                0 -> LargeChipSamples()
+                1 -> MediumChipSamples()
+                2 -> SmallChipSamples()
             }
         }
     }
 }
 
 @Composable
-internal fun ChipsSampleLayout(
+internal fun ChipSampleLayout(
     title: String,
     content: @Composable () -> Unit,
 ) {

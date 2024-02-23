@@ -24,9 +24,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 import net.deali.designsystem.util.shadow
 
 @Composable
@@ -34,7 +34,12 @@ fun ShadowsScreen(
     onBackPress: () -> Unit
 ) {
     val shadowsScreenItems = listOf(
-        ShadowsScreenItem(name = "Elevation_none", color = DealiColor.transparent, offsetY = 0.dp, blurRadius = 0.dp),
+        ShadowsScreenItem(
+            name = "Elevation_none",
+            color = DealiColor.transparent,
+            offsetY = 0.dp,
+            blurRadius = 0.dp
+        ),
         // TODO DRG shadow color 물어보기
         //        ShadowsScreenItem(name = "Shadow_type1", color = black010, offsetY = (-1).dp, blurRadius = 6.dp),
         //        ShadowsScreenItem(name = "Shadow_type2", color = black022, offsetY = 1.dp, blurRadius = 3.dp),

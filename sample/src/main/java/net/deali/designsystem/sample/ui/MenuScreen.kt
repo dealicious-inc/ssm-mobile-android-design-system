@@ -29,7 +29,7 @@ fun MenuScreen(
     navigateToCornerRadius: () -> Unit,
     navigateToNavigation: () -> Unit,
     navigateToButtons: () -> Unit,
-    navigateToChips: () -> Unit,
+    navigateToChip: () -> Unit,
     navigateToUIElements: () -> Unit,
     navigateToForms: () -> Unit,
     navigateToBottomSheets: () -> Unit,
@@ -136,8 +136,8 @@ fun MenuScreen(
                 modifier = Modifier.fillMaxWidth(),
                 enabled = true,
                 loading = false,
-                text = "Chips",
-                onClick = navigateToChips
+                text = "Chip",
+                onClick = navigateToChip
             )
 
             btnFilledMedium01(
@@ -181,7 +181,7 @@ private fun MenuScreenPreview() {
         navigateToCornerRadius = {},
         navigateToNavigation = {},
         navigateToButtons = {},
-        navigateToChips = {},
+        navigateToChip = {},
         navigateToUIElements = {},
         navigateToForms = {},
         navigateToBottomSheets = {},
