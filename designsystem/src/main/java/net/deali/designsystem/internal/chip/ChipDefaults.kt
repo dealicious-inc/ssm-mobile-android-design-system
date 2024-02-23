@@ -1,4 +1,4 @@
-package net.deali.designsystem.internal.chips
+package net.deali.designsystem.internal.chip
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
@@ -16,7 +16,7 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.theme.DealiShape
 
-internal object ChipsDefaults {
+internal object ChipDefaults {
     @Composable
     fun colors(
         backgroundColor: Color,
@@ -28,8 +28,8 @@ internal object ChipsDefaults {
         outlineColor: Color = DealiColor.transparent,
         selectedOutlineColor: Color = DealiColor.transparent,
         disabledOutlineColor: Color = DealiColor.transparent,
-    ): ChipsColors {
-        return DefaultChipsColors(
+    ): ChipColors {
+        return DefaultChipColors(
             backgroundColor = backgroundColor,
             selectedBackgroundColor = selectedBackgroundColor,
             disabledBackgroundColor = disabledBackgroundColor,
@@ -43,13 +43,13 @@ internal object ChipsDefaults {
     }
 
     @Composable
-    fun chipsShape(style: ChipsStyle): Shape {
+    fun chipShape(style: ChipStyle): Shape {
         return when (style) {
-            is ChipsStyle.Square,
-            ChipsStyle.FilledSquare,
-            ChipsStyle.FilledDepth,
-            ChipsStyle.FilledImage,
-            ChipsStyle.FilledImageDepth -> {
+            is ChipStyle.Square,
+            ChipStyle.FilledSquare,
+            ChipStyle.FilledDepth,
+            ChipStyle.FilledImage,
+            ChipStyle.FilledImageDepth -> {
                 DealiShape.radius4
             }
 
@@ -60,18 +60,18 @@ internal object ChipsDefaults {
     }
 
     @Composable
-    fun chipsMinSize(size: ChipsSize): Dp {
+    fun chipMinSize(size: ChipSize): Dp {
         return when (size) {
-            ChipsSize.Large -> 46.dp
-            ChipsSize.Medium -> 40.dp
-            ChipsSize.Small -> 32.dp
+            ChipSize.Large -> 46.dp
+            ChipSize.Medium -> 40.dp
+            ChipSize.Small -> 32.dp
         }
     }
 
     @Composable
-    fun chipsPaddings(
-        size: ChipsSize,
-        style: ChipsStyle,
+    fun chipPaddings(
+        size: ChipSize,
+        style: ChipStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
         useOnlyCenterIcon: Boolean,
@@ -80,15 +80,15 @@ internal object ChipsDefaults {
         if (useOnlyCenterIcon) return PaddingValues(all = 0.dp)
 
         return when (size) {
-            ChipsSize.Large -> largeChipsPaddings(style)
-            ChipsSize.Medium -> mediumChipsPaddings(
+            ChipSize.Large -> largeChipPaddings(style)
+            ChipSize.Medium -> mediumChipPaddings(
                 style = style,
                 useLeftIcon = useLeftIcon,
                 useRightIcon = useRightIcon,
                 fontWeight = fontWeight
             )
 
-            ChipsSize.Small -> smallChipsPaddings(
+            ChipSize.Small -> smallChipPaddings(
                 style = style,
                 useLeftIcon = useLeftIcon,
                 useRightIcon = useRightIcon,
@@ -97,8 +97,8 @@ internal object ChipsDefaults {
     }
 
     @Composable
-    private fun largeChipsPaddings(style: ChipsStyle): PaddingValues {
-        return if (style == ChipsStyle.Outline || style == ChipsStyle.Filled) {
+    private fun largeChipPaddings(style: ChipStyle): PaddingValues {
+        return if (style == ChipStyle.Outline || style == ChipStyle.Filled) {
             PaddingValues(horizontal = 16.dp)
         } else {
             PaddingValues(horizontal = 12.dp)
@@ -106,19 +106,19 @@ internal object ChipsDefaults {
     }
 
     @Composable
-    private fun mediumChipsPaddings(
-        style: ChipsStyle,
+    private fun mediumChipPaddings(
+        style: ChipStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
         fontWeight: FontWeight?,
     ): PaddingValues {
         return when (style) {
-            ChipsStyle.Outline,
-            ChipsStyle.Filled -> {
+            ChipStyle.Outline,
+            ChipStyle.Filled -> {
                 PaddingValues(horizontal = 16.dp)
             }
 
-            is ChipsStyle.Square -> {
+            is ChipStyle.Square -> {
                 if (fontWeight == FontWeight.Bold) {
                     PaddingValues(horizontal = 12.dp)
                 } else {
@@ -129,49 +129,49 @@ internal object ChipsDefaults {
                 }
             }
 
-            ChipsStyle.FilledSquare -> {
+            ChipStyle.FilledSquare -> {
                 PaddingValues(
                     start = if (useLeftIcon) 12.dp else 16.dp,
                     end = if (useRightIcon) 12.dp else 16.dp,
                 )
             }
 
-            ChipsStyle.FilledDepth -> {
+            ChipStyle.FilledDepth -> {
                 PaddingValues(
                     end = 12.dp,
                 )
             }
 
-            ChipsStyle.FilledImage -> {
+            ChipStyle.FilledImage -> {
                 PaddingValues(
                     start = 12.dp,
                     end = if (useRightIcon) 12.dp else 16.dp,
                 )
             }
 
-            ChipsStyle.FilledImageDepth -> {
+            ChipStyle.FilledImageDepth -> {
                 PaddingValues(horizontal = 12.dp)
             }
         }
     }
 
     @Composable
-    private fun smallChipsPaddings(
-        style: ChipsStyle,
+    private fun smallChipPaddings(
+        style: ChipStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
     ): PaddingValues {
         return when (style) {
-            ChipsStyle.Outline,
-            ChipsStyle.Filled,
-            ChipsStyle.FilledDepth,
-            ChipsStyle.FilledImageDepth -> {
+            ChipStyle.Outline,
+            ChipStyle.Filled,
+            ChipStyle.FilledDepth,
+            ChipStyle.FilledImageDepth -> {
                 PaddingValues(horizontal = 12.dp)
             }
 
-            is ChipsStyle.Square,
-            ChipsStyle.FilledSquare,
-            ChipsStyle.FilledImage -> {
+            is ChipStyle.Square,
+            ChipStyle.FilledSquare,
+            ChipStyle.FilledImage -> {
                 PaddingValues(
                     start = if (useLeftIcon) 8.dp else 12.dp,
                     end = if (useRightIcon) 8.dp else 12.dp,
@@ -181,31 +181,31 @@ internal object ChipsDefaults {
     }
 
     @Composable
-    fun chipsTextStyle(
-        chipsSize: ChipsSize,
-        chipsStyle: ChipsStyle,
+    fun chipTextStyle(
+        chipSize: ChipSize,
+        chipStyle: ChipStyle,
         selected: Boolean,
         enabled: Boolean,
     ): TextStyle {
-        return when (chipsSize) {
-            ChipsSize.Large -> DealiFont.b2sb14
+        return when (chipSize) {
+            ChipSize.Large -> DealiFont.b2sb14
 
-            ChipsSize.Medium -> {
-                if (chipsStyle is ChipsStyle.Square) {
+            ChipSize.Medium -> {
+                if (chipStyle is ChipStyle.Square) {
                     return if (enabled && selected) {
                         DealiFont.b2sb14
                     } else {
-                        if (chipsStyle.useBoldFontWeight) DealiFont.b2sb14 else DealiFont.b2r14
+                        if (chipStyle.useBoldFontWeight) DealiFont.b2sb14 else DealiFont.b2r14
                     }
                 }
                 DealiFont.b2sb14
             }
 
-            ChipsSize.Small -> {
-                when (chipsStyle) {
-                    ChipsStyle.FilledDepth,
-                    ChipsStyle.FilledImage,
-                    ChipsStyle.FilledImageDepth -> DealiFont.b2r14
+            ChipSize.Small -> {
+                when (chipStyle) {
+                    ChipStyle.FilledDepth,
+                    ChipStyle.FilledImage,
+                    ChipStyle.FilledImageDepth -> DealiFont.b2r14
 
                     else -> if (enabled && selected) DealiFont.b2sb14 else DealiFont.b2r14
                 }
@@ -216,7 +216,7 @@ internal object ChipsDefaults {
 }
 
 @Stable
-internal interface ChipsColors {
+internal interface ChipColors {
     @Composable
     fun backgroundColor(enabled: Boolean, selected: Boolean): State<Color>
 
@@ -228,7 +228,7 @@ internal interface ChipsColors {
 }
 
 @Immutable
-private class DefaultChipsColors(
+private class DefaultChipColors(
     val backgroundColor: Color,
     val selectedBackgroundColor: Color,
     val disabledBackgroundColor: Color,
@@ -238,7 +238,7 @@ private class DefaultChipsColors(
     val outlineColor: Color,
     val selectedOutlineColor: Color,
     val disabledOutlineColor: Color,
-) : ChipsColors {
+) : ChipColors {
     @Composable
     override fun backgroundColor(enabled: Boolean, selected: Boolean): State<Color> {
         return rememberUpdatedState(

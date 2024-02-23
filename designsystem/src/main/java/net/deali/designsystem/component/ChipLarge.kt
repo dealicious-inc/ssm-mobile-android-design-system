@@ -19,17 +19,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.chips.ChipsDefaults
-import net.deali.designsystem.internal.chips.ChipsImage
-import net.deali.designsystem.internal.chips.ChipsSize
-import net.deali.designsystem.internal.chips.ChipsStyle
-import net.deali.designsystem.internal.chips.CoreCustomChips
-import net.deali.designsystem.internal.chips.CoreIconOnlyChips
-import net.deali.designsystem.internal.chips.CoreRegularChips
+import net.deali.designsystem.internal.chip.ChipDefaults
+import net.deali.designsystem.internal.chip.ChipImage
+import net.deali.designsystem.internal.chip.ChipSize
+import net.deali.designsystem.internal.chip.ChipStyle
+import net.deali.designsystem.internal.chip.CoreCustomChip
+import net.deali.designsystem.internal.chip.CoreIconOnlyChip
+import net.deali.designsystem.internal.chip.CoreRegularChip
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun chipsOutlineMedium01(
+fun chipOutlineLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -45,7 +45,7 @@ fun chipsOutlineMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreRegularChips(
+    CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -58,9 +58,9 @@ fun chipsOutlineMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Outline,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Outline,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary04,
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -77,7 +77,7 @@ fun chipsOutlineMedium01(
 }
 
 @Composable
-fun chipsOutlineMedium01(
+fun chipOutlineLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -87,16 +87,16 @@ fun chipsOutlineMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    CoreIconOnlyChips(
+    CoreIconOnlyChip(
         onClick = onClick,
         icon = icon,
         iconColor = iconColor,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Outline,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Outline,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary04,
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -112,42 +112,8 @@ fun chipsOutlineMedium01(
     )
 }
 
-@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsOutlineMedium01(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipsOutlineMedium01(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun chipsOutlineMedium02(
+fun chipOutlineSquareLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -163,7 +129,7 @@ fun chipsOutlineMedium02(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreRegularChips(
+    CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -176,93 +142,9 @@ fun chipsOutlineMedium02(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Outline,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.primary04,
-            selectedBackgroundColor = DealiColor.primary04,
-            disabledBackgroundColor = DealiColor.primary04,
-            contentColor = DealiColor.g80,
-            selectedContentColor = DealiColor.g100,
-            disabledContentColor = DealiColor.g50,
-            outlineColor = DealiColor.g30,
-            selectedOutlineColor = DealiColor.g100,
-            disabledOutlineColor = DealiColor.g20,
-        ),
-        interactionSource = interactionSource,
-        modifier = modifier
-    )
-}
-
-@Composable
-fun chipsOutlineMedium02(
-    onClick: () -> Unit,
-    @DrawableRes icon: Int,
-    modifier: Modifier = Modifier,
-    iconColor: Color? = Color.Unspecified,
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-) {
-    CoreIconOnlyChips(
-        onClick = onClick,
-        icon = icon,
-        iconColor = iconColor,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        chipsStyle = ChipsStyle.Outline,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
-            backgroundColor = DealiColor.primary04,
-            selectedBackgroundColor = DealiColor.primary04,
-            disabledBackgroundColor = DealiColor.primary04,
-            contentColor = DealiColor.g80,
-            selectedContentColor = DealiColor.g100,
-            disabledContentColor = DealiColor.g50,
-            outlineColor = DealiColor.g30,
-            selectedOutlineColor = DealiColor.g100,
-            disabledOutlineColor = DealiColor.g20,
-        ),
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun chipsSquareBoldMedium01(
-    onClick: () -> Unit,
-    text: String,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    @DrawableRes rightIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    rightIconColor: Color? = Color.Unspecified,
-    onLeftIconClick: (() -> Unit)? = null,
-    onRightIconClick: (() -> Unit)? = null,
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    CoreRegularChips(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = rightIcon,
-        leftIconColor = leftIconColor,
-        rightIconColor = rightIconColor,
-        onLeftIconClick = onLeftIconClick,
-        onRightIconClick = onRightIconClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        chipsStyle = ChipsStyle.SquareBold,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Square,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary04,
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -279,7 +161,7 @@ fun chipsSquareBoldMedium01(
 }
 
 @Composable
-fun chipsSquareBoldMedium01(
+fun chipOutlineSquareLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -289,16 +171,16 @@ fun chipsSquareBoldMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    CoreIconOnlyChips(
+    CoreIconOnlyChip(
         onClick = onClick,
         icon = icon,
         iconColor = iconColor,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.SquareBold,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Square,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary04,
             selectedBackgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -314,42 +196,8 @@ fun chipsSquareBoldMedium01(
     )
 }
 
-@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsSquareBoldMedium01(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipsSquareBoldMedium01(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun chipsFilledMedium01(
+fun chipFilledLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -365,7 +213,7 @@ fun chipsFilledMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreRegularChips(
+    CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -378,9 +226,9 @@ fun chipsFilledMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Filled,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Filled,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary03,
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
@@ -397,7 +245,7 @@ fun chipsFilledMedium01(
 }
 
 @Composable
-fun chipsFilledMedium01(
+fun chipFilledLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -407,16 +255,16 @@ fun chipsFilledMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    CoreIconOnlyChips(
+    CoreIconOnlyChip(
         onClick = onClick,
         icon = icon,
         iconColor = iconColor,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Filled,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.Filled,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary03,
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
@@ -432,42 +280,8 @@ fun chipsFilledMedium01(
     )
 }
 
-@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledMedium01(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipsFilledMedium01(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun chipsFilledSquareMedium01(
+fun chipFilledSquareLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -483,7 +297,7 @@ fun chipsFilledSquareMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreRegularChips(
+    CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -496,9 +310,9 @@ fun chipsFilledSquareMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Square,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary03,
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
@@ -515,7 +329,7 @@ fun chipsFilledSquareMedium01(
 }
 
 @Composable
-fun chipsFilledSquareMedium01(
+fun chipFilledSquareLarge01(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -525,16 +339,16 @@ fun chipsFilledSquareMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    CoreIconOnlyChips(
+    CoreIconOnlyChip(
         onClick = onClick,
         icon = icon,
         iconColor = iconColor,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Square,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.primary03,
             selectedBackgroundColor = DealiColor.primary03,
             disabledBackgroundColor = DealiColor.g10,
@@ -550,42 +364,8 @@ fun chipsFilledSquareMedium01(
     )
 }
 
-@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledSquareMedium01(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipsFilledSquareMedium01(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-fun chipsFilledSquareMedium02(
+fun chipFilledSquareLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -601,7 +381,7 @@ fun chipsFilledSquareMedium02(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    CoreRegularChips(
+    CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
@@ -614,9 +394,87 @@ fun chipsFilledSquareMedium02(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Square,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
+            backgroundColor = DealiColor.g10,
+            selectedBackgroundColor = DealiColor.secondary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier
+    )
+}
+
+@Composable
+fun chipFilledSquareLarge02(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color? = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChip(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
+            backgroundColor = DealiColor.g10,
+            selectedBackgroundColor = DealiColor.secondary03,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun chipFilledSquareLarge03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
+    rightIconColor: Color? = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+) {
+    CoreRegularChip(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        leftIconColor = leftIconColor,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.g10,
             selectedBackgroundColor = DealiColor.g20,
             disabledBackgroundColor = DealiColor.g10,
@@ -630,7 +488,7 @@ fun chipsFilledSquareMedium02(
 }
 
 @Composable
-fun chipsFilledSquareMedium02(
+fun chipFilledSquareLarge03(
     onClick: () -> Unit,
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
@@ -640,16 +498,16 @@ fun chipsFilledSquareMedium02(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    CoreIconOnlyChips(
+    CoreIconOnlyChip(
         onClick = onClick,
         icon = icon,
         iconColor = iconColor,
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = ChipsStyle.Square,
-        chipsSize = ChipsSize.Medium,
-        chipsColors = ChipsDefaults.colors(
+        chipStyle = ChipStyle.FilledSquare,
+        chipSize = ChipSize.Large,
+        chipColors = ChipDefaults.colors(
             backgroundColor = DealiColor.g10,
             selectedBackgroundColor = DealiColor.g20,
             disabledBackgroundColor = DealiColor.g10,
@@ -662,43 +520,9 @@ fun chipsFilledSquareMedium02(
     )
 }
 
-@Deprecated(message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요.")
 @Composable
-fun chipsFilledSquareMedium02(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipsFilledSquareMedium02(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
-@Composable
-@JvmName("chipsFilledDepthMediumSecondary01OnlyTexts")
-fun chipsFilledDepthMedium01(
+@JvmName("chipsFilledDepthLarge01OnlyTexts")
+fun chipFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     texts: List<String>,
@@ -708,9 +532,9 @@ fun chipsFilledDepthMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val chipsStyle = ChipsStyle.FilledImageDepth
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.FilledImageDepth
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -719,7 +543,7 @@ fun chipsFilledDepthMedium01(
         disabledContentColor = DealiColor.g50,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x,
@@ -727,14 +551,14 @@ fun chipsFilledDepthMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
         val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
@@ -758,8 +582,8 @@ fun chipsFilledDepthMedium01(
 }
 
 @Composable
-@JvmName("chipsFilledDepthMediumSecondary01OnlyIcons")
-fun chipsFilledDepthMedium01(
+@JvmName("chipsFilledDepthLarge01OnlyIcons")
+fun chipFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     icons: List<Int>,
@@ -769,9 +593,9 @@ fun chipsFilledDepthMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val chipsStyle = ChipsStyle.FilledImageDepth
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.FilledImageDepth
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -780,7 +604,7 @@ fun chipsFilledDepthMedium01(
         disabledContentColor = DealiColor.g50,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x,
@@ -788,9 +612,9 @@ fun chipsFilledDepthMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
@@ -815,8 +639,8 @@ fun chipsFilledDepthMedium01(
 }
 
 @Composable
-@JvmName("chipsFilledDepthMediumSecondary01TextsAndIcons")
-fun chipsFilledDepthMedium01(
+@JvmName("chipsFilledDepthLarge01TextsAndIcons")
+fun chipFilledDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     contents: List<Triple<Int?, String, Int?>>,
@@ -826,9 +650,9 @@ fun chipsFilledDepthMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val chipsStyle = ChipsStyle.FilledImageDepth
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.FilledImageDepth
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -837,7 +661,7 @@ fun chipsFilledDepthMedium01(
         disabledContentColor = DealiColor.g50,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x,
@@ -845,14 +669,14 @@ fun chipsFilledDepthMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
         spacingBetweenContentAndRemove = 16.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
         val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, content) in contents.withIndex()) {
@@ -895,7 +719,7 @@ fun chipsFilledDepthMedium01(
 }
 
 @Composable
-fun chipsFilledImageMedium01(
+fun chipFilledImageLarge01(
     onClick: () -> Unit,
     imageUrl: String,
     text: String,
@@ -908,9 +732,9 @@ fun chipsFilledImageMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    val chipsStyle = ChipsStyle.FilledImage
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.FilledImage
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
@@ -919,7 +743,7 @@ fun chipsFilledImageMedium01(
         disabledContentColor = DealiColor.g50,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x_s,
@@ -927,17 +751,17 @@ fun chipsFilledImageMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
-        spacingBetweenContentAndRemove = 16.dp,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
+        spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
         val contentColor by chipsColors.contentColor(enabled, selected)
 
-        ChipsImage(
+        ChipImage(
             imageUrl = imageUrl,
             enabled = enabled,
         )
@@ -954,7 +778,7 @@ fun chipsFilledImageMedium01(
 }
 
 @Composable
-fun chipsFilledImageDepthMedium01(
+fun chipFilledImageDepthLarge01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     imageUrl: String,
@@ -965,9 +789,9 @@ fun chipsFilledImageDepthMedium01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val chipsStyle = ChipsStyle.FilledImageDepth
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.FilledImageDepth
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.primary04,
         selectedBackgroundColor = DealiColor.g10,
         disabledBackgroundColor = DealiColor.g10,
@@ -979,7 +803,7 @@ fun chipsFilledImageDepthMedium01(
         disabledOutlineColor = DealiColor.transparent,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x,
@@ -987,14 +811,14 @@ fun chipsFilledImageDepthMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
-        spacingBetweenContentAndRemove = 16.dp,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
+        spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
         val contentColor by chipsColors.contentColor(enabled, selected)
 
         for ((index, text) in texts.withIndex()) {
@@ -1003,11 +827,11 @@ fun chipsFilledImageDepthMedium01(
                     modifier = Modifier.weight(0.3f),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    ChipsImage(
+                    ChipImage(
                         imageUrl = imageUrl,
                         enabled = enabled,
                     )
-                    Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(4.dp))
                     DealiText(
                         modifier = Modifier.weight(weight = 1f),
                         text = text,
@@ -1020,7 +844,7 @@ fun chipsFilledImageDepthMedium01(
             } else {
                 Box(
                     modifier = Modifier
-                        .padding(horizontal = 16.dp, vertical = 10.dp)
+                        .padding(horizontal = 12.dp, vertical = 13.dp)
                         .width(1.dp)
                         .fillMaxHeight()
                         .background(color = DealiColor.g30)
@@ -1039,7 +863,7 @@ fun chipsFilledImageDepthMedium01(
 }
 
 @Composable
-fun chipsOutlineImageMedium01(
+fun chipOutlineImageLarge01(
     onClick: () -> Unit,
     imageUrl: String,
     text: String,
@@ -1052,9 +876,9 @@ fun chipsOutlineImageMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    val chipsStyle = ChipsStyle.Outline
-    val chipsSize = ChipsSize.Medium
-    val chipsColors = ChipsDefaults.colors(
+    val chipStyle = ChipStyle.Outline
+    val chipSize = ChipSize.Large
+    val chipsColors = ChipDefaults.colors(
         backgroundColor = DealiColor.primary04,
         selectedBackgroundColor = DealiColor.primary04,
         disabledBackgroundColor = DealiColor.primary04,
@@ -1066,7 +890,7 @@ fun chipsOutlineImageMedium01(
         disabledOutlineColor = DealiColor.g20,
     )
 
-    CoreCustomChips(
+    CoreCustomChip(
         onClick = onClick,
         onRemoveClick = onRemoveClick,
         removeIcon = R.drawable.ic_x_s,
@@ -1074,17 +898,17 @@ fun chipsOutlineImageMedium01(
         clickable = clickable,
         selected = selected,
         enabled = enabled,
-        chipsStyle = chipsStyle,
-        chipsSize = chipsSize,
-        chipsColors = chipsColors,
-        spacingBetweenContentAndRemove = 16.dp,
+        chipStyle = chipStyle,
+        chipSize = chipSize,
+        chipColors = chipsColors,
+        spacingBetweenContentAndRemove = 8.dp,
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipsDefaults.chipsTextStyle(chipsSize, chipsStyle, selected, enabled)
+        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
         val contentColor by chipsColors.contentColor(enabled, selected)
 
-        ChipsImage(
+        ChipImage(
             imageUrl = imageUrl,
             enabled = enabled,
         )

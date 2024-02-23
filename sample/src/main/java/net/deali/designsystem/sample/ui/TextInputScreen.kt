@@ -23,7 +23,7 @@ import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
-import net.deali.designsystem.component.chipsOutlineSmall01
+import net.deali.designsystem.component.chipOutlineSmall01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
@@ -154,7 +154,7 @@ fun InputScreen(onBackPress: () -> Unit) {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    chipsOutlineSmall01(
+                    chipOutlineSmall01(
                         onClick = {
                             text = ""
                             visualTransformation =
@@ -167,7 +167,7 @@ fun InputScreen(onBackPress: () -> Unit) {
                         text = "Decimal",
                         selected = visualTransformation is DecimalSeparatorVisualTransformation
                     )
-                    chipsOutlineSmall01(
+                    chipOutlineSmall01(
                         onClick = {
                             text = ""
                             visualTransformation =
