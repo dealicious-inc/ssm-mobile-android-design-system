@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
-import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiShape
 import kotlin.math.roundToInt
 
 
@@ -137,7 +137,7 @@ private fun TooltipLayout(
                 .padding(horizontal = horizontalPadding)
                 .background(
                     color = color,
-                    shape = AppTheme.shapes.radius6,
+                    shape = DealiShape.radius6,
                 ),
             alignment = position.alignment,
             arrowHeight = arrowHeight,
@@ -325,10 +325,12 @@ private fun calculateTooltipPopupPosition(
 
     val centerPositionX = boundsInWindow.right - (boundsInWindow.right - boundsInWindow.left) / 2
 
-    val alignment = absoluteAlignment ?: if (heightAbove < heightBelow) TooltipAlignment.TopCenter else TooltipAlignment.BottomCenter
+    val alignment = absoluteAlignment
+        ?: if (heightAbove < heightBelow) TooltipAlignment.TopCenter else TooltipAlignment.BottomCenter
 
     val offsetX = centerPositionX - visibleWindowBounds.centerX()
-    val offsetY = if (alignment == TooltipAlignment.TopCenter) coordinates.size.height else -coordinates.size.height
+    val offsetY =
+        if (alignment == TooltipAlignment.TopCenter) coordinates.size.height else -coordinates.size.height
 
     val offset = IntOffset(y = offsetY, x = offsetX.toInt())
     return TooltipPopupPosition(

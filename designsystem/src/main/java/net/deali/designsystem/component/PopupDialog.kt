@@ -29,6 +29,7 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 
 /**
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.
@@ -63,7 +64,7 @@ class PopupDialog private constructor(
             AppTheme {
                 Column(
                     modifier = Modifier
-                        .clip(AppTheme.shapes.radius10)
+                        .clip(DealiShape.radius10)
                         .background(DealiColor.primary04)
                         .width(280.dp)
                         .padding(horizontal = 20.dp),

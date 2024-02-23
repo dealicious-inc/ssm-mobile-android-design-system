@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.DealiShape
 
 internal object ButtonDefaults {
     @Composable
@@ -60,12 +61,12 @@ internal object ButtonDefaults {
     @Composable
     fun buttonShape(buttonSize: ButtonSize, rounded: Boolean): Shape {
         if (rounded) {
-            return AppTheme.shapes.radius100percent
+            return DealiShape.radius100
         }
         return when (buttonSize) {
-            ButtonSize.Large -> AppTheme.shapes.radius6
-            ButtonSize.Medium -> AppTheme.shapes.radius6
-            ButtonSize.Small -> AppTheme.shapes.radius4
+            ButtonSize.Large -> DealiShape.radius6
+            ButtonSize.Medium -> DealiShape.radius6
+            ButtonSize.Small -> DealiShape.radius4
         }
     }
 
