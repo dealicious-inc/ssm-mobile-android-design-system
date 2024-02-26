@@ -18,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.SwitchSmall
@@ -49,8 +48,6 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         var label by remember { mutableStateOf("") }
         var isHelperTextVisible by remember { mutableStateOf(false) }
         var helperText by remember { mutableStateOf("") }
-        var isIconVisible by remember { mutableStateOf(true) }
-        var isIconClickable by remember { mutableStateOf(true) }
         var isButtonEnabled by remember { mutableStateOf(true) }
         var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
 
@@ -63,22 +60,16 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
             TextInputWithButton(
                 value = text,
                 onValueChange = { text = it },
-                trailingIconRes = if (isIconVisible) R.drawable.ic_x else null,
-                onIconClick = if (isIconClickable) {
-                    { text = "" }
-                } else {
-                    null
-                },
                 buttonText = "Button",
                 onButtonClick = {},
-                inputEnabled = enabled,
-                buttonEnabled = isButtonEnabled,
-                isError = isError,
-                visualTransformation = visualTransformation,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
+                inputEnabled = enabled,
+                buttonEnabled = isButtonEnabled,
+                isError = isError,
+                visualTransformation = visualTransformation,
             )
 
             SampleDivider()
@@ -127,27 +118,6 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                         title = "Helper Text\nVisible",
                         selected = isHelperTextVisible,
                         onSelectedChange = { isHelperTextVisible = it }
-                    )
-                }
-            }
-
-            SampleDivider()
-
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    ToggleOption(
-                        title = "Icon\nVisible",
-                        selected = isIconVisible,
-                        onSelectedChange = { isIconVisible = it }
-                    )
-                    ToggleOption(
-                        title = "Icon\nClickable",
-                        selected = isIconClickable,
-                        onSelectedChange = { isIconClickable = it }
                     )
                 }
             }
