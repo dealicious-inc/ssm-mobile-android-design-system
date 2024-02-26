@@ -15,6 +15,8 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
+import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -55,6 +57,19 @@ internal object DealiTextFieldDefaults {
             labelTextColor = DealiColor.g100,
             helperTextColor = DealiColor.g70,
             errorHelperTextColor = DealiColor.error,
+        )
+    }
+
+    @Composable
+    fun TrailingRemoveIcon(
+        onClick: () -> Unit,
+        modifier: Modifier = Modifier,
+    ) {
+        Icon16(
+            modifier = modifier,
+            onClick = onClick,
+            iconRes = R.drawable.ic_x,
+            color = DealiColor.primary05,
         )
     }
 
@@ -122,9 +137,7 @@ private class DefaultDealiTextFieldPaddingValues(
 
         if (this.horizontal != other.horizontal) return false
         if (this.decoratedStart != other.decoratedStart) return false
-        if (this.vertical != other.vertical) return false
-
-        return true
+        return this.vertical == other.vertical
     }
 
     override fun hashCode(): Int {
@@ -229,9 +242,7 @@ private class DefaultDealiTextFieldColors(
         if (this.placeholderTextColor != other.placeholderTextColor) return false
         if (this.labelTextColor != other.labelTextColor) return false
         if (this.helperTextColor != other.helperTextColor) return false
-        if (this.errorHelperTextColor != other.errorHelperTextColor) return false
-
-        return true
+        return this.errorHelperTextColor == other.errorHelperTextColor
     }
 
     override fun hashCode(): Int {
