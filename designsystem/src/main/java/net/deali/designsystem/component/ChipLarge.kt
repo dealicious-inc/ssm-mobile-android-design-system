@@ -196,43 +196,6 @@ fun chipOutlineSquareLarge01(
     )
 }
 
-@Deprecated(
-    message = "API가 변경되었습니다. 향후 제거 될 예정이니 새로운 parameter를 가진 컴포넌트를 사용하세요." +
-            "1.4v에서 지울 것"
-)
-@Composable
-fun chipOutlineSquareLarge01(
-    onClick: () -> Unit,
-    text: String,
-    useRemoveIcon: Boolean,
-    modifier: Modifier = Modifier,
-    @DrawableRes leftIcon: Int? = null,
-    leftIconColor: Color? = Color.Unspecified,
-    onRemoveClick: () -> Unit = {},
-    clickable: Boolean = true,
-    selected: Boolean = false,
-    enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    textAlign: TextAlign? = null,
-) {
-    chipOutlineSquareLarge01(
-        onClick = onClick,
-        text = text,
-        textAlign = textAlign,
-        leftIcon = leftIcon,
-        rightIcon = if (useRemoveIcon) R.drawable.ic_x_s else null,
-        leftIconColor = leftIconColor,
-        rightIconColor = Color.Unspecified,
-        onLeftIconClick = null,
-        onRightIconClick = onRemoveClick,
-        clickable = clickable,
-        selected = selected,
-        enabled = enabled,
-        interactionSource = interactionSource,
-        modifier = modifier,
-    )
-}
-
 @Composable
 fun chipFilledLarge01(
     onClick: () -> Unit,
