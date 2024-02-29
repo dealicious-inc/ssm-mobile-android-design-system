@@ -17,6 +17,7 @@ fun UIElementsScreen(
     navigateToCheckcircle: () -> Unit,
     navigateToRadioButton: () -> Unit,
     navigateToToggleSwitch: () -> Unit,
+    navigateToSwipeRefresh: () -> Unit,
     navigateToTooltip: () -> Unit,
     navigateToRating: () -> Unit,
     navigateToPopup: () -> Unit,
@@ -63,6 +64,13 @@ fun UIElementsScreen(
                 enabled = true,
                 text = "Toggle/Switch",
                 onClick = navigateToToggleSwitch
+            )
+
+            btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = true,
+                text = "Swipe Refresh",
+                onClick = navigateToSwipeRefresh
             )
 
             btnOutlineMedium01(
@@ -118,6 +126,7 @@ private fun UIElementsScreenPreview() {
         navigateToCheckcircle = {},
         navigateToRadioButton = {},
         navigateToToggleSwitch = {},
+        navigateToSwipeRefresh = {},
         navigateToTooltip = {},
         navigateToRating = {},
         navigateToPopup = {},
