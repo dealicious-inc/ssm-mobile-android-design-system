@@ -45,7 +45,7 @@ fun BottomSheet(
     modifier: Modifier = Modifier,
     title: String? = null,
     text: String,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
     hideXButton: Boolean = false,
 ) {
     Column(modifier = modifier) {
@@ -82,7 +82,7 @@ fun BottomSheet(
     isButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
     onButtonClick: () -> Unit,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -129,7 +129,7 @@ fun BottomSheet(
     hideXButton: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -171,7 +171,7 @@ fun BottomSheet(
     modifier: Modifier = Modifier,
     title: String? = null,
     hideXButton: Boolean = false,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -200,7 +200,7 @@ fun BottomSheet(
     isButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
     onButtonClick: () -> Unit,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -239,7 +239,7 @@ fun BottomSheet(
     hideXButton: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -278,7 +278,7 @@ fun BottomSheetSingleSelectOption(
     singleSelectOptionList: List<SingleSelectOption>,
     onSelectOption: (index: Int) -> Unit,
     hideXButton: Boolean = false,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         BottomSheetHeader(
