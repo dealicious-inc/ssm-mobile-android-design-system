@@ -17,7 +17,7 @@ class PhoneNumberVisualTransformation(
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         if (!text.text.isNumberOrEmpty()) {
-            throw IllegalArgumentException("PhoneNumberVisualTransformation는 숫자인 String만 취급합니다: text=${text.text}")
+            return TransformedText(text, OffsetMapping.Identity)
         }
 
         val separatorIndices = getSeparatorIndices(text.text)

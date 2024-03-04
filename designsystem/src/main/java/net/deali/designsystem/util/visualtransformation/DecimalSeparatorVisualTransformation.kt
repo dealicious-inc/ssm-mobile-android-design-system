@@ -23,10 +23,14 @@ class DecimalSeparatorVisualTransformation(
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
         if (!text.text.isNumberOrEmpty()) {
-            throw IllegalArgumentException("DecimalSeparatorVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
+            return TransformedText(text, OffsetMapping.Identity)
         }
 
         val textWithComma = text.text.toCommaTextOrEmpty()
+        if (textWithComma.isNullOrEmpty()) {
+            return TransformedText(text, OffsetMapping.Identity)
+        }
+
         val textWithCommaAndPrefix = if (alwaysShowPrefix || textWithComma.isNotEmpty()) {
             prefix + textWithComma
         } else {
@@ -38,14 +42,14 @@ class DecimalSeparatorVisualTransformation(
         )
     }
 
-    private fun String.toCommaTextOrEmpty(): String {
+    private fun String.toCommaTextOrEmpty(): String? {
         if (this.isEmpty()) {
             return ""
         }
         return try {
             String.format(Locale.getDefault(), "%,.0f", this.toDouble())
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("DecimalSeparatorVisualTransformation는 숫자 형태의 String만 취급합니다: currentText=$this")
+            null
         }
     }
 
