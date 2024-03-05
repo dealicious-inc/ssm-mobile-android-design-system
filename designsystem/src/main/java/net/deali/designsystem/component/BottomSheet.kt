@@ -8,17 +8,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.internal.bottomsheet.BottomSheetDatePicker
 import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -269,6 +273,31 @@ fun BottomSheet(
 }
 
 /**
+ * 연/월/일, 연/월 Date Picker를 사용하는 BottomSheet
+ */
+@Composable
+fun DatePickerBottomSheet(
+    modifier: Modifier = Modifier,
+    title: String? = null,
+    hideXButton: Boolean = false,
+    onDismiss: () -> Unit = {},
+) {
+    Column(modifier = modifier) {
+        if (title != null) {
+            BottomSheetHeader(
+                title = title,
+                hideXButton = hideXButton,
+                onDismiss = onDismiss,
+            )
+        }
+
+        BottomSheetDatePicker(
+            modifier = modifier
+        )
+    }
+}
+
+/**
  * 하나의 옵션을 선택하는 BottomSheet
  */
 @Composable
@@ -294,6 +323,7 @@ fun BottomSheetSingleSelectOption(
         )
     }
 }
+
 
 @Composable
 fun BottomSheetHeader(
@@ -398,12 +428,11 @@ fun BottomSheetFooterTwoButtons(
     }
 }
 
-
+/** 텍스트 + 우측 체크 아이콘을 갖고 있는 바텀시트 옵션 */
 @Composable
 fun BottomSheetOption(
     text: String,
-    isSelected: Boolean,
-    icon: @Composable () -> Unit = {},
+    isSelected: Boolean = false,
     onClick: () -> Unit,
 ) {
     Row(
@@ -414,16 +443,49 @@ fun BottomSheetOption(
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
-        Box(
+        DealiText(
             modifier = Modifier
-                .align(Alignment.CenterVertically)
-        ) {
-            Box(
-                modifier = Modifier.padding(end = 8.dp)
-            ) {
-                icon()
-            }
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = text,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = if (isSelected) DealiColor.primary01 else DealiColor.g100,
+        )
+
+        if (isSelected) {
+            Icon24(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                iconRes = R.drawable.ic_check,
+                color = DealiColor.primary01,
+            )
         }
+    }
+}
+
+/** 좌측 24dp 아이콘 + 텍스트 + 우측 체크 아이콘을 갖고 있는 바텀시트 옵션 */
+@Composable
+fun BottomSheetOption(
+    text: String,
+    isSelected: Boolean = false,
+    iconRes: Int,
+    iconColor: Color = DealiColor.g100,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(52.dp)
+            .background(DealiColor.primary04)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp)
+    ) {
+        Icon24(
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .align(Alignment.CenterVertically),
+            iconRes = iconRes,
+            color = iconColor,
+        )
 
         DealiText(
             modifier = Modifier
@@ -439,6 +501,164 @@ fun BottomSheetOption(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = R.drawable.ic_check,
                 color = DealiColor.primary01,
+            )
+        }
+    }
+}
+
+/** 좌측 24dp content + 텍스트 + 우측 24dp 커스텀 아이콘을 갖고 있는 바텀시트 옵션 */
+@Composable
+fun BottomSheetOption24(
+    text: String,
+    isSelected: Boolean = false,
+    isEnabled: Boolean = true,
+    leftContent: @Composable () -> Unit,
+    rightIconRes: Int = 0,
+    rightIconColor: Color = DealiColor.g100,
+    isShowRightIcon: Boolean = true,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp)
+            .background(DealiColor.primary04)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .size(24.dp)
+                .align(Alignment.CenterVertically)
+
+        ) {
+            leftContent()
+        }
+
+        DealiText(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = text,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = when {
+                !isEnabled -> DealiColor.g50
+                isSelected -> DealiColor.primary01
+                else -> DealiColor.g100
+            },
+        )
+
+        if (isShowRightIcon && rightIconRes > 0) {
+            Icon24(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                iconRes = rightIconRes,
+                color = rightIconColor,
+            )
+        }
+    }
+}
+
+/** 좌측 32dp content + 텍스트 + 우측 24dp 커스텀 아이콘을 갖고 있는 바텀시트 옵션 */
+@Composable
+fun BottomSheetOption32(
+    text: String,
+    isSelected: Boolean = false,
+    isEnabled: Boolean = true,
+    leftContent: @Composable () -> Unit,
+    rightIconRes: Int,
+    rightIconColor: Color = DealiColor.g100,
+    isShowRightIcon: Boolean = true,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .background(DealiColor.primary04)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .size(32.dp)
+                .align(Alignment.CenterVertically)
+        ) {
+            leftContent()
+        }
+
+        DealiText(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = text,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = when {
+                !isEnabled -> DealiColor.g50
+                isSelected -> DealiColor.primary01
+                else -> DealiColor.g100
+            }
+        )
+
+        if (isShowRightIcon && rightIconRes > 0) {
+            Icon24(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                iconRes = rightIconRes,
+                color = rightIconColor,
+            )
+        }
+    }
+}
+
+
+/** 좌측 40dp content + 텍스트 + 우측 24dp 커스텀 아이콘을 갖고 있는 바텀시트 옵션 */
+@Composable
+fun BottomSheetOption40(
+    text: String,
+    isSelected: Boolean = false,
+    isEnabled: Boolean = true,
+    leftContent: @Composable () -> Unit,
+    rightIconRes: Int,
+    rightIconColor: Color = DealiColor.g100,
+    isShowRightIcon: Boolean = true,
+    onClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(64.dp)
+            .background(DealiColor.primary04)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 16.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(end = 8.dp)
+                .size(40.dp)
+                .align(Alignment.CenterVertically)
+        ) {
+            leftContent()
+        }
+
+        DealiText(
+            modifier = Modifier
+                .weight(1f)
+                .align(Alignment.CenterVertically),
+            text = text,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = when {
+                !isEnabled -> DealiColor.g50
+                isSelected -> DealiColor.primary01
+                else -> DealiColor.g100
+            }
+        )
+
+        if (isShowRightIcon && rightIconRes > 0) {
+            Icon24(
+                modifier = Modifier.align(Alignment.CenterVertically),
+                iconRes = rightIconRes,
+                color = rightIconColor,
             )
         }
     }
@@ -595,6 +815,63 @@ private fun PreviewBottomSheetHeader() {
 
 @Preview(showBackground = true)
 @Composable
+private fun PreviewBottomSheetOption24() {
+    BottomSheetOption24(
+        text = "24 옵션입니다",
+        isEnabled = true,
+        isSelected = false,
+        leftContent = {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(DealiColor.primary03)
+            )
+        },
+        rightIconRes = 0,
+        onClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetOption32() {
+    BottomSheetOption32(
+        text = "32 옵션입니다 & 비활성",
+        isEnabled = false,
+        isSelected = false,
+        leftContent = {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(DealiColor.primary03)
+            )
+        },
+        rightIconRes = 0,
+        onClick = {}
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetOption40() {
+    BottomSheetOption40(
+        text = "40 옵션입니다 & 선택됨",
+        isEnabled = true,
+        isSelected = true,
+        leftContent = {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(DealiColor.primary03)
+            )
+        },
+        rightIconRes = R.drawable.ic_calculate,
+        onClick = {},
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
 private fun PreviewBottomSheetFooter1() {
     BottomSheetFooterOneButton(
         buttonText = "버튼",
@@ -619,10 +896,8 @@ private fun PreviewBottomSheetFooter2() {
 private fun PreviewBottomSheetOption() {
     BottomSheetOption(
         text = "옵션이 여기 있습니다",
-        isSelected = false,
-        icon = {
-            Icon16(iconRes = R.drawable.ic_trash)
-        },
+        isSelected = true,
+        iconRes = R.drawable.ic_trash,
         onClick = {}
     )
 }
