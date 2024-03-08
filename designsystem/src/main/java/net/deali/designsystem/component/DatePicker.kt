@@ -40,12 +40,12 @@ import kotlin.math.min
 /**
  * 피커에서 선택 가능 한 기본 최소 날짜. 기본값은 [Date]에서 표현 가능 한 최소 날짜로, 1970년 1월 1일 00:00:00 GMT 이다.
  */
-private val defaultMinimumDate = Date(0)
+internal val defaultMinimumDate = Date(0)
 
 /**
  * 피커에서 선택 가능 한 기본 최대 날짜. 기본값은 [Date]의 최소값의 200년 후인 2170년 1월 1일 00:00:00 GMT 이다.
  */
-private val defaultMaximumDate = Date().apply {
+internal val defaultMaximumDate = Date().apply {
     val maxCalendar = Calendar.getInstance()
     maxCalendar.set(Calendar.YEAR, 2170)
     maxCalendar.set(Calendar.MONTH, Calendar.JANUARY)
