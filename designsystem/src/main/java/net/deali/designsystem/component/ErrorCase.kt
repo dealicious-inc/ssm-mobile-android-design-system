@@ -278,7 +278,7 @@ private fun ErrorCasePreview4() {
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. \n" +
                 "네트워크 확인 후 새로고침 버튼을 눌러주세요.",
-        icon = R.drawable.ic_refresh_filled,
+        icon = R.drawable.ic_refresh_2_filled,
         iconColor = DealiColor.g60,
     )
 }
@@ -292,7 +292,7 @@ private fun ErrorCasePreview5() {
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. \n" +
                 "네트워크 확인 후 새로고침 버튼을 눌러주세요.",
-        icon = R.drawable.ic_refresh_filled,
+        icon = R.drawable.ic_refresh_2_filled,
         iconColor = DealiColor.g60,
         buttonText = "재시도",
         onClick = {}
