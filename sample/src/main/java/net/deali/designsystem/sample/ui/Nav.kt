@@ -53,6 +53,7 @@ private fun NavGraphBuilder.menuGraph(
             navigateToUIElements = { navController.navigate(Screen.UIElements.route) },
             navigateToForms = { navController.navigate(Screen.Forms.route) },
             navigateToBottomSheets = { navController.navigate(Screen.BottomSheets.route) },
+            navigateToTabBar = { navController.navigate(Screen.TabBar.route) },
         )
     }
     composable(Screen.Typography.route) {
@@ -90,6 +91,10 @@ private fun NavGraphBuilder.menuGraph(
     }
     composable(Screen.BottomSheets.route) {
         BottomSheetScreen(onBackPress = navController::popBackStack)
+    }
+
+    composable(Screen.TabBar.route) {
+        TabBarScreen(onBackPress = navController::popBackStack)
     }
 }
 
@@ -218,6 +223,7 @@ sealed class Screen(val route: String) {
     object SearchInput : Screen("searchInput")
     object SearchInputWithTag : Screen("searchInputWithTag")
     object DateTimePicker : Screen("dateTimePicker")
+    object TabBar : Screen("TabBar")
 }
 
 @Composable

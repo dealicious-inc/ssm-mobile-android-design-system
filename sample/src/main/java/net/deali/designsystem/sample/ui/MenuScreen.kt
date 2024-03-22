@@ -33,6 +33,7 @@ fun MenuScreen(
     navigateToUIElements: () -> Unit,
     navigateToForms: () -> Unit,
     navigateToBottomSheets: () -> Unit,
+    navigateToTabBar: () -> Unit,
 ) {
     NavigationContainer(
         navigationBar = {
@@ -164,6 +165,15 @@ fun MenuScreen(
                 text = "BottomSheets",
                 onClick = navigateToBottomSheets
             )
+
+            btnFilledMedium01(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                enabled = true,
+                loading = false,
+                text = "TabBar",
+                onClick = navigateToTabBar
+            )
         }
     }
 }
@@ -185,5 +195,6 @@ private fun MenuScreenPreview() {
         navigateToUIElements = {},
         navigateToForms = {},
         navigateToBottomSheets = {},
+        navigateToTabBar = {},
     )
 }
