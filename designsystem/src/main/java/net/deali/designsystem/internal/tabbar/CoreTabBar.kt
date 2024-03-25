@@ -92,6 +92,7 @@ internal fun CoreScrollableTabBar(
     selectedTextColor: Color,
     indicatorColor: Color,
     useBadge: Boolean,
+    shortTopPadding: Boolean = false,
     onSelectTab: (index: Int) -> Unit,
 ) {
     Box(
@@ -124,8 +125,15 @@ internal fun CoreScrollableTabBar(
             },
         ) {
             tabTitles.forEachIndexed { index, title ->
+                val topPadding = if (shortTopPadding) 4.dp else 12.dp
+                val bottomPadding = if (shortTopPadding) 12.dp else 12.dp
                 TabItem(
-                    modifier = Modifier.padding(horizontal = 12.dp),
+                    modifier = Modifier.padding(
+                        start = 12.dp,
+                        end = 12.dp,
+                        top = topPadding,
+                        bottom = bottomPadding
+                    ),
                     title = title,
                     isSelected = currentIndex == index,
                     selectedTextColor = selectedTextColor,
@@ -136,27 +144,6 @@ internal fun CoreScrollableTabBar(
                 )
             }
         }
-
-//        LazyRow(
-//            state = lazyListState,
-//            horizontalArrangement = Arrangement.spacedBy(20.dp), //Badge 영역 좌우 2dp씩 TabItem이 들고 있음.
-//            contentPadding = PaddingValues(horizontal = 16.dp)
-//
-//        ) {
-//            itemsIndexed(tabTitles) { index, title ->
-//                TabItem(
-//                    modifier = Modifier,
-//                    title = title,
-//                    isSelected = currentIndex == index,
-//                    selectedTextColor = selectedTextColor,
-//                    indicatorColor = indicatorColor,
-//                    useBadge = useBadge,
-//                    onClick = remember {
-//                        { onSelectTab(index) }
-//                    },
-//                )
-//            }
-//        }
     }
 }
 
@@ -170,7 +157,7 @@ private fun TabItem(
     onClick: () -> Unit,
 ) {
     Box(
-        modifier = modifier
+        modifier = Modifier
             .width(IntrinsicSize.Max)
             .fillMaxHeight()
             .background(DealiColor.primary04)
@@ -181,7 +168,7 @@ private fun TabItem(
                 modifier = Modifier.align(Alignment.Center)
             ) {
                 DealiText(
-                    modifier = Modifier
+                    modifier = modifier
                         .padding(start = 2.dp, end = 2.dp)
                         .align(Alignment.Center),
                     text = title,
@@ -191,7 +178,7 @@ private fun TabItem(
 
                 if (useBadge) {
                     Box(
-                        modifier = Modifier
+                        modifier = modifier
                             .align(Alignment.TopEnd)
                             .size(4.dp)
                             .clip(CircleShape)
@@ -201,7 +188,7 @@ private fun TabItem(
             }
         } else {
             DealiText(
-                modifier = Modifier
+                modifier = modifier
                     .padding(start = 2.dp, end = 2.dp)
                     .align(Alignment.Center),
                 text = title,
@@ -212,20 +199,18 @@ private fun TabItem(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-fun PreviewCoreScrollableTabBar() {
+private fun PreviewCoreScrollableTabBar() {
     val titles = listOf("탭 타이틀1", "탭 타이틀2", "탭 타이틀3", "탭 타이틀4", "탭 타이틀5", "탭 타이틀6")
-
     CoreScrollableTabBar(
-        modifier = Modifier
-            .height(44.dp)
-            .background(DealiColor.primary05),
+        modifier = Modifier.height(36.dp),
         tabTitles = titles,
         currentIndex = 1,
         selectedTextColor = DealiColor.primary01,
         indicatorColor = DealiColor.primary01,
         useBadge = true,
+        shortTopPadding = true,
         onSelectTab = {}
     )
 }

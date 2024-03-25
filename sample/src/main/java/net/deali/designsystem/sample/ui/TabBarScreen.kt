@@ -1,24 +1,23 @@
 package net.deali.designsystem.sample.ui
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
-import net.deali.designsystem.component.CheckBox
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.TabBarLayout
+import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -34,52 +33,169 @@ fun TabBarScreen(
             )
         }
     ) {
-        var selectedIndex by remember { mutableStateOf(0) }
-        val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4","탭 타이틀5","탭 타이틀6")
-        
-        TabBarLayout(
-            tabTitles = titles,
-            onSelectTab = remember {
-                { selectedIndex = it }
-            }
-        ) { page ->
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(DealiColor.g60)
-            ) {
-                DealiText(
-                    modifier = Modifier.align(Alignment.Center),
-                    text = "${titles[page]}\n(index: $page)",
-                    style = DealiFont.h1sb32,
-                    color = DealiColor.g100,
-                )
+        val titles1 = listOf("Fixed0", "Fixed1", "Fixed2")
+        val titles2 = listOf(
+            "Scrollable0",
+            "Scrollable1",
+            "Scrollable2",
+            "Scrollable3",
+            "Scrollable4",
+            "Scrollable5"
+        )
+        val titles3 = listOf(
+            "Scrollable0",
+            "Scrollable1",
+            "Scrollable2",
+            "Scrollable3",
+            "Scrollable4",
+            "Scrollable5"
+        )
+        val scrollState = rememberScrollState()
 
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(DealiColor.g30)
+                .verticalScroll(scrollState)
+        ) {
+            DealiText(
+                modifier = Modifier.padding(10.dp),
+                text = "고정 탭바",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            TabBarLayout(
+                tabTitles = titles1,
+                onSelectTab = {},
+                isScrollableTab = false,
+                userSwipeEnabled = false,
+            ) { page ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(DealiColor.primary03)
+                ) {
+                    DealiText(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = titles1[page],
+                        style = DealiFont.h1sb32,
+                        color = DealiColor.g100,
+                    )
+
+                }
             }
+
+            VerticalSpacer(height = 40.dp)
+
+            DealiText(
+                modifier = Modifier.padding(10.dp),
+                text = "스크롤 탭바1",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            TabBarLayout(
+                tabTitles = titles2,
+                onSelectTab = {},
+                isScrollableTab = true,
+                userSwipeEnabled = true,
+            ) { page ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(DealiColor.primary03)
+                ) {
+                    DealiText(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = titles2[page],
+                        style = DealiFont.h1sb32,
+                        color = DealiColor.g100,
+                    )
+
+                }
+            }
+
+            VerticalSpacer(height = 40.dp)
+
+            DealiText(
+                modifier = Modifier.padding(start = 10.dp),
+                text = "스크롤 탭바2",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            DealiText(
+                modifier = Modifier.padding(start = 10.dp, bottom = 10.dp),
+                text = "userSwipeEnabled = false, shortTopPadding = true",
+                style = DealiFont.b1r15,
+                color = DealiColor.g100,
+            )
+
+            TabBarLayout(
+                tabTitles = titles3,
+                onSelectTab = {},
+                isScrollableTab = true,
+                userSwipeEnabled = false,
+                shortTopPadding = true,
+
+                ) { page ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(DealiColor.primary03)
+                ) {
+                    DealiText(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = titles2[page],
+                        style = DealiFont.h1sb32,
+                        color = DealiColor.g100,
+                    )
+
+                }
+            }
+
+            VerticalSpacer(height = 40.dp)
+
+            DealiText(
+                modifier = Modifier.padding(10.dp),
+                text = "스크롤 탭바3",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            TabBarLayout(
+                tabTitles = titles3,
+                onSelectTab = {},
+                isScrollableTab = true,
+                userSwipeEnabled = true,
+            ) { page ->
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(100.dp)
+                        .background(DealiColor.primary03)
+                ) {
+                    DealiText(
+                        modifier = Modifier.align(Alignment.Center),
+                        text = titles2[page],
+                        style = DealiFont.h1sb32,
+                        color = DealiColor.g100,
+                    )
+
+                }
+            }
+
+            VerticalSpacer(height = 40.dp)
         }
     }
 }
 
 @Composable
 @Preview
-private fun PreviewTabBarLayout() {
-    val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4","탭 타이틀5","탭 타이틀6")
-    TabBarLayout(
-        tabTitles = titles,
-        onSelectTab = {}
-    ) { page ->
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(DealiColor.g60)
-        ) {
-            DealiText(
-                modifier = Modifier.align(Alignment.Center),
-                text = "${titles[page]}\n(index: $page)",
-                style = DealiFont.h1sb32,
-                color = DealiColor.g100,
-            )
-
-        }
-    }
+private fun PreviewTabBarScreenLayout() {
+    TabBarScreen {}
 }
