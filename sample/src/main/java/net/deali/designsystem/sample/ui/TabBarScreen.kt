@@ -35,7 +35,7 @@ fun TabBarScreen(
         }
     ) {
         var selectedIndex by remember { mutableStateOf(0) }
-        val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4")
+        val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4","탭 타이틀5","탭 타이틀6")
         
         TabBarLayout(
             tabTitles = titles,
@@ -63,7 +63,7 @@ fun TabBarScreen(
 @Composable
 @Preview
 private fun PreviewTabBarLayout() {
-    val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4")
+    val titles = listOf("탭 타이틀1","탭 타이틀2","탭 타이틀3","탭 타이틀4","탭 타이틀5","탭 타이틀6")
     TabBarLayout(
         tabTitles = titles,
         onSelectTab = {}

@@ -2,6 +2,9 @@
 
 package net.deali.designsystem.component
 
+import android.util.Log
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,11 +18,14 @@ import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
 import net.deali.designsystem.internal.tabbar.CoreScrollableTabBar
 import net.deali.designsystem.theme.DealiColor
@@ -39,7 +45,7 @@ fun TabBar(
             tabTitles = tabTitles,
             currentIndex = currentIndex,
             selectedTextColor = DealiColor.primary01,
-            selectedIndicatorColor = DealiColor.primary01,
+            indicatorColor = DealiColor.primary01,
             useBadge = true,
             onSelectTab = onSelectTab
         )
@@ -48,9 +54,9 @@ fun TabBar(
             modifier = Modifier.height(44.dp),
             tabTitles = tabTitles,
             currentIndex = currentIndex,
-            selectedTextColor = DealiColor.g100,
-            selectedIndicatorColor = DealiColor.g100,
-            useBadge = false,
+            selectedTextColor = DealiColor.primary01,
+            indicatorColor = DealiColor.primary01,
+            useBadge = true,
             onSelectTab = onSelectTab,
         )
     }
@@ -67,7 +73,7 @@ fun CategoryTabBar(
         tabTitles = tabTitles,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.primary01,
-        selectedIndicatorColor = DealiColor.primary01,
+        indicatorColor = DealiColor.primary01,
         useBadge = true,
         onSelectTab = onSelectTab
     )
@@ -84,8 +90,7 @@ fun ScrollableTabBarSmall(
         tabTitles = tabTitles,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.primary01,
-        selectedIndicatorColor = DealiColor.primary01,
-        textModifier = Modifier.padding(top = 4.dp, bottom = 12.dp),
+        indicatorColor = DealiColor.primary01,
         useBadge = true,
         onSelectTab = onSelectTab
     )
@@ -98,17 +103,24 @@ fun TabBarLayout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
+    userScrollEnabled: Boolean = true,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
     val pagerState = rememberPagerState(initialPage = initialPage)
+    val coroutineScope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         TabBar(
             tabTitles = tabTitles,
             currentIndex = pagerState.currentPage,
-            onSelectTab = onSelectTab,
+            onSelectTab = {
+                coroutineScope.launch {
+                    pagerState.animateScrollToPage(it)
+                }
+                onSelectTab(it)
+            },
             isScrollableTab = true,
         )
 
@@ -116,7 +128,7 @@ fun TabBarLayout(
             pageCount = tabTitles.size,
             modifier = Modifier,
             state = pagerState,
-            userScrollEnabled = true, //TODO 기능 확인
+            userScrollEnabled = userScrollEnabled,
             pageContent = pageContent,
         )
     }
@@ -176,43 +188,4 @@ private fun PreviewTabBarLayout() {
 
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewScrollableTabRow() {
-    ScrollableTabRow(
-        selectedTabIndex = 0,
-        modifier = Modifier.height(44.dp),
-        backgroundColor = DealiColor.g40,
-        contentColor = DealiColor.primary01,
-        edgePadding = 16.dp,
-        indicator = { tabPositions ->
-            TabRowDefaults.Indicator(
-                Modifier.tabIndicatorOffset(tabPositions[0])
-            )
-        },
-        divider = {
-            TabRowDefaults.Divider()
-        },
-        tabs = {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(DealiColor.primary01)
-            )
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(DealiColor.primary02)
-            )
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(DealiColor.primary03)
-            )
-        },
-
-
-        )
 }
