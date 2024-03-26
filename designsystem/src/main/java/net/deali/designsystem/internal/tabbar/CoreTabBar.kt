@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
+import net.deali.designsystem.component.chipFilledSmall02
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -102,7 +103,7 @@ internal fun CoreScrollableTabBar(
 
     ) {
         HorizontalDivider(
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
             color = DealiColor.g30
@@ -199,12 +200,14 @@ private fun TabItem(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0x880000)
 @Composable
 private fun PreviewCoreScrollableTabBar() {
-    val titles = listOf("탭 타이틀1", "탭 타이틀2", "탭 타이틀3", "탭 타이틀4", "탭 타이틀5", "탭 타이틀6")
+    val titles = listOf("탭 타이틀1", "탭 타이틀2")
     CoreScrollableTabBar(
-        modifier = Modifier.height(36.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(36.dp),
         tabTitles = titles,
         currentIndex = 1,
         selectedTextColor = DealiColor.primary01,

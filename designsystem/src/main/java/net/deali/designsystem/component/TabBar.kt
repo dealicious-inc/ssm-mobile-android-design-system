@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalFoundationApi::class)
+@file:OptIn(ExperimentalFoundationApi::class, ExperimentalFoundationApi::class)
 
 package net.deali.designsystem.component
 
@@ -6,9 +6,14 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
@@ -34,10 +39,12 @@ import net.deali.designsystem.theme.DealiFont
  */
 @Composable
 fun TabBar(
+    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
     onSelectTab: (index: Int) -> Unit,
     isScrollableTab: Boolean,
+    useBadge: Boolean = true,
     shortTopPadding: Boolean = false,
     selectedTextColor: Color = DealiColor.g100,
     indicatorColor: Color = DealiColor.g100,
@@ -46,64 +53,80 @@ fun TabBar(
         val height = if (shortTopPadding) 36.dp else 44.dp
 
         CoreScrollableTabBar(
-            modifier = Modifier.height(height),
+            modifier = modifier
+                .fillMaxWidth()
+                .height(height),
             tabTitles = tabTitles,
             currentIndex = currentIndex,
             selectedTextColor = selectedTextColor,
             indicatorColor = indicatorColor,
-            useBadge = true,
+            useBadge = useBadge,
             shortTopPadding = shortTopPadding,
             onSelectTab = onSelectTab,
         )
     } else {
         CoreFixedTabBar(
-            modifier = Modifier.height(44.dp),
+            modifier = modifier.height(44.dp),
             tabTitles = tabTitles,
             currentIndex = currentIndex,
             selectedTextColor = selectedTextColor,
             indicatorColor = indicatorColor,
-            useBadge = true,
+            useBadge = useBadge,
             onSelectTab = onSelectTab,
         )
     }
 }
 
 @Composable
-fun CategoryTabBar(
+fun SubTabBar(
+    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
     onSelectTab: (index: Int) -> Unit,
 ) {
-    CoreScrollableTabBar(
-        modifier = Modifier.height(44.dp),
-        tabTitles = tabTitles,
-        currentIndex = currentIndex,
-        selectedTextColor = DealiColor.primary01,
-        indicatorColor = DealiColor.primary01,
-        useBadge = true,
-        onSelectTab = onSelectTab
-    )
+    val lazyListState = rememberLazyListState()
+
+    LazyRow(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .background(DealiColor.primary04),
+        state = lazyListState,
+        contentPadding = PaddingValues(horizontal = 12.dp)
+    ) {
+        itemsIndexed(tabTitles) { index, title ->
+            chipFilledSmall02(
+                modifier = Modifier
+                    .padding(horizontal = 4.dp, vertical = 12.dp),
+                text = title,
+                selected = index == currentIndex,
+                onClick = { onSelectTab(index) },
+            )
+        }
+    }
 }
 
 /**
  * 상단에 탭바가 있는 레이아웃
  *
+ * @param modifier
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
  * @param initialPage 시작 시 노출할 탭 페이지 인덱스
  * @param userSwipeEnabled 좌우로 스와이프 시 탭 전환을 가능하게 할 지 여부
  * @param isScrollableTab 탭 메뉴 가로로 스크롤 가능 여부 (true: 가로 무한 스크롤, false: 화면의 1/n 크기 고정)
+ * @param useBadge 빨간 점 뱃지 사용 여부
  * @param shortTopPadding 상단 여백이 없는 레이아웃 적용
  * @param pageContent 탭 하단 페이지 컨텐츠
  */
 @Composable
 fun TabBarLayout(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
     userSwipeEnabled: Boolean,
     isScrollableTab: Boolean,
+    useBadge: Boolean = true,
     shortTopPadding: Boolean = false,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
@@ -111,9 +134,10 @@ fun TabBarLayout(
     val coroutineScope = rememberCoroutineScope()
 
     Column(
-        modifier = modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     ) {
         TabBar(
+            modifier = Modifier.fillMaxWidth(),
             tabTitles = tabTitles,
             currentIndex = pagerState.currentPage,
             onSelectTab = {
@@ -124,6 +148,7 @@ fun TabBarLayout(
             },
             shortTopPadding = shortTopPadding,
             isScrollableTab = isScrollableTab,
+            useBadge = useBadge,
         )
 
         HorizontalPager(
@@ -131,6 +156,53 @@ fun TabBarLayout(
             modifier = Modifier,
             state = pagerState,
             userScrollEnabled = userSwipeEnabled,
+            pageContent = pageContent,
+        )
+    }
+}
+
+/**
+ * 상단에 탭바가 있는 레이아웃
+ *
+ * @param modifier
+ * @param tabTitles 각 탭의 타이틀 리스트
+ * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
+ * @param initialPage 시작 시 노출할 탭 페이지 인덱스
+ * @param userSwipeEnabled 좌우로 스와이프 시 탭 전환을 가능하게 할 지 여부
+ * @param isScrollableTab 탭 메뉴 가로로 스크롤 가능 여부 (true: 가로 무한 스크롤, false: 화면의 1/n 크기 고정)
+ * @param shortTopPadding 상단 여백이 없는 레이아웃 적용
+ * @param pageContent 탭 하단 페이지 컨텐츠
+ */
+@Composable
+fun SubTabBarLayout(
+    modifier: Modifier = Modifier,
+    tabTitles: List<String>,
+    onSelectTab: (index: Int) -> Unit,
+    initialPage: Int = 0,
+    pageContent: @Composable (page: Int) -> Unit,
+) {
+    val pagerState = rememberPagerState(initialPage = initialPage)
+    val coroutineScope = rememberCoroutineScope()
+
+    Column(
+        modifier = modifier.fillMaxWidth()
+    ) {
+        SubTabBar(
+            tabTitles = tabTitles,
+            currentIndex = pagerState.currentPage,
+            onSelectTab = {
+                coroutineScope.launch {
+                    pagerState.animateScrollToPage(it)
+                }
+                onSelectTab(it)
+            },
+        )
+
+        HorizontalPager(
+            pageCount = tabTitles.size,
+            modifier = Modifier,
+            state = pagerState,
+            userScrollEnabled = false,
             pageContent = pageContent,
         )
     }
@@ -160,6 +232,16 @@ private fun PreviewScrollableTabBar() {
 
 @Preview
 @Composable
+private fun PreviewSubTabBar() {
+    SubTabBar(
+        tabTitles = listOf("서브0", "서브1", "서브2"),
+        currentIndex = 1,
+        onSelectTab = {},
+    )
+}
+
+@Preview
+@Composable
 private fun PreviewTabBarLayout() {
     val titles = listOf("탭 이름1", "탭 이름2", "탭 이름3", "탭 이름4")
     TabBarLayout(
@@ -180,6 +262,43 @@ private fun PreviewTabBarLayout() {
                 color = DealiColor.g100,
             )
 
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewSubTabBarLayout() {
+    val titles = listOf("탭 이름1", "탭 이름2", "탭 이름3")
+    TabBarLayout(
+        tabTitles = titles,
+        onSelectTab = {},
+        isScrollableTab = true,
+        userSwipeEnabled = false,
+        useBadge = false,
+    ) { page ->
+
+        val subTabTitles = listOf("서브1", "서브2", "서브3", "서브4", "서브5")
+
+        SubTabBarLayout(
+            tabTitles = subTabTitles,
+            onSelectTab = {},
+            modifier = Modifier,
+            initialPage = 1
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(DealiColor.g60)
+            ) {
+                DealiText(
+                    modifier = Modifier.align(Alignment.Center),
+                    text = "${titles[page]}\n(index: $page)",
+                    style = DealiFont.h1sb32,
+                    color = DealiColor.g100,
+                )
+
+            }
         }
     }
 }
