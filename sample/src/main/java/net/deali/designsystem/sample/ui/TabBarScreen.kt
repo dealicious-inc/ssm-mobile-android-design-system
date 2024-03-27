@@ -123,7 +123,6 @@ fun TabBarScreen(
                 onSelectTab = {},
                 isScrollableTab = true,
                 userSwipeEnabled = false,
-                shortTopPadding = true,
 
                 ) { page ->
                 Box(
