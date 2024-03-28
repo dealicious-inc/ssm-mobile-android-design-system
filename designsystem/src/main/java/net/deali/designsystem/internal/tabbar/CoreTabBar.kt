@@ -1,8 +1,12 @@
+@file:OptIn(ExperimentalFoundationApi::class)
+
 package net.deali.designsystem.internal.tabbar
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.TabRow
@@ -19,14 +25,17 @@ import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
+import net.deali.designsystem.component.TabBarFixed
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -198,6 +207,48 @@ private fun TabItem(
         }
     }
 }
+
+
+@Composable
+internal fun CoreTabBarLayout(
+    tabCount: Int,
+    onSelectTab: (index: Int) -> Unit,
+    initialPage: Int = 0,
+    userSwipeEnabled: Boolean,
+    tabBar: @Composable (
+        currentIndex: Int,
+        onPageChange: (index: Int) -> Unit,
+    ) -> Unit,
+    pageContent: @Composable (page: Int) -> Unit,
+) {
+    val pagerState = rememberPagerState(initialPage = initialPage)
+    val coroutineScope = rememberCoroutineScope()
+
+    Column(
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        tabBar(
+            pagerState.currentPage,
+            remember {
+                {
+                    coroutineScope.launch {
+                        pagerState.animateScrollToPage(it)
+                    }
+                    onSelectTab(it)
+                }
+            }
+        )
+
+        HorizontalPager(
+            pageCount = tabCount,
+            modifier = Modifier,
+            state = pagerState,
+            userScrollEnabled = userSwipeEnabled,
+            pageContent = pageContent,
+        )
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable

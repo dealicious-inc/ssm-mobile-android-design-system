@@ -16,8 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.SubTabBarLayout
-import net.deali.designsystem.component.TabBarLayout
+import net.deali.designsystem.component.TabBarLayout2Depth
+import net.deali.designsystem.component.TabBarLayout3Depth
+import net.deali.designsystem.component.TabBarLayoutFixed
+import net.deali.designsystem.component.TabBarLayoutScrollableG100
+import net.deali.designsystem.component.TabBarLayoutScrollablePrimary01
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -34,13 +37,9 @@ fun TabBarScreen(
             )
         }
     ) {
-        val titles1 = listOf("Fixed0", "Fixed1", "Fixed2")
-        val titles2 = listOf(
-            "Scrollable0", "Scrollable1", "Scrollable2", "Scrollable3", "Scrollable4", "Scrollable5"
-        )
-        val titles3 = listOf("NoSwipe0", "NoSwipe1", "NoSwipe2", "NoSwipe3", "NoSwipe4", "NoSwipe5")
-        val titles4 = listOf("Main0", "Main1", "Main2", "Main3")
-        val titles5 = listOf("Sub0", "Sub1", "Sub2", "Sub3")
+        val titles = listOf("Title0", "Title1", "Title2")
+        val subTitles = listOf("Sub0", "Sub1", "Sub2", "Sub3", "Sub4")
+        val subsubTitles = listOf("Subsub0", "Subsub1", "Subsub2", "Subsub3", "Subsub4")
         val scrollState = rememberScrollState()
 
         Column(
@@ -56,10 +55,9 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayout(
-                tabTitles = titles1,
+            TabBarLayoutFixed(
+                tabTitles = titles,
                 onSelectTab = {},
-                isScrollableTab = false,
                 userSwipeEnabled = false,
             ) { page ->
                 Box(
@@ -70,7 +68,7 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles1[page],
+                        text = titles[page],
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
@@ -82,15 +80,14 @@ fun TabBarScreen(
 
             DealiText(
                 modifier = Modifier.padding(10.dp),
-                text = "스크롤 탭바1",
+                text = "스크롤 탭바(primary01)",
                 style = DealiFont.sh1sb20,
                 color = DealiColor.g100,
             )
 
-            TabBarLayout(
-                tabTitles = titles2,
+            TabBarLayoutScrollablePrimary01(
+                tabTitles = titles,
                 onSelectTab = {},
-                isScrollableTab = true,
                 userSwipeEnabled = true,
             ) { page ->
                 Box(
@@ -101,7 +98,7 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles2[page],
+                        text = titles[page],
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
@@ -113,15 +110,14 @@ fun TabBarScreen(
 
             DealiText(
                 modifier = Modifier.padding(10.dp),
-                text = "스크롤 탭바2",
+                text = "스크롤 탭바(g100)",
                 style = DealiFont.sh1sb20,
                 color = DealiColor.g100,
             )
 
-            TabBarLayout(
-                tabTitles = titles3,
+            TabBarLayoutScrollableG100(
+                tabTitles = titles,
                 onSelectTab = {},
-                isScrollableTab = true,
                 userSwipeEnabled = false,
 
                 ) { page ->
@@ -133,7 +129,7 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles3[page],
+                        text = titles[page],
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
@@ -145,20 +141,19 @@ fun TabBarScreen(
 
             DealiText(
                 modifier = Modifier.padding(10.dp),
-                text = "스크롤 탭바3",
+                text = "2뎁스 탭바",
                 style = DealiFont.sh1sb20,
                 color = DealiColor.g100,
             )
 
-            TabBarLayout(
-                tabTitles = titles4,
+            TabBarLayoutScrollableG100(
+                tabTitles = titles,
                 onSelectTab = {},
-                isScrollableTab = true,
                 userSwipeEnabled = true,
             ) { page ->
 
-                SubTabBarLayout(
-                    tabTitles = titles5,
+                TabBarLayout2Depth(
+                    tabTitles = subTitles,
                     onSelectTab = {},
                 ) { subPage ->
                     Box(
@@ -169,7 +164,7 @@ fun TabBarScreen(
                     ) {
                         DealiText(
                             modifier = Modifier.align(Alignment.Center),
-                            text = "${titles4[page]}/${titles5[subPage]}",
+                            text = "${titles[page]}/${subTitles[subPage]}",
                             style = DealiFont.h1sb32,
                             color = DealiColor.g100,
                         )
@@ -179,6 +174,46 @@ fun TabBarScreen(
             }
 
             VerticalSpacer(height = 40.dp)
+
+            DealiText(
+                modifier = Modifier.padding(10.dp),
+                text = "3뎁스 탭바",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            TabBarLayoutScrollableG100(
+                tabTitles = titles,
+                onSelectTab = {},
+                userSwipeEnabled = true,
+            ) { page ->
+
+                TabBarLayout2Depth(
+                    tabTitles = subTitles,
+                    onSelectTab = {},
+                ) { subPage ->
+
+                    TabBarLayout3Depth(
+                        tabTitles = subsubTitles,
+                        onSelectTab = {}
+                    ) { subsubPage ->
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(100.dp)
+                                .background(DealiColor.primary03)
+                        ) {
+                            DealiText(
+                                modifier = Modifier.align(Alignment.Center),
+                                text = "${titles[page]}/${subTitles[subPage]}/${subsubTitles[subsubPage]}",
+                                style = DealiFont.h1sb32,
+                                color = DealiColor.g100,
+                            )
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
