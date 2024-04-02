@@ -135,9 +135,7 @@ fun TabBar2Depth(
                     .padding(horizontal = 4.dp, vertical = 12.dp),
                 text = title,
                 selected = index == currentIndex,
-                onClick = remember {
-                    { onSelectTab(index) }
-                },
+                onClick = { onSelectTab(index) },
             )
         }
     }
