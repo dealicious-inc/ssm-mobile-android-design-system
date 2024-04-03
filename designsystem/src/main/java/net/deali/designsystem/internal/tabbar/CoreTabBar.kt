@@ -82,11 +82,7 @@ internal fun CoreFixedTabBar(
                         isSelected = index == currentIndex,
                         selectedTextColor = selectedTextColor,
                         useBadge = useBadge,
-                        onClick = remember {
-                            {
-                                onSelectTab(index)
-                            }
-                        }
+                        onClick = { onSelectTab(index) }
                     )
                 }
             },
@@ -148,9 +144,7 @@ internal fun CoreScrollableTabBar(
                     isSelected = currentIndex == index,
                     selectedTextColor = selectedTextColor,
                     useBadge = useBadge,
-                    onClick = remember {
-                        { onSelectTab(index) }
-                    },
+                    onClick = { onSelectTab(index) },
                 )
             }
         }
@@ -228,16 +222,13 @@ internal fun CoreTabBarLayout(
         modifier = Modifier.fillMaxWidth()
     ) {
         tabBar(
-            pagerState.currentPage,
-            remember {
-                {
-                    coroutineScope.launch {
-                        pagerState.animateScrollToPage(it)
-                    }
-                    onSelectTab(it)
-                }
+            pagerState.currentPage
+        ) { index ->
+            coroutineScope.launch {
+                pagerState.animateScrollToPage(index)
             }
-        )
+            onSelectTab(index)
+        }
 
         HorizontalPager(
             pageCount = tabCount,
