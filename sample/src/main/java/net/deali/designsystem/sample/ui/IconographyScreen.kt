@@ -254,7 +254,7 @@ val iconographyScreenItems = listOf(
 
     IconographyScreenItem("ic_lens", SIZE_24, R.drawable.ic_lens_filled, R.drawable.ic_lens),
     IconographyScreenItem("ic_info", SIZE_24, R.drawable.ic_info_filled, R.drawable.ic_info),
-    IconographyScreenItem("ic_x_circle", SIZE_24, R.drawable.ic_x_circle_filled, R.drawable.ic_x_circle),
+    IconographyScreenItem("ic_x_circle_s", SIZE_24, R.drawable.ic_x_circle_s_filled, R.drawable.ic_x_circle_s),
     IconographyScreenItem("ic_checkcircle", SIZE_24, R.drawable.ic_checkcircle_filled, R.drawable.ic_checkcircle),
     IconographyScreenItem("ic_money_kr", SIZE_24, R.drawable.ic_money_kr_filled, R.drawable.ic_money_kr),
     IconographyScreenItem("ic_money_jpy", SIZE_24, R.drawable.ic_money_jpy_filled, R.drawable.ic_money_jpy),

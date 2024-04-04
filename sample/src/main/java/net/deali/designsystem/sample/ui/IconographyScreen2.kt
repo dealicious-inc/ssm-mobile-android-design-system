@@ -281,7 +281,7 @@ val outlineIcons = listOf(
 
     IconItem("ic_lens", R.drawable.ic_lens),
     IconItem("ic_info", R.drawable.ic_info),
-    IconItem("ic_x_circle", R.drawable.ic_x_circle),
+    IconItem("ic_x_circle_s", R.drawable.ic_x_circle_s),
     IconItem("ic_checkcircle", R.drawable.ic_checkcircle),
     IconItem("ic_money_kr", R.drawable.ic_money_kr),
     IconItem("ic_money_jpy", R.drawable.ic_money_jpy),
@@ -413,6 +413,7 @@ val filledIcons = listOf(
     IconItem("ic_lens_filled", R.drawable.ic_lens_filled),
     IconItem("ic_info_filled", R.drawable.ic_info_filled),
     IconItem("ic_x_circle_filled", R.drawable.ic_x_circle_filled),
+    IconItem("ic_x_circle_s_filled", R.drawable.ic_x_circle_s_filled),
     IconItem("ic_checkcircle_filled", R.drawable.ic_checkcircle_filled),
 
     IconItem("ic_money_kr_filled", R.drawable.ic_money_kr_filled),
