@@ -2,7 +2,9 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidthIn
 import androidx.compose.foundation.text.KeyboardActions
@@ -15,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
@@ -67,29 +70,43 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        trailingContent = if (isFocused || value.isNotEmpty()) {
+        trailingContent = if (!isFocused) {
             {
-                Icon16(
-                    iconRes = R.drawable.ic_x,
-                    color = DealiColor.primary05,
-                    enabled = true,
-                    onClick = {
-                        if (enabled) {
-                            onValueChange("")
-                            focusRequester.requestFocus()
-                        }
-                        onRemoveIconClick()
-                    }
-                )
+                if (value.isEmpty()) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
             }
         } else {
             {
-                Icon24(
-                    iconRes = R.drawable.ic_search,
-                    color = DealiColor.primary05,
-                    enabled = false,
-                    onClick = {},
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Icon16(
+                        iconRes = R.drawable.ic_x_circle_filled,
+                        color = DealiColor.g50,
+                        enabled = true,
+                        onClick = {
+                            if (enabled) {
+                                onValueChange("")
+                                focusRequester.requestFocus()
+                            }
+                            onRemoveIconClick()
+                        }
+                    )
+
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
             }
         }
     )
@@ -130,29 +147,43 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        trailingContent = if (isFocused || value.text.isNotEmpty()) {
+        trailingContent = if (!isFocused) {
             {
-                Icon16(
-                    iconRes = R.drawable.ic_x,
-                    color = DealiColor.primary05,
-                    enabled = true,
-                    onClick = {
-                        if (enabled) {
-                            onValueChange(TextFieldValue())
-                            focusRequester.requestFocus()
-                        }
-                        onRemoveIconClick()
-                    }
-                )
+                if (value.text.isEmpty()) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
             }
         } else {
             {
-                Icon24(
-                    iconRes = R.drawable.ic_search,
-                    color = DealiColor.primary05,
-                    enabled = false,
-                    onClick = {},
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Icon16(
+                        iconRes = R.drawable.ic_x_circle_filled,
+                        color = DealiColor.g50,
+                        enabled = true,
+                        onClick = {
+                            if (enabled) {
+                                onValueChange(TextFieldValue())
+                                focusRequester.requestFocus()
+                            }
+                            onRemoveIconClick()
+                        }
+                    )
+
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
             }
         }
     )
@@ -201,11 +232,11 @@ fun SearchInput(
                 text = tagText,
             )
         },
-        trailingContent = if (isFocused || value.isNotEmpty()) {
+        trailingContent = if (isFocused) {
             {
                 Icon16(
-                    iconRes = R.drawable.ic_x,
-                    color = DealiColor.primary05,
+                    iconRes = R.drawable.ic_x_circle_filled,
+                    color = DealiColor.g50,
                     enabled = true,
                     onClick = {
                         if (enabled) {
@@ -214,6 +245,13 @@ fun SearchInput(
                         }
                         onRemoveIconClick()
                     }
+                )
+
+                Icon24(
+                    iconRes = R.drawable.ic_search,
+                    color = DealiColor.g100,
+                    enabled = false,
+                    onClick = {},
                 )
             }
         } else null
@@ -264,11 +302,11 @@ fun SearchInput(
                 text = tagText,
             )
         },
-        trailingContent = if (isFocused || value.text.isNotEmpty()) {
+        trailingContent = if (isFocused) {
             {
                 Icon16(
-                    iconRes = R.drawable.ic_x,
-                    color = DealiColor.primary05,
+                    iconRes = R.drawable.ic_x_circle_filled,
+                    color = DealiColor.g50,
                     enabled = true,
                     onClick = {
                         if (enabled) {
@@ -277,6 +315,13 @@ fun SearchInput(
                         }
                         onRemoveIconClick()
                     }
+                )
+
+                Icon24(
+                    iconRes = R.drawable.ic_search,
+                    color = DealiColor.g100,
+                    enabled = false,
+                    onClick = {},
                 )
             }
         } else null
