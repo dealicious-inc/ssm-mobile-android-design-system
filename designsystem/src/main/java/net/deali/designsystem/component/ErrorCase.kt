@@ -1,8 +1,10 @@
 package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,7 +23,8 @@ fun ErrorCase(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Content(
@@ -40,7 +43,8 @@ fun ErrorCase(
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
@@ -69,7 +73,8 @@ fun ErrorCase(
     onClick: () -> Unit
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
@@ -107,7 +112,8 @@ fun ErrorCase(
     onClick: () -> Unit
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
@@ -151,7 +157,8 @@ fun ErrorCase(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Icon(
@@ -184,7 +191,8 @@ private fun Content(
     modifier: Modifier = Modifier
 ) {
     DealiText(
-        modifier = modifier,
+        modifier = modifier
+            .padding(horizontal = 40.dp),
         text = text,
         style = DealiFont.b2r14,
         color = DealiColor.g60,
@@ -276,8 +284,7 @@ private fun ErrorCasePreview4() {
         modifier = Modifier
             .fillMaxWidth(),
         title = "타이틀이 들어가는 영역이예요.",
-        content = "데이터를 불러오지 못했어요. \n" +
-                "네트워크 확인 후 새로고침 버튼을 눌러주세요.",
+        content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
         icon = R.drawable.ic_refresh_2_filled,
         iconColor = DealiColor.g60,
     )
@@ -290,8 +297,7 @@ private fun ErrorCasePreview5() {
         modifier = Modifier
             .fillMaxWidth(),
         title = "타이틀이 들어가는 영역이예요.",
-        content = "데이터를 불러오지 못했어요. \n" +
-                "네트워크 확인 후 새로고침 버튼을 눌러주세요.",
+        content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
         icon = R.drawable.ic_refresh_2_filled,
         iconColor = DealiColor.g60,
         buttonText = "재시도",
