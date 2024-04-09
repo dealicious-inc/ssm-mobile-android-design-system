@@ -2,7 +2,9 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
@@ -17,171 +19,225 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+/**
+ * 텍스트만 있는 ErrorCase
+ */
 @Composable
 fun ErrorCase(
+    modifier: Modifier = Modifier,
     content: String,
-    modifier: Modifier = Modifier
+    paddingBottomDp: Int = 100,
 ) {
-    Column(
+    Box(
         modifier = modifier
+            .fillMaxSize()
             .background(DealiColor.primary04),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Content(
             modifier = Modifier
-                .fillMaxWidth(),
-            text = content
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+            text = content,
         )
     }
 }
 
+/**
+ * 아이콘, 텍스트가 있는 ErrorCase
+ */
 @Composable
 fun ErrorCase(
+    modifier: Modifier = Modifier,
     @DrawableRes icon: Int,
-    iconColor: Color,
+    iconColor: Color = DealiColor.g60,
     content: String,
-    modifier: Modifier = Modifier
+    paddingBottomDp: Int = 100,
 ) {
-    Column(
+    Box(
         modifier = modifier
+            .fillMaxSize()
             .background(DealiColor.primary04),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            modifier = Modifier,
-            res = icon,
-            color = iconColor
-        )
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Icon32(
+                modifier = Modifier,
+                iconRes = icon,
+                color = iconColor,
+            )
 
-        VerticalSpacer(height = 12.dp)
+            VerticalSpacer(height = 12.dp)
 
-        Content(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = content
-        )
+            Content(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = content
+            )
+        }
     }
 }
 
+/**
+ * 아이콘, 텍스트, 버튼이 있는 ErrorCase
+ */
 @Composable
 fun ErrorCase(
+    modifier: Modifier = Modifier,
     @DrawableRes icon: Int,
-    iconColor: Color,
+    iconColor: Color = DealiColor.g60,
     content: String,
     buttonText: String,
-    modifier: Modifier = Modifier,
+    paddingBottomDp: Int = 100,
     onClick: () -> Unit
 ) {
-    Column(
+    Box(
         modifier = modifier
+            .fillMaxSize()
             .background(DealiColor.primary04),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            modifier = Modifier,
-            res = icon,
-            color = iconColor
-        )
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Icon32(
+                modifier = Modifier,
+                iconRes = icon,
+                color = iconColor
+            )
 
-        VerticalSpacer(height = 12.dp)
+            VerticalSpacer(height = 12.dp)
 
-        Content(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = content
-        )
+            Content(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = content
+            )
 
-        VerticalSpacer(height = 24.dp)
+            VerticalSpacer(height = 24.dp)
 
-        Button(
-            modifier = Modifier,
-            text = buttonText,
-            onClick = onClick
-        )
+            Button(
+                modifier = Modifier,
+                text = buttonText,
+                onClick = onClick
+            )
+        }
     }
 }
 
+/**
+ * 아이콘, 타이틀 텍스트, 서브 텍스트, 버튼이 있는 ErrorCase
+ */
 @Composable
 fun ErrorCase(
+    modifier: Modifier = Modifier,
     @DrawableRes icon: Int,
-    iconColor: Color,
+    iconColor: Color = DealiColor.g60,
     title: String,
     content: String,
     buttonText: String,
-    modifier: Modifier = Modifier,
+    paddingBottomDp: Int = 100,
     onClick: () -> Unit
 ) {
-    Column(
+    Box(
         modifier = modifier
+            .fillMaxSize()
             .background(DealiColor.primary04),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            modifier = Modifier,
-            res = icon,
-            color = iconColor
-        )
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Icon32(
+                modifier = Modifier,
+                iconRes = icon,
+                color = iconColor
+            )
 
-        VerticalSpacer(height = 12.dp)
+            VerticalSpacer(height = 12.dp)
 
-        Title(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = title
-        )
+            Title(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = title
+            )
 
-        VerticalSpacer(height = 8.dp)
+            VerticalSpacer(height = 8.dp)
 
-        Content(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = content
-        )
+            Content(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = content
+            )
 
-        VerticalSpacer(height = 24.dp)
+            VerticalSpacer(height = 24.dp)
 
-        Button(
-            modifier = Modifier,
-            text = buttonText,
-            onClick = onClick
-        )
+            Button(
+                modifier = Modifier,
+                text = buttonText,
+                onClick = onClick
+            )
+        }
     }
 }
 
+/**
+ * 아이콘, 타이틀 텍스트, 서브 텍스트가 있는 ErrorCase
+ */
 @Composable
 fun ErrorCase(
+    modifier: Modifier = Modifier,
     @DrawableRes icon: Int,
-    iconColor: Color,
+    iconColor: Color = DealiColor.g60,
     title: String,
     content: String,
-    modifier: Modifier = Modifier,
+    paddingBottomDp: Int = 40,
 ) {
-    Column(
+    Box(
         modifier = modifier
+            .fillMaxSize()
             .background(DealiColor.primary04),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Icon(
-            modifier = Modifier,
-            res = icon,
-            color = iconColor
-        )
+        Column(
+            modifier = modifier
+                .fillMaxWidth()
+                .align(Alignment.Center)
+                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Icon32(
+                modifier = Modifier,
+                iconRes = icon,
+                color = iconColor
+            )
 
-        VerticalSpacer(height = 12.dp)
+            VerticalSpacer(height = 12.dp)
 
-        Title(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = title
-        )
+            Title(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = title
+            )
 
-        VerticalSpacer(height = 8.dp)
+            VerticalSpacer(height = 8.dp)
 
-        Content(
-            modifier = Modifier
-                .fillMaxWidth(),
-            text = content
-        )
+            Content(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = content
+            )
+        }
     }
 }
 
@@ -191,8 +247,7 @@ private fun Content(
     modifier: Modifier = Modifier
 ) {
     DealiText(
-        modifier = modifier
-            .padding(horizontal = 40.dp),
+        modifier = modifier,
         text = text,
         style = DealiFont.b2r14,
         color = DealiColor.g60,
@@ -229,8 +284,8 @@ private fun Title(
 
 @Composable
 private fun Button(
-    text: String,
     modifier: Modifier = Modifier,
+    text: String,
     onClick: () -> Unit
 ) {
     btnFilledLarge01(
@@ -242,7 +297,7 @@ private fun Button(
 }
 
 @Composable
-@Preview
+@Preview(heightDp = 500)
 private fun ErrorCasePreview1() {
     ErrorCase(
         modifier = Modifier
@@ -252,7 +307,7 @@ private fun ErrorCasePreview1() {
 }
 
 @Composable
-@Preview
+@Preview(heightDp = 500)
 private fun ErrorCasePreview2() {
     ErrorCase(
         modifier = Modifier
@@ -264,7 +319,7 @@ private fun ErrorCasePreview2() {
 }
 
 @Composable
-@Preview
+@Preview(heightDp = 500)
 private fun ErrorCasePreview3() {
     ErrorCase(
         modifier = Modifier
@@ -278,7 +333,7 @@ private fun ErrorCasePreview3() {
 }
 
 @Composable
-@Preview
+@Preview(heightDp = 500)
 private fun ErrorCasePreview4() {
     ErrorCase(
         modifier = Modifier
@@ -291,7 +346,7 @@ private fun ErrorCasePreview4() {
 }
 
 @Composable
-@Preview
+@Preview(heightDp = 500)
 private fun ErrorCasePreview5() {
     ErrorCase(
         modifier = Modifier
@@ -301,6 +356,6 @@ private fun ErrorCasePreview5() {
         icon = R.drawable.ic_refresh_2_filled,
         iconColor = DealiColor.g60,
         buttonText = "재시도",
-        onClick = {}
+        onClick = {},
     )
 }
