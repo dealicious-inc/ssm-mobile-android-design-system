@@ -27,7 +27,7 @@ fun ErrorCase(
     modifier: Modifier = Modifier,
     content: String,
     showIcon: Boolean = true,
-    paddingBottomDp: Int = 100,
+    paddingTopDp: Int = 72,
 ) {
     Box(
         modifier = modifier
@@ -37,8 +37,8 @@ fun ErrorCase(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+                .align(Alignment.TopCenter)
+                .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             if (showIcon) {
@@ -68,7 +68,7 @@ fun ErrorCase(
     modifier: Modifier = Modifier,
     content: String,
     buttonText: String,
-    paddingBottomDp: Int = 100,
+    paddingTopDp: Int = 72,
     onClick: () -> Unit
 ) {
     Box(
@@ -79,8 +79,8 @@ fun ErrorCase(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+                .align(Alignment.TopCenter)
+                .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon32(
@@ -117,7 +117,7 @@ fun ErrorCase(
     title: String,
     content: String,
     buttonText: String,
-    paddingBottomDp: Int = 100,
+    paddingTopDp: Int = 72,
     onClick: () -> Unit
 ) {
     Box(
@@ -128,8 +128,8 @@ fun ErrorCase(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+                .align(Alignment.TopCenter)
+                .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon32(
@@ -173,7 +173,7 @@ fun ErrorCase(
     modifier: Modifier = Modifier,
     title: String,
     content: String,
-    paddingBottomDp: Int = 40,
+    paddingTopDp: Int = 72,
 ) {
     Box(
         modifier = modifier
@@ -183,8 +183,8 @@ fun ErrorCase(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
+                .align(Alignment.TopCenter)
+                .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Icon32(
@@ -223,19 +223,6 @@ private fun Content(
         style = DealiFont.b2r14,
         color = DealiColor.g60,
         textAlign = TextAlign.Center
-    )
-}
-
-@Composable
-private fun Icon(
-    @DrawableRes res: Int,
-    color: Color,
-    modifier: Modifier = Modifier
-) {
-    Icon32(
-        modifier = modifier,
-        iconRes = res,
-        color = color
     )
 }
 
