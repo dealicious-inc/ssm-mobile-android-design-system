@@ -20,38 +20,13 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
- * 텍스트만 있는 ErrorCase
+ * 느낌표 아이콘, 텍스트가 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
     modifier: Modifier = Modifier,
     content: String,
-    paddingBottomDp: Int = 100,
-) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .background(DealiColor.primary04),
-    ) {
-        Content(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.Center)
-                .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
-            text = content,
-        )
-    }
-}
-
-/**
- * 아이콘, 텍스트가 있는 ErrorCase
- */
-@Composable
-fun ErrorCase(
-    modifier: Modifier = Modifier,
-    @DrawableRes icon: Int,
-    iconColor: Color = DealiColor.g60,
-    content: String,
+    showIcon: Boolean = true,
     paddingBottomDp: Int = 100,
 ) {
     Box(
@@ -66,13 +41,15 @@ fun ErrorCase(
                 .padding(start = 40.dp, end = 40.dp, bottom = paddingBottomDp.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Icon32(
-                modifier = Modifier,
-                iconRes = icon,
-                color = iconColor,
-            )
+            if (showIcon) {
+                Icon32(
+                    modifier = Modifier,
+                    iconRes = R.drawable.ic_notice_filled,
+                    color = DealiColor.g60,
+                )
 
-            VerticalSpacer(height = 12.dp)
+                VerticalSpacer(height = 12.dp)
+            }
 
             Content(
                 modifier = Modifier
@@ -84,13 +61,11 @@ fun ErrorCase(
 }
 
 /**
- * 아이콘, 텍스트, 버튼이 있는 ErrorCase
+ * 느낌표 아이콘, 텍스트, 버튼이 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
     modifier: Modifier = Modifier,
-    @DrawableRes icon: Int,
-    iconColor: Color = DealiColor.g60,
     content: String,
     buttonText: String,
     paddingBottomDp: Int = 100,
@@ -110,8 +85,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = icon,
-                color = iconColor
+                iconRes = R.drawable.ic_notice_filled,
+                color = DealiColor.g60,
             )
 
             VerticalSpacer(height = 12.dp)
@@ -134,13 +109,11 @@ fun ErrorCase(
 }
 
 /**
- * 아이콘, 타이틀 텍스트, 서브 텍스트, 버튼이 있는 ErrorCase
+ * 재시도 아이콘, 타이틀 텍스트, 서브 텍스트, 버튼이 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
     modifier: Modifier = Modifier,
-    @DrawableRes icon: Int,
-    iconColor: Color = DealiColor.g60,
     title: String,
     content: String,
     buttonText: String,
@@ -161,8 +134,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = icon,
-                color = iconColor
+                iconRes = R.drawable.ic_refresh_2_filled,
+                color = DealiColor.g60
             )
 
             VerticalSpacer(height = 12.dp)
@@ -193,13 +166,11 @@ fun ErrorCase(
 }
 
 /**
- * 아이콘, 타이틀 텍스트, 서브 텍스트가 있는 ErrorCase
+ * 재시도 아이콘, 타이틀 텍스트, 서브 텍스트가 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
     modifier: Modifier = Modifier,
-    @DrawableRes icon: Int,
-    iconColor: Color = DealiColor.g60,
     title: String,
     content: String,
     paddingBottomDp: Int = 40,
@@ -218,8 +189,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = icon,
-                color = iconColor
+                iconRes = R.drawable.ic_refresh_2_filled,
+                color = DealiColor.g60,
             )
 
             VerticalSpacer(height = 12.dp)
@@ -302,7 +273,8 @@ private fun ErrorCasePreview1() {
     ErrorCase(
         modifier = Modifier
             .fillMaxWidth(),
-        content = "등록된 상품이 없어요."
+        content = "등록된 상품이 없어요.",
+        showIcon = false,
     )
 }
 
@@ -313,8 +285,6 @@ private fun ErrorCasePreview2() {
         modifier = Modifier
             .fillMaxWidth(),
         content = "등록된 상품이 없어요.",
-        icon = R.drawable.ic_notice_filled,
-        iconColor = DealiColor.g60
     )
 }
 
@@ -325,8 +295,6 @@ private fun ErrorCasePreview3() {
         modifier = Modifier
             .fillMaxWidth(),
         content = "등록된 상품이 없어요.",
-        icon = R.drawable.ic_notice_filled,
-        iconColor = DealiColor.g60,
         buttonText = "재시도",
         onClick = {}
     )
@@ -340,8 +308,6 @@ private fun ErrorCasePreview4() {
             .fillMaxWidth(),
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
-        icon = R.drawable.ic_refresh_2_filled,
-        iconColor = DealiColor.g60,
     )
 }
 
@@ -353,8 +319,6 @@ private fun ErrorCasePreview5() {
             .fillMaxWidth(),
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
-        icon = R.drawable.ic_refresh_2_filled,
-        iconColor = DealiColor.g60,
         buttonText = "재시도",
         onClick = {},
     )
