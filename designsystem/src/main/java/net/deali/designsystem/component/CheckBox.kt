@@ -62,7 +62,7 @@ fun CheckBox(
 }
 
 @Composable
-private fun CheckBoxIcon(
+fun CheckBoxIcon(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true
