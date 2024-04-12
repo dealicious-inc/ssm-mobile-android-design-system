@@ -49,7 +49,7 @@ fun CheckBox(
 
         DealiText(
             modifier = Modifier
-                .padding(start = 8.dp),
+                .padding(start = 8.dp, end = 3.dp),
             text = text,
             style = DealiFont.b3r13,
             color = when {
