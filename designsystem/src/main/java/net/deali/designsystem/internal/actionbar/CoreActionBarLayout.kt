@@ -26,8 +26,7 @@ internal fun CoreActionBarLayout(
             modifier = Modifier
                 .fillMaxWidth()
                 .requiredHeight(56.dp)
-                .background(brush = backgroundBrush)
-                .padding(start = 16.dp, end = 20.dp),
+                .background(brush = backgroundBrush),
             horizontalArrangement = if (menuContent != null) {
                 Arrangement.spacedBy(20.dp)
             } else {
