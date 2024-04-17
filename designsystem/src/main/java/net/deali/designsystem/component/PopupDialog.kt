@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
@@ -34,6 +35,7 @@ import net.deali.designsystem.theme.DealiShape
 /**
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.
  */
+@Suppress("unused")
 class PopupDialog private constructor(
     context: Context,
     lifecycleOwner: LifecycleOwner,
@@ -191,7 +193,7 @@ class PopupDialog private constructor(
         private val lifecycleOwner: LifecycleOwner
         private val savedStateRegistryOwner: SavedStateRegistryOwner
         private var title: String = ""
-        private var message: String = ""
+        private var message: AnnotatedString = AnnotatedString("")
         private var buttonText: String = ""
         private var popupListener: SingleButtonPopupListener? = null
         private var isCancelable: Boolean = true
@@ -220,6 +222,14 @@ class PopupDialog private constructor(
          * 팝업의 본문 메세지 설정.
          */
         fun setMessage(message: String): SingleButtonPopupBuilder {
+            this.message = AnnotatedString(message)
+            return this
+        }
+
+        /**
+         * 팝업의 본문 메세지 설정.
+         */
+        fun setMessage(message: AnnotatedString): SingleButtonPopupBuilder {
             this.message = message
             return this
         }
@@ -272,7 +282,7 @@ class PopupDialog private constructor(
         private val lifecycleOwner: LifecycleOwner
         private val savedStateRegistryOwner: SavedStateRegistryOwner
         private var title: String = ""
-        private var message: String = ""
+        private var message: AnnotatedString = AnnotatedString("")
         private var leftButtonText: String = ""
         private var rightButtonText: String = ""
         private var popupListener: DoubleButtonPopupListener? = null
@@ -302,6 +312,14 @@ class PopupDialog private constructor(
          * 팝업의 본문 메세지 설정.
          */
         fun setMessage(message: String): DoubleButtonPopupBuilder {
+            this.message = AnnotatedString(message)
+            return this
+        }
+
+        /**
+         * 팝업의 본문 메세지 설정.
+         */
+        fun setMessage(message: AnnotatedString): DoubleButtonPopupBuilder {
             this.message = message
             return this
         }
@@ -353,11 +371,11 @@ class PopupDialog private constructor(
     }
 
     private sealed interface ContentStrategy {
-        data class OnlyMessage(val message: String) : ContentStrategy
+        data class OnlyMessage(val message: AnnotatedString) : ContentStrategy
 
         data class TitleAndMessage(
             val title: String,
-            val message: String,
+            val message: AnnotatedString,
         ) : ContentStrategy
     }
 

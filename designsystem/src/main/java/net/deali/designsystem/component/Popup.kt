@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -46,6 +47,41 @@ fun Popup(
     properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
+        title = title,
+        content = AnnotatedString(content),
+        leftButtonText = leftButtonText,
+        rightButtonText = rightButtonText,
+        onLeftButtonClick = onLeftButtonClick,
+        onRightButtonClick = onRightButtonClick,
+        onDismiss = onDismiss,
+        properties = properties,
+    )
+}
+
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param title 팝업 타이틀.
+ * @param content 팝업 문구.
+ * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
+ * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
+ * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
+@Composable
+fun Popup(
+    title: String,
+    content: AnnotatedString,
+    leftButtonText: String,
+    rightButtonText: String,
+    onLeftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    properties: DialogProperties = DialogProperties(),
+) {
+    ComposePopup(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
@@ -112,6 +148,38 @@ fun Popup(
     properties: DialogProperties = DialogProperties(),
 ) {
     Popup(
+        content = AnnotatedString(content),
+        leftButtonText = leftButtonText,
+        rightButtonText = rightButtonText,
+        onLeftButtonClick = onLeftButtonClick,
+        onRightButtonClick = onRightButtonClick,
+        onDismiss = onDismiss,
+        properties = properties,
+    )
+}
+
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param content 팝업 문구.
+ * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
+ * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
+ * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
+@Composable
+fun Popup(
+    content: AnnotatedString,
+    leftButtonText: String,
+    rightButtonText: String,
+    onLeftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    properties: DialogProperties = DialogProperties(),
+) {
+    ComposePopup(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
@@ -162,7 +230,36 @@ fun PopupSingleButton(
     onDismiss: () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
-    Popup(
+    PopupSingleButton(
+        title = title,
+        content = AnnotatedString(content),
+        buttonText = buttonText,
+        onButtonClick = onButtonClick,
+        onDismiss = onDismiss,
+        properties = properties,
+    )
+}
+
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param title 팝업 타이틀.
+ * @param content 팝업 문구.
+ * @param buttonText 팝업의 버튼 문구.
+ * @param onButtonClick 팝업의 버튼 클릭 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
+@Composable
+fun PopupSingleButton(
+    title: String,
+    content: AnnotatedString,
+    buttonText: String,
+    onButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    properties: DialogProperties = DialogProperties(),
+) {
+    ComposePopup(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
@@ -213,7 +310,33 @@ fun PopupSingleButton(
     onDismiss: () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
-    Popup(
+    PopupSingleButton(
+        content = AnnotatedString(content),
+        buttonText = buttonText,
+        onButtonClick = onButtonClick,
+        onDismiss = onDismiss,
+        properties = properties,
+    )
+}
+
+/**
+ * 신상마켓 디자인 시스템 팝업 컴포넌트.
+ *
+ * @param content 팝업 문구.
+ * @param buttonText 팝업의 버튼 문구.
+ * @param onButtonClick 팝업의 버튼 클릭 이벤트 콜백.
+ * @param onDismiss 버튼 외의 방법으로 팝업을 닫으려 할 때의 이벤트 콜백.
+ * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ */
+@Composable
+fun PopupSingleButton(
+    content: AnnotatedString,
+    buttonText: String,
+    onButtonClick: () -> Unit,
+    onDismiss: () -> Unit,
+    properties: DialogProperties = DialogProperties(),
+) {
+    ComposePopup(
         onDismissRequest = onDismiss,
         properties = properties
     ) {
@@ -235,7 +358,7 @@ fun PopupSingleButton(
 }
 
 @Composable
-private fun Popup(
+private fun ComposePopup(
     properties: DialogProperties = DialogProperties(),
     onDismissRequest: () -> Unit,
     content: @Composable ColumnScope.() -> Unit
