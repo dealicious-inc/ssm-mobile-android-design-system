@@ -9,15 +9,18 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
 import net.deali.designsystem.internal.tabbar.CoreScrollableTabBar
 import net.deali.designsystem.internal.tabbar.CoreTabBarLayout
@@ -32,7 +35,7 @@ import net.deali.designsystem.theme.DealiFont
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
  */
 @Composable
-fun TabBarFixed(
+fun tabBarSegment01(
     modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
@@ -57,7 +60,7 @@ fun TabBarFixed(
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
  */
 @Composable
-fun TabBarScrollablePrimary01(
+fun tabBarSlider01(
     modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
@@ -85,7 +88,7 @@ fun TabBarScrollablePrimary01(
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
  */
 @Composable
-fun TabBarScrollableG100(
+fun tabBarSlider02(
     modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
@@ -113,20 +116,20 @@ fun TabBarScrollableG100(
  * @param onSelectTab 탭 선택 시 콜백
  */
 @Composable
-fun TabBar2Depth(
+fun tabBarChip01(
     modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    state: LazyListState = rememberLazyListState(),
+    scope: CoroutineScope = rememberCoroutineScope(),
     onSelectTab: (index: Int) -> Unit,
 ) {
-    val lazyListState = rememberLazyListState()
-
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
             .background(DealiColor.primary04),
-        state = lazyListState,
+        state = state,
         contentPadding = PaddingValues(horizontal = 12.dp)
     ) {
         itemsIndexed(tabTitles) { index, title ->
@@ -135,7 +138,12 @@ fun TabBar2Depth(
                     .padding(horizontal = 4.dp, vertical = 12.dp),
                 text = title,
                 selected = index == currentIndex,
-                onClick = { onSelectTab(index) },
+                onClick = {
+                    scope.launch {
+                        onSelectTab(index)
+                        state.animateScrollToItem(index)
+                    }
+                },
             )
         }
     }
@@ -150,7 +158,8 @@ fun TabBar2Depth(
  *
  */
 @Composable
-fun TabBar3Depth(
+@Deprecated("디자인시스템에서 사라짐")
+fun tabBarSlider03(
     modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
@@ -180,7 +189,7 @@ fun TabBar3Depth(
  * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
  */
 @Composable
-fun TabBarLayoutFixed(
+fun tabBarSegment01Layout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
@@ -193,7 +202,7 @@ fun TabBarLayoutFixed(
         userSwipeEnabled = userSwipeEnabled,
         initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
-            TabBarFixed(
+            tabBarSegment01(
                 tabTitles = tabTitles,
                 currentIndex = currentIndex,
                 onSelectTab = onPageChange
@@ -213,7 +222,7 @@ fun TabBarLayoutFixed(
  * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
  */
 @Composable
-fun TabBarLayoutScrollableG100(
+fun tabBarSlider02Layout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
@@ -226,7 +235,7 @@ fun TabBarLayoutScrollableG100(
         userSwipeEnabled = userSwipeEnabled,
         initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
-            TabBarScrollableG100(
+            tabBarSlider02(
                 tabTitles = tabTitles,
                 currentIndex = currentIndex,
                 onSelectTab = onPageChange
@@ -246,7 +255,7 @@ fun TabBarLayoutScrollableG100(
  * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
  */
 @Composable
-fun TabBarLayoutScrollablePrimary01(
+fun tabBarSlider01Layout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
@@ -259,7 +268,7 @@ fun TabBarLayoutScrollablePrimary01(
         userSwipeEnabled = userSwipeEnabled,
         initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
-            TabBarScrollablePrimary01(
+            tabBarSlider01(
                 tabTitles = tabTitles,
                 currentIndex = currentIndex,
                 onSelectTab = onPageChange
@@ -280,7 +289,7 @@ fun TabBarLayoutScrollablePrimary01(
  * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
  */
 @Composable
-fun TabBarLayout2Depth(
+fun tabBarChip01Layout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
@@ -293,7 +302,7 @@ fun TabBarLayout2Depth(
         userSwipeEnabled = userSwipeEnabled,
         initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
-            TabBar2Depth(
+            tabBarChip01(
                 tabTitles = tabTitles,
                 currentIndex = currentIndex,
                 onSelectTab = onPageChange
@@ -313,7 +322,8 @@ fun TabBarLayout2Depth(
  * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
  */
 @Composable
-fun TabBarLayout3Depth(
+@Deprecated("디자인시스템에서 사라짐")
+fun tabBarSlider03Layout(
     tabTitles: List<String>,
     onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
@@ -326,7 +336,7 @@ fun TabBarLayout3Depth(
         userSwipeEnabled = userSwipeEnabled,
         initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
-            TabBar3Depth(
+            tabBarSlider03(
                 tabTitles = tabTitles,
                 currentIndex = currentIndex,
                 onSelectTab = onPageChange
@@ -338,8 +348,8 @@ fun TabBarLayout3Depth(
 
 @Preview
 @Composable
-private fun PreviewTabBarFixed() {
-    TabBarFixed(
+private fun PreviewTabBarSegment01() {
+    tabBarSegment01(
         tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
@@ -348,8 +358,8 @@ private fun PreviewTabBarFixed() {
 
 @Preview
 @Composable
-private fun PreviewTabBarPrimary01() {
-    TabBarScrollablePrimary01(
+private fun PreviewTabBarSlider01() {
+    tabBarSlider01(
         tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
@@ -358,8 +368,8 @@ private fun PreviewTabBarPrimary01() {
 
 @Preview
 @Composable
-private fun PreviewTabBarG100() {
-    TabBarScrollableG100(
+private fun PreviewTabBarSlider02() {
+    tabBarSlider02(
         tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
@@ -368,8 +378,8 @@ private fun PreviewTabBarG100() {
 
 @Preview
 @Composable
-private fun PreviewTabBar2Depth() {
-    TabBar2Depth(
+private fun PreviewTabBarChip01() {
+    tabBarChip01(
         tabTitles = listOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},
@@ -378,8 +388,8 @@ private fun PreviewTabBar2Depth() {
 
 @Preview
 @Composable
-private fun PreviewTabBar3Depth() {
-    TabBar3Depth(
+private fun PreviewTabBarSlider03() {
+    tabBarSlider03(
         tabTitles = listOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},
@@ -388,8 +398,8 @@ private fun PreviewTabBar3Depth() {
 
 @Preview
 @Composable
-private fun PreviewTabBarLayoutFixed() {
-    TabBarLayoutFixed(
+private fun PreviewTabBarSegment01Layout() {
+    tabBarSegment01Layout(
         tabTitles = listOf("고정0", "고정1", "고정2"),
         onSelectTab = {},
         userSwipeEnabled = true,
@@ -413,14 +423,14 @@ private fun PreviewTabBarLayoutFixed() {
 
 @Preview
 @Composable
-private fun PreviewTabBarLayout2Depth() {
-    TabBarLayoutFixed(
+private fun PreviewTabBarSegment01Layout2Depth() {
+    tabBarSegment01Layout(
         tabTitles = listOf("원뎁스0", "원뎁스1", "원뎁스2", "원뎁스3"),
         onSelectTab = {},
         userSwipeEnabled = true,
         pageContent = { page ->
 
-            TabBarLayout2Depth(
+            tabBarChip01Layout(
                 tabTitles = listOf("투뎁스0", "투뎁스1", "투뎁스2", "투뎁스3", "투뎁스4"),
                 onSelectTab = {},
                 userSwipeEnabled = true
@@ -437,46 +447,6 @@ private fun PreviewTabBarLayout2Depth() {
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100
                     )
-                }
-            }
-        }
-    )
-}
-
-@Preview
-@Composable
-private fun PreviewTabBarLayout3Depth() {
-    TabBarLayoutFixed(
-        tabTitles = listOf("원뎁스0", "원뎁스1", "원뎁스2", "원뎁스3"),
-        onSelectTab = {},
-        userSwipeEnabled = true,
-        pageContent = { page ->
-
-            TabBarLayout2Depth(
-                tabTitles = listOf("투뎁스0", "투뎁스1", "투뎁스2", "투뎁스3", "투뎁스4"),
-                onSelectTab = {},
-                initialPage = 1,
-                userSwipeEnabled = true
-            ) { subPage ->
-
-                TabBarLayout3Depth(
-                    tabTitles = listOf("쓰리뎁스0", "쓰리뎁스1", "쓰리뎁스2", "쓰리뎁스3", "쓰리뎁스4"),
-                    onSelectTab = {},
-                    userSwipeEnabled = true,
-                ) { subsubPage ->
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(100.dp)
-                            .background(DealiColor.primary03)
-                    ) {
-                        DealiText(
-                            modifier = Modifier.align(Alignment.Center),
-                            text = "${page} - $subPage - $subsubPage",
-                            style = DealiFont.h1sb32,
-                            color = DealiColor.g100
-                        )
-                    }
                 }
             }
         }

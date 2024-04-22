@@ -16,11 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.TabBarLayout2Depth
-import net.deali.designsystem.component.TabBarLayout3Depth
-import net.deali.designsystem.component.TabBarLayoutFixed
-import net.deali.designsystem.component.TabBarLayoutScrollableG100
-import net.deali.designsystem.component.TabBarLayoutScrollablePrimary01
+import net.deali.designsystem.component.tabBarChip01Layout
+import net.deali.designsystem.component.tabBarSlider03Layout
+import net.deali.designsystem.component.tabBarSegment01Layout
+import net.deali.designsystem.component.tabBarSlider02Layout
+import net.deali.designsystem.component.tabBarSlider01Layout
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -55,7 +55,7 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayoutFixed(
+            tabBarSegment01Layout(
                 tabTitles = titles,
                 onSelectTab = {},
                 userSwipeEnabled = false,
@@ -85,7 +85,7 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayoutScrollablePrimary01(
+            tabBarSlider01Layout(
                 tabTitles = titles,
                 onSelectTab = {},
                 userSwipeEnabled = true,
@@ -115,7 +115,7 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayoutScrollableG100(
+            tabBarSlider02Layout(
                 tabTitles = titles,
                 onSelectTab = {},
                 userSwipeEnabled = false,
@@ -146,13 +146,13 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayoutScrollableG100(
+            tabBarSlider02Layout(
                 tabTitles = titles,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
 
-                TabBarLayout2Depth(
+                tabBarChip01Layout(
                     tabTitles = subTitles,
                     onSelectTab = {},
                 ) { subPage ->
@@ -182,18 +182,18 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            TabBarLayoutScrollableG100(
+            tabBarSlider02Layout(
                 tabTitles = titles,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
 
-                TabBarLayout2Depth(
+                tabBarChip01Layout(
                     tabTitles = subTitles,
                     onSelectTab = {},
                 ) { subPage ->
 
-                    TabBarLayout3Depth(
+                    tabBarSlider03Layout(
                         tabTitles = subsubTitles,
                         onSelectTab = {}
                     ) { subsubPage ->
