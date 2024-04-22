@@ -16,6 +16,21 @@ import net.deali.designsystem.component.btnFilledTonalSmall02
 import net.deali.designsystem.component.btnFilledTonalSmall03
 import net.deali.designsystem.component.btnFilledTonalSmall04
 import net.deali.designsystem.component.btnFilledTonalSmall05
+import net.deali.designsystem.component.btnOutlineBgMedium01
+import net.deali.designsystem.component.btnOutlineBgMedium03
+import net.deali.designsystem.component.btnOutlineBgMedium04
+import net.deali.designsystem.component.btnOutlineBgMedium05
+import net.deali.designsystem.component.btnOutlineBgMedium06
+import net.deali.designsystem.component.btnOutlineBgSmall01
+import net.deali.designsystem.component.btnOutlineBgSmall03
+import net.deali.designsystem.component.btnOutlineBgSmall04
+import net.deali.designsystem.component.btnOutlineBgSmall05
+import net.deali.designsystem.component.btnOutlineBgSmall06
+import net.deali.designsystem.component.btnOutlineRoundBgSmall01
+import net.deali.designsystem.component.btnOutlineRoundBgSmall03
+import net.deali.designsystem.component.btnOutlineRoundBgSmall04
+import net.deali.designsystem.component.btnOutlineRoundBgSmall05
+import net.deali.designsystem.component.btnOutlineRoundBgSmall06
 import net.deali.designsystem.component.btnOutlineSmall01
 import net.deali.designsystem.component.btnOutlineSmall02
 import net.deali.designsystem.component.btnOutlineSmall03
@@ -30,12 +45,12 @@ import net.deali.designsystem.component.btnRoundFilledTonalSmall02
 import net.deali.designsystem.component.btnRoundFilledTonalSmall03
 import net.deali.designsystem.component.btnRoundFilledTonalSmall04
 import net.deali.designsystem.component.btnRoundFilledTonalSmall05
-import net.deali.designsystem.component.btnRoundOutlineSmall01
-import net.deali.designsystem.component.btnRoundOutlineSmall02
-import net.deali.designsystem.component.btnRoundOutlineSmall03
-import net.deali.designsystem.component.btnRoundOutlineSmall04
-import net.deali.designsystem.component.btnRoundOutlineSmall05
-import net.deali.designsystem.component.btnRoundOutlineSmall06
+import net.deali.designsystem.component.btnOutlineRoundSmall01
+import net.deali.designsystem.component.btnOutlineRoundSmall02
+import net.deali.designsystem.component.btnOutlineRoundSmall03
+import net.deali.designsystem.component.btnOutlineRoundSmall04
+import net.deali.designsystem.component.btnOutlineRoundSmall05
+import net.deali.designsystem.component.btnOutlineRoundSmall06
 import net.deali.designsystem.component.btnTextSmall01
 import net.deali.designsystem.component.btnTextSmall02
 import net.deali.designsystem.component.btnTextSmall03
@@ -123,22 +138,54 @@ fun SmallButtonSamples(
             BtnOutlineSmall06Samples()
         }
         item {
-            BtnRoundOutlineSmall01Samples()
+            BtnOutlineRoundSmall01Samples()
         }
         item {
-            BtnRoundOutlineSmall02Samples()
+            BtnOutlineRoundSmall02Samples()
         }
         item {
-            BtnRoundOutlineSmall03Samples()
+            BtnOutlineRoundSmall03Samples()
         }
         item {
-            BtnRoundOutlineSmall04Samples()
+            BtnOutlineRoundSmall04Samples()
         }
         item {
-            BtnRoundOutlineSmall05Samples()
+            BtnOutlineRoundSmall05Samples()
         }
         item {
-            BtnRoundOutlineSmall06Samples()
+            BtnOutlineRoundSmall06Samples()
+        }
+
+        item {
+            BtnOutlineBgSmall01Samples()
+        }
+        item {
+            BtnOutlineBgSmall03Samples()
+        }
+        item {
+            BtnOutlineBgSmall04Samples()
+        }
+        item {
+            BtnOutlineBgSmall05Samples()
+        }
+        item {
+            BtnOutlineBgSmall06Samples()
+        }
+
+        item {
+            BtnOutlineRoundBgSmall01Samples()
+        }
+        item {
+            BtnOutlineRoundBgSmall03Samples()
+        }
+        item {
+            BtnOutlineRoundBgSmall04Samples()
+        }
+        item {
+            BtnOutlineRoundBgSmall05Samples()
+        }
+        item {
+            BtnOutlineRoundBgSmall06Samples()
         }
 
         item {
@@ -698,9 +745,9 @@ private fun BtnOutlineSmall06Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall01Samples() {
+private fun BtnOutlineRoundSmall01Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall01",
+        title = "btnOutlineRoundSmall01",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -708,7 +755,7 @@ private fun BtnRoundOutlineSmall01Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall01(
+                btnOutlineRoundSmall01(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -722,9 +769,9 @@ private fun BtnRoundOutlineSmall01Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall02Samples() {
+private fun BtnOutlineRoundSmall02Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall02",
+        title = "btnOutlineRoundSmall02",
         dark = true,
     ) {
         for (i in 0 until 3) {
@@ -732,7 +779,7 @@ private fun BtnRoundOutlineSmall02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall02(
+                btnOutlineRoundSmall02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -746,9 +793,9 @@ private fun BtnRoundOutlineSmall02Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall03Samples() {
+private fun BtnOutlineRoundSmall03Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall03",
+        title = "btnOutlineRoundSmall03",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -756,7 +803,7 @@ private fun BtnRoundOutlineSmall03Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall03(
+                btnOutlineRoundSmall03(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -770,9 +817,9 @@ private fun BtnRoundOutlineSmall03Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall04Samples() {
+private fun BtnOutlineRoundSmall04Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall04",
+        title = "btnOutlineRoundSmall04",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -780,7 +827,7 @@ private fun BtnRoundOutlineSmall04Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall04(
+                btnOutlineRoundSmall04(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -794,9 +841,9 @@ private fun BtnRoundOutlineSmall04Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall05Samples() {
+private fun BtnOutlineRoundSmall05Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall05",
+        title = "btnOutlineRoundSmall05",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -804,7 +851,7 @@ private fun BtnRoundOutlineSmall05Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall05(
+                btnOutlineRoundSmall05(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -818,9 +865,9 @@ private fun BtnRoundOutlineSmall05Samples() {
 }
 
 @Composable
-private fun BtnRoundOutlineSmall06Samples() {
+private fun BtnOutlineRoundSmall06Samples() {
     ButtonSampleLayout(
-        title = "btnRoundOutlineSmall06",
+        title = "btnOutlineRoundSmall06",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -828,7 +875,257 @@ private fun BtnRoundOutlineSmall06Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundOutlineSmall06(
+                btnOutlineRoundSmall06(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgSmall01Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgSmall01",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgSmall01(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgSmall03Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgSmall03",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgSmall03(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgSmall04Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgSmall04",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgSmall04(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgSmall05Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgSmall05",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgSmall05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgSmall06Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgSmall06",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgSmall06(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineRoundBgSmall01Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineRoundBgSmall01",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineRoundBgSmall01(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineRoundBgSmall03Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineRoundBgSmall03",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineRoundBgSmall03(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineRoundBgSmall04Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineRoundBgSmall04",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineRoundBgSmall04(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineRoundBgSmall05Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineRoundBgSmall05",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineRoundBgSmall05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineRoundBgSmall06Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineRoundBgSmall06",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineRoundBgSmall06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

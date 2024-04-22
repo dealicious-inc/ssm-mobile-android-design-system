@@ -11,14 +11,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import net.deali.designsystem.R
-import net.deali.designsystem.component.btnFilledMedium02
 import net.deali.designsystem.component.btnFilledMedium01
+import net.deali.designsystem.component.btnFilledMedium02
 import net.deali.designsystem.component.btnFilledMedium03
 import net.deali.designsystem.component.btnFilledTonalMedium01
 import net.deali.designsystem.component.btnFilledTonalMedium02
 import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.component.btnFilledTonalMedium04
 import net.deali.designsystem.component.btnFilledTonalMedium05
+import net.deali.designsystem.component.btnOutlineBgMedium01
+import net.deali.designsystem.component.btnOutlineBgMedium03
+import net.deali.designsystem.component.btnOutlineBgMedium04
+import net.deali.designsystem.component.btnOutlineBgMedium05
+import net.deali.designsystem.component.btnOutlineBgMedium06
 import net.deali.designsystem.component.btnOutlineMedium01
 import net.deali.designsystem.component.btnOutlineMedium02
 import net.deali.designsystem.component.btnOutlineMedium03
@@ -86,6 +91,22 @@ fun MediumButtonSamples(
         }
         item {
             BtnOutlineMedium06Samples()
+        }
+
+        item {
+            BtnOutlineBgMedium01Samples()
+        }
+        item {
+            BtnOutlineBgMedium03Samples()
+        }
+        item {
+            BtnOutlineBgMedium04Samples()
+        }
+        item {
+            BtnOutlineBgMedium05Samples()
+        }
+        item {
+            BtnOutlineBgMedium06Samples()
         }
 
         item {
@@ -452,6 +473,131 @@ private fun BtnOutlineMedium06Samples() {
                             isEnabled = enabled
                         }
                     }
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgMedium01Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgMedium01",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgMedium01(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgMedium03Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgMedium03",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgMedium03(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgMedium04Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgMedium04",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgMedium04(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgMedium05Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgMedium05",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgMedium05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnOutlineBgMedium06Samples() {
+    ButtonSampleLayout(
+        title = "btnOutlineBgMedium06",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnOutlineBgMedium06(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
                 )
             }
         }

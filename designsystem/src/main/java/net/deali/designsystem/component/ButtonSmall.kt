@@ -777,7 +777,7 @@ fun btnOutlineSmall06(
 }
 
 @Composable
-fun btnRoundOutlineSmall01(
+fun btnOutlineRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -812,9 +812,9 @@ fun btnRoundOutlineSmall01(
     )
 }
 
-/** 구 btnRoundOutlineSmallPrimary02 */
+/** 구 btnOutlineRoundSmallPrimary02 */
 @Composable
-fun btnRoundOutlineSmall02(
+fun btnOutlineRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -849,9 +849,9 @@ fun btnRoundOutlineSmall02(
     )
 }
 
-/** 구 btnRoundOutlineSmallSecondary01 */
+/** 구 btnOutlineRoundSmallSecondary01 */
 @Composable
-fun btnRoundOutlineSmall03(
+fun btnOutlineRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -886,9 +886,9 @@ fun btnRoundOutlineSmall03(
     )
 }
 
-/** 구 btnRoundOutlineSmallSecondary02 */
+/** 구 btnOutlineRoundSmallSecondary02 */
 @Composable
-fun btnRoundOutlineSmall04(
+fun btnOutlineRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -923,9 +923,9 @@ fun btnRoundOutlineSmall04(
     )
 }
 
-/** 구 btnRoundOutlineSmallSecondary03 */
+/** 구 btnOutlineRoundSmallSecondary03 */
 @Composable
-fun btnRoundOutlineSmall05(
+fun btnOutlineRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -960,9 +960,9 @@ fun btnRoundOutlineSmall05(
     )
 }
 
-/** 구 btnRoundOutlineSmallSecondary04 */
+/** 구 btnOutlineRoundSmallSecondary04 */
 @Composable
-fun btnRoundOutlineSmall06(
+fun btnOutlineRoundSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -986,6 +986,361 @@ fun btnRoundOutlineSmall06(
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
+            outlineColor = DealiColor.g30,
+            disabledOutlineColor = DealiColor.g20,
+            contentColor = DealiColor.g80,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineBgSmall01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.primary01,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.primary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineBgSmall03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.secondary01,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineBgSmall04(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.g100,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineBgSmall05(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.g30,
+            disabledOutlineColor = DealiColor.g20,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineBgSmall06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.g30,
+            disabledOutlineColor = DealiColor.g20,
+            contentColor = DealiColor.g80,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineRoundBgSmall01(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.primary01,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.primary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineRoundBgSmall03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.secondary01,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.secondary01,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineRoundBgSmall04(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.g100,
+            disabledOutlineColor = DealiColor.g30,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineRoundBgSmall05(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            outlineColor = DealiColor.g30,
+            disabledOutlineColor = DealiColor.g20,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnOutlineRoundBgSmall06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Outline,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
             outlineColor = DealiColor.g30,
             disabledOutlineColor = DealiColor.g20,
             contentColor = DealiColor.g80,
