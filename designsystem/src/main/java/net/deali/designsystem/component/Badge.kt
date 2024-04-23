@@ -23,6 +23,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -30,14 +31,17 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
- * Composable 우측 상단에 점 형태의 뱃지 표현.
+ * Composable 우측 상단에 원형점 형태의 뱃지 표현.
  *
+ * @param badgeRadius 원형점의 반지름.
  * @param offset 뱃지의 위치를 조정할 수 있는 offset.
  */
 @Stable
-fun Modifier.badge(offset: DpOffset = DpOffset.Zero): Modifier = this.drawWithCache {
+fun Modifier.badge(
+    badgeRadius: Dp,
+    offset: DpOffset = DpOffset.Zero
+): Modifier = this.drawWithCache {
     val badgeColor = DealiColor.primary01
-    val badgeRadius = 2.dp.toPx()
     val badgeCenter = Offset(x = size.width, y = 0f)
     val badgeOffset = Offset(
         x = offset.x.toPx(),
@@ -48,7 +52,7 @@ fun Modifier.badge(offset: DpOffset = DpOffset.Zero): Modifier = this.drawWithCa
         drawContent()
         drawCircle(
             color = badgeColor,
-            radius = badgeRadius,
+            radius = badgeRadius.toPx(),
             center = Offset(
                 x = badgeCenter.x + badgeOffset.x,
                 y = badgeCenter.y + badgeOffset.y
@@ -148,7 +152,7 @@ private fun Preview() {
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge()
+                    .badge(badgeRadius = 2.dp)
             )
             Box(
                 modifier = Modifier
@@ -175,7 +179,10 @@ private fun Preview() {
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(offset = DpOffset(x = 0.dp, y = 5.dp))
+                    .badge(
+                        badgeRadius = 2.dp,
+                        offset = DpOffset(x = 0.dp, y = 5.dp)
+                    )
             )
             Box(
                 modifier = Modifier
