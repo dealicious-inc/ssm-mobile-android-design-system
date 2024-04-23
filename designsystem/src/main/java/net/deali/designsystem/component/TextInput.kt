@@ -25,6 +25,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
  * @param textStyle [TextInput]에 입력 된 텍스트의 스타일.
  * @param placeholder [value]가 비어 있을 때 표시 할 힌트 문구.
  * @param label [TextInput] 상단에 표시 할 라벨.
+ * @param isNecessary [TextInput] 상단에 표시 할 라벨 옆 원형점의 필수 표시.
  * @param helperText [TextInput] 하단에 표시 할 도움말 문구 또는 에러 메세지.
  * @param isHelperTextVisible [helperText]의 표시 상태.
  * @param enabled [TextInput]의 입력 가능 상태.
@@ -34,9 +35,12 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
  * @param keyboardActions 키보드 관련 동작을 재정의 할 수 있는 [KeyboardActions].
  * @param visualTransformation UI에 보이는 포맷을 변경해주는 [VisualTransformation].
  * @param interactionSource 인터렉션을 커스터마이즈 하거나 인터렉션 상태를 사용하기 위한 [MutableInteractionSource].
+ * @param labelContent [TextInput] 상단에 표시 할 라벨 옆 컨텐츠 슬롯.
  * @param trailingContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯. [TextInput]은 기본적으로 [value]가
  * 1자 이상 있으면서 포커스 상태이며 에러가 아닌 경우 [trailingContent]에 전체 삭제 아이콘을 표시하는 동작을 내장하고 있습니다.
  * 그 외의 [trailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
+ * @param fixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
+ * 포커스와 관계없이 작동합니다.
  */
 @Composable
 fun TextInput(
@@ -46,6 +50,7 @@ fun TextInput(
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     placeholder: String? = null,
     label: String? = null,
+    isNecessary: Boolean = false,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     enabled: Boolean = true,
@@ -55,7 +60,9 @@ fun TextInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    labelContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
+    fixedContent: @Composable (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -82,8 +89,10 @@ fun TextInput(
         interactionSource = interactionSource,
         placeholder = placeholder,
         label = label,
+        isNecessary = isNecessary,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
+        labelContent = labelContent,
         trailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
@@ -91,6 +100,7 @@ fun TextInput(
         } else {
             trailingContent
         },
+        fixedContent = fixedContent,
     )
 }
 
@@ -134,6 +144,7 @@ fun TextInput(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     trailingContent: @Composable (() -> Unit)? = null,
+    fixedContent: @Composable (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -169,5 +180,6 @@ fun TextInput(
         } else {
             trailingContent
         },
+        fixedContent = fixedContent,
     )
 }

@@ -3,6 +3,7 @@ package net.deali.designsystem.internal.textfield
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -15,7 +16,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -25,6 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 @Composable
@@ -39,17 +44,20 @@ internal fun DealiTextFieldDecorationBox(
     placeholderMaxLines: Int,
     placeholderOverflow: TextOverflow,
     label: String?,
+    isNecessary: Boolean,
     helperText: String?,
     isHelperTextVisible: Boolean,
     innerTextFieldMinHeight: Dp,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
+    labelContent: @Composable (() -> Unit)?,
     buttonContent: @Composable (() -> Unit)?,
     leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
+    fixedContent: @Composable (() -> Unit)?,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
-    val isLabelVisible = !label.isNullOrEmpty()
+    val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
     val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
     val columnSpacing = 4.dp
 
@@ -63,11 +71,31 @@ internal fun DealiTextFieldDecorationBox(
             exit = shrinkVertically(shrinkTowards = Alignment.Top)
         ) {
             Column {
-                LabelText(
-                    modifier = Modifier.fillMaxWidth(),
-                    label = label,
-                    colors = colors,
-                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    LabelText(
+                        label = label,
+                        colors = colors,
+                    )
+
+                    if (isNecessary) {
+                        Canvas(
+                            modifier = Modifier
+                                .size(5.dp)
+                                .align(Alignment.Top)
+                                .offset(y = 4.dp)
+                        ) {
+                            drawCircle(color = DealiColor.primary01)
+                        }
+                    }
+
+                    labelContent?.invoke()
+                }
+
                 Spacer(modifier = Modifier.height(columnSpacing))
             }
         }
@@ -94,6 +122,7 @@ internal fun DealiTextFieldDecorationBox(
                 innerTextField = innerTextField,
                 leadingContent = leadingContent,
                 trailingContent = trailingContent,
+                fixedContent = fixedContent,
             )
 
             if (buttonContent != null) {
@@ -126,6 +155,7 @@ private fun LabelText(
     modifier: Modifier = Modifier
 ) {
     val textColor by colors.labelTextColor()
+
     DealiText(
         modifier = modifier,
         text = label ?: "",
@@ -189,6 +219,7 @@ private fun InnerTextField(
     innerTextField: @Composable () -> Unit,
     leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
+    fixedContent: @Composable (() -> Unit)?,
 ) {
     val backgroundColor by colors.backgroundColor(enabled)
     val outlineColor by colors.outlineColor(enabled, focused, isError)
@@ -221,6 +252,7 @@ private fun InnerTextField(
         horizontalArrangement = when {
             leadingContent != null -> Arrangement.spacedBy(8.dp)
             trailingContent != null -> Arrangement.spacedBy(16.dp)
+            fixedContent != null -> Arrangement.spacedBy(16.dp)
             else -> Arrangement.Start
         },
         verticalAlignment = Alignment.CenterVertically
@@ -238,8 +270,14 @@ private fun InnerTextField(
             )
             innerTextField()
         }
-        if (trailingContent != null) {
-            trailingContent()
+        if (trailingContent != null || fixedContent != null) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                trailingContent?.invoke()
+                fixedContent?.invoke()
+            }
         }
     }
 }

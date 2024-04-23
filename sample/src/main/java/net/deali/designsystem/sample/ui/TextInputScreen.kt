@@ -43,10 +43,12 @@ fun InputScreen(onBackPress: () -> Unit) {
         var isError by remember { mutableStateOf(false) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
-        var isLabelVisible by remember { mutableStateOf(true) }
+        var isNecessary by remember { mutableStateOf(true) }
         var label by remember { mutableStateOf("") }
         var isHelperTextVisible by remember { mutableStateOf(false) }
         var helperText by remember { mutableStateOf("") }
+        var fixedContent by remember { mutableStateOf("") }
+        var labelContent by remember { mutableStateOf("") }
         var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
 
         Column(
@@ -59,12 +61,31 @@ fun InputScreen(onBackPress: () -> Unit) {
                 value = text,
                 onValueChange = { text = it },
                 placeholder = if (isPlaceholderVisible) placeholder else null,
-                label = if (isLabelVisible) label else null,
+                label = label,
+                isNecessary = isNecessary,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
                 enabled = enabled,
                 isError = isError,
                 visualTransformation = visualTransformation,
+                labelContent = if (labelContent.isNotEmpty()) {
+                    {
+                        DealiText(
+                            text = labelContent,
+                            style = DealiFont.b4r12,
+                            color = DealiColor.primary01
+                        )
+                    }
+                } else null,
+                fixedContent = if (fixedContent.isNotEmpty()) {
+                    {
+                        DealiText(
+                            text = fixedContent,
+                            style = DealiFont.b4r12,
+                            color = DealiColor.primary01
+                        )
+                    }
+                } else null,
             )
 
             SampleDivider()
@@ -99,14 +120,23 @@ fun InputScreen(onBackPress: () -> Unit) {
                     onSelectedChange = { isPlaceholderVisible = it }
                 )
                 ToggleOption(
-                    title = "Label\nVisible",
-                    selected = isLabelVisible,
-                    onSelectedChange = { isLabelVisible = it }
-                )
-                ToggleOption(
                     title = "Helper Text\nVisible",
                     selected = isHelperTextVisible,
                     onSelectedChange = { isHelperTextVisible = it }
+                )
+            }
+
+            SampleDivider()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ToggleOption(
+                    title = "Necessary\n",
+                    selected = isNecessary,
+                    onSelectedChange = { isNecessary = it }
                 )
             }
 
@@ -170,10 +200,22 @@ fun InputScreen(onBackPress: () -> Unit) {
                 placeholder = "Label을 수정해 보세요.",
             )
             InputOption(
+                title = "Label Content",
+                value = labelContent,
+                onValueChange = { labelContent = it },
+                placeholder = "Label Content를 수정해 보세요.",
+            )
+            InputOption(
                 title = "Helper Text",
                 value = helperText,
                 onValueChange = { helperText = it },
                 placeholder = "Helper Text를 수정해 보세요.",
+            )
+            InputOption(
+                title = "Fixed Content",
+                value = fixedContent,
+                onValueChange = { fixedContent = it },
+                placeholder = "Fixed Content를 수정해 보세요.",
             )
         }
     }

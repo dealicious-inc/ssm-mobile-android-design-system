@@ -40,12 +40,15 @@ internal fun CoreDealiTextField(
     placeholder: String? = null,
     placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
+    isNecessary: Boolean = false,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
+    labelContent: @Composable (() -> Unit)? = null,
     buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
+    fixedContent: @Composable (() -> Unit)? = null,
 ) {
     // String을 사용 하는 BasicDealiTextField를 TextFieldValue를 사용하는 BasicDealiTextField로 만들기 위한 코드
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
@@ -90,12 +93,15 @@ internal fun CoreDealiTextField(
         placeholder = placeholder,
         placeholderOverflow = placeholderOverflow,
         label = label,
+        isNecessary = isNecessary,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         innerTextFieldMinHeight = innerTextFieldMinHeight,
+        labelContent = labelContent,
         buttonContent = buttonContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
+        fixedContent = fixedContent,
     )
 }
 
@@ -119,12 +125,15 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     placeholder: String? = null,
     placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
+    isNecessary: Boolean = false,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
+    labelContent: @Composable (() -> Unit)? = null,
     buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
+    fixedContent: @Composable (() -> Unit)? = null,
 ) {
     val isValueEmpty by rememberUpdatedState(newValue = value.text.isEmpty())
 
@@ -170,13 +179,16 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 placeholderMaxLines = if (singleLine) 1 else maxLines,
                 placeholderOverflow = placeholderOverflow,
                 label = label,
+                isNecessary = isNecessary,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
                 innerTextFieldMinHeight = innerTextFieldMinHeight,
                 innerTextField = innerTextField,
+                labelContent = labelContent,
                 buttonContent = buttonContent,
                 leadingContent = leadingContent,
                 trailingContent = trailingContent,
+                fixedContent = fixedContent,
             )
         }
     )

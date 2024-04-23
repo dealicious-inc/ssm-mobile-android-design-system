@@ -68,8 +68,8 @@ internal object DealiTextFieldDefaults {
         Icon16(
             modifier = modifier,
             onClick = onClick,
-            iconRes = R.drawable.ic_x,
-            color = DealiColor.primary05,
+            iconRes = R.drawable.ic_x_circle_filled,
+            color = DealiColor.g50,
         )
     }
 
