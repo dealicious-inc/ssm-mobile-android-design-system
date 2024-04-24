@@ -19,19 +19,25 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.constraintlayout.compose.ChainStyle
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 internal fun DealiTextFieldDecorationBox(
     enabled: Boolean,
@@ -71,29 +77,58 @@ internal fun DealiTextFieldDecorationBox(
             exit = shrinkVertically(shrinkTowards = Alignment.Top)
         ) {
             Column {
-                Row(
+                ConstraintLayout(
                     modifier = Modifier
                         .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(4.dp),
-                    verticalAlignment = Alignment.CenterVertically,
                 ) {
+                    val (labelRef, labelContentRef) = createRefs()
+                    createHorizontalChain(labelRef, labelContentRef, chainStyle = ChainStyle.Packed(0f))
+
                     LabelText(
+                        modifier = Modifier
+                            .constrainAs(labelRef) {
+                                start.linkTo(parent.start)
+                                end.linkTo(labelContentRef.start)
+                                width = Dimension.preferredWrapContent
+                                centerVerticallyTo(parent)
+                            },
                         label = label,
                         colors = colors,
                     )
 
-                    if (isNecessary) {
-                        Canvas(
-                            modifier = Modifier
-                                .size(5.dp)
-                                .align(Alignment.Top)
-                                .offset(y = 4.dp)
-                        ) {
-                            drawCircle(color = DealiColor.primary01)
-                        }
+                    val textMeasurer = rememberTextMeasurer()
+                    val oneLineTextHeight = with(LocalDensity.current) {
+                        textMeasurer.measure(
+                            text = "A",
+                            style = DealiFont.b2r14
+                        ).size.height.toDp()
                     }
 
-                    labelContent?.invoke()
+                    Row(
+                        modifier = Modifier
+                            .constrainAs(labelContentRef) {
+                                start.linkTo(labelRef.end)
+                                end.linkTo(parent.end)
+                                top.linkTo(parent.top)
+                            }
+                            .height(oneLineTextHeight)
+                            .padding(horizontal = 4.dp),
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (isNecessary) {
+                            Canvas(
+                                modifier = Modifier
+                                    .size(5.dp)
+                                    .align(Alignment.Top)
+                                    .offset(y = 4.dp)
+                            ) {
+                                drawCircle(color = DealiColor.primary01)
+                            }
+                        }
+
+                        labelContent?.invoke()
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(columnSpacing))
