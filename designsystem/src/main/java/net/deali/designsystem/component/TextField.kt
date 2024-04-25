@@ -13,6 +13,7 @@ import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 
+@Deprecated("DealiTextArea로 변경해주세요.")
 @Composable
 fun DealiTextField(
     value: String,
@@ -55,6 +56,7 @@ fun DealiTextField(
     )
 }
 
+@Deprecated("DealiTextArea로 변경해주세요.")
 @Composable
 fun DealiTextField(
     value: TextFieldValue,

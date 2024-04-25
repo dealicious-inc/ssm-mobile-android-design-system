@@ -19,18 +19,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.DealiTextField
+import net.deali.designsystem.component.DealiTextAreaFlexible
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 @Composable
-fun TextFieldScreen(onBackPress: () -> Unit) {
+fun TextAreaFlexibleScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
             ActionBar(
-                title = "TextField",
+                title = "TextAreaFlexible",
                 onBack = onBackPress,
             )
         }
@@ -40,9 +40,10 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
         var isError by remember { mutableStateOf(false) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
-        var isLabelVisible by remember { mutableStateOf(true) }
         var label by remember { mutableStateOf("") }
+        var isNecessary by remember { mutableStateOf(true) }
         var isHelperTextVisible by remember { mutableStateOf(false) }
+        var isCounterTextVisible by remember { mutableStateOf(false) }
         var helperText by remember { mutableStateOf("") }
 
         Column(
@@ -51,16 +52,18 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            DealiTextField(
+            DealiTextAreaFlexible(
                 value = text,
                 onValueChange = { text = it },
                 enabled = enabled,
                 isError = isError,
-                minLines = 4,
+                maxLines = 4,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
-                label = if (isLabelVisible) label else null,
+                label = label,
+                isNecessary = isNecessary,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
+                isCounterTextVisible = isCounterTextVisible,
             )
 
             SampleDivider()
@@ -100,15 +103,47 @@ fun TextFieldScreen(onBackPress: () -> Unit) {
                         selected = isPlaceholderVisible,
                         onSelectedChange = { isPlaceholderVisible = it }
                     )
-                    ToggleOption(
-                        title = "Label",
-                        selected = isLabelVisible,
-                        onSelectedChange = { isLabelVisible = it }
-                    )
+                }
+            }
+
+            SampleDivider()
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                ToggleOption(
+                    title = "Necessary\n",
+                    selected = isNecessary,
+                    onSelectedChange = { isNecessary = it }
+                )
+            }
+
+            SampleDivider()
+
+            Column {
+                DealiText(
+                    text = "Visible 옵션",
+                    style = DealiFont.b4r12,
+                    color = DealiColor.g100,
+                )
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
                     ToggleOption(
                         title = "Helper Text",
                         selected = isHelperTextVisible,
                         onSelectedChange = { isHelperTextVisible = it }
+                    )
+
+                    ToggleOption(
+                        title = "Counter Text",
+                        selected = isCounterTextVisible,
+                        onSelectedChange = { isCounterTextVisible = it }
                     )
                 }
             }
@@ -187,5 +222,5 @@ private fun InputOption(
 @Composable
 @Preview(showBackground = true)
 private fun InputScreenPreview() {
-    TextFieldScreen(onBackPress = {})
+    TextAreaFlexibleScreen(onBackPress = {})
 }

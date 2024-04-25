@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -52,7 +53,10 @@ internal fun DealiTextFieldDecorationBox(
     label: String?,
     isNecessary: Boolean,
     helperText: String?,
+    textLength: Int,
+    maxLength: Int,
     isHelperTextVisible: Boolean,
+    isCounterTextVisible: Boolean,
     innerTextFieldMinHeight: Dp,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
@@ -64,6 +68,7 @@ internal fun DealiTextFieldDecorationBox(
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
+    val isBottomLabelVisible = (!helperText.isNullOrEmpty() && isHelperTextVisible) || isCounterTextVisible
     val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
     val columnSpacing = 4.dp
 
@@ -166,18 +171,39 @@ internal fun DealiTextFieldDecorationBox(
         }
 
         AnimatedVisibility(
-            visible = isHelperTextVisible && !helperText.isNullOrEmpty(),
+            visible = isBottomLabelVisible,
             enter = expandVertically(),
             exit = shrinkVertically(),
         ) {
             Column {
                 Spacer(modifier = Modifier.height(columnSpacing))
-                HelperText(
-                    modifier = Modifier.fillMaxWidth(),
-                    helperText = helperText,
-                    isError = isError,
-                    colors = colors,
-                )
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    if (isHelperTextVisible) {
+                        HelperText(
+                            modifier = Modifier.weight(1f),
+                            helperText = helperText,
+                            isError = isError,
+                            colors = colors,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    if (isCounterTextVisible) {
+                        CounterText(
+                            textLength = textLength,
+                            maxLength = maxLength,
+                            colors = colors,
+                        )
+                    }
+                }
             }
         }
     }
@@ -230,11 +256,28 @@ private fun HelperText(
 ) {
     val textColor by colors.helperTextColor(isError)
     DealiText(
-        modifier = modifier.padding(horizontal = 4.dp),
+        modifier = modifier,
         text = helperText ?: "",
         style = DealiFont.b4r12,
         color = textColor,
         overflow = TextOverflow.Clip,
+    )
+}
+
+@Composable
+private fun CounterText(
+    textLength: Int,
+    maxLength: Int,
+    colors: DealiTextFieldColors,
+    modifier: Modifier = Modifier
+) {
+    val textColor by colors.helperTextColor(false)
+
+    DealiText(
+        modifier = modifier,
+        text = "$textLength/$maxLength",
+        style = DealiFont.b4r12,
+        color = textColor
     )
 }
 
