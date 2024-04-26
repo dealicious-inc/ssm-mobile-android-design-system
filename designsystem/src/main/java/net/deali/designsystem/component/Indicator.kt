@@ -206,6 +206,45 @@ fun IndicatorPagination(
 }
 
 @Composable
+fun Indicator(
+    currentPage: Int,
+    totalPage: Int,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .background(
+                color = DealiColor.b40,
+                shape = RoundedCornerShape(14.dp)
+            )
+            .padding(
+                horizontal = 8.dp,
+                vertical = 4.dp
+            ),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        DealiText(
+            text = currentPage.toString(),
+            style = DealiFont.b3sb13,
+            color = DealiColor.primary04
+        )
+
+        DealiText(
+            text = "/",
+            style = DealiFont.b3r13,
+            color = DealiColor.w50
+        )
+
+        DealiText(
+            text = totalPage.toString(),
+            style = DealiFont.b3r13,
+            color = DealiColor.w50
+        )
+    }
+}
+
+@Composable
 fun rememberPageDataState(
     initialPageCount: Int = 0,
     initialMaxCount: Int = Int.MAX_VALUE,
@@ -294,5 +333,17 @@ private fun IndicatorPaginationPreview() {
         modifier = Modifier
             .padding(10.dp),
         pageCount = 5
+    )
+}
+
+
+@Composable
+@Preview(showBackground = true, backgroundColor = 0XBEC5D2)
+private fun IndicatorPaginationPreview2() {
+    Indicator(
+        modifier = Modifier
+            .padding(10.dp),
+        currentPage = 1,
+        totalPage = 4,
     )
 }
