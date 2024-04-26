@@ -1,6 +1,8 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
@@ -9,12 +11,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
 
 @Composable
-fun DealiTextAreaFlexible(
+fun textAreaFlexible(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -60,7 +63,7 @@ fun DealiTextAreaFlexible(
 }
 
 @Composable
-fun DealiTextAreaFlexible(
+fun textAreaFlexible(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
@@ -106,7 +109,7 @@ fun DealiTextAreaFlexible(
 }
 
 @Composable
-fun DealiTextAreaFixed(
+fun textAreaFixed(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -114,7 +117,7 @@ fun DealiTextAreaFixed(
     enabled: Boolean = true,
     isError: Boolean = false,
     minLines: Int = 4,
-    maxLines: Int = 4,
+    maxLines: Int = Int.MAX_VALUE,
     maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -148,11 +151,12 @@ fun DealiTextAreaFixed(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         isCounterTextVisible = isCounterTextVisible,
+        innerTextFieldMinHeight = 106.dp,
     )
 }
 
 @Composable
-fun DealiTextAreaFixed(
+fun textAreaFixed(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
@@ -160,7 +164,7 @@ fun DealiTextAreaFixed(
     enabled: Boolean = true,
     isError: Boolean = false,
     minLines: Int = 4,
-    maxLines: Int = 4,
+    maxLines: Int = Int.MAX_VALUE,
     maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -194,5 +198,6 @@ fun DealiTextAreaFixed(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         isCounterTextVisible = isCounterTextVisible,
+        innerTextFieldMinHeight = 106.dp,
     )
 }

@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.DealiTextAreaFlexible
+import net.deali.designsystem.component.textAreaFlexible
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.theme.DealiColor
@@ -52,7 +52,7 @@ fun TextAreaFlexibleScreen(onBackPress: () -> Unit) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            DealiTextAreaFlexible(
+            textAreaFlexible(
                 value = text,
                 onValueChange = { text = it },
                 enabled = enabled,

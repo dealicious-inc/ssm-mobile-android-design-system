@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -58,6 +59,7 @@ internal fun DealiTextFieldDecorationBox(
     isHelperTextVisible: Boolean,
     isCounterTextVisible: Boolean,
     innerTextFieldMinHeight: Dp,
+    innerTextFieldMaxHeight: Dp,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     labelContent: @Composable (() -> Unit)?,
@@ -157,7 +159,10 @@ internal fun DealiTextFieldDecorationBox(
                 singleLine = singleLine,
                 modifier = Modifier
                     .weight(1f)
-                    .defaultMinSize(minHeight = innerTextFieldMinHeight)
+                    .heightIn(
+                        min = innerTextFieldMinHeight,
+                        max = innerTextFieldMaxHeight
+                    )
                     .zIndex(1f),
                 innerTextField = innerTextField,
                 leadingContent = leadingContent,
