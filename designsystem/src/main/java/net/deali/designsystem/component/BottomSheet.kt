@@ -36,7 +36,7 @@ fun BottomSheet(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
-        modifier = modifier.padding(top = 8.dp),
+        modifier = modifier,
         content = content,
     )
 }
