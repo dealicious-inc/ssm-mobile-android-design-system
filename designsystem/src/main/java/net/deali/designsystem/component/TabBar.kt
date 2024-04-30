@@ -75,7 +75,6 @@ fun tabBarSlider01(
         selectedTextColor = DealiColor.primary01,
         indicatorColor = DealiColor.primary01,
         useBadge = true,
-        isThirdDepth = false,
         onSelectTab = onSelectTab,
     )
 }
@@ -103,7 +102,6 @@ fun tabBarSlider02(
         selectedTextColor = DealiColor.g100,
         indicatorColor = DealiColor.g100,
         useBadge = false,
-        isThirdDepth = false,
         onSelectTab = onSelectTab,
     )
 }
@@ -147,36 +145,6 @@ fun tabBarChip01(
             )
         }
     }
-}
-
-/**
- * 3depth 에서 사용하는 상단 여백이 좁은 scrollable 탭바
- * @param modifier
- * @param tabTitles 각 탭의 타이틀 리스트
- * @param currentIndex 현재 선택된 탭의 인덱스
- * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
- *
- */
-@Composable
-@Deprecated("디자인시스템에서 사라짐")
-fun tabBarSlider03(
-    modifier: Modifier = Modifier,
-    tabTitles: List<String>,
-    currentIndex: Int,
-    onSelectTab: (index: Int) -> Unit,
-) {
-    CoreScrollableTabBar(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(36.dp),
-        tabTitles = tabTitles,
-        currentIndex = currentIndex,
-        selectedTextColor = DealiColor.primary01,
-        indicatorColor = DealiColor.primary01,
-        useBadge = true,
-        isThirdDepth = true,
-        onSelectTab = onSelectTab,
-    )
 }
 
 /**
@@ -312,40 +280,6 @@ fun tabBarChip01Layout(
     )
 }
 
-/**
- * 3depth 에서 사용하는 상단 여백이 좁은 scrollable 탭바
- *
- * @param tabTitles 각 탭의 타이틀 리스트
- * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
- * @param initialPage 시작 시 노출할 탭 페이지 인덱스
- * @param userSwipeEnabled 좌우로 스와이프 시 탭 전환을 가능하게 할 지 여부
- * @param pageContent 탭 하단 페이지 컨텐츠 내용 Composable
- */
-@Composable
-@Deprecated("디자인시스템에서 사라짐")
-fun tabBarSlider03Layout(
-    tabTitles: List<String>,
-    onSelectTab: (index: Int) -> Unit,
-    initialPage: Int = 0,
-    userSwipeEnabled: Boolean = false,
-    pageContent: @Composable (page: Int) -> Unit,
-) {
-    CoreTabBarLayout(
-        tabCount = tabTitles.size,
-        onSelectTab = onSelectTab,
-        userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
-        tabBar = { currentIndex, onPageChange ->
-            tabBarSlider03(
-                tabTitles = tabTitles,
-                currentIndex = currentIndex,
-                onSelectTab = onPageChange
-            )
-        },
-        pageContent = pageContent,
-    )
-}
-
 @Preview
 @Composable
 private fun PreviewTabBarSegment01() {
@@ -380,16 +314,6 @@ private fun PreviewTabBarSlider02() {
 @Composable
 private fun PreviewTabBarChip01() {
     tabBarChip01(
-        tabTitles = listOf("서브0", "서브1", "서브2"),
-        currentIndex = 1,
-        onSelectTab = {},
-    )
-}
-
-@Preview
-@Composable
-private fun PreviewTabBarSlider03() {
-    tabBarSlider03(
         tabTitles = listOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},

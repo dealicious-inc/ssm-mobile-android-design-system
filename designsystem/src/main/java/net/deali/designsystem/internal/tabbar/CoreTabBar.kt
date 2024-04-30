@@ -7,17 +7,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.TabRow
-import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -31,6 +27,7 @@ import kotlinx.coroutines.launch
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.badge
+import net.deali.designsystem.internal.tabbar.TabRowDefaults.dealiTabIndicatorOffset
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -58,7 +55,7 @@ internal fun CoreFixedTabBar(
         TabRow(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 12.dp),
+                .padding(horizontal = 16.dp),
             selectedTabIndex = currentIndex,
             backgroundColor = DealiColor.transparent,
             indicator = { tabPositions ->
@@ -94,14 +91,12 @@ internal fun CoreScrollableTabBar(
     selectedTextColor: Color,
     indicatorColor: Color,
     useBadge: Boolean,
-    isThirdDepth: Boolean = false,
     onSelectTab: (index: Int) -> Unit,
 ) {
     Box(
         modifier = modifier
             .fillMaxWidth()
             .background(DealiColor.primary04)
-
     ) {
         HorizontalDivider(
             modifier = Modifier
@@ -110,15 +105,14 @@ internal fun CoreScrollableTabBar(
             color = DealiColor.g30
         )
 
-        ScrollableTabRow(
+        DealiScrollableTabRow(
             selectedTabIndex = currentIndex,
             backgroundColor = DealiColor.transparent,
-            edgePadding = 4.dp,
+            edgePadding = 16.dp,
             indicator = { tabPositions ->
                 TabRowDefaults.Indicator(
                     modifier = Modifier
-                        .tabIndicatorOffset(tabPositions[currentIndex])
-                        .padding(horizontal = 12.dp),
+                        .dealiTabIndicatorOffset(tabPositions[currentIndex]),
                     height = 2.dp,
                     color = indicatorColor
                 )
@@ -126,15 +120,9 @@ internal fun CoreScrollableTabBar(
             divider = {}
         ) {
             tabTitles.forEachIndexed { index, title ->
-                val topPadding = if (isThirdDepth) 4.dp else 12.dp
-                val bottomPadding = if (isThirdDepth) 12.dp else 12.dp
                 TabItem(
-                    modifier = Modifier.padding(
-                        start = 12.dp,
-                        end = 12.dp,
-                        top = topPadding,
-                        bottom = bottomPadding
-                    ),
+                    modifier = Modifier
+                        .padding(horizontal = TabItemSpaceHalf),
                     title = title,
                     isSelected = currentIndex == index,
                     selectedTextColor = selectedTextColor,
@@ -157,7 +145,6 @@ private fun TabItem(
 ) {
     Box(
         modifier = Modifier
-            .width(IntrinsicSize.Max)
             .fillMaxHeight()
             .clickable(onClick = onClick),
     ) {
@@ -173,7 +160,6 @@ private fun TabItem(
 
             DealiText(
                 modifier = modifier
-                    .padding(start = 2.dp, end = 2.dp)
                     .align(Alignment.Center)
                     .then(badgeModifier),
                 text = title,
@@ -183,7 +169,6 @@ private fun TabItem(
         } else {
             DealiText(
                 modifier = modifier
-                    .padding(start = 2.dp, end = 2.dp)
                     .align(Alignment.Center),
                 text = title,
                 style = DealiFont.b1r15,
@@ -192,7 +177,6 @@ private fun TabItem(
         }
     }
 }
-
 
 @Composable
 internal fun CoreTabBarLayout(
@@ -260,7 +244,6 @@ private fun PreviewCoreScrollableTabBar() {
         selectedTextColor = DealiColor.primary01,
         indicatorColor = DealiColor.primary01,
         useBadge = true,
-        isThirdDepth = true,
         onSelectTab = {}
     )
 }

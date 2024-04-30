@@ -16,12 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.tabBarChip01Layout
-import net.deali.designsystem.component.tabBarSlider03Layout
-import net.deali.designsystem.component.tabBarSegment01Layout
-import net.deali.designsystem.component.tabBarSlider02Layout
-import net.deali.designsystem.component.tabBarSlider01Layout
 import net.deali.designsystem.component.VerticalSpacer
+import net.deali.designsystem.component.tabBarChip01Layout
+import net.deali.designsystem.component.tabBarSegment01Layout
+import net.deali.designsystem.component.tabBarSlider01Layout
+import net.deali.designsystem.component.tabBarSlider02Layout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -39,7 +38,6 @@ fun TabBarScreen(
     ) {
         val titles = listOf("Title0", "Title1", "Title2")
         val subTitles = listOf("Sub0", "Sub1", "Sub2", "Sub3", "Sub4")
-        val subsubTitles = listOf("Subsub0", "Subsub1", "Subsub2", "Subsub3", "Subsub4")
         val scrollState = rememberScrollState()
 
         Column(
@@ -169,48 +167,6 @@ fun TabBarScreen(
                             color = DealiColor.g100,
                         )
 
-                    }
-                }
-            }
-
-            VerticalSpacer(height = 40.dp)
-
-            DealiText(
-                modifier = Modifier.padding(10.dp),
-                text = "3뎁스 탭바",
-                style = DealiFont.sh1sb20,
-                color = DealiColor.g100,
-            )
-
-            tabBarSlider02Layout(
-                tabTitles = titles,
-                onSelectTab = {},
-                userSwipeEnabled = true,
-            ) { page ->
-
-                tabBarChip01Layout(
-                    tabTitles = subTitles,
-                    onSelectTab = {},
-                ) { subPage ->
-
-                    tabBarSlider03Layout(
-                        tabTitles = subsubTitles,
-                        onSelectTab = {}
-                    ) { subsubPage ->
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(100.dp)
-                                .background(DealiColor.primary03)
-                        ) {
-                            DealiText(
-                                modifier = Modifier.align(Alignment.Center),
-                                text = "${titles[page]}/${subTitles[subPage]}/${subsubTitles[subsubPage]}",
-                                style = DealiFont.h1sb32,
-                                color = DealiColor.g100,
-                            )
-
-                        }
                     }
                 }
             }
