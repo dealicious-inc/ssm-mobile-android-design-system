@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
  * 디자인시스템 Text Field 핵심 컴포넌트. TextField류 컴포넌트 구현의 기반이 되는 컴포넌트입니다.
  *
  * @param value 현재 입력 된 문자.
- * @param onTextLayout 입력 된 문자가 변경되었을 때 실행되는 콜백.
+ * @param onValueChange 입력 된 문자가 변경되었을 때 실행되는 콜백.
  * @param modifier [Modifier].
  * @param colors 텍스트 필드의 색상 상태.
  * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.
@@ -157,7 +157,7 @@ internal fun CoreDealiTextField(
  * 디자인시스템 Text Field 핵심 컴포넌트. TextField류 컴포넌트 구현의 기반이 되는 컴포넌트입니다.
  *
  * @param value 현재 입력 된 문자.
- * @param onTextLayout 입력 된 문자가 변경되었을 때 실행되는 콜백.
+ * @param onValueChange 입력 된 문자가 변경되었을 때 실행되는 콜백.
  * @param modifier [Modifier].
  * @param colors 텍스트 필드의 색상 상태.
  * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.

@@ -160,8 +160,7 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
             FormsScreen(
                 navigateToInput = { navController.navigate(Screen.TextInput.route) },
                 navigateToInputWithButton = { navController.navigate(Screen.TextInputWithButton.route) },
-                navigateToTextAreaFlexible = { navController.navigate(Screen.TextAreaFlexible.route) },
-                navigateToTextAreaFixed = { navController.navigate(Screen.TextAreaFixed.route) },
+                navigateToTextArea = { navController.navigate(Screen.TextArea.route) },
                 navigateToSearchInput = { navController.navigate(Screen.SearchInput.route) },
                 navigateToSearchInputWithTag = { navController.navigate(Screen.SearchInputWithTag.route) },
                 onBackPress = navController::popBackStack,
@@ -173,11 +172,8 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
         composable(Screen.TextInputWithButton.route) {
             InputWithButtonScreen(onBackPress = navController::popBackStack)
         }
-        composable(Screen.TextAreaFlexible.route) {
-            TextAreaFlexibleScreen(onBackPress = navController::popBackStack)
-        }
-        composable(Screen.TextAreaFixed.route) {
-            TextAreaFixedScreen(onBackPress = navController::popBackStack)
+        composable(Screen.TextArea.route) {
+            TextAreaScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.SearchInput.route) {
             SearchInputScreen(onBackPress = navController::popBackStack)
@@ -223,8 +219,7 @@ sealed class Screen(val route: String) {
     object Slider : Screen("slider")
     object TextInput : Screen("textInput")
     object TextInputWithButton : Screen("textInputWithButton")
-    object TextAreaFlexible : Screen("textAreaFlexible")
-    object TextAreaFixed : Screen("textAreaFixed")
+    object TextArea : Screen("textArea")
     object SearchInput : Screen("searchInput")
     object SearchInputWithTag : Screen("searchInputWithTag")
     object DateTimePicker : Screen("dateTimePicker")

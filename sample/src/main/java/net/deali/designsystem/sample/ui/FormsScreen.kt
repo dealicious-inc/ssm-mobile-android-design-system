@@ -15,8 +15,7 @@ import net.deali.designsystem.component.btnOutlineMedium01
 fun FormsScreen(
     navigateToInput: () -> Unit,
     navigateToInputWithButton: () -> Unit,
-    navigateToTextAreaFlexible: () -> Unit,
-    navigateToTextAreaFixed: () -> Unit,
+    navigateToTextArea: () -> Unit,
     navigateToSearchInput: () -> Unit,
     navigateToSearchInputWithTag: () -> Unit,
     onBackPress: () -> Unit,
@@ -46,16 +45,10 @@ fun FormsScreen(
                 onClick = navigateToInputWithButton,
             )
             btnOutlineMedium01(
-                text = "Text Area Flexible",
+                text = "Text Area",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
-                onClick = navigateToTextAreaFlexible,
-            )
-            btnOutlineMedium01(
-                text = "Text Area Fixed",
-                enabled = true,
-                modifier = Modifier.fillMaxWidth(),
-                onClick = navigateToTextAreaFixed,
+                onClick = navigateToTextArea,
             )
             btnOutlineMedium01(
                 text = "Search Input",
@@ -79,8 +72,7 @@ private fun FormsScreenPreview() {
     FormsScreen(
         navigateToInput = {},
         navigateToInputWithButton = {},
-        navigateToTextAreaFlexible = {},
-        navigateToTextAreaFixed = {},
+        navigateToTextArea = {},
         navigateToSearchInput = {},
         navigateToSearchInputWithTag = {},
         onBackPress = {},

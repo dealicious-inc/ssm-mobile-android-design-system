@@ -19,23 +19,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.textAreaFixed
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.component.textArea
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 @Composable
-fun TextAreaFixedScreen(onBackPress: () -> Unit) {
+fun TextAreaScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
             ActionBar(
-                title = "TextAreaFixed",
+                title = "TextArea",
                 onBack = onBackPress,
             )
         }
     ) {
         var text by remember { mutableStateOf("") }
+        var isFlexible by remember { mutableStateOf(true) }
         var enabled by remember { mutableStateOf(true) }
         var isError by remember { mutableStateOf(false) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
@@ -52,9 +53,10 @@ fun TextAreaFixedScreen(onBackPress: () -> Unit) {
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            textAreaFixed(
+            textArea(
                 value = text,
                 onValueChange = { text = it },
+                isFlexible = isFlexible,
                 enabled = enabled,
                 isError = isError,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
@@ -72,6 +74,11 @@ fun TextAreaFixedScreen(onBackPress: () -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
+                ToggleOption(
+                    title = "Flexible",
+                    selected = isFlexible,
+                    onSelectedChange = { isFlexible = it }
+                )
                 ToggleOption(
                     title = "Enabled",
                     selected = enabled,
@@ -221,5 +228,5 @@ private fun InputOption(
 @Composable
 @Preview(showBackground = true)
 private fun InputScreenPreview() {
-    TextAreaFixedScreen(onBackPress = {})
+    TextAreaScreen(onBackPress = {})
 }
