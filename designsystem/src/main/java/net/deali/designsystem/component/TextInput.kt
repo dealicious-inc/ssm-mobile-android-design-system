@@ -93,14 +93,14 @@ fun TextInput(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         labelContent = labelContent,
-        trailingContent = if (shouldRemoveIconVisible) {
+        innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
         } else {
             trailingContent
         },
-        fixedContent = fixedContent,
+        innerFixedContent = fixedContent,
     )
 }
 
@@ -173,13 +173,13 @@ fun TextInput(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
-        trailingContent = if (shouldRemoveIconVisible) {
+        innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
         } else {
             trailingContent
         },
-        fixedContent = fixedContent,
+        innerFixedContent = fixedContent,
     )
 }

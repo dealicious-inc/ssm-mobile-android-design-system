@@ -52,11 +52,12 @@ import androidx.compose.ui.unit.dp
  * @param innerTextFieldMinHeight 내부 텍스트 필드의 최소 높이 제한.
  * @param innerTextFieldMaxHeight 내부 텍스트 필드의 최대 높이 제한.
  * @param labelContent 라벨 영역에 추가적으로 표시 할 컨텐츠.
- * @param buttonContent 내부 텍스트 필드 바깥 우측에 표시 할 컨텐츠.
- * @param leadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
- * @param trailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
- * @param fixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [trailingContent]보다 뒤에 표시 할 컨텐츠.
- * [trailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [fixedContent]는
+ * @param leadingContent 내부 텍스트 필드 바깥 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 바깥 뒤에 표시 할 컨텐츠.
+ * @param innerLeadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param innerTrailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
+ * @param innerFixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [innerTrailingContent]보다 뒤에 표시 할 컨텐츠.
+ * [innerTrailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [innerFixedContent]는
  * 상태와 무관하게 계속 보여 줄 컨텐츠에 주로 사용합니다.
  */
 @Composable
@@ -87,10 +88,11 @@ internal fun CoreDealiTextField(
     innerTextFieldMinHeight: Dp = 46.dp,
     innerTextFieldMaxHeight: Dp = 106.dp,
     labelContent: @Composable (() -> Unit)? = null,
-    buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
-    fixedContent: @Composable (() -> Unit)? = null,
+    innerLeadingContent: @Composable (() -> Unit)? = null,
+    innerTrailingContent: @Composable (() -> Unit)? = null,
+    innerFixedContent: @Composable (() -> Unit)? = null,
 ) {
     // String을 사용 하는 BasicDealiTextField를 TextFieldValue를 사용하는 BasicDealiTextField로 만들기 위한 코드
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
@@ -143,10 +145,11 @@ internal fun CoreDealiTextField(
         innerTextFieldMinHeight = innerTextFieldMinHeight,
         innerTextFieldMaxHeight = innerTextFieldMaxHeight,
         labelContent = labelContent,
-        buttonContent = buttonContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
-        fixedContent = fixedContent,
+        innerLeadingContent = innerLeadingContent,
+        innerTrailingContent = innerTrailingContent,
+        innerFixedContent = innerFixedContent,
     )
 }
 
@@ -181,11 +184,12 @@ internal fun CoreDealiTextField(
  * @param innerTextFieldMinHeight 내부 텍스트 필드의 최소 높이 제한.
  * @param innerTextFieldMaxHeight 내부 텍스트 필드의 최대 높이 제한.
  * @param labelContent 라벨 영역에 추가적으로 표시 할 컨텐츠.
- * @param buttonContent 내부 텍스트 필드 바깥 우측에 표시 할 컨텐츠.
- * @param leadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
- * @param trailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
- * @param fixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [trailingContent]보다 뒤에 표시 할 컨텐츠.
- * [trailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [fixedContent]는
+ * @param leadingContent 내부 텍스트 필드 바깥 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 바깥 뒤에 표시 할 컨텐츠.
+ * @param innerLeadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param innerTrailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
+ * @param innerFixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [innerTrailingContent]보다 뒤에 표시 할 컨텐츠.
+ * [innerTrailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [innerFixedContent]는
  * 상태와 무관하게 계속 보여 줄 컨텐츠에 주로 사용합니다.
  */
 @Composable
@@ -216,10 +220,11 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     innerTextFieldMinHeight: Dp = 46.dp,
     innerTextFieldMaxHeight: Dp = 46.dp,
     labelContent: @Composable (() -> Unit)? = null,
-    buttonContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
-    fixedContent: @Composable (() -> Unit)? = null,
+    innerLeadingContent: @Composable (() -> Unit)? = null,
+    innerTrailingContent: @Composable (() -> Unit)? = null,
+    innerFixedContent: @Composable (() -> Unit)? = null,
 ) {
     val isValueEmpty by rememberUpdatedState(newValue = value.text.isEmpty())
 
@@ -276,10 +281,11 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 innerTextFieldMaxHeight = innerTextFieldMaxHeight,
                 innerTextField = innerTextField,
                 labelContent = labelContent,
-                buttonContent = buttonContent,
                 leadingContent = leadingContent,
                 trailingContent = trailingContent,
-                fixedContent = fixedContent,
+                innerLeadingContent = innerLeadingContent,
+                innerTrailingContent = innerTrailingContent,
+                innerFixedContent = innerFixedContent,
             )
         }
     )

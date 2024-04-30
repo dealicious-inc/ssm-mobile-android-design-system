@@ -62,10 +62,11 @@ internal fun DealiTextFieldDecorationBox(
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     labelContent: @Composable (() -> Unit)?,
-    buttonContent: @Composable (() -> Unit)?,
     leadingContent: @Composable (() -> Unit)?,
     trailingContent: @Composable (() -> Unit)?,
-    fixedContent: @Composable (() -> Unit)?,
+    innerLeadingContent: @Composable (() -> Unit)?,
+    innerTrailingContent: @Composable (() -> Unit)?,
+    innerFixedContent: @Composable (() -> Unit)?,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
@@ -145,6 +146,10 @@ internal fun DealiTextFieldDecorationBox(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            if (leadingContent != null) {
+                leadingContent()
+            }
+
             InnerTextField(
                 colors = colors,
                 paddings = DealiTextFieldDefaults.paddings(),
@@ -164,13 +169,13 @@ internal fun DealiTextFieldDecorationBox(
                     )
                     .zIndex(1f),
                 innerTextField = innerTextField,
-                leadingContent = leadingContent,
-                trailingContent = trailingContent,
-                fixedContent = fixedContent,
+                leadingContent = innerLeadingContent,
+                trailingContent = innerTrailingContent,
+                fixedContent = innerFixedContent,
             )
 
-            if (buttonContent != null) {
-                buttonContent()
+            if (trailingContent != null) {
+                trailingContent()
             }
         }
 

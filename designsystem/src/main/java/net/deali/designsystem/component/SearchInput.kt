@@ -70,7 +70,7 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        trailingContent = if (!isFocused) {
+        innerTrailingContent = if (!isFocused) {
             {
                 if (value.isEmpty()) {
                     Icon24(
@@ -147,7 +147,7 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        trailingContent = if (!isFocused) {
+        innerTrailingContent = if (!isFocused) {
             {
                 if (value.text.isEmpty()) {
                     Icon24(
@@ -225,14 +225,14 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        leadingContent = {
+        innerLeadingContent = {
             TagOutlineLarge04(
                 modifier = Modifier
                     .requiredWidthIn(max = 92.dp),
                 text = tagText,
             )
         },
-        trailingContent = if (isFocused) {
+        innerTrailingContent = if (isFocused) {
             {
                 Icon16(
                     iconRes = R.drawable.ic_x_circle_filled,
@@ -295,14 +295,14 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        leadingContent = {
+        innerLeadingContent = {
             TagOutlineLarge04(
                 modifier = Modifier
                     .requiredWidthIn(max = 79.dp),
                 text = tagText,
             )
         },
-        trailingContent = if (isFocused) {
+        innerTrailingContent = if (isFocused) {
             {
                 Icon16(
                     iconRes = R.drawable.ic_x_circle_filled,

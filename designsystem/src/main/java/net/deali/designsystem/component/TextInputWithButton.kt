@@ -90,14 +90,14 @@ fun TextInputWithButton(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
-        buttonContent = {
+        trailingContent = {
             DealiTextFieldDefaults.TrailingButton(
                 text = buttonText,
                 onClick = onButtonClick,
                 enabled = buttonEnabled
             )
         },
-        trailingContent = if (shouldRemoveIconVisible) {
+        innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
@@ -181,14 +181,14 @@ fun TextInputWithButton(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
-        buttonContent = {
+        trailingContent = {
             DealiTextFieldDefaults.TrailingButton(
                 text = buttonText,
                 onClick = onButtonClick,
                 enabled = buttonEnabled
             )
         },
-        trailingContent = if (shouldRemoveIconVisible) {
+        innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
