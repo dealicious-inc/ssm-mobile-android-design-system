@@ -59,6 +59,7 @@ internal fun DealiTextFieldDecorationBox(
     isCounterTextVisible: Boolean,
     innerTextFieldMinHeight: Dp,
     innerTextFieldMaxHeight: Dp,
+    decorationAlignment: Alignment.Vertical,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     labelContent: @Composable (() -> Unit)?,
@@ -142,7 +143,7 @@ internal fun DealiTextFieldDecorationBox(
             }
         }
 
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = decorationAlignment) {
             if (leadingContent != null) {
                 leadingContent()
             }

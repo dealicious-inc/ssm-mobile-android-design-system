@@ -16,6 +16,7 @@ fun FormsScreen(
     navigateToInput: () -> Unit,
     navigateToInputWithButton: () -> Unit,
     navigateToTextArea: () -> Unit,
+    navigateToTextAreaButton: () -> Unit,
     navigateToSearchInput: () -> Unit,
     navigateToSearchInputWithTag: () -> Unit,
     onBackPress: () -> Unit,
@@ -51,6 +52,12 @@ fun FormsScreen(
                 onClick = navigateToTextArea,
             )
             btnOutlineMedium01(
+                text = "Text Area + Buttons",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToTextAreaButton,
+            )
+            btnOutlineMedium01(
                 text = "Search Input",
                 enabled = true,
                 modifier = Modifier.fillMaxWidth(),
@@ -73,6 +80,7 @@ private fun FormsScreenPreview() {
         navigateToInput = {},
         navigateToInputWithButton = {},
         navigateToTextArea = {},
+        navigateToTextAreaButton = {},
         navigateToSearchInput = {},
         navigateToSearchInputWithTag = {},
         onBackPress = {},

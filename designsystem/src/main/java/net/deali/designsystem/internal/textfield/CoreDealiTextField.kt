@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
@@ -51,6 +52,7 @@ import androidx.compose.ui.unit.dp
  * @param isCounterTextVisible 입력 된 글자 수 카운터 활성화 상태. 최대 문자 수는 [maxLength]를 사용합니다.
  * @param innerTextFieldMinHeight 내부 텍스트 필드의 최소 높이 제한.
  * @param innerTextFieldMaxHeight 내부 텍스트 필드의 최대 높이 제한.
+ * @param decorationAlignment 내부 텍스트 필드와 그 양쪽의 [leadingContent], [trailingContent]의 [Alignment.Vertical].
  * @param labelContent 라벨 영역에 추가적으로 표시 할 컨텐츠.
  * @param leadingContent 내부 텍스트 필드 바깥 앞에 표시 할 컨텐츠.
  * @param trailingContent 내부 텍스트 필드 바깥 뒤에 표시 할 컨텐츠.
@@ -87,6 +89,7 @@ internal fun CoreDealiTextField(
     isCounterTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
     innerTextFieldMaxHeight: Dp = 106.dp,
+    decorationAlignment: Alignment.Vertical = Alignment.CenterVertically,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
@@ -144,6 +147,7 @@ internal fun CoreDealiTextField(
         isCounterTextVisible = isCounterTextVisible,
         innerTextFieldMinHeight = innerTextFieldMinHeight,
         innerTextFieldMaxHeight = innerTextFieldMaxHeight,
+        decorationAlignment = decorationAlignment,
         labelContent = labelContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
@@ -219,6 +223,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     isCounterTextVisible: Boolean = false,
     innerTextFieldMinHeight: Dp = 46.dp,
     innerTextFieldMaxHeight: Dp = 46.dp,
+    decorationAlignment: Alignment.Vertical = Alignment.CenterVertically,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
@@ -279,6 +284,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
                 isCounterTextVisible = isCounterTextVisible,
                 innerTextFieldMinHeight = innerTextFieldMinHeight,
                 innerTextFieldMaxHeight = innerTextFieldMaxHeight,
+                decorationAlignment = decorationAlignment,
                 innerTextField = innerTextField,
                 labelContent = labelContent,
                 leadingContent = leadingContent,
