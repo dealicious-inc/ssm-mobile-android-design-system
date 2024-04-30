@@ -1,6 +1,7 @@
 package net.deali.designsystem.internal.textfield
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -16,6 +17,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.component.HorizontalSpacer
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.theme.DealiColor
@@ -80,12 +82,15 @@ internal object DealiTextFieldDefaults {
         enabled: Boolean,
         modifier: Modifier = Modifier,
     ) {
-        btnFilledTonalMedium03(
-            text = text,
-            enabled = enabled,
-            modifier = modifier,
-            onClick = onClick,
-        )
+        Row(modifier = modifier) {
+            HorizontalSpacer(width = 8.dp)
+
+            btnFilledTonalMedium03(
+                text = text,
+                enabled = enabled,
+                onClick = onClick,
+            )
+        }
     }
 }
 

@@ -142,10 +142,7 @@ internal fun DealiTextFieldDecorationBox(
             }
         }
 
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
             if (leadingContent != null) {
                 leadingContent()
             }
