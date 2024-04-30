@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -20,6 +21,44 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * 디자인시스템 Text Field 핵심 컴포넌트. TextField류 컴포넌트 구현의 기반이 되는 컴포넌트입니다.
+ *
+ * @param value 현재 입력 된 문자.
+ * @param onTextLayout 입력 된 문자가 변경되었을 때 실행되는 콜백.
+ * @param modifier [Modifier].
+ * @param colors 텍스트 필드의 색상 상태.
+ * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.
+ * @param enabled 텍스트 필드 활성화 상태.
+ * @param isError 텍스트 필드 에러 상태.
+ * @param singleLine 텍스트 필드에 1줄로만 문자를 쓸 수 있도록 설정.
+ * @param minLines 텍스트 필드에서 한번에 보이는 최소 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
+ * 이 값은 반드시 1보다 커야 하고 [maxLines]보다 작아야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
+ * @param maxLines 텍스트 필드에서 한번에 보이는 최대 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
+ * 이 값은 반드시 1과 [minLines]보다 커야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
+ * @param maxLength 텍스트 필드에 입력 가능한 최대 문자 수.
+ * @param keyboardOptions 키보드 옵션.
+ * @param keyboardActions 키보드 액션.
+ * @param visualTransformation 이 텍스트 필드에 적용 할 [VisualTransformation].
+ * @param interactionSource 이 텍스트 필드에 적용 할 [MutableInteractionSource].
+ * @param onTextLayout 내부에서 그려 진 텍스트 레이아웃이 변할 때 호출되는 콜백.
+ * @param placeholder 현재 입력 된 문자가 없을 때 보여 줄 placeholder 문구.
+ * @param placeholderOverflow [placeholder]가 레이아웃을 벗어 날 경우 처리 할 [TextOverflow] 옵션.
+ * @param label 텍스트 필드 위에 보여 줄 라벨 문구.
+ * @param isNecessary 필수적인 입력값을 유저에게 보여 주기 위한 인디케이터 표시 활성화.
+ * @param helperText 텍스트 필드 아래에 보여 줄 도움말이나 에러 문구. [isError]가 활성화된 경우 에러 색상으로 표현됩니다.
+ * @param isHelperTextVisible [helperText] 활성화 상태.
+ * @param isCounterTextVisible 입력 된 글자 수 카운터 활성화 상태. 최대 문자 수는 [maxLength]를 사용합니다.
+ * @param innerTextFieldMinHeight 내부 텍스트 필드의 최소 높이 제한.
+ * @param innerTextFieldMaxHeight 내부 텍스트 필드의 최대 높이 제한.
+ * @param labelContent 라벨 영역에 추가적으로 표시 할 컨텐츠.
+ * @param buttonContent 내부 텍스트 필드 바깥 우측에 표시 할 컨텐츠.
+ * @param leadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
+ * @param fixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [trailingContent]보다 뒤에 표시 할 컨텐츠.
+ * [trailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [fixedContent]는
+ * 상태와 무관하게 계속 보여 줄 컨텐츠에 주로 사용합니다.
+ */
 @Composable
 internal fun CoreDealiTextField(
     value: String,
@@ -37,6 +76,7 @@ internal fun CoreDealiTextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onTextLayout: (TextLayoutResult) -> Unit = {},
     placeholder: String? = null,
     placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
@@ -92,6 +132,7 @@ internal fun CoreDealiTextField(
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
+        onTextLayout = onTextLayout,
         placeholder = placeholder,
         placeholderOverflow = placeholderOverflow,
         label = label,
@@ -109,6 +150,44 @@ internal fun CoreDealiTextField(
     )
 }
 
+/**
+ * 디자인시스템 Text Field 핵심 컴포넌트. TextField류 컴포넌트 구현의 기반이 되는 컴포넌트입니다.
+ *
+ * @param value 현재 입력 된 문자.
+ * @param onTextLayout 입력 된 문자가 변경되었을 때 실행되는 콜백.
+ * @param modifier [Modifier].
+ * @param colors 텍스트 필드의 색상 상태.
+ * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.
+ * @param enabled 텍스트 필드 활성화 상태.
+ * @param isError 텍스트 필드 에러 상태.
+ * @param singleLine 텍스트 필드에 1줄로만 문자를 쓸 수 있도록 설정.
+ * @param minLines 텍스트 필드에서 한번에 보이는 최소 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
+ * 이 값은 반드시 1보다 커야 하고 [maxLines]보다 작아야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
+ * @param maxLines 텍스트 필드에서 한번에 보이는 최대 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
+ * 이 값은 반드시 1과 [minLines]보다 커야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
+ * @param maxLength 텍스트 필드에 입력 가능한 최대 문자 수.
+ * @param keyboardOptions 키보드 옵션.
+ * @param keyboardActions 키보드 액션.
+ * @param visualTransformation 이 텍스트 필드에 적용 할 [VisualTransformation].
+ * @param interactionSource 이 텍스트 필드에 적용 할 [MutableInteractionSource].
+ * @param onTextLayout 내부에서 그려 진 텍스트 레이아웃이 변할 때 호출되는 콜백.
+ * @param placeholder 현재 입력 된 문자가 없을 때 보여 줄 placeholder 문구.
+ * @param placeholderOverflow [placeholder]가 레이아웃을 벗어 날 경우 처리 할 [TextOverflow] 옵션.
+ * @param label 텍스트 필드 위에 보여 줄 라벨 문구.
+ * @param isNecessary 필수적인 입력값을 유저에게 보여 주기 위한 인디케이터 표시 활성화.
+ * @param helperText 텍스트 필드 아래에 보여 줄 도움말이나 에러 문구. [isError]가 활성화된 경우 에러 색상으로 표현됩니다.
+ * @param isHelperTextVisible [helperText] 활성화 상태.
+ * @param isCounterTextVisible 입력 된 글자 수 카운터 활성화 상태. 최대 문자 수는 [maxLength]를 사용합니다.
+ * @param innerTextFieldMinHeight 내부 텍스트 필드의 최소 높이 제한.
+ * @param innerTextFieldMaxHeight 내부 텍스트 필드의 최대 높이 제한.
+ * @param labelContent 라벨 영역에 추가적으로 표시 할 컨텐츠.
+ * @param buttonContent 내부 텍스트 필드 바깥 우측에 표시 할 컨텐츠.
+ * @param leadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 안쪽에서 텍스트 뒤에 표시 할 컨텐츠.
+ * @param fixedContent 내부 텍스트 안쪽에서 텍스트 뒤에 표시 할 컨텐츠 중 [trailingContent]보다 뒤에 표시 할 컨텐츠.
+ * [trailingContent]는 포커스 상태 등 텍스트 필드 상태에 따라 변경되는 형태로 많이 사용되는 반면, [fixedContent]는
+ * 상태와 무관하게 계속 보여 줄 컨텐츠에 주로 사용합니다.
+ */
 @Composable
 internal fun CoreDealiTextFieldForTextFieldValue(
     value: TextFieldValue,
@@ -126,6 +205,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onTextLayout: (TextLayoutResult) -> Unit = {},
     placeholder: String? = null,
     placeholderOverflow: TextOverflow = TextOverflow.Ellipsis,
     label: String? = null,
@@ -172,6 +252,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
         cursorBrush = DealiTextFieldDefaults.cursor(),
+        onTextLayout = onTextLayout,
         decorationBox = { innerTextField ->
             DealiTextFieldDecorationBox(
                 modifier = Modifier.fillMaxWidth(),
