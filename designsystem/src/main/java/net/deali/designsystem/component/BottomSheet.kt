@@ -2,6 +2,7 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,9 +16,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -356,6 +359,35 @@ fun BottomSheetHeader(
                 onClick = onDismiss,
             )
         }
+    }
+}
+
+@Composable
+fun BottomSheetHeaderArrowClose(
+    modifier: Modifier = Modifier,
+    onDismiss: () -> Unit = {},
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(32.dp),
+    ) {
+        Icon(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 4.dp)
+                .clickable(
+                    onClick = onDismiss,
+                    role = Role.Image,
+                    enabled = true,
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null
+                ),
+            iconRes = R.drawable.ic_price_arrow_close,
+            width = 30.dp,
+            height = 12.dp,
+            color = DealiColor.g50
+        )
     }
 }
 
@@ -811,6 +843,12 @@ private fun PreviewBottomSheetHeader() {
     BottomSheetHeader(
         title = "헤더"
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetHeaderSheetClose() {
+    BottomSheetHeaderArrowClose()
 }
 
 @Preview(showBackground = true)

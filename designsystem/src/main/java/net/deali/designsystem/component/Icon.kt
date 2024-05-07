@@ -143,7 +143,7 @@ fun Icon32(
 }
 
 @Composable
-private fun Icon(
+internal fun Icon(
     @DrawableRes iconRes: Int,
     size: Dp,
     color: Color,
@@ -159,7 +159,7 @@ private fun Icon(
 }
 
 @Composable
-private fun Icon(
+internal fun Icon(
     @DrawableRes iconRes: Int,
     width: Dp,
     height: Dp,

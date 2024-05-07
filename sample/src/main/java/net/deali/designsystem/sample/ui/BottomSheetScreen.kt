@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 import net.deali.designsystem.R
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.BottomSheet
+import net.deali.designsystem.component.BottomSheetHeaderArrowClose
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.SingleSelectOption
@@ -202,9 +203,17 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     )
                 }
             }
+
+            BottomSheetType.HeaderArrowClose -> {
+                {
+                    BottomSheetHeaderArrowClose(
+                        onDismiss = hideBottomSheet,
+                    )
+                }
+            }
         },
         sheetState = bottomSheetState,
-        sheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+        sheetShape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
     ) {
 
         @Composable
@@ -240,10 +249,10 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     .padding(top = 24.dp, start = 16.dp, bottom = 40.dp, end = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-              OpenBottomSheetButton(
-                  text = "Empty",
-                  type = BottomSheetType.Empty,
-              )
+                OpenBottomSheetButton(
+                    text = "Empty",
+                    type = BottomSheetType.Empty,
+                )
 
                 OpenBottomSheetButton(
                     text = "텍스트 | 버튼X",
@@ -279,6 +288,11 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     text = "단일 옵션 선택",
                     type = BottomSheetType.SingleSelect,
                 )
+
+                OpenBottomSheetButton(
+                    text = "Header Arrow Close",
+                    type = BottomSheetType.HeaderArrowClose,
+                )
             }
         }
     }
@@ -305,4 +319,5 @@ private enum class BottomSheetType {
     OneButton,
     TwoButton,
     SingleSelect,
+    HeaderArrowClose,
 }
