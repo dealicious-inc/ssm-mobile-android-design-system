@@ -15,7 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.Checkcircle
-import net.deali.designsystem.component.CheckcircleAd
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -42,22 +41,26 @@ fun CheckcircleScreen(
         ) {
             Checkcircle(
                 checked = checked,
+                text = "Checkcircle / enabled: true",
                 onCheck = {
                     checked = !checked
-                },
+                }
+            )
+
+            Checkcircle(
+                checked = checkedAd,
+                text = "Checkcircle / enabled: true / isAd: true",
+                isAd = true,
+                onCheck = {
+                    checkedAd = !checkedAd
+                }
             )
 
             Checkcircle(
                 checked = false,
                 enabled = false,
-                onCheck = {}
-            )
-
-            CheckcircleAd(
-                checked = checkedAd,
-                onCheck = {
-                    checkedAd = !checkedAd
-                }
+                text = "Checkcircle / enabled: false",
+                onCheck = { }
             )
         }
     }

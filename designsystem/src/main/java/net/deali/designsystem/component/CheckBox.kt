@@ -51,7 +51,7 @@ fun CheckBox(
             modifier = Modifier
                 .padding(start = 8.dp, end = 3.dp),
             text = text,
-            style = DealiFont.b3r13,
+            style = DealiFont.b2r14,
             color = when {
                 enabled.not() -> DealiColor.g50
                 else -> DealiColor.g100

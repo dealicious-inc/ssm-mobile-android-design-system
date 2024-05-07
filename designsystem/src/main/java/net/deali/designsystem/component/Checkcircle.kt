@@ -1,14 +1,87 @@
 package net.deali.designsystem.component
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
+
+@Composable
+fun Checkcircle(
+    checked: Boolean,
+    text: String,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    isAd: Boolean = false,
+    onCheck: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(4.dp))
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(),
+                enabled = enabled,
+                role = Role.Checkbox,
+                onClick = onCheck
+            )
+            .then(modifier),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        if (isAd) {
+            CheckcircleAdIcon(
+                checked = checked,
+                enabled = enabled
+            )
+        } else {
+            CheckcircleIcon(
+                checked = checked,
+                enabled = enabled
+            )
+        }
+
+        DealiText(
+            modifier = Modifier
+                .padding(start = 8.dp, end = 3.dp),
+            text = text,
+            style = DealiFont.b2r14,
+            color = when {
+                enabled.not() -> DealiColor.g50
+                else -> DealiColor.g100
+            },
+            maxLines = 1
+        )
+    }
+}
+
+@Deprecated(
+    "CheckcircleIcon을 이용해주세요.",
+    ReplaceWith(
+        "CheckcircleIcon(\n" +
+                "modifier = modifier," +
+                "checked = checked," +
+                "enabled = enabled," +
+                "onCheck = onCheck," +
+                "noRipple = noRipple," +
+                ")",
+        "net.deali.designsystem.component.Checkcircle"
+    )
+)
 @Composable
 fun Checkcircle(
     checked: Boolean,
@@ -28,12 +101,30 @@ fun Checkcircle(
 }
 
 @Composable
-fun CheckcircleAd(
+fun CheckcircleIcon(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: () -> Unit = {},
     noRipple: Boolean = false,
+    onCheck: () -> Unit = {},
+) {
+    CheckcircleIcon(
+        modifier = modifier,
+        checked = checked,
+        enabled = enabled,
+        isAd = false,
+        onCheck = onCheck,
+        noRipple = noRipple,
+    )
+}
+
+@Composable
+fun CheckcircleAdIcon(
+    checked: Boolean,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    noRipple: Boolean = false,
+    onCheck: () -> Unit = {},
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -51,8 +142,8 @@ private fun CheckcircleIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean,
     isAd: Boolean,
-    onCheck: () -> Unit = {},
     noRipple: Boolean = false,
+    onCheck: () -> Unit = {},
 ) {
     Icon24(
         modifier = modifier,
@@ -78,19 +169,24 @@ private fun CheckcirclePreview() {
     ) {
         Checkcircle(
             checked = false,
+            text = "checkcircle_off",
             onCheck = {}
         )
         Checkcircle(
             checked = true,
+            text = "checkcircle_on",
             onCheck = {}
         )
         Checkcircle(
-            checked = false,
+            checked = true,
+            text = "checkcircle_onad",
+            isAd = true,
+            onCheck = {}
+        )
+        Checkcircle(
+            checked = true,
+            text = "checkcircle_disable",
             enabled = false,
-            onCheck = {}
-        )
-        CheckcircleAd(
-            checked = true,
             onCheck = {}
         )
     }
