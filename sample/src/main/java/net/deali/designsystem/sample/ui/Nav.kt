@@ -104,6 +104,7 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
             UIElementsScreen(
                 navigateToCheckBox = { navController.navigate(Screen.CheckBox.route) },
                 navigateToCheckcircle = { navController.navigate(Screen.Checkcircle.route) },
+                navigateToCheckline = { navController.navigate(Screen.Checkline.route) },
                 navigateToRadioButton = { navController.navigate(Screen.RadioButton.route) },
                 navigateToToggleSwitch = { navController.navigate(Screen.Switch.route) },
                 navigateToSwipeRefresh = { navController.navigate(Screen.SwipeRefresh.route) },
@@ -121,6 +122,9 @@ fun NavGraphBuilder.uiElementsGraph(navController: NavController) {
         }
         composable(Screen.Checkcircle.route) {
             CheckcircleScreen(onBackPress = navController::popBackStack)
+        }
+        composable(Screen.Checkline.route) {
+            ChecklineScreen(onBackPress = navController::popBackStack)
         }
         composable(Screen.RadioButton.route) {
             RadioButtonScreen(onBackPress = navController::popBackStack)
@@ -213,6 +217,7 @@ sealed class Screen(val route: String) {
     object BottomSheets : Screen("bottomSheets")
     object CheckBox : Screen("checkBox")
     object Checkcircle : Screen("checkcircle")
+    object Checkline : Screen("checkline")
     object RadioButton : Screen("radioButton")
     object SwipeRefresh : Screen("swipeRefresh")
     object Switch : Screen("switch")

@@ -36,6 +36,7 @@ import net.deali.designsystem.component.BottomSheetSingleSelectOption
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.btnOutlineMedium01
+import net.deali.designsystem.theme.DealiShape
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -213,7 +214,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             }
         },
         sheetState = bottomSheetState,
-        sheetShape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
+        sheetShape = DealiShape.radius20,
     ) {
 
         @Composable

@@ -15,6 +15,7 @@ import net.deali.designsystem.component.btnOutlineMedium01
 fun UIElementsScreen(
     navigateToCheckBox: () -> Unit,
     navigateToCheckcircle: () -> Unit,
+    navigateToCheckline: () -> Unit,
     navigateToRadioButton: () -> Unit,
     navigateToToggleSwitch: () -> Unit,
     navigateToSwipeRefresh: () -> Unit,
@@ -50,6 +51,13 @@ fun UIElementsScreen(
                 enabled = true,
                 text = "Checkcircle",
                 onClick = navigateToCheckcircle
+            )
+
+            btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
+                enabled = true,
+                text = "Checkline",
+                onClick = navigateToCheckline
             )
 
             btnOutlineMedium01(
@@ -124,6 +132,7 @@ private fun UIElementsScreenPreview() {
     UIElementsScreen(
         navigateToCheckBox = {},
         navigateToCheckcircle = {},
+        navigateToCheckline = {},
         navigateToRadioButton = {},
         navigateToToggleSwitch = {},
         navigateToSwipeRefresh = {},
