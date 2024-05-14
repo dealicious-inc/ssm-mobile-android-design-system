@@ -106,7 +106,7 @@ fun CheckcircleIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -124,7 +124,7 @@ fun CheckcircleAdIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -143,20 +143,32 @@ private fun CheckcircleIcon(
     enabled: Boolean,
     isAd: Boolean,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
-    Icon24(
-        modifier = modifier,
-        iconRes = when {
-            enabled.not() -> R.drawable.ic_checkcircle_disable
-            checked && isAd -> R.drawable.ic_checkcircle_onad
-            checked && isAd.not() -> R.drawable.ic_checkcircle_on
-            else -> R.drawable.ic_checkcircle_off
-        },
-        enabled = enabled,
-        onClick = onCheck,
-        noRipple = noRipple,
-    )
+    if (onCheck == null) {
+        Icon24(
+            modifier = modifier,
+            iconRes = when {
+                enabled.not() -> R.drawable.ic_checkcircle_disable
+                checked && isAd -> R.drawable.ic_checkcircle_onad
+                checked && isAd.not() -> R.drawable.ic_checkcircle_on
+                else -> R.drawable.ic_checkcircle_off
+            }
+        )
+    } else {
+        Icon24(
+            modifier = modifier,
+            iconRes = when {
+                enabled.not() -> R.drawable.ic_checkcircle_disable
+                checked && isAd -> R.drawable.ic_checkcircle_onad
+                checked && isAd.not() -> R.drawable.ic_checkcircle_on
+                else -> R.drawable.ic_checkcircle_off
+            },
+            enabled = enabled,
+            onClick = onCheck,
+            noRipple = noRipple,
+        )
+    }
 }
 
 @Composable
