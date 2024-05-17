@@ -19,6 +19,7 @@ fun FormsScreen(
     navigateToTextAreaButton: () -> Unit,
     navigateToSearchInput: () -> Unit,
     navigateToSearchInputWithTag: () -> Unit,
+    navigateToDropdown: () -> Unit,
     onBackPress: () -> Unit,
 ) {
     NavigationContainer(
@@ -69,6 +70,12 @@ fun FormsScreen(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToSearchInputWithTag,
             )
+            btnOutlineMedium01(
+                text = "Dropdown",
+                enabled = true,
+                modifier = Modifier.fillMaxWidth(),
+                onClick = navigateToDropdown,
+            )
         }
     }
 }
@@ -83,6 +90,7 @@ private fun FormsScreenPreview() {
         navigateToTextAreaButton = {},
         navigateToSearchInput = {},
         navigateToSearchInputWithTag = {},
+        navigateToDropdown = {},
         onBackPress = {},
     )
 }

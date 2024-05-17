@@ -168,6 +168,7 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
                 navigateToTextAreaButton = { navController.navigate(Screen.TextAreaButton.route) },
                 navigateToSearchInput = { navController.navigate(Screen.SearchInput.route) },
                 navigateToSearchInputWithTag = { navController.navigate(Screen.SearchInputWithTag.route) },
+                navigateToDropdown = { navController.navigate(Screen.Dropdown.route) },
                 onBackPress = navController::popBackStack,
             )
         }
@@ -190,6 +191,9 @@ fun NavGraphBuilder.formsGraph(navController: NavController) {
             SearchInputWithTagScreen(
                 onBackPress = navController::popBackStack
             )
+        }
+        composable(Screen.Dropdown.route) {
+            DropdownScreen(onBackPress = navController::popBackStack)
         }
     }
 }
@@ -232,6 +236,7 @@ sealed class Screen(val route: String) {
     object TextAreaButton : Screen("textAreaButton")
     object SearchInput : Screen("searchInput")
     object SearchInputWithTag : Screen("searchInputWithTag")
+    object Dropdown : Screen("dropDown")
     object DateTimePicker : Screen("dateTimePicker")
     object TabBar : Screen("TabBar")
 }
