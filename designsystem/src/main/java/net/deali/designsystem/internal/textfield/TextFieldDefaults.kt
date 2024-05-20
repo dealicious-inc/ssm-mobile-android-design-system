@@ -50,11 +50,14 @@ internal object DealiTextFieldDefaults {
         return DefaultDealiTextFieldColors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.g10,
+            readOnlyBackgroundColor = DealiColor.g05,
             outlineColor = DealiColor.g20,
             focusedOutlineColor = DealiColor.g100,
             errorOutlineColor = DealiColor.error,
+            readOnlyOutlineColor = DealiColor.g05,
             textColor = DealiColor.g100,
             disabledTextColor = DealiColor.g50,
+            readOnlyTextColor = DealiColor.g80,
             placeholderTextColor = DealiColor.g70,
             labelTextColor = DealiColor.g100,
             helperTextColor = DealiColor.g70,
@@ -156,11 +159,23 @@ private class DefaultDealiTextFieldPaddingValues(
 @Stable
 internal interface DealiTextFieldColors {
     @Composable
+    fun backgroundColor(state: DealiTextFieldState): State<Color>
+
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
+    @Composable
     fun backgroundColor(enabled: Boolean): State<Color>
 
     @Composable
+    fun outlineColor(state: DealiTextFieldState, focused: Boolean): State<Color?>
+
+    @Composable
+    fun textColor(state: DealiTextFieldState): State<Color>
+
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
+    @Composable
     fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color?>
 
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     fun textColor(enabled: Boolean): State<Color>
 
@@ -178,21 +193,70 @@ internal interface DealiTextFieldColors {
 private class DefaultDealiTextFieldColors(
     private val backgroundColor: Color,
     private val disabledBackgroundColor: Color,
+    private val readOnlyBackgroundColor: Color,
     private val outlineColor: Color,
     private val focusedOutlineColor: Color,
     private val errorOutlineColor: Color,
+    private val readOnlyOutlineColor: Color,
     private val textColor: Color,
     private val disabledTextColor: Color,
+    private val readOnlyTextColor: Color,
     private val placeholderTextColor: Color,
     private val labelTextColor: Color,
     private val helperTextColor: Color,
     private val errorHelperTextColor: Color,
 ) : DealiTextFieldColors {
     @Composable
+    override fun backgroundColor(state: DealiTextFieldState): State<Color> {
+        return rememberUpdatedState(
+            when (state) {
+                DealiTextFieldState.ENABLED,
+                DealiTextFieldState.ERROR -> backgroundColor
+
+                DealiTextFieldState.READ_ONLY -> readOnlyBackgroundColor
+                else -> disabledBackgroundColor
+            }
+        )
+    }
+
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
+    @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(if (enabled) backgroundColor else disabledBackgroundColor)
     }
 
+    @Composable
+    override fun outlineColor(state: DealiTextFieldState, focused: Boolean): State<Color> {
+        return rememberUpdatedState(
+            when (state) {
+                DealiTextFieldState.ENABLED -> {
+                    if (focused) {
+                        focusedOutlineColor
+                    } else {
+                        outlineColor
+                    }
+                }
+
+                DealiTextFieldState.ERROR -> errorOutlineColor
+                else -> readOnlyOutlineColor
+            }
+        )
+    }
+
+    @Composable
+    override fun textColor(state: DealiTextFieldState): State<Color> {
+        return rememberUpdatedState(
+            when (state) {
+                DealiTextFieldState.ENABLED,
+                DealiTextFieldState.ERROR -> textColor
+
+                DealiTextFieldState.READ_ONLY -> readOnlyTextColor
+                else -> disabledTextColor
+            }
+        )
+    }
+
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color> {
         return rememberUpdatedState(
@@ -210,6 +274,7 @@ private class DefaultDealiTextFieldColors(
         )
     }
 
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun textColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(if (enabled) textColor else disabledTextColor)
@@ -244,6 +309,7 @@ private class DefaultDealiTextFieldColors(
         if (this.errorOutlineColor != other.errorOutlineColor) return false
         if (this.textColor != other.textColor) return false
         if (this.disabledTextColor != other.disabledTextColor) return false
+        if (this.readOnlyTextColor != other.readOnlyTextColor) return false
         if (this.placeholderTextColor != other.placeholderTextColor) return false
         if (this.labelTextColor != other.labelTextColor) return false
         if (this.helperTextColor != other.helperTextColor) return false
@@ -257,6 +323,7 @@ private class DefaultDealiTextFieldColors(
         hash = 31 * hash + focusedOutlineColor.hashCode()
         hash = 31 * hash + errorOutlineColor.hashCode()
         hash = 31 * hash + textColor.hashCode()
+        hash = 31 * hash + readOnlyTextColor.hashCode()
         hash = 31 * hash + disabledTextColor.hashCode()
         hash = 31 * hash + placeholderTextColor.hashCode()
         hash = 31 * hash + labelTextColor.hashCode()

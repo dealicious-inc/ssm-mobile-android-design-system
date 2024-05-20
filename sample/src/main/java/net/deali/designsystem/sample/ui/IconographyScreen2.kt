@@ -180,7 +180,6 @@ private fun Container(
         ) {
             items(items = iconList) { icon ->
                 Item(
-                    name = icon.name,
                     size = currentIconSize,
                     iconColor = currentIconColor,
                     iconRes = icon.iconRes,
@@ -192,7 +191,6 @@ private fun Container(
 
 @Composable
 private fun Item(
-    name: String,
     size: Int,
     iconColor: Color,
     @DrawableRes iconRes: Int,
@@ -506,6 +504,6 @@ val etcIcons = listOf(
     IconItem("ic_empty40", R.drawable.ic_empty40),
 )
 
-val SIZE_16 = 16
-val SIZE_24 = 24
-val SIZE_32 = 32
+private const val SIZE_16 = 16
+private const val SIZE_24 = 24
+private const val SIZE_32 = 32

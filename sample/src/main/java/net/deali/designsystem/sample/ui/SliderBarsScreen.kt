@@ -38,8 +38,6 @@ fun SliderScreen(
             )
         }
     ) {
-        val focusManager = LocalFocusManager.current
-
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {

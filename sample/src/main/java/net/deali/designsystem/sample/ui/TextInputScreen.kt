@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,14 +22,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.chipOutlineSmall01
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
 import net.deali.designsystem.util.visualtransformation.PhoneNumberVisualTransformation
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun InputScreen(onBackPress: () -> Unit) {
     NavigationContainer(
@@ -39,8 +44,7 @@ fun InputScreen(onBackPress: () -> Unit) {
         }
     ) {
         var text by remember { mutableStateOf("") }
-        var enabled by remember { mutableStateOf(true) }
-        var isError by remember { mutableStateOf(false) }
+        var state by remember { mutableStateOf(DealiTextFieldState.ENABLED) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isNecessary by remember { mutableStateOf(true) }
@@ -65,8 +69,7 @@ fun InputScreen(onBackPress: () -> Unit) {
                 isNecessary = isNecessary,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
-                enabled = enabled,
-                isError = isError,
+                state = state,
                 visualTransformation = visualTransformation,
                 labelContent = if (labelContent.isNotEmpty()) {
                     {
@@ -90,21 +93,19 @@ fun InputScreen(onBackPress: () -> Unit) {
 
             SampleDivider()
 
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ToggleOption(
-                    title = "Enabled",
-                    selected = enabled,
-                    onSelectedChange = { enabled = it }
-                )
-                ToggleOption(
-                    title = "Error",
-                    selected = isError,
-                    onSelectedChange = { isError = it }
-                )
+                DealiTextFieldState.values().forEach { innerState ->
+                    RadioButton(
+                        text = innerState.name,
+                        selected = state == innerState
+                    ) {
+                        state = innerState
+                    }
+                }
             }
 
             SampleDivider()

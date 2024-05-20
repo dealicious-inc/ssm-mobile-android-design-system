@@ -159,6 +159,188 @@ internal fun LegacyDealiTextFieldDecorationBox(
 @OptIn(ExperimentalTextApi::class)
 @Composable
 internal fun DealiTextFieldDecorationBox(
+    state: DealiTextFieldState,
+    singleLine: Boolean,
+    colors: DealiTextFieldColors,
+    interactionSource: MutableInteractionSource,
+    isValueEmpty: Boolean,
+    placeholder: String?,
+    placeholderMaxLines: Int,
+    placeholderOverflow: TextOverflow,
+    label: String?,
+    isNecessary: Boolean,
+    helperText: String?,
+    textLength: Int,
+    maxLength: Int,
+    isHelperTextVisible: Boolean,
+    isCounterTextVisible: Boolean,
+    innerTextFieldMinHeight: Dp,
+    innerTextFieldMaxHeight: Dp,
+    decorationAlignment: Alignment.Vertical,
+    modifier: Modifier = Modifier,
+    innerTextField: @Composable () -> Unit,
+    labelContent: @Composable (() -> Unit)?,
+    leadingContent: @Composable (() -> Unit)?,
+    trailingContent: @Composable (() -> Unit)?,
+    innerLeadingContent: @Composable (() -> Unit)?,
+    innerTrailingContent: @Composable (() -> Unit)?,
+    innerFixedContent: @Composable (() -> Unit)?,
+) {
+    val focused by interactionSource.collectIsFocusedAsState()
+    val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
+    val isBottomLabelVisible =
+        (!helperText.isNullOrEmpty() && isHelperTextVisible) || isCounterTextVisible
+    val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
+    val columnSpacing = 4.dp
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.Start,
+    ) {
+        AnimatedVisibility(
+            visible = isLabelVisible,
+            enter = expandVertically(expandFrom = Alignment.Top),
+            exit = shrinkVertically(shrinkTowards = Alignment.Top)
+        ) {
+            Column {
+                ConstraintLayout(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                ) {
+                    val (labelRef, labelContentRef) = createRefs()
+                    createHorizontalChain(
+                        labelRef,
+                        labelContentRef,
+                        chainStyle = ChainStyle.Packed(0f)
+                    )
+
+                    LabelText(
+                        modifier = Modifier
+                            .constrainAs(labelRef) {
+                                start.linkTo(parent.start)
+                                end.linkTo(labelContentRef.start)
+                                width = Dimension.preferredWrapContent
+                                centerVerticallyTo(parent)
+                            },
+                        label = label,
+                        colors = colors,
+                    )
+
+                    val textMeasurer = rememberTextMeasurer()
+                    val oneLineTextHeight = with(LocalDensity.current) {
+                        textMeasurer.measure(
+                            text = "A",
+                            style = DealiFont.b2r14
+                        ).size.height.toDp()
+                    }
+
+                    Row(
+                        modifier = Modifier
+                            .constrainAs(labelContentRef) {
+                                start.linkTo(labelRef.end)
+                                end.linkTo(parent.end)
+                                top.linkTo(parent.top)
+                            }
+                            .height(oneLineTextHeight)
+                            .padding(horizontal = 4.dp),
+                        horizontalArrangement = Arrangement.spacedBy(4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        if (isNecessary) {
+                            Canvas(
+                                modifier = Modifier
+                                    .size(5.dp)
+                                    .align(Alignment.Top)
+                                    .offset(y = 4.dp)
+                            ) {
+                                drawCircle(color = DealiColor.primary01)
+                            }
+                        }
+
+                        labelContent?.invoke()
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(columnSpacing))
+            }
+        }
+
+        Row(verticalAlignment = decorationAlignment) {
+            if (leadingContent != null) {
+                leadingContent()
+            }
+
+            InnerTextField(
+                colors = colors,
+                paddings = DealiTextFieldDefaults.paddings(),
+                placeholder = placeholder,
+                isPlaceholderVisible = isPlaceholderVisible,
+                placeholderMaxLines = placeholderMaxLines,
+                placeholderOverflow = placeholderOverflow,
+                state = state,
+                focused = focused,
+                singleLine = singleLine,
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(
+                        min = innerTextFieldMinHeight,
+                        max = innerTextFieldMaxHeight
+                    )
+                    .zIndex(1f),
+                innerTextField = innerTextField,
+                leadingContent = innerLeadingContent,
+                trailingContent = innerTrailingContent,
+                fixedContent = innerFixedContent,
+            )
+
+            if (trailingContent != null) {
+                trailingContent()
+            }
+        }
+
+        AnimatedVisibility(
+            visible = isBottomLabelVisible,
+            enter = expandVertically(),
+            exit = shrinkVertically(),
+        ) {
+            Column {
+                Spacer(modifier = Modifier.height(columnSpacing))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    if (isHelperTextVisible) {
+                        HelperText(
+                            modifier = Modifier.weight(1f),
+                            helperText = helperText,
+                            isError = state == DealiTextFieldState.ERROR,
+                            colors = colors,
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.width(4.dp))
+
+                    if (isCounterTextVisible) {
+                        CounterText(
+                            textLength = textLength,
+                            maxLength = maxLength,
+                            colors = colors,
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Deprecated("DealiTextFieldState를 추가한 버전을 사용해주세요.")
+@OptIn(ExperimentalTextApi::class)
+@Composable
+internal fun DealiTextFieldDecorationBox(
     enabled: Boolean,
     isError: Boolean,
     singleLine: Boolean,
@@ -189,7 +371,8 @@ internal fun DealiTextFieldDecorationBox(
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
-    val isBottomLabelVisible = (!helperText.isNullOrEmpty() && isHelperTextVisible) || isCounterTextVisible
+    val isBottomLabelVisible =
+        (!helperText.isNullOrEmpty() && isHelperTextVisible) || isCounterTextVisible
     val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
     val columnSpacing = 4.dp
 
@@ -208,7 +391,11 @@ internal fun DealiTextFieldDecorationBox(
                         .fillMaxWidth(),
                 ) {
                     val (labelRef, labelContentRef) = createRefs()
-                    createHorizontalChain(labelRef, labelContentRef, chainStyle = ChainStyle.Packed(0f))
+                    createHorizontalChain(
+                        labelRef,
+                        labelContentRef,
+                        chainStyle = ChainStyle.Packed(0f)
+                    )
 
                     LabelText(
                         modifier = Modifier
@@ -406,6 +593,85 @@ private fun CounterText(
     )
 }
 
+@Composable
+private fun InnerTextField(
+    colors: DealiTextFieldColors,
+    paddings: DealiTextFieldPaddingValues,
+    placeholder: String?,
+    isPlaceholderVisible: Boolean,
+    placeholderMaxLines: Int,
+    placeholderOverflow: TextOverflow,
+    state: DealiTextFieldState,
+    focused: Boolean,
+    singleLine: Boolean,
+    modifier: Modifier = Modifier,
+    innerTextField: @Composable () -> Unit,
+    leadingContent: @Composable (() -> Unit)?,
+    trailingContent: @Composable (() -> Unit)?,
+    fixedContent: @Composable (() -> Unit)?,
+) {
+    val backgroundColor by colors.backgroundColor(state)
+    val outlineColor by colors.outlineColor(state, focused)
+    val paddingValues by paddings.padding(
+        singleLine = singleLine,
+        hasLeadingContent = leadingContent != null,
+        hasTrailingContent = trailingContent != null,
+    )
+
+    val borderModifier = outlineColor?.let { color ->
+        Modifier.border(
+            width = DealiTextFieldDefaults.BorderWidth,
+            color = color,
+            shape = DealiTextFieldDefaults.BorderShape
+        )
+    } ?: Modifier
+
+    val mergedModifier = modifier.then(
+        Modifier
+            .background(
+                color = backgroundColor,
+                shape = DealiTextFieldDefaults.BorderShape
+            )
+            .then(borderModifier)
+            .padding(paddingValues)
+    )
+
+    Row(
+        modifier = mergedModifier,
+        horizontalArrangement = when {
+            leadingContent != null -> Arrangement.spacedBy(8.dp)
+            trailingContent != null -> Arrangement.spacedBy(16.dp)
+            fixedContent != null -> Arrangement.spacedBy(16.dp)
+            else -> Arrangement.Start
+        },
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        if (leadingContent != null) {
+            leadingContent()
+        }
+        Box(modifier = Modifier.weight(1f)) {
+            PlaceholderText(
+                placeholder = placeholder,
+                isVisible = isPlaceholderVisible,
+                colors = colors,
+                maxLines = placeholderMaxLines,
+                overflow = placeholderOverflow,
+            )
+            innerTextField()
+        }
+        if (trailingContent != null || fixedContent != null) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                trailingContent?.invoke()
+                fixedContent?.invoke()
+            }
+        }
+    }
+}
+
+@Deprecated("DealiTextFieldState를 추가한 버전을 사용해주세요.")
 @Composable
 private fun InnerTextField(
     colors: DealiTextFieldColors,

@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,12 +21,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.textArea
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TextAreaScreen(onBackPress: () -> Unit) {
     NavigationContainer(
@@ -37,8 +42,7 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
     ) {
         var text by remember { mutableStateOf("") }
         var isFlexible by remember { mutableStateOf(true) }
-        var enabled by remember { mutableStateOf(true) }
-        var isError by remember { mutableStateOf(false) }
+        var state by remember { mutableStateOf(DealiTextFieldState.ENABLED) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isNecessary by remember { mutableStateOf(true) }
@@ -57,8 +61,7 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                 value = text,
                 onValueChange = { text = it },
                 isFlexible = isFlexible,
-                enabled = enabled,
-                isError = isError,
+                state = state,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = label,
                 isNecessary = isNecessary,
@@ -66,6 +69,23 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                 isHelperTextVisible = isHelperTextVisible,
                 isCounterTextVisible = isCounterTextVisible,
             )
+
+            SampleDivider()
+
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                DealiTextFieldState.values().forEach { innerState ->
+                    RadioButton(
+                        text = innerState.name,
+                        selected = state == innerState
+                    ) {
+                        state = innerState
+                    }
+                }
+            }
 
             SampleDivider()
 
@@ -78,16 +98,6 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                     title = "Flexible",
                     selected = isFlexible,
                     onSelectedChange = { isFlexible = it }
-                )
-                ToggleOption(
-                    title = "Enabled",
-                    selected = enabled,
-                    onSelectedChange = { enabled = it }
-                )
-                ToggleOption(
-                    title = "Error",
-                    selected = isError,
-                    onSelectedChange = { isError = it }
                 )
             }
 

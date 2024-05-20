@@ -33,6 +33,7 @@ import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldV
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
 import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextField
 import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextFieldForTextFieldValue
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -591,13 +592,28 @@ private fun rememberSearchInputColors() =
 @Immutable
 private class SearchInputTextFieldColors : DealiTextFieldColors {
     @Composable
+    override fun backgroundColor(state: DealiTextFieldState): State<Color> {
+        TODO("Not yet implemented")
+    }
+
+    @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(DealiColor.g10)
     }
 
     @Composable
+    override fun outlineColor(state: DealiTextFieldState, focused: Boolean): State<Color?> {
+        TODO("Not yet implemented")
+    }
+
+    @Composable
     override fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color?> {
         return rememberUpdatedState(null)
+    }
+
+    @Composable
+    override fun textColor(state: DealiTextFieldState): State<Color> {
+        TODO("Not yet implemented")
     }
 
     @Composable
