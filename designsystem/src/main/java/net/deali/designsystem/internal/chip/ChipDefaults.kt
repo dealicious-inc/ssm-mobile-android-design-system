@@ -76,32 +76,42 @@ internal object ChipDefaults {
         useRightIcon: Boolean,
         useOnlyCenterIcon: Boolean,
         fontWeight: FontWeight?,
+        textSingleLine: Boolean,
     ): PaddingValues {
         if (useOnlyCenterIcon) return PaddingValues(all = 0.dp)
 
         return when (size) {
-            ChipSize.Large -> largeChipPaddings(style)
+            ChipSize.Large -> largeChipPaddings(style, textSingleLine)
+
             ChipSize.Medium -> mediumChipPaddings(
                 style = style,
                 useLeftIcon = useLeftIcon,
                 useRightIcon = useRightIcon,
-                fontWeight = fontWeight
+                fontWeight = fontWeight,
+                textSingleLine = textSingleLine,
             )
 
             ChipSize.Small -> smallChipPaddings(
                 style = style,
                 useLeftIcon = useLeftIcon,
                 useRightIcon = useRightIcon,
+                textSingleLine = textSingleLine,
             )
         }
     }
 
     @Composable
-    private fun largeChipPaddings(style: ChipStyle): PaddingValues {
+    private fun largeChipPaddings(style: ChipStyle, textSingleLine: Boolean): PaddingValues {
         return if (style == ChipStyle.Outline || style == ChipStyle.Filled) {
-            PaddingValues(horizontal = 16.dp)
+            PaddingValues(
+                horizontal = 16.dp,
+                vertical = if (textSingleLine) 0.dp else 10.dp
+            )
         } else {
-            PaddingValues(horizontal = 12.dp)
+            PaddingValues(
+                horizontal = 12.dp,
+                vertical = if (textSingleLine) 0.dp else 10.dp
+            )
         }
     }
 
@@ -111,20 +121,25 @@ internal object ChipDefaults {
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
         fontWeight: FontWeight?,
+        textSingleLine: Boolean,
     ): PaddingValues {
+        val verticalPadding = if (textSingleLine) 0.dp else 7.dp
+
         return when (style) {
             ChipStyle.Outline,
             ChipStyle.Filled -> {
-                PaddingValues(horizontal = 16.dp)
+                PaddingValues(horizontal = 16.dp, vertical = verticalPadding)
             }
 
             is ChipStyle.Square -> {
                 if (fontWeight == FontWeight.Bold) {
-                    PaddingValues(horizontal = 12.dp)
+                    PaddingValues(horizontal = 12.dp, vertical = verticalPadding)
                 } else {
                     PaddingValues(
                         start = if (useLeftIcon) 12.dp else 16.dp,
                         end = if (useRightIcon) 12.dp else 16.dp,
+                        top = verticalPadding,
+                        bottom = verticalPadding
                     )
                 }
             }
@@ -133,6 +148,8 @@ internal object ChipDefaults {
                 PaddingValues(
                     start = if (useLeftIcon) 12.dp else 16.dp,
                     end = if (useRightIcon) 12.dp else 16.dp,
+                    top = verticalPadding,
+                    bottom = verticalPadding
                 )
             }
 
@@ -160,13 +177,17 @@ internal object ChipDefaults {
         style: ChipStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
+        textSingleLine: Boolean,
     ): PaddingValues {
         return when (style) {
             ChipStyle.Outline,
             ChipStyle.Filled,
             ChipStyle.FilledDepth,
             ChipStyle.FilledImageDepth -> {
-                PaddingValues(horizontal = 12.dp)
+                PaddingValues(
+                    horizontal = 12.dp,
+                    vertical = if (textSingleLine) 0.dp else 3.dp
+                )
             }
 
             is ChipStyle.Square,
@@ -175,6 +196,8 @@ internal object ChipDefaults {
                 PaddingValues(
                     start = if (useLeftIcon) 8.dp else 12.dp,
                     end = if (useRightIcon) 8.dp else 12.dp,
+                    top = if (textSingleLine) 0.dp else 3.dp,
+                    bottom = if (textSingleLine) 0.dp else 3.dp
                 )
             }
         }

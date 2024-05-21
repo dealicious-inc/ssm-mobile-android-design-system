@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -57,6 +56,7 @@ internal fun CoreRegularChip(
     onClick: () -> Unit,
     text: String,
     textAlign: TextAlign?,
+    textSingleLine: Boolean,
     @DrawableRes leftIcon: Int?,
     @DrawableRes rightIcon: Int?,
     leftIconColor: Color?,
@@ -86,6 +86,7 @@ internal fun CoreRegularChip(
         chipStyle = chipStyle,
         chipSize = chipSize,
         chipColors = chipColors,
+        textSingleLine = textSingleLine,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -93,6 +94,7 @@ internal fun CoreRegularChip(
             text = text,
             textStyle = textStyle,
             textAlign = textAlign,
+            textSingleLine = textSingleLine,
             leftIcon = leftIcon,
             rightIcon = rightIcon,
             customLeftIconColor = leftIconColor,
@@ -132,6 +134,7 @@ internal fun CoreIconOnlyChip(
         chipStyle = chipStyle,
         chipSize = chipSize,
         chipColors = chipColors,
+        textSingleLine = false,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -173,6 +176,7 @@ internal fun CoreCustomChip(
         chipStyle = chipStyle,
         chipSize = chipSize,
         chipColors = chipColors,
+        textSingleLine = false,
         interactionSource = interactionSource,
         modifier = modifier,
     ) {
@@ -228,6 +232,7 @@ private fun CoreChipLayout(
     chipStyle: ChipStyle,
     chipSize: ChipSize,
     chipColors: ChipColors,
+    textSingleLine: Boolean,
     interactionSource: MutableInteractionSource,
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
@@ -251,7 +256,6 @@ private fun CoreChipLayout(
                 minHeight = chipMinSize,
             )
             .width(IntrinsicSize.Min)
-            .height(chipMinSize)
             .background(color = backgroundColor)
             .clickableOrNothing(
                 clickable = clickable,
@@ -274,6 +278,7 @@ private fun CoreChipLayout(
                         useRightIcon = if (useOnlyCenterIcon) false else useRightIcon,
                         useOnlyCenterIcon = useOnlyCenterIcon,
                         fontWeight = textStyle.fontWeight,
+                        textSingleLine = textSingleLine,
                     )
                 ),
             horizontalArrangement = if (useOnlyCenterIcon) Arrangement.Center else Arrangement.Start,
@@ -288,6 +293,7 @@ private fun RowScope.RegularContent(
     text: String,
     textStyle: TextStyle,
     textAlign: TextAlign?,
+    textSingleLine: Boolean,
     @DrawableRes leftIcon: Int?,
     @DrawableRes rightIcon: Int?,
     customLeftIconColor: Color?,
@@ -330,7 +336,7 @@ private fun RowScope.RegularContent(
         text = text,
         style = textStyle.copy(textAlign = textAlign),
         color = defaultContentColor,
-        maxLines = 1,
+        maxLines = if (textSingleLine) 1 else Int.MAX_VALUE,
         overflow = TextOverflow.Ellipsis,
     )
 

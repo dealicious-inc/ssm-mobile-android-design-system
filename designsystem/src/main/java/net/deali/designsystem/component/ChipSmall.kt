@@ -44,11 +44,13 @@ fun chipOutlineSmall01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
@@ -128,11 +130,13 @@ fun chipOutlineSquareSmall01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
@@ -212,11 +216,13 @@ fun chipFilledSmall01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
@@ -296,11 +302,13 @@ fun chipFilledSmall02(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
@@ -381,11 +389,13 @@ fun chipFilledSquareSmall01(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
@@ -465,11 +475,13 @@ fun chipFilledSquareSmall02(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
 ) {
     CoreRegularChip(
         onClick = onClick,
         text = text,
         textAlign = textAlign,
+        textSingleLine = singleLine,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
         leftIconColor = leftIconColor,
