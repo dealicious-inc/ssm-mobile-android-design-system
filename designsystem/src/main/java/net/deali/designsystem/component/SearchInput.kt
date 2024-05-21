@@ -328,6 +328,260 @@ fun SearchInput(
     )
 }
 
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+fun LegacySearchInput(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextField(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        enabled = enabled,
+        isError = false,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        trailingContent = if (isFocused || value.isNotEmpty()) {
+            {
+                Icon16(
+                    iconRes = R.drawable.ic_x,
+                    color = DealiColor.primary05,
+                    enabled = true,
+                    onClick = {
+                        if (enabled) {
+                            onValueChange("")
+                            focusRequester.requestFocus()
+                        }
+                        onRemoveIconClick()
+                    }
+                )
+            }
+        } else {
+            {
+                Icon24(
+                    iconRes = R.drawable.ic_search,
+                    color = DealiColor.primary05,
+                    enabled = false,
+                    onClick = {},
+                )
+            }
+        }
+    )
+}
+
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+fun LegacySearchInput(
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextFieldForTextFieldValue(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        enabled = enabled,
+        isError = false,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        trailingContent = if (isFocused || value.text.isNotEmpty()) {
+            {
+                Icon16(
+                    iconRes = R.drawable.ic_x,
+                    color = DealiColor.primary05,
+                    enabled = true,
+                    onClick = {
+                        if (enabled) {
+                            onValueChange(TextFieldValue())
+                            focusRequester.requestFocus()
+                        }
+                        onRemoveIconClick()
+                    }
+                )
+            }
+        } else {
+            {
+                Icon24(
+                    iconRes = R.drawable.ic_search,
+                    color = DealiColor.primary05,
+                    enabled = false,
+                    onClick = {},
+                )
+            }
+        }
+    )
+}
+
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+fun LegacySearchInput(
+    value: String,
+    tagText: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextField(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        enabled = enabled,
+        isError = false,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        leadingContent = {
+            TagOutlineLarge04(
+                modifier = Modifier
+                    .requiredWidthIn(max = 92.dp),
+                text = tagText,
+            )
+        },
+        trailingContent = if (isFocused || value.isNotEmpty()) {
+            {
+                Icon16(
+                    iconRes = R.drawable.ic_x,
+                    color = DealiColor.primary05,
+                    enabled = true,
+                    onClick = {
+                        if (enabled) {
+                            onValueChange("")
+                            focusRequester.requestFocus()
+                        }
+                        onRemoveIconClick()
+                    }
+                )
+            }
+        } else null
+    )
+}
+
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+fun LegacySearchInput(
+    value: TextFieldValue,
+    tagText: String,
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    enabled: Boolean = true,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextFieldForTextFieldValue(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        enabled = enabled,
+        isError = false,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        leadingContent = {
+            TagOutlineLarge04(
+                modifier = Modifier
+                    .requiredWidthIn(max = 79.dp),
+                text = tagText,
+            )
+        },
+        trailingContent = if (isFocused || value.text.isNotEmpty()) {
+            {
+                Icon16(
+                    iconRes = R.drawable.ic_x,
+                    color = DealiColor.primary05,
+                    enabled = true,
+                    onClick = {
+                        if (enabled) {
+                            onValueChange(TextFieldValue())
+                            focusRequester.requestFocus()
+                        }
+                        onRemoveIconClick()
+                    }
+                )
+            }
+        } else null
+    )
+}
+
 @Composable
 private fun rememberSearchInputColors() =
     remember { SearchInputTextFieldColors() }
