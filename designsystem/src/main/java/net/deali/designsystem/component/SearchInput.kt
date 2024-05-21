@@ -31,6 +31,8 @@ import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
+import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextField
+import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -344,7 +346,7 @@ fun LegacySearchInput(
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
 
-    CoreDealiTextField(
+    LegacyCoreDealiTextField(
         modifier = modifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
@@ -408,7 +410,7 @@ fun LegacySearchInput(
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
 
-    CoreDealiTextFieldForTextFieldValue(
+    LegacyCoreDealiTextFieldForTextFieldValue(
         modifier = modifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
@@ -473,7 +475,7 @@ fun LegacySearchInput(
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
 
-    CoreDealiTextField(
+    LegacyCoreDealiTextField(
         modifier = modifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
@@ -536,7 +538,7 @@ fun LegacySearchInput(
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
 
-    CoreDealiTextFieldForTextFieldValue(
+    LegacyCoreDealiTextFieldForTextFieldValue(
         modifier = modifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
@@ -649,6 +651,21 @@ private fun SearchInputWithTagPreview() = AppTheme {
             value = "search input",
             onValueChange = {},
             tagText = "원피스"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun LegacySearchInputPreview() = AppTheme {
+    Box(
+        modifier = Modifier
+            .background(DealiColor.primary04)
+            .padding(8.dp)
+    ) {
+        LegacySearchInput(
+            value = "search input",
+            onValueChange = {},
         )
     }
 }

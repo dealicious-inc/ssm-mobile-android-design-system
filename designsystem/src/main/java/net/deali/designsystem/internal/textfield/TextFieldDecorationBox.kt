@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
@@ -37,6 +38,123 @@ import androidx.constraintlayout.compose.Dimension
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+internal fun LegacyDealiTextFieldDecorationBox(
+    enabled: Boolean,
+    isError: Boolean,
+    singleLine: Boolean,
+    colors: DealiTextFieldColors,
+    interactionSource: MutableInteractionSource,
+    isValueEmpty: Boolean,
+    placeholder: String?,
+    placeholderMaxLines: Int,
+    placeholderOverflow: TextOverflow,
+    label: String?,
+    isNecessary: Boolean,
+    helperText: String?,
+    isHelperTextVisible: Boolean,
+    innerTextFieldMinHeight: Dp,
+    modifier: Modifier = Modifier,
+    innerTextField: @Composable () -> Unit,
+    labelContent: @Composable (() -> Unit)?,
+    buttonContent: @Composable (() -> Unit)?,
+    leadingContent: @Composable (() -> Unit)?,
+    trailingContent: @Composable (() -> Unit)?,
+    fixedContent: @Composable (() -> Unit)?,
+) {
+    val focused by interactionSource.collectIsFocusedAsState()
+    val isLabelVisible = !label.isNullOrEmpty() || isNecessary || labelContent != null
+    val isPlaceholderVisible = !placeholder.isNullOrEmpty() && isValueEmpty
+    val columnSpacing = 4.dp
+
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.Start,
+    ) {
+        AnimatedVisibility(
+            visible = isLabelVisible,
+            enter = expandVertically(expandFrom = Alignment.Top),
+            exit = shrinkVertically(shrinkTowards = Alignment.Top)
+        ) {
+            Column {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    LabelText(
+                        label = label,
+                        colors = colors,
+                    )
+
+                    if (isNecessary) {
+                        Canvas(
+                            modifier = Modifier
+                                .size(5.dp)
+                                .align(Alignment.Top)
+                                .offset(y = 4.dp)
+                        ) {
+                            drawCircle(color = DealiColor.primary01)
+                        }
+                    }
+
+                    labelContent?.invoke()
+                }
+
+                Spacer(modifier = Modifier.height(columnSpacing))
+            }
+        }
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            InnerTextField(
+                colors = colors,
+                paddings = DealiTextFieldDefaults.paddings(),
+                placeholder = placeholder,
+                isPlaceholderVisible = isPlaceholderVisible,
+                placeholderMaxLines = placeholderMaxLines,
+                placeholderOverflow = placeholderOverflow,
+                enabled = enabled,
+                isError = isError,
+                focused = focused,
+                singleLine = singleLine,
+                modifier = Modifier
+                    .weight(1f)
+                    .defaultMinSize(minHeight = innerTextFieldMinHeight)
+                    .zIndex(1f),
+                innerTextField = innerTextField,
+                leadingContent = leadingContent,
+                trailingContent = trailingContent,
+                fixedContent = fixedContent,
+            )
+
+            if (buttonContent != null) {
+                buttonContent()
+            }
+        }
+
+        AnimatedVisibility(
+            visible = isHelperTextVisible && !helperText.isNullOrEmpty(),
+            enter = expandVertically(),
+            exit = shrinkVertically(),
+        ) {
+            Column {
+                Spacer(modifier = Modifier.height(columnSpacing))
+                HelperText(
+                    modifier = Modifier.fillMaxWidth(),
+                    helperText = helperText,
+                    isError = isError,
+                    colors = colors,
+                )
+            }
+        }
+    }
+}
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
