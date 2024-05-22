@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -204,6 +205,12 @@ class PopupDialog private constructor(
             this.savedStateRegistryOwner = activity
         }
 
+        constructor(activity: AppCompatActivity) {
+            this.context = activity
+            this.lifecycleOwner = activity
+            this.savedStateRegistryOwner = activity
+        }
+
         constructor(fragment: Fragment) {
             this.context = fragment.requireContext()
             this.lifecycleOwner = fragment.viewLifecycleOwner
@@ -289,6 +296,12 @@ class PopupDialog private constructor(
         private var isCancelable: Boolean = true
 
         constructor(activity: ComponentActivity) {
+            this.context = activity
+            this.lifecycleOwner = activity
+            this.savedStateRegistryOwner = activity
+        }
+
+        constructor(activity: AppCompatActivity) {
             this.context = activity
             this.lifecycleOwner = activity
             this.savedStateRegistryOwner = activity
