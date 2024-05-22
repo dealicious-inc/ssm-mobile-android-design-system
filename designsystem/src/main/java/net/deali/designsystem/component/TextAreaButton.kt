@@ -260,8 +260,8 @@ private fun UploadButton(
         contentAlignment = Alignment.Center,
     ) {
         Icon32(
-            iconRes = R.drawable.ic_download_1_filled,
-            modifier = modifier.rotate(180f),
+            iconRes = R.drawable.ic_up_1_filled,
+            modifier = modifier,
             onClick = onClick,
         )
     }
