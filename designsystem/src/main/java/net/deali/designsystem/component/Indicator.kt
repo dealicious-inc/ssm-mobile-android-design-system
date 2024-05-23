@@ -132,12 +132,15 @@ private fun IndicatorDot(
     }
 }
 
+/**
+ * 배경이 없고 가운데에 수직 디바이더 '|' 가 있는 숫자 인디케이터.
+ * 페이지는 1부터 시작하기 때문에 내부에서 index + 1로 계산한다.
+ */
 @Composable
-fun IndicatorNumber(
-    pageCount: Int,
+fun IndicatorTransparent(
+    currentIndex: Int,
+    totalCount: Int,
     modifier: Modifier = Modifier,
-    pagerDataState: PagerDataState = rememberPageDataState(),
-    pagerState: PagerState = rememberPagerState()
 ) {
     Row(
         modifier = modifier,
@@ -145,7 +148,7 @@ fun IndicatorNumber(
         verticalAlignment = Alignment.CenterVertically
     ) {
         DealiText(
-            text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
+            text = (currentIndex + 1).toString(),
             style = DealiFont.b3sb13,
             color = DealiColor.primary04
         )
@@ -154,61 +157,25 @@ fun IndicatorNumber(
             modifier = Modifier
                 .width(1.dp)
                 .height(10.dp)
-                .background(DealiColor.primary04)
+                .background(DealiColor.w20)
         )
 
         DealiText(
-            text = String.format("%02d", pageCount),
+            text = totalCount.toString(),
             style = DealiFont.b3r13,
             color = DealiColor.primary04
         )
     }
 }
 
+/**
+ *  b40 색상의 라운드 배경이 있고, 슬래시 디바이더 '/' 가 있는 중간 크기의 숫자 인디케이터.
+ *  페이지는 1부터 시작하기 때문에 내부에서 index + 1로 계산한다.
+ */
 @Composable
-fun IndicatorPagination(
-    pageCount: Int,
-    modifier: Modifier = Modifier,
-    pagerDataState: PagerDataState = rememberPageDataState(),
-    pagerState: PagerState = rememberPagerState()
-) {
-    Row(
-        modifier = modifier
-            .background(
-                color = DealiColor.b40,
-                shape = RoundedCornerShape(14.dp)
-            )
-            .padding(
-                horizontal = 8.dp,
-                vertical = 4.dp
-            ),
-        horizontalArrangement = Arrangement.spacedBy(2.dp),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        DealiText(
-            text = String.format("%02d", pagerDataState.pageMapper(pagerState.currentPage) + 1),
-            style = DealiFont.b3sb13,
-            color = DealiColor.primary04
-        )
-
-        DealiText(
-            text = "/",
-            style = DealiFont.b3r13,
-            color = DealiColor.w50
-        )
-
-        DealiText(
-            text = String.format("%02d", pageCount),
-            style = DealiFont.b3r13,
-            color = DealiColor.w50
-        )
-    }
-}
-
-@Composable
-fun Indicator(
-    currentPage: Int,
-    totalPage: Int,
+fun IndicatorMedium(
+    currentIndex: Int,
+    totalCount: Int,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -225,7 +192,7 @@ fun Indicator(
         verticalAlignment = Alignment.CenterVertically
     ) {
         DealiText(
-            text = currentPage.toString(),
+            text = (currentIndex + 1).toString(),
             style = DealiFont.b3sb13,
             color = DealiColor.primary04
         )
@@ -237,7 +204,50 @@ fun Indicator(
         )
 
         DealiText(
-            text = totalPage.toString(),
+            text = totalCount.toString(),
+            style = DealiFont.b3r13,
+            color = DealiColor.w50
+        )
+    }
+}
+
+/**
+ *  b40 색상의 라운드 배경이 있고, 슬래시 디바이더 '/' 가 있는 작은 크기의 숫자 인디케이터.
+ *  페이지는 1부터 시작하기 때문에 내부에서 index + 1로 계산한다.
+ */
+@Composable
+fun IndicatorSmall(
+    currentIndex: Int,
+    totalCount: Int,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .background(
+                color = DealiColor.b40,
+                shape = RoundedCornerShape(14.dp)
+            )
+            .padding(
+                horizontal = 8.dp,
+                vertical = 1.dp
+            ),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        DealiText(
+            text = (currentIndex + 1).toString(),
+            style = DealiFont.b3sb13,
+            color = DealiColor.primary04
+        )
+
+        DealiText(
+            text = "/",
+            style = DealiFont.b3r13,
+            color = DealiColor.w50
+        )
+
+        DealiText(
+            text = totalCount.toString(),
             style = DealiFont.b3r13,
             color = DealiColor.w50
         )
@@ -318,32 +328,35 @@ private fun IndicatorDotWhitePreview() {
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun IndicatorNumberPreview() {
-    IndicatorNumber(
+private fun IndicatorTransparentPreview() {
+    IndicatorTransparent(
         modifier = Modifier
             .padding(10.dp),
-        pageCount = 5
-    )
-}
-
-@Composable
-@Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun IndicatorPaginationPreview() {
-    IndicatorPagination(
-        modifier = Modifier
-            .padding(10.dp),
-        pageCount = 5
+        currentIndex = 0,
+        totalCount = 5,
     )
 }
 
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0XBEC5D2)
-private fun IndicatorPaginationPreview2() {
-    Indicator(
+private fun IndicatorMediumPreview() {
+    IndicatorMedium(
         modifier = Modifier
             .padding(10.dp),
-        currentPage = 1,
-        totalPage = 4,
+        currentIndex = 0,
+        totalCount = 5,
+    )
+}
+
+
+@Composable
+@Preview(showBackground = true, backgroundColor = 0XBEC5D2)
+private fun IndicatorSmallPreview() {
+    IndicatorSmall(
+        modifier = Modifier
+            .padding(10.dp),
+        currentIndex = 0,
+        totalCount = 5,
     )
 }

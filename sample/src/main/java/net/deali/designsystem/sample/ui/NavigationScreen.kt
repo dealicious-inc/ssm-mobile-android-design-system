@@ -18,6 +18,11 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,9 +31,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.IndicatorNumber
-import net.deali.designsystem.component.IndicatorPagination
+import net.deali.designsystem.component.IndicatorMedium
 import net.deali.designsystem.component.IndicatorPinkDot
+import net.deali.designsystem.component.IndicatorSmall
+import net.deali.designsystem.component.IndicatorTransparent
 import net.deali.designsystem.component.IndicatorWhiteDot
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.theme.DealiColor
@@ -63,25 +69,27 @@ fun NavigationScreen(
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun PagerContainer() {
+    val colors = listOf(
+        DealiColor.primary01,
+        DealiColor.secondary01,
+        DealiColor.g100,
+        DealiColor.g30,
+        DealiColor.g100
+    )
+
+    val pagerDataState = rememberPageDataState(
+        initialPageCount = colors.size
+    )
+    val pagerState = rememberPagerState(
+        pagerDataState.maxCount / 2
+    )
+
+    var currentIndex by remember { mutableStateOf(0) }
+
     Container(
         name = "Indicator",
         backgroundColor = DealiColor.g40
     ) {
-        val colors = listOf(
-            DealiColor.primary01,
-            DealiColor.secondary01,
-            DealiColor.g100,
-            DealiColor.g30,
-            DealiColor.g100
-        )
-
-        val pagerDataState = rememberPageDataState(
-            initialPageCount = colors.size
-        )
-        val pagerState = rememberPagerState(
-            pagerDataState.maxCount / 2
-        )
-
         HorizontalPager(
             pageCount = pagerDataState.pagerCount,
             state = pagerState
@@ -113,21 +121,30 @@ private fun PagerContainer() {
             }
         )
 
-        IndicatorNumber(
+        IndicatorTransparent(
             modifier = Modifier
                 .padding(6.dp),
-            pageCount = pagerDataState.pageCount,
-            pagerDataState = pagerDataState,
-            pagerState = pagerState
+            currentIndex = currentIndex,
+            totalCount = colors.size,
         )
 
-        IndicatorPagination(
+        IndicatorMedium(
             modifier = Modifier
                 .padding(6.dp),
-            pageCount = pagerDataState.pageCount,
-            pagerDataState = pagerDataState,
-            pagerState = pagerState
+            currentIndex = currentIndex,
+            totalCount = colors.size,
         )
+
+        IndicatorSmall(
+            modifier = Modifier
+                .padding(6.dp),
+            currentIndex = currentIndex,
+            totalCount = colors.size,
+        )
+    }
+
+    LaunchedEffect(key1 = pagerState.currentPage) {
+        currentIndex = ((pagerState.currentPage - pagerDataState.startIndex) % colors.size)
     }
 }
 
