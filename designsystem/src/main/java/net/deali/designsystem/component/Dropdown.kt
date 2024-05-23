@@ -72,7 +72,7 @@ fun Dropdown(
                 createHorizontalChain(labelRef, labelContentRef, chainStyle = ChainStyle.Packed(0f))
 
                 DealiText(
-                    modifier = modifier
+                    modifier = Modifier
                         .constrainAs(labelRef) {
                             start.linkTo(parent.start)
                             end.linkTo(labelContentRef.start)
