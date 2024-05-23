@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,15 +22,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
 import net.deali.designsystem.component.chipOutlineSmall01
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.visualtransformation.DecimalSeparatorVisualTransformation
 import net.deali.designsystem.util.visualtransformation.PhoneNumberVisualTransformation
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun InputWithButtonScreen(onBackPress: () -> Unit) {
     NavigationContainer(
@@ -40,9 +45,9 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         }
     ) {
         var text by remember { mutableStateOf("") }
-        var enabled by remember { mutableStateOf(true) }
-        var isError by remember { mutableStateOf(false) }
+        var state by remember { mutableStateOf(DealiTextFieldState.ENABLED) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
+        var isNecessary by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
         var isLabelVisible by remember { mutableStateOf(true) }
         var label by remember { mutableStateOf("") }
@@ -50,6 +55,7 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
         var helperText by remember { mutableStateOf("") }
         var isButtonEnabled by remember { mutableStateOf(true) }
         var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
+        var labelContent by remember { mutableStateOf("") }
 
         Column(
             modifier = Modifier
@@ -64,13 +70,39 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 onButtonClick = {},
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = if (isLabelVisible) label else null,
+                isNecessary = isNecessary,
                 helperText = helperText,
                 isHelperTextVisible = isHelperTextVisible,
-                inputEnabled = enabled,
+                state = state,
                 buttonEnabled = isButtonEnabled,
-                isError = isError,
                 visualTransformation = visualTransformation,
+                labelContent = if (labelContent.isNotEmpty()) {
+                    {
+                        DealiText(
+                            text = labelContent,
+                            style = DealiFont.b4r12,
+                            color = DealiColor.primary01
+                        )
+                    }
+                } else null,
             )
+
+            SampleDivider()
+
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                DealiTextFieldState.values().forEach { innerState ->
+                    RadioButton(
+                        text = innerState.name,
+                        selected = state == innerState
+                    ) {
+                        state = innerState
+                    }
+                }
+            }
 
             SampleDivider()
 
@@ -80,19 +112,21 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 ToggleOption(
-                    title = "Enabled",
-                    selected = enabled,
-                    onSelectedChange = { enabled = it }
-                )
-                ToggleOption(
-                    title = "Error",
-                    selected = isError,
-                    onSelectedChange = { isError = it }
-                )
-                ToggleOption(
                     title = "Button\nEnabled",
                     selected = isButtonEnabled,
                     onSelectedChange = { isButtonEnabled = it }
+                )
+
+                ToggleOption(
+                    title = "Helper Text\nVisible",
+                    selected = isHelperTextVisible,
+                    onSelectedChange = { isHelperTextVisible = it }
+                )
+
+                ToggleOption(
+                    title = "Placeholder\nVisible",
+                    selected = isPlaceholderVisible,
+                    onSelectedChange = { isPlaceholderVisible = it }
                 )
             }
 
@@ -105,19 +139,15 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     ToggleOption(
-                        title = "Placeholder\nVisible",
-                        selected = isPlaceholderVisible,
-                        onSelectedChange = { isPlaceholderVisible = it }
-                    )
-                    ToggleOption(
                         title = "Label\nVisible",
                         selected = isLabelVisible,
                         onSelectedChange = { isLabelVisible = it }
                     )
+
                     ToggleOption(
-                        title = "Helper Text\nVisible",
-                        selected = isHelperTextVisible,
-                        onSelectedChange = { isHelperTextVisible = it }
+                        title = "Necessary\n",
+                        selected = isNecessary,
+                        onSelectedChange = { isNecessary = it }
                     )
                 }
             }
@@ -180,6 +210,12 @@ fun InputWithButtonScreen(onBackPress: () -> Unit) {
                 value = label,
                 onValueChange = { label = it },
                 placeholder = "Label을 수정해 보세요.",
+            )
+            InputOption(
+                title = "Label Content",
+                value = labelContent,
+                onValueChange = { labelContent = it },
+                placeholder = "Label Content를 수정해 보세요.",
             )
             InputOption(
                 title = "Helper Text",
