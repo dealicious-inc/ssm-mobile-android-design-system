@@ -31,9 +31,9 @@ import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextField
 import net.deali.designsystem.internal.textfield.LegacyCoreDealiTextFieldForTextFieldValue
-import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -47,7 +47,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
-    enabled: Boolean = true,
+    state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
@@ -61,8 +61,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = enabled,
-        isError = false,
+        state = state,
         singleLine = true,
         minLines = 1,
         maxLines = 1,
@@ -73,36 +72,27 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        innerTrailingContent = if (!isFocused) {
-            {
-                if (value.isEmpty()) {
-                    Icon24(
-                        iconRes = R.drawable.ic_search,
-                        color = DealiColor.g100,
-                        enabled = false,
-                        onClick = {},
-                    )
-                }
-            }
-        } else {
-            {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
+        innerTrailingContent = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (value.isNotEmpty() || isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
-                            if (enabled) {
+                            if (state.isEnabled) {
                                 onValueChange("")
                                 focusRequester.requestFocus()
                             }
                             onRemoveIconClick()
                         }
                     )
+                }
 
+                if (value.isEmpty() || isFocused) {
                     Icon24(
                         iconRes = R.drawable.ic_search,
                         color = DealiColor.g100,
@@ -124,7 +114,7 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
-    enabled: Boolean = true,
+    state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     onRemoveIconClick: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
@@ -138,8 +128,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
-        enabled = enabled,
-        isError = false,
+        state = state,
         singleLine = true,
         minLines = 1,
         maxLines = 1,
@@ -150,36 +139,27 @@ fun SearchInput(
         placeholder = placeholder,
         isHelperTextVisible = false,
         innerTextFieldMinHeight = 40.dp,
-        innerTrailingContent = if (!isFocused) {
-            {
-                if (value.text.isEmpty()) {
-                    Icon24(
-                        iconRes = R.drawable.ic_search,
-                        color = DealiColor.g100,
-                        enabled = false,
-                        onClick = {},
-                    )
-                }
-            }
-        } else {
-            {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
+        innerTrailingContent = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (value.text.isNotEmpty() || isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
-                            if (enabled) {
+                            if (state.isEnabled) {
                                 onValueChange(TextFieldValue())
                                 focusRequester.requestFocus()
                             }
                             onRemoveIconClick()
                         }
                     )
+                }
 
+                if (value.text.isEmpty() || isFocused) {
                     Icon24(
                         iconRes = R.drawable.ic_search,
                         color = DealiColor.g100,
@@ -593,9 +573,10 @@ private fun rememberSearchInputColors() =
 private class SearchInputTextFieldColors : DealiTextFieldColors {
     @Composable
     override fun backgroundColor(state: DealiTextFieldState): State<Color> {
-        TODO("Not yet implemented")
+        return rememberUpdatedState(DealiColor.g10)
     }
 
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(DealiColor.g10)
@@ -603,9 +584,10 @@ private class SearchInputTextFieldColors : DealiTextFieldColors {
 
     @Composable
     override fun outlineColor(state: DealiTextFieldState, focused: Boolean): State<Color?> {
-        TODO("Not yet implemented")
+        return rememberUpdatedState(null)
     }
 
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color?> {
         return rememberUpdatedState(null)
@@ -613,9 +595,10 @@ private class SearchInputTextFieldColors : DealiTextFieldColors {
 
     @Composable
     override fun textColor(state: DealiTextFieldState): State<Color> {
-        TODO("Not yet implemented")
+        return rememberUpdatedState(DealiColor.primary05)
     }
 
+    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun textColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(DealiColor.primary05)
