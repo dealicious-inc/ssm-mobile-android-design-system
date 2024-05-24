@@ -182,6 +182,157 @@ fun SearchInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
+    state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextField(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        state = state,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        innerLeadingContent = {
+            TagOutlineLarge04(
+                modifier = Modifier
+                    .requiredWidthIn(max = 92.dp),
+                text = tagText,
+            )
+        },
+        innerTrailingContent = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (value.isNotEmpty() || isFocused) {
+                    Icon16(
+                        iconRes = R.drawable.ic_x_circle_filled,
+                        color = DealiColor.g50,
+                        enabled = true,
+                        onClick = {
+                            if (state.isEnabled) {
+                                onValueChange("")
+                                focusRequester.requestFocus()
+                            }
+                            onRemoveIconClick()
+                        }
+                    )
+                }
+
+                if (value.isEmpty() || isFocused) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
+            }
+        }
+    )
+}
+
+@Composable
+fun SearchInput(
+    value: TextFieldValue,
+    tagText: String,
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    onRemoveIconClick: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+
+    CoreDealiTextFieldForTextFieldValue(
+        modifier = modifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        state = state,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = keyboardActions,
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        innerLeadingContent = {
+            TagOutlineLarge04(
+                modifier = Modifier
+                    .requiredWidthIn(max = 79.dp),
+                text = tagText,
+            )
+        },
+        innerTrailingContent = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (value.text.isNotEmpty() || isFocused) {
+                    Icon16(
+                        iconRes = R.drawable.ic_x_circle_filled,
+                        color = DealiColor.g50,
+                        enabled = true,
+                        onClick = {
+                            if (state.isEnabled) {
+                                onValueChange(TextFieldValue())
+                                focusRequester.requestFocus()
+                            }
+                            onRemoveIconClick()
+                        }
+                    )
+                }
+
+                if (value.text.isEmpty() || isFocused) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        enabled = false,
+                        onClick = {},
+                    )
+                }
+            }
+        }
+    )
+}
+
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
+@Composable
+fun SearchInput(
+    value: String,
+    tagText: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
     enabled: Boolean = true,
     onRemoveIconClick: () -> Unit = {},
 ) {
@@ -241,7 +392,7 @@ fun SearchInput(
     )
 }
 
-
+@Deprecated("디자인 시스탬 임시 컴포넌트입니다. 추후 제거될 예정입니다.")
 @Composable
 fun SearchInput(
     value: TextFieldValue,
@@ -649,7 +800,8 @@ private fun SearchInputWithTagPreview() = AppTheme {
         SearchInput(
             value = "search input",
             onValueChange = {},
-            tagText = "원피스"
+            tagText = "원피스",
+            state = DealiTextFieldState.ENABLED
         )
     }
 }

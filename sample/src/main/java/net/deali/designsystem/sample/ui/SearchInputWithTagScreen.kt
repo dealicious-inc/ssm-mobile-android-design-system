@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.SearchInput
 import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -45,6 +46,7 @@ fun SearchInputWithTagScreen(onBackPress: () -> Unit) {
                 onValueChange = remember { { text = it } },
                 placeholder = placeholder,
                 tagText = tagText,
+                state = DealiTextFieldState.ENABLED
             )
             SampleDivider()
             InputOption(
