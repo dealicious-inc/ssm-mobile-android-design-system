@@ -203,5 +203,5 @@ private fun InputOption(
 @Composable
 @Preview(showBackground = true)
 private fun InputScreenPreview() {
-    TextAreaScreen(onBackPress = {})
+    TextAreaButtonScreen(onBackPress = {})
 }

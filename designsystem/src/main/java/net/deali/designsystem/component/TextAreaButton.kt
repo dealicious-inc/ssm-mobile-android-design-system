@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -19,6 +20,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
+import net.deali.designsystem.theme.DealiColor
 
 /**
  * [textAreaButton] 컴포넌트에서 사용하는 버튼의 타입.
@@ -114,8 +116,8 @@ fun textAreaButton(
             ) {
                 HorizontalSpacer(width = 12.dp)
                 when (actionButtonType) {
-                    TextAreaActionButtonType.Send -> SendButton(onClick = onActionButtonClick)
-                    TextAreaActionButtonType.Upload -> UploadButton(onClick = onActionButtonClick)
+                    TextAreaActionButtonType.Send -> SendButton(value = value, onClick = onActionButtonClick)
+                    TextAreaActionButtonType.Upload -> UploadButton(value = value, onClick = onActionButtonClick)
                 }
             }
         },
@@ -208,8 +210,8 @@ fun textAreaButton(
             ) {
                 HorizontalSpacer(width = 12.dp)
                 when (actionButtonType) {
-                    TextAreaActionButtonType.Send -> SendButton(onClick = onActionButtonClick)
-                    TextAreaActionButtonType.Upload -> UploadButton(onClick = onActionButtonClick)
+                    TextAreaActionButtonType.Send -> SendButton(value = value.text, onClick = onActionButtonClick)
+                    TextAreaActionButtonType.Upload -> UploadButton(value = value.text, onClick = onActionButtonClick)
                 }
             }
         },
@@ -235,6 +237,7 @@ private fun AttachButton(
 
 @Composable
 private fun SendButton(
+    value: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -243,8 +246,10 @@ private fun SendButton(
         contentAlignment = Alignment.Center,
     ) {
         Icon24(
-            iconRes = R.drawable.ic_send,
             modifier = modifier,
+            iconRes = R.drawable.ic_send,
+            enabled = value.isNotEmpty(),
+            color = if(value.isNotEmpty() ) DealiColor.primary01 else Color.Unspecified,
             onClick = onClick,
         )
     }
@@ -252,6 +257,7 @@ private fun SendButton(
 
 @Composable
 private fun UploadButton(
+    value: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -259,9 +265,11 @@ private fun UploadButton(
         modifier = Modifier.height(46.dp),
         contentAlignment = Alignment.Center,
     ) {
-        Icon32(
-            iconRes = R.drawable.ic_up_1_filled,
+        Icon24(
             modifier = modifier,
+            iconRes = R.drawable.ic_up_1_filled,
+            enabled = value.isNotEmpty(),
+            color = if(value.isNotEmpty() ) DealiColor.primary01 else Color.Unspecified,
             onClick = onClick,
         )
     }
