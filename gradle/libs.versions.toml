@@ -34,30 +34,30 @@ android-application = { id = "com.android.application", version.ref = "android-g
 
 [libraries]
 # 디자인 시스템에서 사용하는 dependencies
-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
 
-androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity-compose" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
 
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose-foundation" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose-ui" }
-compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "compose-foundation" }
+compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose-material" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose-ui" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose-ui" }
+compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose-ui" }
 
-kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "immutable-collections" }
-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-snapper = { module = "dev.chrisbanes.snapper:snapper", version.ref = "snapper" }
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "immutable-collections" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+snapper = { group = "dev.chrisbanes.snapper", name = "snapper", version.ref = "snapper" }
 
-junit4 = { module = "junit:junit", version.ref = "junit4" }
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 
 # 샘플에서만 사용하는 dependencies
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
-androidx-datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
-androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidx-constraintlayout-compose" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidx-navigation-compose" }
+androidx-datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
+androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidx-constraintlayout-compose" }
 
-gridlayout-compose = { module = "io.woong.compose.grid:grid", version.ref = "gridlayout-compose" }
+gridlayout-compose = { group = "io.woong.compose.grid", name = "grid", version.ref = "gridlayout-compose" }
 
 # 빌드스크립트에서 사용하는 dependencies
-maven-gradle-plugin = { module = "com.github.dcendents:android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
+maven-gradle-plugin = { group = "com.github.dcendents", name = "android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
