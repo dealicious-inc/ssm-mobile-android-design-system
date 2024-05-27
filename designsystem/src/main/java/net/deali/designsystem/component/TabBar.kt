@@ -36,9 +36,9 @@ import net.deali.designsystem.theme.DealiFont
  */
 @Composable
 fun tabBarSegment01(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
 ) {
     CoreFixedTabBar(
@@ -61,9 +61,9 @@ fun tabBarSegment01(
  */
 @Composable
 fun tabBarSlider01(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
 ) {
     CoreScrollableTabBar(
@@ -88,9 +88,9 @@ fun tabBarSlider01(
  */
 @Composable
 fun tabBarSlider02(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
 ) {
     CoreScrollableTabBar(
@@ -115,9 +115,9 @@ fun tabBarSlider02(
  */
 @Composable
 fun tabBarChip01(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
     onSelectTab: (index: Int) -> Unit,
@@ -159,9 +159,9 @@ fun tabBarChip01(
 @Composable
 fun tabBarSegment01Layout(
     tabTitles: List<String>,
-    onSelectTab: (index: Int) -> Unit,
-    initialPage: Int = 0,
     userSwipeEnabled: Boolean,
+    initialPage: Int = 0,
+    onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
     CoreTabBarLayout(
@@ -192,9 +192,9 @@ fun tabBarSegment01Layout(
 @Composable
 fun tabBarSlider02Layout(
     tabTitles: List<String>,
-    onSelectTab: (index: Int) -> Unit,
-    initialPage: Int = 0,
     userSwipeEnabled: Boolean,
+    initialPage: Int = 0,
+    onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
     CoreTabBarLayout(
@@ -225,9 +225,9 @@ fun tabBarSlider02Layout(
 @Composable
 fun tabBarSlider01Layout(
     tabTitles: List<String>,
-    onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
     userSwipeEnabled: Boolean = false,
+    onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
     CoreTabBarLayout(
@@ -259,9 +259,9 @@ fun tabBarSlider01Layout(
 @Composable
 fun tabBarChip01Layout(
     tabTitles: List<String>,
-    onSelectTab: (index: Int) -> Unit,
     initialPage: Int = 0,
     userSwipeEnabled: Boolean = false,
+    onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable (page: Int) -> Unit,
 ) {
     CoreTabBarLayout(
