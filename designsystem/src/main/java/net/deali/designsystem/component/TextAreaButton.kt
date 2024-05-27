@@ -249,7 +249,7 @@ private fun SendButton(
             modifier = modifier,
             iconRes = R.drawable.ic_send,
             enabled = value.isNotEmpty(),
-            color = if(value.isNotEmpty() ) DealiColor.primary01 else Color.Unspecified,
+            color = if(value.isNotEmpty() ) DealiColor.primary01 else DealiColor.g60,
             onClick = onClick,
         )
     }
@@ -269,7 +269,7 @@ private fun UploadButton(
             modifier = modifier,
             iconRes = R.drawable.ic_up_1_filled,
             enabled = value.isNotEmpty(),
-            color = if(value.isNotEmpty() ) DealiColor.primary01 else Color.Unspecified,
+            color = if(value.isNotEmpty() ) DealiColor.primary01 else DealiColor.g60,
             onClick = onClick,
         )
     }
