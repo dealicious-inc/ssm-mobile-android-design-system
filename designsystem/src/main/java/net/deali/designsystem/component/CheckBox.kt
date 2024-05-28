@@ -19,8 +19,16 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.getRandomText
 
+/**
+ * 체크박스 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param text 옆에 표시할 문구
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param onCheck 체크 시 콜백
+ */
 @Composable
 fun CheckBox(
     checked: Boolean,
@@ -61,21 +69,41 @@ fun CheckBox(
     }
 }
 
+/**
+ * 체크박스 아이콘 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param onCheck 체크 시 콜백, `null`인 경우 클릭 이벤트 제거.
+ */
 @Composable
 fun CheckBoxIcon(
     checked: Boolean,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    onCheck: (() -> Unit)? = null,
 ) {
-    Icon24(
-        modifier = modifier,
-        iconRes = when {
-            enabled.not() && checked -> R.drawable.ic_checkbox_ondisable
-            enabled.not() && checked.not() -> R.drawable.ic_checkbox_disable
-            checked -> R.drawable.ic_checkbox_on
-            else -> R.drawable.ic_checkbox_off
-        }
-    )
+    val iconRes = when {
+        enabled.not() && checked -> R.drawable.ic_checkbox_ondisable
+        enabled.not() && checked.not() -> R.drawable.ic_checkbox_disable
+        checked -> R.drawable.ic_checkbox_on
+        else -> R.drawable.ic_checkbox_off
+    }
+
+    if (onCheck == null) {
+        Icon24(
+            modifier = modifier,
+            iconRes = iconRes
+        )
+    } else {
+        Icon24(
+            modifier = modifier,
+            iconRes = iconRes,
+            onClick = onCheck,
+            enabled = enabled,
+        )
+    }
 }
 
 @Composable

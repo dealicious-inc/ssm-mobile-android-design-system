@@ -20,7 +20,16 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
-
+/**
+ * 체크 서클 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param text 옆에 표시할 문구
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param isAd 체크 스타일을 AD 스타일로 설정
+ * @param onCheck 체크 시 콜백
+ */
 @Composable
 fun Checkcircle(
     checked: Boolean,
@@ -136,6 +145,16 @@ fun CheckcircleAdIcon(
     )
 }
 
+/**
+ * 체크 서클 아이콘 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param isAd 체크 스타일을 AD 스타일로 설정
+ * @param noRipple 리플 효과 제거 여부
+ * @param onCheck 체크 시 콜백. `null`인 경우 클릭 이벤트 제거.
+ */
 @Composable
 private fun CheckcircleIcon(
     checked: Boolean,
@@ -145,25 +164,22 @@ private fun CheckcircleIcon(
     noRipple: Boolean = false,
     onCheck: (() -> Unit)? = null,
 ) {
+    val iconRes = when {
+        enabled.not() -> R.drawable.ic_checkcircle_disable
+        checked && isAd -> R.drawable.ic_checkcircle_onad
+        checked && isAd.not() -> R.drawable.ic_checkcircle_on
+        else -> R.drawable.ic_checkcircle_off
+    }
+
     if (onCheck == null) {
         Icon24(
             modifier = modifier,
-            iconRes = when {
-                enabled.not() -> R.drawable.ic_checkcircle_disable
-                checked && isAd -> R.drawable.ic_checkcircle_onad
-                checked && isAd.not() -> R.drawable.ic_checkcircle_on
-                else -> R.drawable.ic_checkcircle_off
-            }
+            iconRes = iconRes
         )
     } else {
         Icon24(
             modifier = modifier,
-            iconRes = when {
-                enabled.not() -> R.drawable.ic_checkcircle_disable
-                checked && isAd -> R.drawable.ic_checkcircle_onad
-                checked && isAd.not() -> R.drawable.ic_checkcircle_on
-                else -> R.drawable.ic_checkcircle_off
-            },
+            iconRes = iconRes,
             enabled = enabled,
             onClick = onCheck,
             noRipple = noRipple,

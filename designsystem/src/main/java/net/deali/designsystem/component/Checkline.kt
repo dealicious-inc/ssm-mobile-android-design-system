@@ -20,7 +20,16 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
-
+/**
+ * 체크 라인 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param text 옆에 표시할 문구
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param isAd 체크 스타일을 AD 스타일로 설정
+ * @param onCheck 체크 시 콜백
+ */
 @Composable
 fun Checkline(
     checked: Boolean,
@@ -75,7 +84,7 @@ fun ChecklineIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
     ChecklineIcon(
         modifier = modifier,
@@ -93,7 +102,7 @@ fun ChecklineAdIcon(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
     ChecklineIcon(
         modifier = modifier,
@@ -105,6 +114,16 @@ fun ChecklineAdIcon(
     )
 }
 
+/**
+ * 체크 라인 아이콘 컴포넌트.
+ *
+ * @param checked 체크 상태
+ * @param modifier 컴포넌트에 적용할 [Modifier]
+ * @param enabled 활성화 상태
+ * @param isAd 체크 스타일을 AD 스타일로 설정
+ * @param noRipple 리플 효과 제거 여부
+ * @param onCheck 체크 시 콜백. `null`인 경우 클릭 이벤트 제거.
+ */
 @Composable
 private fun ChecklineIcon(
     checked: Boolean,
@@ -112,20 +131,29 @@ private fun ChecklineIcon(
     enabled: Boolean,
     isAd: Boolean,
     noRipple: Boolean = false,
-    onCheck: () -> Unit = {},
+    onCheck: (() -> Unit)? = null,
 ) {
-    Icon24(
-        modifier = modifier,
-        iconRes = when {
-            enabled.not() -> R.drawable.ic_checkline_disabled
-            checked && isAd -> R.drawable.ic_checkline_onad
-            checked && isAd.not() -> R.drawable.ic_checkline_on
-            else -> R.drawable.ic_checkline_off
-        },
-        enabled = enabled,
-        onClick = onCheck,
-        noRipple = noRipple,
-    )
+    val iconRes = when {
+        enabled.not() -> R.drawable.ic_checkline_disabled
+        checked && isAd -> R.drawable.ic_checkline_onad
+        checked && isAd.not() -> R.drawable.ic_checkline_on
+        else -> R.drawable.ic_checkline_off
+    }
+
+    if (onCheck == null) {
+        Icon24(
+            modifier = modifier,
+            iconRes = iconRes
+        )
+    } else {
+        Icon24(
+            modifier = modifier,
+            iconRes = iconRes,
+            enabled = enabled,
+            onClick = onCheck,
+            noRipple = noRipple,
+        )
+    }
 }
 
 @Composable
