@@ -44,25 +44,25 @@ fun PopupScreen(
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             btnFilledSmall01(
-                text = "popup title content dismiss confirm",
+                text = "Title, Content, 2 Buttons",
                 enabled = true,
                 onClick = { popupState1 = true },
             )
 
             btnFilledSmall01(
-                text = "popup title content confirm",
+                text = "Content, 2 Buttons",
                 enabled = true,
                 onClick = { popupState2 = true },
             )
 
             btnFilledSmall01(
-                text = "content dismiss confirm",
+                text = "Title, Content, 1 Button",
                 enabled = true,
                 onClick = { popupState3 = true },
             )
 
             btnFilledSmall01(
-                text = "content confirm",
+                text = "Content, 1 Button",
                 enabled = true,
                 onClick = { popupState4 = true },
             )
@@ -76,7 +76,7 @@ fun PopupScreen(
                 rightButtonText = "확인",
                 onLeftButtonClick = { popupState1 = false },
                 onRightButtonClick = { popupState1 = false },
-                onDismiss = { popupState1 = false },
+                onDismissRequest = { popupState1 = false }
             )
         }
 
@@ -87,7 +87,7 @@ fun PopupScreen(
                 rightButtonText = "확인",
                 onLeftButtonClick = { popupState2 = false },
                 onRightButtonClick = { popupState2 = false },
-                onDismiss = { popupState2 = false },
+                onDismissRequest = { popupState2 = false },
             )
         }
 
@@ -97,7 +97,7 @@ fun PopupScreen(
                 content = "댓글을 삭제하시겠습니까?",
                 buttonText = "확인",
                 onButtonClick = { popupState3 = false },
-                onDismiss = { popupState3 = false },
+                onDismissRequest = { popupState3 = false }
             )
         }
 
@@ -106,7 +106,7 @@ fun PopupScreen(
                 content = "댓글을 삭제하시겠습니까?",
                 buttonText = "확인",
                 onButtonClick = { popupState4 = false },
-                onDismiss = { popupState4 = false },
+                onDismissRequest = { popupState4 = false }
             )
         }
     }
