@@ -69,7 +69,8 @@ internal fun CoreFixedTabBar(
             tabs = {
                 tabTitles.forEachIndexed { index, title ->
                     TabItem(
-                        modifier = Modifier,
+                        modifier = Modifier
+                            .padding(horizontal = 8.dp),
                         title = title,
                         isSelected = index == currentIndex,
                         selectedTextColor = selectedTextColor,
