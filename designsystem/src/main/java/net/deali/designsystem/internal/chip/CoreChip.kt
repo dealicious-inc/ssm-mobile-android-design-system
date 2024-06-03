@@ -334,7 +334,7 @@ private fun RowScope.RegularContent(
     DealiText(
         modifier = Modifier.weight(weight = 1f),
         text = text,
-        style = textStyle.copy(textAlign = textAlign),
+        style = if (textAlign != null) textStyle.copy(textAlign = textAlign) else textStyle,
         color = defaultContentColor,
         maxLines = if (textSingleLine) 1 else Int.MAX_VALUE,
         overflow = TextOverflow.Ellipsis,

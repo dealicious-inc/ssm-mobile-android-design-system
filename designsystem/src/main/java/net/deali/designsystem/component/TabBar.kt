@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -162,7 +163,7 @@ fun tabBarSegment01Layout(
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabTitles.size,
@@ -195,7 +196,7 @@ fun tabBarSlider02Layout(
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabTitles.size,
@@ -228,7 +229,7 @@ fun tabBarSlider01Layout(
     initialPage: Int = 0,
     userSwipeEnabled: Boolean = false,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabTitles.size,
@@ -262,7 +263,7 @@ fun tabBarChip01Layout(
     initialPage: Int = 0,
     userSwipeEnabled: Boolean = false,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabTitles.size,

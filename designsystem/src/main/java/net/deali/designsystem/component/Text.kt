@@ -21,12 +21,20 @@ fun DealiText(
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign? = null,
 ) {
-    val mergedStyle = style.merge(
-        TextStyle(
-            color = color,
-            textAlign = textAlign,
+    val mergedStyle = if (textAlign != null) {
+        style.merge(
+            TextStyle(
+                color = color,
+                textAlign = textAlign,
+            )
         )
-    )
+    } else {
+        style.merge(
+            TextStyle(
+                color = color,
+            )
+        )
+    }
 
     BasicText(
         text = text,
@@ -48,12 +56,20 @@ fun DealiText(
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign? = null,
 ) {
-    val mergedStyle = style.merge(
-        TextStyle(
-            brush = brush,
-            textAlign = textAlign,
+    val mergedStyle = if (textAlign != null) {
+        style.merge(
+            TextStyle(
+                brush = brush,
+                textAlign = textAlign,
+            )
         )
-    )
+    } else {
+        style.merge(
+            TextStyle(
+                brush = brush,
+            )
+        )
+    }
 
     BasicText(
         text = text,
@@ -74,12 +90,20 @@ fun DealiText(
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign? = null,
 ) {
-    val mergedStyle = style.merge(
-        TextStyle(
-            color = color,
-            textAlign = textAlign,
+    val mergedStyle = if (textAlign != null) {
+        style.merge(
+            TextStyle(
+                color = color,
+                textAlign = textAlign,
+            )
         )
-    )
+    } else {
+        style.merge(
+            TextStyle(
+                color = color,
+            )
+        )
+    }
 
     BasicText(
         text = text,

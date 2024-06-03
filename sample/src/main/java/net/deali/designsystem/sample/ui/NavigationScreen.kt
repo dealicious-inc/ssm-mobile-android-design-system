@@ -81,7 +81,10 @@ private fun PagerContainer() {
         initialPageCount = colors.size
     )
     val pagerState = rememberPagerState(
-        pagerDataState.maxCount / 2
+        pagerDataState.maxCount / 2,
+        pageCount = {
+            pagerDataState.pagerCount
+        }
     )
 
     var currentIndex by remember { mutableStateOf(0) }
@@ -91,7 +94,6 @@ private fun PagerContainer() {
         backgroundColor = DealiColor.g40
     ) {
         HorizontalPager(
-            pageCount = pagerDataState.pagerCount,
             state = pagerState
         ) { index ->
             Spacer(

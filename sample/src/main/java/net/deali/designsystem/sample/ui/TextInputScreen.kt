@@ -96,7 +96,7 @@ fun InputScreen(onBackPress: () -> Unit) {
             FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
+                verticalArrangement = Arrangement.Center
             ) {
                 DealiTextFieldState.values().forEach { innerState ->
                     RadioButton(

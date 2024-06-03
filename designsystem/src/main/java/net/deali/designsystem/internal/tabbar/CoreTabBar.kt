@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
@@ -189,9 +190,12 @@ internal fun CoreTabBarLayout(
         currentIndex: Int,
         onPageChange: (index: Int) -> Unit,
     ) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
-    val pagerState = rememberPagerState(initialPage = initialPage)
+    val pagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabCount }
+    )
     val coroutineScope = rememberCoroutineScope()
 
     Column(
@@ -207,7 +211,6 @@ internal fun CoreTabBarLayout(
         }
 
         HorizontalPager(
-            pageCount = tabCount,
             modifier = Modifier,
             state = pagerState,
             userScrollEnabled = userSwipeEnabled,
