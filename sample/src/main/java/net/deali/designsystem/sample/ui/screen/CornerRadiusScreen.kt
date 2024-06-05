@@ -29,12 +29,12 @@ fun CornerRadiusScreen(
 ) {
     val radiusItems = listOf(
         CornerRadiusScreenItem("Radius : 0", DealiShape.radius0),
-        CornerRadiusScreenItem("Radius : 6", DealiShape.radius6),
-        CornerRadiusScreenItem("Radius : 4", DealiShape.radius4),
         CornerRadiusScreenItem("Radius : 3", DealiShape.radius3),
+        CornerRadiusScreenItem("Radius : 4", DealiShape.radius4),
+        CornerRadiusScreenItem("Radius : 6", DealiShape.radius6),
+        CornerRadiusScreenItem("Radius : 10", DealiShape.radius10),
         CornerRadiusScreenItem("Radius : 100%", DealiShape.radius100),
         CornerRadiusScreenItem("Radius : 20", DealiShape.radius20),
-        CornerRadiusScreenItem("Radius : 10", DealiShape.radius10),
     )
 
     NavigationContainer(

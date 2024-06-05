@@ -66,6 +66,7 @@ internal object ButtonDefaults {
         return when (buttonSize) {
             ButtonSize.Large -> DealiShape.radius6
             ButtonSize.Medium -> DealiShape.radius6
+            ButtonSize.SemiMedium -> DealiShape.radius6
             ButtonSize.Small -> DealiShape.radius4
         }
     }
@@ -75,6 +76,7 @@ internal object ButtonDefaults {
         return when (buttonSize) {
             ButtonSize.Large -> 50.dp
             ButtonSize.Medium -> 46.dp
+            ButtonSize.SemiMedium -> 40.dp
             ButtonSize.Small -> 32.dp
         }
     }
@@ -91,6 +93,7 @@ internal object ButtonDefaults {
         return when (buttonSize) {
             ButtonSize.Large -> largeButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
             ButtonSize.Medium -> mediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
+            ButtonSize.SemiMedium -> semiMediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
             ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading, rounded)
         }
     }
@@ -112,6 +115,21 @@ internal object ButtonDefaults {
 
     @Composable
     private fun mediumButtonPaddings(
+        buttonStyle: ButtonStyle,
+        useLeftIcon: Boolean,
+        useRightIcon: Boolean,
+        isLoading: Boolean,
+    ): PaddingValues {
+        if (isLoading || buttonStyle == ButtonStyle.Text) {
+            return PaddingValues(horizontal = 16.dp)
+        }
+        val leftPadding = if (useLeftIcon) 16.dp else 20.dp
+        val rightPadding = if (useRightIcon) 16.dp else 20.dp
+        return PaddingValues(start = leftPadding, end = rightPadding)
+    }
+
+    @Composable
+    private fun semiMediumButtonPaddings(
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
@@ -163,6 +181,12 @@ internal object ButtonDefaults {
                 DealiFont.b2sb14
             }
 
+            ButtonSize.SemiMedium -> if (buttonStyle == ButtonStyle.Text) {
+                DealiFont.b2r14
+            } else {
+                DealiFont.b2sb14
+            }
+
             ButtonSize.Small -> if (buttonStyle == ButtonStyle.Text) {
                 DealiFont.b3r13
             } else {
@@ -174,10 +198,8 @@ internal object ButtonDefaults {
     @Composable
     fun loadingIconSize(buttonSize: ButtonSize): DpSize {
         return when (buttonSize) {
-            ButtonSize.Large,
-            ButtonSize.Medium -> DpSize(24.dp, 24.dp)
-
-            ButtonSize.Small -> DpSize(16.dp, 16.dp)
+            ButtonSize.Large, ButtonSize.Medium -> DpSize(24.dp, 24.dp)
+            ButtonSize.SemiMedium, ButtonSize.Small -> DpSize(16.dp, 16.dp)
         }
     }
 }

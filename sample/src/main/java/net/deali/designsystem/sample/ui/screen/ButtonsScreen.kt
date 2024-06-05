@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.tabBarSegment01Layout
+import net.deali.designsystem.component.tabBarSlider02Layout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -30,17 +30,18 @@ fun ButtonsScreen(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        val tabTitles = remember { listOf("Large", "Medium", "Small") }
+        val tabTitles = remember { listOf("Large", "Medium", "SemiMedium", "Small") }
 
-        tabBarSegment01Layout(
+        tabBarSlider02Layout(
             tabTitles = tabTitles,
-            userSwipeEnabled = false,
-            onSelectTab = {}
+            userSwipeEnabled = true,
+            onSelectTab = {},
         ) { page ->
             when (page) {
                 0 -> LargeButtonSamples()
                 1 -> MediumButtonSamples()
-                2 -> SmallButtonSamples()
+                2 -> SemiMediumButtonSamples()
+                3 -> SmallButtonSamples()
             }
         }
     }
