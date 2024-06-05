@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:launchMode="singleInstance"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
