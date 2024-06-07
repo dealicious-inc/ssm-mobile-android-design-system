@@ -46,7 +46,7 @@ sealed class Screen(
     object TextInputWithButton : Screen("textInputWithButton")
     object TextAreaButton : Screen("textAreaButton")
     object SearchInputWithTag : Screen("searchInputWithTag")
-    object Popup : Screen("popup")
+    object Alert : Screen("alert")
     object Slider : Screen("slider")
 
     /** Undefined */

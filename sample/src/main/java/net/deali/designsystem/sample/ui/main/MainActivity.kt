@@ -76,7 +76,7 @@ class MainActivity : ComponentActivity() {
         Screen.TextInputWithButton,
         Screen.TextAreaButton,
         Screen.SearchInputWithTag,
-        Screen.Popup,
+        Screen.Alert,
         Screen.Slider,
     )
 

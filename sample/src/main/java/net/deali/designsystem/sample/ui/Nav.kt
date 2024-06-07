@@ -11,9 +11,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.data.datastore.DataStoreUtil
+import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.ui.main.MainScreen
+import net.deali.designsystem.sample.ui.screen.AlertScreen
 import net.deali.designsystem.sample.ui.screen.BottomSheetScreen
 import net.deali.designsystem.sample.ui.screen.ButtonsScreen
 import net.deali.designsystem.sample.ui.screen.CheckBoxScreen
@@ -27,7 +28,6 @@ import net.deali.designsystem.sample.ui.screen.DropdownScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.IndentationsScreen
 import net.deali.designsystem.sample.ui.screen.IndicatorScreen
-import net.deali.designsystem.sample.ui.screen.PopupScreen
 import net.deali.designsystem.sample.ui.screen.RadioButtonScreen
 import net.deali.designsystem.sample.ui.screen.RatingScreen
 import net.deali.designsystem.sample.ui.screen.SearchInputScreen
@@ -253,8 +253,8 @@ private fun NavGraphBuilder.moleculesGraph(
     composable(Screen.SearchInputWithTag.route) {
         SearchInputWithTagScreen(onBackPress = navController::popBackStack)
     }
-    composable(Screen.Popup.route) {
-        PopupScreen(onBackPress = navController::popBackStack)
+    composable(Screen.Alert.route) {
+        AlertScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Slider.route) {
         SliderScreen(onBackPress = navController::popBackStack)

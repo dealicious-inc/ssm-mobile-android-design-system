@@ -184,7 +184,7 @@ private fun MainScreenPreview() {
             Screen.TextInputWithButton,
             Screen.TextAreaButton,
             Screen.SearchInputWithTag,
-            Screen.Popup,
+            Screen.Alert,
             Screen.Slider,
         ),
         others = listOf(
