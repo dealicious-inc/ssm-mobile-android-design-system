@@ -28,7 +28,7 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
- * 가장 상위 1depth 에서 사용하는 화면의 1/n 크기 고정된 탭바
+ * 화면의 1/n 크기 고정된 탭바
  * @param modifier
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param currentIndex 현재 선택된 탭의 인덱스
@@ -53,7 +53,7 @@ fun tabBarSegment01(
 }
 
 /**
- * 가장 상위 1depth 에서 사용하는 가로 무한 스크롤 탭바 (primary01)
+ * 가로 무한 스크롤 탭바 (primary01)
  * @param modifier
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param currentIndex 현재 선택된 탭의 인덱스
@@ -80,7 +80,7 @@ fun tabBarSlider01(
 }
 
 /**
- * 가장 상위 1depth 에서 사용하는 가로 무한 스크롤 탭바 (g100)
+ * 가로 무한 스크롤 탭바 (g100)
  * @param modifier
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param currentIndex 현재 선택된 탭의 인덱스
@@ -107,7 +107,7 @@ fun tabBarSlider02(
 }
 
 /**
- * 2depth 에서 사용하는 Chip으로 이루어져 있는 탭바
+ * Chip으로 이루어져 있는 탭바
  * @param modifier
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param currentIndex 현재 선택된 탭의 인덱스
@@ -148,7 +148,7 @@ fun tabBarChip01(
 }
 
 /**
- * 가장 상위 1depth 에서 사용하는 화면의 1/n 크기 고정된 탭바를 사용하는 레이아웃
+ * 화면의 1/n 크기 고정된 탭바를 사용하는 레이아웃
  *
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
@@ -181,7 +181,7 @@ fun tabBarSegment01Layout(
 }
 
 /**
- * 가장 상위 1depth 에서 사용하는 가로 무한 스크롤 탭바(g100)를 사용하는 레이아웃
+ * 가로 무한 스크롤 탭바(g100)를 사용하는 레이아웃
  *
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
@@ -214,7 +214,7 @@ fun tabBarSlider02Layout(
 }
 
 /**
- * 가장 상위 1depth 에서 사용하는 가로 무한 스크롤 탭바(primary01)를 사용하는 레이아웃
+ * 가로 무한 스크롤 탭바(primary01)를 사용하는 레이아웃
  *
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
@@ -248,7 +248,7 @@ fun tabBarSlider01Layout(
 
 
 /**
- * 2depth 에서 사용하는 Chip으로 이루어져 있는 탭바
+ * Chip으로 이루어져 있는 탭바
  *
  * @param tabTitles 각 탭의 타이틀 리스트
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백

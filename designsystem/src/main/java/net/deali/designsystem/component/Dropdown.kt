@@ -198,7 +198,7 @@ private fun InnerText(
 
         HorizontalSpacer(width = 16.dp)
 
-        Icon24(
+        Icon16(
             iconRes = if (isOpen) R.drawable.ic_arrow_right else R.drawable.ic_arrow_open,
             color = contentColor
         )
