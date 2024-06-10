@@ -26,19 +26,71 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
+import net.deali.designsystem.component.Tab
 import net.deali.designsystem.component.badge
 import net.deali.designsystem.internal.tabbar.TabRowDefaults.dealiTabIndicatorOffset
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+@JvmName("CoreFixedTabBarString")
 @Composable
 internal fun CoreFixedTabBar(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
+    modifier: Modifier = Modifier,
     selectedTextColor: Color = DealiColor.primary01,
     indicatorColor: Color = DealiColor.primary01,
-    useBadge: Boolean,
+    onSelectTab: (index: Int) -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(DealiColor.primary04)
+    ) {
+        HorizontalDivider(
+            modifier = Modifier.align(Alignment.BottomCenter),
+            color = DealiColor.g30
+        )
+
+        TabRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            selectedTabIndex = currentIndex,
+            backgroundColor = DealiColor.transparent,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    modifier = Modifier
+                        .tabIndicatorOffset(tabPositions[currentIndex]),
+                    height = 2.dp,
+                    color = indicatorColor
+                )
+            },
+            tabs = {
+                tabTitles.forEachIndexed { index, title ->
+                    FixedTabItem(
+                        modifier = Modifier,
+                        title = title,
+                        isSelected = index == currentIndex,
+                        selectedTextColor = selectedTextColor,
+                        useBadge = false,
+                        onClick = { onSelectTab(index) }
+                    )
+                }
+            },
+            divider = {}
+        )
+    }
+}
+
+@JvmName("CoreFixedTabBarTabs")
+@Composable
+internal fun CoreFixedTabBar(
+    tabs: List<Tab>,
+    currentIndex: Int,
+    modifier: Modifier = Modifier,
+    selectedTextColor: Color = DealiColor.primary01,
+    indicatorColor: Color = DealiColor.primary01,
     onSelectTab: (index: Int) -> Unit,
 ) {
     Box(
@@ -67,14 +119,13 @@ internal fun CoreFixedTabBar(
                 )
             },
             tabs = {
-                tabTitles.forEachIndexed { index, title ->
-                    TabItem(
-                        modifier = Modifier
-                            .padding(horizontal = 8.dp),
-                        title = title,
+                tabs.forEachIndexed { index, tab ->
+                    FixedTabItem(
+                        modifier = Modifier,
+                        title = tab.text,
                         isSelected = index == currentIndex,
                         selectedTextColor = selectedTextColor,
-                        useBadge = useBadge,
+                        useBadge = tab.isShowBadge,
                         onClick = { onSelectTab(index) }
                     )
                 }
@@ -86,12 +137,12 @@ internal fun CoreFixedTabBar(
 
 @Composable
 internal fun CoreScrollableTabBar(
-    modifier: Modifier = Modifier,
     tabTitles: List<String>,
     currentIndex: Int,
     selectedTextColor: Color,
     indicatorColor: Color,
     useBadge: Boolean,
+    modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
 ) {
     Box(
@@ -136,12 +187,62 @@ internal fun CoreScrollableTabBar(
 }
 
 @Composable
-private fun TabItem(
+internal fun CoreScrollableTabBar(
+    tabs: List<Tab>,
+    currentIndex: Int,
+    selectedTextColor: Color,
+    indicatorColor: Color,
     modifier: Modifier = Modifier,
+    onSelectTab: (index: Int) -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(DealiColor.primary04)
+    ) {
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            color = DealiColor.g30
+        )
+
+        DealiScrollableTabRow(
+            selectedTabIndex = currentIndex,
+            backgroundColor = DealiColor.transparent,
+            edgePadding = 16.dp,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    modifier = Modifier
+                        .dealiTabIndicatorOffset(tabPositions[currentIndex]),
+                    height = 2.dp,
+                    color = indicatorColor
+                )
+            },
+            divider = {}
+        ) {
+            tabs.forEachIndexed { index, tab ->
+                TabItem(
+                    modifier = Modifier
+                        .padding(horizontal = TabItemSpaceHalf),
+                    title = tab.text,
+                    isSelected = currentIndex == index,
+                    selectedTextColor = selectedTextColor,
+                    useBadge = tab.isShowBadge,
+                    onClick = { onSelectTab(index) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun FixedTabItem(
     title: String,
     isSelected: Boolean,
-    selectedTextColor: Color = DealiColor.g100,
     useBadge: Boolean,
+    modifier: Modifier = Modifier,
+    selectedTextColor: Color = DealiColor.g100,
     onClick: () -> Unit,
 ) {
     Box(
@@ -149,33 +250,59 @@ private fun TabItem(
             .fillMaxHeight()
             .clickable(onClick = onClick),
     ) {
-        if (isSelected) {
-            val badgeModifier = if (useBadge) {
-                Modifier.badge(
+        val badgeModifier = if (useBadge) {
+            Modifier
+                .badge(
                     badgeRadius = 2.dp,
                     offset = DpOffset(x = 4.dp, 2.dp)
                 )
-            } else {
-                Modifier
-            }
+                .padding(end = 2.dp)
+        } else {
+            Modifier
+        }
 
-            DealiText(
-                modifier = modifier
-                    .align(Alignment.Center)
-                    .then(badgeModifier),
-                text = title,
-                style = DealiFont.b1sb15,
-                color = selectedTextColor,
+        DealiText(
+            modifier = modifier
+                .align(Alignment.Center)
+                .then(badgeModifier),
+            text = title,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = if (isSelected) selectedTextColor else DealiColor.g70,
+        )
+    }
+}
+
+@Composable
+private fun TabItem(
+    title: String,
+    isSelected: Boolean,
+    useBadge: Boolean,
+    modifier: Modifier = Modifier,
+    selectedTextColor: Color = DealiColor.g100,
+    onClick: () -> Unit,
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .clickable(onClick = onClick),
+    ) {
+        val badgeModifier = if (useBadge) {
+            Modifier.badge(
+                badgeRadius = 2.dp,
+                offset = DpOffset(x = 4.dp, 2.dp)
             )
         } else {
-            DealiText(
-                modifier = modifier
-                    .align(Alignment.Center),
-                text = title,
-                style = DealiFont.b1r15,
-                color = DealiColor.g100,
-            )
+            Modifier
         }
+
+        DealiText(
+            modifier = modifier
+                .align(Alignment.Center)
+                .then(badgeModifier),
+            text = title,
+            style = if (isSelected) DealiFont.b1sb15 else DealiFont.b1r15,
+            color = if (isSelected) selectedTextColor else DealiColor.g100,
+        )
     }
 }
 
@@ -220,14 +347,17 @@ internal fun CoreTabBarLayout(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewCoreFixedTabBar() {
-    val titles = listOf("탭 타이틀1", "탭 타이틀2")
+    val tabs = listOf(
+        Tab("탭 타이틀1", false),
+        Tab("탭 타이틀2", false),
+    )
+
     CoreFixedTabBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(44.dp),
-        tabTitles = titles,
+        tabs = tabs,
         currentIndex = 0,
-        useBadge = false,
         onSelectTab = {},
     )
 }

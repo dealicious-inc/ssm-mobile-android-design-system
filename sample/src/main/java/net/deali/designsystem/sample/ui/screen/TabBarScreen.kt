@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Tab
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.tabBarChip01Layout
 import net.deali.designsystem.component.tabBarSegment01Layout
@@ -37,7 +38,11 @@ fun TabBarScreen(
             )
         }
     ) {
-        val titles = listOf("Title0", "Title1", "Title2")
+        val tabs = listOf(
+            Tab("Title0", false),
+            Tab("Title1", true),
+            Tab("Title2", false),
+        )
         val subTitles = listOf("Sub0", "Sub1", "Sub2", "Sub3", "Sub4")
         val scrollState = rememberScrollState()
 
@@ -55,7 +60,7 @@ fun TabBarScreen(
             )
 
             tabBarSegment01Layout(
-                tabTitles = titles,
+                tabs = tabs,
                 onSelectTab = {},
                 userSwipeEnabled = false,
             ) { page ->
@@ -67,11 +72,10 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles[page],
+                        text = tabs[page].text,
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
-
                 }
             }
 
@@ -85,7 +89,7 @@ fun TabBarScreen(
             )
 
             tabBarSlider01Layout(
-                tabTitles = titles,
+                tabs = tabs,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
@@ -97,11 +101,10 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles[page],
+                        text = tabs[page].text,
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
-
                 }
             }
 
@@ -115,11 +118,10 @@ fun TabBarScreen(
             )
 
             tabBarSlider02Layout(
-                tabTitles = titles,
+                tabs = tabs,
                 onSelectTab = {},
                 userSwipeEnabled = false,
-
-                ) { page ->
+            ) { page ->
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -128,11 +130,10 @@ fun TabBarScreen(
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = titles[page],
+                        text = tabs[page].text,
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100,
                     )
-
                 }
             }
 
@@ -146,7 +147,7 @@ fun TabBarScreen(
             )
 
             tabBarSlider02Layout(
-                tabTitles = titles,
+                tabs = tabs,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
@@ -163,11 +164,10 @@ fun TabBarScreen(
                     ) {
                         DealiText(
                             modifier = Modifier.align(Alignment.Center),
-                            text = "${titles[page]}/${subTitles[subPage]}",
+                            text = "${tabs[page]}/${subTitles[subPage]}",
                             style = DealiFont.h1sb32,
                             color = DealiColor.g100,
                         )
-
                     }
                 }
             }
