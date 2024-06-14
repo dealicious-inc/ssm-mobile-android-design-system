@@ -68,7 +68,7 @@ fun TextInputWithButton(
     val shouldRemoveIconVisible by rememberUpdatedState(
         focused && value.isNotEmpty() && state != DealiTextFieldState.ERROR
     )
-    val onRemoveIconClick: () -> Unit = remember {
+    val onClickRemoveIcon: () -> Unit = remember {
         { onValueChange("") }
     }
 
@@ -101,7 +101,7 @@ fun TextInputWithButton(
         },
         innerTrailingContent = if (shouldRemoveIconVisible) {
             {
-                DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
+                DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onClickRemoveIcon)
             }
         } else {
             trailingContent
@@ -160,7 +160,7 @@ fun TextInputWithButton(
     val shouldRemoveIconVisible by rememberUpdatedState(
         focused && value.text.isNotEmpty() && state != DealiTextFieldState.ERROR
     )
-    val onRemoveIconClick: () -> Unit = remember {
+    val onClickRemoveIcon: () -> Unit = remember {
         { onValueChange(TextFieldValue()) }
     }
 
@@ -193,7 +193,7 @@ fun TextInputWithButton(
         },
         innerTrailingContent = if (shouldRemoveIconVisible) {
             {
-                DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
+                DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onClickRemoveIcon)
             }
         } else {
             trailingContent

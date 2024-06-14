@@ -54,7 +54,7 @@ fun SearchInput(
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     onClickSearch: () -> Unit,
-    onRemoveIconClick: () -> Unit = {},
+    onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -66,16 +66,18 @@ fun SearchInput(
         }
     }
 
-    if (state == DealiTextFieldState.READ_ONLY) {
+    val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
         modifier.then(
             Modifier
                 .clip(DealiShape.radius6)
                 .clickable { onClickSearch.invoke() }
         )
+    } else {
+        modifier
     }
 
     CoreDealiTextField(
-        modifier = modifier
+        modifier = searchBarModifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
         value = value,
@@ -108,7 +110,7 @@ fun SearchInput(
                                 focusRequester.requestFocus()
                             }
                             onValueChange("")
-                            onRemoveIconClick()
+                            onClickRemoveIcon()
                         }
                     )
                 }
@@ -139,7 +141,7 @@ fun SearchInput(
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     onClickSearch: () -> Unit,
-    onRemoveIconClick: () -> Unit = {},
+    onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
     val focusRequester = remember { FocusRequester() }
@@ -151,8 +153,18 @@ fun SearchInput(
         }
     }
 
+    val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
+        modifier.then(
+            Modifier
+                .clip(DealiShape.radius6)
+                .clickable { onClickSearch.invoke() }
+        )
+    } else {
+        modifier
+    }
+
     CoreDealiTextField(
-        modifier = modifier
+        modifier = searchBarModifier
             .onFocusChanged { isFocused = it.isFocused }
             .focusRequester(focusRequester),
         value = value,
@@ -192,7 +204,7 @@ fun SearchInput(
                                 onValueChange("")
                                 focusRequester.requestFocus()
                             }
-                            onRemoveIconClick()
+                            onClickRemoveIcon()
                         }
                     )
                 }
