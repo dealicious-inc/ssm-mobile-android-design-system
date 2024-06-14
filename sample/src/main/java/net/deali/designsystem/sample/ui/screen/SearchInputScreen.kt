@@ -43,6 +43,13 @@ fun SearchInputScreen(onBackPress: () -> Unit) {
         ) {
             SearchInput(
                 value = text,
+                onClickSearchBar = { Toast.makeText(context, "onClickSearchBar", Toast.LENGTH_SHORT).show() },
+                placeholder = placeholder,
+            )
+            HorizontalDivider(color = DealiColor.g20)
+
+            SearchInput(
+                value = text,
                 onValueChange = remember { { text = it } },
                 onClickSearch = { Toast.makeText(context, text, Toast.LENGTH_SHORT).show() },
                 placeholder = placeholder,

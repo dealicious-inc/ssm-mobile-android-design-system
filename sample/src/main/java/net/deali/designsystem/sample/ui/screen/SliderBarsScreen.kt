@@ -18,9 +18,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.DealiTextField
 import net.deali.designsystem.component.PriceRangeSlider
 import net.deali.designsystem.component.RangeSlider
+import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -71,7 +71,7 @@ fun SliderScreen(
             var priceMaxValue by remember { mutableStateOf(0.7f) }
 
             Row {
-                DealiTextField(
+                TextInput(
                     modifier = Modifier
                         .weight(1f),
                     value = priceMinValue.toString(),
@@ -85,7 +85,7 @@ fun SliderScreen(
                     },
                 )
 
-                DealiTextField(
+                TextInput(
                     modifier = Modifier
                         .weight(1f),
                     value = priceMaxValue.toString(),

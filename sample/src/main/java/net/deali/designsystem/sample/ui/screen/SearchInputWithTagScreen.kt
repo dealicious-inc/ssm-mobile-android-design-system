@@ -43,9 +43,10 @@ fun SearchInputWithTagScreen(onBackPress: () -> Unit) {
             SearchInput(
                 value = text,
                 onValueChange = remember { { text = it } },
-                placeholder = placeholder,
                 tagText = tagText,
-                state = DealiTextFieldState.ENABLED
+                placeholder = placeholder,
+                onClickSearch = {},
+                state = DealiTextFieldState.ENABLED,
             )
             HorizontalDivider(color = DealiColor.g20)
             TextInput(

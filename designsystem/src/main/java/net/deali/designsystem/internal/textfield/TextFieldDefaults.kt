@@ -161,7 +161,6 @@ internal interface DealiTextFieldColors {
     @Composable
     fun backgroundColor(state: DealiTextFieldState): State<Color>
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     fun backgroundColor(enabled: Boolean): State<Color>
 
@@ -171,11 +170,9 @@ internal interface DealiTextFieldColors {
     @Composable
     fun textColor(state: DealiTextFieldState): State<Color>
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color?>
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     fun textColor(enabled: Boolean): State<Color>
 
@@ -219,7 +216,6 @@ private class DefaultDealiTextFieldColors(
         )
     }
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(if (enabled) backgroundColor else disabledBackgroundColor)
@@ -256,7 +252,6 @@ private class DefaultDealiTextFieldColors(
         )
     }
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun outlineColor(enabled: Boolean, focused: Boolean, isError: Boolean): State<Color> {
         return rememberUpdatedState(
@@ -274,7 +269,6 @@ private class DefaultDealiTextFieldColors(
         )
     }
 
-    @Deprecated("DealiTextFieldState 버전을 사용해주세요.")
     @Composable
     override fun textColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(if (enabled) textColor else disabledTextColor)

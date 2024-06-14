@@ -1,7 +1,11 @@
+@file:OptIn(ExperimentalLayoutApi::class)
+
 package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,12 +21,14 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
+import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextAreaActionButtonType
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.chipOutlineSmall01
 import net.deali.designsystem.component.textAreaButton
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -41,10 +47,9 @@ fun TextAreaButtonScreen(onBackPress: () -> Unit) {
         var actionButtonType by remember { mutableStateOf(TextAreaActionButtonType.Send) }
         var isAttachButtonVisible by remember { mutableStateOf(true) }
         var isFlexible by remember { mutableStateOf(true) }
-        var enabled by remember { mutableStateOf(true) }
-        var isError by remember { mutableStateOf(false) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
+        var state by remember { mutableStateOf(DealiTextFieldState.ENABLED) }
 
         Column(
             modifier = Modifier
@@ -58,34 +63,32 @@ fun TextAreaButtonScreen(onBackPress: () -> Unit) {
                 actionButtonType = actionButtonType,
                 isAttachButtonVisible = isAttachButtonVisible,
                 isFlexible = isFlexible,
-                enabled = enabled,
-                isError = isError,
+                state = state,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
             )
 
             HorizontalDivider(color = DealiColor.g20)
 
-            Row(
+            FlowRow(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ToggleOption(
-                    title = "Flexible",
-                    selected = isFlexible,
-                    onSelectedChange = { isFlexible = it }
-                )
-                ToggleOption(
-                    title = "Enabled",
-                    selected = enabled,
-                    onSelectedChange = { enabled = it }
-                )
-                ToggleOption(
-                    title = "Error",
-                    selected = isError,
-                    onSelectedChange = { isError = it }
-                )
+                DealiTextFieldState.values().forEach { innerState ->
+                    RadioButton(
+                        text = innerState.name,
+                        selected = state == innerState
+                    ) {
+                        state = innerState
+                    }
+                }
             }
+
+            ToggleOption(
+                title = "Flexible",
+                selected = isFlexible,
+                onSelectedChange = { isFlexible = it }
+            )
 
             HorizontalDivider(color = DealiColor.g20)
 
@@ -122,6 +125,7 @@ fun TextAreaButtonScreen(onBackPress: () -> Unit) {
                     color = DealiColor.g100,
                 )
                 VerticalSpacer(height = 8.dp)
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
