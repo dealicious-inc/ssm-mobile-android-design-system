@@ -18,6 +18,7 @@ import net.deali.designsystem.component.ActionBar
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.SearchInput
 import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 
@@ -43,8 +44,10 @@ fun SearchInputScreen(onBackPress: () -> Unit) {
         ) {
             SearchInput(
                 value = text,
-                onClickSearchBar = { Toast.makeText(context, "onClickSearchBar", Toast.LENGTH_SHORT).show() },
+                onValueChange = remember { { text = it } },
+                onClickSearch = { Toast.makeText(context, "onClickSearchBar", Toast.LENGTH_SHORT).show() },
                 placeholder = placeholder,
+                state = DealiTextFieldState.READ_ONLY,
             )
             HorizontalDivider(color = DealiColor.g20)
 

@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalComposeUiApi::class)
+@file:OptIn(ExperimentalComposeUiApi::class, ExperimentalComposeUiApi::class)
 
 package net.deali.designsystem.component
 
@@ -66,6 +66,14 @@ fun SearchInput(
         }
     }
 
+    if (state == DealiTextFieldState.READ_ONLY) {
+        modifier.then(
+            Modifier
+                .clip(DealiShape.radius6)
+                .clickable { onClickSearch.invoke() }
+        )
+    }
+
     CoreDealiTextField(
         modifier = modifier
             .onFocusChanged { isFocused = it.isFocused }
@@ -97,62 +105,21 @@ fun SearchInput(
                         enabled = true,
                         onClick = {
                             if (state.isEnabled) {
-                                onValueChange("")
                                 focusRequester.requestFocus()
                             }
+                            onValueChange("")
                             onRemoveIconClick()
                         }
                     )
                 }
 
-                Icon24(
-                    iconRes = R.drawable.ic_search,
-                    color = DealiColor.g100,
-                    onClick = onSearch,
-                )
-            }
-        }
-    )
-}
-
-/**
- * ReadOnly 상태의 SearchInput.
- * 키보드 동작이나 아이콘 클릭을 쓰지 않고, 검색창 전체 영역 클릭 시의 처리가 필요할 때 사용.
- * */
-@Composable
-fun SearchInput(
-    modifier: Modifier = Modifier,
-    value: String = "",
-    placeholder: String? = null,
-    onClickSearchBar: () -> Unit,
-) {
-    CoreDealiTextField(
-        modifier = modifier
-            .clip(DealiShape.radius6)
-            .clickable(
-                onClick = onClickSearchBar
-            ),
-        value = value,
-        onValueChange = {},
-        textStyle = DealiFont.b2r14,
-        colors = rememberSearchInputColors(),
-        state = DealiTextFieldState.READ_ONLY,
-        singleLine = true,
-        minLines = 1,
-        maxLines = 1,
-        placeholder = placeholder,
-        isHelperTextVisible = false,
-        innerTextFieldMinHeight = 40.dp,
-        innerTrailingContent = {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                Icon24(
-                    iconRes = R.drawable.ic_search,
-                    color = DealiColor.g100,
-                    enabled = false,
-                )
+                if (value.isEmpty() || isFocused) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        onClick = onSearch,
+                    )
+                }
             }
         }
     )
@@ -230,11 +197,13 @@ fun SearchInput(
                     )
                 }
 
-                Icon24(
-                    iconRes = R.drawable.ic_search,
-                    color = DealiColor.g100,
-                    onClick = onSearch,
-                )
+                if (value.isEmpty() || isFocused) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        onClick = onSearch,
+                    )
+                }
             }
         }
     )
@@ -306,7 +275,9 @@ private fun SearchInputShowOnlyPreview() {
     ) {
         SearchInput(
             placeholder = "플레이스홀더",
-            onClickSearchBar = {},
+            value = "",
+            onValueChange = {},
+            onClickSearch = {},
         )
     }
 }
