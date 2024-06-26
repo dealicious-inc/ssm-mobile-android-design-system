@@ -20,12 +20,14 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
- * 느낌표 아이콘, 텍스트가 있는 ErrorCase
+ * 아이콘, 텍스트가 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
-    modifier: Modifier = Modifier,
     content: String,
+    @DrawableRes iconRes: Int,
+    iconColor: Color,
+    modifier: Modifier = Modifier,
     showIcon: Boolean = true,
     paddingTopDp: Int = 72,
 ) {
@@ -35,7 +37,7 @@ fun ErrorCase(
             .background(DealiColor.primary04),
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
                 .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
@@ -44,8 +46,8 @@ fun ErrorCase(
             if (showIcon) {
                 Icon32(
                     modifier = Modifier,
-                    iconRes = R.drawable.ic_notice_filled,
-                    color = DealiColor.g60,
+                    iconRes = iconRes,
+                    color = iconColor,
                 )
 
                 VerticalSpacer(height = 12.dp)
@@ -61,13 +63,15 @@ fun ErrorCase(
 }
 
 /**
- * 느낌표 아이콘, 텍스트, 버튼이 있는 ErrorCase
+ * 아이콘, 텍스트, 버튼이 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
-    modifier: Modifier = Modifier,
     content: String,
     buttonText: String,
+    @DrawableRes iconRes: Int,
+    iconColor: Color,
+    modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
     onClick: () -> Unit
 ) {
@@ -77,7 +81,7 @@ fun ErrorCase(
             .background(DealiColor.primary04),
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
                 .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
@@ -85,8 +89,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = R.drawable.ic_notice_filled,
-                color = DealiColor.g60,
+                iconRes = iconRes,
+                color = iconColor,
             )
 
             VerticalSpacer(height = 12.dp)
@@ -109,14 +113,16 @@ fun ErrorCase(
 }
 
 /**
- * 재시도 아이콘, 타이틀 텍스트, 서브 텍스트, 버튼이 있는 ErrorCase
+ * 아이콘, 타이틀 텍스트, 서브 텍스트, 버튼이 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
-    modifier: Modifier = Modifier,
     title: String,
     content: String,
     buttonText: String,
+    @DrawableRes iconRes: Int,
+    iconColor: Color,
+    modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
     onClick: () -> Unit
 ) {
@@ -126,7 +132,7 @@ fun ErrorCase(
             .background(DealiColor.primary04),
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
                 .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
@@ -134,8 +140,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = R.drawable.ic_refresh_2_filled,
-                color = DealiColor.g60
+                iconRes = iconRes,
+                color = iconColor,
             )
 
             VerticalSpacer(height = 12.dp)
@@ -166,13 +172,15 @@ fun ErrorCase(
 }
 
 /**
- * 재시도 아이콘, 타이틀 텍스트, 서브 텍스트가 있는 ErrorCase
+ * 아이콘, 타이틀 텍스트, 서브 텍스트가 있는 ErrorCase
  */
 @Composable
 fun ErrorCase(
-    modifier: Modifier = Modifier,
     title: String,
     content: String,
+    @DrawableRes iconRes: Int,
+    iconColor: Color,
+    modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
 ) {
     Box(
@@ -181,7 +189,7 @@ fun ErrorCase(
             .background(DealiColor.primary04),
     ) {
         Column(
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.TopCenter)
                 .padding(start = 40.dp, end = 40.dp, top = paddingTopDp.dp),
@@ -189,8 +197,8 @@ fun ErrorCase(
         ) {
             Icon32(
                 modifier = Modifier,
-                iconRes = R.drawable.ic_refresh_2_filled,
-                color = DealiColor.g60,
+                iconRes = iconRes,
+                color = iconColor,
             )
 
             VerticalSpacer(height = 12.dp)
@@ -242,8 +250,8 @@ private fun Title(
 
 @Composable
 private fun Button(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
     btnFilledLarge01(
@@ -262,6 +270,8 @@ private fun ErrorCasePreview1() {
             .fillMaxWidth(),
         content = "등록된 상품이 없어요.",
         showIcon = false,
+        iconRes = R.drawable.ic_notice_filled,
+        iconColor = DealiColor.g60,
     )
 }
 
@@ -272,6 +282,8 @@ private fun ErrorCasePreview2() {
         modifier = Modifier
             .fillMaxWidth(),
         content = "등록된 상품이 없어요.",
+        iconRes = R.drawable.ic_notice_filled,
+        iconColor = DealiColor.g60,
     )
 }
 
@@ -283,7 +295,9 @@ private fun ErrorCasePreview3() {
             .fillMaxWidth(),
         content = "등록된 상품이 없어요.",
         buttonText = "재시도",
-        onClick = {}
+        iconRes = R.drawable.ic_notice_filled,
+        iconColor = DealiColor.g60,
+        onClick = {},
     )
 }
 
@@ -295,6 +309,8 @@ private fun ErrorCasePreview4() {
             .fillMaxWidth(),
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
+        iconRes = R.drawable.ic_notice_filled,
+        iconColor = DealiColor.g60,
     )
 }
 
@@ -307,6 +323,8 @@ private fun ErrorCasePreview5() {
         title = "타이틀이 들어가는 영역이예요.",
         content = "데이터를 불러오지 못했어요. 네트워크 확인 후 새로고침 버튼을 눌러주세요.",
         buttonText = "재시도",
+        iconRes = R.drawable.ic_notice_filled,
+        iconColor = DealiColor.g60,
         onClick = {},
     )
 }
