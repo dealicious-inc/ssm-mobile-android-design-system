@@ -2,48 +2,47 @@
 minSdk = "24"
 targetSdk = "34"
 
-kotlin-gradle-plugin = "1.8.21"
-android-gradle-plugin = "8.3.2"
+kotlin = "1.9.22"
+android-gradle-plugin = "8.5.0"
 maven-gradle-plugin = "2.1"
 
-androidx-core-ktx = "1.12.0"
-androidx-appcompat = "1.6.1"
-androidx-activity-compose = "1.7.1"
-androidx-navigation-compose = "2.5.3"
+androidx-core = "1.13.1"
+androidx-appcompat = "1.7.0"
+androidx-activity-compose = "1.9.0"
+androidx-navigation-compose = "2.7.7"
 androidx-constraintlayout-compose = "1.0.1"
-androidx-datastore = "1.1.0"
+androidx-datastore = "1.1.1"
 
-compose-ui = "1.4.3"
-compose-foundation = "1.4.3"
-compose-material = "1.4.3"
-compose-compiler = "1.4.7"
+compose-compiler = "1.5.10"
+androidx-compose = "1.6.8"
+androidx-compose-material = "1.6.8"
 
-android-material = "1.8.0"
+material = "1.12.0"
 
-immutable-collections = "0.3.6"
-coil = "2.4.0"
+immutable-collections = "0.3.7"
+coil = "2.5.0"
 snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
 junit4 = "4.13.2"
 
 [plugins]
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-gradle-plugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 
 [libraries]
 # 디자인 시스템에서 사용하는 dependencies
-android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
 
-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "compose-foundation" }
-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "compose-material" }
-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compose-ui" }
-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose-ui" }
-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose-ui" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidx-compose" }
+compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidx-compose-material" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidx-compose" }
+compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidx-compose" }
+compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidx-compose" }
 
 kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "immutable-collections" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }

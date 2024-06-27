@@ -38,7 +38,9 @@ fun IndicatorPinkDot(
     pageCount: Int,
     pageIndexMapping: (Int) -> Int,
     modifier: Modifier = Modifier,
-    pagerState: PagerState = rememberPagerState()
+    pagerState: PagerState = rememberPagerState(
+        pageCount = { pageCount }
+    )
 ) {
     IndicatorDot(
         modifier = modifier,
@@ -57,7 +59,9 @@ fun IndicatorWhiteDot(
     pageCount: Int,
     pageIndexMapping: (Int) -> Int,
     modifier: Modifier = Modifier,
-    pagerState: PagerState = rememberPagerState()
+    pagerState: PagerState = rememberPagerState(
+        pageCount = { pageCount }
+    )
 ) {
     IndicatorDot(
         modifier = modifier,
@@ -257,7 +261,7 @@ fun IndicatorSmall(
 @Composable
 fun rememberPageDataState(
     initialPageCount: Int = 0,
-    initialMaxCount: Int = Int.MAX_VALUE,
+    initialMaxCount: Int = PagerMaxCount,
     initialStartIndex: Int = initialMaxCount / 2
 ): PagerDataState {
     return rememberSaveable(saver = PagerDataState.Saver) {
@@ -271,7 +275,7 @@ fun rememberPageDataState(
 
 class PagerDataState(
     val pageCount: Int = 0,
-    val maxCount: Int = Int.MAX_VALUE,
+    val maxCount: Int = PagerMaxCount,
     val startIndex: Int = maxCount / 2
 ) {
     val pagerCount: Int
@@ -360,3 +364,5 @@ private fun IndicatorSmallPreview() {
         totalCount = 5,
     )
 }
+
+const val PagerMaxCount = 5000

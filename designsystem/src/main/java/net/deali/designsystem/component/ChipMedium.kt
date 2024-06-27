@@ -776,7 +776,10 @@ fun chipFilledImageMedium01(
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+        var textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+        if (textAlign != null) {
+            textStyle = textStyle.copy(textAlign = textAlign)
+        }
         val contentColor by chipColors.contentColor(enabled, selected)
 
         ChipImage(
@@ -787,7 +790,7 @@ fun chipFilledImageMedium01(
         DealiText(
             modifier = Modifier.weight(weight = 1f),
             text = text,
-            style = textStyle.copy(textAlign = textAlign),
+            style = textStyle,
             color = contentColor,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -923,7 +926,10 @@ fun chipOutlineImageMedium01(
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        val textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+        var textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
+        if (textAlign != null) {
+            textStyle = textStyle.copy(textAlign = textAlign)
+        }
         val contentColor by chipColors.contentColor(enabled, selected)
 
         ChipImage(
@@ -934,7 +940,7 @@ fun chipOutlineImageMedium01(
         DealiText(
             modifier = Modifier.weight(weight = 1f),
             text = text,
-            style = textStyle.copy(textAlign = textAlign),
+            style = textStyle,
             color = contentColor,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,

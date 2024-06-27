@@ -36,6 +36,7 @@ import net.deali.designsystem.component.IndicatorPinkDot
 import net.deali.designsystem.component.IndicatorSmall
 import net.deali.designsystem.component.IndicatorTransparent
 import net.deali.designsystem.component.IndicatorWhiteDot
+import net.deali.designsystem.component.PagerMaxCount
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -82,7 +83,8 @@ private fun PagerContainer() {
         initialPageCount = colors.size
     )
     val pagerState = rememberPagerState(
-        pagerDataState.maxCount / 2
+        initialPage = pagerDataState.startIndex,
+        pageCount = { pagerDataState.maxCount }
     )
 
     var currentIndex by remember { mutableStateOf(0) }
@@ -92,7 +94,6 @@ private fun PagerContainer() {
         backgroundColor = DealiColor.g40
     ) {
         HorizontalPager(
-            pageCount = pagerDataState.pagerCount,
             state = pagerState
         ) { index ->
             Spacer(

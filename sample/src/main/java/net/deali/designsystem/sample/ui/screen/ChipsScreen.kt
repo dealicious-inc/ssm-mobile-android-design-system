@@ -1,5 +1,6 @@
 package net.deali.designsystem.sample.ui.screen
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,7 @@ import net.deali.designsystem.component.tabBarSegment01Layout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ChipsScreen(onBackPress: () -> Unit) {
     Column {

@@ -1,5 +1,6 @@
 package net.deali.designsystem.sample.ui.screen
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,6 +27,7 @@ import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TabBarScreen(
     onBackPress: () -> Unit
