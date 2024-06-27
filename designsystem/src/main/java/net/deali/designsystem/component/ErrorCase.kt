@@ -25,8 +25,8 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 fun ErrorCase(
     content: String,
-    @DrawableRes iconRes: Int,
-    iconColor: Color,
+    @DrawableRes iconRes: Int = R.drawable.ic_notice_filled,
+    iconColor: Color = DealiColor.g60,
     modifier: Modifier = Modifier,
     showIcon: Boolean = true,
     paddingTopDp: Int = 72,
@@ -69,8 +69,8 @@ fun ErrorCase(
 fun ErrorCase(
     content: String,
     buttonText: String,
-    @DrawableRes iconRes: Int,
-    iconColor: Color,
+    @DrawableRes iconRes: Int = R.drawable.ic_notice_filled,
+    iconColor: Color = DealiColor.g60,
     modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
     onClick: () -> Unit
@@ -120,8 +120,8 @@ fun ErrorCase(
     title: String,
     content: String,
     buttonText: String,
-    @DrawableRes iconRes: Int,
-    iconColor: Color,
+    @DrawableRes iconRes: Int = R.drawable.ic_refresh_2_filled,
+    iconColor: Color = DealiColor.g60,
     modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
     onClick: () -> Unit
@@ -178,8 +178,8 @@ fun ErrorCase(
 fun ErrorCase(
     title: String,
     content: String,
-    @DrawableRes iconRes: Int,
-    iconColor: Color,
+    @DrawableRes iconRes: Int = R.drawable.ic_refresh_2_filled,
+    iconColor: Color = DealiColor.g60,
     modifier: Modifier = Modifier,
     paddingTopDp: Int = 72,
 ) {
