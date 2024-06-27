@@ -2,7 +2,7 @@ name: SSM Mobile Android Design System Workflow
 on:
   push:
     branches:
-      - main
+      - release
 
 jobs:
   build:
