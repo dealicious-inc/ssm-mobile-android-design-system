@@ -279,7 +279,7 @@ fun tabBarSegment01Layout(
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabs.size,
@@ -347,7 +347,7 @@ fun tabBarSlider02Layout(
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabs.size,
@@ -415,7 +415,7 @@ fun tabBarSlider01Layout(
     initialPage: Int = 0,
     userSwipeEnabled: Boolean = false,
     onSelectTab: (index: Int) -> Unit,
-    pageContent: @Composable (page: Int) -> Unit,
+    pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
         tabCount = tabs.size,
