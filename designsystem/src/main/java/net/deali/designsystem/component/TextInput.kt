@@ -36,10 +36,13 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldState
  * @param visualTransformation UI에 보이는 포맷을 변경해주는 [VisualTransformation].
  * @param interactionSource 인터렉션을 커스터마이즈 하거나 인터렉션 상태를 사용하기 위한 [MutableInteractionSource].
  * @param labelContent [TextInput] 상단에 표시 할 라벨 옆 컨텐츠 슬롯.
- * @param trailingContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯. [TextInput]은 기본적으로 [value]가
- * 1자 이상 있으면서 포커스 상태이며 에러가 아닌 경우 [trailingContent]에 전체 삭제 아이콘을 표시하는 동작을 내장하고 있습니다.
- * 그 외의 [trailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
- * @param fixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
+ * @param leadingContent 내부 텍스트 필드 바깥 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 바깥 뒤에 표시 할 컨텐츠.
+ * @param innerLeadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param innerTrailingContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯. [TextInput]은 기본적으로 [value]가
+ * 1자 이상 있으면서 포커스 상태이며 에러가 아닌 경우 [innerTrailingContent]에 전체 삭제 아이콘을 표시하는 동작을 내장하고 있습니다.
+ * 그 외의 [innerTrailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
+ * @param innerFixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
  * 포커스와 관계없이 작동합니다.
  */
 @Composable
@@ -60,8 +63,11 @@ fun TextInput(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     labelContent: @Composable (() -> Unit)? = null,
+    leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
-    fixedContent: @Composable (() -> Unit)? = null,
+    innerLeadingContent: @Composable (() -> Unit)? = null,
+    innerTrailingContent: @Composable (() -> Unit)? = null,
+    innerFixedContent: @Composable (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -91,14 +97,17 @@ fun TextInput(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         labelContent = labelContent,
+        leadingContent = leadingContent,
+        trailingContent = trailingContent,
+        innerLeadingContent = innerLeadingContent,
         innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
         } else {
-            trailingContent
+            innerTrailingContent
         },
-        innerFixedContent = fixedContent,
+        innerFixedContent = innerFixedContent,
     )
 }
 
@@ -119,9 +128,14 @@ fun TextInput(
  * @param keyboardActions 키보드 관련 동작을 재정의 할 수 있는 [KeyboardActions].
  * @param visualTransformation UI에 보이는 포맷을 변경해주는 [VisualTransformation].
  * @param interactionSource 인터렉션을 커스터마이즈 하거나 인터렉션 상태를 사용하기 위한 [MutableInteractionSource].
- * @param trailingContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯. [TextInput]은 기본적으로 [value]가
- * 1자 이상 있으면서 포커스 상태이며 에러가 아닌 경우 [trailingContent]에 전체 삭제 아이콘을 표시하는 동작을 내장하고 있습니다.
- * 그 외의 [trailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
+ * @param leadingContent 내부 텍스트 필드 바깥 앞에 표시 할 컨텐츠.
+ * @param trailingContent 내부 텍스트 필드 바깥 뒤에 표시 할 컨텐츠.
+ * @param innerLeadingContent 내부 텍스트 필드 안쪽에서 텍스트 앞에 표시 할 컨텐츠.
+ * @param innerTrailingContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯. [TextInput]은 기본적으로 [value]가
+ * 1자 이상 있으면서 포커스 상태이며 에러가 아닌 경우 [innerTrailingContent]에 전체 삭제 아이콘을 표시하는 동작을 내장하고 있습니다.
+ * 그 외의 [innerTrailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
+ * @param innerFixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
+ * 포커스와 관계없이 작동합니다.
  */
 @Composable
 fun TextInput(
@@ -139,8 +153,12 @@ fun TextInput(
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
+    labelContent: @Composable (() -> Unit)? = null,
+    leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
-    fixedContent: @Composable (() -> Unit)? = null,
+    innerLeadingContent: @Composable (() -> Unit)? = null,
+    innerTrailingContent: @Composable (() -> Unit)? = null,
+    innerFixedContent: @Composable (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -168,13 +186,17 @@ fun TextInput(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
+        labelContent = labelContent,
+        leadingContent = leadingContent,
+        trailingContent = trailingContent,
+        innerLeadingContent = innerLeadingContent,
         innerTrailingContent = if (shouldRemoveIconVisible) {
             {
                 DealiTextFieldDefaults.TrailingRemoveIcon(onClick = onRemoveIconClick)
             }
         } else {
-            trailingContent
+            innerTrailingContent
         },
-        innerFixedContent = fixedContent,
+        innerFixedContent = innerFixedContent,
     )
 }
