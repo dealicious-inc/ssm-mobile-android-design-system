@@ -44,6 +44,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldState
  * 그 외의 [innerTrailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
  * @param innerFixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
  * 포커스와 관계없이 작동합니다.
+ * @param onPostRemoveIconClick [TextInput] 내부 우측에 표시 된 전체 삭제 아이콘을 클릭했을 때 호출되는 콜백.
  */
 @Composable
 fun TextInput(
@@ -68,13 +69,17 @@ fun TextInput(
     innerLeadingContent: @Composable (() -> Unit)? = null,
     innerTrailingContent: @Composable (() -> Unit)? = null,
     innerFixedContent: @Composable (() -> Unit)? = null,
+    onPostRemoveIconClick: (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
         focused && value.isNotEmpty() && state != DealiTextFieldState.ERROR
     )
     val onRemoveIconClick: () -> Unit = remember {
-        { onValueChange("") }
+        {
+            onValueChange("")
+            onPostRemoveIconClick?.invoke()
+        }
     }
 
     CoreDealiTextField(
@@ -136,6 +141,7 @@ fun TextInput(
  * 그 외의 [innerTrailingContent]를 재정의 하고 싶은 경우 사용할 수 있습니다.
  * @param innerFixedContent [TextInput] 내부 우측에 표시 할 커스텀 컨텐츠 슬롯.
  * 포커스와 관계없이 작동합니다.
+ * @param onPostRemoveIconClick [TextInput] 내부 우측에 표시 된 전체 삭제 아이콘을 클릭했을 때 호출되는 콜백.
  */
 @Composable
 fun TextInput(
@@ -159,13 +165,17 @@ fun TextInput(
     innerLeadingContent: @Composable (() -> Unit)? = null,
     innerTrailingContent: @Composable (() -> Unit)? = null,
     innerFixedContent: @Composable (() -> Unit)? = null,
+    onPostRemoveIconClick: (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
         focused && value.text.isNotEmpty() && state != DealiTextFieldState.ERROR
     )
     val onRemoveIconClick: () -> Unit = remember {
-        { onValueChange(TextFieldValue()) }
+        {
+            onValueChange(TextFieldValue())
+            onPostRemoveIconClick?.invoke()
+        }
     }
 
     CoreDealiTextFieldForTextFieldValue(
