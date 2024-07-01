@@ -35,7 +35,7 @@ fun Tooltip(
             onDismiss = onDismiss,
             anchorContent = content,
             tooltipContent = {
-                Text(
+                DealiText(
                     modifier = Modifier
                         .padding(
                             horizontal = 16.dp,

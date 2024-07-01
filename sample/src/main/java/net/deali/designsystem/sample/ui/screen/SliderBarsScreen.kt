@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -60,7 +59,11 @@ fun SliderScreen(
                 }
             )
 
-            Text(text = "MIN $minValue\nMAX $maxValue")
+            DealiText(
+                text = "MIN $minValue\nMAX $maxValue",
+                style = DealiFont.b1sb15,
+                color = DealiColor.g100
+            )
 
             Divider(
                 modifier = Modifier.padding(20.dp),
@@ -119,7 +122,11 @@ fun SliderScreen(
 
             Spacer(modifier = Modifier.height(30.dp))
 
-            Text(text = "MIN $priceMinValue\nMAX $priceMaxValue")
+            DealiText(
+                text = "MIN $priceMinValue\nMAX $priceMaxValue",
+                style = DealiFont.b1sb15,
+                color = DealiColor.g100
+            )
         }
     }
 }

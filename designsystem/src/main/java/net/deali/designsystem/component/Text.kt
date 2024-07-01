@@ -10,13 +10,14 @@ import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun DealiText(
     text: String,
     style: TextStyle,
-    color: Color,
     modifier: Modifier = Modifier,
+    color: Color = DealiColor.g100,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     textAlign: TextAlign? = null,
