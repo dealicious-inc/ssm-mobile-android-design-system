@@ -81,7 +81,7 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                         )
                     }
                 } else null,
-                fixedContent = if (fixedContent.isNotEmpty()) {
+                innerFixedContent = if (fixedContent.isNotEmpty()) {
                     {
                         DealiText(
                             text = fixedContent,
@@ -99,7 +99,7 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalArrangement = Arrangement.Center
             ) {
-                DealiTextFieldState.values().forEach { innerState ->
+                DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
                         selected = state == innerState
