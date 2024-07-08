@@ -66,7 +66,7 @@ fun TextInputWithButton(
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
-        focused && value.isNotEmpty() && state != DealiTextFieldState.ERROR
+        focused && value.isNotEmpty()
     )
     val onClickRemoveIcon: () -> Unit = remember {
         { onValueChange("") }
@@ -158,7 +158,7 @@ fun TextInputWithButton(
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
-        focused && value.text.isNotEmpty() && state != DealiTextFieldState.ERROR
+        focused && value.text.isNotEmpty()
     )
     val onClickRemoveIcon: () -> Unit = remember {
         { onValueChange(TextFieldValue()) }
