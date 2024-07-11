@@ -16,6 +16,7 @@ import net.deali.designsystem.component.btnFilledTonalSmall02
 import net.deali.designsystem.component.btnFilledTonalSmall03
 import net.deali.designsystem.component.btnFilledTonalSmall04
 import net.deali.designsystem.component.btnFilledTonalSmall05
+import net.deali.designsystem.component.btnFilledTonalSmall06
 import net.deali.designsystem.component.btnOutlineBgSmall01
 import net.deali.designsystem.component.btnOutlineBgSmall03
 import net.deali.designsystem.component.btnOutlineBgSmall04
@@ -97,6 +98,9 @@ fun SmallButtonSamples(
         }
         item {
             BtnFilledTonalSmall05Samples()
+        }
+        item {
+            BtnFilledTonalSmall06Samples()
         }
         item {
             BtnRoundFilledTonalSmall01Samples()
@@ -463,6 +467,30 @@ private fun BtnFilledTonalSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledTonalSmall06Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledTonalSmall06",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledTonalSmall06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

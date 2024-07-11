@@ -388,6 +388,39 @@ fun btnFilledTonalSmall05(
 }
 
 @Composable
+fun btnFilledTonalSmall06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.FilledTonal,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            contentColor = DealiColor.g100,
+            disabledContentColor = DealiColor.g50,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
 fun btnRoundFilledTonalSmall01(
     onClick: () -> Unit,
     text: String,

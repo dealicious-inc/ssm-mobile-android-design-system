@@ -19,6 +19,7 @@ import net.deali.designsystem.component.btnFilledTonalMedium02
 import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.component.btnFilledTonalMedium04
 import net.deali.designsystem.component.btnFilledTonalMedium05
+import net.deali.designsystem.component.btnFilledTonalMedium06
 import net.deali.designsystem.component.btnOutlineBgMedium01
 import net.deali.designsystem.component.btnOutlineBgMedium03
 import net.deali.designsystem.component.btnOutlineBgMedium04
@@ -73,7 +74,9 @@ fun MediumButtonSamples(
         item {
             BtnFilledTonalMedium05Samples()
         }
-
+        item {
+            BtnFilledTonalMedium06Samples()
+        }
         item {
             BtnOutlineMedium01Samples()
         }
@@ -314,6 +317,30 @@ private fun BtnFilledTonalMedium05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledTonalMedium06Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledTonalMedium06",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledTonalMedium06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
