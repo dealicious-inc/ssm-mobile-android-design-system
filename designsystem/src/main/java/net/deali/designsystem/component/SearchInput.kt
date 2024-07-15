@@ -30,10 +30,12 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
+import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
 import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
@@ -116,6 +118,93 @@ fun SearchInput(
                 }
 
                 if (value.isEmpty() || isFocused) {
+                    Icon24(
+                        iconRes = R.drawable.ic_search,
+                        color = DealiColor.g100,
+                        onClick = onSearch,
+                    )
+                }
+            }
+        }
+    )
+}
+
+
+/**
+ * TextFieldValue를 이용해 검색어를 입력할 수 있는 SearchInput.
+ * */
+@Composable
+fun SearchInput(
+    value: TextFieldValue,
+    onValueChange: (TextFieldValue) -> Unit,
+    modifier: Modifier = Modifier,
+    maxLength: Int = Int.MAX_VALUE,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    placeholder: String? = null,
+    state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    onClickSearch: () -> Unit,
+    onClickRemoveIcon: () -> Unit = {},
+) {
+    var isFocused by remember { mutableStateOf(false) }
+    val focusRequester = remember { FocusRequester() }
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val onSearch: () -> Unit = remember {
+        {
+            onClickSearch.invoke()
+            keyboardController?.hide()
+        }
+    }
+
+    val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
+        modifier.then(
+            Modifier
+                .clip(DealiShape.radius6)
+                .clickable { onClickSearch.invoke() }
+        )
+    } else {
+        modifier
+    }
+
+    CoreDealiTextFieldForTextFieldValue(
+        modifier = searchBarModifier
+            .onFocusChanged { isFocused = it.isFocused }
+            .focusRequester(focusRequester),
+        value = value,
+        onValueChange = onValueChange,
+        textStyle = DealiFont.b2r14,
+        colors = rememberSearchInputColors(),
+        state = state,
+        singleLine = true,
+        minLines = 1,
+        maxLines = 1,
+        maxLength = maxLength,
+        keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
+        keyboardActions = KeyboardActions(onSearch = { onSearch.invoke() }),
+        interactionSource = interactionSource,
+        placeholder = placeholder,
+        isHelperTextVisible = false,
+        innerTextFieldMinHeight = 40.dp,
+        innerTrailingContent = {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                if (value.text.isNotEmpty() || isFocused) {
+                    Icon16(
+                        iconRes = R.drawable.ic_x_circle_filled,
+                        color = DealiColor.g50,
+                        enabled = true,
+                        onClick = {
+                            if (state.isEnabled) {
+                                focusRequester.requestFocus()
+                            }
+                            onValueChange(TextFieldValue())
+                            onClickRemoveIcon()
+                        }
+                    )
+                }
+
+                if (value.text.isEmpty() || isFocused) {
                     Icon24(
                         iconRes = R.drawable.ic_search,
                         color = DealiColor.g100,
