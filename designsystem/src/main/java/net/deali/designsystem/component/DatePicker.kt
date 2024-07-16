@@ -655,7 +655,7 @@ class DatePickerState(
 
             year >= maxYear && month >= maxMonth && date >= maxDate -> {
                 val lastDateOfMonth = calculateLastDateOfMonth(year, maxMonth)
-                val targetDate = maxMonth.coerceIn(0, lastDateOfMonth)
+                val targetDate = maxDate.coerceIn(0, lastDateOfMonth)
                 calculateFarIndexForRepeatedPicker(targetDate - 1, 31)
             }
 
