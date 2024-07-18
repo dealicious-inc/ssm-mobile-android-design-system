@@ -45,7 +45,6 @@ fun btnFilledLarge01(
     )
 }
 
-/** 구 btnFilledLargeGradient */
 @Composable
 fun btnFilledLarge02(
     onClick: () -> Unit,
@@ -79,7 +78,6 @@ fun btnFilledLarge02(
     )
 }
 
-/** 구 btnFilledLargePrimary02 */
 @Composable
 fun btnFilledLarge03(
     onClick: () -> Unit,
@@ -146,7 +144,6 @@ fun btnFilledTonalLarge01(
     )
 }
 
-/** 구 btnFilledTonalLargePrimary02 */
 @Composable
 fun btnFilledTonalLarge02(
     onClick: () -> Unit,
@@ -180,7 +177,6 @@ fun btnFilledTonalLarge02(
     )
 }
 
-/** 구 btnFilledTonalLargeSecondary01 */
 @Composable
 fun btnFilledTonalLarge03(
     onClick: () -> Unit,
@@ -214,7 +210,6 @@ fun btnFilledTonalLarge03(
     )
 }
 
-/** 구 btnFilledTonalLargeSecondary02 */
 @Composable
 fun btnFilledTonalLarge04(
     onClick: () -> Unit,
@@ -248,7 +243,6 @@ fun btnFilledTonalLarge04(
     )
 }
 
-/** 구 btnFilledTonalLargeSecondary03 */
 @Composable
 fun btnFilledTonalLarge05(
     onClick: () -> Unit,
@@ -385,7 +379,6 @@ fun btnOutlineLarge02(
     )
 }
 
-/** 구 btnOutlineLargeSecondary01 */
 @Composable
 fun btnOutlineLarge03(
     onClick: () -> Unit,
@@ -421,7 +414,6 @@ fun btnOutlineLarge03(
     )
 }
 
-/** 구 btnOutlineLargeSecondary02 */
 @Composable
 fun btnOutlineLarge04(
     onClick: () -> Unit,
@@ -457,7 +449,6 @@ fun btnOutlineLarge04(
     )
 }
 
-/** 구 btnOutlineLargeSecondary03 */
 @Composable
 fun btnOutlineLarge05(
     onClick: () -> Unit,
@@ -493,7 +484,6 @@ fun btnOutlineLarge05(
     )
 }
 
-/** 구 btnOutlineLargeSecondary04 */
 @Composable
 fun btnOutlineLarge06(
     onClick: () -> Unit,
@@ -737,7 +727,6 @@ fun btnTextLarge01(
     )
 }
 
-/** 구 btnTextLargePrimary02 */
 @Composable
 fun btnTextLarge02(
     onClick: () -> Unit,
@@ -771,7 +760,6 @@ fun btnTextLarge02(
     )
 }
 
-/** 구 btnTextLargeSecondary01 */
 @Composable
 fun btnTextLarge03(
     onClick: () -> Unit,
@@ -805,7 +793,6 @@ fun btnTextLarge03(
     )
 }
 
-/** 구 btnTextLargeSecondary02 */
 @Composable
 fun btnTextLarge04(
     onClick: () -> Unit,
@@ -839,7 +826,6 @@ fun btnTextLarge04(
     )
 }
 
-/** 구 btnTextLargeSecondary03 */
 @Composable
 fun btnTextLarge05(
     onClick: () -> Unit,
@@ -873,7 +859,6 @@ fun btnTextLarge05(
     )
 }
 
-/** 구 btnTextLargeSecondary04 */
 @Composable
 fun btnTextLarge06(
     onClick: () -> Unit,
@@ -907,7 +892,6 @@ fun btnTextLarge06(
     )
 }
 
-/** 구 btnTextLargeSecondary05 */
 @Composable
 fun btnTextLarge07(
     onClick: () -> Unit,

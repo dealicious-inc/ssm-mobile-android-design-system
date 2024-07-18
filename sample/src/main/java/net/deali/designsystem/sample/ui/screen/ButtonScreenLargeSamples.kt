@@ -339,7 +339,7 @@ private fun BtnFilledTonalLarge05Samples() {
 private fun BtnFilledTonalLarge06Samples() {
     ButtonSampleLayout(
         title = "btnFilledTonalLarge06",
-        dark = false,
+        dark = true,
     ) {
         for (i in 0 until 3) {
             ButtonsByStatus(

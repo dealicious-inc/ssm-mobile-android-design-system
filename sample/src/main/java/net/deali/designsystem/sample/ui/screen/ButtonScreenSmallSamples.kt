@@ -33,14 +33,15 @@ import net.deali.designsystem.component.btnOutlineSmall03
 import net.deali.designsystem.component.btnOutlineSmall04
 import net.deali.designsystem.component.btnOutlineSmall05
 import net.deali.designsystem.component.btnOutlineSmall06
-import net.deali.designsystem.component.btnRoundFilledSmall02
-import net.deali.designsystem.component.btnRoundFilledSmall01
-import net.deali.designsystem.component.btnRoundFilledSmall03
-import net.deali.designsystem.component.btnRoundFilledTonalSmall01
-import net.deali.designsystem.component.btnRoundFilledTonalSmall02
-import net.deali.designsystem.component.btnRoundFilledTonalSmall03
-import net.deali.designsystem.component.btnRoundFilledTonalSmall04
-import net.deali.designsystem.component.btnRoundFilledTonalSmall05
+import net.deali.designsystem.component.btnFilledRoundSmall02
+import net.deali.designsystem.component.btnFilledRoundSmall01
+import net.deali.designsystem.component.btnFilledRoundSmall03
+import net.deali.designsystem.component.btnFilledTonalRoundSmall01
+import net.deali.designsystem.component.btnFilledTonalRoundSmall02
+import net.deali.designsystem.component.btnFilledTonalRoundSmall03
+import net.deali.designsystem.component.btnFilledTonalRoundSmall04
+import net.deali.designsystem.component.btnFilledTonalRoundSmall05
+import net.deali.designsystem.component.btnFilledTonalRoundSmall06
 import net.deali.designsystem.component.btnOutlineRoundSmall01
 import net.deali.designsystem.component.btnOutlineRoundSmall02
 import net.deali.designsystem.component.btnOutlineRoundSmall03
@@ -103,21 +104,23 @@ fun SmallButtonSamples(
             BtnFilledTonalSmall06Samples()
         }
         item {
-            BtnRoundFilledTonalSmall01Samples()
+            BtnFilledTonalRoundSmall01Samples()
         }
         item {
-            BtnRoundFilledTonalSmall02Samples()
+            BtnFilledTonalRoundSmall02Samples()
         }
         item {
-            BtnRoundFilledTonalSmall03Samples()
+            BtnFilledTonalRoundSmall03Samples()
         }
         item {
-            BtnRoundFilledTonalSmall04Samples()
+            BtnFilledTonalRoundSmall04Samples()
         }
         item {
-            BtnRoundFilledTonalSmall05Samples()
+            BtnFilledTonalRoundSmall05Samples()
         }
-
+        item {
+            BtnFilledTonalRoundSmall06Samples()
+        }
         item {
             BtnOutlineSmall01Samples()
         }
@@ -295,7 +298,7 @@ private fun BtnRoundFilledSmall01Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledSmall01(
+                btnFilledRoundSmall01(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -320,7 +323,7 @@ private fun BtnRoundFilledSmall02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledSmall02(
+                btnFilledRoundSmall02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -344,7 +347,7 @@ private fun BtnRoundFilledSmall03Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledSmall03(
+                btnFilledRoundSmall03(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -504,9 +507,9 @@ private fun BtnFilledTonalSmall06Samples() {
 }
 
 @Composable
-private fun BtnRoundFilledTonalSmall01Samples() {
+private fun BtnFilledTonalRoundSmall01Samples() {
     ButtonSampleLayout(
-        title = "btnRoundFilledTonalSmall01",
+        title = "btnFilledTonalRoundSmall01",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -514,7 +517,7 @@ private fun BtnRoundFilledTonalSmall01Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledTonalSmall01(
+                btnFilledTonalRoundSmall01(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -528,9 +531,9 @@ private fun BtnRoundFilledTonalSmall01Samples() {
 }
 
 @Composable
-private fun BtnRoundFilledTonalSmall02Samples() {
+private fun BtnFilledTonalRoundSmall02Samples() {
     ButtonSampleLayout(
-        title = "btnRoundFilledTonalSmall02",
+        title = "btnFilledTonalRoundSmall02",
         dark = true,
     ) {
         for (i in 0 until 3) {
@@ -538,7 +541,7 @@ private fun BtnRoundFilledTonalSmall02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledTonalSmall02(
+                btnFilledTonalRoundSmall02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -552,9 +555,9 @@ private fun BtnRoundFilledTonalSmall02Samples() {
 }
 
 @Composable
-private fun BtnRoundFilledTonalSmall03Samples() {
+private fun BtnFilledTonalRoundSmall03Samples() {
     ButtonSampleLayout(
-        title = "btnRoundFilledTonalSmall03",
+        title = "btnFilledTonalRoundSmall03",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -562,7 +565,7 @@ private fun BtnRoundFilledTonalSmall03Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledTonalSmall03(
+                btnFilledTonalRoundSmall03(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -576,9 +579,9 @@ private fun BtnRoundFilledTonalSmall03Samples() {
 }
 
 @Composable
-private fun BtnRoundFilledTonalSmall04Samples() {
+private fun BtnFilledTonalRoundSmall04Samples() {
     ButtonSampleLayout(
-        title = "btnRoundFilledTonalSmall04",
+        title = "btnFilledTonalRoundSmall04",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -586,7 +589,7 @@ private fun BtnRoundFilledTonalSmall04Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledTonalSmall04(
+                btnFilledTonalRoundSmall04(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -600,9 +603,9 @@ private fun BtnRoundFilledTonalSmall04Samples() {
 }
 
 @Composable
-private fun BtnRoundFilledTonalSmall05Samples() {
+private fun BtnFilledTonalRoundSmall05Samples() {
     ButtonSampleLayout(
-        title = "btnRoundFilledTonalSmall05",
+        title = "btnFilledTonalRoundSmall05",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -610,7 +613,31 @@ private fun BtnRoundFilledTonalSmall05Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnRoundFilledTonalSmall05(
+                btnFilledTonalRoundSmall05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledTonalRoundSmall06Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledTonalRoundSmall06",
+        dark = true,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledTonalRoundSmall06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

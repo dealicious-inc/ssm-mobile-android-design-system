@@ -46,7 +46,6 @@ fun btnFilledMedium01(
 }
 
 
-/** 구 btnFilledMediumGradient */
 @Composable
 fun btnFilledMedium02(
     onClick: () -> Unit,
@@ -80,7 +79,6 @@ fun btnFilledMedium02(
     )
 }
 
-/** 구 btnFilledMediumPrimary02 */
 @Composable
 fun btnFilledMedium03(
     onClick: () -> Unit,
@@ -180,7 +178,6 @@ fun btnFilledTonalMedium02(
     )
 }
 
-/** 구 btnFilledTonalMediumSecondary01 */
 @Composable
 fun btnFilledTonalMedium03(
     onClick: () -> Unit,
@@ -214,7 +211,6 @@ fun btnFilledTonalMedium03(
     )
 }
 
-/** 구 btnFilledTonalMediumSecondary02 */
 @Composable
 fun btnFilledTonalMedium04(
     onClick: () -> Unit,
@@ -248,7 +244,6 @@ fun btnFilledTonalMedium04(
     )
 }
 
-/** 구 btnFilledTonalMediumSecondary03 */
 @Composable
 fun btnFilledTonalMedium05(
     onClick: () -> Unit,
@@ -350,7 +345,6 @@ fun btnOutlineMedium01(
     )
 }
 
-/** 구 btnOutlineMediumPrimary02 */
 @Composable
 fun btnOutlineMedium02(
     onClick: () -> Unit,
@@ -386,7 +380,6 @@ fun btnOutlineMedium02(
     )
 }
 
-/** 구 btnOutlineMediumSecondary01 */
 @Composable
 fun btnOutlineMedium03(
     onClick: () -> Unit,
@@ -422,7 +415,6 @@ fun btnOutlineMedium03(
     )
 }
 
-/** 구 btnOutlineMediumSecondary02 */
 @Composable
 fun btnOutlineMedium04(
     onClick: () -> Unit,
@@ -458,7 +450,6 @@ fun btnOutlineMedium04(
     )
 }
 
-/** 구 btnOutlineMediumSecondary03 */
 @Composable
 fun btnOutlineMedium05(
     onClick: () -> Unit,
@@ -494,7 +485,6 @@ fun btnOutlineMedium05(
     )
 }
 
-/** 구 btnOutlineMediumSecondary04 */
 @Composable
 fun btnOutlineMedium06(
     onClick: () -> Unit,
@@ -738,7 +728,6 @@ fun btnTextMedium01(
     )
 }
 
-/** 구 btnTextMediumPrimary02 */
 @Composable
 fun btnTextMedium02(
     onClick: () -> Unit,
@@ -772,7 +761,6 @@ fun btnTextMedium02(
     )
 }
 
-/** 구 btnTextMediumSecondary01 */
 @Composable
 fun btnTextMedium03(
     onClick: () -> Unit,
@@ -806,7 +794,6 @@ fun btnTextMedium03(
     )
 }
 
-/** 구 btnTextMediumSecondary02 */
 @Composable
 fun btnTextMedium04(
     onClick: () -> Unit,
@@ -840,7 +827,6 @@ fun btnTextMedium04(
     )
 }
 
-/** 구 btnTextMediumSecondary03 */
 @Composable
 fun btnTextMedium05(
     onClick: () -> Unit,
@@ -874,7 +860,6 @@ fun btnTextMedium05(
     )
 }
 
-/** 구 btnTextMediumSecondary04 */
 @Composable
 fun btnTextMedium06(
     onClick: () -> Unit,
@@ -908,7 +893,6 @@ fun btnTextMedium06(
     )
 }
 
-/** 구 btnTextMediumSecondary05 */
 @Composable
 fun btnTextMedium07(
     onClick: () -> Unit,

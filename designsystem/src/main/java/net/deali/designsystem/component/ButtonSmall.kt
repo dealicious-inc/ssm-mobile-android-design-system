@@ -45,7 +45,6 @@ fun btnFilledSmall01(
     )
 }
 
-/** 구 btnFilledSmallGradient */
 @Composable
 fun btnFilledSmall02(
     onClick: () -> Unit,
@@ -79,7 +78,6 @@ fun btnFilledSmall02(
     )
 }
 
-/** 구 btnFilledSmallPrimary02 */
 @Composable
 fun btnFilledSmall03(
     onClick: () -> Unit,
@@ -113,8 +111,9 @@ fun btnFilledSmall03(
     )
 }
 
+/** 구 btnRoundFilledSmall01 */
 @Composable
-fun btnRoundFilledSmall01(
+fun btnFilledRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -148,9 +147,9 @@ fun btnRoundFilledSmall01(
 }
 
 
-/** 구 btnRoundFilledSmallGradient */
+/** 구 btnRoundFilledSmall02 */
 @Composable
-fun btnRoundFilledSmall02(
+fun btnFilledRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -183,9 +182,9 @@ fun btnRoundFilledSmall02(
     )
 }
 
-/** 구 btnRoundFilledSmallPrimary02 */
+/** 구 btnRoundFilledSmall03 */
 @Composable
-fun btnRoundFilledSmall03(
+fun btnFilledRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -251,7 +250,6 @@ fun btnFilledTonalSmall01(
     )
 }
 
-/** 구 btnFilledTonalSmallPrimary02 */
 @Composable
 fun btnFilledTonalSmall02(
     onClick: () -> Unit,
@@ -285,7 +283,6 @@ fun btnFilledTonalSmall02(
     )
 }
 
-/** 구 btnFilledTonalSmallSecondary01 */
 @Composable
 fun btnFilledTonalSmall03(
     onClick: () -> Unit,
@@ -319,7 +316,6 @@ fun btnFilledTonalSmall03(
     )
 }
 
-/** 구 btnFilledTonalSmallSecondary02 */
 @Composable
 fun btnFilledTonalSmall04(
     onClick: () -> Unit,
@@ -353,7 +349,6 @@ fun btnFilledTonalSmall04(
     )
 }
 
-/** 구 btnFilledTonalSmallSecondary03 */
 @Composable
 fun btnFilledTonalSmall05(
     onClick: () -> Unit,
@@ -420,8 +415,9 @@ fun btnFilledTonalSmall06(
     )
 }
 
+/** 구 btnRoundFilledTonalSmall01 */
 @Composable
-fun btnRoundFilledTonalSmall01(
+fun btnFilledTonalRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -454,9 +450,9 @@ fun btnRoundFilledTonalSmall01(
     )
 }
 
-/** 구 btnRoundFilledTonalSmallPrimary02 */
+/** 구 btnRoundFilledTonalSmall02 */
 @Composable
-fun btnRoundFilledTonalSmall02(
+fun btnFilledTonalRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -489,9 +485,9 @@ fun btnRoundFilledTonalSmall02(
     )
 }
 
-/** 구 btnRoundFilledTonalSmallSecondary01 */
+/** 구 btnRoundFilledTonalSmall03 */
 @Composable
-fun btnRoundFilledTonalSmall03(
+fun btnFilledTonalRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -524,9 +520,9 @@ fun btnRoundFilledTonalSmall03(
     )
 }
 
-/** 구 btnRoundFilledTonalSmallSecondary02 */
+/** 구 btnRoundFilledTonalSmall04 */
 @Composable
-fun btnRoundFilledTonalSmall04(
+fun btnFilledTonalRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -559,9 +555,9 @@ fun btnRoundFilledTonalSmall04(
     )
 }
 
-/** 구 btnRoundFilledTonalSmallSecondary03 */
+/** 구 btnRoundFilledTonalSmall05 */
 @Composable
-fun btnRoundFilledTonalSmall05(
+fun btnFilledTonalRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -586,6 +582,40 @@ fun btnRoundFilledTonalSmall05(
             backgroundColor = DealiColor.g10,
             disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.g70,
+            disabledContentColor = DealiColor.g50,
+        ),
+        isRoundShape = true,
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnFilledTonalRoundSmall06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.FilledTonal,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            disabledBackgroundColor = DealiColor.primary04,
+            contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
         isRoundShape = true,
@@ -629,7 +659,6 @@ fun btnOutlineSmall01(
     )
 }
 
-/** 구 btnOutlineSmallPrimary02 */
 @Composable
 fun btnOutlineSmall02(
     onClick: () -> Unit,
@@ -665,7 +694,6 @@ fun btnOutlineSmall02(
     )
 }
 
-/** 구 btnOutlineSmallSecondary01 */
 @Composable
 fun btnOutlineSmall03(
     onClick: () -> Unit,
@@ -701,7 +729,6 @@ fun btnOutlineSmall03(
     )
 }
 
-/** 구 btnOutlineSmallSecondary02 */
 @Composable
 fun btnOutlineSmall04(
     onClick: () -> Unit,
@@ -737,7 +764,6 @@ fun btnOutlineSmall04(
     )
 }
 
-/** 구 btnOutlineSmallSecondary03 */
 @Composable
 fun btnOutlineSmall05(
     onClick: () -> Unit,
@@ -773,7 +799,6 @@ fun btnOutlineSmall05(
     )
 }
 
-/** 구 btnOutlineSmallSecondary04 */
 @Composable
 fun btnOutlineSmall06(
     onClick: () -> Unit,
@@ -845,7 +870,6 @@ fun btnOutlineRoundSmall01(
     )
 }
 
-/** 구 btnOutlineRoundSmallPrimary02 */
 @Composable
 fun btnOutlineRoundSmall02(
     onClick: () -> Unit,
@@ -882,7 +906,6 @@ fun btnOutlineRoundSmall02(
     )
 }
 
-/** 구 btnOutlineRoundSmallSecondary01 */
 @Composable
 fun btnOutlineRoundSmall03(
     onClick: () -> Unit,
@@ -919,7 +942,6 @@ fun btnOutlineRoundSmall03(
     )
 }
 
-/** 구 btnOutlineRoundSmallSecondary02 */
 @Composable
 fun btnOutlineRoundSmall04(
     onClick: () -> Unit,
@@ -956,7 +978,6 @@ fun btnOutlineRoundSmall04(
     )
 }
 
-/** 구 btnOutlineRoundSmallSecondary03 */
 @Composable
 fun btnOutlineRoundSmall05(
     onClick: () -> Unit,
@@ -993,7 +1014,6 @@ fun btnOutlineRoundSmall05(
     )
 }
 
-/** 구 btnOutlineRoundSmallSecondary04 */
 @Composable
 fun btnOutlineRoundSmall06(
     onClick: () -> Unit,
@@ -1418,7 +1438,6 @@ fun btnTextSmall01(
     )
 }
 
-/** 구 btnTextSmallPrimary02 */
 @Composable
 fun btnTextSmall02(
     onClick: () -> Unit,
@@ -1452,7 +1471,6 @@ fun btnTextSmall02(
     )
 }
 
-/** 구 btnTextSmallSecondary01 */
 @Composable
 fun btnTextSmall03(
     onClick: () -> Unit,
@@ -1486,7 +1504,6 @@ fun btnTextSmall03(
     )
 }
 
-/** 구 btnTextSmallSecondary02 */
 @Composable
 fun btnTextSmall04(
     onClick: () -> Unit,
@@ -1520,7 +1537,6 @@ fun btnTextSmall04(
     )
 }
 
-/** 구 btnTextSmallSecondary03 */
 @Composable
 fun btnTextSmall05(
     onClick: () -> Unit,
@@ -1554,7 +1570,6 @@ fun btnTextSmall05(
     )
 }
 
-/** 구 btnTextSmallSecondary04 */
 @Composable
 fun btnTextSmall06(
     onClick: () -> Unit,
@@ -1588,7 +1603,6 @@ fun btnTextSmall06(
     )
 }
 
-/** 구 btnTextSmallSecondary05 */
 @Composable
 fun btnTextSmall07(
     onClick: () -> Unit,
