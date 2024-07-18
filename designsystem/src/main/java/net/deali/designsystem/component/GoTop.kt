@@ -1,7 +1,6 @@
 package net.deali.designsystem.component
 
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
@@ -20,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun GoTop(
     isVisible: Boolean,
