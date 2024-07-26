@@ -2,8 +2,8 @@
 minSdk = "24"
 targetSdk = "34"
 
-kotlin = "1.9.22"
-android-gradle-plugin = "8.5.0"
+kotlin = "2.0.0"
+agp = "8.5.1"
 maven-gradle-plugin = "2.1"
 
 androidx-core = "1.13.1"
@@ -13,14 +13,12 @@ androidx-navigation-compose = "2.7.7"
 androidx-constraintlayout-compose = "1.0.1"
 androidx-datastore = "1.1.1"
 
-compose-compiler = "1.5.10"
+compose-bom = "2024.06.00"
 androidx-compose = "1.6.8"
-androidx-compose-material = "1.6.8"
-
 material = "1.12.0"
 
-immutable-collections = "0.3.7"
-coil = "2.5.0"
+kotlinx-collections-immutable = "0.3.7"
+coil = "2.6.0"
 snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
@@ -28,23 +26,22 @@ junit4 = "4.13.2"
 
 [plugins]
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
-android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [libraries]
 # 디자인 시스템에서 사용하는 dependencies
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling"}
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview"}
 android-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
-
-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidx-compose" }
-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidx-compose-material" }
-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidx-compose" }
-compose-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidx-compose" }
-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidx-compose" }
-
-kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "immutable-collections" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidx-compose" }
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 snapper = { group = "dev.chrisbanes.snapper", name = "snapper", version.ref = "snapper" }
 
