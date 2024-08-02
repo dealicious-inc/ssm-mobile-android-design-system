@@ -30,7 +30,7 @@ fun ActionBar(
         backgroundBrush = SolidColor(backgroundColor),
         mainContent = {
             Row(
-                modifier = modifier,
+                modifier = Modifier,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -69,7 +69,7 @@ fun ProductDetailsActionBar(
         )),
         mainContent = {
             Row(
-                modifier = modifier,
+                modifier = Modifier,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
