@@ -88,6 +88,8 @@ fun ProductDetailsActionBar(
     )
 }
 
+val ACTION_BAR_HEIGHT = 56.dp
+
 @Composable
 @Preview
 private fun ActionBarPreview1() {

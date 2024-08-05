@@ -6,13 +6,14 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.component.ACTION_BAR_HEIGHT
 
 @Composable
 internal fun CoreActionBarLayout(
@@ -25,7 +26,7 @@ internal fun CoreActionBarLayout(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .requiredHeight(56.dp)
+                .height(ACTION_BAR_HEIGHT)
                 .background(brush = backgroundBrush)
                 .padding(start = 16.dp, end = 20.dp),
             horizontalArrangement = if (menuContent != null) {
