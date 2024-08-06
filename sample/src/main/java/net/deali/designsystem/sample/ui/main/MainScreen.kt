@@ -71,6 +71,103 @@ fun MainScreen(
                 .nestedScroll(nestedScrollConnection)
         ) {
             LazyVerticalGrid(
+                modifier = Modifier
+                    .weight(1f),
+                state = lazyGridState,
+                columns = GridCells.Fixed(2),
+            ) {
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Tokens",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(tokens) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Atoms",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(atoms) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route.apply {
+                            first().uppercaseChar()
+                        }
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Molecules",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(molecules) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Others",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(others) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route.apply {
+                            first().uppercaseChar()
+                        }
+                    )
+                }
+            }
+
+            LazyVerticalGrid(
+                modifier = Modifier
+                    .weight(1f),
                 state = lazyGridState,
                 columns = GridCells.Fixed(2),
             ) {

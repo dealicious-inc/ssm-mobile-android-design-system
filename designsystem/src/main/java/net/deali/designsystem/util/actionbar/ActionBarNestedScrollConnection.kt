@@ -20,10 +20,10 @@ import kotlin.math.abs
  *     val lazyState = rememberLazyListState()
  *     val nestedScrollConnection = rememberActionBarNestedScrollConnection(
  *         actionBarHeightPx = with(LocalDensity.current) { ACTION_BAR_HEIGHT.toPx() },
- *         scrollState = lazyGridState,
+ *         scrollState = lazyState,
  *     )
  *
- *     val animatedHeight by animateDpAsState(
+ *     val actionBarHeight by animateDpAsState(
  *         targetValue = with(LocalDensity.current) {
  *             nestedScrollConnection.actionBarOffset.toDp()
  *         },
@@ -36,7 +36,7 @@ import kotlin.math.abs
  *     ) {
  *         ActionBar(
  *             modifier = Modifier
- *                 .height(animatedHeight)
+ *                 .height(actionBarHeight)
  *             ...
  *         )
  *
@@ -58,12 +58,10 @@ abstract class ActionBarNestedScrollConnection(
 
 /**
  * ActionBarNestedScrollConnection 생성 함수
- * @param scrollState ScrollableState를 통해 스크롤이 멈췄을 경우 행동을 추가 (snap)
  */
 @Composable
 fun rememberActionBarNestedScrollConnection(
     actionBarHeightPx: Float,
-    scrollState: ScrollableState,
 ): ActionBarNestedScrollConnection {
     val nestedScrollConnection = remember {
         object : ActionBarNestedScrollConnection(actionBarHeightPx) {
@@ -80,6 +78,20 @@ fun rememberActionBarNestedScrollConnection(
             }
         }
     }
+
+    return nestedScrollConnection
+}
+
+/**
+ * ActionBarNestedScrollConnection 생성 함수
+ * @param scrollState ScrollableState를 통해 스크롤이 멈췄을 경우 행동을 추가 (snap)
+ */
+@Composable
+fun rememberActionBarNestedScrollConnection(
+    actionBarHeightPx: Float,
+    scrollState: ScrollableState,
+): ActionBarNestedScrollConnection {
+    val nestedScrollConnection = rememberActionBarNestedScrollConnection(actionBarHeightPx)
 
     LaunchedEffect(scrollState.isScrollInProgress) {
         if (!scrollState.isScrollInProgress) {
