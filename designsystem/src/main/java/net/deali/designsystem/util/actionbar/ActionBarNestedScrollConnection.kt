@@ -23,27 +23,27 @@ import kotlin.math.abs
  *         scrollState = lazyState,
  *     )
  *
- *     val actionBarHeight by animateDpAsState(
- *         targetValue = with(LocalDensity.current) {
- *             nestedScrollConnection.actionBarOffset.toDp()
- *         },
+ *     val actionBarOffset by animateFloatAsState(
+ *         targetValue = nestedScrollConnection.actionBarOffset,
  *         label = ""
  *     )
  *
- *     Column(
+ *     Box(
  *         modifier = Modifier
  *             .nestedScroll(nestedScrollConnection)
  *     ) {
- *         ActionBar(
+ *         LazyColumn(
  *             modifier = Modifier
- *                 .height(actionBarHeight)
+ *                 .fillMaxSize()
+ *                 .graphicsLayer { translationY = actionBarOffset },
+ *             state = lazyState,
  *             ...
  *         )
  *
- *         LazyColumn(
+ *         ActionBar(
  *             modifier = Modifier
- *                 .weight(1f),
- *             state = lazyState,
+ *                 .height(ACTION_BAR_HEIGHT)
+ *                 .graphicsLayer { translationY = actionBarOffset - ACTION_BAR_HEIGHT.toPx() }
  *             ...
  *         )
  *     }

@@ -1,8 +1,9 @@
 package net.deali.designsystem.sample.ui.main
 
-import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -15,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
@@ -23,7 +25,6 @@ import net.deali.designsystem.component.ACTION_BAR_HEIGHT
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.btnFilledTonalLarge01
 import net.deali.designsystem.sample.data.model.Screen
-import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.actionbar.rememberActionBarNestedScrollConnection
@@ -42,223 +43,126 @@ fun MainScreen(
         scrollState = lazyGridState,
     )
 
-    val actionBarHeight by animateDpAsState(
-        targetValue = with(LocalDensity.current) {
-            nestedScrollConnection.actionBarOffset.toDp()
-        },
+    val actionBarOffset by animateFloatAsState(
+        targetValue = nestedScrollConnection.actionBarOffset,
         label = ""
     )
 
-    NavigationContainer(
-        navigationBar = {
-            Box(
+    Box(
+        modifier = Modifier
+            .nestedScroll(nestedScrollConnection)
+    ) {
+        Column {
+            LazyVerticalGrid(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(actionBarHeight)
-                    .padding(start = 20.dp)
+                    .fillMaxSize()
+                    .graphicsLayer { translationY = actionBarOffset },
+                state = lazyGridState,
+                columns = GridCells.Fixed(2),
             ) {
-                DealiText(
-                    modifier = Modifier.align(Alignment.CenterStart),
-                    text = "Deali Design System Sample",
-                    style = DealiFont.sh3sb16,
-                    color = DealiColor.primary05,
-                )
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Tokens",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(tokens) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Atoms",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(atoms) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route.apply {
+                            first().uppercaseChar()
+                        }
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Molecules",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(molecules) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route
+                    )
+                }
+
+                item(
+                    span = { GridItemSpan(2) }
+                ) {
+                    DealiText(
+                        modifier = Modifier.padding(8.dp),
+                        text = "Others",
+                        style = DealiFont.sh3sb16,
+                        color = DealiColor.g100,
+                    )
+                }
+
+                itemsIndexed(others) { index, item ->
+                    btnFilledTonalLarge01(
+                        modifier = Modifier
+                            .padding(4.dp)
+                            .weight(1f),
+                        onClick = { onClickMenu(item) },
+                        text = item.route.apply {
+                            first().uppercaseChar()
+                        }
+                    )
+                }
             }
         }
-    ) {
-        Column(
+
+        Box(
             modifier = Modifier
-                .nestedScroll(nestedScrollConnection)
+                .fillMaxWidth()
+                .height(ACTION_BAR_HEIGHT)
+                .padding(start = 20.dp)
+                .graphicsLayer { translationY = actionBarOffset - ACTION_BAR_HEIGHT.toPx() }
         ) {
-            LazyVerticalGrid(
-                modifier = Modifier
-                    .weight(1f),
-                state = lazyGridState,
-                columns = GridCells.Fixed(2),
-            ) {
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Tokens",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(tokens) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Atoms",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(atoms) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route.apply {
-                            first().uppercaseChar()
-                        }
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Molecules",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(molecules) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Others",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(others) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route.apply {
-                            first().uppercaseChar()
-                        }
-                    )
-                }
-            }
-
-            LazyVerticalGrid(
-                modifier = Modifier
-                    .weight(1f),
-                state = lazyGridState,
-                columns = GridCells.Fixed(2),
-            ) {
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Tokens",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(tokens) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Atoms",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(atoms) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route.apply {
-                            first().uppercaseChar()
-                        }
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Molecules",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(molecules) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
-                    )
-                }
-
-                item(
-                    span = { GridItemSpan(2) }
-                ) {
-                    DealiText(
-                        modifier = Modifier.padding(8.dp),
-                        text = "Others",
-                        style = DealiFont.sh3sb16,
-                        color = DealiColor.g100,
-                    )
-                }
-
-                itemsIndexed(others) { index, item ->
-                    btnFilledTonalLarge01(
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route.apply {
-                            first().uppercaseChar()
-                        }
-                    )
-                }
-            }
+            DealiText(
+                modifier = Modifier.align(Alignment.CenterStart),
+                text = "Deali Design System Sample",
+                style = DealiFont.sh3sb16,
+                color = DealiColor.primary05,
+            )
         }
     }
 }
