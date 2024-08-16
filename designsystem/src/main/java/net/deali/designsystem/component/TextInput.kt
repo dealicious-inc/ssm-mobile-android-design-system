@@ -12,6 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
+import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
@@ -208,5 +210,20 @@ fun TextInput(
             innerTrailingContent
         },
         innerFixedContent = innerFixedContent,
+    )
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview() {
+    TextInput(
+        value = "예제입니다",
+        onValueChange = {},
+        isNecessary = true,
+        label = "라벨입니다",
+        innerTrailingContent = {
+            Icon24(R.drawable.ic_addaccount)
+        }
     )
 }
