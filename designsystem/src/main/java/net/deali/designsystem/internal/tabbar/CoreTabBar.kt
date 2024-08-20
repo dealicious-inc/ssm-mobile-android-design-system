@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerScope
-import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.Composable
@@ -309,20 +309,15 @@ private fun TabItem(
 
 @Composable
 internal fun CoreTabBarLayout(
-    tabCount: Int,
-    onSelectTab: (index: Int) -> Unit,
-    initialPage: Int = 0,
+    pagerState: PagerState,
     userSwipeEnabled: Boolean,
+    onSelectTab: (index: Int) -> Unit,
     tabBar: @Composable (
         currentIndex: Int,
         onPageChange: (index: Int) -> Unit,
     ) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
-    val pagerState = rememberPagerState(
-        initialPage = initialPage,
-        pageCount = { tabCount }
-    )
     val coroutineScope = rememberCoroutineScope()
 
     Column(

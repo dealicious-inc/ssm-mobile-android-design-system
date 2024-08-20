@@ -14,6 +14,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.PagerScope
+import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -244,14 +246,17 @@ fun tabBarSegment01Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabTitles.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabTitles.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSegment01(
                 tabTitles = tabTitles,
@@ -278,14 +283,17 @@ fun tabBarSegment01Layout(
     tabs: List<Tab>,
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabs.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabs.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSegment01(
                 tabs = tabs,
@@ -312,14 +320,17 @@ fun tabBarSlider02Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabTitles.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabTitles.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSlider02(
                 tabTitles = tabTitles,
@@ -346,14 +357,17 @@ fun tabBarSlider02Layout(
     tabs: List<Tab>,
     userSwipeEnabled: Boolean,
     initialPage: Int = 0,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabs.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabs.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSlider02(
                 tabs = tabs,
@@ -378,16 +392,19 @@ fun tabBarSlider02Layout(
 @Composable
 fun tabBarSlider01Layout(
     tabTitles: List<String>,
+    userSwipeEnabled: Boolean,
     initialPage: Int = 0,
-    userSwipeEnabled: Boolean = false,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabTitles.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabTitles.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSlider01(
                 tabTitles = tabTitles,
@@ -412,16 +429,19 @@ fun tabBarSlider01Layout(
 @Composable
 fun tabBarSlider01Layout(
     tabs: List<Tab>,
+    userSwipeEnabled: Boolean,
     initialPage: Int = 0,
-    userSwipeEnabled: Boolean = false,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabs.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabs.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarSlider01(
                 tabs = tabs,
@@ -446,16 +466,19 @@ fun tabBarSlider01Layout(
 @Composable
 fun tabBarChip01Layout(
     tabTitles: List<String>,
+    userSwipeEnabled: Boolean,
     initialPage: Int = 0,
-    userSwipeEnabled: Boolean = false,
+    pagerState: PagerState = rememberPagerState(
+        initialPage = initialPage,
+        pageCount = { tabTitles.size }
+    ),
     onSelectTab: (index: Int) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        tabCount = tabTitles.size,
+        pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
-        initialPage = initialPage,
         tabBar = { currentIndex, onPageChange ->
             tabBarChip01(
                 tabTitles = tabTitles,
