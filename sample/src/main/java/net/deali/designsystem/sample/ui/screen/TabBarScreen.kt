@@ -156,6 +156,7 @@ fun TabBarScreen(
 
                 tabBarChip01Layout(
                     tabTitles = subTitles,
+                    userSwipeEnabled = false,
                     onSelectTab = {},
                 ) { subPage ->
                     Box(
