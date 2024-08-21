@@ -16,16 +16,14 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -67,10 +65,24 @@ fun Modifier.badge(
  * @param count 뱃지 내부에 표시 할 숫자.
  * @param offset 뱃지의 위치를 조정할 수 있는 offset.
  */
-@OptIn(ExperimentalTextApi::class)
 @Stable
 fun Modifier.badge(
     count: Int,
+    offset: DpOffset = DpOffset.Zero
+): Modifier = badge(
+    text = count.toString(),
+    offset = offset
+)
+
+/**
+ * Composable 우측 상단에 숫자가 포함 된 뱃지 표현.
+ *
+ * @param text 뱃지 내부에 표시 할 내용.
+ * @param offset 뱃지의 위치를 조정할 수 있는 offset.
+ */
+@Stable
+fun Modifier.badge(
+    text: String,
     offset: DpOffset = DpOffset.Zero
 ): Modifier = this.composed {
     val badgeColor = DealiColor.primary01
@@ -81,18 +93,15 @@ fun Modifier.badge(
         TextStyle(color = textColor)
     )
 
-    val isSingleDigit = count < 10
-    val singleDigitBadgeRadius = with(LocalDensity.current) {
-        8.dp.toPx()
-    }
-    val multiDigitBadgeSize = with(LocalDensity.current) {
-        DpSize(21.dp, 14.dp).toSize()
-    }
-
     drawWithCache {
         val measuredText = textMeasurer.measure(
-            text = count.toString(),
+            text = text,
             style = textStyle
+        )
+
+        val badgeSize = Size(
+            width = measuredText.size.width.toFloat() + 8.dp.toPx(),
+            height = 14.dp.toPx(),
         )
 
         val badgeCenter = Offset(x = size.width, y = 0f)
@@ -102,29 +111,20 @@ fun Modifier.badge(
             y = offset.y.toPx()
         )
 
+        println("$text ${badgeSize.toDpSize()}")
+
         onDrawWithContent {
             drawContent()
 
-            if (isSingleDigit) {
-                drawCircle(
-                    color = badgeColor,
-                    radius = singleDigitBadgeRadius,
-                    center = Offset(
-                        x = badgeCenter.x + badgeOffset.x,
-                        y = badgeCenter.y + badgeOffset.y
-                    ),
-                )
-            } else {
-                drawRoundRect(
-                    color = badgeColor,
-                    topLeft = Offset(
-                        x = badgeCenter.x - multiDigitBadgeSize.width / 2f + badgeOffset.x,
-                        y = badgeCenter.y - multiDigitBadgeSize.height / 2f + badgeOffset.y
-                    ),
-                    size = multiDigitBadgeSize,
-                    cornerRadius = badgeRadius,
-                )
-            }
+            drawRoundRect(
+                color = badgeColor,
+                topLeft = Offset(
+                    x = badgeCenter.x - badgeSize.width / 2f + badgeOffset.x,
+                    y = badgeCenter.y - badgeSize.height / 2f + badgeOffset.y
+                ),
+                size = badgeSize,
+                cornerRadius = badgeRadius,
+            )
 
             drawText(
                 textLayoutResult = measuredText,
@@ -166,6 +166,12 @@ private fun Preview() {
                     .background(color = Color.Black)
                     .badge(count = 24)
             )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 111)
+            )
         }
 
         Row(
@@ -195,6 +201,12 @@ private fun Preview() {
                     .size(50.dp)
                     .background(color = Color.Black)
                     .badge(count = 24, offset = DpOffset(x = 0.dp, y = 5.dp))
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 111, offset = DpOffset(x = 0.dp, y = 5.dp))
             )
         }
     }
