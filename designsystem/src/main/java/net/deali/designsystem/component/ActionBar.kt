@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -43,6 +44,8 @@ fun ActionBar(
                     text = title,
                     style = DealiFont.sh3sb16,
                     color = titleColor,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
         },
@@ -62,11 +65,13 @@ fun ProductDetailsActionBar(
 ) {
     CoreActionBarLayout(
         modifier = modifier,
-        backgroundBrush = Brush.verticalGradient(listOf(
-            // TODO 구현 당시 디자인 파일에 theme이 아닌 색상 코드로 작업 되어 있었음.
-            Color(0xFF000000).copy(alpha = 0.3f),
-            Color(0xFF606060).copy(alpha = 0.01f),
-        )),
+        backgroundBrush = Brush.verticalGradient(
+            listOf(
+                // TODO 구현 당시 디자인 파일에 theme이 아닌 색상 코드로 작업 되어 있었음.
+                Color(0xFF000000).copy(alpha = 0.3f),
+                Color(0xFF606060).copy(alpha = 0.01f),
+            )
+        ),
         mainContent = {
             Row(
                 modifier = Modifier,
@@ -90,8 +95,8 @@ fun ProductDetailsActionBar(
 
 val ACTION_BAR_HEIGHT = 56.dp
 
+@Preview(showBackground = true, widthDp = 320)
 @Composable
-@Preview
 private fun ActionBarPreview1() {
     ActionBar(
         onBack = {},
@@ -99,8 +104,8 @@ private fun ActionBarPreview1() {
     )
 }
 
+@Preview(showBackground = true, widthDp = 320)
 @Composable
-@Preview
 private fun ActionBarPreview2() {
     ActionBar(
         onBack = {},
@@ -119,12 +124,12 @@ private fun ActionBarPreview2() {
     )
 }
 
+@Preview(showBackground = true, widthDp = 320)
 @Composable
-@Preview
 private fun ActionBarPreview3() {
     ActionBar(
         onBack = {},
-        title = "Preview",
+        title = "Preview Preview Preview Preview",
         menuContent = {
             Icon24(
                 onClick = {},
@@ -143,8 +148,8 @@ private fun ActionBarPreview3() {
     )
 }
 
+@Preview(showBackground = true, widthDp = 320)
 @Composable
-@Preview
 private fun ActionBarPreview4() {
     ActionBar(
         onBack = {},
@@ -155,8 +160,8 @@ private fun ActionBarPreview4() {
     )
 }
 
+@Preview(showBackground = true, widthDp = 320)
 @Composable
-@Preview(showBackground = true)
 private fun ProductDetailsActionBarPreview() {
     ProductDetailsActionBar(
         onBack = {},
