@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.btnOutlineMedium01
 import net.deali.designsystem.sample.ui.NavigationContainer
 
@@ -25,7 +25,7 @@ fun FormsScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Forms",
                 onBack = onBackPress,
             )

@@ -21,13 +21,13 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ACTION_BAR_HEIGHT
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.btnFilledTonalLarge01
+import net.deali.designsystem.internal.topbar.TOP_BAR_HEIGHT
 import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.actionbar.rememberActionBarNestedScrollConnection
+import net.deali.designsystem.util.topbar.rememberTopBarNestedScrollConnection
 
 @Composable
 fun MainScreen(
@@ -38,13 +38,13 @@ fun MainScreen(
     onClickMenu: (screen: Screen) -> Unit,
 ) {
     val lazyGridState = rememberLazyGridState()
-    val nestedScrollConnection = rememberActionBarNestedScrollConnection(
-        actionBarHeightPx = with(LocalDensity.current) { ACTION_BAR_HEIGHT.toPx() },
+    val nestedScrollConnection = rememberTopBarNestedScrollConnection(
+        topBarHeightPx = with(LocalDensity.current) { TOP_BAR_HEIGHT.toPx() },
         scrollState = lazyGridState,
     )
 
-    val actionBarOffset by animateFloatAsState(
-        targetValue = nestedScrollConnection.actionBarOffset,
+    val topBarOffset by animateFloatAsState(
+        targetValue = nestedScrollConnection.topBarOffset,
         label = ""
     )
 
@@ -56,7 +56,7 @@ fun MainScreen(
             LazyVerticalGrid(
                 modifier = Modifier
                     .fillMaxSize()
-                    .graphicsLayer { translationY = actionBarOffset },
+                    .graphicsLayer { translationY = topBarOffset },
                 state = lazyGridState,
                 columns = GridCells.Fixed(2),
             ) {
@@ -153,9 +153,9 @@ fun MainScreen(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(ACTION_BAR_HEIGHT)
+                .height(TOP_BAR_HEIGHT)
                 .padding(start = 20.dp)
-                .graphicsLayer { translationY = actionBarOffset - ACTION_BAR_HEIGHT.toPx() }
+                .graphicsLayer { translationY = topBarOffset - TOP_BAR_HEIGHT.toPx() }
         ) {
             DealiText(
                 modifier = Modifier.align(Alignment.CenterStart),

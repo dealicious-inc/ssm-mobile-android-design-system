@@ -12,12 +12,12 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.actionbar.CoreActionBarLayout
+import net.deali.designsystem.internal.topbar.CoreTopBarLayout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 @Composable
-fun ActionBar(
+fun TopBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
@@ -26,7 +26,7 @@ fun ActionBar(
     backButtonColor: Color = DealiColor.primary05,
     menuContent: @Composable (() -> Unit)? = null,
 ) {
-    CoreActionBarLayout(
+    CoreTopBarLayout(
         modifier = modifier,
         backgroundBrush = SolidColor(backgroundColor),
         mainContent = {
@@ -58,12 +58,12 @@ fun ActionBar(
 }
 
 @Composable
-fun ProductDetailsActionBar(
+fun ProductDetailsTopBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     menuContent: @Composable (() -> Unit)? = null,
 ) {
-    CoreActionBarLayout(
+    CoreTopBarLayout(
         modifier = modifier,
         backgroundBrush = Brush.verticalGradient(
             listOf(
@@ -93,12 +93,10 @@ fun ProductDetailsActionBar(
     )
 }
 
-val ACTION_BAR_HEIGHT = 56.dp
-
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun ActionBarPreview1() {
-    ActionBar(
+private fun TopBarPreview1() {
+    TopBar(
         onBack = {},
         title = "Preview"
     )
@@ -106,8 +104,8 @@ private fun ActionBarPreview1() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun ActionBarPreview2() {
-    ActionBar(
+private fun TopBarPreview2() {
+    TopBar(
         onBack = {},
         title = "Preview",
         menuContent = {
@@ -126,8 +124,8 @@ private fun ActionBarPreview2() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun ActionBarPreview3() {
-    ActionBar(
+private fun TopBarrPreview3() {
+    TopBar(
         onBack = {},
         title = "Preview Preview Preview Preview",
         menuContent = {
@@ -150,8 +148,8 @@ private fun ActionBarPreview3() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun ActionBarPreview4() {
-    ActionBar(
+private fun TopBarPreview4() {
+    TopBar(
         onBack = {},
         title = "Preview",
         backgroundColor = DealiColor.secondary02,
@@ -162,8 +160,8 @@ private fun ActionBarPreview4() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun ProductDetailsActionBarPreview() {
-    ProductDetailsActionBar(
+private fun ProductDetailsTopBarPreview() {
+    ProductDetailsTopBar(
         onBack = {},
         menuContent = {
             Icon24(

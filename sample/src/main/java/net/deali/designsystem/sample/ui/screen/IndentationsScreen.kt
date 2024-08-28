@@ -2,7 +2,7 @@ package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -14,7 +14,7 @@ fun IndentationsScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Indentations",
                 onBack = onBackPress,
             )

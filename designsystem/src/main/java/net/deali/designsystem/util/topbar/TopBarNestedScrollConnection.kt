@@ -1,4 +1,4 @@
-package net.deali.designsystem.util.actionbar
+package net.deali.designsystem.util.topbar
 
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.runtime.Composable
@@ -18,13 +18,13 @@ import kotlin.math.abs
  *
  * ex)
  *     val lazyState = rememberLazyListState()
- *     val nestedScrollConnection = rememberActionBarNestedScrollConnection(
- *         actionBarHeightPx = with(LocalDensity.current) { ACTION_BAR_HEIGHT.toPx() },
+ *     val nestedScrollConnection = rememberTopBarNestedScrollConnection(
+ *         topBarHeightPx = with(LocalDensity.current) { TOP_BAR_HEIGHT.toPx() },
  *         scrollState = lazyState,
  *     )
  *
- *     val actionBarOffset by animateFloatAsState(
- *         targetValue = nestedScrollConnection.actionBarOffset,
+ *     val topBarOffset by animateFloatAsState(
+ *         targetValue = nestedScrollConnection.topBarOffset,
  *         label = ""
  *     )
  *
@@ -35,42 +35,42 @@ import kotlin.math.abs
  *         LazyColumn(
  *             modifier = Modifier
  *                 .fillMaxSize()
- *                 .graphicsLayer { translationY = actionBarOffset },
+ *                 .graphicsLayer { translationY = topBarOffset },
  *             state = lazyState,
  *             ...
  *         )
  *
- *         ActionBar(
+ *         TopBar(
  *             modifier = Modifier
- *                 .height(ACTION_BAR_HEIGHT)
- *                 .graphicsLayer { translationY = actionBarOffset - ACTION_BAR_HEIGHT.toPx() }
+ *                 .height(TOP_BAR_HEIGHT)
+ *                 .graphicsLayer { translationY = topBarOffset - TOP_BAR_HEIGHT.toPx() }
  *             ...
  *         )
  *     }
  *
- * @param actionBarHeightPx 액션바 높이
+ * @param topBarHeightPx 액션바 높이
  */
-abstract class ActionBarNestedScrollConnection(
-    actionBarHeightPx: Float
+abstract class TopBarNestedScrollConnection(
+    topBarHeightPx: Float
 ) : NestedScrollConnection {
-    var actionBarOffset by mutableFloatStateOf(actionBarHeightPx)
+    var topBarOffset by mutableFloatStateOf(topBarHeightPx)
 }
 
 /**
- * ActionBarNestedScrollConnection 생성 함수
+ * TopBarNestedScrollConnection 생성 함수
  */
 @Composable
-fun rememberActionBarNestedScrollConnection(
-    actionBarHeightPx: Float,
-): ActionBarNestedScrollConnection {
+fun rememberTopBarNestedScrollConnection(
+    topBarHeightPx: Float,
+): TopBarNestedScrollConnection {
     val nestedScrollConnection = remember {
-        object : ActionBarNestedScrollConnection(actionBarHeightPx) {
+        object : TopBarNestedScrollConnection(topBarHeightPx) {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
                 val delta = available.y
-                val newOffset = actionBarOffset + delta
-                actionBarOffset = newOffset.coerceIn(0f, actionBarHeightPx)
+                val newOffset = topBarOffset + delta
+                topBarOffset = newOffset.coerceIn(0f, topBarHeightPx)
 
-                return if (abs(actionBarOffset) == actionBarHeightPx || abs(actionBarOffset) == 0f) {
+                return if (abs(topBarOffset) == topBarHeightPx || abs(topBarOffset) == 0f) {
                     super.onPreScroll(available, source)
                 } else {
                     available
@@ -83,20 +83,20 @@ fun rememberActionBarNestedScrollConnection(
 }
 
 /**
- * ActionBarNestedScrollConnection 생성 함수
+ * TopBarNestedScrollConnection 생성 함수
  * @param scrollState ScrollableState를 통해 스크롤이 멈췄을 경우 행동을 추가 (snap)
  */
 @Composable
-fun rememberActionBarNestedScrollConnection(
-    actionBarHeightPx: Float,
+fun rememberTopBarNestedScrollConnection(
+    topBarHeightPx: Float,
     scrollState: ScrollableState,
-): ActionBarNestedScrollConnection {
-    val nestedScrollConnection = rememberActionBarNestedScrollConnection(actionBarHeightPx)
+): TopBarNestedScrollConnection {
+    val nestedScrollConnection = rememberTopBarNestedScrollConnection(topBarHeightPx)
 
     LaunchedEffect(scrollState.isScrollInProgress) {
         if (!scrollState.isScrollInProgress) {
-            nestedScrollConnection.actionBarOffset = if (nestedScrollConnection.actionBarOffset > actionBarHeightPx / 2) {
-                actionBarHeightPx
+            nestedScrollConnection.topBarOffset = if (nestedScrollConnection.topBarOffset > topBarHeightPx / 2) {
+                topBarHeightPx
             } else {
                 0f
             }

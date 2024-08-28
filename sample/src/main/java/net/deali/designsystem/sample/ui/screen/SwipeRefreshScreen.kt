@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.SwipeRefresh
 import net.deali.designsystem.component.SwitchSmall
@@ -31,7 +31,7 @@ import net.deali.designsystem.theme.DealiFont
 fun SwipeRefreshScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Swipe Refresh",
                 onBack = onBackPress,
             )

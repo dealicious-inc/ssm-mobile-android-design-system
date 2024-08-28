@@ -20,7 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
@@ -38,7 +38,7 @@ import net.deali.designsystem.util.visualtransformation.PhoneNumberVisualTransfo
 fun TextInputScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Input",
                 onBack = onBackPress,
             )

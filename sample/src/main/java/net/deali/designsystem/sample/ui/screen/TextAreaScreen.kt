@@ -16,7 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.RadioButton
@@ -33,7 +33,7 @@ import net.deali.designsystem.theme.DealiFont
 fun TextAreaScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "TextArea",
                 onBack = onBackPress,
             )

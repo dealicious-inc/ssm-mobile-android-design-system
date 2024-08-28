@@ -13,7 +13,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.Alert
 import net.deali.designsystem.component.AlertSingleButton
 import net.deali.designsystem.component.CheckBox
@@ -27,7 +27,7 @@ fun AlertScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Alert",
                 onBack = onBackPress,
             )

@@ -31,7 +31,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon24
 import net.deali.designsystem.component.RadioButton
@@ -71,7 +71,7 @@ fun TypographyScreen(
 
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Typography",
                 onBack = onBackPress,
             )

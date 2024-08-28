@@ -28,7 +28,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.BottomSheet
 import net.deali.designsystem.component.BottomSheetHeaderArrowClose
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
@@ -236,7 +236,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
         }
 
         Column {
-            ActionBar(
+            TopBar(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Bottom Sheet",
                 onBack = onBackPress,

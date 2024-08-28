@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.SearchInput
 import net.deali.designsystem.component.TextInput
@@ -26,7 +26,7 @@ import net.deali.designsystem.theme.DealiColor
 fun SearchInputScreen(onBackPress: () -> Unit) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Input",
                 onBack = onBackPress,
             )
@@ -75,4 +75,3 @@ fun SearchInputScreen(onBackPress: () -> Unit) {
 private fun SearchInputScreenPreview() {
     SearchInputScreen(onBackPress = {})
 }
-

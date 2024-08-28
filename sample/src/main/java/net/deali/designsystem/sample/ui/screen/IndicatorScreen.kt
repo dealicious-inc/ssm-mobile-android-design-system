@@ -29,14 +29,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.IndicatorMedium
 import net.deali.designsystem.component.IndicatorPinkDot
 import net.deali.designsystem.component.IndicatorSmall
 import net.deali.designsystem.component.IndicatorTransparent
 import net.deali.designsystem.component.IndicatorWhiteDot
-import net.deali.designsystem.component.PagerMaxCount
 import net.deali.designsystem.component.rememberPageDataState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -48,7 +47,7 @@ fun IndicatorScreen(
 ) {
     NavigationContainer(
         navigationBar = {
-            ActionBar(
+            TopBar(
                 title = "Navigation",
                 onBack = onBackPress,
             )
