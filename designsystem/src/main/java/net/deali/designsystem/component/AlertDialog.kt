@@ -37,13 +37,13 @@ import net.deali.designsystem.theme.DealiShape
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.
  */
 @Suppress("unused")
-class PopupDialog private constructor(
+class AlertDialog private constructor(
     context: Context,
     lifecycleOwner: LifecycleOwner,
     savedStateRegistryOwner: SavedStateRegistryOwner,
     contentStrategy: ContentStrategy,
     buttonStrategy: ButtonStrategy,
-    popupListener: PopupListener?,
+    alertListener: AlertListener?,
     isCancelable: Boolean,
 ) {
     private val androidDialog: Dialog
@@ -110,7 +110,7 @@ class PopupDialog private constructor(
 
                     when (buttonStrategy) {
                         is ButtonStrategy.Double -> {
-                            check(popupListener is DoubleButtonPopupListener?)
+                            check(alertListener is DoubleButtonAlertListener?)
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -119,26 +119,26 @@ class PopupDialog private constructor(
                                     modifier = Modifier.weight(1f),
                                     text = buttonStrategy.leftButtonText,
                                     onClick = {
-                                        popupListener?.onLeftButtonClick(this@PopupDialog)
+                                        alertListener?.onLeftButtonClick(this@AlertDialog)
                                     }
                                 )
                                 btnFilledMedium01(
                                     modifier = Modifier.weight(1f),
                                     text = buttonStrategy.rightButtonText,
                                     onClick = {
-                                        popupListener?.onRightButtonClick(this@PopupDialog)
+                                        alertListener?.onRightButtonClick(this@AlertDialog)
                                     }
                                 )
                             }
                         }
 
                         is ButtonStrategy.Single -> {
-                            check(popupListener is SingleButtonPopupListener?)
+                            check(alertListener is SingleButtonAlertListener?)
                             btnFilledMedium01(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = buttonStrategy.buttonText,
                                 onClick = {
-                                    popupListener?.onButtonClick(this@PopupDialog)
+                                    alertListener?.onButtonClick(this@AlertDialog)
                                 }
                             )
                         }
@@ -156,7 +156,7 @@ class PopupDialog private constructor(
         androidDialog.setCancelable(isCancelable)
         androidDialog.setCanceledOnTouchOutside(isCancelable)
         androidDialog.setOnDismissListener {
-            popupListener?.onDismiss(this)
+            alertListener?.onDismiss(this)
         }
     }
 
@@ -170,36 +170,36 @@ class PopupDialog private constructor(
         androidDialog.dismiss()
     }
 
-    interface PopupListener {
-        fun onDismiss(popup: PopupDialog)
+    interface AlertListener {
+        fun onDismiss(alert: AlertDialog)
     }
 
-    open class SingleButtonPopupListener : PopupListener {
-        open fun onButtonClick(popup: PopupDialog) {}
+    open class SingleButtonAlertListener : AlertListener {
+        open fun onButtonClick(alert: AlertDialog) {}
 
-        override fun onDismiss(popup: PopupDialog) {}
+        override fun onDismiss(alert: AlertDialog) {}
     }
 
-    open class DoubleButtonPopupListener : PopupListener {
-        open fun onLeftButtonClick(popup: PopupDialog) {}
+    open class DoubleButtonAlertListener : AlertListener {
+        open fun onLeftButtonClick(alert: AlertDialog) {}
 
-        open fun onRightButtonClick(popup: PopupDialog) {}
+        open fun onRightButtonClick(alert: AlertDialog) {}
 
-        override fun onDismiss(popup: PopupDialog) {}
+        override fun onDismiss(alert: AlertDialog) {}
     }
 
     @Suppress("unused")
-    class SingleButtonPopupBuilder {
+    class SingleButtonAlertBuilder {
         private val context: Context
         private val lifecycleOwner: LifecycleOwner
         private val savedStateRegistryOwner: SavedStateRegistryOwner
         private var title: String = ""
         private var message: AnnotatedString = AnnotatedString("")
         private var buttonText: String = ""
-        private var popupListener: SingleButtonPopupListener? =
-            object : SingleButtonPopupListener() {
-                override fun onButtonClick(popup: PopupDialog) {
-                    popup.dismiss()
+        private var alertListener: SingleButtonAlertListener? =
+            object : SingleButtonAlertListener() {
+                override fun onButtonClick(alert: AlertDialog) {
+                    alert.dismiss()
                 }
             }
         private var isCancelable: Boolean = true
@@ -225,7 +225,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 타이틀 설정. 설정하지 않을 시 타이틀이 없는 팝업이 만들어집니다.
          */
-        fun setTitle(title: String): SingleButtonPopupBuilder {
+        fun setTitle(title: String): SingleButtonAlertBuilder {
             this.title = title
             return this
         }
@@ -233,7 +233,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 본문 메세지 설정.
          */
-        fun setMessage(message: String): SingleButtonPopupBuilder {
+        fun setMessage(message: String): SingleButtonAlertBuilder {
             this.message = AnnotatedString(message)
             return this
         }
@@ -241,7 +241,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 본문 메세지 설정.
          */
-        fun setMessage(message: AnnotatedString): SingleButtonPopupBuilder {
+        fun setMessage(message: AnnotatedString): SingleButtonAlertBuilder {
             this.message = message
             return this
         }
@@ -249,7 +249,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 버튼 문구 설정.
          */
-        fun setButtonText(buttonText: String): SingleButtonPopupBuilder {
+        fun setButtonText(buttonText: String): SingleButtonAlertBuilder {
             this.buttonText = buttonText
             return this
         }
@@ -257,22 +257,22 @@ class PopupDialog private constructor(
         /**
          * 팝업 리스너 설정.
          */
-        fun setPopupListener(popupListener: SingleButtonPopupListener): SingleButtonPopupBuilder {
-            this.popupListener = popupListener
+        fun setAlertListener(alertListener: SingleButtonAlertListener): SingleButtonAlertBuilder {
+            this.alertListener = alertListener
             return this
         }
 
         /**
          * 팝업 외부 영역을 클릭하거나 Back 버튼을 통해 닫는 동작의 허용 여부 설정.
-         * `false`를 설정하는 경우 [PopupDialog.dismiss] 메소드를 통해 직접 닫기 동작을 구현해야 합니다.
+         * `false`를 설정하는 경우 [AlertDialog.dismiss] 메소드를 통해 직접 닫기 동작을 구현해야 합니다.
          */
-        fun setCancelable(isCancelable: Boolean): SingleButtonPopupBuilder {
+        fun setCancelable(isCancelable: Boolean): SingleButtonAlertBuilder {
             this.isCancelable = isCancelable
             return this
         }
 
-        fun build(): PopupDialog {
-            return PopupDialog(
+        fun build(): AlertDialog {
+            return AlertDialog(
                 context = context,
                 lifecycleOwner = lifecycleOwner,
                 savedStateRegistryOwner = savedStateRegistryOwner,
@@ -282,14 +282,14 @@ class PopupDialog private constructor(
                     ContentStrategy.OnlyMessage(message)
                 },
                 buttonStrategy = ButtonStrategy.Single(buttonText),
-                popupListener = popupListener,
+                alertListener = alertListener,
                 isCancelable = isCancelable,
             )
         }
     }
 
     @Suppress("unused")
-    class DoubleButtonPopupBuilder {
+    class DoubleButtonAlertBuilder {
         private val context: Context
         private val lifecycleOwner: LifecycleOwner
         private val savedStateRegistryOwner: SavedStateRegistryOwner
@@ -297,7 +297,7 @@ class PopupDialog private constructor(
         private var message: AnnotatedString = AnnotatedString("")
         private var leftButtonText: String = ""
         private var rightButtonText: String = ""
-        private var popupListener: DoubleButtonPopupListener? = null
+        private var alertListener: DoubleButtonAlertListener? = null
         private var isCancelable: Boolean = true
 
         constructor(activity: ComponentActivity) {
@@ -321,7 +321,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 타이틀 설정. 설정하지 않을 시 타이틀이 없는 팝업이 만들어집니다.
          */
-        fun setTitle(title: String): DoubleButtonPopupBuilder {
+        fun setTitle(title: String): DoubleButtonAlertBuilder {
             this.title = title
             return this
         }
@@ -329,7 +329,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 본문 메세지 설정.
          */
-        fun setMessage(message: String): DoubleButtonPopupBuilder {
+        fun setMessage(message: String): DoubleButtonAlertBuilder {
             this.message = AnnotatedString(message)
             return this
         }
@@ -337,7 +337,7 @@ class PopupDialog private constructor(
         /**
          * 팝업의 본문 메세지 설정.
          */
-        fun setMessage(message: AnnotatedString): DoubleButtonPopupBuilder {
+        fun setMessage(message: AnnotatedString): DoubleButtonAlertBuilder {
             this.message = message
             return this
         }
@@ -348,7 +348,7 @@ class PopupDialog private constructor(
         fun setButtonText(
             leftButtonText: String,
             rightButtonText: String
-        ): DoubleButtonPopupBuilder {
+        ): DoubleButtonAlertBuilder {
             this.leftButtonText = leftButtonText
             this.rightButtonText = rightButtonText
             return this
@@ -357,22 +357,22 @@ class PopupDialog private constructor(
         /**
          * 팝업 리스너 설정.
          */
-        fun setPopupListener(popupListener: DoubleButtonPopupListener): DoubleButtonPopupBuilder {
-            this.popupListener = popupListener
+        fun setAlertListener(alertListener: DoubleButtonAlertListener): DoubleButtonAlertBuilder {
+            this.alertListener = alertListener
             return this
         }
 
         /**
          * 팝업 외부 영역을 클릭하거나 Back 버튼을 통해 닫는 동작의 허용 여부 설정.
-         * `false`를 설정하는 경우 [PopupDialog.dismiss] 메소드를 통해 직접 닫기 동작을 구현해야 합니다.
+         * `false`를 설정하는 경우 [AlertDialog.dismiss] 메소드를 통해 직접 닫기 동작을 구현해야 합니다.
          */
-        fun setCancelable(isCancelable: Boolean): DoubleButtonPopupBuilder {
+        fun setCancelable(isCancelable: Boolean): DoubleButtonAlertBuilder {
             this.isCancelable = isCancelable
             return this
         }
 
-        fun build(): PopupDialog {
-            return PopupDialog(
+        fun build(): AlertDialog {
+            return AlertDialog(
                 context = context,
                 lifecycleOwner = lifecycleOwner,
                 savedStateRegistryOwner = savedStateRegistryOwner,
@@ -382,7 +382,7 @@ class PopupDialog private constructor(
                     ContentStrategy.OnlyMessage(message)
                 },
                 buttonStrategy = ButtonStrategy.Double(leftButtonText, rightButtonText),
-                popupListener = popupListener,
+                alertListener = alertListener,
                 isCancelable = isCancelable,
             )
         }

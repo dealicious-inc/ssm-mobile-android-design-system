@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -770,10 +771,13 @@ fun chipFilledImageLarge01(
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        var textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        if (textAlign != null) {
-            textStyle = textStyle.copy(textAlign = textAlign)
-        }
+        val textStyle = ChipDefaults
+            .chipTextStyle(chipSize, chipStyle, selected, enabled)
+            .merge(
+                TextStyle(
+                    textAlign = textAlign ?: TextAlign.Unspecified,
+                )
+            )
 
         val contentColor by chipColors.contentColor(enabled, selected)
 
@@ -921,10 +925,14 @@ fun chipOutlineImageLarge01(
         modifier = modifier,
         interactionSource = interactionSource,
     ) {
-        var textStyle = ChipDefaults.chipTextStyle(chipSize, chipStyle, selected, enabled)
-        if (textAlign != null) {
-            textStyle = textStyle.copy(textAlign = textAlign)
-        }
+        val textStyle = ChipDefaults
+            .chipTextStyle(chipSize, chipStyle, selected, enabled)
+            .merge(
+                TextStyle(
+                    textAlign = textAlign ?: TextAlign.Unspecified,
+                )
+            )
+
         val contentColor by chipColors.contentColor(enabled, selected)
 
         ChipImage(

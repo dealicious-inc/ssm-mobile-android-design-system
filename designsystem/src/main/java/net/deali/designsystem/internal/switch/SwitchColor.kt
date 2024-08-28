@@ -48,30 +48,4 @@ internal class DefaultSwitchColors(
     override fun handleColor(): Color {
         return handleColor
     }
-
-//    override fun equals(other: Any?): Boolean {
-//        if (this === other) return true
-//        if (other == null) return false
-//        if (this::class != other::class) return false
-//
-//        other as DefaultSwitchColors
-//
-//        if (this.onSlideColor != other.onSlideColor) return false
-//        if (this.onDisabledSlideColor != other.onDisabledSlideColor) return false
-//        if (this.offSlideColor != other.offSlideColor) return false
-//        if (this.offDisabledSlideColor != other.offDisabledSlideColor) return false
-//        if (this.handleColor != other.handleColor) return false
-//
-//        return true
-//    }
-//
-//    override fun hashCode(): Int {
-//        var hash = slideColor.hashCode()
-//        hash = 31 * hash + onSlideColor.hashCode()
-//        hash = 31 * hash + onDisabledSlideColor.hashCode()
-//        hash = 31 * hash + offSlideColor.hashCode()
-//        hash = 31 * hash + offDisabledSlideColor.hashCode()
-//        hash = 31 * hash + handleColor.hashCode()
-//        return hash
-//    }
 }
