@@ -39,7 +39,7 @@ internal object DealiTextFieldDefaults {
     @Composable
     fun paddings(): DealiTextFieldPaddingValues {
         return DefaultDealiTextFieldPaddingValues(
-            horizontal = 12.dp,
+            horizontal = 16.dp,
             decoratedStart = 6.dp,
             vertical = 12.dp
         )
