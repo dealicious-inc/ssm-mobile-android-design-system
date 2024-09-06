@@ -24,13 +24,14 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.theme.DealiShape
+import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.util.noRippleClickable
 
 /**
+ * 아코디언 컴포넌트
+ *
  * var isExpanded by rememberSaveable { mutableStateOf(false) }
  * 위 코드를 이용하면 아코디언이 확장되었는지 여부를 저장할 수 있습니다.
- *
- * 아코디언 컴포넌트
  *
  * @param title 아코디언 타이틀
  * @param isExpanded 아코디언이 확장되었는지 여부
@@ -131,7 +132,7 @@ private fun Title(
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    var isExpanded by rememberSaveable { mutableStateOf(false) }
+    var isExpanded by rememberSaveable { mutableStateOf(true) }
 
     Accordion(
         title = "타이틀",
@@ -139,6 +140,19 @@ private fun Preview() {
         onClickExpand = {
             isExpanded = !isExpanded
         },
-        content = {}
+        content = {
+            val texts = listOf(
+                "신분증 이미지를 가이드 영역에 맞춰 가로로 촬영 후 등록해주세요.",
+                getRandomText(9),
+                getRandomText(13),
+                getRandomText(15),
+            )
+
+            Description(
+                texts = texts,
+                format = DescriptionFormat.DOT,
+                title = getRandomText(3),
+            )
+        }
     )
 }
