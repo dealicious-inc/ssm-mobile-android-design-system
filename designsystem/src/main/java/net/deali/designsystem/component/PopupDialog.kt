@@ -196,7 +196,12 @@ class PopupDialog private constructor(
         private var title: String = ""
         private var message: AnnotatedString = AnnotatedString("")
         private var buttonText: String = ""
-        private var popupListener: SingleButtonPopupListener? = null
+        private var popupListener: SingleButtonPopupListener? =
+            object : SingleButtonPopupListener() {
+                override fun onButtonClick(popup: PopupDialog) {
+                    popup.dismiss()
+                }
+            }
         private var isCancelable: Boolean = true
 
         constructor(activity: ComponentActivity) {
