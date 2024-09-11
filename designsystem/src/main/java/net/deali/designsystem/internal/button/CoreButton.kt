@@ -27,6 +27,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.IconRotating
+import net.deali.designsystem.theme.DealiShape
 
 @Composable
 internal fun CoreButton(
@@ -44,6 +45,7 @@ internal fun CoreButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     isRoundShape: Boolean = false,
 ) {
+//    val buttonShape = DealiShape.radius100
     val buttonShape = ButtonDefaults.buttonShape(buttonSize = buttonSize, rounded = isRoundShape)
     val backgroundColor by buttonColors.backgroundColor(enabled)
     val outlineColor by buttonColors.outlineColor(enabled)
@@ -59,12 +61,12 @@ internal fun CoreButton(
                 if (clickable) {
                     Modifier
                         .clickable(
-                        interactionSource = interactionSource,
-                        indication = rememberRipple(),
-                        enabled = enabled,
-                        role = Role.Button,
-                        onClick = onClick,
-                    )
+                            interactionSource = interactionSource,
+                            indication = rememberRipple(),
+                            enabled = enabled,
+                            role = Role.Button,
+                            onClick = onClick,
+                        )
                 } else {
                     Modifier
                 }

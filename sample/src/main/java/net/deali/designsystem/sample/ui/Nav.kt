@@ -17,6 +17,7 @@ import net.deali.designsystem.sample.ui.main.MainScreen
 import net.deali.designsystem.sample.ui.screen.AccordionScreen
 import net.deali.designsystem.sample.ui.screen.AlertScreen
 import net.deali.designsystem.sample.ui.screen.BottomSheetScreen
+import net.deali.designsystem.sample.ui.screen.ButtonsRoundScreen
 import net.deali.designsystem.sample.ui.screen.ButtonsScreen
 import net.deali.designsystem.sample.ui.screen.CheckBoxScreen
 import net.deali.designsystem.sample.ui.screen.CheckCircleScreen
@@ -119,6 +120,9 @@ private fun NavGraphBuilder.menuGraph(
     composable(Screen.Buttons.route) {
         ButtonsScreen(onBackPress = navController::popBackStack)
     }
+    composable(Screen.ButtonsRound.route) {
+        ButtonsRoundScreen(onBackPress = navController::popBackStack)
+    }
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)
     }
@@ -174,6 +178,9 @@ private fun NavGraphBuilder.atomsGraph(
 ) {
     composable(Screen.Buttons.route) {
         ButtonsScreen(onBackPress = navController::popBackStack)
+    }
+    composable(Screen.ButtonsRound.route) {
+        ButtonsRoundScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)

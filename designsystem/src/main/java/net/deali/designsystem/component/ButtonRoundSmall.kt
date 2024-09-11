@@ -16,8 +16,9 @@ import net.deali.designsystem.internal.button.ButtonStyle
 import net.deali.designsystem.internal.button.CoreButton
 import net.deali.designsystem.theme.DealiColor
 
+/** 구 btnRoundFilledSmall01 */
 @Composable
-fun btnFilledSmall01(
+fun btnFilledRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -46,11 +47,14 @@ fun btnFilledSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+
+/** 구 btnRoundFilledSmall02 */
 @Composable
-fun btnFilledSmall02(
+fun btnFilledRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -79,11 +83,13 @@ fun btnFilledSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledSmall03 */
 @Composable
-fun btnFilledSmall03(
+fun btnFilledRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -112,11 +118,13 @@ fun btnFilledSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledTonalSmall01 */
 @Composable
-fun btnFilledTonalSmall01(
+fun btnFilledTonalRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -139,17 +147,19 @@ fun btnFilledTonalSmall01(
         buttonSize = ButtonSize.Small,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary03,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledTonalSmall02 */
 @Composable
-fun btnFilledTonalSmall02(
+fun btnFilledTonalRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -178,11 +188,13 @@ fun btnFilledTonalSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledTonalSmall03 */
 @Composable
-fun btnFilledTonalSmall03(
+fun btnFilledTonalRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -211,11 +223,13 @@ fun btnFilledTonalSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledTonalSmall04 */
 @Composable
-fun btnFilledTonalSmall04(
+fun btnFilledTonalRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -244,11 +258,13 @@ fun btnFilledTonalSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
+/** 구 btnRoundFilledTonalSmall05 */
 @Composable
-fun btnFilledTonalSmall05(
+fun btnFilledTonalRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -277,11 +293,12 @@ fun btnFilledTonalSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall06(
+fun btnFilledTonalRoundSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -310,11 +327,12 @@ fun btnFilledTonalSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall01(
+fun btnOutlineRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -345,11 +363,12 @@ fun btnOutlineSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall02(
+fun btnOutlineRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -380,11 +399,12 @@ fun btnOutlineSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall03(
+fun btnOutlineRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -415,11 +435,12 @@ fun btnOutlineSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall04(
+fun btnOutlineRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -450,11 +471,12 @@ fun btnOutlineSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall05(
+fun btnOutlineRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -485,11 +507,12 @@ fun btnOutlineSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall06(
+fun btnOutlineRoundSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -520,11 +543,12 @@ fun btnOutlineSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall01(
+fun btnOutlineBgRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -555,11 +579,12 @@ fun btnOutlineBgSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall03(
+fun btnOutlineBgRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -590,11 +615,12 @@ fun btnOutlineBgSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall04(
+fun btnOutlineBgRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -625,11 +651,12 @@ fun btnOutlineBgSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall05(
+fun btnOutlineBgRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -660,11 +687,12 @@ fun btnOutlineBgSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall06(
+fun btnOutlineBgRoundSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -695,11 +723,12 @@ fun btnOutlineBgSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall01(
+fun btnTextRoundSmall01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -728,11 +757,12 @@ fun btnTextSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall02(
+fun btnTextRoundSmall02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -761,11 +791,12 @@ fun btnTextSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall03(
+fun btnTextRoundSmall03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -794,11 +825,12 @@ fun btnTextSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall04(
+fun btnTextRoundSmall04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -827,11 +859,12 @@ fun btnTextSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall05(
+fun btnTextRoundSmall05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -860,11 +893,12 @@ fun btnTextSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall06(
+fun btnTextRoundSmall06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -893,11 +927,12 @@ fun btnTextSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall07(
+fun btnTextRoundSmall07(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -926,95 +961,97 @@ fun btnTextSmall07(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
+
 
 @Preview(showBackground = true, backgroundColor = 0x666666, heightDp = 1500)
 @Composable
 private fun Preview() {
     val modifier = Modifier.padding(bottom = 8.dp)
 
-    Column {
-        btnFilledSmall01(
-            text = "btnFilledSmall01", onClick = {}, modifier = modifier,
+    Column{
+        btnFilledRoundSmall01(
+            text = "btnFilledRoundSmall01", onClick = {}, modifier = modifier,
         )
-        btnFilledSmall02(
-            text = "btnFilledSmall02", onClick = {}, modifier = modifier,
+        btnFilledRoundSmall02(
+            text = "btnFilledRoundSmall02", onClick = {}, modifier = modifier,
         )
-        btnFilledSmall03(
-            text = "btnFilledSmall03", onClick = {}, modifier = modifier,
+        btnFilledRoundSmall03(
+            text = "btnFilledRoundSmall03", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall01(
-            text = "btnFilledTonalSmall01", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall01(
+            text = "btnFilledTonalRoundSmall01", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall02(
-            text = "btnFilledTonalSmall02", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall02(
+            text = "btnFilledTonalRoundSmall02", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall03(
-            text = "btnFilledTonalSmall03", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall03(
+            text = "btnFilledTonalRoundSmall03", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall04(
-            text = "btnFilledTonalSmall04", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall04(
+            text = "btnFilledTonalRoundSmall04", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall05(
-            text = "btnFilledTonalSmall05", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall05(
+            text = "btnFilledTonalRoundSmall05", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall06(
-            text = "btnFilledTonalSmall06", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundSmall06(
+            text = "btnFilledTonalRoundSmall06", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall01(
-            text = "btnOutlineSmall01", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall01(
+            text = "btnOutlineRoundSmall01", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall02(
-            text = "btnOutlineSmall02", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall02(
+            text = "btnOutlineRoundSmall02", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall03(
-            text = "btnOutlineSmall03", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall03(
+            text = "btnOutlineRoundSmall03", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall04(
-            text = "btnOutlineSmall04", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall04(
+            text = "btnOutlineRoundSmall04", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall05(
-            text = "btnOutlineSmall05", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall05(
+            text = "btnOutlineRoundSmall05", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall06(
-            text = "btnOutlineSmall06", onClick = {}, modifier = modifier,
+        btnOutlineRoundSmall06(
+            text = "btnOutlineRoundSmall06", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall01(
-            text = "btnOutlineBgSmall01", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundSmall01(
+            text = "btnOutlineBgRoundSmall01", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall03(
-            text = "btnOutlineBgSmall03", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundSmall03(
+            text = "btnOutlineBgRoundSmall03", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall04(
-            text = "btnOutlineBgSmall04", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundSmall04(
+            text = "btnOutlineBgRoundSmall04", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall05(
-            text = "btnOutlineBgSmall05", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundSmall05(
+            text = "btnOutlineBgRoundSmall05", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall06(
-            text = "btnOutlineBgSmall06", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundSmall06(
+            text = "btnOutlineBgRoundSmall06", onClick = {}, modifier = modifier,
         )
-        btnTextSmall01(
-            text = "btnTextSmall01", onClick = {}, modifier = modifier,
+        btnTextRoundSmall01(
+            text = "btnTextRoundSmall01", onClick = {}, modifier = modifier,
         )
-        btnTextSmall02(
-            text = "btnTextSmall02", onClick = {}, modifier = modifier,
+        btnTextRoundSmall02(
+            text = "btnTextRoundSmall02", onClick = {}, modifier = modifier,
         )
-        btnTextSmall03(
-            text = "btnTextSmall03", onClick = {}, modifier = modifier,
+        btnTextRoundSmall03(
+            text = "btnTextRoundSmall03", onClick = {}, modifier = modifier,
         )
-        btnTextSmall04(
-            text = "btnTextSmall04", onClick = {}, modifier = modifier,
+        btnTextRoundSmall04(
+            text = "btnTextRoundSmall04", onClick = {}, modifier = modifier,
         )
-        btnTextSmall05(
-            text = "btnTextSmall05", onClick = {}, modifier = modifier,
+        btnTextRoundSmall05(
+            text = "btnTextRoundSmall05", onClick = {}, modifier = modifier,
         )
-        btnTextSmall06(
-            text = "btnTextSmall06", onClick = {}, modifier = modifier,
+        btnTextRoundSmall06(
+            text = "btnTextRoundSmall06", onClick = {}, modifier = modifier,
         )
-        btnTextSmall07(
-            text = "btnTextSmall07", onClick = {}, modifier = modifier,
+        btnTextRoundSmall07(
+            text = "btnTextRoundSmall07", onClick = {}, modifier = modifier,
         )
     }
 }

@@ -18,6 +18,7 @@ sealed class Screen(
     /** Atoms */
     //Badge X
     data object Buttons : Screen("buttons")
+    data object ButtonsRound : Screen("buttonsRound")
     data object Chips : Screen("chips")
     data object CheckBox : Screen("checkBox")
     data object CheckCircle : Screen("checkCircle")

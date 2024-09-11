@@ -2,10 +2,14 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonDefaults
 import net.deali.designsystem.internal.button.ButtonSize
 import net.deali.designsystem.internal.button.ButtonStyle
@@ -924,4 +928,94 @@ fun btnTextMedium07(
         interactionSource = interactionSource,
         modifier = modifier,
     )
+}
+
+@Preview(showBackground = true, backgroundColor = 0x666666, heightDp = 1500)
+@Composable
+private fun Preview() {
+    val modifier = Modifier.padding(bottom = 8.dp)
+
+    Column {
+        btnFilledMedium01(
+            text = "btnFilledMedium01", onClick = {}, modifier = modifier,
+        )
+        btnFilledMedium02(
+            text = "btnFilledMedium02", onClick = {}, modifier = modifier,
+        )
+        btnFilledMedium03(
+            text = "btnFilledMedium03", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium01(
+            text = "btnFilledTonalMedium01", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium02(
+            text = "btnFilledTonalMedium02", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium03(
+            text = "btnFilledTonalMedium03", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium04(
+            text = "btnFilledTonalMedium04", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium05(
+            text = "btnFilledTonalMedium05", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalMedium06(
+            text = "btnFilledTonalMedium06", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium01(
+            text = "btnOutlineMedium01", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium02(
+            text = "btnOutlineMedium02", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium03(
+            text = "btnOutlineMedium03", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium04(
+            text = "btnOutlineMedium04", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium05(
+            text = "btnOutlineMedium05", onClick = {}, modifier = modifier,
+        )
+        btnOutlineMedium06(
+            text = "btnOutlineMedium06", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgMedium01(
+            text = "btnOutlineBgMedium01", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgMedium03(
+            text = "btnOutlineBgMedium03", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgMedium04(
+            text = "btnOutlineBgMedium04", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgMedium05(
+            text = "btnOutlineBgMedium05", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgMedium06(
+            text = "btnOutlineBgMedium06", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium01(
+            text = "btnTextMedium01", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium02(
+            text = "btnTextMedium02", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium03(
+            text = "btnTextMedium03", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium04(
+            text = "btnTextMedium04", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium05(
+            text = "btnTextMedium05", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium06(
+            text = "btnTextMedium06", onClick = {}, modifier = modifier,
+        )
+        btnTextMedium07(
+            text = "btnTextMedium07", onClick = {}, modifier = modifier,
+        )
+    }
 }

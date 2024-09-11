@@ -17,7 +17,7 @@ import net.deali.designsystem.internal.button.CoreButton
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun btnFilledSmall01(
+fun btnFilledRoundLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -37,7 +37,7 @@ fun btnFilledSmall01(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary01,
             disabledBackgroundColor = DealiColor.g40,
@@ -46,11 +46,12 @@ fun btnFilledSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledSmall02(
+fun btnFilledRoundLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -70,7 +71,7 @@ fun btnFilledSmall02(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.gradient,
             disabledBackgroundColor = SolidColor(DealiColor.g40),
@@ -79,11 +80,12 @@ fun btnFilledSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledSmall03(
+fun btnFilledRoundLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -103,7 +105,7 @@ fun btnFilledSmall03(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Filled,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.b40,
             disabledBackgroundColor = DealiColor.b20,
@@ -112,11 +114,12 @@ fun btnFilledSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall01(
+fun btnFilledTonalRoundLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -136,20 +139,21 @@ fun btnFilledTonalSmall01(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary03,
-            disabledBackgroundColor = DealiColor.g20,
+            disabledBackgroundColor = DealiColor.g10,
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall02(
+fun btnFilledTonalRoundLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -169,7 +173,7 @@ fun btnFilledTonalSmall02(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.w20,
             disabledBackgroundColor = DealiColor.w20,
@@ -178,11 +182,12 @@ fun btnFilledTonalSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall03(
+fun btnFilledTonalRoundLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -202,7 +207,7 @@ fun btnFilledTonalSmall03(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.g10,
             disabledBackgroundColor = DealiColor.g10,
@@ -211,11 +216,12 @@ fun btnFilledTonalSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall04(
+fun btnFilledTonalRoundLarge04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -235,7 +241,7 @@ fun btnFilledTonalSmall04(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.g10,
             disabledBackgroundColor = DealiColor.g10,
@@ -244,11 +250,12 @@ fun btnFilledTonalSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall05(
+fun btnFilledTonalRoundLarge05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -268,7 +275,7 @@ fun btnFilledTonalSmall05(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.g10,
             disabledBackgroundColor = DealiColor.g10,
@@ -277,11 +284,12 @@ fun btnFilledTonalSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnFilledTonalSmall06(
+fun btnFilledTonalRoundLarge06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -301,7 +309,7 @@ fun btnFilledTonalSmall06(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.FilledTonal,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -310,11 +318,12 @@ fun btnFilledTonalSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall01(
+fun btnOutlineRoundLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -334,7 +343,7 @@ fun btnOutlineSmall01(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -345,11 +354,12 @@ fun btnOutlineSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall02(
+fun btnOutlineRoundLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -369,7 +379,7 @@ fun btnOutlineSmall02(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -380,11 +390,12 @@ fun btnOutlineSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall03(
+fun btnOutlineRoundLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -404,7 +415,7 @@ fun btnOutlineSmall03(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -415,11 +426,12 @@ fun btnOutlineSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall04(
+fun btnOutlineRoundLarge04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -439,7 +451,7 @@ fun btnOutlineSmall04(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -450,11 +462,12 @@ fun btnOutlineSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall05(
+fun btnOutlineRoundLarge05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -474,7 +487,7 @@ fun btnOutlineSmall05(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -485,11 +498,12 @@ fun btnOutlineSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineSmall06(
+fun btnOutlineRoundLarge06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -509,7 +523,7 @@ fun btnOutlineSmall06(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -520,11 +534,12 @@ fun btnOutlineSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall01(
+fun btnOutlineBgRoundLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -544,7 +559,7 @@ fun btnOutlineBgSmall01(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -555,11 +570,12 @@ fun btnOutlineBgSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall03(
+fun btnOutlineBgRoundLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -579,7 +595,7 @@ fun btnOutlineBgSmall03(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -590,11 +606,12 @@ fun btnOutlineBgSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall04(
+fun btnOutlineBgRoundLarge04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -614,7 +631,7 @@ fun btnOutlineBgSmall04(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -625,11 +642,12 @@ fun btnOutlineBgSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall05(
+fun btnOutlineBgRoundLarge05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -649,7 +667,7 @@ fun btnOutlineBgSmall05(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -660,11 +678,12 @@ fun btnOutlineBgSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnOutlineBgSmall06(
+fun btnOutlineBgRoundLarge06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -684,7 +703,7 @@ fun btnOutlineBgSmall06(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Outline,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.primary04,
             disabledBackgroundColor = DealiColor.primary04,
@@ -695,11 +714,12 @@ fun btnOutlineBgSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall01(
+fun btnTextRoundLarge01(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -719,7 +739,7 @@ fun btnTextSmall01(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -728,11 +748,12 @@ fun btnTextSmall01(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall02(
+fun btnTextRoundLarge02(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -752,7 +773,7 @@ fun btnTextSmall02(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -761,11 +782,12 @@ fun btnTextSmall02(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall03(
+fun btnTextRoundLarge03(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -785,7 +807,7 @@ fun btnTextSmall03(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -794,11 +816,12 @@ fun btnTextSmall03(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall04(
+fun btnTextRoundLarge04(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -818,7 +841,7 @@ fun btnTextSmall04(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -827,11 +850,12 @@ fun btnTextSmall04(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall05(
+fun btnTextRoundLarge05(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -851,7 +875,7 @@ fun btnTextSmall05(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -860,11 +884,12 @@ fun btnTextSmall05(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall06(
+fun btnTextRoundLarge06(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -884,7 +909,7 @@ fun btnTextSmall06(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -893,11 +918,12 @@ fun btnTextSmall06(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
 @Composable
-fun btnTextSmall07(
+fun btnTextRoundLarge07(
     onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
@@ -917,7 +943,7 @@ fun btnTextSmall07(
         enabled = enabled,
         loading = loading,
         buttonStyle = ButtonStyle.Text,
-        buttonSize = ButtonSize.Small,
+        buttonSize = ButtonSize.Large,
         buttonColors = ButtonDefaults.colors(
             backgroundColor = DealiColor.transparent,
             disabledBackgroundColor = DealiColor.transparent,
@@ -926,6 +952,7 @@ fun btnTextSmall07(
         ),
         interactionSource = interactionSource,
         modifier = modifier,
+        isRoundShape = true,
     )
 }
 
@@ -935,86 +962,86 @@ private fun Preview() {
     val modifier = Modifier.padding(bottom = 8.dp)
 
     Column {
-        btnFilledSmall01(
-            text = "btnFilledSmall01", onClick = {}, modifier = modifier,
+        btnFilledRoundLarge01(
+            text = "btnFilledRoundLarge01", onClick = {}, modifier = modifier,
         )
-        btnFilledSmall02(
-            text = "btnFilledSmall02", onClick = {}, modifier = modifier,
+        btnFilledRoundLarge02(
+            text = "btnFilledRoundLarge02", onClick = {}, modifier = modifier,
         )
-        btnFilledSmall03(
-            text = "btnFilledSmall03", onClick = {}, modifier = modifier,
+        btnFilledRoundLarge03(
+            text = "btnFilledRoundLarge03", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall01(
-            text = "btnFilledTonalSmall01", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge01(
+            text = "btnFilledTonalRoundLarge01", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall02(
-            text = "btnFilledTonalSmall02", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge02(
+            text = "btnFilledTonalRoundLarge02", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall03(
-            text = "btnFilledTonalSmall03", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge03(
+            text = "btnFilledTonalRoundLarge03", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall04(
-            text = "btnFilledTonalSmall04", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge04(
+            text = "btnFilledTonalRoundLarge04", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall05(
-            text = "btnFilledTonalSmall05", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge05(
+            text = "btnFilledTonalRoundLarge05", onClick = {}, modifier = modifier,
         )
-        btnFilledTonalSmall06(
-            text = "btnFilledTonalSmall06", onClick = {}, modifier = modifier,
+        btnFilledTonalRoundLarge06(
+            text = "btnFilledTonalRoundLarge06", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall01(
-            text = "btnOutlineSmall01", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge01(
+            text = "btnOutlineRoundLarge01", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall02(
-            text = "btnOutlineSmall02", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge02(
+            text = "btnOutlineRoundLarge02", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall03(
-            text = "btnOutlineSmall03", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge03(
+            text = "btnOutlineRoundLarge03", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall04(
-            text = "btnOutlineSmall04", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge04(
+            text = "btnOutlineRoundLarge04", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall05(
-            text = "btnOutlineSmall05", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge05(
+            text = "btnOutlineRoundLarge05", onClick = {}, modifier = modifier,
         )
-        btnOutlineSmall06(
-            text = "btnOutlineSmall06", onClick = {}, modifier = modifier,
+        btnOutlineRoundLarge06(
+            text = "btnOutlineRoundLarge06", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall01(
-            text = "btnOutlineBgSmall01", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundLarge01(
+            text = "btnOutlineBgRoundLarge01", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall03(
-            text = "btnOutlineBgSmall03", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundLarge03(
+            text = "btnOutlineBgRoundLarge03", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall04(
-            text = "btnOutlineBgSmall04", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundLarge04(
+            text = "btnOutlineBgRoundLarge04", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall05(
-            text = "btnOutlineBgSmall05", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundLarge05(
+            text = "btnOutlineBgRoundLarge05", onClick = {}, modifier = modifier,
         )
-        btnOutlineBgSmall06(
-            text = "btnOutlineBgSmall06", onClick = {}, modifier = modifier,
+        btnOutlineBgRoundLarge06(
+            text = "btnOutlineBgRoundLarge06", onClick = {}, modifier = modifier,
         )
-        btnTextSmall01(
-            text = "btnTextSmall01", onClick = {}, modifier = modifier,
+        btnTextRoundLarge01(
+            text = "btnTextRoundLarge01", onClick = {}, modifier = modifier,
         )
-        btnTextSmall02(
-            text = "btnTextSmall02", onClick = {}, modifier = modifier,
+        btnTextRoundLarge02(
+            text = "btnTextRoundLarge02", onClick = {}, modifier = modifier,
         )
-        btnTextSmall03(
-            text = "btnTextSmall03", onClick = {}, modifier = modifier,
+        btnTextRoundLarge03(
+            text = "btnTextRoundLarge03", onClick = {}, modifier = modifier,
         )
-        btnTextSmall04(
-            text = "btnTextSmall04", onClick = {}, modifier = modifier,
+        btnTextRoundLarge04(
+            text = "btnTextRoundLarge04", onClick = {}, modifier = modifier,
         )
-        btnTextSmall05(
-            text = "btnTextSmall05", onClick = {}, modifier = modifier,
+        btnTextRoundLarge05(
+            text = "btnTextRoundLarge05", onClick = {}, modifier = modifier,
         )
-        btnTextSmall06(
-            text = "btnTextSmall06", onClick = {}, modifier = modifier,
+        btnTextRoundLarge06(
+            text = "btnTextRoundLarge06", onClick = {}, modifier = modifier,
         )
-        btnTextSmall07(
-            text = "btnTextSmall07", onClick = {}, modifier = modifier,
+        btnTextRoundLarge07(
+            text = "btnTextRoundLarge07", onClick = {}, modifier = modifier,
         )
     }
 }

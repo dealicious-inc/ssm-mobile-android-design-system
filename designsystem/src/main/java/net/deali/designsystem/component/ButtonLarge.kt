@@ -2,10 +2,14 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonDefaults
 import net.deali.designsystem.internal.button.ButtonSize
 import net.deali.designsystem.internal.button.ButtonStyle
@@ -923,4 +927,94 @@ fun btnTextLarge07(
         interactionSource = interactionSource,
         modifier = modifier,
     )
+}
+
+@Preview(showBackground = true, backgroundColor = 0x666666, heightDp = 1500)
+@Composable
+private fun Preview() {
+    val modifier = Modifier.padding(bottom = 8.dp)
+
+    Column {
+        btnFilledLarge01(
+            text = "btnFilledLarge01", onClick = {}, modifier = modifier,
+        )
+        btnFilledLarge02(
+            text = "btnFilledLarge02", onClick = {}, modifier = modifier,
+        )
+        btnFilledLarge03(
+            text = "btnFilledLarge03", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge01(
+            text = "btnFilledTonalLarge01", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge02(
+            text = "btnFilledTonalLarge02", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge03(
+            text = "btnFilledTonalLarge03", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge04(
+            text = "btnFilledTonalLarge04", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge05(
+            text = "btnFilledTonalLarge05", onClick = {}, modifier = modifier,
+        )
+        btnFilledTonalLarge06(
+            text = "btnFilledTonalLarge06", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge01(
+            text = "btnOutlineLarge01", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge02(
+            text = "btnOutlineLarge02", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge03(
+            text = "btnOutlineLarge03", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge04(
+            text = "btnOutlineLarge04", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge05(
+            text = "btnOutlineLarge05", onClick = {}, modifier = modifier,
+        )
+        btnOutlineLarge06(
+            text = "btnOutlineLarge06", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgLarge01(
+            text = "btnOutlineBgLarge01", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgLarge03(
+            text = "btnOutlineBgLarge03", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgLarge04(
+            text = "btnOutlineBgLarge04", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgLarge05(
+            text = "btnOutlineBgLarge05", onClick = {}, modifier = modifier,
+        )
+        btnOutlineBgLarge06(
+            text = "btnOutlineBgLarge06", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge01(
+            text = "btnTextLarge01", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge02(
+            text = "btnTextLarge02", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge03(
+            text = "btnTextLarge03", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge04(
+            text = "btnTextLarge04", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge05(
+            text = "btnTextLarge05", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge06(
+            text = "btnTextLarge06", onClick = {}, modifier = modifier,
+        )
+        btnTextLarge07(
+            text = "btnTextLarge07", onClick = {}, modifier = modifier,
+        )
+    }
 }

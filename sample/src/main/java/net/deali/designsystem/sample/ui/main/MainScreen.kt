@@ -181,6 +181,7 @@ private fun MainScreenPreview() {
         ),
         atoms = listOf(
             Screen.Buttons,
+            Screen.ButtonsRound,
             Screen.Chips,
             Screen.CheckBox,
             Screen.CheckCircle,
