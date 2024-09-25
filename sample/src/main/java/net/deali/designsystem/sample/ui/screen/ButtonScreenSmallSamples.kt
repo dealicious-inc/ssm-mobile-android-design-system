@@ -191,25 +191,25 @@ fun SmallButtonSamples(
         }
 
         item {
-            BtnTextSmall01Samples()
+            BtnTextRoundSmall01Samples()
         }
         item {
-            BtnTextSmall02Samples()
+            BtnTextRoundSmall02Samples()
         }
         item {
-            BtnTextSmall03Samples()
+            BtnTextRoundSmall03Samples()
         }
         item {
-            BtnTextSmall04Samples()
+            BtnTextRoundSmall04Samples()
         }
         item {
-            BtnTextSmall05Samples()
+            BtnTextRoundSmall05Samples()
         }
         item {
-            BtnTextSmall06Samples()
+            BtnTextRoundSmall06Samples()
         }
         item {
-            BtnTextSmall07Samples()
+            BtnTextRoundSmall07Samples()
         }
     }
 }
@@ -1189,7 +1189,7 @@ private fun BtnOutlineBgRoundSmall06Samples() {
 }
 
 @Composable
-private fun BtnTextSmall01Samples() {
+private fun BtnTextRoundSmall01Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall01",
         dark = false,
@@ -1213,7 +1213,7 @@ private fun BtnTextSmall01Samples() {
 }
 
 @Composable
-private fun BtnTextSmall02Samples() {
+private fun BtnTextRoundSmall02Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall02",
         dark = true,
@@ -1237,7 +1237,7 @@ private fun BtnTextSmall02Samples() {
 }
 
 @Composable
-private fun BtnTextSmall03Samples() {
+private fun BtnTextRoundSmall03Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall03",
         dark = false,
@@ -1261,7 +1261,7 @@ private fun BtnTextSmall03Samples() {
 }
 
 @Composable
-private fun BtnTextSmall04Samples() {
+private fun BtnTextRoundSmall04Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall04",
         dark = false,
@@ -1285,7 +1285,7 @@ private fun BtnTextSmall04Samples() {
 }
 
 @Composable
-private fun BtnTextSmall05Samples() {
+private fun BtnTextRoundSmall05Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall05",
         dark = false,
@@ -1309,7 +1309,7 @@ private fun BtnTextSmall05Samples() {
 }
 
 @Composable
-private fun BtnTextSmall06Samples() {
+private fun BtnTextRoundSmall06Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall06",
         dark = false,
@@ -1333,7 +1333,7 @@ private fun BtnTextSmall06Samples() {
 }
 
 @Composable
-private fun BtnTextSmall07Samples() {
+private fun BtnTextRoundSmall07Samples() {
     ButtonSampleLayout(
         title = "btnTextSmall07",
         dark = false,

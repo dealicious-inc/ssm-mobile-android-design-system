@@ -29,13 +29,13 @@ import net.deali.designsystem.component.btnOutlineRoundSemiMedium03
 import net.deali.designsystem.component.btnOutlineRoundSemiMedium04
 import net.deali.designsystem.component.btnOutlineRoundSemiMedium05
 import net.deali.designsystem.component.btnOutlineRoundSemiMedium06
-import net.deali.designsystem.component.btnTextSemiMedium01
-import net.deali.designsystem.component.btnTextSemiMedium02
-import net.deali.designsystem.component.btnTextSemiMedium03
-import net.deali.designsystem.component.btnTextSemiMedium04
-import net.deali.designsystem.component.btnTextSemiMedium05
-import net.deali.designsystem.component.btnTextSemiMedium06
-import net.deali.designsystem.component.btnTextSemiMedium07
+import net.deali.designsystem.component.btnTextRoundSemiMedium01
+import net.deali.designsystem.component.btnTextRoundSemiMedium02
+import net.deali.designsystem.component.btnTextRoundSemiMedium03
+import net.deali.designsystem.component.btnTextRoundSemiMedium04
+import net.deali.designsystem.component.btnTextRoundSemiMedium05
+import net.deali.designsystem.component.btnTextRoundSemiMedium06
+import net.deali.designsystem.component.btnTextRoundSemiMedium07
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -112,25 +112,25 @@ fun ButtonRoundSemiMediumSamples(
         }
 
         item {
-            BtnTextSemiMedium01Samples()
+            BtnTextRoundSemiMedium01Samples()
         }
         item {
-            BtnTextSemiMedium02Samples()
+            BtnTextRoundSemiMedium02Samples()
         }
         item {
-            BtnTextSemiMedium03Samples()
+            BtnTextRoundSemiMedium03Samples()
         }
         item {
-            BtnTextSemiMedium04Samples()
+            BtnTextRoundSemiMedium04Samples()
         }
         item {
-            BtnTextSemiMedium05Samples()
+            BtnTextRoundSemiMedium05Samples()
         }
         item {
-            BtnTextSemiMedium06Samples()
+            BtnTextRoundSemiMedium06Samples()
         }
         item {
-            BtnTextSemiMedium07Samples()
+            BtnTextRoundSemiMedium07Samples()
         }
     }
 }
@@ -637,9 +637,9 @@ private fun BtnOutlineBgRoundSemiMedium06Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium01Samples() {
+private fun BtnTextRoundSemiMedium01Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium01",
+        title = "btnTextRoundSemiMedium01",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -647,7 +647,7 @@ private fun BtnTextSemiMedium01Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium01(
+                btnTextRoundSemiMedium01(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -661,9 +661,9 @@ private fun BtnTextSemiMedium01Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium02Samples() {
+private fun BtnTextRoundSemiMedium02Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium02",
+        title = "btnTextRoundSemiMedium02",
         dark = true,
     ) {
         for (i in 0 until 3) {
@@ -671,7 +671,7 @@ private fun BtnTextSemiMedium02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium02(
+                btnTextRoundSemiMedium02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -685,9 +685,9 @@ private fun BtnTextSemiMedium02Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium03Samples() {
+private fun BtnTextRoundSemiMedium03Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium03",
+        title = "btnTextRoundSemiMedium03",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -695,7 +695,7 @@ private fun BtnTextSemiMedium03Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium03(
+                btnTextRoundSemiMedium03(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -709,9 +709,9 @@ private fun BtnTextSemiMedium03Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium04Samples() {
+private fun BtnTextRoundSemiMedium04Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium04",
+        title = "btnTextRoundSemiMedium04",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -719,7 +719,7 @@ private fun BtnTextSemiMedium04Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium04(
+                btnTextRoundSemiMedium04(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -733,9 +733,9 @@ private fun BtnTextSemiMedium04Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium05Samples() {
+private fun BtnTextRoundSemiMedium05Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium05",
+        title = "btnTextRoundSemiMedium05",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -743,7 +743,7 @@ private fun BtnTextSemiMedium05Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium05(
+                btnTextRoundSemiMedium05(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -757,9 +757,9 @@ private fun BtnTextSemiMedium05Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium06Samples() {
+private fun BtnTextRoundSemiMedium06Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium06",
+        title = "btnTextRoundSemiMedium06",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -767,7 +767,7 @@ private fun BtnTextSemiMedium06Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium06(
+                btnTextRoundSemiMedium06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -781,9 +781,9 @@ private fun BtnTextSemiMedium06Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium07Samples() {
+private fun BtnTextRoundSemiMedium07Samples() {
     ButtonSampleLayout(
-        title = "btnTextSemiMedium07",
+        title = "btnTextRoundSemiMedium07",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -791,7 +791,7 @@ private fun BtnTextSemiMedium07Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium07(
+                btnTextRoundSemiMedium07(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

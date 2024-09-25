@@ -29,7 +29,7 @@ import net.deali.designsystem.component.btnOutlineSemiMedium04
 import net.deali.designsystem.component.btnOutlineSemiMedium05
 import net.deali.designsystem.component.btnOutlineSemiMedium06
 import net.deali.designsystem.component.btnTextSemiMedium01
-import net.deali.designsystem.component.btnTextSemiMedium02
+import net.deali.designsystem.component.btnTextRoundSemiMedium02
 import net.deali.designsystem.component.btnTextSemiMedium03
 import net.deali.designsystem.component.btnTextSemiMedium04
 import net.deali.designsystem.component.btnTextSemiMedium05
@@ -111,25 +111,25 @@ fun SemiMediumButtonSamples(
         }
 
         item {
-            BtnTextSemiMedium01Samples()
+            BtnTextRoundSemiMedium01Samples()
         }
         item {
-            BtnTextSemiMedium02Samples()
+            BtnTextRoundSemiMedium02Samples()
         }
         item {
             BtnTextSemiMedium03Samples()
         }
         item {
-            BtnTextSemiMedium04Samples()
+            BtnTextRoundSemiMedium04Samples()
         }
         item {
-            BtnTextSemiMedium05Samples()
+            BtnTextRoundSemiMedium05Samples()
         }
         item {
-            BtnTextSemiMedium06Samples()
+            BtnTextRoundSemiMedium06Samples()
         }
         item {
-            BtnTextSemiMedium07Samples()
+            BtnTextRoundSemiMedium07Samples()
         }
     }
 }
@@ -636,7 +636,7 @@ private fun BtnOutlineBgSemiMedium06Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium01Samples() {
+private fun BtnTextRoundSemiMedium01Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium01",
         dark = false,
@@ -660,7 +660,7 @@ private fun BtnTextSemiMedium01Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium02Samples() {
+private fun BtnTextRoundSemiMedium02Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium02",
         dark = true,
@@ -670,7 +670,7 @@ private fun BtnTextSemiMedium02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextSemiMedium02(
+                btnTextRoundSemiMedium02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -708,7 +708,7 @@ private fun BtnTextSemiMedium03Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium04Samples() {
+private fun BtnTextRoundSemiMedium04Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium04",
         dark = false,
@@ -732,7 +732,7 @@ private fun BtnTextSemiMedium04Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium05Samples() {
+private fun BtnTextRoundSemiMedium05Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium05",
         dark = false,
@@ -756,7 +756,7 @@ private fun BtnTextSemiMedium05Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium06Samples() {
+private fun BtnTextRoundSemiMedium06Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium06",
         dark = false,
@@ -780,7 +780,7 @@ private fun BtnTextSemiMedium06Samples() {
 }
 
 @Composable
-private fun BtnTextSemiMedium07Samples() {
+private fun BtnTextRoundSemiMedium07Samples() {
     ButtonSampleLayout(
         title = "btnTextSemiMedium07",
         dark = false,

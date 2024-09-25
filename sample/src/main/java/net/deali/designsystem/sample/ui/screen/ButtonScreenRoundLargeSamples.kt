@@ -29,13 +29,13 @@ import net.deali.designsystem.component.btnOutlineRoundLarge03
 import net.deali.designsystem.component.btnOutlineRoundLarge04
 import net.deali.designsystem.component.btnOutlineRoundLarge05
 import net.deali.designsystem.component.btnOutlineRoundLarge06
-import net.deali.designsystem.component.btnTextLarge01
-import net.deali.designsystem.component.btnTextLarge02
-import net.deali.designsystem.component.btnTextLarge03
-import net.deali.designsystem.component.btnTextLarge04
-import net.deali.designsystem.component.btnTextLarge05
-import net.deali.designsystem.component.btnTextLarge06
-import net.deali.designsystem.component.btnTextLarge07
+import net.deali.designsystem.component.btnTextRoundLarge01
+import net.deali.designsystem.component.btnTextRoundLarge02
+import net.deali.designsystem.component.btnTextRoundLarge03
+import net.deali.designsystem.component.btnTextRoundLarge04
+import net.deali.designsystem.component.btnTextRoundLarge05
+import net.deali.designsystem.component.btnTextRoundLarge06
+import net.deali.designsystem.component.btnTextRoundLarge07
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
@@ -112,25 +112,25 @@ fun ButtonRoundLargeSamples(
         }
 
         item {
-            BtnTextLarge01Samples()
+            BtnTextRoundLarge01Samples()
         }
         item {
-            BtnTextLarge02Samples()
+            BtnTextRoundLarge02Samples()
         }
         item {
-            BtnTextLarge03Samples()
+            BtnTextRoundLarge03Samples()
         }
         item {
-            BtnTextLarge04Samples()
+            BtnTextRoundLarge04Samples()
         }
         item {
-            BtnTextLarge05Samples()
+            BtnTextRoundLarge05Samples()
         }
         item {
-            BtnTextLarge06Samples()
+            BtnTextRoundLarge06Samples()
         }
         item {
-            BtnTextLarge07Samples()
+            BtnTextRoundLarge07Samples()
         }
     }
 }
@@ -637,9 +637,9 @@ private fun BtnOutlineBgRoundLarge06Samples() {
 }
 
 @Composable
-private fun BtnTextLarge01Samples() {
+private fun BtnTextRoundLarge01Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge01",
+        title = "btnTextRoundLarge01",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -647,7 +647,7 @@ private fun BtnTextLarge01Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge01(
+                btnTextRoundLarge01(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -661,9 +661,9 @@ private fun BtnTextLarge01Samples() {
 }
 
 @Composable
-private fun BtnTextLarge02Samples() {
+private fun BtnTextRoundLarge02Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge02",
+        title = "btnTextRoundLarge02",
         dark = true,
     ) {
         for (i in 0 until 3) {
@@ -671,7 +671,7 @@ private fun BtnTextLarge02Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge02(
+                btnTextRoundLarge02(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -685,9 +685,9 @@ private fun BtnTextLarge02Samples() {
 }
 
 @Composable
-private fun BtnTextLarge03Samples() {
+private fun BtnTextRoundLarge03Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge03",
+        title = "btnTextRoundLarge03",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -695,7 +695,7 @@ private fun BtnTextLarge03Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge03(
+                btnTextRoundLarge03(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -709,9 +709,9 @@ private fun BtnTextLarge03Samples() {
 }
 
 @Composable
-private fun BtnTextLarge04Samples() {
+private fun BtnTextRoundLarge04Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge04",
+        title = "btnTextRoundLarge04",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -719,7 +719,7 @@ private fun BtnTextLarge04Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge04(
+                btnTextRoundLarge04(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -733,9 +733,9 @@ private fun BtnTextLarge04Samples() {
 }
 
 @Composable
-private fun BtnTextLarge05Samples() {
+private fun BtnTextRoundLarge05Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge05",
+        title = "btnTextRoundLarge05",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -743,7 +743,7 @@ private fun BtnTextLarge05Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge05(
+                btnTextRoundLarge05(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -757,9 +757,9 @@ private fun BtnTextLarge05Samples() {
 }
 
 @Composable
-private fun BtnTextLarge06Samples() {
+private fun BtnTextRoundLarge06Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge06",
+        title = "btnTextRoundLarge06",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -767,7 +767,7 @@ private fun BtnTextLarge06Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge06(
+                btnTextRoundLarge06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,
@@ -781,9 +781,9 @@ private fun BtnTextLarge06Samples() {
 }
 
 @Composable
-private fun BtnTextLarge07Samples() {
+private fun BtnTextRoundLarge07Samples() {
     ButtonSampleLayout(
-        title = "btnTextLarge07",
+        title = "btnTextRoundLarge07",
         dark = false,
     ) {
         for (i in 0 until 3) {
@@ -791,7 +791,7 @@ private fun BtnTextLarge07Samples() {
                 leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
-                btnTextLarge07(
+                btnTextRoundLarge07(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

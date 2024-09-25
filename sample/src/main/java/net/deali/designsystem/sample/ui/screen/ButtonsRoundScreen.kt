@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import net.deali.designsystem.component.ActionBar
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.tabBarSlider02Layout
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -16,7 +16,7 @@ fun ButtonsRoundScreen(
     onBackPress: () -> Unit
 ) {
     Column {
-        ActionBar(
+        TopBar(
             onBack = onBackPress,
             title = "Buttons Round",
             modifier = Modifier.fillMaxWidth(),
