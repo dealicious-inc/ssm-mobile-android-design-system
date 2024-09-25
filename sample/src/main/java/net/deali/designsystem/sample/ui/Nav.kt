@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import net.deali.designsystem.sample.data.datastore.DataStoreUtil
 import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.ui.main.MainScreen
+import net.deali.designsystem.sample.ui.screen.AccordionScreen
 import net.deali.designsystem.sample.ui.screen.AlertScreen
 import net.deali.designsystem.sample.ui.screen.BottomSheetScreen
 import net.deali.designsystem.sample.ui.screen.ButtonsScreen
@@ -24,6 +25,7 @@ import net.deali.designsystem.sample.ui.screen.ChipsScreen
 import net.deali.designsystem.sample.ui.screen.ColorsScreen
 import net.deali.designsystem.sample.ui.screen.CornerRadiusScreen
 import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
+import net.deali.designsystem.sample.ui.screen.DescriptionScreen
 import net.deali.designsystem.sample.ui.screen.DropdownScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.IndentationsScreen
@@ -216,7 +218,7 @@ private fun NavGraphBuilder.atomsGraph(
         TagScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Divider.route) {
-//        DividerScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        //        DividerScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
 }
 
@@ -224,19 +226,19 @@ private fun NavGraphBuilder.moleculesGraph(
     navController: NavController,
 ) {
     composable(Screen.TopBar.route) {
-//        TopBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        //        TopBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
     composable(Screen.TabBar.route) {
         TabBarScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.SearchBar.route) {
-//        SearchBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        //        SearchBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
     composable(Screen.FilterBar.route) {
-//        FilterBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        //        FilterBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
     composable(Screen.ErrorCase.route) {
-//        ErrorCaseScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        //        ErrorCaseScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
     composable(Screen.BottomSheet.route) {
         BottomSheetScreen(onBackPress = navController::popBackStack)
@@ -259,6 +261,12 @@ private fun NavGraphBuilder.moleculesGraph(
     composable(Screen.Slider.route) {
         SliderScreen(onBackPress = navController::popBackStack)
     }
+    composable(Screen.Accordion.route) {
+        AccordionScreen(onBackPress = navController::popBackStack)
+    }
+    composable(Screen.Description.route) {
+        DescriptionScreen(onBackPress = navController::popBackStack)
+    }
 }
 
 private fun NavGraphBuilder.othersGraph(
@@ -278,6 +286,7 @@ internal fun NavigationContainer(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = DealiColor.primary04)
     ) {
         navigationBar()
         content()

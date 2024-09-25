@@ -450,7 +450,7 @@ private fun Preview(
 
 @Preview(showBackground = true, widthDp = 360)
 @Composable
-private fun PreviewAnnotatedString() {
+private fun AnnotatedStringPreview() {
     val text = buildAnnotatedString {
         val text = "신분증 이미지를 가이드 영역에 맞춰 가로로 촬영 후 등록해주세요."
         val boldTarget1 = "가이드 영역"

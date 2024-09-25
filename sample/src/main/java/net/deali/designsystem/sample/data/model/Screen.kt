@@ -4,51 +4,53 @@ sealed class Screen(
     val route: String,
 ) {
     /** Sample app main screen */
-    object Menu : Screen("menu")
+    data object Menu : Screen("menu")
 
     /** Token */
-    object Typography : Screen("typography")
-    object Colors : Screen("colors")
-    object Indentations : Screen("indentations")
-    object Shadows : Screen("shadows") //Elevation
-    object CornerRadius : Screen("cornerRadius")
-    object Icons : Screen("icons")
+    data object Typography : Screen("typography")
+    data object Colors : Screen("colors")
+    data object Indentations : Screen("indentations")
+    data object Shadows : Screen("shadows") //Elevation
+    data object CornerRadius : Screen("cornerRadius")
+    data object Icons : Screen("icons")
 
 
     /** Atoms */
     //Badge X
-    object Buttons : Screen("buttons")
-    object Chips : Screen("chips")
-    object CheckBox : Screen("checkBox")
-    object CheckCircle : Screen("checkCircle")
-    object CheckLine : Screen("checkLine")
-    object RadioButton : Screen("radioButton")
-    object Switch : Screen("switch")
-    object TextInput : Screen("textInput")
-    object SearchInput : Screen("searchInput")
-    object TextArea : Screen("textArea")
-    object Dropdown : Screen("dropDown")
-    object Indicator : Screen("indicator")
-    object Rating : Screen("rating")
-    object Tooltip : Screen("tooltip")
-    object Tag : Screen("tag")
-    object Divider : Screen("divider")
+    data object Buttons : Screen("buttons")
+    data object Chips : Screen("chips")
+    data object CheckBox : Screen("checkBox")
+    data object CheckCircle : Screen("checkCircle")
+    data object CheckLine : Screen("checkLine")
+    data object RadioButton : Screen("radioButton")
+    data object Switch : Screen("switch")
+    data object TextInput : Screen("textInput")
+    data object SearchInput : Screen("searchInput")
+    data object TextArea : Screen("textArea")
+    data object Dropdown : Screen("dropDown")
+    data object Indicator : Screen("indicator")
+    data object Rating : Screen("rating")
+    data object Tooltip : Screen("tooltip")
+    data object Tag : Screen("tag")
+    data object Divider : Screen("divider")
 
     /** Molecules */
     //TopBar
-    object TopBar : Screen("topBar")
-    object TabBar : Screen("tabBar")
-    object SearchBar : Screen("searchBar")
-    object FilterBar : Screen("filterBar")
-    object ErrorCase : Screen("errorCase")
-    object BottomSheet : Screen("bottomSheet")
-    object DateTimePicker : Screen("dateTimePicker")
-    object TextInputWithButton : Screen("textInputWithButton")
-    object TextAreaButton : Screen("textAreaButton")
-    object SearchInputWithTag : Screen("searchInputWithTag")
-    object Alert : Screen("alert")
-    object Slider : Screen("slider")
+    data object TopBar : Screen("topBar")
+    data object TabBar : Screen("tabBar")
+    data object SearchBar : Screen("searchBar")
+    data object FilterBar : Screen("filterBar")
+    data object ErrorCase : Screen("errorCase")
+    data object BottomSheet : Screen("bottomSheet")
+    data object DateTimePicker : Screen("dateTimePicker")
+    data object TextInputWithButton : Screen("textInputWithButton")
+    data object TextAreaButton : Screen("textAreaButton")
+    data object SearchInputWithTag : Screen("searchInputWithTag")
+    data object Alert : Screen("alert")
+    data object Slider : Screen("slider")
+    data object Accordion : Screen("accordion")
+    data object Description : Screen("description")
 
     /** Undefined */
-    object SwipeRefresh : Screen("swipeRefresh")
+    data object SwipeRefresh : Screen("swipeRefresh")
 }

@@ -5,8 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.data.datastore.DataStoreUtil
+import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.ui.Nav
 import net.deali.designsystem.theme.AppTheme
 import java.util.Locale
@@ -78,6 +78,8 @@ class MainActivity : ComponentActivity() {
         Screen.SearchInputWithTag,
         Screen.Alert,
         Screen.Slider,
+        Screen.Accordion,
+        Screen.Description,
     )
 
     private fun getOthers() = listOf(
