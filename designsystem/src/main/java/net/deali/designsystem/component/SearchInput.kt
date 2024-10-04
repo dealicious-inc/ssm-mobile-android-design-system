@@ -29,6 +29,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,12 +56,12 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    focusRequester: FocusRequester = remember { FocusRequester() },
+    keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
     onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
-    val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
     val onSearch: () -> Unit = remember {
         {
             onClickSearch.invoke()
@@ -142,12 +143,12 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    focusRequester: FocusRequester = remember { FocusRequester() },
+    keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
     onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
-    val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
     val onSearch: () -> Unit = remember {
         {
             onClickSearch.invoke()
@@ -229,12 +230,12 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    focusRequester: FocusRequester = remember { FocusRequester() },
+    keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
     onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
-    val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
     val onSearch: () -> Unit = remember {
         {
             onClickSearch.invoke()
@@ -323,12 +324,12 @@ fun SearchInput(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     placeholder: String? = null,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    focusRequester: FocusRequester = remember { FocusRequester() },
+    keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
     onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
-    val focusRequester = remember { FocusRequester() }
-    val keyboardController = LocalSoftwareKeyboardController.current
     val onSearch: () -> Unit = remember {
         {
             onClickSearch.invoke()
