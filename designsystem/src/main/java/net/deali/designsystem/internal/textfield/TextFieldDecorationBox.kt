@@ -240,10 +240,11 @@ private fun PlaceholderText(
     colors: DealiTextFieldColors,
     maxLines: Int,
     overflow: TextOverflow,
+    state: DealiTextFieldState,
     modifier: Modifier = Modifier
 ) {
     if (isVisible) {
-        val textColor by colors.placeholderTextColor()
+        val textColor by colors.placeholderTextColor(state)
         DealiText(
             text = placeholder ?: "",
             style = DealiFont.b2r14,
@@ -352,6 +353,7 @@ private fun InnerTextField(
                 colors = colors,
                 maxLines = placeholderMaxLines,
                 overflow = placeholderOverflow,
+                state = state,
             )
             innerTextField()
         }

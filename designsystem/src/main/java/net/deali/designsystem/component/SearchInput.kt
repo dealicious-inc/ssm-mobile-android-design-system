@@ -442,7 +442,7 @@ private class SearchInputTextFieldColors : DealiTextFieldColors {
     }
 
     @Composable
-    override fun placeholderTextColor(): State<Color> {
+    override fun placeholderTextColor(state: DealiTextFieldState): State<Color> {
         return rememberUpdatedState(DealiColor.g60)
     }
 

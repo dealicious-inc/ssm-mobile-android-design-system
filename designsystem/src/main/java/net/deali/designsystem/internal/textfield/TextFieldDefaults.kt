@@ -177,7 +177,7 @@ internal interface DealiTextFieldColors {
     fun textColor(enabled: Boolean): State<Color>
 
     @Composable
-    fun placeholderTextColor(): State<Color>
+    fun placeholderTextColor(state: DealiTextFieldState): State<Color>
 
     @Composable
     fun labelTextColor(): State<Color>
@@ -243,11 +243,9 @@ private class DefaultDealiTextFieldColors(
     override fun textColor(state: DealiTextFieldState): State<Color> {
         return rememberUpdatedState(
             when (state) {
-                DealiTextFieldState.ENABLED,
-                DealiTextFieldState.ERROR -> textColor
-
+                DealiTextFieldState.DISABLED -> disabledTextColor
                 DealiTextFieldState.READ_ONLY -> readOnlyTextColor
-                else -> disabledTextColor
+                else -> textColor
             }
         )
     }
@@ -275,8 +273,14 @@ private class DefaultDealiTextFieldColors(
     }
 
     @Composable
-    override fun placeholderTextColor(): State<Color> {
-        return rememberUpdatedState(placeholderTextColor)
+    override fun placeholderTextColor(state: DealiTextFieldState): State<Color> {
+        return rememberUpdatedState(
+            when (state) {
+                DealiTextFieldState.DISABLED -> disabledTextColor
+                DealiTextFieldState.READ_ONLY -> readOnlyTextColor
+                else -> placeholderTextColor
+            }
+        )
     }
 
     @Composable
