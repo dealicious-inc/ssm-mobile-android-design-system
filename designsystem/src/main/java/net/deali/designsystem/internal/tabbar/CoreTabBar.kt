@@ -60,7 +60,7 @@ internal fun CoreFixedTabBar(
             selectedTabIndex = currentIndex,
             backgroundColor = DealiColor.transparent,
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
+                TabRowDefaults.TabRowIndicator(
                     modifier = Modifier
                         .tabIndicatorOffset(tabPositions[currentIndex]),
                     height = 2.dp,
@@ -112,7 +112,7 @@ internal fun CoreFixedTabBar(
             selectedTabIndex = currentIndex,
             backgroundColor = DealiColor.transparent,
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
+                TabRowDefaults.TabRowIndicator(
                     modifier = Modifier
                         .tabIndicatorOffset(tabPositions[currentIndex]),
                     height = 2.dp,
@@ -163,7 +163,7 @@ internal fun CoreScrollableTabBar(
             backgroundColor = DealiColor.transparent,
             edgePadding = 16.dp,
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
+                TabRowDefaults.TabRowIndicator(
                     modifier = Modifier
                         .dealiTabIndicatorOffset(tabPositions[currentIndex]),
                     height = 2.dp,
@@ -213,7 +213,7 @@ internal fun CoreScrollableTabBar(
             backgroundColor = DealiColor.transparent,
             edgePadding = 16.dp,
             indicator = { tabPositions ->
-                TabRowDefaults.Indicator(
+                TabRowDefaults.TabRowIndicator(
                     modifier = Modifier
                         .dealiTabIndicatorOffset(tabPositions[currentIndex]),
                     height = 2.dp,

@@ -52,7 +52,7 @@ fun DealiScrollableTabRow(
     edgePadding: Dp = TabRowDefaults.ScrollableTabRowPadding,
     indicator: @Composable @UiComposable
         (tabPositions: List<TabPosition>) -> Unit = @Composable { tabPositions ->
-        TabRowDefaults.Indicator(
+        TabRowDefaults.TabRowIndicator(
             Modifier.dealiTabIndicatorOffset(tabPositions[selectedTabIndex])
         )
     },
@@ -196,7 +196,7 @@ object TabRowDefaults {
      * @param color color of the indicator
      */
     @Composable
-    fun Indicator(
+    fun TabRowIndicator(
         modifier: Modifier = Modifier,
         height: Dp = IndicatorHeight,
         color: Color = LocalContentColor.current
@@ -242,7 +242,7 @@ object TabRowDefaults {
     private val DividerThickness = 1.dp
 
     /**
-     * Default height for [Indicator]
+     * Default height for [TabRowIndicator]
      */
     private val IndicatorHeight = 2.dp
 

@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -30,14 +29,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Indicator
 import net.deali.designsystem.component.IndicatorMedium
-import net.deali.designsystem.component.IndicatorPinkDot
 import net.deali.designsystem.component.IndicatorSmall
 import net.deali.designsystem.component.IndicatorTransparent
-import net.deali.designsystem.component.IndicatorWhiteDot
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.rememberPageDataState
+import net.deali.designsystem.internal.indicator.IndicatorType
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -103,24 +102,26 @@ private fun PagerContainer() {
             )
         }
 
-        IndicatorPinkDot(
+        Indicator(
             modifier = Modifier
                 .padding(6.dp),
             pagerState = pagerState,
             pageCount = pagerDataState.pageCount,
             pageIndexMapping = { currentPage ->
                 pagerDataState.pageMapper(currentPage)
-            }
+            },
+            type = IndicatorType.DOTS
         )
 
-        IndicatorWhiteDot(
+        Indicator(
             modifier = Modifier
                 .padding(6.dp),
             pagerState = pagerState,
             pageCount = pagerDataState.pageCount,
             pageIndexMapping = { currentPage ->
                 pagerDataState.pageMapper(currentPage)
-            }
+            },
+            type = IndicatorType.DOTS_WHITE
         )
 
         IndicatorTransparent(
