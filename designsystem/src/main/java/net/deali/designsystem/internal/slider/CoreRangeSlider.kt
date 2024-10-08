@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -49,10 +50,10 @@ internal fun CoreRangeSlider(
     val thumbRadiusPx = with(LocalDensity.current) { thumbRadius.toPx() }
 
     /** 전체 width */
-    var width by remember { mutableStateOf(0f) }
+    var width by remember { mutableFloatStateOf(0f) }
 
     /** 전체 height */
-    var height by remember { mutableStateOf(0f) }
+    var height by remember { mutableFloatStateOf(0f) }
 
     /** 두 thumb가 겹쳐서 둘다 눌렸는지 여부 */
     var isBothThumbClicked by remember { mutableStateOf(false) }

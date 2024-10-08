@@ -9,17 +9,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.PriceRangeSlider
 import net.deali.designsystem.component.RangeSlider
 import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -40,8 +40,8 @@ fun SliderScreen(
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            var minValue by remember { mutableStateOf(0f) }
-            var maxValue by remember { mutableStateOf(1f) }
+            var minValue by remember { mutableFloatStateOf(0f) }
+            var maxValue by remember { mutableFloatStateOf(1f) }
 
             DealiText(text = "RangeSlider", style = DealiFont.b1sb15, color = DealiColor.g100)
 
@@ -70,8 +70,8 @@ fun SliderScreen(
                 color = DealiColor.g30
             )
 
-            var priceMinValue by remember { mutableStateOf(0.3f) }
-            var priceMaxValue by remember { mutableStateOf(0.7f) }
+            var priceMinValue by remember { mutableFloatStateOf(0.3f) }
+            var priceMaxValue by remember { mutableFloatStateOf(0.7f) }
 
             Row {
                 TextInput(

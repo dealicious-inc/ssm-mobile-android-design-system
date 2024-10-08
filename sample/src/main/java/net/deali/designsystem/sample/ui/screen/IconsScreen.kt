@@ -22,6 +22,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -115,7 +116,7 @@ private fun Container(
 ) {
     var currentIconColor by remember { mutableStateOf(DealiColor.primary05) }
     var currentBackgroundColor by remember { mutableStateOf(DealiColor.primary04) }
-    var currentIconSize by remember { mutableStateOf(SIZE_16) }
+    var currentIconSize by remember { mutableIntStateOf(SIZE_16) }
 
     val lazyGridState = rememberLazyGridState()
 

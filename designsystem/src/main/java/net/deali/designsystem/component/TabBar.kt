@@ -587,7 +587,7 @@ private fun PreviewTabBarSegment01Layout2Depth() {
                 ) {
                     DealiText(
                         modifier = Modifier.align(Alignment.Center),
-                        text = "${page} - $subPage",
+                        text = "$page - $subPage",
                         style = DealiFont.h1sb32,
                         color = DealiColor.g100
                     )

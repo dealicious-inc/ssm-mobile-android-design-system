@@ -146,7 +146,7 @@ private fun TypographyItem(
     style: TextStyle
 ) {
     var isVisible by remember { mutableStateOf(false) }
-    val rotate: Float by animateFloatAsState(if (isVisible) 90f else 270f)
+    val rotate: Float by animateFloatAsState(if (isVisible) 90f else 270f, label = "")
 
     Column(
         modifier = Modifier

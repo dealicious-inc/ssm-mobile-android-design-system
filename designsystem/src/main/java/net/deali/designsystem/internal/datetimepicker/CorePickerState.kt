@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
@@ -14,7 +15,7 @@ import androidx.compose.runtime.setValue
 internal class CorePickerState(initialIndex: Int = 0) : ScrollableState {
     val lazyListState = LazyListState(firstVisibleItemIndex = initialIndex)
 
-    private var _currentIndex: Int by mutableStateOf(initialIndex)
+    private var _currentIndex: Int by mutableIntStateOf(initialIndex)
 
     var currentIndex: Int
         get() = _currentIndex

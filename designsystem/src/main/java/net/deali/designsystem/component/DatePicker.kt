@@ -13,7 +13,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -406,9 +406,9 @@ class DatePickerState(
     internal val monthPickerState = CorePickerState()
     internal val datePickerState = CorePickerState()
 
-    private var _currentYear: Int by mutableStateOf(initialYear)
-    private var _currentMonth: Int by mutableStateOf(initialMonth)
-    private var _currentDate: Int by mutableStateOf(initialDate)
+    private var _currentYear: Int by mutableIntStateOf(initialYear)
+    private var _currentMonth: Int by mutableIntStateOf(initialMonth)
+    private var _currentDate: Int by mutableIntStateOf(initialDate)
 
     /** 현재 선택 된 연도. */
     var currentYear: Int
@@ -455,12 +455,12 @@ class DatePickerState(
     val currentAsTimeStamp: Long
         get() = currentAsDate.time
 
-    private var minYear: Int by mutableStateOf(NotInitialized)
-    private var maxYear: Int by mutableStateOf(NotInitialized)
-    private var minMonth: Int by mutableStateOf(NotInitialized)
-    private var maxMonth: Int by mutableStateOf(NotInitialized)
-    private var minDate: Int by mutableStateOf(NotInitialized)
-    private var maxDate: Int by mutableStateOf(NotInitialized)
+    private var minYear: Int by mutableIntStateOf(NOT_INITIALIZED)
+    private var maxYear: Int by mutableIntStateOf(NOT_INITIALIZED)
+    private var minMonth: Int by mutableIntStateOf(NOT_INITIALIZED)
+    private var maxMonth: Int by mutableIntStateOf(NOT_INITIALIZED)
+    private var minDate: Int by mutableIntStateOf(NOT_INITIALIZED)
+    private var maxDate: Int by mutableIntStateOf(NOT_INITIALIZED)
 
     /** 현재 피커가 스크롤 중인지 여부. */
     val isScrollInProgress: Boolean
@@ -477,9 +477,9 @@ class DatePickerState(
         if (month < 1 || month > 12) return
         if (date < 1 || date > 31) return
         if (
-            minYear == NotInitialized || maxYear == NotInitialized ||
-            minMonth == NotInitialized || maxMonth == NotInitialized ||
-            minDate == NotInitialized || maxDate == NotInitialized
+            minYear == NOT_INITIALIZED || maxYear == NOT_INITIALIZED ||
+            minMonth == NOT_INITIALIZED || maxMonth == NOT_INITIALIZED ||
+            minDate == NOT_INITIALIZED || maxDate == NOT_INITIALIZED
         ) {
             return
         }
@@ -495,7 +495,7 @@ class DatePickerState(
      */
     suspend fun scrollToYear(year: Int) {
         if (year < 1) return
-        if (minYear == NotInitialized || maxYear == NotInitialized) return
+        if (minYear == NOT_INITIALIZED || maxYear == NOT_INITIALIZED) return
         yearPickerState.scrollToItem(calculateYearScrollTargetIndex(year))
     }
 
@@ -506,7 +506,7 @@ class DatePickerState(
      */
     suspend fun scrollToMonth(month: Int) {
         if (month < 1 || month > 12) return
-        if (minMonth == NotInitialized || maxMonth == NotInitialized) return
+        if (minMonth == NOT_INITIALIZED || maxMonth == NOT_INITIALIZED) return
         monthPickerState.scrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
 
@@ -517,7 +517,7 @@ class DatePickerState(
      */
     suspend fun scrollToDate(date: Int) {
         if (date < 1 || date > 31) return
-        if (minDate == NotInitialized || maxDate == NotInitialized) return
+        if (minDate == NOT_INITIALIZED || maxDate == NOT_INITIALIZED) return
         datePickerState.scrollToItem(
             calculateDateScrollTargetIndex(
                 currentYear,
@@ -536,9 +536,9 @@ class DatePickerState(
         if (month < 1 || month > 12) return
         if (date < 1 || date > 31) return
         if (
-            minYear == NotInitialized || maxYear == NotInitialized ||
-            minMonth == NotInitialized || maxMonth == NotInitialized ||
-            minDate == NotInitialized || maxDate == NotInitialized
+            minYear == NOT_INITIALIZED || maxYear == NOT_INITIALIZED ||
+            minMonth == NOT_INITIALIZED || maxMonth == NOT_INITIALIZED ||
+            minDate == NOT_INITIALIZED || maxDate == NOT_INITIALIZED
         ) {
             return
         }
@@ -567,7 +567,7 @@ class DatePickerState(
      */
     suspend fun animateScrollToYear(year: Int) {
         if (year < 1) return
-        if (minYear == NotInitialized || maxYear == NotInitialized) return
+        if (minYear == NOT_INITIALIZED || maxYear == NOT_INITIALIZED) return
         yearPickerState.animateScrollToItem(calculateYearScrollTargetIndex(year))
     }
 
@@ -577,7 +577,7 @@ class DatePickerState(
      */
     suspend fun animateScrollToMonth(month: Int) {
         if (month < 1 || month > 12) return
-        if (minMonth == NotInitialized || maxMonth == NotInitialized) return
+        if (minMonth == NOT_INITIALIZED || maxMonth == NOT_INITIALIZED) return
         monthPickerState.animateScrollToItem(calculateMonthScrollTargetIndex(currentYear, month))
     }
 
@@ -587,7 +587,7 @@ class DatePickerState(
      */
     suspend fun animateScrollToDate(date: Int) {
         if (date < 1 || date > 31) return
-        if (minDate == NotInitialized || maxDate == NotInitialized) return
+        if (minDate == NOT_INITIALIZED || maxDate == NOT_INITIALIZED) return
         datePickerState.animateScrollToItem(
             calculateDateScrollTargetIndex(
                 currentYear,
@@ -685,7 +685,7 @@ class DatePickerState(
             }
         )
 
-        private const val NotInitialized: Int = -1
+        private const val NOT_INITIALIZED: Int = -1
     }
 }
 

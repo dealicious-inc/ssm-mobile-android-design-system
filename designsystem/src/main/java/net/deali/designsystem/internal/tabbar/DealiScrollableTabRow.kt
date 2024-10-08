@@ -177,9 +177,6 @@ class TabPosition internal constructor(val left: Dp, val width: Dp) {
 
 object TabRowDefaults {
     /**
-     * Default [Divider], which will be positioned at the bottom of the [TabRow], underneath the
-     * indicator.
-     *
      * @param modifier modifier for the divider's layout
      * @param thickness thickness of the divider
      * @param color color of the divider
@@ -188,15 +185,12 @@ object TabRowDefaults {
     fun Divider(
         modifier: Modifier = Modifier,
         thickness: Dp = DividerThickness,
-        color: Color = LocalContentColor.current.copy(alpha = DividerOpacity)
+        color: Color = LocalContentColor.current.copy(alpha = DIVIDER_OPACITY)
     ) {
         androidx.compose.material.Divider(modifier = modifier, thickness = thickness, color = color)
     }
 
     /**
-     * Default indicator, which will be positioned at the bottom of the [TabRow], on top of the
-     * divider.
-     *
      * @param modifier modifier for the indicator's layout
      * @param height height of the indicator
      * @param color color of the indicator
@@ -215,13 +209,6 @@ object TabRowDefaults {
         )
     }
 
-    /**
-     * [Modifier] that takes up all the available width inside the [TabRow], and then animates
-     * the offset of the indicator it is applied to, depending on the [currentTabPosition].
-     *
-     * @param currentTabPosition [TabPosition] of the currently selected tab. This is used to
-     * calculate the offset of the indicator this modifier is applied to, as well as its width.
-     */
     fun Modifier.dealiTabIndicatorOffset(
         currentTabPosition: TabPosition
     ): Modifier = composed(
@@ -232,11 +219,11 @@ object TabRowDefaults {
     ) {
         val currentTabWidth by animateDpAsState(
             targetValue = currentTabPosition.width - (TabItemSpaceHalf * 2),
-            animationSpec = tween(durationMillis = 250, easing = FastOutSlowInEasing)
+            animationSpec = tween(durationMillis = 250, easing = FastOutSlowInEasing), label = ""
         )
         val indicatorOffset by animateDpAsState(
             targetValue = currentTabPosition.left + TabItemSpaceHalf,
-            animationSpec = tween(durationMillis = 250, easing = FastOutSlowInEasing)
+            animationSpec = tween(durationMillis = 250, easing = FastOutSlowInEasing), label = ""
         )
         fillMaxWidth()
             .wrapContentSize(Alignment.BottomStart)
@@ -247,21 +234,18 @@ object TabRowDefaults {
     /**
      * Default opacity for the color of [Divider]
      */
-    const val DividerOpacity = 0.12f
+    private const val DIVIDER_OPACITY = 0.12f
 
     /**
      * Default thickness for [Divider]
      */
-    val DividerThickness = 1.dp
+    private val DividerThickness = 1.dp
 
     /**
      * Default height for [Indicator]
      */
-    val IndicatorHeight = 2.dp
+    private val IndicatorHeight = 2.dp
 
-    /**
-     * The default padding from the starting edge before a tab in a [ScrollableTabRow].
-     */
     val ScrollableTabRowPadding = 52.dp
 }
 
@@ -271,9 +255,6 @@ private enum class TabSlots {
     Indicator
 }
 
-/**
- * Class holding onto state needed for [ScrollableTabRow]
- */
 private class ScrollableTabData(
     private val scrollState: ScrollState,
     private val coroutineScope: CoroutineScope

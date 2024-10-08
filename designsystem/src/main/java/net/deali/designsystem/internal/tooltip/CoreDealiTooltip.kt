@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -94,7 +95,7 @@ private fun TooltipLayout(
         arrowOffset.toPx()
     }
 
-    var arrowPositionX by remember { mutableStateOf(position.centerPositionX) }
+    var arrowPositionX by remember { mutableFloatStateOf(position.centerPositionX) }
 
     with(LocalDensity.current) {
         val arrowPaddingPx = arrowHeight.toPx().roundToInt() * 3

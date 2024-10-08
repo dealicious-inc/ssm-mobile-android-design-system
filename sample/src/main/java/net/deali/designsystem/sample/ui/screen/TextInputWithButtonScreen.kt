@@ -95,7 +95,7 @@ fun TextInputWithButtonScreen(onBackPress: () -> Unit) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalArrangement = Arrangement.Center
             ) {
-                DealiTextFieldState.values().forEach { innerState ->
+                DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
                         selected = state == innerState

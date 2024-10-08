@@ -1,25 +1,25 @@
 package net.deali.designsystem.internal.chip
 
 internal sealed interface ChipStyle {
-    object Outline : ChipStyle
+    data object Outline : ChipStyle
 
-    object Filled : ChipStyle
+    data object Filled : ChipStyle
 
     data class Square(val useBoldFontWeight: Boolean = true) : ChipStyle
 
-    object FilledSquare : ChipStyle
+    data object FilledSquare : ChipStyle
 
-    object FilledDepth : ChipStyle
+    data object FilledDepth : ChipStyle
 
-    object FilledImage : ChipStyle
+    data object FilledImage : ChipStyle
 
-    object FilledImageDepth : ChipStyle
+    data object FilledImageDepth : ChipStyle
 
     companion object {
         val Square: Square = Square()
 
         val SquareBold: Square = Square(useBoldFontWeight = true)
 
-        val SquareRegular : Square = Square(useBoldFontWeight = false)
+        val SquareRegular: Square = Square(useBoldFontWeight = false)
     }
 }
