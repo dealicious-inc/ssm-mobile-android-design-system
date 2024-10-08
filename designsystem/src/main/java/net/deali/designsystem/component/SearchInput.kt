@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalComposeUiApi::class, ExperimentalComposeUiApi::class)
-
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
@@ -21,7 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusRequester
@@ -103,7 +100,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.isNotEmpty() || isFocused) {
+                if (value.isNotEmpty() && isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -190,7 +187,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.text.isNotEmpty() || isFocused) {
+                if (value.text.isNotEmpty() && isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -284,7 +281,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.isNotEmpty() || isFocused) {
+                if (value.isNotEmpty() && isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -378,7 +375,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.text.isNotEmpty() || isFocused) {
+                if (value.text.isNotEmpty() && isFocused) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,

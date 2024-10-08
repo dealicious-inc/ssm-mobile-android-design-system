@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalComposeUiApi::class, ExperimentalComposeUiApi::class)
+@file:OptIn(ExperimentalComposeUiApi::class)
 
 package net.deali.designsystem.internal.slider
 
@@ -100,8 +100,12 @@ internal fun CoreRangeSlider(
                             MotionEvent.ACTION_DOWN -> {
                                 val x = motionEvent.x
                                 val y = motionEvent.y
-                                val leftTouched = sqrt((x - minThumbOffset.x).pow(2) + (y - minThumbOffset.y).pow(2))
-                                val rightTouched = sqrt((x - maxThumbOffset.x).pow(2) + (y - maxThumbOffset.y).pow(2))
+                                val leftTouched = sqrt(
+                                    (x - minThumbOffset.x).pow(2) + (y - minThumbOffset.y).pow(2)
+                                )
+                                val rightTouched = sqrt(
+                                    (x - maxThumbOffset.x).pow(2) + (y - maxThumbOffset.y).pow(2)
+                                )
                                 if (leftTouched < (thumbRadiusPx + extraClickAreaSize) && rightTouched < (thumbRadiusPx + extraClickAreaSize)) {
                                     isBothThumbClicked = true
                                 } else if (leftTouched < (thumbRadiusPx + extraClickAreaSize)) {
