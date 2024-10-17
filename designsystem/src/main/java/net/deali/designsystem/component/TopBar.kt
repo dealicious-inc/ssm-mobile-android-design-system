@@ -1,5 +1,6 @@
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
@@ -21,8 +22,9 @@ fun TopBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
-    backgroundColor: Color = DealiColor.primary04,
     titleColor: Color = DealiColor.g100,
+    backgroundColor: Color = DealiColor.primary04,
+    @DrawableRes backButtonIcon: Int = R.drawable.ic_arrow_left,
     backButtonColor: Color = DealiColor.primary05,
     menuContent: @Composable (() -> Unit)? = null,
 ) {
@@ -36,7 +38,7 @@ fun TopBar(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Icon24(
-                    iconRes = R.drawable.ic_arrow_left,
+                    iconRes = backButtonIcon,
                     color = backButtonColor,
                     onClick = onBack,
                 )
