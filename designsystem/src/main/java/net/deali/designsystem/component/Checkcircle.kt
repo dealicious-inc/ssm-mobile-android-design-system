@@ -78,37 +78,6 @@ fun Checkcircle(
     }
 }
 
-@Deprecated(
-    "CheckcircleIcon을 이용해주세요.",
-    ReplaceWith(
-        "CheckcircleIcon(\n" +
-                "modifier = modifier," +
-                "checked = checked," +
-                "enabled = enabled," +
-                "onCheck = onCheck," +
-                "noRipple = noRipple," +
-                ")",
-        "net.deali.designsystem.component.Checkcircle"
-    )
-)
-@Composable
-fun Checkcircle(
-    checked: Boolean,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    onCheck: () -> Unit = {},
-    noRipple: Boolean = false,
-) {
-    CheckcircleIcon(
-        modifier = modifier,
-        checked = checked,
-        enabled = enabled,
-        isAd = false,
-        onCheck = onCheck,
-        noRipple = noRipple,
-    )
-}
-
 @Composable
 fun CheckcircleIcon(
     checked: Boolean,
