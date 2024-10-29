@@ -45,7 +45,19 @@ fun TabBarScreen(
             Tab("Title1", true),
             Tab("Title2", false),
         )
-        val subTitles = listOf("Sub0", "Sub1", "Sub2", "Sub3", "Sub4")
+
+        val tabsScrollable = listOf(
+            Tab("Title0", false),
+            Tab("Title1", true),
+            Tab("Title2", false),
+            Tab("Title3", false),
+            Tab("Title4", false),
+            Tab("Title5", false),
+            Tab("Title6", false),
+            Tab("Title7", false),
+        )
+
+        val subTitles = listOf("Sub0", "Sub1", "Sub2", "Sub3", "Sub4", "Sub5", "Sub6", "Sub7", "Sub8", "Sub9")
         val scrollState = rememberScrollState()
 
         Column(
@@ -91,7 +103,7 @@ fun TabBarScreen(
             )
 
             tabBarSlider01Layout(
-                tabs = tabs,
+                tabs = tabsScrollable,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
@@ -120,7 +132,7 @@ fun TabBarScreen(
             )
 
             tabBarSlider02Layout(
-                tabs = tabs,
+                tabs = tabsScrollable,
                 onSelectTab = {},
                 userSwipeEnabled = false,
             ) { page ->
@@ -149,7 +161,7 @@ fun TabBarScreen(
             )
 
             tabBarSlider02Layout(
-                tabs = tabs,
+                tabs = tabsScrollable,
                 onSelectTab = {},
                 userSwipeEnabled = true,
             ) { page ->
