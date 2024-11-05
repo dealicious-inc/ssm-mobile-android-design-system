@@ -29,6 +29,7 @@ import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
 import net.deali.designsystem.sample.ui.screen.DescriptionScreen
 import net.deali.designsystem.sample.ui.screen.DropdownScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
+import net.deali.designsystem.sample.ui.screen.ImageChipsScreen
 import net.deali.designsystem.sample.ui.screen.IndentationsScreen
 import net.deali.designsystem.sample.ui.screen.IndicatorScreen
 import net.deali.designsystem.sample.ui.screen.RadioButtonScreen
@@ -126,6 +127,9 @@ private fun NavGraphBuilder.menuGraph(
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)
     }
+    composable(Screen.ImageChips.route) {
+        ImageChipsScreen(onBackPress = navController::popBackStack)
+    }
     composable(Screen.BottomSheet.route) {
         BottomSheetScreen(onBackPress = navController::popBackStack)
     }
@@ -184,6 +188,9 @@ private fun NavGraphBuilder.atomsGraph(
     }
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)
+    }
+    composable(Screen.ImageChips.route) {
+        ImageChipsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.CheckBox.route) {
         CheckBoxScreen(onBackPress = navController::popBackStack)

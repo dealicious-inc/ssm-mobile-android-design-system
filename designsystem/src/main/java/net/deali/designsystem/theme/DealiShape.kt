@@ -17,6 +17,7 @@ object DealiShape {
     val radius16: Shape = RoundedCornerShape(16.dp)
     val radius100: Shape = RoundedCornerShape(percent = 100)
     val radius20: Shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+    val radius40: Shape = RoundedCornerShape(40.dp)
 }
 
 internal val LocalShapes = staticCompositionLocalOf { DealiShape }

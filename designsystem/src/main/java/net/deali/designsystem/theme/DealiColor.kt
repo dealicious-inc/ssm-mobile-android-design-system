@@ -53,6 +53,7 @@ object DealiColor {
     val w90: Color = Color(0xE6FFFFFF)
     val w70: Color = Color(0xB3FFFFFF)
     val w50: Color = Color(0x80FFFFFF)
+    val w40: Color = Color(0x66FFFFFF)
     val w30: Color = Color(0x4DFFFFFF)
     val w20: Color = Color(0x33FFFFFF)
     val w15: Color = Color(0x26FFFFFF)
