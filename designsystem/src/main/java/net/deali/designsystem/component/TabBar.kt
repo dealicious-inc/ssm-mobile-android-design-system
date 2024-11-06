@@ -4,7 +4,6 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,18 +17,9 @@ import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.onGloballyPositioned
-import androidx.compose.ui.layout.positionInParent
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
@@ -37,6 +27,7 @@ import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
 import net.deali.designsystem.internal.tabbar.CoreScrollableTabBar
 import net.deali.designsystem.internal.tabbar.CoreTabBarLayout
+import net.deali.designsystem.internal.tabbar.animateScrollAndCentralizeItem
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -200,13 +191,6 @@ fun tabBarSlider02(
     )
 }
 
-/**
- * Chip으로 이루어져 있는 탭바
- * @param modifier
- * @param tabTitles 각 탭의 타이틀 리스트
- * @param currentIndex 현재 선택된 탭의 인덱스
- * @param onSelectTab 탭 선택 시 콜백
- */
 @Composable
 fun tabBarChip01(
     tabTitles: List<String>,
@@ -216,61 +200,27 @@ fun tabBarChip01(
     scope: CoroutineScope = rememberCoroutineScope(),
     onSelectTab: (index: Int) -> Unit,
 ) {
-    val density = LocalDensity.current
-
-    val rowContentPadding = 12.dp
-    var rowWidth by remember { mutableFloatStateOf(0f) }
-    val rowContentPaddingPx = with(density) { rowContentPadding.toPx() }
-    var scrollingOffset by remember { mutableStateOf<Float?>(null) }
-
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(DealiColor.primary04)
-            .onGloballyPositioned { coordinates ->
-                rowWidth = coordinates.size.width.toFloat()
-            },
+            .background(DealiColor.primary04),
         state = state,
-        contentPadding = PaddingValues(horizontal = rowContentPadding)
+        contentPadding = PaddingValues(horizontal = 12.dp)
     ) {
         itemsIndexed(tabTitles) { index, title ->
-            var chipWidth by remember { mutableFloatStateOf(0f) }
-            var chipOffset by remember { mutableFloatStateOf(0f) }
-
             chipFilledSmall02(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp, vertical = 12.dp)
-                    .onGloballyPositioned { coordinates ->
-                        chipWidth = coordinates.size.width.toFloat()
-                        chipOffset = coordinates.positionInParent().x
-                    },
+                    .padding(horizontal = 4.dp, vertical = 12.dp),
                 text = title,
                 selected = index == currentIndex,
                 onClick = {
                     scope.launch {
                         onSelectTab(index)
-
-                        when {
-                            // 왼쪽 범위를 벗어난 경우
-                            chipOffset < rowContentPaddingPx -> {
-                                scrollingOffset = chipOffset - rowContentPaddingPx
-                            }
-
-                            // 오른쪽 범위를 벗어난 경우
-                            (chipOffset + chipWidth) > rowWidth - rowContentPaddingPx -> {
-                                scrollingOffset = (chipOffset + chipWidth) - rowWidth + rowContentPaddingPx
-                            }
-                        }
+                        state.animateScrollAndCentralizeItem(index)
                     }
                 },
             )
-        }
-    }
-
-    LaunchedEffect(scrollingOffset) {
-        scrollingOffset?.let {
-            state.animateScrollBy(it)
         }
     }
 }
