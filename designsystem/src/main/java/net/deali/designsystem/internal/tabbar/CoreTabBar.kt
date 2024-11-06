@@ -5,14 +5,12 @@ package net.deali.designsystem.internal.tabbar
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.PagerState
@@ -236,17 +234,6 @@ internal fun CoreScrollableTabBar(
                 )
             }
         }
-    }
-}
-
-internal suspend fun LazyListState.animateScrollAndCentralizeItem(index: Int) {
-    val itemInfo = this.layoutInfo.visibleItemsInfo.firstOrNull { it.index == index }
-    if (itemInfo != null) {
-        val center = layoutInfo.viewportEndOffset / 2
-        val childCenter = itemInfo.offset + itemInfo.size / 2
-        animateScrollBy((childCenter - center).toFloat())
-    } else {
-        animateScrollToItem(index)
     }
 }
 

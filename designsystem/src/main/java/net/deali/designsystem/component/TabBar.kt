@@ -27,9 +27,9 @@ import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
 import net.deali.designsystem.internal.tabbar.CoreScrollableTabBar
 import net.deali.designsystem.internal.tabbar.CoreTabBarLayout
-import net.deali.designsystem.internal.tabbar.animateScrollAndCentralizeItem
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.animation.animateScrollAndCentralizeItem
 
 /**
  * 화면의 1/n 크기 고정된 탭바
