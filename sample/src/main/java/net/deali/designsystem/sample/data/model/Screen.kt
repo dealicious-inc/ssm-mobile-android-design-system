@@ -9,12 +9,10 @@ sealed class Screen(
     /** Token */
     data object Typography : Screen("typography")
     data object Colors : Screen("colors")
-    data object Shadows : Screen("shadows") //Elevation
+    data object Shadows : Screen("shadows") // Elevation
     data object Icons : Screen("icons")
 
-
     /** Atoms */
-    //Badge X
     data object Buttons : Screen("buttons")
     data object ButtonsRound : Screen("buttonsRound")
     data object Chips : Screen("chips")
@@ -35,7 +33,6 @@ sealed class Screen(
     data object Divider : Screen("divider")
 
     /** Molecules */
-    //TopBar
     data object TopBar : Screen("topBar")
     data object TabBar : Screen("tabBar")
     data object SearchBar : Screen("searchBar")

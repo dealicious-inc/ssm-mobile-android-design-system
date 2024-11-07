@@ -69,9 +69,8 @@ fun ProductDetailsTopBar(
         modifier = modifier,
         backgroundBrush = Brush.verticalGradient(
             listOf(
-                // TODO 구현 당시 디자인 파일에 theme이 아닌 색상 코드로 작업 되어 있었음.
-                Color(0xFF000000).copy(alpha = 0.3f),
-                Color(0xFF606060).copy(alpha = 0.01f),
+                DealiColor.b30,
+                Color(0xFF606060).copy(alpha = 0.01f), // 구현 당시 디자인 파일에 theme이 아닌 색상 코드로 작업 되어 있었음.
             )
         ),
         mainContent = {

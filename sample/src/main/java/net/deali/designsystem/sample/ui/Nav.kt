@@ -26,6 +26,7 @@ import net.deali.designsystem.sample.ui.screen.ChipsScreen
 import net.deali.designsystem.sample.ui.screen.ColorsScreen
 import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
 import net.deali.designsystem.sample.ui.screen.DescriptionScreen
+import net.deali.designsystem.sample.ui.screen.DividerScreen
 import net.deali.designsystem.sample.ui.screen.DropdownScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.ImageChipsScreen
@@ -214,7 +215,7 @@ private fun NavGraphBuilder.atomsGraph(
         TagScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Divider.route) {
-        //        DividerScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        DividerScreen(onBackPress = navController::popBackStack)
     }
 }
 

@@ -22,8 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -41,13 +41,6 @@ fun ShadowsScreen(
             offsetY = 0.dp,
             blurRadius = 0.dp
         ),
-        // TODO DRG shadow color 물어보기
-        //        ShadowsScreenItem(name = "Shadow_type1", color = black010, offsetY = (-1).dp, blurRadius = 6.dp),
-        //        ShadowsScreenItem(name = "Shadow_type2", color = black022, offsetY = 1.dp, blurRadius = 3.dp),
-        //        ShadowsScreenItem(name = "Elevation_type3", color = black022, offsetY = 2.dp, blurRadius = 7.dp),
-        //        ShadowsScreenItem(name = "Elevation_type4", color = black020, offsetY = 4.dp, blurRadius = 8.dp),
-        //        ShadowsScreenItem(name = "Elevation_type5", color = black015, offsetY = 10.dp, blurRadius = 20.dp),
-        //        ShadowsScreenItem(name = "Elevation_type6", color = black015, offsetY = 20.dp, blurRadius = 50.dp),
     )
 
     NavigationContainer(
