@@ -46,6 +46,7 @@ import net.deali.designsystem.sample.ui.screen.TextAreaScreen
 import net.deali.designsystem.sample.ui.screen.TextInputScreen
 import net.deali.designsystem.sample.ui.screen.TextInputWithButtonScreen
 import net.deali.designsystem.sample.ui.screen.TooltipScreen
+import net.deali.designsystem.sample.ui.screen.TopBarScreen
 import net.deali.designsystem.sample.ui.screen.TypographyScreen
 import net.deali.designsystem.theme.DealiColor
 
@@ -223,7 +224,7 @@ private fun NavGraphBuilder.moleculesGraph(
     navController: NavController,
 ) {
     composable(Screen.TopBar.route) {
-        //        TopBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        TopBarScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.TabBar.route) {
         TabBarScreen(onBackPress = navController::popBackStack)

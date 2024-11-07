@@ -38,7 +38,7 @@ fun Modifier.shadow(
     cornerRadius: Dp = 0.dp,
     blurRadius: Dp = 1.dp,
     spread: Dp = 0.dp,
-    elevation: Dp = 1.dp, // TODO: 논의 필요
+    elevation: Dp = 1.dp,
 ): Modifier = composed {
     val radiusPx = with(LocalDensity.current) { cornerRadius.toPx() }
     shadow(
@@ -71,7 +71,7 @@ fun Modifier.shadow(
     cornerRadius: CornerRadius = CornerRadius.Zero,
     blurRadius: Dp = 1.dp,
     spread: Dp = 0.dp,
-    elevation: Dp = 1.dp, // TODO: 논의 필요
+    elevation: Dp = 1.dp,
 ): Modifier = then(
     drawBehind {
         val offsetXPx = offsetX.toPx()

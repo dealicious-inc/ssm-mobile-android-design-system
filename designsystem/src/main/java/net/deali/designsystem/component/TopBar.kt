@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
@@ -48,41 +47,6 @@ fun TopBar(
                     color = titleColor,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis
-                )
-            }
-        },
-        menuContent = if (menuContent != null) {
-            { menuContent() }
-        } else {
-            null
-        },
-    )
-}
-
-@Composable
-fun ProductDetailsTopBar(
-    onBack: () -> Unit,
-    modifier: Modifier = Modifier,
-    menuContent: @Composable (() -> Unit)? = null,
-) {
-    CoreTopBarLayout(
-        modifier = modifier,
-        backgroundBrush = Brush.verticalGradient(
-            listOf(
-                DealiColor.b30,
-                Color(0xFF606060).copy(alpha = 0.01f), // 구현 당시 디자인 파일에 theme이 아닌 색상 코드로 작업 되어 있었음.
-            )
-        ),
-        mainContent = {
-            Row(
-                modifier = Modifier,
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon24(
-                    iconRes = R.drawable.ic_arrow_left,
-                    color = Color(0xFFFFFFFF),
-                    onClick = onBack,
                 )
             }
         },
@@ -142,39 +106,6 @@ private fun TopBarrPreview3() {
                 onClick = {},
                 iconRes = R.drawable.ic_cart,
                 modifier = Modifier.badge(count = 99),
-            )
-        }
-    )
-}
-
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-private fun TopBarPreview4() {
-    TopBar(
-        onBack = {},
-        title = "Preview",
-        backgroundColor = DealiColor.secondary02,
-        titleColor = DealiColor.primary04,
-        backButtonColor = DealiColor.primary04,
-    )
-}
-
-@Preview(showBackground = true, widthDp = 320)
-@Composable
-private fun ProductDetailsTopBarPreview() {
-    ProductDetailsTopBar(
-        onBack = {},
-        menuContent = {
-            Icon24(
-                onClick = {},
-                iconRes = R.drawable.ic_search,
-                color = DealiColor.primary04,
-            )
-            Icon24(
-                onClick = {},
-                iconRes = R.drawable.ic_cart,
-                modifier = Modifier.badge(count = 1),
-                color = DealiColor.primary04,
             )
         }
     )
