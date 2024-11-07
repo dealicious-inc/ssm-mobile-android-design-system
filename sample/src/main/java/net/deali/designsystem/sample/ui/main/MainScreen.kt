@@ -174,9 +174,7 @@ private fun MainScreenPreview() {
         tokens = listOf(
             Screen.Typography,
             Screen.Colors,
-            Screen.Indentations,
             Screen.Shadows,
-            Screen.CornerRadius,
             Screen.Icons,
         ),
         atoms = listOf(

@@ -9,9 +9,7 @@ sealed class Screen(
     /** Token */
     data object Typography : Screen("typography")
     data object Colors : Screen("colors")
-    data object Indentations : Screen("indentations")
     data object Shadows : Screen("shadows") //Elevation
-    data object CornerRadius : Screen("cornerRadius")
     data object Icons : Screen("icons")
 
 

@@ -18,8 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.sample.util.toHexString
 import net.deali.designsystem.theme.DealiColor
@@ -65,6 +65,7 @@ fun ColorsScreen(
         ColorScreenItem(DealiColor.w90, "w90", true),
         ColorScreenItem(DealiColor.w70, "w70", true),
         ColorScreenItem(DealiColor.w50, "w50", true),
+        ColorScreenItem(DealiColor.w40, "w40", true),
         ColorScreenItem(DealiColor.w30, "w30", true),
         ColorScreenItem(DealiColor.w20, "w20", true),
         ColorScreenItem(DealiColor.w15, "w15", true),

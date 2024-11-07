@@ -24,13 +24,11 @@ import net.deali.designsystem.sample.ui.screen.CheckCircleScreen
 import net.deali.designsystem.sample.ui.screen.CheckLineScreen
 import net.deali.designsystem.sample.ui.screen.ChipsScreen
 import net.deali.designsystem.sample.ui.screen.ColorsScreen
-import net.deali.designsystem.sample.ui.screen.CornerRadiusScreen
 import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
 import net.deali.designsystem.sample.ui.screen.DescriptionScreen
 import net.deali.designsystem.sample.ui.screen.DropdownScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.ImageChipsScreen
-import net.deali.designsystem.sample.ui.screen.IndentationsScreen
 import net.deali.designsystem.sample.ui.screen.IndicatorScreen
 import net.deali.designsystem.sample.ui.screen.RadioButtonScreen
 import net.deali.designsystem.sample.ui.screen.RatingScreen
@@ -103,17 +101,11 @@ private fun NavGraphBuilder.menuGraph(
     composable(Screen.Colors.route) {
         ColorsScreen(onBackPress = navController::popBackStack)
     }
-    composable(Screen.Indentations.route) {
-        IndentationsScreen(onBackPress = navController::popBackStack)
-    }
     composable(Screen.Icons.route) {
         IconsScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Shadows.route) {
         ShadowsScreen(onBackPress = navController::popBackStack)
-    }
-    composable(Screen.CornerRadius.route) {
-        CornerRadiusScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Indicator.route) {
         IndicatorScreen(onBackPress = navController::popBackStack)
@@ -155,18 +147,8 @@ private fun NavGraphBuilder.tokenGraph(
             onBackPress = navController::popBackStack,
         )
     }
-    composable(Screen.Indentations.route) {
-        IndentationsScreen(
-            onBackPress = navController::popBackStack,
-        )
-    }
     composable(Screen.Shadows.route) {
         ShadowsScreen(
-            onBackPress = navController::popBackStack,
-        )
-    }
-    composable(Screen.CornerRadius.route) {
-        CornerRadiusScreen(
             onBackPress = navController::popBackStack,
         )
     }

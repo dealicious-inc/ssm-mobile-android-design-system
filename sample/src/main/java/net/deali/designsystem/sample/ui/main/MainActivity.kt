@@ -40,9 +40,7 @@ class MainActivity : ComponentActivity() {
     private fun getTokens() = listOf(
         Screen.Typography,
         Screen.Colors,
-        Screen.Indentations,
         Screen.Shadows,
-        Screen.CornerRadius,
         Screen.Icons,
     )
 
