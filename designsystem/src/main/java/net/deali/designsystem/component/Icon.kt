@@ -13,7 +13,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -59,7 +59,7 @@ fun Icon16(
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 16.dp)
+                indication = if (noRipple) null else ripple(bounded = false, radius = 16.dp)
             ),
         iconRes = iconRes,
         size = 16.dp,
@@ -96,7 +96,7 @@ fun Icon24(
             role = Role.Image,
             enabled = enabled,
             interactionSource = remember { MutableInteractionSource() },
-            indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
+            indication = if (noRipple) null else ripple(bounded = false, radius = 24.dp)
         ),
         iconRes = iconRes,
         size = 24.dp,
@@ -134,7 +134,7 @@ fun Icon32(
                 role = Role.Image,
                 enabled = enabled,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else rememberRipple(bounded = false, radius = 24.dp)
+                indication = if (noRipple) null else ripple(bounded = false, radius = 24.dp)
             ),
         iconRes = iconRes,
         size = 32.dp,

@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -60,7 +60,7 @@ internal fun CoreButton(
                     Modifier
                         .clickable(
                             interactionSource = interactionSource,
-                            indication = rememberRipple(),
+                            indication = ripple(),
                             enabled = enabled,
                             role = Role.Button,
                             onClick = onClick,

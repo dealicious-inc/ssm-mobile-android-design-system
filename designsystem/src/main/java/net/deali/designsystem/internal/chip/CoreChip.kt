@@ -18,7 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
@@ -260,7 +260,7 @@ private fun CoreChipLayout(
             .clickableOrNothing(
                 clickable = clickable,
                 interactionSource = interactionSource,
-                indication = rememberRipple(),
+                indication = ripple(),
                 enabled = enabled,
                 role = Role.Button,
                 onClick = onClick,
