@@ -311,6 +311,7 @@ private fun TabItem(
 internal fun CoreTabBarLayout(
     pagerState: PagerState,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
     tabBar: @Composable (currentIndex: Int, onPageChange: (index: Int) -> Unit) -> Unit,
     pageContent: @Composable PagerScope.(page: Int) -> Unit
@@ -318,7 +319,7 @@ internal fun CoreTabBarLayout(
     val coroutineScope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
     ) {
         tabBar(
             pagerState.currentPage

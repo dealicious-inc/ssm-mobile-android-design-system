@@ -239,6 +239,7 @@ fun tabBarChip01(
 fun tabBarSegment01Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -248,6 +249,7 @@ fun tabBarSegment01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -276,6 +278,7 @@ fun tabBarSegment01Layout(
 fun tabBarSegment01Layout(
     tabs: List<Tab>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -285,6 +288,7 @@ fun tabBarSegment01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -313,6 +317,7 @@ fun tabBarSegment01Layout(
 fun tabBarSlider02Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -322,6 +327,7 @@ fun tabBarSlider02Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -350,6 +356,7 @@ fun tabBarSlider02Layout(
 fun tabBarSlider02Layout(
     tabs: List<Tab>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -359,6 +366,7 @@ fun tabBarSlider02Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -387,6 +395,7 @@ fun tabBarSlider02Layout(
 fun tabBarSlider01Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -396,6 +405,7 @@ fun tabBarSlider01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -424,6 +434,7 @@ fun tabBarSlider01Layout(
 fun tabBarSlider01Layout(
     tabs: List<Tab>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -433,6 +444,7 @@ fun tabBarSlider01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -461,6 +473,7 @@ fun tabBarSlider01Layout(
 fun tabBarChip01Layout(
     tabTitles: List<String>,
     userSwipeEnabled: Boolean,
+    modifier: Modifier = Modifier,
     initialPage: Int = 0,
     pagerState: PagerState = rememberPagerState(
         initialPage = initialPage,
@@ -470,6 +483,7 @@ fun tabBarChip01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
+        modifier = modifier,
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
