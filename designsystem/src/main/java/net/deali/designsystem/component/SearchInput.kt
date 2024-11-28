@@ -100,7 +100,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.isNotEmpty() && isFocused) {
+                if (value.isNotEmpty()) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -187,7 +187,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.text.isNotEmpty() && isFocused) {
+                if (value.text.isNotEmpty()) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -281,7 +281,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.isNotEmpty() && isFocused) {
+                if (value.isNotEmpty()) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
@@ -375,7 +375,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
-                if (value.text.isNotEmpty() && isFocused) {
+                if (value.text.isNotEmpty()) {
                     Icon16(
                         iconRes = R.drawable.ic_x_circle_filled,
                         color = DealiColor.g50,
