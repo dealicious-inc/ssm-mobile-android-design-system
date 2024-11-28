@@ -19,6 +19,7 @@ import net.deali.designsystem.component.chipFilledImageDepthSmall01
 import net.deali.designsystem.component.chipFilledImageSmall01
 import net.deali.designsystem.component.chipFilledSmall01
 import net.deali.designsystem.component.chipFilledSmall02
+import net.deali.designsystem.component.chipFilledSmall03
 import net.deali.designsystem.component.chipFilledSquareSmall01
 import net.deali.designsystem.component.chipFilledSquareSmall02
 import net.deali.designsystem.component.chipOutlineSmall01
@@ -37,6 +38,7 @@ fun SmallChipSamples(modifier: Modifier = Modifier) {
         item { ChipOutlineSquareSmall01Samples() }
         item { ChipFilledSmall01Samples() }
         item { ChipFilledSmall02Samples() }
+        item { ChipFilledSmall03Samples() }
         item { ChipFilledSquareSmall01Samples() }
         item { ChipFilledSquareSmall02Samples() }
         item { ChipFilledDepthSmall01Samples() }
@@ -585,6 +587,143 @@ private fun ChipFilledSmall02Samples() {
             }
             Box {
                 chipFilledSmall02(
+                    icon = R.drawable.ic_refresh_1,
+                    onClick = {},
+                    enabled = false,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ChipFilledSmall03Samples() {
+    ChipSampleLayout(title = "chipFilledSmall03") {
+        VerticalGrid(
+            columns = SimpleGridCells.Fixed(3),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "Text",
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "Selected",
+                    selected = true,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "Disabled",
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_bookmark_1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_bookmark_1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_bookmark_1_filled,
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "TTT",
+                    leftIcon = R.drawable.ic_check,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "SSS",
+                    leftIcon = R.drawable.ic_check,
+                    selected = true,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    text = "DDD",
+                    leftIcon = R.drawable.ic_check,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "TTT",
+                    rightIcon = R.drawable.ic_x_s,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "SSS",
+                    rightIcon = R.drawable.ic_x_s,
+                    selected = true,
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    onClick = {},
+                    onRightIconClick = {},
+                    text = "DDD",
+                    rightIcon = R.drawable.ic_x_s,
+                    enabled = false,
+                )
+            }
+
+            Box {
+                chipFilledSmall03(
+                    icon = R.drawable.ic_refresh_1,
+                    onClick = {},
+                )
+            }
+            Box {
+                chipFilledSmall03(
+                    icon = R.drawable.ic_refresh_1,
+                    onClick = {},
+                    selected = true,
+                )
+            }
+            Box {
+                chipFilledSmall03(
                     icon = R.drawable.ic_refresh_1,
                     onClick = {},
                     enabled = false,

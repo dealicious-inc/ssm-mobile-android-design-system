@@ -5,6 +5,7 @@ package net.deali.designsystem.component
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -222,6 +223,46 @@ fun tabBarChip01(
                 },
             )
         }
+    }
+}
+
+@Composable
+fun tabBarChip02(
+    tabTitles: List<String>,
+    currentIndex: Int,
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    scope: CoroutineScope = rememberCoroutineScope(),
+    onSelectTab: (index: Int) -> Unit,
+) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth(),
+    ) {
+        LazyRow(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(55.dp),
+            state = state,
+            contentPadding = PaddingValues(horizontal = 12.dp)
+        ) {
+            itemsIndexed(tabTitles) { index, title ->
+                chipFilledSmall03(
+                    modifier = Modifier
+                        .padding(horizontal = 4.dp, vertical = 12.dp),
+                    text = title,
+                    selected = index == currentIndex,
+                    onClick = {
+                        scope.launch {
+                            onSelectTab(index)
+                            state.animateScrollAndCentralizeItem(index)
+                        }
+                    },
+                )
+            }
+        }
+
+        HorizontalDivider(color = DealiColor.g20)
     }
 }
 
@@ -542,6 +583,16 @@ private fun PreviewTabBarSlider02() {
 @Composable
 private fun PreviewTabBarChip01() {
     tabBarChip01(
+        tabTitles = listOf("서브0", "서브1", "서브2"),
+        currentIndex = 1,
+        onSelectTab = {},
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewTabBarChip02() {
+    tabBarChip02(
         tabTitles = listOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},

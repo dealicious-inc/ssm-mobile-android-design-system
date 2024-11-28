@@ -375,6 +375,93 @@ fun chipFilledSmall02(
 }
 
 @Composable
+fun chipFilledSmall03(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    leftIconColor: Color? = Color.Unspecified,
+    rightIconColor: Color? = Color.Unspecified,
+    onLeftIconClick: (() -> Unit)? = null,
+    onRightIconClick: (() -> Unit)? = null,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    textAlign: TextAlign? = null,
+    singleLine: Boolean = true,
+) {
+    CoreRegularChip(
+        onClick = onClick,
+        text = text,
+        textAlign = textAlign,
+        textSingleLine = singleLine,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        leftIconColor = leftIconColor,
+        rightIconColor = rightIconColor,
+        onLeftIconClick = onLeftIconClick,
+        onRightIconClick = onRightIconClick,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipStyle = ChipStyle.Filled,
+        chipSize = ChipSize.Small,
+        chipColors = ChipDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            selectedBackgroundColor = DealiColor.primary01,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.g20,
+            selectedOutlineColor = DealiColor.transparent,
+            disabledOutlineColor = DealiColor.transparent,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier
+    )
+}
+
+
+@Composable
+fun chipFilledSmall03(
+    onClick: () -> Unit,
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    iconColor: Color? = Color.Unspecified,
+    clickable: Boolean = true,
+    selected: Boolean = false,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreIconOnlyChip(
+        onClick = onClick,
+        icon = icon,
+        iconColor = iconColor,
+        clickable = clickable,
+        selected = selected,
+        enabled = enabled,
+        chipStyle = ChipStyle.Filled,
+        chipSize = ChipSize.Small,
+        chipColors = ChipDefaults.colors(
+            backgroundColor = DealiColor.primary04,
+            selectedBackgroundColor = DealiColor.primary01,
+            disabledBackgroundColor = DealiColor.g10,
+            contentColor = DealiColor.g100,
+            selectedContentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.g50,
+            outlineColor = DealiColor.g20,
+            selectedOutlineColor = DealiColor.transparent,
+            disabledOutlineColor = DealiColor.transparent,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
 fun chipFilledSquareSmall01(
     onClick: () -> Unit,
     text: String,
