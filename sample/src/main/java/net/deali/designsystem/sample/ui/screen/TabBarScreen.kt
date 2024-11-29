@@ -25,6 +25,7 @@ import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.tabBarChip01
 import net.deali.designsystem.component.tabBarChip01Layout
+import net.deali.designsystem.component.tabBarImageChip
 import net.deali.designsystem.component.tabBarSegment01Layout
 import net.deali.designsystem.component.tabBarSlider01
 import net.deali.designsystem.component.tabBarSlider01Layout
@@ -94,6 +95,31 @@ fun TabBarScreen(
             val tabs = List(3) { index ->
                 Tab("Title$index", index == 1)
             }
+
+            DealiText(
+                modifier = Modifier.padding(10.dp),
+                text = "tabBarImageChip",
+                style = DealiFont.sh1sb20,
+                color = DealiColor.g100,
+            )
+
+            var tabBarImageChipIndex by remember { mutableIntStateOf(1) }
+            tabBarImageChip(
+                imageChipSets = listOf(
+                    setOf("이미지칩1", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이2", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미3", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지4", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지칩5", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지칩입6", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지칩입니7", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지칩입니다8", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                ),
+                currentIndex = tabBarImageChipIndex,
+                onSelectTab = {
+                    tabBarImageChipIndex = it
+                },
+            )
 
             DealiText(
                 modifier = Modifier.padding(10.dp),

@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import net.deali.designsystem.R
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
 import net.deali.designsystem.internal.tabbar.CoreScrollableTabBar
 import net.deali.designsystem.internal.tabbar.CoreTabBarLayout
@@ -263,6 +264,42 @@ fun tabBarChip02(
         }
 
         HorizontalDivider(color = DealiColor.g20)
+    }
+}
+
+@Composable
+fun tabBarImageChip(
+    imageChipSets: List<Set<String>>,
+    currentIndex: Int,
+    modifier: Modifier = Modifier,
+    state: LazyListState = rememberLazyListState(),
+    scope: CoroutineScope = rememberCoroutineScope(),
+    onSelectTab: (index: Int) -> Unit,
+) {
+    LazyRow(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(56.dp)
+            .background(DealiColor.primary04),
+        state = state,
+        contentPadding = PaddingValues(horizontal = 12.dp)
+    ) {
+        itemsIndexed(imageChipSets) { index, imageChipSet ->
+            imgChipSmall01(
+                modifier = Modifier
+                    .padding(horizontal = 4.dp, vertical = 12.dp),
+                text = imageChipSet.first(),
+                imageUrl = imageChipSet.last(),
+                selected = index == currentIndex,
+                placeholder = R.drawable.ic_home_filled,
+                onClick = {
+                    scope.launch {
+                        onSelectTab(index)
+                        state.animateScrollAndCentralizeItem(index)
+                    }
+                },
+            )
+        }
     }
 }
 
@@ -594,6 +631,20 @@ private fun PreviewTabBarChip01() {
 private fun PreviewTabBarChip02() {
     tabBarChip02(
         tabTitles = listOf("서브0", "서브1", "서브2"),
+        currentIndex = 1,
+        onSelectTab = {},
+    )
+}
+
+@Preview
+@Composable
+private fun PreviewTabBarImageChip() {
+    tabBarImageChip(
+        imageChipSets = listOf(
+            setOf("이미지칩1", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+            setOf("이미지칩2", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+            setOf("이미지칩3", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+        ),
         currentIndex = 1,
         onSelectTab = {},
     )
