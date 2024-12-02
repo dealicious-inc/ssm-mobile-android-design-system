@@ -4,6 +4,7 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -193,6 +194,13 @@ fun tabBarSlider02(
     )
 }
 
+/**
+ * 검정 Chip으로 이루어져 있는 탭바
+ * @param tabTitles 각 탭의 타이틀 리스트
+ * @param currentIndex 현재 선택된 탭의 인덱스
+ * @horizontalContentPadding 탭 좌우 여백 간격
+ * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
+ */
 @Composable
 fun tabBarChip01(
     tabTitles: List<String>,
@@ -208,12 +216,13 @@ fun tabBarChip01(
             .height(56.dp)
             .background(DealiColor.primary04),
         state = state,
-        contentPadding = PaddingValues(horizontal = 12.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         itemsIndexed(tabTitles) { index, title ->
             chipFilledSmall02(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp, vertical = 12.dp),
+                    .padding(vertical = 12.dp),
                 text = title,
                 selected = index == currentIndex,
                 onClick = {
@@ -227,6 +236,13 @@ fun tabBarChip01(
     }
 }
 
+/**
+ * Primary 색상 Chip으로 이루어져 있는 탭바
+ * @param tabTitles 각 탭의 타이틀 리스트
+ * @param currentIndex 현재 선택된 탭의 인덱스
+ * @horizontalContentPadding 탭 좌우 여백 간격
+ * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
+ */
 @Composable
 fun tabBarChip02(
     tabTitles: List<String>,
@@ -245,12 +261,13 @@ fun tabBarChip02(
                 .fillMaxWidth()
                 .height(55.dp),
             state = state,
-            contentPadding = PaddingValues(horizontal = 12.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
             itemsIndexed(tabTitles) { index, title ->
                 chipFilledSmall03(
                     modifier = Modifier
-                        .padding(horizontal = 4.dp, vertical = 12.dp),
+                        .padding(vertical = 12.dp),
                     text = title,
                     selected = index == currentIndex,
                     onClick = {
@@ -267,14 +284,21 @@ fun tabBarChip02(
     }
 }
 
+/**
+ * 이미지 + 텍스트 형태의 이미지칩으로 이루어진 가로 스크롤 탭바
+ * @param imageChipSets (타이틀, 이미지URL)로 이루어진 이미지칩 리스트
+ * @param currentIndex 현재 선택된 탭의 인덱스
+ * @param horizontalContentPadding 탭 좌우 여백 간격
+ * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
+ */
 @Composable
 fun tabBarImageChip(
     imageChipSets: List<Set<String>>,
     currentIndex: Int,
+    onSelectTab: (index: Int) -> Unit,
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
-    onSelectTab: (index: Int) -> Unit,
 ) {
     LazyRow(
         modifier = modifier
@@ -282,12 +306,13 @@ fun tabBarImageChip(
             .height(56.dp)
             .background(DealiColor.primary04),
         state = state,
-        contentPadding = PaddingValues(horizontal = 12.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp)
     ) {
         itemsIndexed(imageChipSets) { index, imageChipSet ->
             imgChipSmall01(
                 modifier = Modifier
-                    .padding(horizontal = 4.dp, vertical = 12.dp),
+                    .padding(vertical = 12.dp),
                 text = imageChipSet.first(),
                 imageUrl = imageChipSet.last(),
                 selected = index == currentIndex,
@@ -639,11 +664,13 @@ private fun PreviewTabBarChip02() {
 @Preview
 @Composable
 private fun PreviewTabBarImageChip() {
+    val imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+
     tabBarImageChip(
         imageChipSets = listOf(
-            setOf("이미지칩1", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-            setOf("이미지칩2", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-            setOf("이미지칩3", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+            setOf("이미지칩1", imageUrl),
+            setOf("이미지칩2", imageUrl),
+            setOf("이미지칩3", imageUrl),
         ),
         currentIndex = 1,
         onSelectTab = {},

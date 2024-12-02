@@ -25,6 +25,7 @@ import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.tabBarChip01
 import net.deali.designsystem.component.tabBarChip01Layout
+import net.deali.designsystem.component.tabBarChip02
 import net.deali.designsystem.component.tabBarImageChip
 import net.deali.designsystem.component.tabBarSegment01Layout
 import net.deali.designsystem.component.tabBarSlider01
@@ -56,7 +57,7 @@ fun TabBarScreen(
         ) {
             DealiText(
                 modifier = Modifier.padding(10.dp),
-                text = "tabBarSlider01",
+                text = "tabBarSlider",
                 style = DealiFont.sh1sb20,
                 color = DealiColor.g100,
             )
@@ -92,9 +93,14 @@ fun TabBarScreen(
                 },
             )
 
-            val tabs = List(3) { index ->
-                Tab("Title$index", index == 1)
-            }
+            var tabBarChip02Index by remember { mutableIntStateOf(1) }
+            tabBarChip02(
+                tabTitles = tabsSlide,
+                currentIndex = tabBarChip02Index,
+                onSelectTab = {
+                    tabBarChip02Index = it
+                },
+            )
 
             DealiText(
                 modifier = Modifier.padding(10.dp),
@@ -104,16 +110,18 @@ fun TabBarScreen(
             )
 
             var tabBarImageChipIndex by remember { mutableIntStateOf(1) }
+            val imageUrl =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
             tabBarImageChip(
                 imageChipSets = listOf(
-                    setOf("이미지칩1", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이2", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미3", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미지4", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미지칩5", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미지칩입6", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미지칩입니7", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
-                    setOf("이미지칩입니다8", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"),
+                    setOf("이미지칩1", imageUrl),
+                    setOf("이미지칩2", imageUrl),
+                    setOf("이미지칩3", imageUrl),
+                    setOf("이미지칩4", imageUrl),
+                    setOf("이미지칩5", imageUrl),
+                    setOf("이미지칩6", imageUrl),
+                    setOf("이미지칩7", imageUrl),
+                    setOf("이미지칩8", imageUrl),
                 ),
                 currentIndex = tabBarImageChipIndex,
                 onSelectTab = {
@@ -127,6 +135,10 @@ fun TabBarScreen(
                 style = DealiFont.sh1sb20,
                 color = DealiColor.g100,
             )
+
+            val tabs = List(3) { index ->
+                Tab("Title$index", index == 1)
+            }
 
             tabBarSegment01Layout(
                 tabs = tabs,
