@@ -46,7 +46,6 @@ internal fun CoreFixedTabBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(DealiColor.primary04)
     ) {
         HorizontalDivider(
             modifier = Modifier.align(Alignment.BottomCenter),
@@ -97,8 +96,6 @@ internal fun CoreFixedTabBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(DealiColor.primary04)
-
     ) {
         HorizontalDivider(
             modifier = Modifier.align(Alignment.BottomCenter),
@@ -149,7 +146,6 @@ internal fun CoreScrollableTabBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(DealiColor.primary04)
     ) {
         HorizontalDivider(
             modifier = Modifier
@@ -199,7 +195,6 @@ internal fun CoreScrollableTabBar(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .background(DealiColor.primary04)
     ) {
         HorizontalDivider(
             modifier = Modifier

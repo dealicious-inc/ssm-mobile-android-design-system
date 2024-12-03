@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
@@ -33,6 +34,8 @@ import net.deali.designsystem.internal.tabbar.CoreTabBarLayout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.animation.animateScrollAndCentralizeItem
+
+val TAB_BAR_CONTENT_PADDING = 16.dp
 
 /**
  * 화면의 1/n 크기 고정된 탭바
@@ -50,7 +53,9 @@ fun tabBarSegment01(
     onSelectTab: (index: Int) -> Unit,
 ) {
     CoreFixedTabBar(
-        modifier = modifier.height(44.dp),
+        modifier = modifier
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabTitles = tabTitles,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.g100,
@@ -75,7 +80,9 @@ fun tabBarSegment01(
     onSelectTab: (index: Int) -> Unit,
 ) {
     CoreFixedTabBar(
-        modifier = modifier.height(44.dp),
+        modifier = modifier
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabs = tabs,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.g100,
@@ -102,7 +109,8 @@ fun tabBarSlider01(
     CoreScrollableTabBar(
         modifier = modifier
             .fillMaxWidth()
-            .height(44.dp),
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabTitles = tabTitles,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.primary01,
@@ -130,7 +138,8 @@ fun tabBarSlider01(
     CoreScrollableTabBar(
         modifier = modifier
             .fillMaxWidth()
-            .height(44.dp),
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabs = tabs,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.primary01,
@@ -157,7 +166,8 @@ fun tabBarSlider02(
     CoreScrollableTabBar(
         modifier = modifier
             .fillMaxWidth()
-            .height(44.dp),
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabTitles = tabTitles,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.g100,
@@ -185,7 +195,8 @@ fun tabBarSlider02(
     CoreScrollableTabBar(
         modifier = modifier
             .fillMaxWidth()
-            .height(44.dp),
+            .height(44.dp)
+            .background(DealiColor.primary04),
         tabs = tabs,
         currentIndex = currentIndex,
         selectedTextColor = DealiColor.g100,
@@ -210,6 +221,10 @@ fun tabBarChip01(
     scope: CoroutineScope = rememberCoroutineScope(),
     onSelectTab: (index: Int) -> Unit,
 ) {
+    val contentPaddingPx = with(LocalDensity.current) {
+        TAB_BAR_CONTENT_PADDING.toPx()
+    }
+
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
@@ -217,7 +232,7 @@ fun tabBarChip01(
             .background(DealiColor.primary04),
         state = state,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
     ) {
         itemsIndexed(tabTitles) { index, title ->
             chipFilledSmall02(
@@ -228,7 +243,7 @@ fun tabBarChip01(
                 onClick = {
                     scope.launch {
                         onSelectTab(index)
-                        state.animateScrollAndCentralizeItem(index)
+                        state.animateScrollAndCentralizeItem(index, contentPaddingPx)
                     }
                 },
             )
@@ -252,9 +267,14 @@ fun tabBarChip02(
     scope: CoroutineScope = rememberCoroutineScope(),
     onSelectTab: (index: Int) -> Unit,
 ) {
+    val contentPaddingPx = with(LocalDensity.current) {
+        TAB_BAR_CONTENT_PADDING.toPx()
+    }
+
     Column(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(DealiColor.primary04),
     ) {
         LazyRow(
             modifier = Modifier
@@ -262,7 +282,7 @@ fun tabBarChip02(
                 .height(55.dp),
             state = state,
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp)
+            contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
         ) {
             itemsIndexed(tabTitles) { index, title ->
                 chipFilledSmall03(
@@ -273,7 +293,7 @@ fun tabBarChip02(
                     onClick = {
                         scope.launch {
                             onSelectTab(index)
-                            state.animateScrollAndCentralizeItem(index)
+                            state.animateScrollAndCentralizeItem(index, contentPaddingPx)
                         }
                     },
                 )
@@ -300,6 +320,10 @@ fun tabBarImageChip(
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
 ) {
+    val paddingPx = with(LocalDensity.current) {
+        TAB_BAR_CONTENT_PADDING.toPx()
+    }
+
     LazyRow(
         modifier = modifier
             .fillMaxWidth()
@@ -307,7 +331,7 @@ fun tabBarImageChip(
             .background(DealiColor.primary04),
         state = state,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        contentPadding = PaddingValues(horizontal = 16.dp)
+        contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
     ) {
         itemsIndexed(imageChipSets) { index, imageChipSet ->
             imgChipSmall01(
@@ -320,7 +344,7 @@ fun tabBarImageChip(
                 onClick = {
                     scope.launch {
                         onSelectTab(index)
-                        state.animateScrollAndCentralizeItem(index)
+                        state.animateScrollAndCentralizeItem(index, paddingPx)
                     }
                 },
             )
@@ -352,7 +376,8 @@ fun tabBarSegment01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -391,7 +416,8 @@ fun tabBarSegment01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -430,7 +456,8 @@ fun tabBarSlider02Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -469,7 +496,8 @@ fun tabBarSlider02Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -508,7 +536,8 @@ fun tabBarSlider01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -547,7 +576,8 @@ fun tabBarSlider01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -586,7 +616,8 @@ fun tabBarChip01Layout(
     pageContent: @Composable PagerScope.(page: Int) -> Unit
 ) {
     CoreTabBarLayout(
-        modifier = modifier,
+        modifier = modifier
+            .background(DealiColor.primary04),
         pagerState = pagerState,
         onSelectTab = onSelectTab,
         userSwipeEnabled = userSwipeEnabled,
@@ -664,7 +695,8 @@ private fun PreviewTabBarChip02() {
 @Preview
 @Composable
 private fun PreviewTabBarImageChip() {
-    val imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val imageUrl =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
 
     tabBarImageChip(
         imageChipSets = listOf(

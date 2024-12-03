@@ -1,20 +1,20 @@
 package net.deali.designsystem.util.animation
 
-import android.content.res.Resources
-import android.util.TypedValue
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.lazy.LazyListState
 
-suspend fun LazyListState.animateScrollAndCentralizeItem(index: Int) {
+/**
+ * LazyListState를 사용하여 스크롤을 애니메이션하고, 해당 아이템을 중앙에 위치하도록 합니다.
+ *
+ * @param index 중앙에 위치시킬 아이템의 인덱스
+ * @param contentPaddingPx 중앙값 계산을 위한 LazyRow의 horizontal contentPadding
+ */
+suspend fun LazyListState.animateScrollAndCentralizeItem(index: Int, contentPaddingPx: Float) {
     val itemInfo = this.layoutInfo.visibleItemsInfo.firstOrNull { it.index == index }
     if (itemInfo != null) {
-        //중앙값을 구할 때, LazyRow horizontal contentPadding 16dp의 반값인 8dp만큼 조정한다.
-        val metrics = Resources.getSystem().displayMetrics
-        val pxValue = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 8f, metrics)
-
-        val center = (layoutInfo.viewportEndOffset / 2) - pxValue
+        val center = (layoutInfo.viewportEndOffset / 2) - (contentPaddingPx / 2)
         val childCenter = (itemInfo.offset + itemInfo.size / 2)
-        animateScrollBy((childCenter - center).toFloat())
+        animateScrollBy((childCenter - center))
     } else {
         animateScrollToItem(index)
     }
