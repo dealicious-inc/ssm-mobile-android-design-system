@@ -2,6 +2,7 @@
 
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +23,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
@@ -306,14 +309,13 @@ fun tabBarChip02(
 
 /**
  * 이미지 + 텍스트 형태의 이미지칩으로 이루어진 가로 스크롤 탭바
- * @param imageChipSets (타이틀, 이미지URL)로 이루어진 이미지칩 리스트
+ * @param imgChips [ImgChip] 리스트
  * @param currentIndex 현재 선택된 탭의 인덱스
- * @param horizontalContentPadding 탭 좌우 여백 간격
  * @param onSelectTab 탭 클릭 or 탭 스와이프 시 콜백
  */
 @Composable
-fun tabBarImageChip(
-    imageChipSets: List<Set<String>>,
+fun tabBarImgChip(
+    imgChips: List<ImgChip>,
     currentIndex: Int,
     onSelectTab: (index: Int) -> Unit,
     modifier: Modifier = Modifier,
@@ -333,20 +335,26 @@ fun tabBarImageChip(
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
     ) {
-        itemsIndexed(imageChipSets) { index, imageChipSet ->
+        itemsIndexed(imgChips) { index, imgChip ->
             imgChipSmall01(
                 modifier = Modifier
                     .padding(vertical = 12.dp),
-                text = imageChipSet.first(),
-                imageUrl = imageChipSet.last(),
+                text = imgChip.text,
+                imageUrl = imgChip.imageUrl,
+                subContent = imgChip.subContent,
                 selected = index == currentIndex,
-                placeholder = R.drawable.ic_home_filled,
+                placeholder = imgChip.placeholder ?: R.drawable.ic_home_filled,
+                rightIcon = imgChip.rightIcon,
+                rightIconColor = imgChip.rightIconColor ?: Color.Unspecified,
+                clickable = imgChip.clickable,
+                enabled = imgChip.enabled,
                 onClick = {
                     scope.launch {
                         onSelectTab(index)
                         state.animateScrollAndCentralizeItem(index, paddingPx)
                     }
                 },
+                onRightIconClick = imgChip.onRightIconClick,
             )
         }
     }
@@ -642,6 +650,37 @@ data class Tab(
     val isShowBadge: Boolean,
 )
 
+/**
+ * tabBarImgChip에서 사용할 이미지 칩 클래스
+ *
+ * @param imageUrl 이미지 URL
+ * @param text 이미지 칩 텍스트
+ * @param modifier Modifier
+ * @param placeholder default 이미지 리소스 (없을 시 ic_home_filled 로 처리)
+ * @param textAlign 이미지 칩 텍스트 정렬
+ * @param rightIcon 오른쪽 아이콘 리소스 id
+ * @param rightIconColor 오른쪽 아이콘 있을 경우 색상
+ * @param clickable 클릭 가능 여부
+ * @param enabled 이미지 칩 활성화 여부
+ * @param onClick 이미지 칩 클릭 시 콜백
+ * @param subContent 이미지 칩 하단 추가 컨텐츠
+ * @param onRightIconClick 오른쪽 아이콘 클릭 시 콜백
+ */
+data class ImgChip(
+    val imageUrl: String,
+    val text: String,
+    val modifier: Modifier = Modifier,
+    @DrawableRes val placeholder: Int? = null,
+    val textAlign: TextAlign? = null,
+    @DrawableRes val rightIcon: Int? = null,
+    val rightIconColor: Color? = Color.Unspecified,
+    val clickable: Boolean = true,
+    val enabled: Boolean = true,
+    val onClick: () -> Unit,
+    val subContent: @Composable (() -> Unit)? = null,
+    val onRightIconClick: (() -> Unit)? = null,
+)
+
 @Preview
 @Composable
 private fun PreviewTabBarSegment01() {
@@ -695,15 +734,16 @@ private fun PreviewTabBarChip02() {
 @Preview
 @Composable
 private fun PreviewTabBarImageChip() {
-    val imageUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+    val imgChips = List(5) { index ->
+        ImgChip(
+            imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
+            text = "이미지칩$index",
+            onClick = {}
+        )
+    }
 
-    tabBarImageChip(
-        imageChipSets = listOf(
-            setOf("이미지칩1", imageUrl),
-            setOf("이미지칩2", imageUrl),
-            setOf("이미지칩3", imageUrl),
-        ),
+    tabBarImgChip(
+        imgChips = imgChips,
         currentIndex = 1,
         onSelectTab = {},
     )

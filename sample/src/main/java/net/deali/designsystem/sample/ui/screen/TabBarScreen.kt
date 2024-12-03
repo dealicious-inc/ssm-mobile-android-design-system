@@ -2,8 +2,10 @@ package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -19,14 +21,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.ImgChip
 import net.deali.designsystem.component.Tab
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.tabBarChip01
 import net.deali.designsystem.component.tabBarChip01Layout
 import net.deali.designsystem.component.tabBarChip02
-import net.deali.designsystem.component.tabBarImageChip
+import net.deali.designsystem.component.tabBarImgChip
 import net.deali.designsystem.component.tabBarSegment01Layout
 import net.deali.designsystem.component.tabBarSlider01
 import net.deali.designsystem.component.tabBarSlider01Layout
@@ -109,20 +114,39 @@ fun TabBarScreen(
                 color = DealiColor.g100,
             )
 
-            var tabBarImageChipIndex by remember { mutableIntStateOf(1) }
-            val imageUrl =
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
-            tabBarImageChip(
-                imageChipSets = listOf(
-                    setOf("이미지칩1", imageUrl),
-                    setOf("이미지칩2", imageUrl),
-                    setOf("이미지칩3", imageUrl),
-                    setOf("이미지칩4", imageUrl),
-                    setOf("이미지칩5", imageUrl),
-                    setOf("이미지칩6", imageUrl),
-                    setOf("이미지칩7", imageUrl),
-                    setOf("이미지칩8", imageUrl),
-                ),
+            var tabBarImageChipIndex by remember { mutableIntStateOf(0) }
+            val imgChips = List(2) { index ->
+                ImgChip(
+                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
+                    text = "이미지칩$index",
+                    onClick = {},
+                )
+            } + List(5) { index ->
+                ImgChip(
+                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
+                    text = "이미지칩${index + 2}",
+                    onClick = {},
+                    subContent = {
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(2.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon16(
+                                iconRes = R.drawable.ic_arrow_close_1_filled,
+                                color = DealiColor.primary01
+                            )
+                            DealiText(
+                                text = "999%",
+                                style = DealiFont.b2sb14,
+                                color = DealiColor.primary01
+                            )
+                        }
+                    }
+                )
+            }
+
+            tabBarImgChip(
+                imgChips = imgChips,
                 currentIndex = tabBarImageChipIndex,
                 onSelectTab = {
                     tabBarImageChipIndex = it
@@ -249,7 +273,7 @@ fun TabBarScreen(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(100.dp)
+                            .height(150.dp)
                             .background(DealiColor.primary03)
                     ) {
                         DealiText(

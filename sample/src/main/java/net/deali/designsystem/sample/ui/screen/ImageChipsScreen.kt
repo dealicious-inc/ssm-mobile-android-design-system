@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.TopBar
@@ -61,5 +62,13 @@ internal fun ImageChipSampleLayout(
             color = DealiColor.g100,
         )
         content()
+
+
     }
+}
+
+@Preview
+@Composable
+private fun PreviewImageChipsScreen() {
+    ImageChipsScreen(onBackPress = {})
 }
