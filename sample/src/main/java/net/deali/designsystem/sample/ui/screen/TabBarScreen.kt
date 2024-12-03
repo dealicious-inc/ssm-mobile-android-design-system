@@ -1,5 +1,6 @@
 package net.deali.designsystem.sample.ui.screen
 
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -19,6 +20,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -115,17 +117,48 @@ fun TabBarScreen(
             )
 
             var tabBarImageChipIndex by remember { mutableIntStateOf(0) }
-            val imgChips = List(2) { index ->
+            val context = LocalContext.current
+            var toast: Toast? = null
+            val imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+
+            val imgChips = listOf(
                 ImgChip(
-                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
-                    text = "이미지칩$index",
-                    onClick = {},
+                    imageUrl = imageUrl,
+                    text = "이미지칩0",
+                ),
+
+                ImgChip(
+                    imageUrl = imageUrl,
+                    text = "이미지칩1",
+                    rightIcon = R.drawable.ic_alarm_filled,
+                    onRightIconClick = {
+                        toast?.cancel()
+                        toast = Toast.makeText(
+                            context,
+                            "Icon clicked 1",
+                            Toast.LENGTH_SHORT
+                        ).apply { show() }
+                    }
+                ),
+
+                ImgChip(
+                    imageUrl = "",
+                    placeholder = R.drawable.ic_home_filled,
+                    text = "이미지칩2",
+                    rightIcon = R.drawable.ic_x,
+                    onRightIconClick = {
+                        toast?.cancel()
+                        toast = Toast.makeText(
+                            context,
+                            "Icon clicked 2",
+                            Toast.LENGTH_SHORT
+                        ).apply { show() }
+                    }
                 )
-            } + List(5) { index ->
+            ) + List(5) { i ->
                 ImgChip(
-                    imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
-                    text = "이미지칩${index + 2}",
-                    onClick = {},
+                    imageUrl = imageUrl,
+                    text = "이미지칩${i + 3}",
                     subContent = {
                         Row(
                             horizontalArrangement = Arrangement.spacedBy(2.dp),
@@ -150,7 +183,7 @@ fun TabBarScreen(
                 currentIndex = tabBarImageChipIndex,
                 onSelectTab = {
                     tabBarImageChipIndex = it
-                },
+                }
             )
 
             DealiText(

@@ -25,10 +25,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.tabbar.CoreFixedTabBar
@@ -346,11 +346,12 @@ fun tabBarImgChip(
                 placeholder = imgChip.placeholder ?: R.drawable.ic_home_filled,
                 rightIcon = imgChip.rightIcon,
                 rightIconColor = imgChip.rightIconColor ?: Color.Unspecified,
-                clickable = imgChip.clickable,
-                enabled = imgChip.enabled,
                 onClick = {
                     scope.launch {
                         onSelectTab(index)
+
+                        //select 된 후에 칩 크기가 변한 후 스크롤 애니메이션을 실행하기 위해 100ms 딜레이 추가
+                        delay(100)
                         state.animateScrollAndCentralizeItem(index, paddingPx)
                     }
                 },
@@ -657,12 +658,8 @@ data class Tab(
  * @param text 이미지 칩 텍스트
  * @param modifier Modifier
  * @param placeholder default 이미지 리소스 (없을 시 ic_home_filled 로 처리)
- * @param textAlign 이미지 칩 텍스트 정렬
  * @param rightIcon 오른쪽 아이콘 리소스 id
  * @param rightIconColor 오른쪽 아이콘 있을 경우 색상
- * @param clickable 클릭 가능 여부
- * @param enabled 이미지 칩 활성화 여부
- * @param onClick 이미지 칩 클릭 시 콜백
  * @param subContent 이미지 칩 하단 추가 컨텐츠
  * @param onRightIconClick 오른쪽 아이콘 클릭 시 콜백
  */
@@ -671,12 +668,8 @@ data class ImgChip(
     val text: String,
     val modifier: Modifier = Modifier,
     @DrawableRes val placeholder: Int? = null,
-    val textAlign: TextAlign? = null,
     @DrawableRes val rightIcon: Int? = null,
     val rightIconColor: Color? = Color.Unspecified,
-    val clickable: Boolean = true,
-    val enabled: Boolean = true,
-    val onClick: () -> Unit,
     val subContent: @Composable (() -> Unit)? = null,
     val onRightIconClick: (() -> Unit)? = null,
 )
@@ -738,7 +731,6 @@ private fun PreviewTabBarImageChip() {
         ImgChip(
             imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
             text = "이미지칩$index",
-            onClick = {}
         )
     }
 
