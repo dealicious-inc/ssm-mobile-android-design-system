@@ -222,6 +222,7 @@ fun tabBarChip01(
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
+    backgroundColor: Color = DealiColor.primary04,
     onSelectTab: (index: Int) -> Unit,
 ) {
     val contentPaddingPx = with(LocalDensity.current) {
@@ -232,7 +233,7 @@ fun tabBarChip01(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(DealiColor.primary04),
+            .background(backgroundColor),
         state = state,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
@@ -268,6 +269,7 @@ fun tabBarChip02(
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
+    backgroundColor: Color = DealiColor.primary04,
     onSelectTab: (index: Int) -> Unit,
 ) {
     val contentPaddingPx = with(LocalDensity.current) {
@@ -277,7 +279,7 @@ fun tabBarChip02(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(DealiColor.primary04),
+            .background(backgroundColor),
     ) {
         LazyRow(
             modifier = Modifier
@@ -319,6 +321,7 @@ fun tabBarImgChip(
     currentIndex: Int,
     onSelectTab: (index: Int) -> Unit,
     modifier: Modifier = Modifier,
+    backgroundColor: Color = DealiColor.primary04,
     state: LazyListState = rememberLazyListState(),
     scope: CoroutineScope = rememberCoroutineScope(),
 ) {
@@ -330,7 +333,7 @@ fun tabBarImgChip(
         modifier = modifier
             .fillMaxWidth()
             .height(56.dp)
-            .background(DealiColor.primary04),
+            .background(backgroundColor),
         state = state,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = TAB_BAR_CONTENT_PADDING)
