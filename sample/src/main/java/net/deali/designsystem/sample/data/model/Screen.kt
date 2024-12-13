@@ -15,6 +15,7 @@ sealed class Screen(
     /** Atoms */
     data object Buttons : Screen("buttons")
     data object ButtonsRound : Screen("buttonsRound")
+    data object TextLink : Screen("textLink")
     data object Chips : Screen("chips")
     data object ImageChips : Screen("imageChips")
     data object CheckBox : Screen("checkBox")

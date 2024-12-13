@@ -47,6 +47,7 @@ class MainActivity : ComponentActivity() {
     private fun getAtoms() = listOf(
         Screen.Buttons,
         Screen.ButtonsRound,
+        Screen.TextLink,
         Screen.Chips,
         Screen.ImageChips,
         Screen.CheckBox,

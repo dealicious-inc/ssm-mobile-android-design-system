@@ -45,6 +45,7 @@ import net.deali.designsystem.sample.ui.screen.TextAreaButtonScreen
 import net.deali.designsystem.sample.ui.screen.TextAreaScreen
 import net.deali.designsystem.sample.ui.screen.TextInputScreen
 import net.deali.designsystem.sample.ui.screen.TextInputWithButtonScreen
+import net.deali.designsystem.sample.ui.screen.TextLinkScreen
 import net.deali.designsystem.sample.ui.screen.TooltipScreen
 import net.deali.designsystem.sample.ui.screen.TopBarScreen
 import net.deali.designsystem.sample.ui.screen.TypographyScreen
@@ -118,6 +119,9 @@ private fun NavGraphBuilder.menuGraph(
     composable(Screen.ButtonsRound.route) {
         ButtonsRoundScreen(onBackPress = navController::popBackStack)
     }
+    composable(Screen.TextLink.route) {
+        TextLinkScreen(onBackPress = navController::popBackStack)
+    }
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)
     }
@@ -169,6 +173,9 @@ private fun NavGraphBuilder.atomsGraph(
     }
     composable(Screen.ButtonsRound.route) {
         ButtonsRoundScreen(onBackPress = navController::popBackStack)
+    }
+    composable(Screen.TextLink.route) {
+        TextLinkScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.Chips.route) {
         ChipsScreen(onBackPress = navController::popBackStack)
