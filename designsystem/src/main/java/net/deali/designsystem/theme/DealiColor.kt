@@ -1,9 +1,21 @@
 package net.deali.designsystem.theme
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import net.deali.designsystem.component.VerticalSpacer
+import net.deali.designsystem.internal.linearGradient
 
 @Immutable
 object DealiColor {
@@ -63,11 +75,51 @@ object DealiColor {
     val transparent: Color = Color(0x00FFFFFF)
     val ripple: Color = Color(0x22000000)
 
+    val mbs01: Color = Color(0xFF1F5EFF)
+    val mbs02: Color = Color(0xFFE5FE1E)
+
     val gradient: Brush = kotlin.run {
         val start = Color(0xFFFB4760)
         val end = Color(0xFFFE1EA4)
         Brush.horizontalGradient(colors = listOf(start, end))
     }
+
+    val gradient01: Brush = kotlin.run {
+        Brush.horizontalGradient(colors = listOf(mbs01, mbs02))
+    }
+
+    val gradient02: Brush = kotlin.run {
+        Brush.linearGradient(
+            0.21f to mbs01,
+            1.0f to mbs02,
+            angleInDegrees = 282f,
+        )
+    }
 }
 
 internal val LocalColors = staticCompositionLocalOf { DealiColor }
+
+@Preview(showBackground = true)
+@Composable
+fun Preview() {
+    Column {
+
+        Box(
+            modifier = Modifier
+                .width(176.dp)
+                .height(54.dp)
+                .background(DealiColor.gradient01)
+        )
+
+        VerticalSpacer(16.dp)
+
+        Box(
+            modifier = Modifier
+                .width(176.dp)
+                .height(54.dp)
+                .alpha(0.8f)
+                .background(DealiColor.gradient02)
+
+        )
+    }
+}
