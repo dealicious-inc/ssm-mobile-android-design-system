@@ -95,6 +95,20 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 }
             }
 
+            BottomSheetType.TextTwoButtonsGray -> {
+                {
+                    BottomSheet(
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        text = "텍스트",
+                        primaryButtonText = "버튼1",
+                        secondaryButtonText = "버튼2",
+                        onPrimaryButtonClick = {},
+                        onSecondaryButtonClick = {},
+                        onDismiss = hideBottomSheet,
+                    )
+                }
+            }
+
             BottomSheetType.NoButton -> {
                 {
                     BottomSheet(
@@ -148,6 +162,42 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                         primaryButtonText = "탈퇴",
                         secondaryButtonText = "취소",
                         isPrimaryButtonLoading = isLoading,
+                        onPrimaryButtonClick = remember {
+                            {
+                                delayJob = coroutineScope.launch {
+                                    isLoading = true
+                                    delay(1_000L)
+                                    bottomSheetState.hide()
+                                }
+                            }
+                        },
+                        onSecondaryButtonClick = hideBottomSheet,
+                        onDismiss = hideBottomSheet,
+                    ) {
+                        EmptyBox()
+                    }
+
+                    LaunchedEffect(key1 = bottomSheetState.isVisible) {
+                        if (!bottomSheetState.isVisible) {
+                            isLoading = false
+                            delayJob?.cancel()
+                            delayJob = null
+                        }
+                    }
+                }
+            }
+
+            BottomSheetType.TwoButtonGray -> {
+                {
+                    var isLoading by remember { mutableStateOf(false) }
+                    var delayJob by remember { mutableStateOf<Job?>(null) }
+
+                    BottomSheet(
+                        title = "타이틀",
+                        primaryButtonText = "탈퇴",
+                        secondaryButtonText = "취소",
+                        isPrimaryButtonLoading = isLoading,
+                        useGraySecondary = true,
                         onPrimaryButtonClick = remember {
                             {
                                 delayJob = coroutineScope.launch {
@@ -285,6 +335,11 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 )
 
                 OpenBottomSheetButton(
+                    text = "자유형식 | 버튼2회색",
+                    type = BottomSheetType.TwoButtonGray,
+                )
+
+                OpenBottomSheetButton(
                     text = "단일 옵션 선택",
                     type = BottomSheetType.SingleSelect,
                 )
@@ -315,9 +370,11 @@ private enum class BottomSheetType {
     TextNoButton,
     TextOneButton,
     TextTwoButtons,
+    TextTwoButtonsGray,
     NoButton,
     OneButton,
     TwoButton,
+    TwoButtonGray,
     SingleSelect,
     HeaderArrowClose,
 }

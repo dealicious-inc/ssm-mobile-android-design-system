@@ -133,6 +133,7 @@ fun BottomSheet(
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
+    useGraySecondary: Boolean = false,
     hideXButton: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
@@ -164,6 +165,7 @@ fun BottomSheet(
             isSecondaryButtonEnabled = isSecondaryButtonEnabled,
             isPrimaryButtonLoading = isPrimaryButtonLoading,
             isSecondaryButtonLoading = isSecondaryButtonLoading,
+            useGraySecondary = useGraySecondary,
             onPrimaryButtonClick = onPrimaryButtonClick,
             onSecondaryButtonClick = onSecondaryButtonClick,
         )
@@ -244,6 +246,7 @@ fun BottomSheet(
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
+    useGraySecondary: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
     onDismiss: () -> Unit = {},
@@ -269,6 +272,7 @@ fun BottomSheet(
             isSecondaryButtonEnabled = isSecondaryButtonEnabled,
             isPrimaryButtonLoading = isPrimaryButtonLoading,
             isSecondaryButtonLoading = isSecondaryButtonLoading,
+            useGraySecondary = useGraySecondary,
             onPrimaryButtonClick = onPrimaryButtonClick,
             onSecondaryButtonClick = onSecondaryButtonClick,
         )
@@ -431,6 +435,7 @@ fun BottomSheetFooterTwoButtons(
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
+    useGraySecondary: Boolean = false,
     onPrimaryButtonClick: () -> Unit,
     onSecondaryButtonClick: () -> Unit,
 ) {
@@ -442,13 +447,24 @@ fun BottomSheetFooterTwoButtons(
             .padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        btnOutlineLarge01(
-            modifier = Modifier.weight(1f),
-            text = secondaryButtonText,
-            enabled = isSecondaryButtonEnabled,
-            loading = isSecondaryButtonLoading,
-            onClick = onSecondaryButtonClick,
-        )
+        if (useGraySecondary) {
+            btnOutlineLarge06(
+                modifier = Modifier.weight(1f),
+                text = secondaryButtonText,
+                enabled = isSecondaryButtonEnabled,
+                loading = isSecondaryButtonLoading,
+                onClick = onSecondaryButtonClick,
+            )
+        } else {
+            btnOutlineLarge01(
+                modifier = Modifier.weight(1f),
+                text = secondaryButtonText,
+                enabled = isSecondaryButtonEnabled,
+                loading = isSecondaryButtonLoading,
+                onClick = onSecondaryButtonClick,
+            )
+        }
+
         Spacer(modifier = Modifier.width(8.dp))
         btnFilledLarge01(
             modifier = Modifier.weight(1f),
@@ -809,6 +825,27 @@ fun PreviewBottomSheetTwoButtons() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun PreviewBottomSheetTwoButtonsGray() {
+    BottomSheet(
+        title = "타이틀",
+        primaryButtonText = "확인",
+        secondaryButtonText = "취소",
+        useGraySecondary = true,
+        onPrimaryButtonClick = {},
+        onSecondaryButtonClick = {},
+        onDismiss = {}
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
+                .background(DealiColor.primary03)
+        )
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
@@ -924,6 +961,18 @@ private fun PreviewBottomSheetFooter2() {
     BottomSheetFooterTwoButtons(
         primaryButtonText = "확인",
         secondaryButtonText = "취소",
+        onPrimaryButtonClick = {},
+        onSecondaryButtonClick = {},
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewBottomSheetFooter3() {
+    BottomSheetFooterTwoButtons(
+        primaryButtonText = "확인",
+        secondaryButtonText = "취소",
+        useGraySecondary = true,
         onPrimaryButtonClick = {},
         onSecondaryButtonClick = {},
     )
