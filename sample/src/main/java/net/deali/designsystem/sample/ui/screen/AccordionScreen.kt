@@ -10,9 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.Accordion
-import net.deali.designsystem.component.Description
-import net.deali.designsystem.component.DescriptionFormat
 import net.deali.designsystem.component.TopBar
+import net.deali.designsystem.component.labeledTextBullet01
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.util.getRandomText
 
@@ -46,11 +45,11 @@ fun AccordionScreen(
                     getRandomText(15),
                 )
 
-                Description(
-                    texts = texts,
-                    format = DescriptionFormat.DOT,
-                    title = getRandomText(3),
+                labeledTextBullet01(
+                    textList = texts,
+                    title = "Title Here",
                 )
+
             }
         )
     }

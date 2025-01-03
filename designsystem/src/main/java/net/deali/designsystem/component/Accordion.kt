@@ -1,5 +1,6 @@
 package net.deali.designsystem.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
@@ -8,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -28,13 +30,16 @@ import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.util.noRippleClickable
 
 /**
- * 아코디언 컴포넌트
+ * 아코디언 컴포넌트.
  *
  * var isExpanded by rememberSaveable { mutableStateOf(false) }
  * 위 코드를 이용하면 아코디언이 확장되었는지 여부를 저장할 수 있습니다.
+ * 클릭 시 확장/축소 기능이 필요 없다면 [Notice]를 사용합니다.
  *
  * @param title 아코디언 타이틀
  * @param isExpanded 아코디언이 확장되었는지 여부
+ * @param modifier Modifier
+ * @param titleIconRes 타이틀 아이콘 리소스
  * @param onClickExpand 아코디언 확장 여부 변경 콜백
  * @param content 아코디언 내용
  */
@@ -43,6 +48,7 @@ fun Accordion(
     title: String,
     isExpanded: Boolean,
     modifier: Modifier = Modifier,
+    @DrawableRes titleIconRes: Int = R.drawable.ic_notice,
     onClickExpand: () -> Unit,
     content: @Composable () -> Unit,
 ) {
@@ -57,6 +63,7 @@ fun Accordion(
         Title(
             title = title,
             isExpanded = isExpanded,
+            titleIconRes = titleIconRes,
             onClickExpand = onClickExpand
         )
 
@@ -67,18 +74,12 @@ fun Accordion(
         ) {
             HorizontalDivider(
                 modifier = Modifier
-                    .padding(horizontal = 20.dp),
+                    .padding(horizontal = 16.dp),
                 color = DealiColor.g30
             )
 
             Box(
-                modifier = Modifier
-                    .padding(
-                        start = 20.dp,
-                        end = 20.dp,
-                        top = 20.dp,
-                        bottom = 24.dp,
-                    ),
+                modifier = Modifier.padding(16.dp),
             ) {
                 content()
             }
@@ -91,6 +92,7 @@ private fun Title(
     title: String,
     isExpanded: Boolean,
     modifier: Modifier = Modifier,
+    @DrawableRes titleIconRes: Int = 0,
     onClickExpand: () -> Unit,
 ) {
     val degrees by animateFloatAsState(
@@ -103,14 +105,16 @@ private fun Title(
             .noRippleClickable(
                 onClick = onClickExpand
             )
-            .padding(20.dp),
+            .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Icon16(
-            iconRes = R.drawable.ic_notice,
-        )
+        if (titleIconRes != 0) {
+            Icon16(
+                iconRes = titleIconRes,
+            )
 
-        HorizontalSpacer(width = 8.dp)
+            HorizontalSpacer(width = 8.dp)
+        }
 
         DealiText(
             modifier = Modifier
@@ -131,7 +135,41 @@ private fun Title(
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun Preview1() {
+    var isExpanded by rememberSaveable { mutableStateOf(false) }
+
+    Accordion(
+        title = "타이틀",
+        isExpanded = isExpanded,
+        onClickExpand = {
+            isExpanded = !isExpanded
+        },
+        content = {
+            Box(modifier = Modifier.height(200.dp))
+        }
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview2() {
+    var isExpanded by rememberSaveable { mutableStateOf(true) }
+
+    Accordion(
+        title = "타이틀",
+        isExpanded = isExpanded,
+        onClickExpand = {
+            isExpanded = !isExpanded
+        },
+        content = {
+            Box(modifier = Modifier.height(200.dp))
+        }
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview3() {
     var isExpanded by rememberSaveable { mutableStateOf(true) }
 
     Accordion(
@@ -148,9 +186,8 @@ private fun Preview() {
                 getRandomText(15),
             )
 
-            Description(
-                texts = texts,
-                format = DescriptionFormat.DOT,
+            labeledTextBullet01(
+                textList = texts,
                 title = getRandomText(3),
             )
         }

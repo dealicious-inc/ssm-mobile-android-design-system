@@ -3,27 +3,33 @@ package net.deali.designsystem.sample.ui.screen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.Description
-import net.deali.designsystem.component.DescriptionFormat
+import net.deali.designsystem.R
+import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.TopBar
+import net.deali.designsystem.component.VerticalSpacer
+import net.deali.designsystem.component.labeledTextBullet01
+import net.deali.designsystem.component.labeledTextBullet02
+import net.deali.designsystem.component.labeledTextIcon01
+import net.deali.designsystem.component.labeledTextNumber01
+import net.deali.designsystem.component.labeledTextNumber02
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.util.getRandomText
 
 @Composable
-fun DescriptionScreen(
+fun LabeledTextScreen(
     onBackPress: () -> Unit
 ) {
     NavigationContainer(
         navigationBar = {
             TopBar(
-                title = "Description",
+                title = "labeledText",
                 onBack = onBackPress,
             )
         }
@@ -31,54 +37,64 @@ fun DescriptionScreen(
         val texts = listOf(
             getRandomText(3),
             getRandomText(9),
-            getRandomText(13),
             getRandomText(15),
         )
 
-        val annotatedText = buildAnnotatedString {
-            val text = "신분증 이미지를 가이드 영역에 맞춰 가로로 촬영 후 등록해주세요."
-            val boldTarget1 = "가이드 영역"
-            val boldStart1 = text.indexOf(boldTarget1)
-            val boldEnd1 = boldStart1 + boldTarget1.length
-            val boldTarget2 = "가로로 촬영"
-            val boldStart2 = text.indexOf(boldTarget2)
-            val boldEnd2 = boldStart2 + boldTarget2.length
-
-            append(text)
-            addStyle(style = SpanStyle(color = DealiColor.g100), start = boldStart1, end = boldEnd1)
-            addStyle(style = SpanStyle(color = DealiColor.g100), start = boldStart2, end = boldEnd2)
-        }
+        val state = rememberScrollState()
 
         Column(
             modifier = Modifier
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(state),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Description(
-                texts = texts,
-                format = DescriptionFormat.DOT,
-                title = "DescriptionFormat.DOT",
+            labeledTextBullet01(
+                textList = texts,
+                title = "labeledTextBullet01",
+                iconRes = R.drawable.ic_alarm_etc,
             )
 
-            Description(
-                texts = texts,
-                format = DescriptionFormat.NUMBER,
-                title = "DescriptionFormat.NUMBER",
+            HorizontalDivider(color = DealiColor.g30)
+
+            labeledTextBullet02(
+                textList = texts,
+                title = "labeledTextBullet02",
+                iconRes = R.drawable.ic_alarm_etc,
             )
 
-            Description(
-                text = annotatedText,
-                format = DescriptionFormat.DOT,
-                title = "DescriptionFormat.DOT + annotatedString",
+            HorizontalDivider(color = DealiColor.g30)
+
+            labeledTextNumber01(
+                textList = texts,
+                title = "labeledTextNumber01",
+                iconRes = R.drawable.ic_alarm_etc,
             )
+
+            HorizontalDivider(color = DealiColor.g30)
+
+            labeledTextNumber02(
+                textList = texts,
+                title = "labeledTextNumber02",
+                iconRes = R.drawable.ic_alarm_etc,
+            )
+
+            HorizontalDivider(color = DealiColor.g30)
+
+            labeledTextIcon01(
+                textList = texts,
+                title = "labeledTextIcon01",
+                iconRes = R.drawable.ic_alarm_etc,
+            )
+
+            VerticalSpacer(40.dp)
         }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun DescriptionPreview() {
-    DescriptionScreen(
+private fun LabeledTextPreview() {
+    LabeledTextScreen(
         onBackPress = {}
     )
 }

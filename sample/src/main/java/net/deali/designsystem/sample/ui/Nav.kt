@@ -31,6 +31,7 @@ import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.ImageChipsScreen
 import net.deali.designsystem.sample.ui.screen.IndicatorScreen
 import net.deali.designsystem.sample.ui.screen.LabeledTextScreen
+import net.deali.designsystem.sample.ui.screen.NoticeScreen
 import net.deali.designsystem.sample.ui.screen.RadioButtonScreen
 import net.deali.designsystem.sample.ui.screen.RatingScreen
 import net.deali.designsystem.sample.ui.screen.SearchInputScreen
@@ -266,11 +267,14 @@ private fun NavGraphBuilder.moleculesGraph(
     composable(Screen.Slider.route) {
         SliderScreen(onBackPress = navController::popBackStack)
     }
+    composable(Screen.LabeledText.route) {
+        LabeledTextScreen(onBackPress = navController::popBackStack)
+    }
     composable(Screen.Accordion.route) {
         AccordionScreen(onBackPress = navController::popBackStack)
     }
-    composable(Screen.LabeledText.route) {
-        LabeledTextScreen(onBackPress = navController::popBackStack)
+    composable(Screen.Notice.route) {
+        NoticeScreen(onBackPress = navController::popBackStack)
     }
 }
 

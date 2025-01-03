@@ -79,8 +79,9 @@ class MainActivity : ComponentActivity() {
         Screen.SearchInputWithTag,
         Screen.Alert,
         Screen.Slider,
-        Screen.Accordion,
         Screen.LabeledText,
+        Screen.Accordion,
+        Screen.Notice,
     )
 
     private fun getOthers() = listOf(

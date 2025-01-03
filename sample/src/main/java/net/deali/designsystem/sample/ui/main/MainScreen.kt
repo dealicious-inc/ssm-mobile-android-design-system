@@ -211,8 +211,9 @@ private fun MainScreenPreview() {
             Screen.SearchInputWithTag,
             Screen.Alert,
             Screen.Slider,
-            Screen.Accordion,
             Screen.LabeledText,
+            Screen.Accordion,
+            Screen.Notice,
         ),
         others = listOf(
             Screen.SwipeRefresh,

@@ -46,8 +46,9 @@ sealed class Screen(
     data object SearchInputWithTag : Screen("searchInputWithTag")
     data object Alert : Screen("alert")
     data object Slider : Screen("slider")
-    data object Accordion : Screen("accordion")
     data object LabeledText : Screen("labeledText")
+    data object Accordion : Screen("accordion")
+    data object Notice : Screen("notice")
 
     /** Undefined */
     data object SwipeRefresh : Screen("swipeRefresh")
