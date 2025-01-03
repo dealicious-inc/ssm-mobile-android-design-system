@@ -80,7 +80,7 @@ class MainActivity : ComponentActivity() {
         Screen.Alert,
         Screen.Slider,
         Screen.Accordion,
-        Screen.Description,
+        Screen.LabeledText,
     )
 
     private fun getOthers() = listOf(

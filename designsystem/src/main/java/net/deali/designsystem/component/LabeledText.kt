@@ -1,246 +1,234 @@
 package net.deali.designsystem.component
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.labeledtext.CoreLabeledTextBullet
+import net.deali.designsystem.internal.labeledtext.LabeledTextContainer
+import net.deali.designsystem.internal.labeledtext.SingleLabeledTextBullet
+import net.deali.designsystem.internal.labeledtext.SingleLabeledTextIcon01
+import net.deali.designsystem.internal.labeledtext.SingleLabeledTextNumber
 import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiFont
 
-@Composable
-fun labeledTextBullet01(
-    text: String,
-    modifier: Modifier = Modifier,
-    title: String = "",
-    iconRes: Int = 0,
-) {
-    Column(
-        modifier = modifier,
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            if (iconRes != 0) {
-                Icon16(
-                    iconRes = iconRes,
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    color = DealiColor.g100,
-                )
 
-                HorizontalSpacer(8.dp)
-            }
-
-            if (title.isNotEmpty()) {
-                DealiText(
-                    text = title,
-                    style = DealiFont.b3sb13,
-                    color = DealiColor.g100,
-                )
-            }
-        }
-
-        VerticalSpacer(8.dp)
-
-        CoreLabeledTextBullet(
-            text = text,
-            color = DealiColor.g80,
-        )
-    }
-}
-
+/**
+ * Bullet 라벨을 가지고 있는 g80 컬러의 텍스트.
+ * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
+ *
+ * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
+ * @param modifier Modifier.
+ * @param title 타이틀. 없을 시 미표기.
+ * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * */
 @Composable
 fun labeledTextBullet01(
     textList: List<String>,
     modifier: Modifier = Modifier,
     title: String = "",
-    iconRes: Int = 0,
+    @DrawableRes iconRes: Int = 0,
 ) {
-    Column(
+    LabeledTextContainer(
+        textList = textList,
         modifier = modifier,
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            if (iconRes != 0) {
-                Icon16(
-                    iconRes = iconRes,
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    color = DealiColor.g100,
-                )
-
-                HorizontalSpacer(8.dp)
-            }
-
-            if (title.isNotEmpty()) {
-                DealiText(
-                    text = title,
-                    style = DealiFont.b3sb13,
-                    color = DealiColor.g100,
-                )
-            }
-        }
-
-        VerticalSpacer(8.dp)
-
-        textList.forEachIndexed { index, it ->
-            CoreLabeledTextBullet(
-                text = it,
+        title = title,
+        titleIconRes = iconRes,
+        textContent = { index ->
+            SingleLabeledTextBullet(
+                text = textList[index],
                 color = DealiColor.g80,
             )
-
-            if (index < textList.size - 1) {
-                VerticalSpacer(8.dp)
-            }
         }
-
-    }
+    )
 }
 
-
-@Composable
-fun labeledTextBullet02(
-    text: String,
-    modifier: Modifier = Modifier,
-    title: String = "",
-    iconRes: Int = 0,
-) {
-    Column(
-        modifier = modifier,
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            if (iconRes != 0) {
-                Icon16(
-                    iconRes = iconRes,
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    color = DealiColor.g100,
-                )
-
-                HorizontalSpacer(8.dp)
-            }
-
-            if (title.isNotEmpty()) {
-                DealiText(
-                    text = title,
-                    style = DealiFont.b3sb13,
-                    color = DealiColor.g100,
-                )
-            }
-        }
-
-        VerticalSpacer(8.dp)
-
-        CoreLabeledTextBullet(
-            text = text,
-            color = DealiColor.g80,
-        )
-    }
-}
-
+/**
+ * Bullet 라벨을 가지고 있는 g100 컬러의 텍스트.
+ * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
+ *
+ * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
+ * @param modifier Modifier.
+ * @param title 타이틀. 없을 시 미표기.
+ * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * */
 @Composable
 fun labeledTextBullet02(
     textList: List<String>,
     modifier: Modifier = Modifier,
     title: String = "",
-    iconRes: Int = 0,
+    @DrawableRes iconRes: Int = 0,
 ) {
-    Column(
+    LabeledTextContainer(
+        textList = textList,
         modifier = modifier,
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            if (iconRes != 0) {
-                Icon16(
-                    iconRes = iconRes,
-                    modifier = Modifier.align(Alignment.CenterVertically),
-                    color = DealiColor.g100,
-                )
-
-                HorizontalSpacer(8.dp)
-            }
-
-            if (title.isNotEmpty()) {
-                DealiText(
-                    text = title,
-                    style = DealiFont.b3sb13,
-                    color = DealiColor.g100,
-                )
-            }
-        }
-
-        VerticalSpacer(8.dp)
-
-        textList.forEachIndexed { index, it ->
-            CoreLabeledTextBullet(
-                text = it,
+        title = title,
+        titleIconRes = iconRes,
+        textContent = { index ->
+            SingleLabeledTextBullet(
+                text = textList[index],
                 color = DealiColor.g100,
             )
-
-            if (index < textList.size - 1) {
-                VerticalSpacer(8.dp)
-            }
         }
+    )
+}
 
-    }
+/**
+ * 숫자 라벨을 가지고 있는 g80 컬러의 텍스트.
+ * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
+ *
+ * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
+ * @param modifier Modifier.
+ * @param title 타이틀. 없을 시 미표기.
+ * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * */
+@Composable
+fun labeledTextNumber01(
+    textList: List<String>,
+    modifier: Modifier = Modifier,
+    title: String = "",
+    @DrawableRes iconRes: Int = 0,
+) {
+    LabeledTextContainer(
+        textList = textList,
+        modifier = modifier,
+        title = title,
+        titleIconRes = iconRes,
+        textContent = { index ->
+            SingleLabeledTextNumber(
+                text = textList[index],
+                color = DealiColor.g80,
+                number = index + 1,
+            )
+        }
+    )
+}
+
+/**
+ * 숫자 라벨을 가지고 있는 g100 컬러의 텍스트.
+ * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
+ *
+ * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
+ * @param modifier Modifier.
+ * @param title 타이틀. 없을 시 미표기.
+ * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * */
+@Composable
+fun labeledTextNumber02(
+    textList: List<String>,
+    modifier: Modifier = Modifier,
+    title: String = "",
+    @DrawableRes iconRes: Int = 0,
+) {
+    LabeledTextContainer(
+        textList = textList,
+        modifier = modifier,
+        title = title,
+        titleIconRes = iconRes,
+        textContent = { index ->
+            SingleLabeledTextNumber(
+                text = textList[index],
+                color = DealiColor.g100,
+                number = index + 1,
+            )
+        }
+    )
+}
+
+/**
+ * 아이콘 라벨을 가지고 있는 g80 컬러의 텍스트.
+ * 최상단에 타이틀 영역을 추가할 수 있다.
+ *
+ * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
+ * @param iconRes 텍스트 리스트 앞에 보여줄 아이콘 리소스.
+ * @param modifier Modifier.
+ * @param title 타이틀. 없을 시 미표기.
+ * */
+@Composable
+fun labeledTextIcon01(
+    textList: List<String>,
+    @DrawableRes iconRes: Int,
+    modifier: Modifier = Modifier,
+    title: String = "",
+) {
+    LabeledTextContainer(
+        textList = textList,
+        modifier = modifier,
+        title = title,
+        textContent = { index ->
+            SingleLabeledTextIcon01(
+                text = textList[index],
+                color = DealiColor.g80,
+                iconRes = iconRes,
+            )
+        }
+    )
 }
 
 
-@Preview(showBackground = true, name = "LabeledTextBullet01")
+@Preview(showBackground = true)
 @Composable
 private fun Preview1() {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        labeledTextBullet01(
-            title = "타이틀이 있는 라벨텍스트",
-            text = "텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다.",
-            iconRes = R.drawable.ic_info,
-        )
-
-        labeledTextBullet01(
-            title = "타이틀이 있는 라벨텍스트",
-            textList = listOf(
-                "텍스트 리스트를 사용한 케이스",
-                "텍스트 리스트를 사용한 케이스",
-                "텍스트 리스트를 사용한 케이스",
-            ),
-        )
-    }
+    labeledTextBullet01(
+        textList = listOf(
+            "LabeledTextBullet01",
+            "LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
+            "LabeledTextBullet01",
+        ),
+    )
 }
 
 
-@Preview(showBackground = true, name = "LabeledTextBullet02")
+@Preview(showBackground = true)
 @Composable
 private fun Preview2() {
-    Column(
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        labeledTextBullet02(
-            title = "타이틀이 있는 라벨텍스트",
-            text = "텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다. 텍스트가 아주 깁니다.",
-            iconRes = R.drawable.ic_info,
-        )
+    labeledTextBullet02(
+        title = "타이틀이 있는 라벨텍스트",
+        textList = listOf(
+            "LabeledTextBullet02",
+            "LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 ",
+            "LabeledTextBullet02",
+        ),
+        iconRes = R.drawable.ic_info,
+    )
+}
 
-        labeledTextBullet02(
-            title = "타이틀이 있는 라벨텍스트",
-            textList = listOf(
-                "텍스트 리스트를 사용한 케이스",
-                "텍스트 리스트를 사용한 케이스",
-                "텍스트 리스트를 사용한 케이스",
-            ),
-        )
-    }
+@Preview(showBackground = true)
+@Composable
+private fun Preview3() {
+    labeledTextNumber01(
+        title = "타이틀이 있는 라벨텍스트",
+        textList = listOf(
+            "labeledTextNumber01",
+            "labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01",
+            "labeledTextNumber01",
+        ),
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview4() {
+    labeledTextNumber02(
+        title = "타이틀과 아이콘이 있는 라벨텍스트",
+        textList = listOf(
+            "labeledTextNumber02",
+            "labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02",
+            "labeledTextNumber02",
+        ),
+        iconRes = R.drawable.ic_info,
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview5() {
+    labeledTextIcon01(
+        title = "타이틀이 있는 라벨텍스트",
+        textList = listOf(
+            "labeledTextIcon01",
+            "labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01",
+            "labeledTextIcon01",
+        ),
+        iconRes = R.drawable.ic_error,
+    )
 }
