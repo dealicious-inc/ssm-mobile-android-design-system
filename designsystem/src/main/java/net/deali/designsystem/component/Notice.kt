@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import net.deali.designsystem.util.getRandomText
 
 /**
@@ -40,9 +40,9 @@ fun Notice(
         modifier = modifier
             .background(
                 color = DealiColor.g10,
-                shape = DealiShape.radius10,
+                shape = RoundedCornerShape(10.dp),
             )
-            .clip(DealiShape.radius10),
+            .clip(RoundedCornerShape(10.dp)),
     ) {
         Title(
             title = title,

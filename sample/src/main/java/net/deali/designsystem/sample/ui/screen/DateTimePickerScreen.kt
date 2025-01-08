@@ -37,7 +37,7 @@ import net.deali.designsystem.component.rememberTimePickerState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -117,7 +117,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                     .border(
                                         width = 1.dp,
                                         color = DealiColor.g20,
-                                        shape = DealiShape.radius10
+                                        shape = RoundedCornerShape(10.dp)
                                     ),
                                 state = datePicker1State,
                                 contentPadding = PaddingValues(horizontal = 40.dp)
@@ -186,7 +186,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                     .border(
                                         width = 1.dp,
                                         color = DealiColor.g20,
-                                        shape = DealiShape.radius10
+                                        shape = RoundedCornerShape(10.dp)
                                     ),
                                 state = datePicker2State,
                                 dateEnabled = false,
@@ -258,7 +258,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                     .border(
                                         width = 1.dp,
                                         color = DealiColor.g20,
-                                        shape = DealiShape.radius10
+                                        shape = RoundedCornerShape(10.dp)
                                     ),
                                 minuteInterval = 5,
                                 secondInterval = 10,
@@ -353,7 +353,7 @@ fun DateTimePickerScreen(onBackPress: () -> Unit) {
                                     .border(
                                         width = 1.dp,
                                         color = DealiColor.g20,
-                                        shape = DealiShape.radius10
+                                        shape = RoundedCornerShape(10.dp)
                                     ),
                                 contentPadding = PaddingValues(horizontal = 30.dp),
                                 decorationBox = { innerPickers ->

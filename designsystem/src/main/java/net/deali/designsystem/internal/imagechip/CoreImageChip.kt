@@ -50,7 +50,7 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import kotlin.math.max
 import kotlin.math.min
 
@@ -166,7 +166,7 @@ private fun CoreImageChipLayout(
 
     Box(
         modifier = modifier
-            .clip(shape = DealiShape.radius40)
+            .clip(shape = RoundedCornerShape(40.dp))
             .defaultMinSize(
                 minWidth = chipMinSize,
                 minHeight = chipMinSize,

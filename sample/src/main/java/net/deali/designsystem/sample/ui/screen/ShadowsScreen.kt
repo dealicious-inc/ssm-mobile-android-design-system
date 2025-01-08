@@ -27,7 +27,6 @@ import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
 import net.deali.designsystem.util.shadow
 
 @Composable
@@ -104,9 +103,9 @@ private fun Container(
                         blurRadius = blurRadius,
                         cornerRadius = 10.dp,
                     )
-                    .clip(DealiShape.radius10)
+                    .clip(RoundedCornerShape(10.dp))
                     .background(DealiColor.primary04)
-                    .border(1.dp, DealiColor.g30, DealiShape.radius10)
+                    .border(1.dp, DealiColor.g30, RoundedCornerShape(10.dp))
             )
         }
 

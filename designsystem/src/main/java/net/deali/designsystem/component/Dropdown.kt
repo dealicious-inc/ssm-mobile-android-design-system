@@ -35,7 +35,7 @@ import androidx.constraintlayout.compose.Dimension
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 @Composable
 fun Dropdown(
@@ -160,11 +160,11 @@ private fun InnerText(
         modifier = modifier
             .fillMaxWidth()
             .height(46.dp)
-            .clip(DealiShape.radius6)
+            .clip(RoundedCornerShape(6.dp))
             .border(
                 width = 1.dp,
                 color = DealiColor.g20,
-                shape = DealiShape.radius6
+                shape = RoundedCornerShape(6.dp)
             )
             .background(backgroundColor)
             .clickable(

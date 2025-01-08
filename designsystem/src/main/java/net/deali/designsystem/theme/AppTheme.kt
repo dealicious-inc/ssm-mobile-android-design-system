@@ -39,7 +39,6 @@ fun AppTheme(
             LocalIndication provides rippleIndication,
             LocalRippleConfiguration provides myRippleConfiguration,
             LocalTypography provides typography,
-            LocalShapes provides DealiShape,
             LocalTextSelectionColors provides textSelectionColors,
             content = content
         )

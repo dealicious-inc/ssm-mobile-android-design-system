@@ -25,7 +25,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 /**
  * 신상마켓 디자인 시스템 팝업 컴포넌트.
@@ -586,7 +586,7 @@ private fun ComposeAlert(
     ) {
         Column(
             modifier = Modifier
-                .clip(DealiShape.radius10)
+                .clip(RoundedCornerShape(10.dp))
                 .background(DealiColor.primary04)
                 .width(280.dp)
                 .padding(horizontal = 20.dp),

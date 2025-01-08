@@ -39,7 +39,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 /**
  * 검색어를 입력할 수 있는 SearchInput.
@@ -69,7 +69,7 @@ fun SearchInput(
     val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
         modifier.then(
             Modifier
-                .clip(DealiShape.radius6)
+                .clip(RoundedCornerShape(6.dp))
                 .clickable { onClickSearch.invoke() }
         )
     } else {
@@ -156,7 +156,7 @@ fun SearchInput(
     val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
         modifier.then(
             Modifier
-                .clip(DealiShape.radius6)
+                .clip(RoundedCornerShape(6.dp))
                 .clickable { onClickSearch.invoke() }
         )
     } else {
@@ -243,7 +243,7 @@ fun SearchInput(
     val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
         modifier.then(
             Modifier
-                .clip(DealiShape.radius6)
+                .clip(RoundedCornerShape(6.dp))
                 .clickable { onClickSearch.invoke() }
         )
     } else {
@@ -337,7 +337,7 @@ fun SearchInput(
     val searchBarModifier = if (state == DealiTextFieldState.READ_ONLY) {
         modifier.then(
             Modifier
-                .clip(DealiShape.radius6)
+                .clip(RoundedCornerShape(6.dp))
                 .clickable { onClickSearch.invoke() }
         )
     } else {

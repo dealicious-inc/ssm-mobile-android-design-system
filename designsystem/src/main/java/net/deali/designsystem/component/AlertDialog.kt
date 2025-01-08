@@ -31,7 +31,7 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 /**
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.
@@ -67,7 +67,7 @@ class AlertDialog private constructor(
             AppTheme {
                 Column(
                     modifier = Modifier
-                        .clip(DealiShape.radius10)
+                        .clip(RoundedCornerShape(10.dp))
                         .background(DealiColor.primary04)
                         .width(280.dp)
                         .padding(horizontal = 20.dp),

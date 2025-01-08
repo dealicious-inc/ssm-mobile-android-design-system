@@ -32,7 +32,7 @@ import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupPositionProvider
 import androidx.compose.ui.window.PopupProperties
 import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import kotlin.math.roundToInt
 
 
@@ -138,7 +138,7 @@ private fun TooltipLayout(
                 .padding(horizontal = horizontalPadding)
                 .background(
                     color = color,
-                    shape = DealiShape.radius6,
+                    shape = RoundedCornerShape(6.dp),
                 ),
             alignment = position.alignment,
             arrowHeight = arrowHeight,

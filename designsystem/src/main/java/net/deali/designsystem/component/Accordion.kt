@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -25,7 +26,6 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
 import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.util.noRippleClickable
 
@@ -56,9 +56,9 @@ fun Accordion(
         modifier = modifier
             .background(
                 color = DealiColor.g10,
-                shape = DealiShape.radius10,
+                shape = RoundedCornerShape(10.dp),
             )
-            .clip(DealiShape.radius10),
+            .clip(RoundedCornerShape(10.dp)),
     ) {
         Title(
             title = title,

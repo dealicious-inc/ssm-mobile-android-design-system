@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 internal object ButtonDefaults {
     @Composable
@@ -60,13 +60,13 @@ internal object ButtonDefaults {
     @Composable
     fun buttonShape(buttonSize: ButtonSize, rounded: Boolean): Shape {
         if (rounded) {
-            return DealiShape.radius100
+            return RoundedCornerShape(percent = 100)
         }
         return when (buttonSize) {
-            ButtonSize.Large -> DealiShape.radius6
-            ButtonSize.Medium -> DealiShape.radius6
-            ButtonSize.SemiMedium -> DealiShape.radius6
-            ButtonSize.Small -> DealiShape.radius4
+            ButtonSize.Large -> RoundedCornerShape(6.dp)
+            ButtonSize.Medium -> RoundedCornerShape(6.dp)
+            ButtonSize.SemiMedium -> RoundedCornerShape(6.dp)
+            ButtonSize.Small -> RoundedCornerShape(4.dp)
         }
     }
 

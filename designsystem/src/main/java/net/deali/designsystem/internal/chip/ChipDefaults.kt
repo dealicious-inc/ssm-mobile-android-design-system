@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.theme.DealiShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 internal object ChipDefaults {
     @Composable
@@ -50,11 +50,11 @@ internal object ChipDefaults {
             ChipStyle.FilledDepth,
             ChipStyle.FilledImage,
             ChipStyle.FilledImageDepth -> {
-                DealiShape.radius4
+                RoundedCornerShape(4.dp)
             }
 
             else -> {
-                DealiShape.radius100
+                RoundedCornerShape(percent = 100)
             }
         }
     }
