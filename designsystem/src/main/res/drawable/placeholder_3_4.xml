@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--3:4 비율 이미지의 placeholder drawable. 로고:배경 비율 1:4-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/background">
+        <vector
+            android:width="150dp"
+            android:height="200dp"
+            android:viewportWidth="150"
+            android:viewportHeight="200">
+
+            <path
+                android:fillColor="@color/g20"
+                android:pathData="M6,0 h138 a6,6 0 0 1 6,6 v188 a6,6 0 0 1 -6,6 h-138 a6,6 0 0 1 -6,-6 v-188 a6,6 0 0 1 6,-6" />
+        </vector>
+    </item>
+
+    <item android:id="@+id/stoke">
+        <vector
+            android:width="150dp"
+            android:height="200dp"
+            android:viewportWidth="150"
+            android:viewportHeight="200">
+
+            <path
+                android:pathData="M6,0 h138 a6,6 0 0 1 6,6 v188 a6,6 0 0 1 -6,6 h-138 a6,6 0 0 1 -6,-6 v-188 a6,6 0 0 1 6,-6"
+                android:strokeWidth="0.5"
+                android:strokeColor="@color/b5" />
+        </vector>
+    </item>
+
+    <item
+        android:id="@+id/icon"
+        android:width="37.5dp"
+        android:height="50dp"
+        android:drawable="@drawable/img_empty_3_4"
+        android:gravity="center">
+
+    </item>
+
+</layer-list>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--1:1 비율이고 높이가 70dp 초과인 이미지의 placeholder drawable. 로고:배경 비율 1:2.5-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/background">
+        <vector
+            android:width="100dp"
+            android:height="100dp"
+            android:viewportWidth="100"
+            android:viewportHeight="100">
+
+            <path
+                android:fillColor="@color/g20"
+                android:pathData="M6,0 h88 a6,6 0 0 1 6,6 v88 a6,6 0 0 1 -6,6 h-88 a6,6 0 0 1 -6,-6 v-88 a6,6 0 0 1 6,-6"
+                android:strokeWidth="1"
+                android:strokeColor="@color/b5" />
+        </vector>
+    </item>
+
+    <item android:id="@+id/stroke">
+        <vector
+            android:width="100dp"
+            android:height="100dp"
+            android:viewportWidth="100"
+            android:viewportHeight="100">
+
+            <path
+                android:pathData="M6,0 h88 a6,6 0 0 1 6,6 v88 a6,6 0 0 1 -6,6 h-88 a6,6 0 0 1 -6,-6 v-88 a6,6 0 0 1 6,-6"
+                android:strokeWidth="1"
+                android:strokeColor="@color/b5" />
+        </vector>
+    </item>
+
+    <item
+        android:id="@+id/icon"
+        android:width="57dp"
+        android:height="57dp"
+        android:drawable="@drawable/img_empty_1_1"
+        android:gravity="center" />
+
+</layer-list>
