@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.TestAsyncImage
 import net.deali.designsystem.component.btnFilledTonalLarge01
 import net.deali.designsystem.internal.topbar.TOP_BAR_HEIGHT
 import net.deali.designsystem.sample.data.model.Screen
@@ -149,6 +150,12 @@ fun MainScreen(
                 }
             }
         }
+
+        TestAsyncImage(
+            modifier = Modifier
+                .fillMaxSize(),
+            imagePath = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
+        )
 
         Box(
             modifier = Modifier
