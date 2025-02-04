@@ -52,6 +52,10 @@
     <color name="w10">#1AFFFFFF</color>
     <color name="w5">#0DFFFFFF</color>
 
+    <!-- membership -->
+    <color name="mbs01">#FF1F5EFF</color>
+    <color name="mbs02">#FFE5FE1E</color>
+
     <color name="transparent">#00FFFFFF</color>
     <color name="ripple">@color/b2</color>
 </resources>

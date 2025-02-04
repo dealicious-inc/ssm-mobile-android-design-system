@@ -11,6 +11,9 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.btnFilledSemiMedium01
 import net.deali.designsystem.component.btnFilledSemiMedium02
 import net.deali.designsystem.component.btnFilledSemiMedium03
+import net.deali.designsystem.component.btnFilledSemiMedium04
+import net.deali.designsystem.component.btnFilledSemiMedium05
+import net.deali.designsystem.component.btnFilledSemiMedium06
 import net.deali.designsystem.component.btnFilledTonalSemiMedium01
 import net.deali.designsystem.component.btnFilledTonalSemiMedium02
 import net.deali.designsystem.component.btnFilledTonalSemiMedium03
@@ -28,8 +31,8 @@ import net.deali.designsystem.component.btnOutlineSemiMedium03
 import net.deali.designsystem.component.btnOutlineSemiMedium04
 import net.deali.designsystem.component.btnOutlineSemiMedium05
 import net.deali.designsystem.component.btnOutlineSemiMedium06
-import net.deali.designsystem.component.btnTextSemiMedium01
 import net.deali.designsystem.component.btnTextRoundSemiMedium02
+import net.deali.designsystem.component.btnTextSemiMedium01
 import net.deali.designsystem.component.btnTextSemiMedium03
 import net.deali.designsystem.component.btnTextSemiMedium04
 import net.deali.designsystem.component.btnTextSemiMedium05
@@ -55,6 +58,15 @@ fun SemiMediumButtonSamples(
         }
         item {
             BtnFilledSemiMedium03Samples()
+        }
+        item {
+            BtnFilledSemiMedium04Samples()
+        }
+        item {
+            BtnFilledSemiMedium05Samples()
+        }
+        item {
+            BtnFilledSemiMedium06Samples()
         }
         item {
             BtnFilledTonalSemiMedium01Samples()
@@ -198,6 +210,81 @@ private fun BtnFilledSemiMedium03Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSemiMedium03(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSemiMedium04Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSemiMedium04",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSemiMedium04(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSemiMedium05Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSemiMedium05",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSemiMedium05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSemiMedium06Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSemiMedium06",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+                scrollEnabled = true,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSemiMedium06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

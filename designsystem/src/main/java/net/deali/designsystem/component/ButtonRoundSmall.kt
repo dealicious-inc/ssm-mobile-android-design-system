@@ -16,7 +16,6 @@ import net.deali.designsystem.internal.button.ButtonStyle
 import net.deali.designsystem.internal.button.CoreButton
 import net.deali.designsystem.theme.DealiColor
 
-/** 구 btnRoundFilledSmall01 */
 @Composable
 fun btnFilledRoundSmall01(
     onClick: () -> Unit,
@@ -52,7 +51,6 @@ fun btnFilledRoundSmall01(
 }
 
 
-/** 구 btnRoundFilledSmall02 */
 @Composable
 fun btnFilledRoundSmall02(
     onClick: () -> Unit,
@@ -87,7 +85,6 @@ fun btnFilledRoundSmall02(
     )
 }
 
-/** 구 btnRoundFilledSmall03 */
 @Composable
 fun btnFilledRoundSmall03(
     onClick: () -> Unit,
@@ -122,7 +119,114 @@ fun btnFilledRoundSmall03(
     )
 }
 
-/** 구 btnRoundFilledTonalSmall01 */
+@Composable
+fun btnFilledRoundSmall04(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.mbs01,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
+@Composable
+fun btnFilledRoundSmall05(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.gradient01,
+            disabledBackgroundColor = SolidColor(DealiColor.g40),
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
+@Composable
+fun btnFilledRoundSmall06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Small,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary05,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
 @Composable
 fun btnFilledTonalRoundSmall01(
     onClick: () -> Unit,
@@ -157,7 +261,6 @@ fun btnFilledTonalRoundSmall01(
     )
 }
 
-/** 구 btnRoundFilledTonalSmall02 */
 @Composable
 fun btnFilledTonalRoundSmall02(
     onClick: () -> Unit,
@@ -192,7 +295,6 @@ fun btnFilledTonalRoundSmall02(
     )
 }
 
-/** 구 btnRoundFilledTonalSmall03 */
 @Composable
 fun btnFilledTonalRoundSmall03(
     onClick: () -> Unit,
@@ -227,7 +329,6 @@ fun btnFilledTonalRoundSmall03(
     )
 }
 
-/** 구 btnRoundFilledTonalSmall04 */
 @Composable
 fun btnFilledTonalRoundSmall04(
     onClick: () -> Unit,
@@ -262,7 +363,6 @@ fun btnFilledTonalRoundSmall04(
     )
 }
 
-/** 구 btnRoundFilledTonalSmall05 */
 @Composable
 fun btnFilledTonalRoundSmall05(
     onClick: () -> Unit,
@@ -971,7 +1071,7 @@ fun btnTextRoundSmall07(
 private fun Preview() {
     val modifier = Modifier.padding(bottom = 8.dp)
 
-    Column{
+    Column {
         btnFilledRoundSmall01(
             text = "btnFilledRoundSmall01", onClick = {}, modifier = modifier,
         )
@@ -980,6 +1080,15 @@ private fun Preview() {
         )
         btnFilledRoundSmall03(
             text = "btnFilledRoundSmall03", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundSmall04(
+            text = "btnFilledRoundSmall04", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundSmall05(
+            text = "btnFilledRoundSmall05", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundSmall06(
+            text = "btnFilledRoundSmall06", onClick = {}, modifier = modifier,
         )
         btnFilledTonalRoundSmall01(
             text = "btnFilledTonalRoundSmall01", onClick = {}, modifier = modifier,
