@@ -11,6 +11,9 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.btnFilledSmall02
 import net.deali.designsystem.component.btnFilledSmall01
 import net.deali.designsystem.component.btnFilledSmall03
+import net.deali.designsystem.component.btnFilledSmall04
+import net.deali.designsystem.component.btnFilledSmall05
+import net.deali.designsystem.component.btnFilledSmall06
 import net.deali.designsystem.component.btnFilledTonalSmall01
 import net.deali.designsystem.component.btnFilledTonalSmall02
 import net.deali.designsystem.component.btnFilledTonalSmall03
@@ -75,6 +78,15 @@ fun SmallButtonSamples(
         }
         item {
             BtnFilledSmall03Samples()
+        }
+        item {
+            BtnFilledSmall04Samples()
+        }
+        item {
+            BtnFilledSmall05Samples()
+        }
+        item {
+            BtnFilledSmall06Samples()
         }
         item {
             BtnRoundFilledSmall01Samples()
@@ -275,6 +287,78 @@ private fun BtnFilledSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall03(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSmall04Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSmall04",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSmall04(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSmall05Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSmall05",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSmall05(
+                    onClick = {},
+                    text = text,
+                    leftIcon = leftIcon,
+                    rightIcon = rightIcon,
+                    enabled = enabled,
+                    loading = loading,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun BtnFilledSmall06Samples() {
+    ButtonSampleLayout(
+        title = "btnFilledSmall06",
+        dark = false,
+    ) {
+        for (i in 0 until 3) {
+            ButtonsByStatus(
+                leftIcon = if (i == 1) R.drawable.ic_arrow_left else null,
+                rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
+            ) { text, leftIcon, rightIcon, enabled, loading ->
+                btnFilledSmall06(
                     onClick = {},
                     text = text,
                     leftIcon = leftIcon,

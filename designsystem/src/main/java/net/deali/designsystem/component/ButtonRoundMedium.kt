@@ -120,6 +120,114 @@ fun btnFilledRoundMedium03(
 }
 
 @Composable
+fun btnFilledRoundMedium04(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Medium,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.mbs01,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
+@Composable
+fun btnFilledRoundMedium05(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Medium,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.gradient01,
+            disabledBackgroundColor = SolidColor(DealiColor.g40),
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
+@Composable
+fun btnFilledRoundMedium06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    iconColor: Color? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Medium,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary05,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+            iconColor = iconColor,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+        isRoundShape = true,
+    )
+}
+
+@Composable
 fun btnFilledTonalRoundMedium01(
     onClick: () -> Unit,
     text: String,
@@ -972,6 +1080,15 @@ private fun Preview() {
         )
         btnFilledRoundMedium03(
             text = "btnFilledRoundMedium03", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundMedium04(
+            text = "btnFilledRoundMedium04", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundMedium05(
+            text = "btnFilledRoundMedium05", onClick = {}, modifier = modifier,
+        )
+        btnFilledRoundMedium06(
+            text = "btnFilledRoundMedium06", onClick = {}, modifier = modifier,
         )
         btnFilledTonalRoundMedium01(
             text = "btnFilledTonalRoundMedium01", onClick = {}, modifier = modifier,

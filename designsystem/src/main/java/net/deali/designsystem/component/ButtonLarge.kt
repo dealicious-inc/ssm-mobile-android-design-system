@@ -116,6 +116,106 @@ fun btnFilledLarge03(
 }
 
 @Composable
+fun btnFilledLarge04(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Large,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.mbs01,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
+fun btnFilledLarge05(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Large,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.gradient01,
+            disabledBackgroundColor = SolidColor(DealiColor.g40),
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+
+@Composable
+fun btnFilledLarge06(
+    onClick: () -> Unit,
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    clickable: Boolean = true,
+    enabled: Boolean = true,
+    loading: Boolean = false,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    CoreButton(
+        onClick = onClick,
+        text = text,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        clickable = clickable,
+        enabled = enabled,
+        loading = loading,
+        buttonStyle = ButtonStyle.Filled,
+        buttonSize = ButtonSize.Large,
+        buttonColors = ButtonDefaults.colors(
+            backgroundColor = DealiColor.primary05,
+            disabledBackgroundColor = DealiColor.g40,
+            contentColor = DealiColor.primary04,
+            disabledContentColor = DealiColor.primary04,
+        ),
+        interactionSource = interactionSource,
+        modifier = modifier,
+    )
+}
+
+@Composable
 fun btnFilledTonalLarge01(
     onClick: () -> Unit,
     text: String,
@@ -943,6 +1043,15 @@ private fun Preview() {
         )
         btnFilledLarge03(
             text = "btnFilledLarge03", onClick = {}, modifier = modifier,
+        )
+        btnFilledLarge04(
+            text = "btnFilledLarge04", onClick = {}, modifier = modifier,
+        )
+        btnFilledLarge05(
+            text = "btnFilledLarge05", onClick = {}, modifier = modifier,
+        )
+        btnFilledLarge06(
+            text = "btnFilledLarge06", onClick = {}, modifier = modifier,
         )
         btnFilledTonalLarge01(
             text = "btnFilledTonalLarge01", onClick = {}, modifier = modifier,
