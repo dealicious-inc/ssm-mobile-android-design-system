@@ -1,6 +1,7 @@
 package net.deali.designsystem.internal.button
 
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -16,7 +17,6 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import androidx.compose.foundation.shape.RoundedCornerShape
 
 internal object ButtonDefaults {
     @Composable
@@ -25,6 +25,7 @@ internal object ButtonDefaults {
         disabledBackgroundColor: Color,
         contentColor: Color,
         disabledContentColor: Color,
+        iconColor: Color?,
         outlineColor: Color = DealiColor.transparent,
         disabledOutlineColor: Color = DealiColor.transparent,
     ): ButtonColors {
@@ -35,6 +36,7 @@ internal object ButtonDefaults {
             disabledOutlineColor = disabledOutlineColor,
             contentColor = contentColor,
             disabledContentColor = disabledContentColor,
+            iconColor = iconColor,
         )
     }
 
@@ -44,6 +46,7 @@ internal object ButtonDefaults {
         disabledBackgroundColor: Brush,
         contentColor: Color,
         disabledContentColor: Color,
+        iconColor: Color?,
         outlineColor: Color = DealiColor.transparent,
         disabledOutlineColor: Color = DealiColor.transparent,
     ): ButtonColors {
@@ -54,6 +57,7 @@ internal object ButtonDefaults {
             disabledOutlineColor = disabledOutlineColor,
             contentColor = contentColor,
             disabledContentColor = disabledContentColor,
+            iconColor = iconColor ?: contentColor,
         )
     }
 
@@ -90,10 +94,34 @@ internal object ButtonDefaults {
         rounded: Boolean,
     ): PaddingValues {
         return when (buttonSize) {
-            ButtonSize.Large -> largeButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
-            ButtonSize.Medium -> mediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
-            ButtonSize.SemiMedium -> semiMediumButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading)
-            ButtonSize.Small -> smallButtonPaddings(buttonStyle, useLeftIcon, useRightIcon, isLoading, rounded)
+            ButtonSize.Large -> largeButtonPaddings(
+                buttonStyle,
+                useLeftIcon,
+                useRightIcon,
+                isLoading
+            )
+
+            ButtonSize.Medium -> mediumButtonPaddings(
+                buttonStyle,
+                useLeftIcon,
+                useRightIcon,
+                isLoading
+            )
+
+            ButtonSize.SemiMedium -> semiMediumButtonPaddings(
+                buttonStyle,
+                useLeftIcon,
+                useRightIcon,
+                isLoading
+            )
+
+            ButtonSize.Small -> smallButtonPaddings(
+                buttonStyle,
+                useLeftIcon,
+                useRightIcon,
+                isLoading,
+                rounded
+            )
         }
     }
 
@@ -213,6 +241,9 @@ internal interface ButtonColors {
 
     @Composable
     fun contentColor(enabled: Boolean): State<Color>
+
+    @Composable
+    fun iconColor(enabled: Boolean): State<Color>
 }
 
 @Immutable
@@ -223,6 +254,7 @@ private class DefaultButtonColors(
     val disabledOutlineColor: Color,
     val contentColor: Color,
     val disabledContentColor: Color,
+    val iconColor: Color?,
 ) : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Brush> {
@@ -237,5 +269,20 @@ private class DefaultButtonColors(
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
+    }
+
+    /**
+     * 아이콘 설정을 따로 하지 않은 경우 : 텍스트 컬러를 따름. (enabled: contentColor, disabled: disabledContentColor)
+     * 아이콘 컬러를 임의 설정한 경우 : enabled 여부와 상관없이 임의 설정한 컬러 사용.
+     */
+    @Composable
+    override fun iconColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            if (iconColor == null) {
+                if (enabled) contentColor else disabledContentColor
+            } else {
+                iconColor
+            }
+        )
     }
 }

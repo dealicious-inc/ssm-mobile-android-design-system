@@ -48,6 +48,7 @@ internal fun CoreButton(
     val backgroundColor by buttonColors.backgroundColor(enabled)
     val outlineColor by buttonColors.outlineColor(enabled)
     val contentColor by buttonColors.contentColor(enabled)
+    val iconColor by buttonColors.iconColor(enabled)
 
     Box(
         modifier = modifier
@@ -111,7 +112,7 @@ internal fun CoreButton(
                 if (leftIcon != null) {
                     Icon16(
                         iconRes = leftIcon,
-                        color = contentColor,
+                        color = iconColor,
                     )
                 }
                 DealiText(
@@ -125,7 +126,7 @@ internal fun CoreButton(
                 if (rightIcon != null) {
                     Icon16(
                         iconRes = rightIcon,
-                        color = contentColor,
+                        color = iconColor,
                     )
                 }
             }
