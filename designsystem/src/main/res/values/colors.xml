@@ -56,5 +56,6 @@
     <color name="mbs02">#FFE5FE1E</color>
 
     <color name="transparent">#00FFFFFF</color>
-    <color name="ripple">#22000000</color>
+<!--    <color name="ripple">#22000000</color>-->
+    <color name="ripple">#22FB4760</color>
 </resources>
