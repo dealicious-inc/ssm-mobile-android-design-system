@@ -73,7 +73,8 @@ object DealiColor {
     val w5: Color = Color(0x0DFFFFFF)
 
     val transparent: Color = Color(0x00FFFFFF)
-    val ripple: Color = Color(0x22000000)
+//    val ripple: Color = Color(0x22000000)
+    val ripple: Color = Color(0x22FB4760)
 
     val mbs01: Color = Color(0xFF1F5EFF)
     val mbs02: Color = Color(0xFFE5FE1E)
