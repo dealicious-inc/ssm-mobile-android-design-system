@@ -62,6 +62,7 @@ fun ColorsScreen(
         ColorScreenItem(DealiColor.b20, "b20"),
         ColorScreenItem(DealiColor.b10, "b10"),
         ColorScreenItem(DealiColor.b5, "b5"),
+        ColorScreenItem(DealiColor.b2, "b2"),
         ColorScreenItem(DealiColor.w90, "w90", true),
         ColorScreenItem(DealiColor.w70, "w70", true),
         ColorScreenItem(DealiColor.w50, "w50", true),

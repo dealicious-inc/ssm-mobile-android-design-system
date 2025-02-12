@@ -61,6 +61,7 @@ object DealiColor {
     val b20: Color = Color(0x33000000)
     val b10: Color = Color(0x1A000000)
     val b5: Color = Color(0x0D000000)
+    val b2: Color = Color(0x05000000)
 
     val w90: Color = Color(0xE6FFFFFF)
     val w70: Color = Color(0xB3FFFFFF)
@@ -73,8 +74,7 @@ object DealiColor {
     val w5: Color = Color(0x0DFFFFFF)
 
     val transparent: Color = Color(0x00FFFFFF)
-//    val ripple: Color = Color(0x22000000)
-    val ripple: Color = Color(0x22FB4760)
+    val ripple: Color = b2
 
     val mbs01: Color = Color(0xFF1F5EFF)
     val mbs02: Color = Color(0xFFE5FE1E)

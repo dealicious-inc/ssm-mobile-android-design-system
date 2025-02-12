@@ -41,6 +41,7 @@
     <color name="b20">#33000000</color>
     <color name="b10">#1A000000</color>
     <color name="b5">#0D000000</color>
+    <color name="b2">#05000000</color>
 
     <color name="w90">#E6FFFFFF</color>
     <color name="w70">#B3FFFFFF</color>
@@ -52,6 +53,5 @@
     <color name="w5">#0DFFFFFF</color>
 
     <color name="transparent">#00FFFFFF</color>
-<!--    <color name="ripple">#22000000</color>-->
-    <color name="ripple">#22FB4760</color>
+    <color name="ripple">@color/b2</color>
 </resources>
