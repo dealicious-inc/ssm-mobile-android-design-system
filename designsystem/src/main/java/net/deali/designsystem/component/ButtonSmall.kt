@@ -226,6 +226,7 @@ fun btnFilledSmall06(
         modifier = modifier,
     )
 }
+
 @Composable
 fun btnFilledTonalSmall01(
     onClick: () -> Unit,

@@ -95,11 +95,12 @@ fun rememberTopBarNestedScrollConnection(
 
     LaunchedEffect(scrollState.isScrollInProgress) {
         if (!scrollState.isScrollInProgress) {
-            nestedScrollConnection.topBarOffset = if (nestedScrollConnection.topBarOffset > topBarHeightPx / 2) {
-                topBarHeightPx
-            } else {
-                0f
-            }
+            nestedScrollConnection.topBarOffset =
+                if (nestedScrollConnection.topBarOffset > topBarHeightPx / 2) {
+                    topBarHeightPx
+                } else {
+                    0f
+                }
         }
     }
 

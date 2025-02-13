@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
@@ -31,7 +32,6 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import androidx.compose.foundation.shape.RoundedCornerShape
 
 /**
  * 신상마켓 디자인 시스템 XML 레이아웃용 팝업 컴포넌트.

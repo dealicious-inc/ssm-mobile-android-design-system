@@ -29,7 +29,8 @@ fun Rating(
     val filledPainter = painterResource(id = R.drawable.ic_zzim_filled_16)
 
     val space = LocalDensity.current.run { spaceBetween.toPx() }
-    val imageSize = LocalDensity.current.run { if (size < 1.dp) painter.intrinsicSize.width else size.toPx() }
+    val imageSize =
+        LocalDensity.current.run { if (size < 1.dp) painter.intrinsicSize.width else size.toPx() }
 
     val totalWidth = size * totalCount + spaceBetween * (totalCount - 1)
 

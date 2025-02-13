@@ -60,18 +60,22 @@ internal fun <T> CorePicker(
 
     if (repeated) {
         LaunchedEffect(Unit) {
-            state.scrollToItem(calculateFarIndexForRepeatedPicker(
-                index = state.currentIndex,
-                valuesCount = values.size
-            ))
+            state.scrollToItem(
+                calculateFarIndexForRepeatedPicker(
+                    index = state.currentIndex,
+                    valuesCount = values.size
+                )
+            )
         }
 
         LaunchedEffect(state.isScrollInProgress) {
             if (!state.isScrollInProgress) {
-                state.scrollToItem(calculateFarIndexForRepeatedPicker(
-                    index = state.currentIndex,
-                    valuesCount = values.size
-                ))
+                state.scrollToItem(
+                    calculateFarIndexForRepeatedPicker(
+                        index = state.currentIndex,
+                        valuesCount = values.size
+                    )
+                )
             }
         }
     }

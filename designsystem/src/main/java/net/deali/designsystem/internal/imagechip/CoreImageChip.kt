@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
@@ -50,7 +51,6 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.theme.DealiColor
-import androidx.compose.foundation.shape.RoundedCornerShape
 import kotlin.math.max
 import kotlin.math.min
 

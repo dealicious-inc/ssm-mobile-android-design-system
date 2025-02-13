@@ -24,6 +24,7 @@ internal object SwitchDefaults {
             SwitchSize.Large -> {
                 DpSize(width = 50.dp, height = 30.dp)
             }
+
             SwitchSize.Small -> {
                 DpSize(width = 36.dp, height = 22.dp)
             }
@@ -36,6 +37,7 @@ internal object SwitchDefaults {
             SwitchSize.Large -> {
                 13.dp
             }
+
             SwitchSize.Small -> {
                 9.dp
             }

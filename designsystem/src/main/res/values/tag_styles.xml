@@ -10,12 +10,14 @@
 
     <style name="TagFilledLarge02" parent="TagLarge">
         <item name="android:textColor">@color/secondary01</item>
-        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledLarge03" parent="TagLarge">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledLarge04" parent="TagLarge">
@@ -51,12 +53,14 @@
 
     <style name="TagFilledMedium02" parent="TagMedium">
         <item name="android:textColor">@color/secondary01</item>
-        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledMedium03" parent="TagMedium">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledMedium04" parent="TagMedium">
@@ -92,12 +96,14 @@
 
     <style name="TagFilledSmall02" parent="TagSmall">
         <item name="android:textColor">@color/secondary01</item>
-        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary03_stroke_secondary03_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledSmall03" parent="TagSmall">
         <item name="android:textColor">@color/g80</item>
-        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp</item>
+        <item name="android:background">@drawable/bg_secondary06_stroke_secondary06_radius_4dp
+        </item>
     </style>
 
     <style name="TagFilledSmall04" parent="TagSmall">
