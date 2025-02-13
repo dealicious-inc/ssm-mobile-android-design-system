@@ -33,7 +33,7 @@ fun AppTheme(
         CompositionLocalProvider(
             LocalColors provides DealiColor,
             LocalIndication provides rippleIndication,
-            LocalRippleConfiguration provides myRippleConfiguration,
+            LocalRippleConfiguration provides dealiRippleConfiguration,
             LocalTypography provides typography,
             LocalTextSelectionColors provides textSelectionColors,
             content = content
