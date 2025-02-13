@@ -6,9 +6,7 @@ import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.LocalRippleConfiguration
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.RippleConfiguration
 import androidx.compose.material.ripple
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import java.util.Locale
@@ -30,8 +28,6 @@ fun AppTheme(
         handleColor = DealiColor.primary01,
         backgroundColor = DealiColor.primary01.copy(alpha = 0.4f)
     )
-
-    val myRippleConfiguration = RippleConfiguration(color = DealiColor.ripple)
 
     MaterialTheme(typography = MaterialTypography) {
         CompositionLocalProvider(
