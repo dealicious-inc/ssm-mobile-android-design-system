@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,6 +24,7 @@ fun textLinkMedium01(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -37,6 +39,7 @@ fun textLinkMedium01(
         defaultColor = DealiColor.primary01,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -50,6 +53,7 @@ fun textLinkMedium02(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -64,6 +68,7 @@ fun textLinkMedium02(
         defaultColor = DealiColor.primary04,
         disabledColor = DealiColor.w50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -77,6 +82,7 @@ fun textLinkMedium03(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -91,6 +97,7 @@ fun textLinkMedium03(
         defaultColor = DealiColor.secondary01,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -104,6 +111,7 @@ fun textLinkMedium04(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -118,6 +126,7 @@ fun textLinkMedium04(
         defaultColor = DealiColor.g100,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -131,6 +140,7 @@ fun textLinkMedium05(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -145,6 +155,7 @@ fun textLinkMedium05(
         defaultColor = DealiColor.g80,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -158,6 +169,7 @@ fun textLinkMedium06(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -172,6 +184,7 @@ fun textLinkMedium06(
         defaultColor = DealiColor.g70,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -185,6 +198,7 @@ fun textLinkMedium07(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -199,6 +213,7 @@ fun textLinkMedium07(
         defaultColor = DealiColor.g60,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -213,6 +228,7 @@ fun textLinkLineMedium01(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -227,6 +243,7 @@ fun textLinkLineMedium01(
         defaultColor = DealiColor.primary01,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -240,6 +257,7 @@ fun textLinkLineMedium02(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -254,6 +272,7 @@ fun textLinkLineMedium02(
         defaultColor = DealiColor.primary04,
         disabledColor = DealiColor.w50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -267,6 +286,7 @@ fun textLinkLineMedium03(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -281,6 +301,7 @@ fun textLinkLineMedium03(
         defaultColor = DealiColor.secondary01,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -294,6 +315,7 @@ fun textLinkLineMedium04(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -308,6 +330,7 @@ fun textLinkLineMedium04(
         defaultColor = DealiColor.g100,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -321,6 +344,7 @@ fun textLinkLineMedium05(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -335,6 +359,7 @@ fun textLinkLineMedium05(
         defaultColor = DealiColor.g80,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -348,6 +373,7 @@ fun textLinkLineMedium06(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -362,6 +388,7 @@ fun textLinkLineMedium06(
         defaultColor = DealiColor.g70,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }
@@ -375,6 +402,7 @@ fun textLinkLineMedium07(
     @DrawableRes rightIcon: Int? = null,
     clickable: Boolean = true,
     enabled: Boolean = true,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreTextLink(
@@ -389,6 +417,7 @@ fun textLinkLineMedium07(
         defaultColor = DealiColor.g60,
         disabledColor = DealiColor.g50,
         onClick = onClick,
+        contentAlignment = contentAlignment,
         interactionSource = interactionSource,
     )
 }

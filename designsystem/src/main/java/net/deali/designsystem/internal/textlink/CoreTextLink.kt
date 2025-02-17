@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -36,6 +38,7 @@ internal fun CoreTextLink(
     defaultColor: Color,
     disabledColor: Color,
     onClick: () -> Unit,
+    contentAlignment: Alignment = Alignment.Center,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val color = if (enabled) defaultColor else disabledColor
@@ -56,7 +59,7 @@ internal fun CoreTextLink(
                     Modifier
                 }
             ),
-        contentAlignment = Alignment.Center,
+        contentAlignment = contentAlignment,
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -123,6 +126,46 @@ private fun Preview() {
             textLinkSize = TextLinkSize.Small,
             defaultColor = DealiColor.primary01,
             disabledColor = Color.Gray,
+            onClick = {},
+        )
+    }
+
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview2() {
+    Column {
+        CoreTextLink(
+            modifier = Modifier
+                .width(120.dp)
+                .height(60.dp),
+            text = "가운데(기본)",
+            leftIcon = null,
+            rightIcon = null,
+            clickable = true,
+            enabled = true,
+            textLinkStyle = TextLinkStyle.Default,
+            textLinkSize = TextLinkSize.Large,
+            defaultColor = Color.Black,
+            disabledColor = Color.Gray,
+            onClick = {},
+        )
+
+        CoreTextLink(
+            modifier = Modifier
+                .width(120.dp)
+                .height(60.dp),
+            text = "왼쪽 위로 정렬",
+            leftIcon = null,
+            rightIcon = null,
+            clickable = true,
+            enabled = true,
+            textLinkStyle = TextLinkStyle.Line,
+            textLinkSize = TextLinkSize.Small,
+            defaultColor = DealiColor.primary01,
+            disabledColor = Color.Gray,
+            contentAlignment = Alignment.TopStart,
             onClick = {},
         )
     }

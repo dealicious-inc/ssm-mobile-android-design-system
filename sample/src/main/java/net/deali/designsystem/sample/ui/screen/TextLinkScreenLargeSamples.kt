@@ -3,11 +3,16 @@ package net.deali.designsystem.sample.ui.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.component.textLinkLarge01
 import net.deali.designsystem.component.textLinkLarge02
@@ -24,6 +29,7 @@ import net.deali.designsystem.component.textLinkLineLarge05
 import net.deali.designsystem.component.textLinkLineLarge06
 import net.deali.designsystem.component.textLinkLineLarge07
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun TextLinkLargeSamples(
@@ -42,6 +48,34 @@ fun TextLinkLargeSamples(
 
         item {
             TextLinkLineLargeSamples()
+        }
+
+        item {
+            DealiText(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = "클릭영역이 더 큰 경우",
+                style = DealiFont.sh3sb16,
+                color = DealiColor.g100,
+            )
+
+            textLinkLineLarge07(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp),
+                text = "contentAlignment 기본",
+                onClick = {},
+                enabled = true
+            )
+
+            textLinkLineLarge07(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp),
+                text = "CenterStart",
+                onClick = {},
+                enabled = true,
+                contentAlignment = Alignment.CenterStart
+            )
         }
     }
 }
