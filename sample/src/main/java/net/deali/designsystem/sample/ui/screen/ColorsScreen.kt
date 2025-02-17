@@ -15,7 +15,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
@@ -29,7 +31,7 @@ import net.deali.designsystem.theme.DealiFont
 fun ColorsScreen(
     onBackPress: () -> Unit
 ) {
-    val colorScreenItems = listOf(
+    val screenItems: List<ScreenItem> = listOf(
         ColorScreenItem(DealiColor.primary01, "primary01"),
         ColorScreenItem(DealiColor.primary02, "primary02"),
         ColorScreenItem(DealiColor.primary03, "primary03"),
@@ -72,6 +74,10 @@ fun ColorsScreen(
         ColorScreenItem(DealiColor.w15, "w15", true),
         ColorScreenItem(DealiColor.w10, "w10", true),
         ColorScreenItem(DealiColor.w5, "w5", true),
+        ColorScreenItem(DealiColor.mbs01, "mbs01"),
+        ColorScreenItem(DealiColor.mbs02, "mbs02"),
+        ScreenItem(DealiColor.gradient01, "gradient01", false, ""),
+        ScreenItem(DealiColor.gradient02, "gradient02", false, ""),
     )
 
     NavigationContainer(
@@ -86,8 +92,8 @@ fun ColorsScreen(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            items(colorScreenItems.size) { index ->
-                val item = colorScreenItems[index]
+            items(screenItems.size) { index ->
+                val item = screenItems[index]
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -96,9 +102,9 @@ fun ColorsScreen(
 
                 ) {
                     Item(
-                        color = item.color,
+                        brush = item.brush,
                         name = item.name,
-                        code = item.color.toHexString(),
+                        code = item.code,
                         useDarkMode = item.useDarkMode,
                     )
                 }
@@ -109,7 +115,7 @@ fun ColorsScreen(
 
 @Composable
 private fun Item(
-    color: Color,
+    brush: Brush,
     name: String,
     code: String,
     useDarkMode: Boolean = false,
@@ -129,7 +135,7 @@ private fun Item(
                         DealiColor.g10
                     ) else Modifier
                 )
-                .background(color)
+                .background(brush)
                 .aspectRatio(1f)
         )
 
@@ -156,8 +162,20 @@ private fun ColorsScreenPreview() {
     )
 }
 
+private open class ScreenItem(
+    val brush: Brush,
+    open val name: String,
+    open val useDarkMode: Boolean = false,
+    val code: String,
+)
+
 private data class ColorScreenItem(
     val color: Color,
-    val name: String,
-    val useDarkMode: Boolean = false,
+    override val name: String,
+    override val useDarkMode: Boolean = false,
+) : ScreenItem(
+    brush = SolidColor(color),
+    name = name,
+    useDarkMode = useDarkMode,
+    code = color.toHexString(),
 )

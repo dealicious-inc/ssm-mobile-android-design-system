@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.internal.linearGradient
 
 @Immutable
@@ -86,14 +85,20 @@ object DealiColor {
     }
 
     val gradient01: Brush = kotlin.run {
-        Brush.horizontalGradient(colors = listOf(mbs01, mbs02))
+        Brush.linearGradient(
+            0.4f to mbs01,
+            1.0f to mbs02,
+            angleInDegrees = 98f,
+            useAsCssAngle = true,
+        )
     }
 
     val gradient02: Brush = kotlin.run {
         Brush.linearGradient(
-            0.21f to mbs01,
-            1.0f to mbs02,
-            angleInDegrees = 282f,
+            0.5f to mbs01,
+            1.0f to Color(0XFFA6CB65),
+            angleInDegrees = 148f,
+            useAsCssAngle = true,
         )
     }
 }
@@ -102,7 +107,7 @@ internal val LocalColors = staticCompositionLocalOf { DealiColor }
 
 @Preview(showBackground = true)
 @Composable
-fun Preview() {
+fun Preview1() {
     Column {
 
         Box(
@@ -111,16 +116,44 @@ fun Preview() {
                 .height(54.dp)
                 .background(DealiColor.gradient01)
         )
-
-        VerticalSpacer(16.dp)
-
-        Box(
-            modifier = Modifier
-                .width(176.dp)
-                .height(54.dp)
-                .alpha(0.8f)
-                .background(DealiColor.gradient02)
-
-        )
     }
+}
+
+@Preview
+@Composable
+fun Preview2() {
+    Box(
+        modifier = Modifier
+            .width(176.dp)
+            .height(54.dp)
+            .alpha(0.8f)
+            .background(DealiColor.gradient02)
+
+    )
+}
+
+@Preview
+@Composable
+fun Preview3() {
+    Box(
+        modifier = Modifier
+            .width(80.dp)
+            .height(80.dp)
+            .alpha(0.8f)
+            .background(DealiColor.gradient02)
+
+    )
+}
+
+@Preview
+@Composable
+fun Preview4() {
+    Box(
+        modifier = Modifier
+            .width(360.dp)
+            .height(711.dp)
+            .alpha(0.8f)
+            .background(DealiColor.gradient02)
+
+    )
 }

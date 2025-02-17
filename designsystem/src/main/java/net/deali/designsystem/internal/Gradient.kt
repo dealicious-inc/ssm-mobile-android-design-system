@@ -22,7 +22,7 @@ import kotlin.math.sqrt
  * Compose의 기본 linearGradient와 달리 각도를 지정할 수 있으며,
  * CSS와 동일한 각도를 사용할 수 있다.
  */
-class LinearGradient constructor(
+class LinearGradient(
     private val colors: List<Color>,
     private val stops: List<Float>? = null,
     private val tileMode: TileMode = TileMode.Clamp,
