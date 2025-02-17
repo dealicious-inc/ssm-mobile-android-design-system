@@ -3,11 +3,14 @@ package net.deali.designsystem.component
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -18,7 +21,6 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
 
-/** 구 TagLargePrimaryFilledPink */
 @Composable
 fun TagFilledLarge01(
     text: String,
@@ -32,7 +34,6 @@ fun TagFilledLarge01(
     )
 }
 
-/** 구 TagLargePrimaryFilledBlue */
 @Composable
 fun TagFilledLarge02(
     text: String,
@@ -59,7 +60,6 @@ fun TagFilledLarge03(
     )
 }
 
-/** 구 TagLargePrimaryFilledGray */
 @Composable
 fun TagFilledLarge04(
     text: String,
@@ -73,7 +73,6 @@ fun TagFilledLarge04(
     )
 }
 
-/** 구 TagLargeSecondaryOutlinedPink */
 @Composable
 fun TagOutlineLarge01(
     text: String,
@@ -88,7 +87,6 @@ fun TagOutlineLarge01(
     )
 }
 
-/** 구 TagLargeSecondaryOutlinedBlue */
 @Composable
 fun TagOutlineLarge02(
     text: String,
@@ -117,7 +115,6 @@ fun TagOutlineLarge03(
     )
 }
 
-/** 구 TagLargeSecondaryOutlinedGray */
 @Composable
 fun TagOutlineLarge04(
     text: String,
@@ -132,7 +129,6 @@ fun TagOutlineLarge04(
     )
 }
 
-/** 구 TagMediumPrimaryFilledPink */
 @Composable
 fun TagFilledMedium01(
     text: String,
@@ -146,7 +142,6 @@ fun TagFilledMedium01(
     )
 }
 
-/** 구 TagMediumPrimaryFilledBlue */
 @Composable
 fun TagFilledMedium02(
     text: String,
@@ -173,7 +168,6 @@ fun TagFilledMedium03(
     )
 }
 
-/** 구 TagMediumPrimaryFilledGray */
 @Composable
 fun TagFilledMedium04(
     text: String,
@@ -187,7 +181,6 @@ fun TagFilledMedium04(
     )
 }
 
-/** 구 TagMediumSecondaryOutlinedPink */
 @Composable
 fun TagOutlinedMedium01(
     text: String,
@@ -202,7 +195,6 @@ fun TagOutlinedMedium01(
     )
 }
 
-/** 구 TagMediumSecondaryOutlinedBlue */
 @Composable
 fun TagOutlinedMedium02(
     text: String,
@@ -231,7 +223,6 @@ fun TagOutlinedMedium03(
     )
 }
 
-/** 구 TagMediumSecondaryOutlinedGray */
 @Composable
 fun TagOutlinedMedium04(
     text: String,
@@ -246,7 +237,6 @@ fun TagOutlinedMedium04(
     )
 }
 
-/** 구 TagSmallPrimaryFilledPink */
 @Composable
 fun TagFilledSmall01(
     text: String,
@@ -260,7 +250,6 @@ fun TagFilledSmall01(
     )
 }
 
-/** 구 TagSmallPrimaryFilledBlue */
 @Composable
 fun TagFilledSmall02(
     text: String,
@@ -287,7 +276,6 @@ fun TagFilledSmall03(
     )
 }
 
-/** 구 TagSmallPrimaryFilledGray */
 @Composable
 fun TagFilledSmall04(
     text: String,
@@ -301,7 +289,6 @@ fun TagFilledSmall04(
     )
 }
 
-/** 구 TagSmallSecondaryOutlinedPink */
 @Composable
 fun TagOutlineSmall01(
     text: String,
@@ -316,7 +303,6 @@ fun TagOutlineSmall01(
     )
 }
 
-/** 구 TagSmallSecondaryOutlinedBlue */
 @Composable
 fun TagOutlineSmall02(
     text: String,
@@ -345,7 +331,6 @@ fun TagOutlineSmall03(
     )
 }
 
-/** 구 TagSmallSecondaryOutlinedGray */
 @Composable
 fun TagOutlineSmall04(
     text: String,
@@ -369,11 +354,12 @@ private fun TagSmall(
     borderColor: Color? = null
 ) {
     Tag(
-        modifier = modifier,
+        modifier = modifier
+            .height(16.dp),
         text = text,
         color = textColor,
         style = DealiFont.c1sb10,
-        paddingValues = PaddingValues(4.dp, 1.dp),
+        paddingValues = PaddingValues(horizontal = 4.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
     )
@@ -388,11 +374,12 @@ private fun TagMedium(
     borderColor: Color? = null
 ) {
     Tag(
-        modifier = modifier,
+        modifier = modifier
+            .height(26.dp),
         text = text,
         color = textColor,
         style = DealiFont.b4sb12,
-        paddingValues = PaddingValues(8.dp, 4.dp),
+        paddingValues = PaddingValues(horizontal = 8.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
     )
@@ -407,11 +394,12 @@ private fun TagLarge(
     borderColor: Color? = null
 ) {
     Tag(
-        modifier = modifier,
+        modifier = modifier
+            .height(28.dp),
         text = text,
         color = textColor,
         style = DealiFont.b2sb14,
-        paddingValues = PaddingValues(8.dp, 4.dp),
+        paddingValues = PaddingValues(horizontal = 8.dp),
         backgroundColor = backgroundColor,
         borderColor = borderColor
     )
@@ -427,7 +415,7 @@ private fun Tag(
     backgroundColor: Color,
     borderColor: Color? = null,
 ) {
-    DealiText(
+    Box(
         modifier = modifier
             .background(
                 color = backgroundColor,
@@ -445,12 +433,16 @@ private fun Tag(
                 }
             )
             .padding(paddingValues),
-        text = text,
-        color = color,
-        style = style,
-        maxLines = 1,
-        overflow = TextOverflow.Ellipsis,
-    )
+        contentAlignment = Alignment.Center,
+    ) {
+        DealiText(
+            text = text,
+            color = color,
+            style = style,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+    }
 }
 
 @Composable
