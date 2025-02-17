@@ -74,12 +74,7 @@ object DealiColor {
     val w5: Color = Color(0x0DFFFFFF)
 
     val transparent: Color = Color(0x00FFFFFF)
-
-    /**
-     * ripple의 색상은 b2 (#05000000)(#F2F2F2)으로 설정해야하나, XML에서 ripple 적용은 강제로 50% 투명도로 적용됨.
-     * 따라서, #E5E5E5로 설정하고 50% 투명도를 적용하면 b2와 비슷한 색상을 얻을 수 있음.
-     */
-    val ripple: Color = Color(0xFFE5E5E5)
+    val ripple: Color = b2
 
     val mbs01: Color = Color(0xFF1F5EFF)
     val mbs02: Color = Color(0xFFE5FE1E)

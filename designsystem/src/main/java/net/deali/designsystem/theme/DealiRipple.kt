@@ -9,10 +9,10 @@ import androidx.compose.material.ripple.RippleAlpha
  * 사용하는 컬러에 Alpha값이 있더라도, RippleAlpha를 통해 컬러 Alpha값은 무시하고 RippleAlpha값으로 변경됨.
  */
 private val dealiRippleAlpha = RippleAlpha(
-    pressedAlpha = 0.5f,
-    focusedAlpha = 0.5f,
-    draggedAlpha = 0.5f,
-    hoveredAlpha = 0.5f,
+    pressedAlpha = 0.02f,
+    focusedAlpha = 0.02f,
+    draggedAlpha = 0.02f,
+    hoveredAlpha = 0.02f,
 )
 
 @OptIn(ExperimentalMaterialApi::class)
