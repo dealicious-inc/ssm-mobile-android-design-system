@@ -49,6 +49,7 @@ sealed class Screen(
     data object LabeledText : Screen("labeledText")
     data object Accordion : Screen("accordion")
     data object Notice : Screen("notice")
+    data object PlaceholderImage : Screen("placeholderImage")
 
     /** Undefined */
     data object SwipeRefresh : Screen("swipeRefresh")

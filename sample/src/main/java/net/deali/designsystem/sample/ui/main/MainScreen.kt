@@ -214,6 +214,7 @@ private fun MainScreenPreview() {
             Screen.LabeledText,
             Screen.Accordion,
             Screen.Notice,
+            Screen.PlaceholderImage,
         ),
         others = listOf(
             Screen.SwipeRefresh,

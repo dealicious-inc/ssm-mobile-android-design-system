@@ -82,6 +82,7 @@ class MainActivity : ComponentActivity() {
         Screen.LabeledText,
         Screen.Accordion,
         Screen.Notice,
+        Screen.PlaceholderImage,
     )
 
     private fun getOthers() = listOf(
