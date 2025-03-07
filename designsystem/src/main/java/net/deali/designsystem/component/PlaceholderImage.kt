@@ -5,8 +5,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -18,6 +21,7 @@ import net.deali.designsystem.internal.placeholderimage.PlaceholderState
 @Composable
 fun DealiPlaceholderImage(
     imageUrl: String,
+    shape: Shape,
     state: PlaceholderState,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
@@ -29,6 +33,7 @@ fun DealiPlaceholderImage(
     CoreDealiPlaceholderImage(
         modifier = modifier,
         imageUrl = imageUrl,
+        shape = shape,
         placeholder = placeholder,
         placeholderColor = placeholderColor,
         backgroundColor = backgroundColor,
@@ -38,6 +43,7 @@ fun DealiPlaceholderImage(
 @Composable
 fun DealiPlaceholderImage(
     imageUrl: String,
+    shape: Shape,
     @DrawableRes customPlaceholder: Int,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
@@ -47,6 +53,7 @@ fun DealiPlaceholderImage(
     CoreDealiPlaceholderImage(
         modifier = modifier,
         imageUrl = imageUrl,
+        shape = shape,
         placeholder = customPlaceholder,
         placeholderColor = null,
         backgroundColor = backgroundColor,
@@ -67,6 +74,7 @@ private fun Preview() {
                 .width(width)
                 .height(height),
             imageUrl = "",
+            shape = RoundedCornerShape(6.dp),
             state = PlaceholderState.GOODS,
             colorState = PlaceholderColorState.WHITE,
         )
@@ -76,6 +84,7 @@ private fun Preview() {
                 .width(width)
                 .height(height),
             imageUrl = "",
+            shape = RoundedCornerShape(6.dp),
             state = PlaceholderState.STORE,
             colorState = PlaceholderColorState.GRAY,
         )
@@ -85,6 +94,7 @@ private fun Preview() {
                 .width(width)
                 .height(height),
             imageUrl = "",
+            shape = RoundedCornerShape(6.dp),
             customPlaceholder = R.drawable.img_mbs_filled,
             colorState = PlaceholderColorState.GRAY,
         )
