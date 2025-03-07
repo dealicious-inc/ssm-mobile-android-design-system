@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -25,6 +27,7 @@ import net.deali.designsystem.theme.DealiColor
 @Composable
 internal fun CoreDealiPlaceholderImage(
     imageUrl: String,
+    shape: Shape,
     @DrawableRes placeholder: Int,
     placeholderColor: Color?,
     backgroundColor: Color,
@@ -32,11 +35,13 @@ internal fun CoreDealiPlaceholderImage(
 ) {
     SubcomposeAsyncImage(
         modifier = modifier
-            .background(backgroundColor)
             .border(
                 width = 1.dp,
                 color = DealiColor.b5,
-            ),
+                shape = shape,
+            )
+            .clip(shape)
+            .background(backgroundColor),
         model = ImageRequest.Builder(LocalContext.current)
             .data(imageUrl)
             .crossfade(true)

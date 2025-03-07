@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,6 +89,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 .width(width)
                                 .height(height),
                             imageUrl = "https://cdn.pixabay.com/photo/2014/11/04/13/21/lego-516559_1280.jpg",
+                            shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.WHITE,
                         )
@@ -98,6 +101,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 .width(width)
                                 .height(height),
                             imageUrl = "",
+                            shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.WHITE,
                         )
@@ -109,6 +113,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 .width(width)
                                 .height(height),
                             imageUrl = "",
+                            shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.GRAY,
                         )
@@ -121,6 +126,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                     .width(width)
                                     .height(height),
                                 imageUrl = "https://cdn.pixabay.com/photo/2014/11/04/13/21/lego-516559_1280.jpg",
+                                shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.WHITE,
                             )
@@ -132,6 +138,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                     .width(width)
                                     .height(height),
                                 imageUrl = "",
+                                shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.WHITE,
                             )
@@ -143,6 +150,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                     .width(width)
                                     .height(height),
                                 imageUrl = "",
+                                shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.GRAY,
                             )
