@@ -19,13 +19,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
+import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
 internal fun CoreDealiPlaceholderImage(
     imageUrl: String,
     @DrawableRes placeholder: Int,
-    placeholderColor: Color,
+    placeholderColor: Color?,
     backgroundColor: Color,
     modifier: Modifier = Modifier,
 ) {
@@ -64,19 +65,19 @@ internal fun CoreDealiPlaceholderImage(
 @Composable
 private fun PlaceholderImage(
     @DrawableRes placeholder: Int,
-    placeholderColor: Color,
+    placeholderColor: Color?,
     modifier: Modifier = Modifier,
 ) {
     BoxWithConstraints(
         modifier = modifier
     ) {
-        val width = maxWidth
-        val height = maxHeight
+        val sizes = maxWidth to maxHeight
 
-        val (placeholderWidth, placeholderHeight) = PlaceholderImageDefaults.placeholderSize(
-            width,
-            height
-        )
+        val (placeholderWidth, placeholderHeight) = if (placeholder.isCustomPlaceholder) {
+            sizes
+        } else {
+            PlaceholderImageDefaults.placeholderSize(sizes)
+        }
 
         Image(
             modifier = Modifier
@@ -86,7 +87,10 @@ private fun PlaceholderImage(
             painter = painterResource(placeholder),
             contentScale = ContentScale.Crop,
             contentDescription = null,
-            colorFilter = ColorFilter.tint(placeholderColor)
+            colorFilter = placeholderColor?.let { ColorFilter.tint(it) }
         )
     }
 }
+
+private val Int.isCustomPlaceholder: Boolean
+    get() = !(this == R.drawable.ic_empty40 || this == R.drawable.ic_home_filled)

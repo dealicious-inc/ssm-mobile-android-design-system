@@ -1,6 +1,5 @@
 package net.deali.designsystem.internal.placeholderimage
 
-import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -22,13 +21,10 @@ internal object PlaceholderImageDefaults {
 
     @Composable
     fun placeholder(
-        state: PlaceholderState?,
-        @DrawableRes customPlaceholder: Int?
+        state: PlaceholderState,
     ) = when (state) {
         PlaceholderState.GOODS -> R.drawable.ic_empty40
         PlaceholderState.STORE -> R.drawable.ic_home_filled
-        else -> customPlaceholder
-            ?: throw IllegalArgumentException("iconState or customIcon must be provided")
     }
 
     /**
@@ -37,14 +33,14 @@ internal object PlaceholderImageDefaults {
      * - 70dp 이하: 가로의 1/2
      * - 70dp 이상: 가로의 1/2.5
      *
-     * 2. 직사각형일 경우 (1:1 아이콘을 4:3 비율로 변경)
+     * 2. 직사각형일 경우 (1:1 아이콘을 3:4 비율로 변경)
      * - 가로의 1/4
      */
     @Composable
     fun placeholderSize(
-        parentWidth: Dp,
-        parentHeight: Dp
+        sizes: Pair<Dp, Dp>,
     ): Pair<Dp, Dp> {
+        val (parentWidth, parentHeight) = sizes
         val parentRatio = parentWidth / parentHeight
 
         val placeholderRatio = if (parentRatio == 1f) {

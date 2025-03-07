@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import net.deali.designsystem.R
 import net.deali.designsystem.internal.placeholderimage.CoreDealiPlaceholderImage
 import net.deali.designsystem.internal.placeholderimage.PlaceholderColorState
 import net.deali.designsystem.internal.placeholderimage.PlaceholderImageDefaults
@@ -21,7 +22,7 @@ fun DealiPlaceholderImage(
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
 ) {
-    val placeholder = PlaceholderImageDefaults.placeholder(state = state, customPlaceholder = null)
+    val placeholder = PlaceholderImageDefaults.placeholder(state)
     val placeholderColor = PlaceholderImageDefaults.placeholderColor(colorState)
     val backgroundColor = PlaceholderImageDefaults.backgroundColor(colorState)
 
@@ -41,16 +42,13 @@ fun DealiPlaceholderImage(
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
 ) {
-    val placeholder =
-        PlaceholderImageDefaults.placeholder(state = null, customPlaceholder = customPlaceholder)
-    val placeholderColor = PlaceholderImageDefaults.placeholderColor(colorState)
     val backgroundColor = PlaceholderImageDefaults.backgroundColor(colorState)
 
     CoreDealiPlaceholderImage(
         modifier = modifier,
         imageUrl = imageUrl,
-        placeholder = placeholder,
-        placeholderColor = placeholderColor,
+        placeholder = customPlaceholder,
+        placeholderColor = null,
         backgroundColor = backgroundColor,
     )
 }
@@ -79,6 +77,15 @@ private fun Preview() {
                 .height(height),
             imageUrl = "",
             state = PlaceholderState.STORE,
+            colorState = PlaceholderColorState.GRAY,
+        )
+
+        DealiPlaceholderImage(
+            modifier = Modifier
+                .width(width)
+                .height(height),
+            imageUrl = "",
+            customPlaceholder = R.drawable.img_mbs_filled,
             colorState = PlaceholderColorState.GRAY,
         )
     }
