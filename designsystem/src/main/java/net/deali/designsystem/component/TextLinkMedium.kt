@@ -17,7 +17,7 @@ import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun textLinkMedium01(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -46,7 +46,7 @@ fun textLinkMedium01(
 
 @Composable
 fun textLinkMedium02(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -75,7 +75,7 @@ fun textLinkMedium02(
 
 @Composable
 fun textLinkMedium03(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -104,7 +104,7 @@ fun textLinkMedium03(
 
 @Composable
 fun textLinkMedium04(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -133,7 +133,7 @@ fun textLinkMedium04(
 
 @Composable
 fun textLinkMedium05(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -162,7 +162,7 @@ fun textLinkMedium05(
 
 @Composable
 fun textLinkMedium06(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -191,7 +191,7 @@ fun textLinkMedium06(
 
 @Composable
 fun textLinkMedium07(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -221,7 +221,7 @@ fun textLinkMedium07(
 
 @Composable
 fun textLinkLineMedium01(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -250,7 +250,7 @@ fun textLinkLineMedium01(
 
 @Composable
 fun textLinkLineMedium02(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -279,7 +279,7 @@ fun textLinkLineMedium02(
 
 @Composable
 fun textLinkLineMedium03(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -308,7 +308,7 @@ fun textLinkLineMedium03(
 
 @Composable
 fun textLinkLineMedium04(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -337,7 +337,7 @@ fun textLinkLineMedium04(
 
 @Composable
 fun textLinkLineMedium05(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -366,7 +366,7 @@ fun textLinkLineMedium05(
 
 @Composable
 fun textLinkLineMedium06(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -395,7 +395,7 @@ fun textLinkLineMedium06(
 
 @Composable
 fun textLinkLineMedium07(
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
