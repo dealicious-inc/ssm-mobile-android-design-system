@@ -29,12 +29,12 @@ internal object PlaceholderImageDefaults {
 
     /**
      * 아이콘 사이즈 계산
-     * 1. 정사각형일 경우
-     * - 70dp 이하: 가로의 1/2
-     * - 70dp 이상: 가로의 1/2.5
+     * 1. 이미지 컴포저블이 정사각형일 경우
+     * - 70dp 이하 -> 이미지 컴포저블 가로의 1/2 크기로 아이콘 사이즈로 지정
+     * - 70dp 이상 -> 이미지 컴포저블 가로의 1/2.5 크기로 아이콘 사이즈로 지정
      *
-     * 2. 직사각형일 경우 (1:1 아이콘을 3:4 비율로 변경)
-     * - 가로의 1/4
+     * 2. 이미지 컴포저블이 직사각형일 경우 (1:1 아이콘을 3:4 비율로 변경)
+     * - 이미지 컴포저블 가로의 1/4 크기로 아이콘 가로 사이즈 지정
      */
     @Composable
     fun placeholderSize(
@@ -58,11 +58,24 @@ internal object PlaceholderImageDefaults {
     }
 }
 
+/**
+ * 색상 상태를 나타내는 enum class
+ */
 enum class PlaceholderColorState {
+    /**
+     * 배경 흰색 / 아이콘 회색
+     */
     WHITE,
+
+    /**
+     * 배경 회색 / 아이콘 흰색
+     */
     GRAY,
 }
 
+/**
+ * placeholder 아이콘 상태를 나타내는 enum class
+ */
 enum class PlaceholderState {
     GOODS,
     STORE,
