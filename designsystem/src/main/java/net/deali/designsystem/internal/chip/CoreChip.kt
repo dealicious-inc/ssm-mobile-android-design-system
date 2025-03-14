@@ -44,7 +44,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
+import coil3.compose.AsyncImage
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.theme.DealiColor
