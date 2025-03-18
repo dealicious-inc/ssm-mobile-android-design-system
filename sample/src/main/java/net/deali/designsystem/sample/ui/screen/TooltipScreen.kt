@@ -13,10 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Tooltip
-import net.deali.designsystem.internal.tooltip.TooltipAlignment
+import net.deali.designsystem.component.TopBar
+import net.deali.designsystem.internal.tooltip.ArrowDirection
 import net.deali.designsystem.sample.ui.NavigationContainer
 
 @Composable
@@ -56,7 +56,7 @@ fun TooltipScreen(
                         .padding(30.dp),
                     text = "신상마켓",
                     isShow = isShow,
-                    absoluteAlignment = if (alignment == Alignment.Center) TooltipAlignment.TopCenter else null,
+                    arrowDirection = if (alignment == Alignment.Center) ArrowDirection.TOP else null,
                     onDismiss = {
                         isShow = false
                     }
@@ -65,7 +65,7 @@ fun TooltipScreen(
                         modifier = innerModifier,
                         iconRes = R.drawable.ic_info,
                         onClick = {
-                            isShow = true
+                            isShow = !isShow
                         }
                     )
                 }
