@@ -2,7 +2,9 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +35,7 @@ fun Tooltip(
     colorState: TooltipColorState,
     arrowDirectionState: TooltipArrowDirectionState?,
     modifier: Modifier = Modifier,
+    maxWidth: Dp = Dp.Unspecified,
     bubblePaddingY: Dp = 6.dp,
     onDismiss: () -> Unit,
     content: @Composable (Modifier) -> Unit
@@ -57,6 +60,7 @@ fun Tooltip(
 
                 DealiText(
                     modifier = Modifier
+                        .widthIn(max = maxWidth)
                         .padding(
                             horizontal = 16.dp,
                             vertical = 12.dp
