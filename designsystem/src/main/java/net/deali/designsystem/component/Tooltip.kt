@@ -10,8 +10,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.internal.tooltip.ArrowDirection
 import net.deali.designsystem.internal.tooltip.CoreDealiTooltip
+import net.deali.designsystem.internal.tooltip.TooltipArrowDirectionState
+import net.deali.designsystem.internal.tooltip.TooltipColorState
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -21,7 +22,7 @@ import net.deali.designsystem.theme.DealiFont
  * @param text 툴팁에 표시할 텍스트
  * @param isShow 툴팁 Visible 여부
  * @param bubblePaddingY content와 툴팁 사이의 간격
- * @param arrowDirection 툴팁의 화살표 방향 (default : TopCenter)
+ * @param arrowDirectionState 툴팁의 화살표 방향 (null = 방향을 알아서 계산)
  * @param onDismiss 툴팁 레이아웃 외 부분을 클릭할 때 호출되는 콜백
  * @param content 툴팁이 표기될 anchor content
  */
@@ -29,9 +30,10 @@ import net.deali.designsystem.theme.DealiFont
 fun Tooltip(
     text: String,
     isShow: Boolean,
+    colorState: TooltipColorState,
+    arrowDirectionState: TooltipArrowDirectionState?,
     modifier: Modifier = Modifier,
     bubblePaddingY: Dp = 6.dp,
-    arrowDirection: ArrowDirection? = null,
     onDismiss: () -> Unit,
     content: @Composable (Modifier) -> Unit
 ) {
@@ -42,11 +44,17 @@ fun Tooltip(
         CoreDealiTooltip(
             modifier = Modifier,
             isShow = isShow,
+            colorState = colorState,
             bubblePaddingY = bubblePaddingY,
-            absoluteAlignment = arrowDirection,
+            arrowDirectionState = arrowDirectionState,
             onDismiss = onDismiss,
             anchorContent = content,
             tooltipContent = {
+                val color = when (colorState) {
+                    TooltipColorState.BLUE -> DealiColor.primary04
+                    else -> DealiColor.g100
+                }
+
                 DealiText(
                     modifier = Modifier
                         .padding(
@@ -55,7 +63,7 @@ fun Tooltip(
                         ),
                     text = text,
                     style = DealiFont.b3r13,
-                    color = DealiColor.primary04,
+                    color = color,
                 )
             }
         )
@@ -89,6 +97,8 @@ private fun TooltipPreview() {
                     .padding(30.dp),
                 text = "Tooltip",
                 isShow = true,
+                colorState = TooltipColorState.BLUE,
+                arrowDirectionState = TooltipArrowDirectionState.TOP,
                 onDismiss = {}
             ) { innerModifier ->
                 Icon16(

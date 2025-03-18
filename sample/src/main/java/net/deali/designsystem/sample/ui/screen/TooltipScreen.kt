@@ -1,5 +1,6 @@
 package net.deali.designsystem.sample.ui.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,8 +17,10 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.Tooltip
 import net.deali.designsystem.component.TopBar
-import net.deali.designsystem.internal.tooltip.ArrowDirection
+import net.deali.designsystem.internal.tooltip.TooltipArrowDirectionState
+import net.deali.designsystem.internal.tooltip.TooltipColorState
 import net.deali.designsystem.sample.ui.NavigationContainer
+import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun TooltipScreen(
@@ -34,6 +37,7 @@ fun TooltipScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
+                .background(DealiColor.g50)
         ) {
             val alignments = listOf(
                 Alignment.TopStart,
@@ -56,7 +60,8 @@ fun TooltipScreen(
                         .padding(30.dp),
                     text = "신상마켓",
                     isShow = isShow,
-                    arrowDirection = if (alignment == Alignment.Center) ArrowDirection.TOP else null,
+                    colorState = if (alignment == Alignment.Center) TooltipColorState.BLUE else TooltipColorState.WHITE,
+                    arrowDirectionState = if (alignment == Alignment.Center) TooltipArrowDirectionState.TOP else null,
                     onDismiss = {
                         isShow = false
                     }

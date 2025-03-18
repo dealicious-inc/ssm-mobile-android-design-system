@@ -42,9 +42,10 @@ import kotlin.math.roundToInt
 @Composable
 internal fun CoreDealiTooltip(
     isShow: Boolean,
-    modifier: Modifier,
     bubblePaddingY: Dp,
-    absoluteAlignment: ArrowDirection? = null,
+    colorState: TooltipColorState,
+    arrowDirectionState: TooltipArrowDirectionState?,
+    modifier: Modifier,
     onDismiss: () -> Unit,
     anchorContent: @Composable (Modifier) -> Unit,
     tooltipContent: @Composable () -> Unit,
@@ -52,7 +53,7 @@ internal fun CoreDealiTooltip(
     var position by remember {
         mutableStateOf(
             TooltipPopupPosition(
-                alignment = absoluteAlignment ?: ArrowDirection.TOP
+                alignment = arrowDirectionState ?: TooltipArrowDirectionState.TOP
             )
         )
     }
@@ -63,6 +64,7 @@ internal fun CoreDealiTooltip(
         TooltipLayout(
             position = position,
             bubblePaddingY = bubblePaddingY,
+            colorState = colorState,
             onDismissRequest = onDismiss,
             content = tooltipContent
         )
@@ -71,7 +73,7 @@ internal fun CoreDealiTooltip(
     anchorContent(
         modifier
             .onGloballyPositioned { coordinates ->
-                position = calculateTooltipPopupPosition(view, coordinates, absoluteAlignment)
+                position = calculateTooltipPopupPosition(view, coordinates, arrowDirectionState)
             }
     )
 }
@@ -80,13 +82,17 @@ internal fun CoreDealiTooltip(
 private fun TooltipLayout(
     position: TooltipPopupPosition,
     bubblePaddingY: Dp,
+    colorState: TooltipColorState,
     onDismissRequest: (() -> Unit)? = null,
     content: @Composable () -> Unit
 ) {
-    var alignment = Alignment.TopCenter
+    var alignment: Alignment
     var offset = position.offset
 
-    val color = DealiColor.secondary01
+    val bubbleColor = when (colorState) {
+        TooltipColorState.BLUE -> DealiColor.secondary01
+        else -> DealiColor.primary04
+    }
     val arrowHeight = 6.dp
     val horizontalPadding = 16.dp
     val horizontalPaddingInPx = with(LocalDensity.current) {
@@ -100,14 +106,14 @@ private fun TooltipLayout(
         val bubblePaddingYPx = bubblePaddingY.toPx().roundToInt()
 
         when (position.alignment) {
-            ArrowDirection.TOP -> {
+            TooltipArrowDirectionState.TOP -> {
                 alignment = Alignment.TopCenter
                 offset = offset.copy(
                     y = position.offset.y + arrowPaddingPx + bubblePaddingYPx
                 )
             }
 
-            ArrowDirection.BOTTOM -> {
+            TooltipArrowDirectionState.BOTTOM -> {
                 alignment = Alignment.BottomCenter
                 offset = offset.copy(
                     y = position.offset.y - arrowPaddingPx - bubblePaddingYPx
@@ -136,13 +142,13 @@ private fun TooltipLayout(
             modifier = Modifier
                 .padding(horizontal = horizontalPadding)
                 .background(
-                    color = color,
+                    color = bubbleColor,
                     shape = RoundedCornerShape(6.dp),
                 ),
             alignment = position.alignment,
             arrowHeight = arrowHeight,
             arrowPositionX = arrowPositionX,
-            color = color
+            color = bubbleColor
         ) {
             content()
         }
@@ -249,11 +255,11 @@ private class TooltipAlignmentOffsetPositionProvider(
 
 @Composable
 private fun BubbleLayout(
-    modifier: Modifier = Modifier,
-    alignment: ArrowDirection = ArrowDirection.TOP,
+    alignment: TooltipArrowDirectionState,
     arrowHeight: Dp,
     arrowPositionX: Float,
     color: Color,
+    modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
     val arrowHeightPx = with(LocalDensity.current) {
@@ -265,7 +271,7 @@ private fun BubbleLayout(
             .drawBehind {
                 if (arrowPositionX <= 0f) return@drawBehind
 
-                val isTop = alignment == ArrowDirection.TOP
+                val isTop = alignment == TooltipArrowDirectionState.TOP
 
                 val path = Path()
 
@@ -303,7 +309,7 @@ private fun BubbleLayout(
 
 private data class TooltipPopupPosition(
     val offset: IntOffset = IntOffset(0, 0),
-    val alignment: ArrowDirection = ArrowDirection.TOP,
+    val alignment: TooltipArrowDirectionState = TooltipArrowDirectionState.TOP,
 
     val centerPositionX: Float = 0f,
 )
@@ -311,7 +317,7 @@ private data class TooltipPopupPosition(
 private fun calculateTooltipPopupPosition(
     view: View,
     coordinates: LayoutCoordinates?,
-    absoluteAlignment: ArrowDirection? = null,
+    arrowDirection: TooltipArrowDirectionState? = null,
 ): TooltipPopupPosition {
     coordinates ?: return TooltipPopupPosition()
 
@@ -325,12 +331,12 @@ private fun calculateTooltipPopupPosition(
 
     val centerPositionX = boundsInWindow.right - (boundsInWindow.right - boundsInWindow.left) / 2
 
-    val alignment = absoluteAlignment
-        ?: if (heightAbove < heightBelow) ArrowDirection.TOP else ArrowDirection.BOTTOM
+    val alignment = arrowDirection
+        ?: if (heightAbove < heightBelow) TooltipArrowDirectionState.TOP else TooltipArrowDirectionState.BOTTOM
 
     val offsetX = centerPositionX - visibleWindowBounds.centerX()
     val offsetY =
-        if (alignment == ArrowDirection.TOP) coordinates.size.height else -coordinates.size.height
+        if (alignment == TooltipArrowDirectionState.TOP) coordinates.size.height else -coordinates.size.height
 
     val offset = IntOffset(y = offsetY, x = offsetX.toInt())
     return TooltipPopupPosition(
@@ -338,9 +344,4 @@ private fun calculateTooltipPopupPosition(
         alignment = alignment,
         centerPositionX = centerPositionX
     )
-}
-
-enum class ArrowDirection {
-    BOTTOM,
-    TOP,
 }
