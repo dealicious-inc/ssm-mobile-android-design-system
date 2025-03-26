@@ -1,8 +1,12 @@
 package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.labeledtext.LabeledTextContainer
@@ -10,10 +14,11 @@ import net.deali.designsystem.internal.labeledtext.SingleLabeledTextBullet
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextIcon01
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextNumber
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 
 /**
- * Bullet 라벨을 가지고 있는 g80 컬러의 텍스트.
+ * Bullet 라벨을 가지고 있는 g80 컬러의 텍스트 리스트.
  * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
  *
  * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
@@ -43,7 +48,37 @@ fun labeledTextBullet01(
 }
 
 /**
- * Bullet 라벨을 가지고 있는 g100 컬러의 텍스트.
+ * Bullet 라벨을 가지고 있는 g80 컬러의 단일 텍스트.
+ *
+ * @param text 라벨을 붙여 보여줄 텍스트.
+ * @param modifier Modifier.
+ * @param highlightText 강조할 텍스트. 없을 시 미표기.
+ * @param highlightColor 강조할 컬러. 없을 시 미표기.
+ * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * */
+@Composable
+fun labeledTextBullet01(
+    text: String,
+    modifier: Modifier = Modifier,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextBullet(
+            text = text,
+            color = DealiColor.g80,
+            highlightText = highlightText,
+            highlightColor = highlightColor,
+            isHighlightBold = isHighlightBold,
+        )
+    }
+}
+
+/**
+ * Bullet 라벨을 가지고 있는 g100 컬러의 텍스트 리스트.
  * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
  *
  * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
@@ -73,7 +108,37 @@ fun labeledTextBullet02(
 }
 
 /**
- * 숫자 라벨을 가지고 있는 g80 컬러의 텍스트.
+ * Bullet 라벨을 가지고 있는 g100 컬러의 단일 텍스트.
+ *
+ * @param text 라벨을 붙여 보여줄 텍스트.
+ * @param modifier Modifier.
+ * @param highlightText 강조할 텍스트. 없을 시 미표기.
+ * @param highlightColor 강조할 컬러. 없을 시 미표기.
+ * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * */
+@Composable
+fun labeledTextBullet02(
+    text: String,
+    modifier: Modifier = Modifier,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextBullet(
+            text = text,
+            color = DealiColor.g100,
+            highlightText = highlightText,
+            highlightColor = highlightColor,
+            isHighlightBold = isHighlightBold,
+        )
+    }
+}
+
+/**
+ * 숫자 라벨을 가지고 있는 g80 컬러의 텍스트 리스트.
  * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
  *
  * @param textList 라벨을 붙여 보여줄 텍스트의 리스트.
@@ -101,6 +166,39 @@ fun labeledTextNumber01(
             )
         }
     )
+}
+
+/**
+ * 숫자 라벨을 가지고 있는 g80 컬러의 단일 텍스트.
+ *
+ * @param text 라벨을 붙여 보여줄 텍스트.
+ * @param number 라벨로 표기할 숫자.
+ * @param modifier Modifier.
+ * @param highlightText 강조할 텍스트. 없을 시 미표기.
+ * @param highlightColor 강조할 컬러. 없을 시 미표기.
+ * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * */
+@Composable
+fun labeledTextNumber01(
+    text: String,
+    number: Int,
+    modifier: Modifier = Modifier,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextNumber(
+            text = text,
+            color = DealiColor.g80,
+            number = number,
+            highlightText = highlightText,
+            highlightColor = highlightColor,
+            isHighlightBold = isHighlightBold,
+        )
+    }
 }
 
 /**
@@ -135,6 +233,39 @@ fun labeledTextNumber02(
 }
 
 /**
+ * 숫자 라벨을 가지고 있는 g100 컬러의 단일 텍스트.
+ *
+ * @param text 라벨을 붙여 보여줄 텍스트.
+ * @param number 라벨로 표기할 숫자.
+ * @param modifier Modifier.
+ * @param highlightText 강조할 텍스트. 없을 시 미표기.
+ * @param highlightColor 강조할 컬러. 없을 시 미표기.
+ * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * */
+@Composable
+fun labeledTextNumber02(
+    text: String,
+    number: Int,
+    modifier: Modifier = Modifier,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextNumber(
+            text = text,
+            color = DealiColor.g100,
+            number = number,
+            highlightText = highlightText,
+            highlightColor = highlightColor,
+            isHighlightBold = isHighlightBold,
+        )
+    }
+}
+
+/**
  * 아이콘 라벨을 가지고 있는 g80 컬러의 텍스트.
  * 최상단에 타이틀 영역을 추가할 수 있다.
  *
@@ -164,8 +295,40 @@ fun labeledTextIcon01(
     )
 }
 
+/**
+ * 아이콘 라벨을 가지고 있는 g80 컬러의 단일 텍스트.
+ *
+ * @param text 라벨을 붙여 보여줄 텍스트.
+ * @param iconRes 텍스트 앞에 보여줄 아이콘 리소스.
+ * @param modifier Modifier.
+ * @param highlightText 강조할 텍스트. 없을 시 미표기.
+ * @param highlightColor 강조할 컬러. 없을 시 미표기.
+ * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * */
+@Composable
+fun labeledTextIcon01(
+    text: String,
+    @DrawableRes iconRes: Int,
+    modifier: Modifier = Modifier,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextIcon01(
+            text = text,
+            color = DealiColor.g80,
+            iconRes = iconRes,
+            highlightText = highlightText,
+            highlightColor = highlightColor,
+            isHighlightBold = isHighlightBold,
+        )
+    }
+}
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "labeledTextBullet01")
 @Composable
 private fun Preview1() {
     labeledTextBullet01(
@@ -177,8 +340,18 @@ private fun Preview1() {
     )
 }
 
+@Preview(showBackground = true, name = "labeledTextBullet01")
+@Composable
+private fun Preview1_1() {
+    labeledTextBullet01(
+        text = "LabeledTextBullet01 HIGHLIGHT LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
+        highlightText = "HIGHLIGHT",
+        highlightColor = DealiColor.primary01,
+        isHighlightBold = true,
+    )
+}
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "labeledTextBullet02")
 @Composable
 private fun Preview2() {
     labeledTextBullet02(
@@ -192,7 +365,7 @@ private fun Preview2() {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "labeledTextNumber01")
 @Composable
 private fun Preview3() {
     labeledTextNumber01(
@@ -205,7 +378,7 @@ private fun Preview3() {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "labeledTextNumber02")
 @Composable
 private fun Preview4() {
     labeledTextNumber02(
@@ -219,7 +392,19 @@ private fun Preview4() {
     )
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "labeledTextNumber02")
+@Composable
+private fun Preview4_1() {
+    labeledTextNumber02(
+        text = "LabeledTextBullet01 HIGHLIGHT LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
+        highlightText = "HIGHLIGHT",
+        number = 1,
+        highlightColor = DealiColor.primary01,
+        isHighlightBold = true,
+    )
+}
+
+@Preview(showBackground = true, name = "labeledTextIcon01")
 @Composable
 private fun Preview5() {
     labeledTextIcon01(
@@ -230,5 +415,17 @@ private fun Preview5() {
             "labeledTextIcon01",
         ),
         iconRes = R.drawable.ic_error,
+    )
+}
+
+@Preview(showBackground = true, name = "labeledTextIcon01")
+@Composable
+private fun Preview5_1() {
+    labeledTextIcon01(
+        text = "LabeledTextBullet01 HIGHLIGHT LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
+        highlightText = "HIGHLIGHT",
+        iconRes = R.drawable.ic_info,
+        highlightColor = DealiColor.primary01,
+        isHighlightBold = true,
     )
 }

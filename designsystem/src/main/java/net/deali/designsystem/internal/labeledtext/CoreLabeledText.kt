@@ -14,6 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
@@ -26,23 +29,30 @@ import net.deali.designsystem.theme.DealiFont
 internal fun SingleLabeledTextBullet(
     text: String,
     color: Color,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
 ) {
-    CoreLabeledText(
+    CoreSingleLabeledText(
         text = text,
         color = color,
-    ) {
-        Box(
-            modifier = Modifier
-                .padding(top = 7.dp, end = 8.dp),
-        ) {
+        leftContent = {
             Box(
                 modifier = Modifier
-                    .size(3.dp)
-                    .clip(CircleShape)
-                    .background(color),
-            )
-        }
-    }
+                    .padding(top = 7.dp, end = 8.dp),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(3.dp)
+                        .clip(CircleShape)
+                        .background(color),
+                )
+            }
+        },
+        highlightText = highlightText,
+        highlightColor = highlightColor,
+        isHighlightBold = isHighlightBold,
+    )
 }
 
 @Composable
@@ -50,21 +60,28 @@ internal fun SingleLabeledTextNumber(
     text: String,
     color: Color,
     number: Number,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
 ) {
-    CoreLabeledText(
+    CoreSingleLabeledText(
         text = text,
         color = color,
-    ) {
-        Box(
-            modifier = Modifier.padding(end = 4.dp)
-        ) {
-            DealiText(
-                text = "$number.",
-                style = DealiFont.b3r13,
-                color = color,
-            )
-        }
-    }
+        leftContent = {
+            Box(
+                modifier = Modifier.padding(end = 4.dp)
+            ) {
+                DealiText(
+                    text = "$number.",
+                    style = DealiFont.b3r13,
+                    color = color,
+                )
+            }
+        },
+        highlightText = highlightText,
+        highlightColor = highlightColor,
+        isHighlightBold = isHighlightBold,
+    )
 }
 
 @Composable
@@ -72,33 +89,62 @@ internal fun SingleLabeledTextIcon01(
     text: String,
     color: Color,
     @DrawableRes iconRes: Int,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
 ) {
-    CoreLabeledText(
+    CoreSingleLabeledText(
         text = text,
         color = color,
-    ) {
-        Icon16(
-            modifier = Modifier.padding(end = 8.dp),
-            iconRes = iconRes,
-            color = DealiColor.g80,
-        )
-    }
+        leftContent = {
+            Icon16(
+                modifier = Modifier.padding(end = 8.dp),
+                iconRes = iconRes,
+                color = DealiColor.g80,
+            )
+        },
+        highlightText = highlightText,
+        highlightColor = highlightColor,
+        isHighlightBold = isHighlightBold,
+    )
 }
 
 @Composable
-private fun CoreLabeledText(
+private fun CoreSingleLabeledText(
     text: String,
     color: Color,
     leftContent: @Composable () -> Unit,
+    highlightText: String = "",
+    highlightColor: Color = Color.Unspecified,
+    isHighlightBold: Boolean = false,
 ) {
     Row {
         leftContent()
 
-        DealiText(
-            text = text,
-            style = DealiFont.b3r13,
-            color = color,
-        )
+        if (highlightText.isNotEmpty() && highlightColor != Color.Unspecified) {
+            val annotatedString = buildAnnotatedString {
+                append(text)
+                addStyle(
+                    style = SpanStyle(
+                        color = highlightColor,
+                        fontWeight = if (isHighlightBold) DealiFont.b3sb13.fontWeight else DealiFont.b3r13.fontWeight,
+                    ),
+                    start = text.indexOf(highlightText),
+                    end = text.indexOf(highlightText) + highlightText.length
+                )
+            }
+            DealiText(
+                text = annotatedString,
+                style = DealiFont.b3r13,
+                color = color,
+            )
+        } else {
+            DealiText(
+                text = text,
+                style = DealiFont.b3r13,
+                color = color,
+            )
+        }
     }
 }
 
