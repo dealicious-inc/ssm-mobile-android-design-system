@@ -65,6 +65,31 @@ fun Notice(
     }
 }
 
+/**
+ * 타이틀 영역이 없이 [labeledTextBullet01] 리스트만 있는 Notice 컨테이너.
+ *
+ * @param
+ */
+@Composable
+fun Notice(
+    textList: List<String>,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier
+            .background(
+                color = DealiColor.g10,
+                shape = RoundedCornerShape(10.dp),
+            )
+            .clip(RoundedCornerShape(10.dp))
+            .padding(16.dp),
+    ) {
+        labeledTextBullet01(
+            textList = textList
+        )
+    }
+}
+
 @Composable
 private fun Title(
     title: String,
@@ -99,7 +124,7 @@ private fun Title(
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun Preview1() {
     Notice(
@@ -113,7 +138,7 @@ private fun Preview1() {
     )
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 private fun Preview2() {
     Notice(
@@ -130,5 +155,17 @@ private fun Preview2() {
                 textList = texts,
             )
         }
+    )
+}
+
+@Preview(name = "타이틀 없이 텍스트 리스트만 있는 notice")
+@Composable
+private fun Preview3() {
+    Notice(
+        textList = listOf(
+            getRandomText(9),
+            getRandomText(13),
+            getRandomText(15),
+        )
     )
 }
