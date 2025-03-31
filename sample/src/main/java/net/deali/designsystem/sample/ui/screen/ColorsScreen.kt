@@ -37,6 +37,8 @@ fun ColorsScreen(
         ColorScreenItem(DealiColor.primary03, "primary03"),
         ColorScreenItem(DealiColor.primary04, "primary04"),
         ColorScreenItem(DealiColor.primary05, "primary05"),
+        ColorScreenItem(DealiColor.primary06, "primary06"),
+        ColorScreenItem(DealiColor.primary07, "primary07"),
         ColorScreenItem(DealiColor.secondary01, "secondary01"),
         ColorScreenItem(DealiColor.secondary02, "secondary02"),
         ColorScreenItem(DealiColor.secondary03, "secondary03"),

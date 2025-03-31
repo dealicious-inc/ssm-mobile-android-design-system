@@ -6,6 +6,8 @@
     <color name="primary03">#FFFEECEF</color>
     <color name="primary04">#FFFFFFFF</color>
     <color name="primary05">#FF000000</color>
+    <color name="primary06">#FFFFDCE2</color>
+    <color name="primary07">#FFC62558</color>
 
     <!-- secondary -->
     <color name="secondary01">#FF4759FB</color>
