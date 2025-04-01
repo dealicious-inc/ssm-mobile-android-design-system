@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,7 +15,6 @@ import net.deali.designsystem.internal.labeledtext.SingleLabeledTextBullet
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextIcon01
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextNumber
 import net.deali.designsystem.theme.DealiColor
-import net.deali.designsystem.theme.DealiFont
 
 
 /**
@@ -78,6 +78,27 @@ fun labeledTextBullet01(
 }
 
 /**
+ * Bullet 라벨을 가지고 있는 g80 컬러의 단일 [annotatedString] 텍스트.
+ *
+ * @param annotatedString 라벨을 붙여 보여줄 텍스트.
+ * @param modifier Modifier.
+ * */
+@Composable
+fun labeledTextBullet01(
+    annotatedString: AnnotatedString,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextBullet(
+            annotatedString = annotatedString,
+            color = DealiColor.g80,
+        )
+    }
+}
+
+/**
  * Bullet 라벨을 가지고 있는 g100 컬러의 텍스트 리스트.
  * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
  *
@@ -136,6 +157,28 @@ fun labeledTextBullet02(
         )
     }
 }
+
+/**
+ * Bullet 라벨을 가지고 있는 g100 컬러의 단일 [annotatedString] 텍스트.
+ *
+ * @param annotatedString 라벨을 붙여 보여줄 텍스트.
+ * @param modifier Modifier.
+ * */
+@Composable
+fun labeledTextBullet02(
+    annotatedString: AnnotatedString,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextBullet(
+            annotatedString = annotatedString,
+            color = DealiColor.g100,
+        )
+    }
+}
+
 
 /**
  * 숫자 라벨을 가지고 있는 g80 컬러의 텍스트 리스트.
@@ -202,6 +245,30 @@ fun labeledTextNumber01(
 }
 
 /**
+ * 숫자 라벨을 가지고 있는 g80 컬러의 단일 [annotatedString] 텍스트.
+ *
+ * @param annotatedString 라벨을 붙여 보여줄 텍스트.
+ * @param number 라벨로 표기할 숫자.
+ * @param modifier Modifier.
+ * */
+@Composable
+fun labeledTextNumber01(
+    annotatedString: AnnotatedString,
+    number: Int,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextNumber(
+            annotatedString = annotatedString,
+            number = number,
+            color = DealiColor.g80,
+        )
+    }
+}
+
+/**
  * 숫자 라벨을 가지고 있는 g100 컬러의 텍스트.
  * 최상단에 아이콘 + 타이틀 영역을 추가할 수 있다.
  *
@@ -261,6 +328,30 @@ fun labeledTextNumber02(
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
+        )
+    }
+}
+
+/**
+ * 숫자 라벨을 가지고 있는 g100 컬러의 단일 [annotatedString] 텍스트.
+ *
+ * @param annotatedString 라벨을 붙여 보여줄 텍스트.
+ * @param number 라벨로 표기할 숫자.
+ * @param modifier Modifier.
+ * */
+@Composable
+fun labeledTextNumber02(
+    annotatedString: AnnotatedString,
+    number: Int,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextNumber(
+            annotatedString = annotatedString,
+            number = number,
+            color = DealiColor.g100,
         )
     }
 }
@@ -348,6 +439,40 @@ private fun Preview1_1() {
         highlightText = "HIGHLIGHT",
         highlightColor = DealiColor.primary01,
         isHighlightBold = true,
+    )
+}
+
+@Preview(showBackground = true, name = "labeledTextBullet01")
+@Composable
+private fun Preview1_2() {
+    val annotatedString = buildAnnotatedString {
+        val text = "annotatedString을 테스트 중입니다. 테스트 중입니다."
+        val boldTarget1 = "annotatedString"
+        val boldStart1 = text.indexOf(boldTarget1)
+        val boldEnd1 = boldStart1 + boldTarget1.length
+        val boldTarget2 = "테스트"
+        val boldStart2 = text.indexOf(boldTarget2)
+        val boldEnd2 = boldStart2 + boldTarget2.length
+
+        append(text)
+        addStyle(
+            style = SpanStyle(
+                color = DealiColor.primary01,
+            ),
+            start = boldStart1,
+            end = boldEnd1
+        )
+        addStyle(
+            style = SpanStyle(
+                color = DealiColor.secondary01,
+            ),
+            start = boldStart2,
+            end = boldEnd2
+        )
+    }
+
+    labeledTextBullet01(
+        annotatedString = annotatedString,
     )
 }
 

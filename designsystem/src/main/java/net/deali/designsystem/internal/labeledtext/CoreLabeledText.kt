@@ -56,6 +56,30 @@ internal fun SingleLabeledTextBullet(
 }
 
 @Composable
+internal fun SingleLabeledTextBullet(
+    annotatedString: AnnotatedString,
+    color: Color,
+) {
+    CoreSingleLabeledText(
+        annotatedString = annotatedString,
+        color = color,
+        leftContent = {
+            Box(
+                modifier = Modifier
+                    .padding(top = 7.dp, end = 8.dp),
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(3.dp)
+                        .clip(CircleShape)
+                        .background(color),
+                )
+            }
+        }
+    )
+}
+
+@Composable
 internal fun SingleLabeledTextNumber(
     text: String,
     color: Color,
@@ -81,6 +105,29 @@ internal fun SingleLabeledTextNumber(
         highlightText = highlightText,
         highlightColor = highlightColor,
         isHighlightBold = isHighlightBold,
+    )
+}
+
+@Composable
+internal fun SingleLabeledTextNumber(
+    annotatedString: AnnotatedString,
+    number: Number,
+    color: Color,
+) {
+    CoreSingleLabeledText(
+        annotatedString = annotatedString,
+        color = color,
+        leftContent = {
+            Box(
+                modifier = Modifier.padding(end = 4.dp)
+            ) {
+                DealiText(
+                    text = "$number.",
+                    style = DealiFont.b3r13,
+                    color = color,
+                )
+            }
+        },
     )
 }
 
@@ -145,6 +192,23 @@ private fun CoreSingleLabeledText(
                 color = color,
             )
         }
+    }
+}
+
+@Composable
+private fun CoreSingleLabeledText(
+    annotatedString: AnnotatedString,
+    color: Color,
+    leftContent: @Composable () -> Unit,
+) {
+    Row {
+        leftContent()
+
+        DealiText(
+            text = annotatedString,
+            style = DealiFont.b3r13,
+            color = color,
+        )
     }
 }
 
