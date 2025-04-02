@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -82,6 +83,7 @@ fun Notice(
  * @param modifier Modifier.
  * @param title 타이틀.
  * @param titleIconRes 타이틀 아이콘 리소스. (기본값: [R.drawable.ic_notice])
+ * @param textStyle textList에 적용할 DealiFont 텍스트 스타일
  * @param textLinkText 타이틀 우측 텍스트링크 버튼의 텍스트.
  * @param onClickTextLink 텍스트링크 클릭 시의 액션.
  */
@@ -91,6 +93,7 @@ fun Notice(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes titleIconRes: Int = R.drawable.ic_notice,
+    textStyle: TextStyle = DealiFont.b3r13,
     textLinkText: String = "",
     onClickTextLink: () -> Unit = {},
 ) {
@@ -121,6 +124,7 @@ fun Notice(
         labeledTextBullet01(
             modifier = Modifier.padding(16.dp),
             textList = textList,
+            textStyle = textStyle,
         )
     }
 }

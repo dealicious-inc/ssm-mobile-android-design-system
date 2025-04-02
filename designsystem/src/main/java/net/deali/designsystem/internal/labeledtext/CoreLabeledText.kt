@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
@@ -24,11 +25,14 @@ import net.deali.designsystem.component.Icon16
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.theme.getBoldTextStyle
+import net.deali.designsystem.theme.getNormalTextStyle
 
 @Composable
 internal fun SingleLabeledTextBullet(
     text: String,
     color: Color,
+    textStyle: TextStyle,
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
@@ -36,6 +40,7 @@ internal fun SingleLabeledTextBullet(
     CoreSingleLabeledText(
         text = text,
         color = color,
+        textStyle = textStyle,
         leftContent = {
             Box(
                 modifier = Modifier
@@ -59,10 +64,12 @@ internal fun SingleLabeledTextBullet(
 internal fun SingleLabeledTextBullet(
     annotatedString: AnnotatedString,
     color: Color,
+    textStyle: TextStyle,
 ) {
     CoreSingleLabeledText(
         annotatedString = annotatedString,
         color = color,
+        textStyle = textStyle,
         leftContent = {
             Box(
                 modifier = Modifier
@@ -84,6 +91,7 @@ internal fun SingleLabeledTextNumber(
     text: String,
     color: Color,
     number: Number,
+    textStyle: TextStyle,
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
@@ -91,6 +99,7 @@ internal fun SingleLabeledTextNumber(
     CoreSingleLabeledText(
         text = text,
         color = color,
+        textStyle,
         leftContent = {
             Box(
                 modifier = Modifier.padding(end = 4.dp)
@@ -113,10 +122,12 @@ internal fun SingleLabeledTextNumber(
     annotatedString: AnnotatedString,
     number: Number,
     color: Color,
+    textStyle: TextStyle,
 ) {
     CoreSingleLabeledText(
         annotatedString = annotatedString,
         color = color,
+        textStyle = textStyle,
         leftContent = {
             Box(
                 modifier = Modifier.padding(end = 4.dp)
@@ -135,6 +146,7 @@ internal fun SingleLabeledTextNumber(
 internal fun SingleLabeledTextIcon01(
     text: String,
     color: Color,
+    textStyle: TextStyle,
     @DrawableRes iconRes: Int,
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
@@ -143,6 +155,7 @@ internal fun SingleLabeledTextIcon01(
     CoreSingleLabeledText(
         text = text,
         color = color,
+        textStyle = textStyle,
         leftContent = {
             Icon16(
                 modifier = Modifier.padding(end = 8.dp),
@@ -160,6 +173,7 @@ internal fun SingleLabeledTextIcon01(
 private fun CoreSingleLabeledText(
     text: String,
     color: Color,
+    textStyle: TextStyle,
     leftContent: @Composable () -> Unit,
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
@@ -174,7 +188,7 @@ private fun CoreSingleLabeledText(
                 addStyle(
                     style = SpanStyle(
                         color = if (highlightColor != Color.Unspecified) highlightColor else color,
-                        fontWeight = if (isHighlightBold) DealiFont.b3sb13.fontWeight else DealiFont.b3r13.fontWeight,
+                        fontWeight = if (isHighlightBold) textStyle.getBoldTextStyle().fontWeight else textStyle.getNormalTextStyle().fontWeight,
                     ),
                     start = text.indexOf(highlightText),
                     end = text.indexOf(highlightText) + highlightText.length
@@ -182,13 +196,13 @@ private fun CoreSingleLabeledText(
             }
             DealiText(
                 text = annotatedString,
-                style = DealiFont.b3r13,
+                style = textStyle,
                 color = color,
             )
         } else {
             DealiText(
                 text = text,
-                style = DealiFont.b3r13,
+                style = textStyle,
                 color = color,
             )
         }
@@ -199,6 +213,7 @@ private fun CoreSingleLabeledText(
 private fun CoreSingleLabeledText(
     annotatedString: AnnotatedString,
     color: Color,
+    textStyle: TextStyle,
     leftContent: @Composable () -> Unit,
 ) {
     Row {
@@ -206,7 +221,7 @@ private fun CoreSingleLabeledText(
 
         DealiText(
             text = annotatedString,
-            style = DealiFont.b3r13,
+            style = textStyle,
             color = color,
         )
     }
@@ -219,6 +234,7 @@ internal fun LabeledTextContainer(
     title: String = "",
     @DrawableRes titleIconRes: Int = 0,
     textContent: @Composable (index: Int) -> Unit,
+    textStyle: TextStyle,
 ) {
     Column(
         modifier = modifier,
@@ -240,7 +256,7 @@ internal fun LabeledTextContainer(
             if (title.isNotEmpty()) {
                 DealiText(
                     text = title,
-                    style = DealiFont.b3sb13,
+                    style = textStyle.getBoldTextStyle(),
                     color = DealiColor.g100,
                 )
             }

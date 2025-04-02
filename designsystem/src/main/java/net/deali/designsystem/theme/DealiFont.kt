@@ -283,3 +283,33 @@ private val baseC1r10: TextStyle = TextStyle(
     fontSize = (10.sp).tu,
     lineHeight = (14.sp).tu,
 )
+
+@Composable
+fun TextStyle.getNormalTextStyle(): TextStyle {
+    return when (this) {
+        DealiFont.sh1sb20 -> DealiFont.sh1r20
+        DealiFont.sh2sb18 -> DealiFont.sh2r18
+        DealiFont.sh3sb16 -> DealiFont.sh3r16
+        DealiFont.b1sb15 -> DealiFont.b1r15
+        DealiFont.b2sb14 -> DealiFont.b2r14
+        DealiFont.b3sb13 -> DealiFont.b3r13
+        DealiFont.b4sb12 -> DealiFont.b4r12
+        DealiFont.c1sb10 -> DealiFont.c1r10
+        else -> this
+    }
+}
+
+@Composable
+fun TextStyle.getBoldTextStyle(): TextStyle {
+    return when (this) {
+        DealiFont.sh1r20 -> DealiFont.sh1sb20
+        DealiFont.sh2r18 -> DealiFont.sh2sb18
+        DealiFont.sh3r16 -> DealiFont.sh3sb16
+        DealiFont.b1r15 -> DealiFont.b1sb15
+        DealiFont.b2r14 -> DealiFont.b2sb14
+        DealiFont.b3r13 -> DealiFont.b3sb13
+        DealiFont.b4r12 -> DealiFont.b4sb12
+        DealiFont.c1r10 -> DealiFont.c1sb10
+        else -> this
+    }
+}
