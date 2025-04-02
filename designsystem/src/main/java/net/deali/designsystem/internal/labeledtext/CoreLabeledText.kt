@@ -168,12 +168,12 @@ private fun CoreSingleLabeledText(
     Row {
         leftContent()
 
-        if (highlightText.isNotEmpty() && highlightColor != Color.Unspecified) {
+        if (highlightText.isNotEmpty()) {
             val annotatedString = buildAnnotatedString {
                 append(text)
                 addStyle(
                     style = SpanStyle(
-                        color = highlightColor,
+                        color = if (highlightColor != Color.Unspecified) highlightColor else color,
                         fontWeight = if (isHighlightBold) DealiFont.b3sb13.fontWeight else DealiFont.b3r13.fontWeight,
                     ),
                     start = text.indexOf(highlightText),
