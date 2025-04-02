@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import net.deali.designsystem.R
@@ -15,6 +16,7 @@ import net.deali.designsystem.internal.labeledtext.SingleLabeledTextBullet
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextIcon01
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextNumber
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 
 /**
@@ -25,6 +27,7 @@ import net.deali.designsystem.theme.DealiColor
  * @param modifier Modifier.
  * @param title 타이틀. 없을 시 미표기.
  * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextBullet01(
@@ -32,16 +35,19 @@ fun labeledTextBullet01(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
+        textStyle = textStyle,
         textContent = { index ->
             SingleLabeledTextBullet(
                 text = textList[index],
                 color = DealiColor.g80,
+                textStyle = textStyle,
             )
         }
     )
@@ -55,6 +61,7 @@ fun labeledTextBullet01(
  * @param highlightText 강조할 텍스트. 없을 시 미표기.
  * @param highlightColor 강조할 컬러. 없을 시 미표기.
  * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextBullet01(
@@ -63,6 +70,7 @@ fun labeledTextBullet01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -70,6 +78,7 @@ fun labeledTextBullet01(
         SingleLabeledTextBullet(
             text = text,
             color = DealiColor.g80,
+            textStyle = textStyle,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -82,11 +91,13 @@ fun labeledTextBullet01(
  *
  * @param annotatedString 라벨을 붙여 보여줄 텍스트.
  * @param modifier Modifier.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextBullet01(
     annotatedString: AnnotatedString,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -94,6 +105,7 @@ fun labeledTextBullet01(
         SingleLabeledTextBullet(
             annotatedString = annotatedString,
             color = DealiColor.g80,
+            textStyle = textStyle,
         )
     }
 }
@@ -106,6 +118,8 @@ fun labeledTextBullet01(
  * @param modifier Modifier.
  * @param title 타이틀. 없을 시 미표기.
  * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * @param textStyle DealiFont 텍스트 스타일.
+ *
  * */
 @Composable
 fun labeledTextBullet02(
@@ -113,16 +127,19 @@ fun labeledTextBullet02(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
+        textStyle = textStyle,
         textContent = { index ->
             SingleLabeledTextBullet(
                 text = textList[index],
                 color = DealiColor.g100,
+                textStyle = textStyle,
             )
         }
     )
@@ -136,6 +153,7 @@ fun labeledTextBullet02(
  * @param highlightText 강조할 텍스트. 없을 시 미표기.
  * @param highlightColor 강조할 컬러. 없을 시 미표기.
  * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextBullet02(
@@ -144,6 +162,7 @@ fun labeledTextBullet02(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -151,6 +170,7 @@ fun labeledTextBullet02(
         SingleLabeledTextBullet(
             text = text,
             color = DealiColor.g100,
+            textStyle = textStyle,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -163,11 +183,13 @@ fun labeledTextBullet02(
  *
  * @param annotatedString 라벨을 붙여 보여줄 텍스트.
  * @param modifier Modifier.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextBullet02(
     annotatedString: AnnotatedString,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -175,6 +197,7 @@ fun labeledTextBullet02(
         SingleLabeledTextBullet(
             annotatedString = annotatedString,
             color = DealiColor.g100,
+            textStyle = textStyle,
         )
     }
 }
@@ -188,6 +211,7 @@ fun labeledTextBullet02(
  * @param modifier Modifier.
  * @param title 타이틀. 없을 시 미표기.
  * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber01(
@@ -195,16 +219,19 @@ fun labeledTextNumber01(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
+        textStyle = textStyle,
         textContent = { index ->
             SingleLabeledTextNumber(
                 text = textList[index],
                 color = DealiColor.g80,
+                textStyle = textStyle,
                 number = index + 1,
             )
         }
@@ -220,6 +247,7 @@ fun labeledTextNumber01(
  * @param highlightText 강조할 텍스트. 없을 시 미표기.
  * @param highlightColor 강조할 컬러. 없을 시 미표기.
  * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber01(
@@ -229,6 +257,7 @@ fun labeledTextNumber01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -237,6 +266,7 @@ fun labeledTextNumber01(
             text = text,
             color = DealiColor.g80,
             number = number,
+            textStyle = textStyle,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -250,12 +280,14 @@ fun labeledTextNumber01(
  * @param annotatedString 라벨을 붙여 보여줄 텍스트.
  * @param number 라벨로 표기할 숫자.
  * @param modifier Modifier.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber01(
     annotatedString: AnnotatedString,
     number: Int,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -264,6 +296,7 @@ fun labeledTextNumber01(
             annotatedString = annotatedString,
             number = number,
             color = DealiColor.g80,
+            textStyle = textStyle,
         )
     }
 }
@@ -276,6 +309,7 @@ fun labeledTextNumber01(
  * @param modifier Modifier.
  * @param title 타이틀. 없을 시 미표기.
  * @param iconRes 타이틀 아이콘 리소스. 없을 시 미표기.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber02(
@@ -283,17 +317,20 @@ fun labeledTextNumber02(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
+        textStyle = textStyle,
         textContent = { index ->
             SingleLabeledTextNumber(
                 text = textList[index],
                 color = DealiColor.g100,
                 number = index + 1,
+                textStyle = textStyle,
             )
         }
     )
@@ -308,6 +345,7 @@ fun labeledTextNumber02(
  * @param highlightText 강조할 텍스트. 없을 시 미표기.
  * @param highlightColor 강조할 컬러. 없을 시 미표기.
  * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber02(
@@ -317,6 +355,7 @@ fun labeledTextNumber02(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -325,6 +364,7 @@ fun labeledTextNumber02(
             text = text,
             color = DealiColor.g100,
             number = number,
+            textStyle = textStyle,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -338,12 +378,14 @@ fun labeledTextNumber02(
  * @param annotatedString 라벨을 붙여 보여줄 텍스트.
  * @param number 라벨로 표기할 숫자.
  * @param modifier Modifier.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextNumber02(
     annotatedString: AnnotatedString,
     number: Int,
     modifier: Modifier = Modifier,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -352,6 +394,7 @@ fun labeledTextNumber02(
             annotatedString = annotatedString,
             number = number,
             color = DealiColor.g100,
+            textStyle = textStyle,
         )
     }
 }
@@ -364,6 +407,7 @@ fun labeledTextNumber02(
  * @param iconRes 텍스트 리스트 앞에 보여줄 아이콘 리소스.
  * @param modifier Modifier.
  * @param title 타이틀. 없을 시 미표기.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextIcon01(
@@ -371,16 +415,19 @@ fun labeledTextIcon01(
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     title: String = "",
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
+        textStyle = textStyle,
         textContent = { index ->
             SingleLabeledTextIcon01(
                 text = textList[index],
                 color = DealiColor.g80,
                 iconRes = iconRes,
+                textStyle = textStyle,
             )
         }
     )
@@ -395,6 +442,7 @@ fun labeledTextIcon01(
  * @param highlightText 강조할 텍스트. 없을 시 미표기.
  * @param highlightColor 강조할 컬러. 없을 시 미표기.
  * @param isHighlightBold 강조할 텍스트를 굵게 표기할지 여부. 기본값은 false.
+ * @param textStyle DealiFont 텍스트 스타일.
  * */
 @Composable
 fun labeledTextIcon01(
@@ -404,6 +452,7 @@ fun labeledTextIcon01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
+    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -415,6 +464,7 @@ fun labeledTextIcon01(
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
+            textStyle = textStyle,
         )
     }
 }
@@ -521,11 +571,12 @@ private fun Preview4() {
 @Composable
 private fun Preview4_1() {
     labeledTextNumber02(
-        text = "LabeledTextBullet01 HIGHLIGHT LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
+        text = "사이즈14 HIGHLIGHT labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02",
         highlightText = "HIGHLIGHT",
         number = 1,
         highlightColor = DealiColor.primary01,
         isHighlightBold = true,
+        textStyle = DealiFont.b2r14,
     )
 }
 
