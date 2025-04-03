@@ -188,7 +188,7 @@ private fun CoreSingleLabeledText(
                 addStyle(
                     style = SpanStyle(
                         color = if (highlightColor != Color.Unspecified) highlightColor else color,
-                        fontWeight = if (isHighlightBold) textStyle.getBoldTextStyle().fontWeight else textStyle.getNormalTextStyle().fontWeight,
+                        fontWeight = if (isHighlightBold) textStyle.getBoldTextStyle().fontWeight else textStyle.fontWeight,
                     ),
                     start = text.indexOf(highlightText),
                     end = text.indexOf(highlightText) + highlightText.length
