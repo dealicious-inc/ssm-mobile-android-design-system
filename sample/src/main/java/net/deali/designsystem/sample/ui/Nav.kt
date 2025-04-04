@@ -27,6 +27,7 @@ import net.deali.designsystem.sample.ui.screen.ColorsScreen
 import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
 import net.deali.designsystem.sample.ui.screen.DividerScreen
 import net.deali.designsystem.sample.ui.screen.DropdownScreen
+import net.deali.designsystem.sample.ui.screen.ErrorCaseScreen
 import net.deali.designsystem.sample.ui.screen.IconsScreen
 import net.deali.designsystem.sample.ui.screen.ImageChipsScreen
 import net.deali.designsystem.sample.ui.screen.IndicatorScreen
@@ -245,7 +246,7 @@ private fun NavGraphBuilder.moleculesGraph(
         //        FilterBarScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
     }
     composable(Screen.ErrorCase.route) {
-        //        ErrorCaseScreen(onBackPress = navController::popBackStack) TODO 스크린 추가
+        ErrorCaseScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.BottomSheet.route) {
         BottomSheetScreen(onBackPress = navController::popBackStack)
