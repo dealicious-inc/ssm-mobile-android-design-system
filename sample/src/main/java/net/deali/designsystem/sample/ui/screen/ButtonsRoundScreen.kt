@@ -1,6 +1,5 @@
 package net.deali.designsystem.sample.ui.screen
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -10,7 +9,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.tabBarSlider02Layout
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ButtonsRoundScreen(
     onBackPress: () -> Unit

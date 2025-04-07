@@ -1,6 +1,5 @@
 package net.deali.designsystem.sample.ui.screen
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,13 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.tabBarSegment01Layout
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ChipsScreen(onBackPress: () -> Unit) {
     Column {

@@ -1,6 +1,5 @@
 package net.deali.designsystem.sample.ui.screen
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -67,7 +66,6 @@ fun IndicatorScreen(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun PagerContainer() {
     val colors = listOf(
@@ -83,7 +81,7 @@ private fun PagerContainer() {
     )
     val pagerState = rememberPagerState(
         initialPage = pagerDataState.startIndex,
-        pageCount = { pagerDataState.maxCount }
+        pageCount = { pagerDataState.maxCount },
     )
 
     var currentIndex by remember { mutableIntStateOf(0) }
@@ -127,21 +125,21 @@ private fun PagerContainer() {
         IndicatorTransparent(
             modifier = Modifier
                 .padding(6.dp),
-            currentIndex = currentIndex,
+            currentIndex = pagerDataState.pageMapper(currentIndex),
             totalCount = colors.size,
         )
 
         IndicatorMedium(
             modifier = Modifier
                 .padding(6.dp),
-            currentIndex = currentIndex,
+            currentIndex = pagerDataState.pageMapper(currentIndex),
             totalCount = colors.size,
         )
 
         IndicatorSmall(
             modifier = Modifier
                 .padding(6.dp),
-            currentIndex = currentIndex,
+            currentIndex = pagerDataState.pageMapper(currentIndex),
             totalCount = colors.size,
         )
     }
