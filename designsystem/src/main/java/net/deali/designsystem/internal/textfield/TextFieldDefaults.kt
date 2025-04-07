@@ -39,8 +39,9 @@ internal object DealiTextFieldDefaults {
     @Composable
     fun paddings(): DealiTextFieldPaddingValues {
         return DefaultDealiTextFieldPaddingValues(
-            horizontal = 16.dp,
             decoratedStart = 6.dp,
+            decoratedEnd = 12.dp,
+            horizontal = 16.dp,
             vertical = 12.dp
         )
     }
@@ -111,6 +112,7 @@ internal interface DealiTextFieldPaddingValues {
 @Immutable
 private class DefaultDealiTextFieldPaddingValues(
     private val decoratedStart: Dp,
+    private val decoratedEnd: Dp,
     private val horizontal: Dp,
     private val vertical: Dp,
 ) : DealiTextFieldPaddingValues {
@@ -122,13 +124,19 @@ private class DefaultDealiTextFieldPaddingValues(
         hasTrailingContent: Boolean,
     ): State<PaddingValues> {
 
+        val start = when (hasLeadingContent) {
+            true -> decoratedStart
+            false -> horizontal
+        }
+
+        val end = when (hasTrailingContent) {
+            true -> decoratedEnd
+            false -> horizontal
+        }
+
         return rememberUpdatedState(
             if (singleLine) {
-                if (hasLeadingContent) {
-                    PaddingValues(start = decoratedStart, end = horizontal)
-                } else {
-                    PaddingValues(horizontal = horizontal)
-                }
+                PaddingValues(start = start, end = end, top = vertical, bottom = vertical)
             } else {
                 PaddingValues(horizontal = horizontal, vertical = vertical)
             }

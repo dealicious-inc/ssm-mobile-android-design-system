@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredWidthIn
@@ -31,11 +32,13 @@ import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldColors
+import net.deali.designsystem.internal.textfield.DealiTextFieldPaddingValues
 import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
@@ -84,6 +87,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
+        paddings = rememberSearchInputPaddings(),
         state = state,
         singleLine = true,
         minLines = 1,
@@ -171,6 +175,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
+        paddings = rememberSearchInputPaddings(),
         state = state,
         singleLine = true,
         minLines = 1,
@@ -258,6 +263,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
+        paddings = rememberSearchInputPaddings(),
         state = state,
         singleLine = true,
         minLines = 1,
@@ -352,6 +358,7 @@ fun SearchInput(
         onValueChange = onValueChange,
         textStyle = DealiFont.b2r14,
         colors = rememberSearchInputColors(),
+        paddings = rememberSearchInputPaddings(),
         state = state,
         singleLine = true,
         minLines = 1,
@@ -455,6 +462,61 @@ private class SearchInputTextFieldColors : DealiTextFieldColors {
 
     private class UndefinedException : IllegalStateException("정의되지 않았습니다.")
 
+}
+
+@Composable
+private fun rememberSearchInputPaddings() =
+    remember {
+        SearchInputTextFieldPaddings(
+            decoratedStart = 6.dp,
+            horizontal = 16.dp,
+            vertical = 12.dp
+        )
+    }
+
+@Immutable
+private class SearchInputTextFieldPaddings(
+    private val decoratedStart: Dp,
+    private val horizontal: Dp,
+    private val vertical: Dp,
+) : DealiTextFieldPaddingValues {
+    @Composable
+    override fun padding(
+        singleLine: Boolean,
+        hasLeadingContent: Boolean,
+        hasTrailingContent: Boolean
+    ): State<PaddingValues> {
+        return rememberUpdatedState(
+            if (singleLine) {
+                if (hasLeadingContent) {
+                    PaddingValues(start = decoratedStart, end = horizontal)
+                } else {
+                    PaddingValues(horizontal = horizontal)
+                }
+            } else {
+                PaddingValues(horizontal = horizontal, vertical = vertical)
+            }
+        )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null) return false
+        if (this::class != other::class) return false
+
+        other as SearchInputTextFieldPaddings
+
+        if (this.decoratedStart != other.decoratedStart) return false
+        if (this.horizontal != other.horizontal) return false
+        return this.vertical == other.vertical
+    }
+
+    override fun hashCode(): Int {
+        var hash = decoratedStart.hashCode()
+        hash = 31 * hash + horizontal.hashCode()
+        hash = 31 * hash + vertical.hashCode()
+        return hash
+    }
 }
 
 @Preview

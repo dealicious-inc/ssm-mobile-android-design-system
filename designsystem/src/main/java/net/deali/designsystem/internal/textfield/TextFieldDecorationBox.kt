@@ -42,6 +42,7 @@ internal fun DealiTextFieldDecorationBox(
     state: DealiTextFieldState,
     singleLine: Boolean,
     colors: DealiTextFieldColors,
+    paddings: DealiTextFieldPaddingValues,
     interactionSource: MutableInteractionSource,
     isValueEmpty: Boolean,
     placeholder: String?,
@@ -152,7 +153,7 @@ internal fun DealiTextFieldDecorationBox(
 
             InnerTextField(
                 colors = colors,
-                paddings = DealiTextFieldDefaults.paddings(),
+                paddings = paddings,
                 placeholder = placeholder,
                 isPlaceholderVisible = isPlaceholderVisible,
                 placeholderMaxLines = placeholderMaxLines,
