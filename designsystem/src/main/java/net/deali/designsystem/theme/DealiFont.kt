@@ -9,10 +9,15 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.sp
 import net.deali.designsystem.R
 import net.deali.designsystem.util.tu
 
+/**
+ * LineHeightStyle.Alignment와 LineHeightStyle.Trim에 관련된 내용은 아래 링크를 확인
+ * https://medium.com/androiddevelopers/fixing-font-padding-in-compose-text-768cd232425b
+ */
 object DealiFont {
     val h1sb32: TextStyle
         @Composable
@@ -174,112 +179,137 @@ private val baseH1sb32: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (32.sp).tu,
     lineHeight = (40.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseH3sb28: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (28.sp).tu,
     lineHeight = (36.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseH2sb24: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (24.sp).tu,
     lineHeight = (32.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh1sb20: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (20.sp).tu,
     lineHeight = (28.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh1r20: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (20.sp).tu,
     lineHeight = (28.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh2sb18: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (18.sp).tu,
     lineHeight = (26.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh2r18: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (18.sp).tu,
     lineHeight = (26.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh3sb16: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (16.sp).tu,
     lineHeight = (22.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseSh3r16: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (16.sp).tu,
     lineHeight = (22.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB1sb15: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (15.sp).tu,
     lineHeight = (20.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB1r15: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (15.sp).tu,
     lineHeight = (20.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB2sb14: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB2r14: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (14.sp).tu,
     lineHeight = (20.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB3sb13: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB3r13: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (13.sp).tu,
     lineHeight = (18.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB4sb12: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (12.sp).tu,
     lineHeight = (16.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseB4r12: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (12.sp).tu,
     lineHeight = (16.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseC1sb10: TextStyle = TextStyle(
     fontWeight = FontWeight.SemiBold,
     fontSize = (10.sp).tu,
     lineHeight = (14.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
 
 private val baseC1r10: TextStyle = TextStyle(
     fontWeight = FontWeight.Normal,
     fontSize = (10.sp).tu,
     lineHeight = (14.sp).tu,
+    lineHeightStyle = lineHeightStyle,
 )
+
+private val lineHeightStyle
+    get() = LineHeightStyle(
+        alignment = LineHeightStyle.Alignment.Center,
+        trim = LineHeightStyle.Trim.None
+    )
