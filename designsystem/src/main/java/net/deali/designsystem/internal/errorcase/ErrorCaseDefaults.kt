@@ -9,10 +9,6 @@ import net.deali.designsystem.theme.DealiColor
 
 internal object ErrorCaseDefaults {
 
-    val backgroundColor: Color
-        @Composable
-        get() = DealiColor.primary04
-
     val iconColor: Color
         @Composable
         get() = DealiColor.g60
