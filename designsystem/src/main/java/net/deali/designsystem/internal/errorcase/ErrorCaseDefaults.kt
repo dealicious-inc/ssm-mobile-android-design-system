@@ -13,7 +13,11 @@ internal object ErrorCaseDefaults {
         @Composable
         get() = DealiColor.g60
 
-    val padding: PaddingValues
+    val backgroundColor: Color
+        @Composable
+        get() = DealiColor.primary04
+
+    val contentPadding: PaddingValues
         @Composable
         get() = PaddingValues(
             start = 40.dp,
