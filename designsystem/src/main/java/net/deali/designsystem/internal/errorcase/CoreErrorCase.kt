@@ -1,6 +1,5 @@
 package net.deali.designsystem.internal.errorcase
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -16,13 +15,11 @@ internal fun CoreErrorCase(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val backgroundColor = ErrorCaseDefaults.backgroundColor
     val padding = ErrorCaseDefaults.padding
 
     Box(
         modifier = modifier
             .fillMaxSize()
-            .background(backgroundColor),
     ) {
         Column(
             modifier = Modifier
