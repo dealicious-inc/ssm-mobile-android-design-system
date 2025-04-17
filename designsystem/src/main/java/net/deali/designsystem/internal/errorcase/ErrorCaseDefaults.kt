@@ -22,7 +22,6 @@ internal object ErrorCaseDefaults {
         get() = PaddingValues(
             start = 40.dp,
             end = 40.dp,
-            top = 72.dp
         )
 
     @Composable
