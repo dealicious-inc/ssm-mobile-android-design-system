@@ -1,11 +1,9 @@
 package net.deali.designsystem.internal.errorcase
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,17 +17,11 @@ internal fun CoreErrorCase(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    Box(
+    Column(
         modifier = modifier
-            .background(backgroundColor),
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .align(Alignment.TopCenter)
-                .padding(contentPadding),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            content = content
-        )
-    }
+            .background(backgroundColor)
+            .padding(contentPadding),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        content = content
+    )
 }

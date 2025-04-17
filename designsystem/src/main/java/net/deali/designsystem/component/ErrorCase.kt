@@ -218,7 +218,6 @@ fun ErrorCase(
     }
 }
 
-//TODO
 /**
  * 이미지, 텍스트가 있는 ErrorCase
  */
