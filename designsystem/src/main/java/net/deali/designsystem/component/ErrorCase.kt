@@ -4,11 +4,11 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -28,13 +28,11 @@ import net.deali.designsystem.theme.DealiFont
 fun ErrorCase(
     content: String,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         Content(
             modifier = Modifier
@@ -52,15 +50,13 @@ fun ErrorCase(
     content: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         Icon32(
             modifier = Modifier,
@@ -87,16 +83,14 @@ fun ErrorCase(
     buttonText: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         Icon32(
             modifier = Modifier,
@@ -132,16 +126,14 @@ fun ErrorCase(
     buttonText: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         Icon32(
             modifier = Modifier,
@@ -184,15 +176,13 @@ fun ErrorCase(
     content: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         Icon32(
             modifier = Modifier,
@@ -226,13 +216,11 @@ fun ErrorCase(
     content: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         ErrorImage(imageRes)
 
@@ -255,14 +243,12 @@ fun ErrorCase(
     buttonText: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         ErrorImage(imageRes)
 
@@ -294,14 +280,12 @@ fun ErrorCase(
     buttonText: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         ErrorImage(imageRes)
 
@@ -340,13 +324,11 @@ fun ErrorCase(
     content: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = ErrorCaseDefaults.backgroundColor,
     contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier,
-        backgroundColor = backgroundColor,
-        contentPadding = contentPadding,
+        modifier = modifier
+            .padding(contentPadding),
     ) {
         ErrorImage(imageRes)
 
@@ -420,7 +402,7 @@ private fun ErrorImage(@DrawableRes imageRes: Int) {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview1() {
     ErrorCase(
@@ -430,7 +412,7 @@ private fun ErrorCasePreview1() {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview2() {
     ErrorCase(
@@ -441,7 +423,7 @@ private fun ErrorCasePreview2() {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview3() {
     ErrorCase(
@@ -454,7 +436,7 @@ private fun ErrorCasePreview3() {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview4() {
     ErrorCase(
@@ -466,7 +448,7 @@ private fun ErrorCasePreview4() {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview5() {
     ErrorCase(
@@ -480,7 +462,7 @@ private fun ErrorCasePreview5() {
     )
 }
 
-@Preview(showBackground = true, heightDp = 500)
+@Preview(showBackground = true)
 @Composable
 private fun ErrorCasePreview6() {
     ErrorCase(
