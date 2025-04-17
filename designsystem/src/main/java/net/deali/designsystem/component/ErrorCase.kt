@@ -2,9 +2,7 @@ package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
@@ -28,11 +26,9 @@ import net.deali.designsystem.theme.DealiFont
 fun ErrorCase(
     content: String,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         Content(
             modifier = Modifier
@@ -50,13 +46,11 @@ fun ErrorCase(
     content: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         Icon32(
             modifier = Modifier,
@@ -83,14 +77,12 @@ fun ErrorCase(
     buttonText: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         Icon32(
             modifier = Modifier,
@@ -126,14 +118,12 @@ fun ErrorCase(
     buttonText: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         Icon32(
             modifier = Modifier,
@@ -176,13 +166,11 @@ fun ErrorCase(
     content: String,
     state: ErrorCaseState,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         Icon32(
             modifier = Modifier,
@@ -216,11 +204,9 @@ fun ErrorCase(
     content: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         ErrorImage(imageRes)
 
@@ -243,12 +229,10 @@ fun ErrorCase(
     buttonText: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         ErrorImage(imageRes)
 
@@ -280,12 +264,10 @@ fun ErrorCase(
     buttonText: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
     onClick: () -> Unit
 ) {
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         ErrorImage(imageRes)
 
@@ -324,11 +306,9 @@ fun ErrorCase(
     content: String,
     @DrawableRes imageRes: Int,
     modifier: Modifier = Modifier,
-    contentPadding: PaddingValues = ErrorCaseDefaults.contentPadding,
 ) {
     CoreErrorCase(
-        modifier = modifier
-            .padding(contentPadding),
+        modifier = modifier,
     ) {
         ErrorImage(imageRes)
 
