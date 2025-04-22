@@ -124,7 +124,6 @@ fun Notice(
         labeledTextBullet01(
             modifier = Modifier.padding(16.dp),
             textList = textList,
-            textStyle = textStyle,
         )
     }
 }

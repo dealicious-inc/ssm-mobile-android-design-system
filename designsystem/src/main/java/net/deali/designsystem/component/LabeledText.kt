@@ -35,19 +35,18 @@ fun labeledTextBullet01(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
-        textStyle = textStyle,
+        textStyle = DealiFont.b3r13,
         textContent = { index ->
             SingleLabeledTextBullet(
                 text = textList[index],
                 color = DealiColor.g80,
-                textStyle = textStyle,
+                textStyle = DealiFont.b3r13,
             )
         }
     )
@@ -70,7 +69,6 @@ fun labeledTextBullet01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -78,7 +76,7 @@ fun labeledTextBullet01(
         SingleLabeledTextBullet(
             text = text,
             color = DealiColor.g80,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -97,7 +95,6 @@ fun labeledTextBullet01(
 fun labeledTextBullet01(
     annotatedString: AnnotatedString,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -105,7 +102,7 @@ fun labeledTextBullet01(
         SingleLabeledTextBullet(
             annotatedString = annotatedString,
             color = DealiColor.g80,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
         )
     }
 }
@@ -127,19 +124,18 @@ fun labeledTextBullet02(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
-        textStyle = textStyle,
+        textStyle = DealiFont.b3r13,
         textContent = { index ->
             SingleLabeledTextBullet(
                 text = textList[index],
                 color = DealiColor.g100,
-                textStyle = textStyle,
+                textStyle = DealiFont.b3r13,
             )
         }
     )
@@ -162,7 +158,6 @@ fun labeledTextBullet02(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -170,7 +165,7 @@ fun labeledTextBullet02(
         SingleLabeledTextBullet(
             text = text,
             color = DealiColor.g100,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -189,7 +184,6 @@ fun labeledTextBullet02(
 fun labeledTextBullet02(
     annotatedString: AnnotatedString,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -197,7 +191,7 @@ fun labeledTextBullet02(
         SingleLabeledTextBullet(
             annotatedString = annotatedString,
             color = DealiColor.g100,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
         )
     }
 }
@@ -219,19 +213,18 @@ fun labeledTextNumber01(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
-        textStyle = textStyle,
+        textStyle = DealiFont.b3r13,
         textContent = { index ->
             SingleLabeledTextNumber(
                 text = textList[index],
                 color = DealiColor.g80,
-                textStyle = textStyle,
+                textStyle = DealiFont.b3r13,
                 number = index + 1,
             )
         }
@@ -257,7 +250,6 @@ fun labeledTextNumber01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -266,7 +258,7 @@ fun labeledTextNumber01(
             text = text,
             color = DealiColor.g80,
             number = number,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -287,7 +279,6 @@ fun labeledTextNumber01(
     annotatedString: AnnotatedString,
     number: Int,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -296,7 +287,7 @@ fun labeledTextNumber01(
             annotatedString = annotatedString,
             number = number,
             color = DealiColor.g80,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
         )
     }
 }
@@ -317,20 +308,19 @@ fun labeledTextNumber02(
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
         titleIconRes = iconRes,
-        textStyle = textStyle,
+        textStyle = DealiFont.b3r13,
         textContent = { index ->
             SingleLabeledTextNumber(
                 text = textList[index],
                 color = DealiColor.g100,
                 number = index + 1,
-                textStyle = textStyle,
+                textStyle = DealiFont.b3r13,
             )
         }
     )
@@ -355,7 +345,6 @@ fun labeledTextNumber02(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -364,7 +353,7 @@ fun labeledTextNumber02(
             text = text,
             color = DealiColor.g100,
             number = number,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
@@ -385,7 +374,6 @@ fun labeledTextNumber02(
     annotatedString: AnnotatedString,
     number: Int,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -394,7 +382,7 @@ fun labeledTextNumber02(
             annotatedString = annotatedString,
             number = number,
             color = DealiColor.g100,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
         )
     }
 }
@@ -415,19 +403,18 @@ fun labeledTextIcon01(
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     title: String = "",
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     LabeledTextContainer(
         textList = textList,
         modifier = modifier,
         title = title,
-        textStyle = textStyle,
+        textStyle = DealiFont.b3r13,
         textContent = { index ->
             SingleLabeledTextIcon01(
                 text = textList[index],
                 color = DealiColor.g80,
                 iconRes = iconRes,
-                textStyle = textStyle,
+                textStyle = DealiFont.b3r13,
             )
         }
     )
@@ -452,7 +439,6 @@ fun labeledTextIcon01(
     highlightText: String = "",
     highlightColor: Color = Color.Unspecified,
     isHighlightBold: Boolean = false,
-    textStyle: TextStyle = DealiFont.b3r13,
 ) {
     Box(
         modifier = modifier,
@@ -464,7 +450,7 @@ fun labeledTextIcon01(
             highlightText = highlightText,
             highlightColor = highlightColor,
             isHighlightBold = isHighlightBold,
-            textStyle = textStyle,
+            textStyle = DealiFont.b3r13,
         )
     }
 }
@@ -564,19 +550,6 @@ private fun Preview4() {
             "labeledTextNumber02",
         ),
         iconRes = R.drawable.ic_info,
-    )
-}
-
-@Preview(showBackground = true, name = "labeledTextNumber02")
-@Composable
-private fun Preview4_1() {
-    labeledTextNumber02(
-        text = "사이즈14 HIGHLIGHT labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02",
-        highlightText = "HIGHLIGHT",
-        number = 1,
-        highlightColor = DealiColor.primary01,
-        isHighlightBold = true,
-        textStyle = DealiFont.b2r14,
     )
 }
 
