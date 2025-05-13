@@ -36,7 +36,7 @@ fun Tooltip(
     arrowDirectionState: TooltipArrowDirectionState? = null,
     maxWidth: Dp = Dp.Unspecified,
     bubblePaddingY: Dp = 2.dp,
-    onDismiss: () -> Unit,
+    onDismiss: () -> Unit = {},
     content: @Composable (Modifier) -> Unit
 ) {
     Box(
