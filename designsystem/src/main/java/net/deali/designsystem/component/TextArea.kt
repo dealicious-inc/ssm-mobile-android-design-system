@@ -1,18 +1,24 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
 import net.deali.designsystem.internal.textfield.DealiTextFieldDefaults
+import net.deali.designsystem.internal.textfield.DealiTextFieldPaddingValues
 import net.deali.designsystem.internal.textfield.DealiTextFieldState
 
 /**
@@ -43,10 +49,10 @@ fun textArea(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    isFlexible: Boolean = true,
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
-    maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = DEFAULT_MIN_LINES,
+    maxLines: Int = DEFAULT_MAX_LINES,
     maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -60,14 +66,15 @@ fun textArea(
     isCounterTextVisible: Boolean = false,
 ) {
     CoreDealiTextField(
+        modifier = modifier,
         value = value,
         onValueChange = onValueChange,
-        modifier = modifier,
         textStyle = textStyle,
+        paddings = rememberTextAreaPaddings(),
         state = state,
         singleLine = false,
-        minLines = if (isFlexible) 1 else 4,
-        maxLines = if (isFlexible) maxLines else Int.MAX_VALUE,
+        minLines = minLines,
+        maxLines = maxLines,
         maxLength = maxLength,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
@@ -79,8 +86,6 @@ fun textArea(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         isCounterTextVisible = isCounterTextVisible,
-        innerTextFieldMinHeight = if (isFlexible) 46.dp else 106.dp,
-        innerTextFieldMaxHeight = 106.dp,
     )
 }
 
@@ -112,10 +117,10 @@ fun textArea(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
-    isFlexible: Boolean = true,
     textStyle: TextStyle = DealiTextFieldDefaults.TextStyle,
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
-    maxLines: Int = Int.MAX_VALUE,
+    minLines: Int = DEFAULT_MIN_LINES,
+    maxLines: Int = DEFAULT_MAX_LINES,
     maxLength: Int = Int.MAX_VALUE,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -133,10 +138,11 @@ fun textArea(
         onValueChange = onValueChange,
         modifier = modifier,
         textStyle = textStyle,
+        paddings = rememberTextAreaPaddings(),
         state = state,
         singleLine = false,
-        minLines = if (isFlexible) 1 else 4,
-        maxLines = if (isFlexible) maxLines else Int.MAX_VALUE,
+        minLines = minLines,
+        maxLines = maxLines,
         maxLength = maxLength,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
@@ -148,7 +154,50 @@ fun textArea(
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
         isCounterTextVisible = isCounterTextVisible,
-        innerTextFieldMinHeight = if (isFlexible) 46.dp else 106.dp,
-        innerTextFieldMaxHeight = 106.dp,
     )
 }
+
+@Composable
+private fun rememberTextAreaPaddings() =
+    remember {
+        TextAreaTextFieldPaddings(
+            horizontal = 12.dp,
+            vertical = 13.dp,
+        )
+    }
+
+@Immutable
+private class TextAreaTextFieldPaddings(
+    private val horizontal: Dp,
+    private val vertical: Dp,
+) : DealiTextFieldPaddingValues {
+    @Composable
+    override fun padding(
+        hasLeadingContent: Boolean,
+        hasTrailingContent: Boolean
+    ): State<PaddingValues> {
+        return rememberUpdatedState(
+            PaddingValues(horizontal = horizontal, vertical = vertical)
+        )
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null) return false
+        if (this::class != other::class) return false
+
+        other as TextAreaTextFieldPaddings
+
+        if (this.horizontal != other.horizontal) return false
+        return this.vertical == other.vertical
+    }
+
+    override fun hashCode(): Int {
+        var hash = horizontal.hashCode()
+        hash = 31 * hash + vertical.hashCode()
+        return hash
+    }
+}
+
+private const val DEFAULT_MIN_LINES = 1
+private const val DEFAULT_MAX_LINES = 4
