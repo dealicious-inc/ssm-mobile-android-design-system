@@ -470,7 +470,6 @@ private fun rememberSearchInputPaddings() =
         SearchInputTextFieldPaddings(
             decoratedStart = 6.dp,
             horizontal = 16.dp,
-            vertical = 12.dp
         )
     }
 
@@ -478,23 +477,17 @@ private fun rememberSearchInputPaddings() =
 private class SearchInputTextFieldPaddings(
     private val decoratedStart: Dp,
     private val horizontal: Dp,
-    private val vertical: Dp,
 ) : DealiTextFieldPaddingValues {
     @Composable
     override fun padding(
-        singleLine: Boolean,
         hasLeadingContent: Boolean,
         hasTrailingContent: Boolean
     ): State<PaddingValues> {
         return rememberUpdatedState(
-            if (singleLine) {
-                if (hasLeadingContent) {
-                    PaddingValues(start = decoratedStart, end = horizontal)
-                } else {
-                    PaddingValues(horizontal = horizontal)
-                }
+            if (hasLeadingContent) {
+                PaddingValues(start = decoratedStart, end = horizontal)
             } else {
-                PaddingValues(horizontal = horizontal, vertical = vertical)
+                PaddingValues(horizontal = horizontal)
             }
         )
     }
@@ -507,14 +500,12 @@ private class SearchInputTextFieldPaddings(
         other as SearchInputTextFieldPaddings
 
         if (this.decoratedStart != other.decoratedStart) return false
-        if (this.horizontal != other.horizontal) return false
-        return this.vertical == other.vertical
+        return this.horizontal == other.horizontal
     }
 
     override fun hashCode(): Int {
         var hash = decoratedStart.hashCode()
         hash = 31 * hash + horizontal.hashCode()
-        hash = 31 * hash + vertical.hashCode()
         return hash
     }
 }

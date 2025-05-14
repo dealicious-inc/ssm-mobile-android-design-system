@@ -13,6 +13,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.textfield.CoreDealiTextField
 import net.deali.designsystem.internal.textfield.CoreDealiTextFieldForTextFieldValue
@@ -103,6 +104,7 @@ fun TextInput(
         isNecessary = isNecessary,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
+        innerTextFieldMinHeight = 46.dp,
         labelContent = labelContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,
@@ -198,6 +200,7 @@ fun TextInput(
         label = label,
         helperText = helperText,
         isHelperTextVisible = isHelperTextVisible,
+        innerTextFieldMinHeight = 46.dp,
         labelContent = labelContent,
         leadingContent = leadingContent,
         trailingContent = trailingContent,

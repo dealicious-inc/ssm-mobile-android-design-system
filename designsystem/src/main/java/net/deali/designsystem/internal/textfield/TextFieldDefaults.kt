@@ -103,7 +103,6 @@ internal interface DealiTextFieldPaddingValues {
 
     @Composable
     fun padding(
-        singleLine: Boolean,
         hasLeadingContent: Boolean,
         hasTrailingContent: Boolean,
     ): State<PaddingValues>
@@ -119,7 +118,6 @@ private class DefaultDealiTextFieldPaddingValues(
 
     @Composable
     override fun padding(
-        singleLine: Boolean,
         hasLeadingContent: Boolean,
         hasTrailingContent: Boolean,
     ): State<PaddingValues> {
@@ -135,11 +133,7 @@ private class DefaultDealiTextFieldPaddingValues(
         }
 
         return rememberUpdatedState(
-            if (singleLine) {
-                PaddingValues(start = start, end = end, top = vertical, bottom = vertical)
-            } else {
-                PaddingValues(horizontal = horizontal, vertical = vertical)
-            }
+            PaddingValues(start = start, end = end, top = vertical, bottom = vertical)
         )
     }
 

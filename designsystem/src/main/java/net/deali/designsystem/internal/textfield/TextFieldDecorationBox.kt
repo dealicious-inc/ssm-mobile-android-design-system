@@ -40,7 +40,6 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 internal fun DealiTextFieldDecorationBox(
     state: DealiTextFieldState,
-    singleLine: Boolean,
     colors: DealiTextFieldColors,
     paddings: DealiTextFieldPaddingValues,
     interactionSource: MutableInteractionSource,
@@ -152,6 +151,13 @@ internal fun DealiTextFieldDecorationBox(
             }
 
             InnerTextField(
+                modifier = Modifier
+                    .weight(1f)
+                    .heightIn(
+                        min = innerTextFieldMinHeight,
+                        max = innerTextFieldMaxHeight
+                    )
+                    .zIndex(1f),
                 colors = colors,
                 paddings = paddings,
                 placeholder = placeholder,
@@ -160,14 +166,6 @@ internal fun DealiTextFieldDecorationBox(
                 placeholderOverflow = placeholderOverflow,
                 state = state,
                 focused = focused,
-                singleLine = singleLine,
-                modifier = Modifier
-                    .weight(1f)
-                    .heightIn(
-                        min = innerTextFieldMinHeight,
-                        max = innerTextFieldMaxHeight
-                    )
-                    .zIndex(1f),
                 innerTextField = innerTextField,
                 leadingContent = innerLeadingContent,
                 trailingContent = innerTrailingContent,
@@ -301,7 +299,6 @@ private fun InnerTextField(
     placeholderOverflow: TextOverflow,
     state: DealiTextFieldState,
     focused: Boolean,
-    singleLine: Boolean,
     modifier: Modifier = Modifier,
     innerTextField: @Composable () -> Unit,
     leadingContent: @Composable (() -> Unit)?,
@@ -311,7 +308,6 @@ private fun InnerTextField(
     val backgroundColor by colors.backgroundColor(state)
     val outlineColor by colors.outlineColor(state, focused)
     val paddingValues by paddings.padding(
-        singleLine = singleLine,
         hasLeadingContent = leadingContent != null,
         hasTrailingContent = trailingContent != null,
     )

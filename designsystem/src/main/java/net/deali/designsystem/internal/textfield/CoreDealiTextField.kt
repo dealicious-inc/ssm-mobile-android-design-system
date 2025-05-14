@@ -20,7 +20,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 
 /**
  * 디자인시스템 Text Field 핵심 컴포넌트. TextField류 컴포넌트 구현의 기반이 되는 컴포넌트입니다.
@@ -86,8 +85,8 @@ internal fun CoreDealiTextField(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     isCounterTextVisible: Boolean = false,
-    innerTextFieldMinHeight: Dp = 46.dp,
-    innerTextFieldMaxHeight: Dp = 106.dp,
+    innerTextFieldMinHeight: Dp = Dp.Unspecified,
+    innerTextFieldMaxHeight: Dp = Dp.Unspecified,
     decorationAlignment: Alignment.Vertical = Alignment.CenterVertically,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
@@ -219,8 +218,8 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     isCounterTextVisible: Boolean = false,
-    innerTextFieldMinHeight: Dp = 46.dp,
-    innerTextFieldMaxHeight: Dp = 46.dp,
+    innerTextFieldMinHeight: Dp = Dp.Unspecified,
+    innerTextFieldMaxHeight: Dp = Dp.Unspecified,
     decorationAlignment: Alignment.Vertical = Alignment.CenterVertically,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
@@ -261,7 +260,6 @@ internal fun CoreDealiTextFieldForTextFieldValue(
             DealiTextFieldDecorationBox(
                 modifier = Modifier.fillMaxWidth(),
                 state = state,
-                singleLine = singleLine,
                 colors = colors,
                 paddings = paddings,
                 interactionSource = interactionSource,
