@@ -1,14 +1,20 @@
 package net.deali.designsystem.sample.ui.screen
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -16,12 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.textArea
 import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.sample.ui.NavigationContainer
@@ -40,7 +46,8 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
         }
     ) {
         var text by remember { mutableStateOf("") }
-        var isFlexible by remember { mutableStateOf(true) }
+        var minLines by remember { mutableIntStateOf(1) }
+        var maxLines by remember { mutableIntStateOf(4) }
         var state by remember { mutableStateOf(DealiTextFieldState.ENABLED) }
         var isPlaceholderVisible by remember { mutableStateOf(true) }
         var placeholder by remember { mutableStateOf("") }
@@ -59,8 +66,9 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
             textArea(
                 value = text,
                 onValueChange = { text = it },
-                isFlexible = isFlexible,
                 state = state,
+                minLines = minLines,
+                maxLines = maxLines,
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = label,
                 isNecessary = isNecessary,
@@ -84,20 +92,6 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                         state = innerState
                     }
                 }
-            }
-
-            HorizontalDivider(color = DealiColor.g20)
-
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                ToggleOption(
-                    title = "Flexible",
-                    selected = isFlexible,
-                    onSelectedChange = { isFlexible = it }
-                )
             }
 
             HorizontalDivider(color = DealiColor.g20)
@@ -129,7 +123,7 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 ToggleOption(
-                    title = "Necessary\n",
+                    title = "Necessary",
                     selected = isNecessary,
                     onSelectedChange = { isNecessary = it }
                 )
@@ -161,6 +155,70 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                         onSelectedChange = { isCounterTextVisible = it }
                     )
                 }
+            }
+
+            HorizontalDivider(color = DealiColor.g20)
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                DealiText(
+                    text = "Min Lines $minLines",
+                    style = DealiFont.b4r12,
+                    color = DealiColor.g100,
+                )
+
+                NumberActionButton(
+                    text = "-",
+                    onClick = {
+                        if (1 < minLines) {
+                            minLines--
+                        }
+                    }
+                )
+
+                NumberActionButton(
+                    text = "+",
+                    onClick = {
+                        if (minLines < maxLines) {
+                            minLines++
+                        }
+                    }
+                )
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                DealiText(
+                    text = "Max Lines $maxLines",
+                    style = DealiFont.b4r12,
+                    color = DealiColor.g100,
+                )
+
+                NumberActionButton(
+                    text = "-",
+                    onClick = {
+                        if (minLines < maxLines) {
+                            maxLines--
+                        }
+                    }
+                )
+
+                NumberActionButton(
+                    text = "+",
+                    onClick = {
+                        if (maxLines < Int.MAX_VALUE) {
+                            maxLines++
+                        }
+                    }
+                )
             }
 
             HorizontalDivider(color = DealiColor.g20)
@@ -216,14 +274,37 @@ private fun InputOption(
     onValueChange: (String) -> Unit,
     placeholder: String,
     modifier: Modifier = Modifier,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
 ) {
     TextInput(
+        modifier = modifier,
         value = value,
         onValueChange = onValueChange,
         placeholder = placeholder,
         label = title,
-        modifier = modifier,
+        keyboardOptions = keyboardOptions,
     )
+}
+
+@Composable
+private fun NumberActionButton(
+    text: String,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .size(24.dp)
+            .background(DealiColor.g20)
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center
+    ) {
+        DealiText(
+            text = text,
+            style = DealiFont.b4r12,
+            color = DealiColor.g100,
+        )
+    }
 }
 
 @Composable
