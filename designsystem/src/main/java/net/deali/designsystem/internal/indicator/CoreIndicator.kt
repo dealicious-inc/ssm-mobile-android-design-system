@@ -31,6 +31,10 @@ internal fun CoreIndicator(
     modifier: Modifier = Modifier,
     pageIndexMapping: (Int) -> Int
 ) {
+    if (pageCount <= 0) {
+        return
+    }
+
     val currentDensity = LocalDensity.current
 
     val indicatorSizePx = currentDensity.run { indicatorSize.roundToPx().toFloat() }

@@ -25,9 +25,9 @@ import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun Indicator(
+    type: IndicatorType,
     pageCount: Int,
     pageIndexMapping: (Int) -> Int,
-    type: IndicatorType,
     modifier: Modifier = Modifier,
     pagerState: PagerState = rememberPagerState(
         pageCount = { pageCount }
@@ -226,9 +226,9 @@ private fun IndicatorDotPinkPreview() {
     Indicator(
         modifier = Modifier
             .padding(10.dp),
+        type = IndicatorType.DOTS,
         pageCount = 5,
         pageIndexMapping = { it },
-        type = IndicatorType.DOTS
     )
 }
 
@@ -238,9 +238,9 @@ private fun IndicatorDotWhitePreview() {
     Indicator(
         modifier = Modifier
             .padding(10.dp),
+        type = IndicatorType.DOTS_WHITE,
         pageCount = 5,
         pageIndexMapping = { it },
-        type = IndicatorType.DOTS_WHITE
     )
 }
 
