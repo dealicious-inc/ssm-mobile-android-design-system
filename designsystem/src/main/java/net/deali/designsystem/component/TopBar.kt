@@ -18,6 +18,33 @@ import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun TopBar(
+    modifier: Modifier = Modifier,
+    title: String = "",
+    titleColor: Color = DealiColor.g100,
+    backgroundColor: Color = DealiColor.primary04,
+    menuContent: @Composable (() -> Unit)? = null,
+) {
+    CoreTopBarLayout(
+        modifier = modifier,
+        backgroundBrush = SolidColor(backgroundColor),
+        mainContent = {
+            DealiText(
+                text = title,
+                style = DealiFont.sh3sb16,
+                color = titleColor,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        },
+        menuContent = if (menuContent != null) {
+            { menuContent() }
+        } else {
+            null
+        },
+    )
+}
+@Composable
+fun TopBar(
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
     title: String = "",
@@ -55,6 +82,14 @@ fun TopBar(
         } else {
             null
         },
+    )
+}
+
+@Preview(showBackground = true, widthDp = 320)
+@Composable
+private fun TopBarPreview0() {
+    TopBar(
+        title = "Preview"
     )
 }
 
