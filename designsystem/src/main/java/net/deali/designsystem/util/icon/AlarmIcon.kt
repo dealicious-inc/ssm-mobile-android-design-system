@@ -17,7 +17,7 @@ import net.deali.designsystem.component.badge
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun CartIcon24(
+fun AlarmIcon24(
     count: Int,
     modifier: Modifier = Modifier,
     color: Color = DealiColor.primary05,
@@ -42,13 +42,13 @@ fun CartIcon24(
     Icon24(
         modifier = modifier
             .then(badgeModifier),
-        iconRes = R.drawable.ic_cart,
+        iconRes = R.drawable.ic_alarm,
         color = color,
         onClick = onClick,
     )
 }
 
-private class CartCountPreviewProvider : PreviewParameterProvider<Int> {
+private class AlarmCountPreviewProvider : PreviewParameterProvider<Int> {
     override val values: Sequence<Int>
         get() = sequenceOf(
             0,
@@ -61,13 +61,13 @@ private class CartCountPreviewProvider : PreviewParameterProvider<Int> {
 @Preview(showBackground = true)
 @Composable
 private fun Preview(
-    @PreviewParameter(CartCountPreviewProvider::class) value: Int
+    @PreviewParameter(AlarmCountPreviewProvider::class) value: Int
 ) {
     Box(
         modifier = Modifier
             .size(48.dp),
     ) {
-        CartIcon24(
+        AlarmIcon24(
             modifier = Modifier
                 .align(Alignment.Center),
             count = value,
