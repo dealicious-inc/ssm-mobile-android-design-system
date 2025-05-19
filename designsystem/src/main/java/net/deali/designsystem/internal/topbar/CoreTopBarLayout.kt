@@ -20,10 +20,12 @@ val TOP_BAR_HEIGHT = 56.dp
 internal fun CoreTopBarLayout(
     backgroundBrush: Brush,
     modifier: Modifier = Modifier,
-    mainContent: @Composable RowScope.() -> Unit,
+    mainContent: @Composable (RowScope.() -> Unit)?,
     menuContent: @Composable (RowScope.() -> Unit)?,
 ) {
-    Box(modifier = modifier) {
+    Box(
+        modifier = modifier
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -37,11 +39,14 @@ internal fun CoreTopBarLayout(
             },
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(
-                modifier = Modifier.weight(1f),
-                verticalAlignment = Alignment.CenterVertically,
-                content = mainContent,
-            )
+            if (mainContent != null) {
+                Row(
+                    modifier = Modifier.weight(1f),
+                    verticalAlignment = Alignment.CenterVertically,
+                    content = mainContent,
+                )
+            }
+
             if (menuContent != null) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(20.dp),

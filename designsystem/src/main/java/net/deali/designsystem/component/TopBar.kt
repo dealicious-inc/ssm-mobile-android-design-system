@@ -19,22 +19,17 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 fun TopBar(
     modifier: Modifier = Modifier,
-    title: String = "",
-    titleColor: Color = DealiColor.g100,
     backgroundColor: Color = DealiColor.primary04,
+    mainContent: @Composable (() -> Unit)? = null,
     menuContent: @Composable (() -> Unit)? = null,
 ) {
     CoreTopBarLayout(
         modifier = modifier,
         backgroundBrush = SolidColor(backgroundColor),
-        mainContent = {
-            DealiText(
-                text = title,
-                style = DealiFont.sh3sb16,
-                color = titleColor,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
+        mainContent = if (mainContent != null) {
+            { mainContent() }
+        } else {
+            null
         },
         menuContent = if (menuContent != null) {
             { menuContent() }
@@ -43,6 +38,7 @@ fun TopBar(
         },
     )
 }
+
 @Composable
 fun TopBar(
     onBack: () -> Unit,
@@ -87,15 +83,23 @@ fun TopBar(
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun TopBarPreview0() {
+private fun TopBarPreview1() {
     TopBar(
-        title = "Preview"
+        mainContent = {
+            DealiText(
+                text = "Preview",
+                style = DealiFont.sh3sb16,
+                color = DealiColor.g100,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
     )
 }
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun TopBarPreview1() {
+private fun TopBarPreview3() {
     TopBar(
         onBack = {},
         title = "Preview"
@@ -104,7 +108,7 @@ private fun TopBarPreview1() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun TopBarPreview2() {
+private fun TopBarPreview4() {
     TopBar(
         onBack = {},
         title = "Preview",
@@ -124,7 +128,7 @@ private fun TopBarPreview2() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun TopBarrPreview3() {
+private fun TopBarrPreview5() {
     TopBar(
         onBack = {},
         title = "Preview Preview Preview Preview",
