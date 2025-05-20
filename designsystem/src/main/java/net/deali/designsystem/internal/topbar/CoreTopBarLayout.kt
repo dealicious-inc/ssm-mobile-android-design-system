@@ -39,12 +39,13 @@ internal fun CoreTopBarLayout(
             },
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            if (mainContent != null) {
-                Row(
-                    modifier = Modifier.weight(1f),
-                    verticalAlignment = Alignment.CenterVertically,
-                    content = mainContent,
-                )
+            Row(
+                modifier = Modifier.weight(1f),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                if (mainContent != null) {
+                    mainContent()
+                }
             }
 
             if (menuContent != null) {

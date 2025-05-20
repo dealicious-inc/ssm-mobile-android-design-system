@@ -99,6 +99,24 @@ private fun TopBarPreview1() {
 
 @Preview(showBackground = true, widthDp = 320)
 @Composable
+private fun TopBarPreview11() {
+    TopBar(
+        menuContent = {
+            Icon24(
+                onClick = {},
+                iconRes = R.drawable.ic_search,
+            )
+            Icon24(
+                onClick = {},
+                iconRes = R.drawable.ic_cart,
+                modifier = Modifier.badge(count = 1),
+            )
+        }
+    )
+}
+
+@Preview(showBackground = true, widthDp = 320)
+@Composable
 private fun TopBarPreview3() {
     TopBar(
         onBack = {},
