@@ -1,5 +1,6 @@
 package net.deali.designsystem.util.icon
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -17,7 +19,9 @@ import net.deali.designsystem.component.badge
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun CartIcon(
+fun CountIcon(
+    @DrawableRes iconRes: Int,
+    size: Dp,
     count: Int,
     modifier: Modifier = Modifier,
     color: Color = DealiColor.primary05,
@@ -42,14 +46,14 @@ fun CartIcon(
     Icon(
         modifier = modifier
             .then(badgeModifier),
-        iconRes = R.drawable.ic_cart,
-        size = 24.dp,
+        iconRes = iconRes,
+        size = size,
         color = color,
         onClick = onClick,
     )
 }
 
-private class CartCountPreviewProvider : PreviewParameterProvider<Int> {
+private class CountPreviewProvider : PreviewParameterProvider<Int> {
     override val values: Sequence<Int>
         get() = sequenceOf(
             0,
@@ -62,16 +66,18 @@ private class CartCountPreviewProvider : PreviewParameterProvider<Int> {
 @Preview(showBackground = true)
 @Composable
 private fun Preview(
-    @PreviewParameter(CartCountPreviewProvider::class) value: Int
+    @PreviewParameter(CountPreviewProvider::class) value: Int
 ) {
     Box(
         modifier = Modifier
             .size(48.dp),
     ) {
-        CartIcon(
+        CountIcon(
             modifier = Modifier
                 .align(Alignment.Center),
             count = value,
+            iconRes = R.drawable.ic_alarm,
+            size = 24.dp,
             onClick = {}
         )
     }
