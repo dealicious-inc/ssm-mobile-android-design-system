@@ -109,8 +109,9 @@ private fun Title(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         if (titleIconRes != 0) {
-            Icon16(
+            Icon(
                 iconRes = titleIconRes,
+                size = 16.dp,
             )
 
             HorizontalSpacer(width = 8.dp)
@@ -125,10 +126,11 @@ private fun Title(
 
         HorizontalSpacer(width = 16.dp)
 
-        Icon16(
+        Icon(
             modifier = Modifier
                 .graphicsLayer { rotationZ = degrees },
             iconRes = R.drawable.ic_arrow_open,
+            size = 16.dp,
         )
     }
 }

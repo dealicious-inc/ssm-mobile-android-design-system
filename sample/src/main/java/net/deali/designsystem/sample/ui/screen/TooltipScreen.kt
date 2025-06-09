@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -16,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.Tooltip
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.internal.tooltip.TooltipArrowDirectionState
@@ -65,14 +64,15 @@ fun TooltipScreen(
                     isShow = isShow,
                     colorState = if (alignment == Alignment.Center) TooltipColorState.BLUE else TooltipColorState.WHITE,
                     arrowDirectionState = if (alignment == Alignment.Center) TooltipArrowDirectionState.TOP else null,
-                    maxWidth =  if (alignment == Alignment.Center) 100.dp else Dp.Unspecified,
+                    maxWidth = if (alignment == Alignment.Center) 100.dp else Dp.Unspecified,
                     onDismiss = {
                         isShow = false
                     }
                 ) { innerModifier ->
-                    Icon16(
+                    Icon(
                         modifier = innerModifier,
                         iconRes = R.drawable.ic_info,
+                        size = 16.dp,
                         onClick = {
                             isShow = !isShow
                         }

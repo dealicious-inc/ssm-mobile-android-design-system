@@ -52,9 +52,10 @@ fun ErrorCase(
     CoreErrorCase(
         modifier = modifier,
     ) {
-        Icon32(
+        Icon(
             modifier = Modifier,
             iconRes = iconRes,
+            size = 32.dp,
             color = iconColor,
         )
 
@@ -84,9 +85,10 @@ fun ErrorCase(
     CoreErrorCase(
         modifier = modifier,
     ) {
-        Icon32(
+        Icon(
             modifier = Modifier,
             iconRes = iconRes,
+            size = 32.dp,
             color = iconColor,
         )
 
@@ -125,9 +127,10 @@ fun ErrorCase(
     CoreErrorCase(
         modifier = modifier,
     ) {
-        Icon32(
+        Icon(
             modifier = Modifier,
             iconRes = iconRes,
+            size = 32.dp,
             color = iconColor,
         )
 
@@ -172,9 +175,10 @@ fun ErrorCase(
     CoreErrorCase(
         modifier = modifier,
     ) {
-        Icon32(
+        Icon(
             modifier = Modifier,
             iconRes = iconRes,
+            size = 32.dp,
             color = iconColor,
         )
 

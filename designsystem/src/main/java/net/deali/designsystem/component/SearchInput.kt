@@ -105,8 +105,9 @@ fun SearchInput(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 if (value.isNotEmpty()) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_x_circle_filled,
+                        size = 16.dp,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
@@ -120,8 +121,9 @@ fun SearchInput(
                 }
 
                 if (value.isEmpty() || isFocused) {
-                    Icon24(
+                    Icon(
                         iconRes = R.drawable.ic_search,
+                        size = 24.dp,
                         color = DealiColor.g100,
                         onClick = onSearch,
                     )
@@ -193,8 +195,9 @@ fun SearchInput(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 if (value.text.isNotEmpty()) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_x_circle_filled,
+                        size = 16.dp,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
@@ -208,8 +211,9 @@ fun SearchInput(
                 }
 
                 if (value.text.isEmpty() || isFocused) {
-                    Icon24(
+                    Icon(
                         iconRes = R.drawable.ic_search,
+                        size = 24.dp,
                         color = DealiColor.g100,
                         onClick = onSearch,
                     )
@@ -288,8 +292,9 @@ fun SearchInput(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 if (value.isNotEmpty()) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_x_circle_filled,
+                        size = 16.dp,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
@@ -303,8 +308,9 @@ fun SearchInput(
                 }
 
                 if (value.isEmpty() || isFocused) {
-                    Icon24(
+                    Icon(
                         iconRes = R.drawable.ic_search,
+                        size = 24.dp,
                         color = DealiColor.g100,
                         onClick = onSearch,
                     )
@@ -383,8 +389,9 @@ fun SearchInput(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 if (value.text.isNotEmpty()) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_x_circle_filled,
+                        size = 16.dp,
                         color = DealiColor.g50,
                         enabled = true,
                         onClick = {
@@ -398,8 +405,9 @@ fun SearchInput(
                 }
 
                 if (value.text.isEmpty() || isFocused) {
-                    Icon24(
+                    Icon(
                         iconRes = R.drawable.ic_search,
+                        size = 24.dp,
                         color = DealiColor.g100,
                         onClick = onSearch,
                     )

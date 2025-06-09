@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
@@ -66,8 +66,9 @@ internal fun CoreTextLink(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             if (leftIcon != null) {
-                Icon16(
+                Icon(
                     iconRes = leftIcon,
+                    size = 16.dp,
                     color = color,
                 )
             }
@@ -90,8 +91,9 @@ internal fun CoreTextLink(
                 color = color,
             )
             if (rightIcon != null) {
-                Icon16(
+                Icon(
                     iconRes = rightIcon,
+                    size = 16.dp,
                     color = color,
                 )
             }

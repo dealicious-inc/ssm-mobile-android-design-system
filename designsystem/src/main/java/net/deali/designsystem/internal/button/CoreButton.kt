@@ -25,7 +25,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.IconRotating
 
 @Composable
@@ -110,7 +110,8 @@ internal fun CoreButton(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 if (leftIcon != null) {
-                    Icon16(
+                    Icon(
+                        size = 16.dp,
                         iconRes = leftIcon,
                         color = iconColor,
                     )
@@ -124,7 +125,8 @@ internal fun CoreButton(
                     color = contentColor,
                 )
                 if (rightIcon != null) {
-                    Icon16(
+                    Icon(
+                        size = 16.dp,
                         iconRes = rightIcon,
                         color = iconColor,
                     )

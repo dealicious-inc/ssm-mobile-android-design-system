@@ -47,8 +47,9 @@ fun GoTop(
                 ),
             contentAlignment = Alignment.Center
         ) {
-            Icon24(
-                iconRes = R.drawable.ic_gotop
+            Icon(
+                iconRes = R.drawable.ic_gotop,
+                size = 24.dp,
             )
         }
     }

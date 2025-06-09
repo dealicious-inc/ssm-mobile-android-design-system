@@ -66,12 +66,13 @@ private fun RadioIcon(
     selected: Boolean,
     enabled: Boolean = true,
 ) {
-    Icon24(
+    Icon(
         iconRes = when {
             enabled.not() -> R.drawable.ic_radiobutton_disable
             selected -> R.drawable.ic_radiobutton_on
             else -> R.drawable.ic_radiobutton_off
-        }
+        },
+        size = 24.dp,
     )
 }
 

@@ -234,9 +234,10 @@ private fun AttachButton(
         modifier = Modifier.height(46.dp),
         contentAlignment = Alignment.Center,
     ) {
-        Icon24(
-            iconRes = R.drawable.ic_pluscircle_filled,
+        Icon(
             modifier = modifier,
+            iconRes = R.drawable.ic_pluscircle_filled,
+            size = 24.dp,
             onClick = onClick,
         )
     }
@@ -252,9 +253,10 @@ private fun SendButton(
         modifier = Modifier.height(46.dp),
         contentAlignment = Alignment.Center,
     ) {
-        Icon24(
+        Icon(
             modifier = modifier,
             iconRes = R.drawable.ic_send,
+            size = 24.dp,
             enabled = value.isNotEmpty(),
             color = if (value.isNotEmpty()) DealiColor.primary01 else DealiColor.g60,
             onClick = onClick,
@@ -272,9 +274,10 @@ private fun UploadButton(
         modifier = Modifier.height(46.dp),
         contentAlignment = Alignment.Center,
     ) {
-        Icon24(
+        Icon(
             modifier = modifier,
             iconRes = R.drawable.ic_up_1_filled,
+            size = 24.dp,
             enabled = value.isNotEmpty(),
             color = if (value.isNotEmpty()) DealiColor.primary01 else DealiColor.g60,
             onClick = onClick,

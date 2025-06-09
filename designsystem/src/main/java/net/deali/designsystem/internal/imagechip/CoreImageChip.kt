@@ -50,7 +50,7 @@ import coil3.request.ImageRequest
 import coil3.request.crossfade
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.theme.DealiColor
 import kotlin.math.max
 import kotlin.math.min
@@ -124,8 +124,9 @@ internal fun CoreRegularImageChip(
             val useIconDefaultColor = rightIconColor == null
             val useCustomIconColor = rightIconColor != Color.Unspecified
             if (onRightIconClick == null) {
-                Icon16(
+                Icon(
                     iconRes = rightIcon,
+                    size = 16.dp,
                     color = when {
                         useIconDefaultColor -> Color.Unspecified
                         useCustomIconColor -> rightIconColor!!
@@ -133,9 +134,10 @@ internal fun CoreRegularImageChip(
                     }
                 )
             } else {
-                Icon16(
-                    onClick = onRightIconClick,
+                Icon(
                     iconRes = rightIcon,
+                    size = 16.dp,
+                    onClick = onRightIconClick,
                     color = when {
                         useIconDefaultColor -> Color.Unspecified
                         useCustomIconColor -> rightIconColor!!

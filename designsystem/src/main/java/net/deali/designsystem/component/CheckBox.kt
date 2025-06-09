@@ -92,14 +92,16 @@ fun CheckBoxIcon(
     }
 
     if (onCheck == null) {
-        Icon24(
+        Icon(
             modifier = modifier,
+            size = 24.dp,
             iconRes = iconRes
         )
     } else {
-        Icon24(
+        Icon(
             modifier = modifier,
             iconRes = iconRes,
+            size = 24.dp,
             onClick = onCheck,
             enabled = enabled,
         )

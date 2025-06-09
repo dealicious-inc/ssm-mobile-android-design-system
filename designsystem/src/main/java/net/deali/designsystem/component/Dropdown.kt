@@ -178,8 +178,9 @@ private fun InnerText(
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (icon != null) {
-            Icon16(
+            Icon(
                 iconRes = icon,
+                size = 16.dp,
                 color = iconColor
             )
 
@@ -196,8 +197,9 @@ private fun InnerText(
 
         HorizontalSpacer(width = 16.dp)
 
-        Icon16(
+        Icon(
             iconRes = if (isOpen) R.drawable.ic_arrow_right else R.drawable.ic_arrow_open,
+            size = 16.dp,
             color = contentColor
         )
     }

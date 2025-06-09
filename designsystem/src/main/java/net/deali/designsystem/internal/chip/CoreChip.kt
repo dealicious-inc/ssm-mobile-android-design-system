@@ -46,7 +46,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.theme.DealiColor
 import kotlin.math.max
 import kotlin.math.min
@@ -307,8 +307,9 @@ private fun RowScope.RegularContent(
         val useIconDefaultColor = customLeftIconColor == null
         val useCustomIconColor = customLeftIconColor != Color.Unspecified
         if (onLeftIconClick == null) {
-            Icon16(
+            Icon(
                 iconRes = leftIcon,
+                size = 16.dp,
                 color = when {
                     useIconDefaultColor -> Color.Unspecified
                     useCustomIconColor -> customLeftIconColor!!
@@ -316,15 +317,16 @@ private fun RowScope.RegularContent(
                 }
             )
         } else {
-            Icon16(
-                onClick = onLeftIconClick,
+            Icon(
                 iconRes = leftIcon,
+                size = 16.dp,
                 color = when {
                     useIconDefaultColor -> Color.Unspecified
                     useCustomIconColor -> customLeftIconColor!!
                     else -> defaultContentColor
                 },
                 enabled = enabled,
+                onClick = onLeftIconClick,
             )
         }
 
@@ -346,8 +348,9 @@ private fun RowScope.RegularContent(
         val useIconDefaultColor = customRightIconColor == null
         val useCustomIconColor = customRightIconColor != Color.Unspecified
         if (onRightIconClick == null) {
-            Icon16(
+            Icon(
                 iconRes = rightIcon,
+                size = 16.dp,
                 color = when {
                     useIconDefaultColor -> Color.Unspecified
                     useCustomIconColor -> customRightIconColor!!
@@ -355,15 +358,16 @@ private fun RowScope.RegularContent(
                 }
             )
         } else {
-            Icon16(
-                onClick = onRightIconClick,
+            Icon(
                 iconRes = rightIcon,
+                size = 16.dp,
                 color = when {
                     useIconDefaultColor -> Color.Unspecified
                     useCustomIconColor -> customRightIconColor!!
                     else -> defaultContentColor
                 },
                 enabled = enabled,
+                onClick = onRightIconClick,
             )
         }
     }
@@ -379,8 +383,9 @@ private fun IconOnlyContent(
     val useIconDefaultColor = customIconColor == null
     val useCustomIconColor = customIconColor != Color.Unspecified
 
-    Icon16(
+    Icon(
         iconRes = icon,
+        size = 16.dp,
         color = when {
             useIconDefaultColor -> Color.Unspecified
             useCustomIconColor -> customIconColor!!
@@ -407,11 +412,12 @@ private fun RowScope.DepthContent(
     )
     if (useRemoveIcon) {
         Spacer(modifier = Modifier.width(spacingBetweenContentAndRemove))
-        Icon16(
-            onClick = onRemoveClick,
-            enabled = enabled,
+        Icon(
             iconRes = removeIcon,
+            size = 16.dp,
             color = contentColor,
+            enabled = enabled,
+            onClick = onRemoveClick,
         )
     }
 }

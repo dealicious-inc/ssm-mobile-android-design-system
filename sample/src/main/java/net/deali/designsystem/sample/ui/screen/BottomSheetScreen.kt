@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.rememberModalBottomSheetState
@@ -28,16 +28,14 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.BottomSheet
 import net.deali.designsystem.component.BottomSheetHeaderArrowClose
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.SingleSelectOption
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.btnOutlineMedium01
-import androidx.compose.foundation.shape.RoundedCornerShape
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheetScreen(onBackPress: () -> Unit) {
     val coroutineScope = rememberCoroutineScope()
@@ -242,7 +240,10 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 text = "옵션3",
                                 isSelected = selectedOptionIndex == 2,
                                 icon = {
-                                    Icon16(iconRes = R.drawable.ic_category_filled)
+                                    Icon(
+                                        iconRes = R.drawable.ic_category_filled,
+                                        size = 16.dp,
+                                    )
                                 }
                             ),
                         ),

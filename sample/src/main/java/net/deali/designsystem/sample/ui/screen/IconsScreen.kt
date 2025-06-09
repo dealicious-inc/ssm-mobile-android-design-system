@@ -33,11 +33,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
-import net.deali.designsystem.component.Icon24
-import net.deali.designsystem.component.Icon32
+import net.deali.designsystem.component.Icon
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.btnOutlineSmall01
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -203,36 +201,40 @@ private fun Item(
     ) {
         when (size) {
             SIZE_16 -> {
-                Icon16(
+                Icon(
                     modifier = Modifier.align(Alignment.Center),
                     iconRes = iconRes,
+                    size = 16.dp,
                     color = iconColor,
                     onClick = {}
                 )
             }
 
             SIZE_24 -> {
-                Icon24(
+                Icon(
                     modifier = Modifier.align(Alignment.Center),
                     iconRes = iconRes,
+                    size = 24.dp,
                     color = iconColor,
                     onClick = {}
                 )
             }
 
             SIZE_32 -> {
-                Icon32(
+                Icon(
                     modifier = Modifier.align(Alignment.Center),
                     iconRes = iconRes,
+                    size = 32.dp,
                     color = iconColor,
                     onClick = {}
                 )
             }
 
             else -> {
-                Icon16(
+                Icon(
                     modifier = Modifier.align(Alignment.Center),
                     iconRes = iconRes,
+                    size = 16.dp,
                     color = iconColor,
                     onClick = {}
                 )

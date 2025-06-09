@@ -103,8 +103,9 @@ private fun Preview2() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(
@@ -126,8 +127,9 @@ private fun Preview2() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(
@@ -150,8 +152,9 @@ private fun Preview2() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(
@@ -183,8 +186,9 @@ private fun Preview3() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(
@@ -208,8 +212,9 @@ private fun Preview3() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(
@@ -234,8 +239,9 @@ private fun Preview3() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Icon16(
+                    Icon(
                         iconRes = R.drawable.ic_arrow_close_1_filled,
+                        size = 16.dp,
                         color = DealiColor.primary01
                     )
                     DealiText(

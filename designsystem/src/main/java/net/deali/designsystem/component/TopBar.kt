@@ -59,8 +59,9 @@ fun TopBar(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                Icon24(
+                Icon(
                     iconRes = backButtonIcon,
+                    size = 24.dp,
                     color = backButtonColor,
                     onClick = onBack,
                 )
@@ -102,14 +103,16 @@ private fun TopBarPreview1() {
 private fun TopBarPreview11() {
     TopBar(
         menuContent = {
-            Icon24(
-                onClick = {},
+            Icon(
                 iconRes = R.drawable.ic_search,
-            )
-            Icon24(
+                size = 24.dp,
                 onClick = {},
-                iconRes = R.drawable.ic_cart,
+            )
+            Icon(
                 modifier = Modifier.badge(count = 1),
+                iconRes = R.drawable.ic_cart,
+                size = 24.dp,
+                onClick = {},
             )
         }
     )
@@ -131,14 +134,16 @@ private fun TopBarPreview4() {
         onBack = {},
         title = "Preview",
         menuContent = {
-            Icon24(
-                onClick = {},
+            Icon(
                 iconRes = R.drawable.ic_search,
-            )
-            Icon24(
+                size = 24.dp,
                 onClick = {},
-                iconRes = R.drawable.ic_cart,
+            )
+            Icon(
                 modifier = Modifier.badge(count = 1),
+                iconRes = R.drawable.ic_cart,
+                size = 24.dp,
+                onClick = {},
             )
         }
     )
@@ -151,18 +156,21 @@ private fun TopBarrPreview5() {
         onBack = {},
         title = "Preview Preview Preview Preview",
         menuContent = {
-            Icon24(
-                onClick = {},
+            Icon(
                 iconRes = R.drawable.ic_search,
-            )
-            Icon24(
+                size = 24.dp,
                 onClick = {},
+            )
+            Icon(
                 iconRes = R.drawable.ic_bookmark_1,
-            )
-            Icon24(
+                size = 24.dp,
                 onClick = {},
-                iconRes = R.drawable.ic_cart,
+            )
+            Icon(
                 modifier = Modifier.badge(count = 99),
+                iconRes = R.drawable.ic_cart,
+                size = 24.dp,
+                onClick = {},
             )
         }
     )

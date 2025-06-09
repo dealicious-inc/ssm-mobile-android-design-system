@@ -1,5 +1,6 @@
 package net.deali.designsystem.component
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -20,6 +21,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -358,8 +362,9 @@ fun BottomSheetHeader(
         Spacer(modifier = Modifier.width(16.dp))
 
         if (hideXButton.not()) {
-            Icon24(
+            Icon(
                 iconRes = R.drawable.ic_x,
+                size = 24.dp,
                 onClick = onDismiss,
             )
         }
@@ -376,8 +381,10 @@ fun BottomSheetHeaderArrowClose(
             .fillMaxWidth()
             .height(32.dp),
     ) {
-        Icon(
+        Image(
             modifier = Modifier
+                .width(30.dp)
+                .height(12.dp)
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 4.dp)
                 .clickable(
@@ -387,10 +394,10 @@ fun BottomSheetHeaderArrowClose(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = null
                 ),
-            iconRes = R.drawable.ic_price_arrow_close,
-            width = 30.dp,
-            height = 12.dp,
-            color = DealiColor.g50
+            painter = painterResource(R.drawable.ic_price_arrow_close),
+            colorFilter = ColorFilter.tint(DealiColor.g50),
+            contentScale = ContentScale.Crop,
+            contentDescription = null,
         )
     }
 }
@@ -501,9 +508,10 @@ fun BottomSheetOption(
         )
 
         if (isSelected) {
-            Icon24(
+            Icon(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = R.drawable.ic_check,
+                size = 24.dp,
                 color = DealiColor.primary01,
             )
         }
@@ -527,11 +535,12 @@ fun BottomSheetOption(
             .clickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
-        Icon24(
+        Icon(
             modifier = Modifier
                 .padding(end = 8.dp)
                 .align(Alignment.CenterVertically),
             iconRes = iconRes,
+            size = 24.dp,
             color = iconColor,
         )
 
@@ -545,9 +554,10 @@ fun BottomSheetOption(
         )
 
         if (isSelected) {
-            Icon24(
+            Icon(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = R.drawable.ic_check,
+                size = 24.dp,
                 color = DealiColor.primary01,
             )
         }
@@ -598,9 +608,10 @@ fun BottomSheetOption24(
         )
 
         if (isShowRightIcon && rightIconRes > 0) {
-            Icon24(
+            Icon(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = rightIconRes,
+                size = 24.dp,
                 color = rightIconColor,
             )
         }
@@ -650,9 +661,10 @@ fun BottomSheetOption32(
         )
 
         if (isShowRightIcon && rightIconRes > 0) {
-            Icon24(
+            Icon(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = rightIconRes,
+                size = 24.dp,
                 color = rightIconColor,
             )
         }
@@ -703,9 +715,10 @@ fun BottomSheetOption40(
         )
 
         if (isShowRightIcon && rightIconRes > 0) {
-            Icon24(
+            Icon(
                 modifier = Modifier.align(Alignment.CenterVertically),
                 iconRes = rightIconRes,
+                size = 24.dp,
                 color = rightIconColor,
             )
         }
@@ -865,7 +878,10 @@ private fun PreviewBottomSheetSingleSelectOption() {
                 text = "옵션명3",
                 isSelected = false,
                 icon = {
-                    Icon16(iconRes = R.drawable.ic_trash)
+                    Icon(
+                        iconRes = R.drawable.ic_trash,
+                        size = 16.dp,
+                    )
                 }
             )
         ),

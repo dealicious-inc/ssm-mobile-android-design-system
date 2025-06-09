@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.HorizontalSpacer
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.btnFilledTonalMedium03
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -71,11 +71,12 @@ internal object DealiTextFieldDefaults {
         onClick: () -> Unit,
         modifier: Modifier = Modifier,
     ) {
-        Icon16(
+        Icon(
             modifier = modifier,
-            onClick = onClick,
             iconRes = R.drawable.ic_x_circle_filled,
+            size = 16.dp,
             color = DealiColor.g50,
+            onClick = onClick,
         )
     }
 

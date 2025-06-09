@@ -31,10 +31,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import net.deali.designsystem.R
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.RadioButton
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.sample.data.datastore.DataStoreUtil
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -170,10 +170,11 @@ private fun TypographyItem(
                 color = style.color
             )
 
-            Icon24(
+            Icon(
                 modifier = Modifier
                     .rotate(rotate),
-                iconRes = R.drawable.ic_arrow_left
+                iconRes = R.drawable.ic_arrow_left,
+                size = 24.dp,
             )
         }
 

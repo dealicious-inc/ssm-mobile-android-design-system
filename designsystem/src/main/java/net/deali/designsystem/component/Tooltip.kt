@@ -104,9 +104,10 @@ private fun TooltipPreview() {
                 arrowDirectionState = TooltipArrowDirectionState.TOP,
                 onDismiss = {}
             ) { innerModifier ->
-                Icon16(
+                Icon(
                     modifier = innerModifier,
                     iconRes = R.drawable.ic_info,
+                    size = 16.dp,
                     onClick = {}
                 )
             }

@@ -11,8 +11,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,146 +29,54 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 
 @Composable
-fun Icon16(
-    @DrawableRes iconRes: Int,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified
-) {
-    Icon(
-        modifier = modifier,
-        iconRes = iconRes,
-        size = 16.dp,
-        color = color
-    )
-}
-
-@Composable
-fun Icon16(
-    @DrawableRes iconRes: Int,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    color: Color = Color.Unspecified,
-    onClick: () -> Unit,
-    noRipple: Boolean = false,
-) {
-    Icon(
-        modifier = modifier
-            .clickable(
-                onClick = onClick,
-                role = Role.Image,
-                enabled = enabled,
-                interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else ripple(bounded = false, radius = 16.dp)
-            ),
-        iconRes = iconRes,
-        size = 16.dp,
-        color = color
-    )
-}
-
-@Composable
-fun Icon24(
-    @DrawableRes iconRes: Int,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified,
-) {
-    Icon(
-        modifier = modifier,
-        iconRes = iconRes,
-        size = 24.dp,
-        color = color,
-    )
-}
-
-@Composable
-fun Icon24(
-    @DrawableRes iconRes: Int,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    color: Color = Color.Unspecified,
-    onClick: () -> Unit = {},
-    noRipple: Boolean = false,
-) {
-    Icon(
-        modifier = modifier.clickable(
-            onClick = onClick,
-            role = Role.Image,
-            enabled = enabled,
-            interactionSource = remember { MutableInteractionSource() },
-            indication = if (noRipple) null else ripple(bounded = false, radius = 24.dp)
-        ),
-        iconRes = iconRes,
-        size = 24.dp,
-        color = color
-    )
-}
-
-@Composable
-fun Icon32(
-    @DrawableRes iconRes: Int,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified
-) {
-    Icon(
-        modifier = modifier,
-        iconRes = iconRes,
-        size = 32.dp,
-        color = color
-    )
-}
-
-@Composable
-fun Icon32(
-    modifier: Modifier = Modifier,
-    @DrawableRes iconRes: Int,
-    enabled: Boolean = true,
-    color: Color = Color.Unspecified,
-    onClick: () -> Unit,
-    noRipple: Boolean = false,
-) {
-    Icon(
-        modifier = modifier
-            .clickable(
-                onClick = onClick,
-                role = Role.Image,
-                enabled = enabled,
-                interactionSource = remember { MutableInteractionSource() },
-                indication = if (noRipple) null else ripple(bounded = false, radius = 24.dp)
-            ),
-        iconRes = iconRes,
-        size = 32.dp,
-        color = color
-    )
-}
-
-@Composable
-internal fun Icon(
+fun Icon(
     @DrawableRes iconRes: Int,
     size: Dp,
-    color: Color,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    enabled: Boolean = true,
+    noRipple: Boolean = false,
+    onClick: () -> Unit,
 ) {
+    val rippleRadius = when {
+        size < 24.dp -> {
+            16.dp
+        }
+
+        else -> {
+            24.dp
+        }
+    }
+
     Icon(
-        modifier = modifier,
+        modifier = modifier
+            .clickable(
+                onClick = onClick,
+                role = Role.Image,
+                enabled = enabled,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = if (noRipple) {
+                    null
+                } else {
+                    ripple(bounded = false, radius = rippleRadius)
+                }
+            ),
         iconRes = iconRes,
-        width = size,
-        height = size,
+        size = size,
         color = color
     )
 }
 
 @Composable
-internal fun Icon(
+fun Icon(
     @DrawableRes iconRes: Int,
-    width: Dp,
-    height: Dp,
-    color: Color,
-    modifier: Modifier = Modifier
+    size: Dp,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified
 ) {
     Image(
         modifier = modifier
-            .width(width)
-            .height(height),
+            .size(size),
         painter = painterResource(id = iconRes),
         contentScale = ContentScale.Crop,
         contentDescription = null,
@@ -214,16 +121,19 @@ fun IconRotating(
 @Preview
 private fun IconPreview() {
     Row {
-        Icon16(
-            iconRes = R.drawable.ic_bookmark_1
+        Icon(
+            iconRes = R.drawable.ic_bookmark_1,
+            size = 16.dp,
         )
 
-        Icon24(
-            iconRes = R.drawable.ic_bookmark_1
+        Icon(
+            iconRes = R.drawable.ic_bookmark_1,
+            size = 24.dp,
         )
 
-        Icon32(
-            iconRes = R.drawable.ic_bookmark_1
+        Icon(
+            iconRes = R.drawable.ic_bookmark_1,
+            size = 32.dp,
         )
     }
 }

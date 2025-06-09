@@ -136,19 +136,21 @@ private fun ChecklineIcon(
     val iconRes = when {
         enabled.not() -> R.drawable.ic_checkline_disabled
         checked && isAd -> R.drawable.ic_checkline_onad
-        checked && isAd.not() -> R.drawable.ic_checkline_on
+        checked && !isAd -> R.drawable.ic_checkline_on
         else -> R.drawable.ic_checkline_off
     }
 
     if (onCheck == null) {
-        Icon24(
-            modifier = modifier,
-            iconRes = iconRes
-        )
-    } else {
-        Icon24(
+        Icon(
             modifier = modifier,
             iconRes = iconRes,
+            size = 24.dp,
+        )
+    } else {
+        Icon(
+            modifier = modifier,
+            iconRes = iconRes,
+            size = 24.dp,
             enabled = enabled,
             onClick = onCheck,
             noRipple = noRipple,

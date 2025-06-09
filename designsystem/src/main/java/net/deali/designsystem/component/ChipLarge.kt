@@ -577,8 +577,9 @@ fun chipFilledDepthLarge01(
         for ((index, text) in texts.withIndex()) {
             if (index != 0) {
                 Spacer(modifier = Modifier.width(4.dp))
-                Icon16(
+                Icon(
                     iconRes = R.drawable.ic_arrow_right,
+                    size = 16.dp,
                     color = contentColor,
                 )
                 Spacer(modifier = Modifier.width(4.dp))
@@ -637,14 +638,16 @@ fun chipFilledDepthLarge01(
         for ((index, icon) in icons.withIndex()) {
             if (index != 0) {
                 Spacer(modifier = Modifier.width(8.dp))
-                Icon16(
+                Icon(
                     iconRes = R.drawable.ic_arrow_right,
+                    size = 16.dp,
                     color = contentColor,
                 )
                 Spacer(modifier = Modifier.width(8.dp))
             }
-            Icon16(
+            Icon(
                 iconRes = icon,
+                size = 16.dp,
                 color = contentColor,
             )
         }
@@ -695,8 +698,9 @@ fun chipFilledDepthLarge01(
         for ((index, content) in contents.withIndex()) {
             if (index != 0) {
                 Spacer(modifier = Modifier.width(8.dp))
-                Icon16(
+                Icon(
                     iconRes = R.drawable.ic_arrow_right,
+                    size = 16.dp,
                     color = contentColor,
                 )
                 Spacer(modifier = Modifier.width(8.dp))
@@ -707,8 +711,9 @@ fun chipFilledDepthLarge01(
             val rightIcon = content.third
 
             if (leftIcon != null) {
-                Icon16(
+                Icon(
                     iconRes = leftIcon,
+                    size = 16.dp,
                     color = contentColor,
                 )
                 Spacer(modifier = Modifier.width(4.dp))
@@ -722,8 +727,9 @@ fun chipFilledDepthLarge01(
             )
             if (rightIcon != null) {
                 Spacer(modifier = Modifier.width(4.dp))
-                Icon16(
+                Icon(
                     iconRes = rightIcon,
+                    size = 16.dp,
                     color = contentColor,
                 )
             }

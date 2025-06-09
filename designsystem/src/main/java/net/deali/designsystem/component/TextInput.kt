@@ -225,7 +225,10 @@ private fun Preview() {
         isNecessary = true,
         label = "라벨입니다",
         innerTrailingContent = {
-            Icon24(R.drawable.ic_addaccount)
+            Icon(
+                iconRes = R.drawable.ic_addaccount,
+                size = 24.dp,
+            )
         }
     )
 }

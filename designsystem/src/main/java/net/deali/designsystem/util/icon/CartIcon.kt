@@ -12,12 +12,12 @@ import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
-import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.badge
 import net.deali.designsystem.theme.DealiColor
 
 @Composable
-fun CartIcon24(
+fun CartIcon(
     count: Int,
     modifier: Modifier = Modifier,
     color: Color = DealiColor.primary05,
@@ -39,10 +39,11 @@ fun CartIcon24(
         else -> Modifier
     }
 
-    Icon24(
+    Icon(
         modifier = modifier
             .then(badgeModifier),
         iconRes = R.drawable.ic_cart,
+        size = 24.dp,
         color = color,
         onClick = onClick,
     )
@@ -67,7 +68,7 @@ private fun Preview(
         modifier = Modifier
             .size(48.dp),
     ) {
-        CartIcon24(
+        CartIcon(
             modifier = Modifier
                 .align(Alignment.Center),
             count = value,

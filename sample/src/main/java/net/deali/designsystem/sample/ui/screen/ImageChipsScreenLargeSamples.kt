@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.imgChipLarge01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -75,8 +75,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(
@@ -98,8 +99,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(
@@ -122,8 +124,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(
@@ -146,8 +149,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(
@@ -171,8 +175,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(
@@ -197,8 +202,9 @@ private fun ImageChipLarge01Samples() {
                         horizontalArrangement = Arrangement.spacedBy(2.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Icon16(
+                        Icon(
                             iconRes = R.drawable.ic_arrow_close_1_filled,
+                            size = 16.dp,
                             color = DealiColor.primary01
                         )
                         DealiText(

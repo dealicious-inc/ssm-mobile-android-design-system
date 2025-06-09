@@ -21,12 +21,11 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.VerticalSpacer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.theme.getBoldTextStyle
-import net.deali.designsystem.theme.getNormalTextStyle
 
 @Composable
 internal fun SingleLabeledTextBullet(
@@ -157,8 +156,9 @@ internal fun SingleLabeledTextIcon01(
         color = color,
         textStyle = textStyle,
         leftContent = {
-            Icon16(
+            Icon(
                 modifier = Modifier.padding(end = 8.dp),
+                size = 16.dp,
                 iconRes = iconRes,
                 color = DealiColor.g80,
             )
@@ -244,10 +244,11 @@ internal fun LabeledTextContainer(
                 .fillMaxWidth()
         ) {
             if (titleIconRes != 0) {
-                Icon16(
-                    iconRes = titleIconRes,
+                Icon(
                     modifier = Modifier.align(Alignment.CenterVertically),
+                    size = 16.dp,
                     color = DealiColor.g100,
+                    iconRes = titleIconRes,
                 )
 
                 HorizontalSpacer(8.dp)

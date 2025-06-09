@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon24
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.badge
@@ -38,24 +38,27 @@ fun TopBarScreen(onBackPress: () -> Unit) {
                 title = "TopBar | ${getRandomText()}",
                 menuContent = {
                     if (menuContent1Visible) {
-                        Icon24(
-                            onClick = {},
+                        Icon(
                             iconRes = R.drawable.ic_search,
+                            size = 24.dp,
+                            onClick = {},
                         )
                     }
 
                     if (menuContent2Visible) {
-                        Icon24(
-                            onClick = {},
+                        Icon(
                             iconRes = R.drawable.ic_bookmark_1,
+                            size = 24.dp,
+                            onClick = {},
                         )
                     }
 
                     if (menuContent3Visible) {
-                        Icon24(
-                            onClick = {},
-                            iconRes = R.drawable.ic_cart,
+                        Icon(
                             modifier = Modifier.badge(count = 99),
+                            iconRes = R.drawable.ic_cart,
+                            size = 24.dp,
+                            onClick = {},
                         )
                     }
                 },

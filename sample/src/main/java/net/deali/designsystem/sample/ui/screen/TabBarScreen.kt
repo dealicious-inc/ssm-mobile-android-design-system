@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon16
+import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.ImgChip
 import net.deali.designsystem.component.Tab
 import net.deali.designsystem.component.TopBar
@@ -117,7 +117,8 @@ fun TabBarScreen(
             var tabBarImageChipIndex by remember { mutableIntStateOf(0) }
             val context = LocalContext.current
             var toast: Toast? = null
-            val imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
+            val imageUrl =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
 
             val imgChips = listOf(
                 ImgChip(
@@ -162,8 +163,9 @@ fun TabBarScreen(
                             horizontalArrangement = Arrangement.spacedBy(2.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            Icon16(
+                            Icon(
                                 iconRes = R.drawable.ic_arrow_close_1_filled,
+                                size = 16.dp,
                                 color = DealiColor.primary01
                             )
                             DealiText(
