@@ -8,7 +8,6 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple
@@ -54,7 +53,6 @@ internal fun CoreButton(
         modifier = modifier
             .clip(shape = buttonShape)
             .outlineBorder(buttonStyle = buttonStyle, color = outlineColor, shape = buttonShape)
-            .defaultMinSize(minHeight = ButtonDefaults.buttonMinHeight(buttonSize = buttonSize))
             .background(brush = backgroundColor)
             .then(
                 if (clickable) {
@@ -111,7 +109,7 @@ internal fun CoreButton(
             ) {
                 if (leftIcon != null) {
                     Icon(
-                        size = 16.dp,
+                        size = ButtonDefaults.subIconSize(buttonSize),
                         iconRes = leftIcon,
                         color = iconColor,
                     )
@@ -126,7 +124,7 @@ internal fun CoreButton(
                 )
                 if (rightIcon != null) {
                     Icon(
-                        size = 16.dp,
+                        size = ButtonDefaults.subIconSize(buttonSize),
                         iconRes = rightIcon,
                         color = iconColor,
                     )

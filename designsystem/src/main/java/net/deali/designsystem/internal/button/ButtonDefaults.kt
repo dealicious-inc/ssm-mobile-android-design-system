@@ -75,16 +75,6 @@ internal object ButtonDefaults {
     }
 
     @Composable
-    fun buttonMinHeight(buttonSize: ButtonSize): Dp {
-        return when (buttonSize) {
-            ButtonSize.Large -> 50.dp
-            ButtonSize.Medium -> 46.dp
-            ButtonSize.SemiMedium -> 40.dp
-            ButtonSize.Small -> 32.dp
-        }
-    }
-
-    @Composable
     fun buttonPaddings(
         buttonSize: ButtonSize,
         buttonStyle: ButtonStyle,
@@ -132,12 +122,33 @@ internal object ButtonDefaults {
         useRightIcon: Boolean,
         isLoading: Boolean,
     ): PaddingValues {
-        if (isLoading || buttonStyle == ButtonStyle.Text) {
-            return PaddingValues(horizontal = 16.dp)
+        return when {
+            isLoading -> {
+                PaddingValues(
+                    vertical = 13.dp,
+                )
+            }
+
+            buttonStyle == ButtonStyle.Text -> {
+                PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 15.dp,
+                )
+            }
+
+            else -> {
+                val leftPadding = if (useLeftIcon) 16.dp else 20.dp
+                val rightPadding = if (useRightIcon) 16.dp else 20.dp
+                val verticalPadding = 15.dp
+
+                PaddingValues(
+                    start = leftPadding,
+                    end = rightPadding,
+                    top = verticalPadding,
+                    bottom = verticalPadding,
+                )
+            }
         }
-        val leftPadding = if (useLeftIcon) 16.dp else 20.dp
-        val rightPadding = if (useRightIcon) 16.dp else 20.dp
-        return PaddingValues(start = leftPadding, end = rightPadding)
     }
 
     @Composable
@@ -147,12 +158,33 @@ internal object ButtonDefaults {
         useRightIcon: Boolean,
         isLoading: Boolean,
     ): PaddingValues {
-        if (isLoading || buttonStyle == ButtonStyle.Text) {
-            return PaddingValues(horizontal = 16.dp)
+        return when {
+            isLoading -> {
+                PaddingValues(
+                    vertical = 11.dp,
+                )
+            }
+
+            buttonStyle == ButtonStyle.Text -> {
+                PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 13.dp,
+                )
+            }
+
+            else -> {
+                val leftPadding = if (useLeftIcon) 16.dp else 20.dp
+                val rightPadding = if (useRightIcon) 16.dp else 20.dp
+                val verticalPadding = 13.dp
+
+                PaddingValues(
+                    start = leftPadding,
+                    end = rightPadding,
+                    top = verticalPadding,
+                    bottom = verticalPadding,
+                )
+            }
         }
-        val leftPadding = if (useLeftIcon) 16.dp else 20.dp
-        val rightPadding = if (useRightIcon) 16.dp else 20.dp
-        return PaddingValues(start = leftPadding, end = rightPadding)
     }
 
     @Composable
@@ -162,12 +194,33 @@ internal object ButtonDefaults {
         useRightIcon: Boolean,
         isLoading: Boolean,
     ): PaddingValues {
-        if (isLoading || buttonStyle == ButtonStyle.Text) {
-            return PaddingValues(horizontal = 16.dp)
+        return when {
+            isLoading -> {
+                PaddingValues(
+                    vertical = 8.dp,
+                )
+            }
+
+            buttonStyle == ButtonStyle.Text -> {
+                PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 10.dp,
+                )
+            }
+
+            else -> {
+                val leftPadding = if (useLeftIcon) 12.dp else 16.dp
+                val rightPadding = if (useRightIcon) 12.dp else 16.dp
+                val verticalPadding = 10.dp
+
+                PaddingValues(
+                    start = leftPadding,
+                    end = rightPadding,
+                    top = verticalPadding,
+                    bottom = verticalPadding,
+                )
+            }
         }
-        val leftPadding = if (useLeftIcon) 16.dp else 20.dp
-        val rightPadding = if (useRightIcon) 16.dp else 20.dp
-        return PaddingValues(start = leftPadding, end = rightPadding)
     }
 
     @Composable
@@ -178,23 +231,40 @@ internal object ButtonDefaults {
         isLoading: Boolean,
         rounded: Boolean
     ): PaddingValues {
-        if (buttonStyle == ButtonStyle.Text) {
-            return PaddingValues(horizontal = 16.dp)
-        }
-        if (rounded) {
-            return PaddingValues(
-                start = if (useLeftIcon) 12.dp else 16.dp,
-                end = if (useRightIcon) 12.dp else 16.dp
-            )
-        }
-        if (isLoading || useLeftIcon && useRightIcon) {
-            return PaddingValues(horizontal = 12.dp)
-        }
+        return when {
+            isLoading -> {
+                PaddingValues(
+                    vertical = 8.dp,
+                )
+            }
 
-        val leftPadding = if (useLeftIcon) 8.dp else 12.dp
-        val rightPadding = if (useRightIcon) 8.dp else 12.dp
+            rounded -> { // TODO DRG 체크!
+                PaddingValues(
+                    start = if (useLeftIcon) 12.dp else 16.dp,
+                    end = if (useRightIcon) 12.dp else 16.dp
+                )
+            }
 
-        return PaddingValues(start = leftPadding, end = rightPadding)
+            buttonStyle == ButtonStyle.Text -> {
+                PaddingValues(
+                    horizontal = 16.dp,
+                    vertical = 7.dp,
+                )
+            }
+
+            else -> {
+                val leftPadding = if (useLeftIcon) 8.dp else 12.dp
+                val rightPadding = if (useRightIcon) 8.dp else 12.dp
+                val verticalPadding = 7.dp
+
+                PaddingValues(
+                    start = leftPadding,
+                    end = rightPadding,
+                    top = verticalPadding,
+                    bottom = verticalPadding,
+                )
+            }
+        }
     }
 
     @Composable
@@ -227,6 +297,14 @@ internal object ButtonDefaults {
         return when (buttonSize) {
             ButtonSize.Large, ButtonSize.Medium -> DpSize(24.dp, 24.dp)
             ButtonSize.SemiMedium, ButtonSize.Small -> DpSize(16.dp, 16.dp)
+        }
+    }
+
+    @Composable
+    fun subIconSize(buttonSize: ButtonSize): Dp {
+        return when (buttonSize) {
+            ButtonSize.Small -> 16.dp
+            else -> 20.dp
         }
     }
 }
