@@ -185,7 +185,6 @@ private fun MainScreenPreview() {
             Screen.ImageChips,
             Screen.CheckBox,
             Screen.CheckCircle,
-            Screen.CheckLine,
             Screen.RadioButton,
             Screen.Switch,
             Screen.TextInput,

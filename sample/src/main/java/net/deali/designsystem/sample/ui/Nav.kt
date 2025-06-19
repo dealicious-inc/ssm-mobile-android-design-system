@@ -21,7 +21,6 @@ import net.deali.designsystem.sample.ui.screen.ButtonsRoundScreen
 import net.deali.designsystem.sample.ui.screen.ButtonsScreen
 import net.deali.designsystem.sample.ui.screen.CheckBoxScreen
 import net.deali.designsystem.sample.ui.screen.CheckCircleScreen
-import net.deali.designsystem.sample.ui.screen.CheckLineScreen
 import net.deali.designsystem.sample.ui.screen.ChipsScreen
 import net.deali.designsystem.sample.ui.screen.ColorsScreen
 import net.deali.designsystem.sample.ui.screen.DateTimePickerScreen
@@ -191,9 +190,6 @@ private fun NavGraphBuilder.atomsGraph(
     }
     composable(Screen.CheckCircle.route) {
         CheckCircleScreen(onBackPress = navController::popBackStack)
-    }
-    composable(Screen.CheckLine.route) {
-        CheckLineScreen(onBackPress = navController::popBackStack)
     }
     composable(Screen.RadioButton.route) {
         RadioButtonScreen(onBackPress = navController::popBackStack)

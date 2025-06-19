@@ -20,7 +20,6 @@ sealed class Screen(
     data object ImageChips : Screen("imageChips")
     data object CheckBox : Screen("checkBox")
     data object CheckCircle : Screen("checkCircle")
-    data object CheckLine : Screen("checkLine")
     data object RadioButton : Screen("radioButton")
     data object Switch : Screen("switch")
     data object TextInput : Screen("textInput")
