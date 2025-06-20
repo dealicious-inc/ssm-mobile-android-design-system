@@ -19,7 +19,7 @@ import net.deali.designsystem.component.Icon
  * @param onCheck 체크 시 콜백. `null`인 경우 클릭 이벤트 제거.
  */
 @Composable
-private fun Checkline(
+fun Checkline(
     checked: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
