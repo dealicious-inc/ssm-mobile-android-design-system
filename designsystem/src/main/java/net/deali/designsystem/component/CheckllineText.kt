@@ -51,7 +51,7 @@ fun ChecklineText(
             )
             .then(modifier),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.Top
     ) {
         Checkline(
             checked = checked,
@@ -60,14 +60,13 @@ fun ChecklineText(
         )
 
         DealiText(
-            modifier = Modifier.padding(end = 3.dp),
+            modifier = Modifier.padding(end = 3.dp, top = 2.dp),
             text = text,
             style = DealiFont.b2r14,
             color = when {
                 enabled.not() -> DealiColor.g50
                 else -> DealiColor.g100
             },
-            maxLines = 1
         )
     }
 }
@@ -98,7 +97,7 @@ private fun ChecklinePreview() {
         )
         ChecklineText(
             checked = true,
-            text = "checkline_disable",
+            text = "checkline_disablecheckline_disablecheckline_disablecheckline_disablecheckline_disable",
             enabled = false,
             onCheck = {}
         )

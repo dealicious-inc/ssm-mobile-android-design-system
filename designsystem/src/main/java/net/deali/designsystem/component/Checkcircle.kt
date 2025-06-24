@@ -50,7 +50,7 @@ fun Checkcircle(
                 onClick = onCheck
             )
             .then(modifier),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.Top
     ) {
         if (isAd) {
             CheckcircleAdIcon(
@@ -66,14 +66,13 @@ fun Checkcircle(
 
         DealiText(
             modifier = Modifier
-                .padding(start = 8.dp, end = 3.dp),
+                .padding(start = 8.dp, end = 3.dp, top = 2.dp),
             text = text,
             style = DealiFont.b2r14,
             color = when {
                 enabled.not() -> DealiColor.g50
                 else -> DealiColor.g100
             },
-            maxLines = 1
         )
     }
 }
@@ -184,7 +183,7 @@ private fun CheckcirclePreview() {
         )
         Checkcircle(
             checked = true,
-            text = "checkcircle_disable",
+            text = "checkcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disable",
             enabled = false,
             onCheck = {}
         )

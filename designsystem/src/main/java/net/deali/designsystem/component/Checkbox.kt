@@ -48,7 +48,7 @@ fun CheckBox(
                 onClick = onCheck
             )
             .then(modifier),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.Top
     ) {
         CheckBoxIcon(
             checked = checked,
@@ -57,14 +57,13 @@ fun CheckBox(
 
         DealiText(
             modifier = Modifier
-                .padding(start = 8.dp, end = 3.dp),
+                .padding(start = 8.dp, end = 3.dp, top = 2.dp),
             text = text,
             style = DealiFont.b2r14,
             color = when {
                 enabled.not() -> DealiColor.g50
                 else -> DealiColor.g100
             },
-            maxLines = 1
         )
     }
 }
@@ -134,7 +133,7 @@ private fun CheckBoxPreview() {
         )
         CheckBox(
             checked = true,
-            text = "checkbox_ondisable",
+            text = "checkbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisablecheckbox_ondisable",
             enabled = false,
             onCheck = {}
         )
