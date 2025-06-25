@@ -80,37 +80,30 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
-        isLoading: Boolean,
-        rounded: Boolean,
     ): PaddingValues {
         return when (buttonSize) {
             ButtonSize.Large -> largeButtonPaddings(
                 buttonStyle,
                 useLeftIcon,
                 useRightIcon,
-                isLoading
             )
 
             ButtonSize.Medium -> mediumButtonPaddings(
                 buttonStyle,
                 useLeftIcon,
                 useRightIcon,
-                isLoading
             )
 
             ButtonSize.SemiMedium -> semiMediumButtonPaddings(
                 buttonStyle,
                 useLeftIcon,
                 useRightIcon,
-                isLoading
             )
 
             ButtonSize.Small -> smallButtonPaddings(
                 buttonStyle,
                 useLeftIcon,
                 useRightIcon,
-                isLoading,
-                rounded
             )
         }
     }
@@ -120,15 +113,8 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
-        isLoading: Boolean,
     ): PaddingValues {
         return when {
-            isLoading -> {
-                PaddingValues(
-                    vertical = 13.dp,
-                )
-            }
-
             buttonStyle == ButtonStyle.Text -> {
                 PaddingValues(
                     horizontal = 16.dp,
@@ -156,15 +142,8 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
-        isLoading: Boolean,
     ): PaddingValues {
         return when {
-            isLoading -> {
-                PaddingValues(
-                    vertical = 11.dp,
-                )
-            }
-
             buttonStyle == ButtonStyle.Text -> {
                 PaddingValues(
                     horizontal = 16.dp,
@@ -192,15 +171,8 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
-        isLoading: Boolean,
     ): PaddingValues {
         return when {
-            isLoading -> {
-                PaddingValues(
-                    vertical = 8.dp,
-                )
-            }
-
             buttonStyle == ButtonStyle.Text -> {
                 PaddingValues(
                     horizontal = 16.dp,
@@ -228,23 +200,8 @@ internal object ButtonDefaults {
         buttonStyle: ButtonStyle,
         useLeftIcon: Boolean,
         useRightIcon: Boolean,
-        isLoading: Boolean,
-        rounded: Boolean
     ): PaddingValues {
         return when {
-            isLoading -> {
-                PaddingValues(
-                    vertical = 8.dp,
-                )
-            }
-
-            rounded -> { // TODO DRG 체크!
-                PaddingValues(
-                    start = if (useLeftIcon) 12.dp else 16.dp,
-                    end = if (useRightIcon) 12.dp else 16.dp
-                )
-            }
-
             buttonStyle == ButtonStyle.Text -> {
                 PaddingValues(
                     horizontal = 16.dp,
@@ -295,8 +252,8 @@ internal object ButtonDefaults {
     @Composable
     fun loadingIconSize(buttonSize: ButtonSize): DpSize {
         return when (buttonSize) {
-            ButtonSize.Large, ButtonSize.Medium -> DpSize(24.dp, 24.dp)
-            ButtonSize.SemiMedium, ButtonSize.Small -> DpSize(16.dp, 16.dp)
+            ButtonSize.Large, ButtonSize.Medium, ButtonSize.SemiMedium -> DpSize(20.dp, 20.dp)
+            ButtonSize.Small -> DpSize(18.dp, 18.dp)
         }
     }
 

@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -70,39 +71,22 @@ internal fun CoreButton(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        if (loading && buttonStyle != ButtonStyle.Text) {
-            Box(
-                modifier = Modifier
-                    .padding(
-                        ButtonDefaults.buttonPaddings(
-                            buttonSize = buttonSize,
-                            buttonStyle = buttonStyle,
-                            useLeftIcon = leftIcon != null,
-                            useRightIcon = rightIcon != null,
-                            isLoading = true,
-                            rounded = isRoundShape
-                        )
-                    ),
-                contentAlignment = Alignment.Center,
-            ) {
-                IconRotating(
-                    modifier = Modifier.size(ButtonDefaults.loadingIconSize(buttonSize)),
-                    iconRes = R.drawable.ic_loading_filled,
-                    color = contentColor,
-                )
-            }
-        } else {
+        Box(
+            modifier = Modifier
+                .padding(
+                    ButtonDefaults.buttonPaddings(
+                        buttonSize = buttonSize,
+                        buttonStyle = buttonStyle,
+                        useLeftIcon = leftIcon != null,
+                        useRightIcon = rightIcon != null,
+                    )
+                ),
+            contentAlignment = Alignment.Center,
+        ) {
             Row(
                 modifier = Modifier
-                    .padding(
-                        ButtonDefaults.buttonPaddings(
-                            buttonSize = buttonSize,
-                            buttonStyle = buttonStyle,
-                            useLeftIcon = leftIcon != null,
-                            useRightIcon = rightIcon != null,
-                            isLoading = false,
-                            rounded = isRoundShape
-                        )
+                    .alpha(
+                        if (loading) 0f else 1f
                     ),
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
                 verticalAlignment = Alignment.CenterVertically,
@@ -130,6 +114,16 @@ internal fun CoreButton(
                     )
                 }
             }
+
+            IconRotating(
+                modifier = Modifier
+                    .size(ButtonDefaults.loadingIconSize(buttonSize))
+                    .alpha(
+                        if (loading) 1f else 0f
+                    ),
+                iconRes = R.drawable.ic_loading_filled,
+                color = contentColor,
+            )
         }
     }
 }
