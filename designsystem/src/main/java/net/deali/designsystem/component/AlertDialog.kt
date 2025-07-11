@@ -2,7 +2,6 @@ package net.deali.designsystem.component
 
 import android.app.Dialog
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
@@ -18,12 +17,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.setViewTreeLifecycleOwner
@@ -47,6 +48,9 @@ class AlertDialog private constructor(
     isCancelable: Boolean,
 ) {
     private val androidDialog: Dialog
+
+    val isShowing: Boolean
+        get() = androidDialog.isShowing
 
     init {
         val dialogFrameView = FrameLayout(context)
@@ -73,7 +77,7 @@ class AlertDialog private constructor(
                         .padding(horizontal = 20.dp),
                 ) {
                     when (contentStrategy) {
-                        is ContentStrategy.TitleAndMessage -> {
+                        is ContentStrategy.TitleMessage -> {
                             Column(
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -88,7 +92,6 @@ class AlertDialog private constructor(
                                 Spacer(modifier = Modifier.height(10.dp))
                             }
                             Spacer(modifier = Modifier.height(4.dp))
-                            Spacer(modifier = Modifier.height(4.dp))
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
@@ -96,13 +99,48 @@ class AlertDialog private constructor(
                             )
                         }
 
-                        is ContentStrategy.OnlyMessage -> {
+                        is ContentStrategy.TitleMessageContent -> {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .defaultMinSize(minHeight = 60.dp)
+                            ) {
+                                Spacer(modifier = Modifier.height(24.dp))
+                                DealiText(
+                                    text = contentStrategy.title,
+                                    style = DealiFont.sh2sb18,
+                                    color = DealiColor.g100
+                                )
+                                Spacer(modifier = Modifier.height(10.dp))
+                            }
+                            Spacer(modifier = Modifier.height(4.dp))
+                            DealiText(
+                                text = contentStrategy.message,
+                                style = DealiFont.sh3r16,
+                                color = DealiColor.g70
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            contentStrategy.content()
+                        }
+
+                        is ContentStrategy.Message -> {
                             Spacer(modifier = Modifier.height(28.dp))
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
                                 color = DealiColor.g70
                             )
+                        }
+
+                        is ContentStrategy.MessageContent -> {
+                            Spacer(modifier = Modifier.height(28.dp))
+                            DealiText(
+                                text = contentStrategy.message,
+                                style = DealiFont.sh3r16,
+                                color = DealiColor.g70
+                            )
+                            Spacer(modifier = Modifier.height(16.dp))
+                            contentStrategy.content()
                         }
                     }
 
@@ -151,7 +189,7 @@ class AlertDialog private constructor(
 
         dialogFrameView.addView(dialogContentView)
         androidDialog = Dialog(context)
-        androidDialog.window?.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+        androidDialog.window?.setBackgroundDrawable(android.graphics.Color.TRANSPARENT.toDrawable())
         androidDialog.setContentView(dialogFrameView)
         androidDialog.setCancelable(isCancelable)
         androidDialog.setCanceledOnTouchOutside(isCancelable)
@@ -178,6 +216,18 @@ class AlertDialog private constructor(
         open fun onButtonClick(alert: AlertDialog) {}
 
         override fun onDismiss(alert: AlertDialog) {}
+
+        companion object {
+            val DEFAULT = object : SingleButtonAlertListener() {
+                override fun onButtonClick(alert: AlertDialog) {
+                    alert.dismiss()
+                }
+
+                override fun onDismiss(alert: AlertDialog) {
+                    alert.dismiss()
+                }
+            }
+        }
     }
 
     open class DoubleButtonAlertListener : AlertListener {
@@ -186,6 +236,22 @@ class AlertDialog private constructor(
         open fun onRightButtonClick(alert: AlertDialog) {}
 
         override fun onDismiss(alert: AlertDialog) {}
+
+        companion object {
+            val DEFAULT = object : DoubleButtonAlertListener() {
+                override fun onLeftButtonClick(alert: AlertDialog) {
+                    alert.dismiss()
+                }
+
+                override fun onRightButtonClick(alert: AlertDialog) {
+                    alert.dismiss()
+                }
+
+                override fun onDismiss(alert: AlertDialog) {
+                    alert.dismiss()
+                }
+            }
+        }
     }
 
     @Suppress("unused")
@@ -195,13 +261,9 @@ class AlertDialog private constructor(
         private val savedStateRegistryOwner: SavedStateRegistryOwner
         private var title: String = ""
         private var message: AnnotatedString = AnnotatedString("")
+        private var content: (@Composable () -> Unit)? = null
         private var buttonText: String = ""
-        private var alertListener: SingleButtonAlertListener? =
-            object : SingleButtonAlertListener() {
-                override fun onButtonClick(alert: AlertDialog) {
-                    alert.dismiss()
-                }
-            }
+        private var alertListener: SingleButtonAlertListener? = SingleButtonAlertListener.DEFAULT
         private var isCancelable: Boolean = true
 
         constructor(activity: ComponentActivity) {
@@ -247,6 +309,14 @@ class AlertDialog private constructor(
         }
 
         /**
+         * 팝업의 본문에 추가적인 컨텐츠 설정.
+         */
+        fun setContent(content: @Composable () -> Unit): SingleButtonAlertBuilder {
+            this.content = content
+            return this
+        }
+
+        /**
          * 팝업의 버튼 문구 설정.
          */
         fun setButtonText(buttonText: String): SingleButtonAlertBuilder {
@@ -277,9 +347,17 @@ class AlertDialog private constructor(
                 lifecycleOwner = lifecycleOwner,
                 savedStateRegistryOwner = savedStateRegistryOwner,
                 contentStrategy = if (title.isNotEmpty()) {
-                    ContentStrategy.TitleAndMessage(title, message)
+                    if (content == null) {
+                        ContentStrategy.TitleMessage(title, message)
+                    } else {
+                        ContentStrategy.TitleMessageContent(title, message, content!!)
+                    }
                 } else {
-                    ContentStrategy.OnlyMessage(message)
+                    if (content == null) {
+                        ContentStrategy.Message(message)
+                    } else {
+                        ContentStrategy.MessageContent(message, content!!)
+                    }
                 },
                 buttonStrategy = ButtonStrategy.Single(buttonText),
                 alertListener = alertListener,
@@ -295,9 +373,10 @@ class AlertDialog private constructor(
         private val savedStateRegistryOwner: SavedStateRegistryOwner
         private var title: String = ""
         private var message: AnnotatedString = AnnotatedString("")
+        private var content: (@Composable () -> Unit)? = null
         private var leftButtonText: String = ""
         private var rightButtonText: String = ""
-        private var alertListener: DoubleButtonAlertListener? = null
+        private var alertListener: DoubleButtonAlertListener? = DoubleButtonAlertListener.DEFAULT
         private var isCancelable: Boolean = true
 
         constructor(activity: ComponentActivity) {
@@ -343,6 +422,14 @@ class AlertDialog private constructor(
         }
 
         /**
+         * 팝업의 본문에 추가적인 컨텐츠 설정.
+         */
+        fun setContent(content: @Composable () -> Unit): DoubleButtonAlertBuilder {
+            this.content = content
+            return this
+        }
+
+        /**
          * 팝업의 버튼 문구 설정.
          */
         fun setButtonText(
@@ -377,9 +464,17 @@ class AlertDialog private constructor(
                 lifecycleOwner = lifecycleOwner,
                 savedStateRegistryOwner = savedStateRegistryOwner,
                 contentStrategy = if (title.isNotEmpty()) {
-                    ContentStrategy.TitleAndMessage(title, message)
+                    if (content == null) {
+                        ContentStrategy.TitleMessage(title, message)
+                    } else {
+                        ContentStrategy.TitleMessageContent(title, message, content!!)
+                    }
                 } else {
-                    ContentStrategy.OnlyMessage(message)
+                    if (content == null) {
+                        ContentStrategy.Message(message)
+                    } else {
+                        ContentStrategy.MessageContent(message, content!!)
+                    }
                 },
                 buttonStrategy = ButtonStrategy.Double(leftButtonText, rightButtonText),
                 alertListener = alertListener,
@@ -389,11 +484,22 @@ class AlertDialog private constructor(
     }
 
     private sealed interface ContentStrategy {
-        data class OnlyMessage(val message: AnnotatedString) : ContentStrategy
+        data class Message(val message: AnnotatedString) : ContentStrategy
 
-        data class TitleAndMessage(
+        data class MessageContent(
+            val message: AnnotatedString,
+            val content: @Composable () -> Unit
+        ) : ContentStrategy
+
+        data class TitleMessage(
             val title: String,
             val message: AnnotatedString,
+        ) : ContentStrategy
+
+        data class TitleMessageContent(
+            val title: String,
+            val message: AnnotatedString,
+            val content: @Composable () -> Unit
         ) : ContentStrategy
     }
 
