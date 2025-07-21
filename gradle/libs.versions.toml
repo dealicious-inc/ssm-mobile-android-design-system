@@ -2,8 +2,8 @@
 minSdk = "24"
 targetSdk = "35"
 
-kotlin = "2.1.10"
-agp = "8.10.1"
+kotlin = "2.2.0"
+agp = "8.11.1"
 maven-gradle-plugin = "2.1"
 
 androidx-core = "1.16.0"
@@ -18,7 +18,7 @@ androidx-compose = "1.8.3"
 material = "1.12.0"
 
 kotlinx-collections-immutable = "0.3.8"
-coil = "3.1.0"
+coil = "3.2.0"
 snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
