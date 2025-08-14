@@ -74,12 +74,19 @@ class DecimalSeparatorVisualTransformation(
             if (transformedText.isEmpty()) {
                 return 0
             }
+            
             if (offset < prefixOffset) {
                 return 0
             }
-            val stringUntilOffset = transformedText.substring(0, offset)
+            
+            // 변환된 텍스트 범위를 벗어나는 인덱스 처리
+            val safeOffset = offset.coerceIn(0, transformedText.length)
+            
+            val stringUntilOffset = transformedText.substring(0, safeOffset)
             val commaCount = stringUntilOffset.commaCount()
-            return offset - commaCount - prefixOffset
+            val originalOffset = safeOffset - commaCount - prefixOffset
+
+            return maxOf(0, originalOffset)
         }
 
         private fun String.commaCount(): Int {
