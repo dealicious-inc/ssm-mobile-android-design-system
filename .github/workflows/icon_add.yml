@@ -1,0 +1,85 @@
+name: 디자인시스템 아이콘 추가
+
+on:
+  repository_dispatch:
+    types: [ icon_add ]
+
+jobs:
+  add_icon:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: dev 브랜치 체크아웃
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          token: ${{ secrets.ACTIONS_TOKEN }}
+
+      - name: 변수 설정
+        run: |
+          echo "ICON_NAME=${{ github.event.client_payload.icon_name }}" >> $GITHUB_ENV
+          echo "FIGMA_URL=${{ github.event.client_payload.figma_url }}" >> $GITHUB_ENV
+
+      - name: 피그마 URL 파싱
+        id: parse_url
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const figmaUrl = process.env.FIGMA_URL;
+            const fileKeyMatch = figmaUrl.match(/file\/([^\/]+)/);
+            const nodeIdMatch = figmaUrl.match(/node-id=([^\/]+)/);
+            if (fileKeyMatch && nodeIdMatch) {
+              core.setOutput('file_key', fileKeyMatch[1]);
+              core.setOutput('node_id', nodeIdMatch[1]);
+            } else {
+              core.setFailed('Invalid Figma URL provided.');
+            }
+
+      - name: 피그마에서 아이콘 다운로드
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FILE_KEY: ${{ steps.parse_url.outputs.file_key }}
+          NODE_ID: ${{ steps.parse_url.outputs.node_id }}
+        run: |
+          echo "Figma API에서 아이콘 다운로드 시작..."
+          RESPONSE=$(curl -s -H "X-Figma-Token: $FIGMA_TOKEN" "https://api.figma.com/v1/images/$FILE_KEY?ids=$NODE_ID&format=svg")
+          IMAGE_URL=$(echo $RESPONSE | jq -r '.images | to_entries[0].value')
+          
+          if [[ "$IMAGE_URL" == "null" ]]; then
+            echo "Figma API 응답에서 이미지 URL을 찾을 수 없습니다."
+            exit 1
+          fi
+          
+          curl -L "$IMAGE_URL" -o ic_${{ env.ICON_NAME }}.svg
+
+      - name: 아이콘 변환 (SVG to VectorDrawable)
+        run: |
+          npm install -g svg2vd
+          mkdir -p designsystem/src/main/res/drawable
+          svg2vd ic_${{ env.ICON_NAME }}.svg > designsystem/src/main/res/drawable/ic_${{ env.ICON_NAME }}.xml
+          
+          if [ ! -s "designsystem/src/main/res/drawable/ic_${{ env.ICON_NAME }}.xml" ]; then
+            echo "SVG to VectorDrawable 변환 실패. 출력 파일이 비어 있습니다."
+            exit 1
+          fi
+
+      - name: Git 커밋, 푸쉬
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add designsystem/src/main/res/drawable/ic_${{ env.ICON_NAME }}.xml
+          git commit -m "feat: 아이콘 추가 - ${{ env.ICON_NAME }}"
+          
+          VERSION_FILE=.github/workflows/release.yml
+          OLD_VERSION=$(grep "VERSION_NAME:" $VERSION_FILE | awk '{print $2}')
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$OLD_VERSION"
+          NEW_VERSION="$MAJOR.$MINOR.$((PATCH+1))"
+          sed -i "s/VERSION_NAME: .*/VERSION_NAME: $NEW_VERSION/" $VERSION_FILE
+          git add $VERSION_FILE
+          git commit -m "chore: 버전업 $NEW_VERSION"
+          
+          git add $VERSION_FILE
+          git commit -m "버전업 $NEW_VERSION"
+
+      - name: Push changes
+        run: git push origin dev
