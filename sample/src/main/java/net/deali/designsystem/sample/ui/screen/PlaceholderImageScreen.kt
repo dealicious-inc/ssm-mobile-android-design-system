@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiPlaceholderImage
@@ -92,6 +93,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                             shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.WHITE,
+                            contentScale = ContentScale.Crop,
                         )
                     }
 
@@ -104,6 +106,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                             shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.WHITE,
+                            contentScale = ContentScale.Crop,
                         )
                     }
 
@@ -116,6 +119,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                             shape = RoundedCornerShape(6.dp),
                             state = PlaceholderState.GOODS,
                             colorState = PlaceholderColorState.GRAY,
+                            contentScale = ContentScale.Crop,
                         )
                     }
 
@@ -129,6 +133,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.WHITE,
+                                contentScale = ContentScale.Crop,
                             )
                         }
 
@@ -141,6 +146,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.WHITE,
+                                contentScale = ContentScale.Crop,
                             )
                         }
 
@@ -153,6 +159,7 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 shape = CircleShape,
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.GRAY,
+                                contentScale = ContentScale.Crop,
                             )
                         }
                     }

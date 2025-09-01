@@ -1,5 +1,6 @@
 package net.deali.designsystem.internal.placeholderimage
 
+import android.annotation.SuppressLint
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -33,6 +34,7 @@ internal fun CoreDealiPlaceholderImage(
     placeholderColor: Color?,
     backgroundColor: Color,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     SubcomposeAsyncImage(
         modifier = modifier
@@ -48,13 +50,14 @@ internal fun CoreDealiPlaceholderImage(
             .crossfade(true)
             .build(),
         contentDescription = null,
-        contentScale = ContentScale.Crop,
+        contentScale = contentScale,
         loading = {
             PlaceholderImage(
                 modifier = modifier
                     .fillMaxSize(),
                 placeholder = placeholder,
                 placeholderColor = placeholderColor,
+                contentScale = contentScale,
             )
         },
         error = {
@@ -63,16 +66,19 @@ internal fun CoreDealiPlaceholderImage(
                     .fillMaxSize(),
                 placeholder = placeholder,
                 placeholderColor = placeholderColor,
+                contentScale = contentScale,
             )
         }
     )
 }
 
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 private fun PlaceholderImage(
     @DrawableRes placeholder: Int,
     placeholderColor: Color?,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     BoxWithConstraints(
         modifier = modifier
@@ -91,7 +97,7 @@ private fun PlaceholderImage(
                 .height(placeholderHeight)
                 .align(Alignment.Center),
             painter = painterResource(placeholder),
-            contentScale = ContentScale.Crop,
+            contentScale = contentScale,
             contentDescription = null,
             colorFilter = placeholderColor?.let { ColorFilter.tint(it) }
         )

@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -24,6 +25,7 @@ fun DealiPlaceholderImage(
     state: PlaceholderState,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     val placeholder = PlaceholderImageDefaults.placeholder(state)
     val placeholderColor = PlaceholderImageDefaults.placeholderColor(colorState)
@@ -36,6 +38,7 @@ fun DealiPlaceholderImage(
         placeholder = placeholder,
         placeholderColor = placeholderColor,
         backgroundColor = backgroundColor,
+        contentScale = contentScale,
     )
 }
 
@@ -46,6 +49,7 @@ fun DealiPlaceholderImage(
     @DrawableRes customPlaceholder: Int,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     val backgroundColor = PlaceholderImageDefaults.backgroundColor(colorState)
 
@@ -56,6 +60,7 @@ fun DealiPlaceholderImage(
         placeholder = customPlaceholder,
         placeholderColor = null,
         backgroundColor = backgroundColor,
+        contentScale = contentScale,
     )
 }
 
