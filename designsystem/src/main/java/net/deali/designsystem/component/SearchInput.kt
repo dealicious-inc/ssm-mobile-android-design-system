@@ -485,6 +485,7 @@ private fun rememberSearchInputPaddings() =
     remember {
         SearchInputTextFieldPaddings(
             decoratedStart = 6.dp,
+            decoratedEnd = 12.dp,
             horizontal = 16.dp,
         )
     }
@@ -492,6 +493,7 @@ private fun rememberSearchInputPaddings() =
 @Immutable
 private class SearchInputTextFieldPaddings(
     private val decoratedStart: Dp,
+    private val decoratedEnd: Dp,
     private val horizontal: Dp,
 ) : DealiTextFieldPaddingValues {
     @Composable
@@ -499,12 +501,18 @@ private class SearchInputTextFieldPaddings(
         hasLeadingContent: Boolean,
         hasTrailingContent: Boolean
     ): State<PaddingValues> {
+        val start = when (hasLeadingContent) {
+            true -> decoratedStart
+            false -> horizontal
+        }
+
+        val end = when (hasTrailingContent) {
+            true -> decoratedEnd
+            false -> horizontal
+        }
+
         return rememberUpdatedState(
-            if (hasLeadingContent) {
-                PaddingValues(start = decoratedStart, end = horizontal)
-            } else {
-                PaddingValues(horizontal = horizontal)
-            }
+            PaddingValues(start = start, end = end)
         )
     }
 

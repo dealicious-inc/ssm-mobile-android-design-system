@@ -161,7 +161,7 @@ fun textArea(
 private fun rememberTextAreaPaddings() =
     remember {
         TextAreaTextFieldPaddings(
-            horizontal = 12.dp,
+            horizontal = 16.dp,
             vertical = 13.dp,
         )
     }
