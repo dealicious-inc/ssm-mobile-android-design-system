@@ -63,7 +63,7 @@ jobs:
             exit 1
           fi
 
-      - name: Git 커밋, 푸쉬
+      - name: Git 커밋
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -81,5 +81,5 @@ jobs:
           git add $VERSION_FILE
           git commit -m "버전업 $NEW_VERSION"
 
-      - name: Push changes
-        run: git push origin dev
+#      - name: Git 푸쉬
+#        run: git push origin dev
