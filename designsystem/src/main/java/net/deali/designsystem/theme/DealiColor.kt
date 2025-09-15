@@ -56,6 +56,7 @@ object DealiColor {
 
     //Etc
     val b70: Color = Color(0xB3000000)
+    val b60: Color = Color(0x99000000)
     val b50: Color = Color(0x80000000)
     val b40: Color = Color(0x66000000)
     val b30: Color = Color(0x4D000000)

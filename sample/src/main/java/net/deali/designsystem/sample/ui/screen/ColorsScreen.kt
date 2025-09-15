@@ -60,6 +60,7 @@ fun ColorsScreen(
         ColorScreenItem(DealiColor.warning, "warning"),
         ColorScreenItem(DealiColor.success, "success"),
         ColorScreenItem(DealiColor.b70, "b70"),
+        ColorScreenItem(DealiColor.b60, "b60"),
         ColorScreenItem(DealiColor.b50, "b50"),
         ColorScreenItem(DealiColor.b40, "b40"),
         ColorScreenItem(DealiColor.b30, "b30"),
