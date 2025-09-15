@@ -159,7 +159,6 @@ private fun InnerText(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .height(46.dp)
             .clip(RoundedCornerShape(6.dp))
             .border(
                 width = 1.dp,
@@ -174,11 +173,19 @@ private fun InnerText(
                 role = Role.Button,
                 onClick = onClick
             )
-            .padding(horizontal = 16.dp),
+            .padding(
+                start = 16.dp,
+                end = 12.dp,
+                top = 13.dp,
+                bottom = 13.dp,
+            ),
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (icon != null) {
             Icon(
+                modifier = Modifier
+                    .padding(vertical = 2.dp)
+                    .align(Alignment.Top),
                 iconRes = icon,
                 size = 16.dp,
                 color = iconColor
@@ -198,6 +205,9 @@ private fun InnerText(
         HorizontalSpacer(width = 16.dp)
 
         Icon(
+            modifier = Modifier
+                .padding(2.dp)
+                .align(Alignment.Top),
             iconRes = if (isOpen) R.drawable.ic_arrow_right else R.drawable.ic_arrow_open,
             size = 16.dp,
             color = contentColor
