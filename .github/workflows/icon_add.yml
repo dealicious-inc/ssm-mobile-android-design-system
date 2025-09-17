@@ -4,6 +4,10 @@ on:
   repository_dispatch:
     types: [ icon_add ]
 
+  push:
+    tags:
+      - 'test/**'
+
 jobs:
   add_icon:
     runs-on: ubuntu-latest
