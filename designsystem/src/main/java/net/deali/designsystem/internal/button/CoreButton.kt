@@ -3,7 +3,6 @@ package net.deali.designsystem.internal.button
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,6 +26,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.IconRotating
+import net.deali.designsystem.util.click.singleClickable
 
 @Composable
 internal fun CoreButton(
@@ -58,7 +58,7 @@ internal fun CoreButton(
             .then(
                 if (clickable) {
                     Modifier
-                        .clickable(
+                        .singleClickable(
                             interactionSource = interactionSource,
                             indication = ripple(),
                             enabled = enabled,

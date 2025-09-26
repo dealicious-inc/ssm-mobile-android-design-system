@@ -1,6 +1,5 @@
-package net.deali.designsystem.util
+package net.deali.designsystem.util.click
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -26,7 +25,7 @@ fun Modifier.noRippleClickable(
         properties["onClick"] = onClick
     }
 ) {
-    Modifier.clickable(
+    Modifier.singleClickable(
         indication = null,
         interactionSource = interactionSource ?: remember { MutableInteractionSource() },
         enabled = enabled,

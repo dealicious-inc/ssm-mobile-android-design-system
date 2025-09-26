@@ -5,7 +5,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,6 +38,7 @@ import net.deali.designsystem.sample.data.datastore.DataStoreUtil
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 import net.deali.designsystem.util.getRandomText
 import java.util.Locale
 
@@ -152,7 +152,7 @@ private fun TypographyItem(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
             .background(DealiColor.primary04)
-            .clickable(
+            .singleClickable(
                 onClick = { isVisible = !isVisible }
             )
     ) {

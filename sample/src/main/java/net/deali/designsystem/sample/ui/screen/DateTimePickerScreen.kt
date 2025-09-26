@@ -5,7 +5,6 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -27,17 +27,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DatePicker
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.TimePicker
 import net.deali.designsystem.component.TimePickerFormat
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.rememberDatePickerState
 import net.deali.designsystem.component.rememberTimePickerState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import androidx.compose.foundation.shape.RoundedCornerShape
+import net.deali.designsystem.util.click.singleClickable
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -398,8 +398,13 @@ private fun SampleAccordion(
     headerContent: @Composable () -> Unit,
     collapsableContent: @Composable () -> Unit
 ) {
-    Column(modifier = modifier) {
-        Box(modifier = Modifier.clickable(onClick = onHeaderClick)) {
+    Column(
+        modifier = modifier
+    ) {
+        Box(
+            modifier = Modifier
+                .singleClickable(onClick = onHeaderClick)
+        ) {
             headerContent()
         }
 

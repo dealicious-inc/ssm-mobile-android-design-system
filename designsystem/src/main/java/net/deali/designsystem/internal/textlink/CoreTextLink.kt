@@ -1,7 +1,6 @@
 package net.deali.designsystem.internal.textlink
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,6 +23,7 @@ import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 @Composable
 internal fun CoreTextLink(
@@ -48,7 +48,7 @@ internal fun CoreTextLink(
             .then(
                 if (clickable) {
                     Modifier
-                        .clickable(
+                        .singleClickable(
                             interactionSource = interactionSource,
                             indication = ripple(),
                             enabled = enabled,

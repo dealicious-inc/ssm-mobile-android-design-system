@@ -4,7 +4,6 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,6 +47,7 @@ import coil3.compose.AsyncImage
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.util.click.singleClickable
 import kotlin.math.max
 import kotlin.math.min
 
@@ -432,20 +432,19 @@ private fun Modifier.clickableOrNothing(
     interactionSource: MutableInteractionSource,
     indication: Indication?,
     enabled: Boolean = true,
-    onClickLabel: String? = null,
     role: Role? = null,
     onClick: () -> Unit
 ): Modifier {
     return if (clickable) {
         this.then(
-            Modifier.clickable(
-                interactionSource = interactionSource,
-                indication = indication,
-                enabled = enabled,
-                onClickLabel = onClickLabel,
-                role = role,
-                onClick = onClick
-            )
+            Modifier
+                .singleClickable(
+                    interactionSource = interactionSource,
+                    indication = indication,
+                    enabled = enabled,
+                    role = role,
+                    onClick = onClick
+                )
         )
     } else {
         this

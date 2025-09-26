@@ -27,7 +27,7 @@ import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 import net.deali.designsystem.util.getRandomText
-import net.deali.designsystem.util.noRippleClickable
+import net.deali.designsystem.util.click.noRippleClickable
 
 /**
  * 아코디언 컴포넌트.

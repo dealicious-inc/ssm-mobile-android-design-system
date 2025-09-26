@@ -1,6 +1,5 @@
 package net.deali.designsystem.component
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 import net.deali.designsystem.util.icon.Checkline
 
 /**
@@ -42,7 +42,7 @@ fun ChecklineText(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(4.dp))
-            .clickable(
+            .singleClickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = ripple(),
                 enabled = enabled,

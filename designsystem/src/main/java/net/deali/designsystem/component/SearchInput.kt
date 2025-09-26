@@ -1,7 +1,6 @@
 package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -43,6 +42,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.theme.AppTheme
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 /**
  * 검색어를 입력할 수 있는 SearchInput.
@@ -73,7 +73,9 @@ fun SearchInput(
         modifier.then(
             Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .clickable { onClickSearch.invoke() }
+                .singleClickable(
+                    onClick = onClickSearch
+                )
         )
     } else {
         modifier
@@ -163,7 +165,9 @@ fun SearchInput(
         modifier.then(
             Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .clickable { onClickSearch.invoke() }
+                .singleClickable(
+                    onClick = onClickSearch
+                )
         )
     } else {
         modifier
@@ -253,7 +257,9 @@ fun SearchInput(
         modifier.then(
             Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .clickable { onClickSearch.invoke() }
+                .singleClickable(
+                    onClick = onClickSearch
+                )
         )
     } else {
         modifier
@@ -350,7 +356,9 @@ fun SearchInput(
         modifier.then(
             Modifier
                 .clip(RoundedCornerShape(6.dp))
-                .clickable { onClickSearch.invoke() }
+                .singleClickable(
+                    onClick = onClickSearch
+                )
         )
     } else {
         modifier

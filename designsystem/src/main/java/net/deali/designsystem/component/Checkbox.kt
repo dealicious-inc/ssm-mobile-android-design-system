@@ -1,6 +1,5 @@
 package net.deali.designsystem.component
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 /**
  * 체크박스 컴포넌트.
@@ -40,7 +40,7 @@ fun CheckBox(
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(4.dp))
-            .clickable(
+            .singleClickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = ripple(),
                 enabled = enabled,

@@ -2,7 +2,6 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -33,6 +32,7 @@ import net.deali.designsystem.internal.bottomsheet.BottomSheetDatePicker
 import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 /**
  * 모든 content 직접 구성하는 BottomSheet
@@ -387,7 +387,7 @@ fun BottomSheetHeaderArrowClose(
                 .height(12.dp)
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 4.dp)
-                .clickable(
+                .singleClickable(
                     onClick = onDismiss,
                     role = Role.Image,
                     enabled = true,
@@ -495,7 +495,7 @@ fun BottomSheetOption(
             .fillMaxWidth()
             .height(52.dp)
             .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
+            .singleClickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
         DealiText(
@@ -532,7 +532,7 @@ fun BottomSheetOption(
             .fillMaxWidth()
             .height(52.dp)
             .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
+            .singleClickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
         Icon(
@@ -581,7 +581,7 @@ fun BottomSheetOption24(
             .fillMaxWidth()
             .height(48.dp)
             .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
+            .singleClickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
         Box(
@@ -635,7 +635,7 @@ fun BottomSheetOption32(
             .fillMaxWidth()
             .height(56.dp)
             .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
+            .singleClickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
         Box(
@@ -689,7 +689,7 @@ fun BottomSheetOption40(
             .fillMaxWidth()
             .height(64.dp)
             .background(DealiColor.primary04)
-            .clickable(onClick = onClick)
+            .singleClickable(onClick = onClick)
             .padding(horizontal = 16.dp)
     ) {
         Box(

@@ -7,7 +7,6 @@ import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -36,6 +35,7 @@ import androidx.constraintlayout.compose.Dimension
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 @Composable
 fun Dropdown(
@@ -167,7 +167,7 @@ private fun InnerText(
                 shape = RoundedCornerShape(6.dp)
             )
             .background(backgroundColor)
-            .clickable(
+            .singleClickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = ripple(),
                 enabled = !isDisabled,

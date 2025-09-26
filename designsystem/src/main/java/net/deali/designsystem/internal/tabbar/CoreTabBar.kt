@@ -1,6 +1,5 @@
 package net.deali.designsystem.internal.tabbar
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -29,6 +28,7 @@ import net.deali.designsystem.component.badge
 import net.deali.designsystem.internal.tabbar.TabRowDefaults.dealiTabIndicatorOffset
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 @JvmName("CoreFixedTabBarString")
 @Composable
@@ -241,7 +241,7 @@ private fun FixedTabItem(
     Box(
         modifier = Modifier
             .fillMaxHeight()
-            .clickable(onClick = onClick),
+            .singleClickable(onClick = onClick),
     ) {
         val badgeModifier = if (useBadge) {
             Modifier
@@ -279,7 +279,7 @@ private fun TabItem(
     Box(
         modifier = Modifier
             .fillMaxHeight()
-            .clickable(onClick = onClick),
+            .singleClickable(onClick = onClick),
     ) {
         val badgeModifier = if (useBadge) {
             Modifier.badge(

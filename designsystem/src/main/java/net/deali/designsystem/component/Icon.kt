@@ -8,7 +8,6 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -27,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
+import net.deali.designsystem.util.click.singleClickable
 
 @Composable
 fun Icon(
@@ -50,7 +50,7 @@ fun Icon(
 
     Icon(
         modifier = modifier
-            .clickable(
+            .singleClickable(
                 onClick = onClick,
                 role = Role.Image,
                 enabled = enabled,

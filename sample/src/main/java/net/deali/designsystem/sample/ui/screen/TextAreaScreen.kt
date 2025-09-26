@@ -1,7 +1,6 @@
 package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +32,7 @@ import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.click.singleClickable
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -296,7 +296,7 @@ private fun NumberActionButton(
         modifier = modifier
             .size(24.dp)
             .background(DealiColor.g20)
-            .clickable(onClick = onClick),
+            .singleClickable(onClick = onClick),
         contentAlignment = Alignment.Center
     ) {
         DealiText(

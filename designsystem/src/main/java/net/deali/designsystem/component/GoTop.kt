@@ -5,7 +5,6 @@ import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -18,6 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.util.click.singleClickable
 
 @Composable
 fun GoTop(
@@ -41,7 +41,7 @@ fun GoTop(
                     color = DealiColor.g30,
                     shape = CircleShape
                 )
-                .clickable(
+                .singleClickable(
                     role = Role.Button,
                     onClick = onClick
                 ),

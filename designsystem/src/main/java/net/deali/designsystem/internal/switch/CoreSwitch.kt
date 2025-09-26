@@ -4,7 +4,6 @@ import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.defaultMinSize
@@ -23,6 +22,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
+import net.deali.designsystem.util.click.singleClickable
 import net.deali.designsystem.util.drawShadow
 
 @Composable
@@ -47,10 +47,9 @@ internal fun CoreSwitch(
                 minWidth = switchSize.width,
                 minHeight = switchSize.height,
             )
-            .clickable(
+            .singleClickable(
                 enabled = enabled,
                 role = Role.Switch,
-                indication = null,
                 interactionSource = interactionSource,
                 onClick = {
                     val newState = !currentSelected
