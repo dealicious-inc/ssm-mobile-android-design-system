@@ -189,7 +189,14 @@ class AlertDialog private constructor(
 
         dialogFrameView.addView(dialogContentView)
         androidDialog = Dialog(context)
-        androidDialog.window?.setBackgroundDrawable(android.graphics.Color.TRANSPARENT.toDrawable())
+        androidDialog.window?.apply {
+            /**
+             * DealiColor.b40을 직접 적용하려 했으나,
+             * 자연스러운 dimmed 애니메이션을 위해 가장 간단판 방법으로 직접 적용.
+             */
+            setDimAmount(0.4f) // DealiColor.b40
+            setBackgroundDrawable(android.graphics.Color.TRANSPARENT.toDrawable())
+        }
         androidDialog.setContentView(dialogFrameView)
         androidDialog.setCancelable(isCancelable)
         androidDialog.setCanceledOnTouchOutside(isCancelable)

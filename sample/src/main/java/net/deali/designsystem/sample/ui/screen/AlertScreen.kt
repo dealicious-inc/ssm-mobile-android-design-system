@@ -13,10 +13,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
+import androidx.compose.ui.window.DialogProperties
 import net.deali.designsystem.component.Alert
 import net.deali.designsystem.component.AlertSingleButton
 import net.deali.designsystem.component.CheckBox
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.btnFilledSmall01
 import net.deali.designsystem.sample.ui.NavigationContainer
 import net.deali.designsystem.theme.DealiColor
@@ -39,6 +40,7 @@ fun AlertScreen(
         var alertState4 by remember { mutableStateOf(false) }
         var alertState5 by remember { mutableStateOf(false) }
         var alertState6 by remember { mutableStateOf(false) }
+        var alertState7 by remember { mutableStateOf(false) }
 
         Column(
             modifier = Modifier
@@ -82,6 +84,12 @@ fun AlertScreen(
                 enabled = true,
                 onClick = { alertState6 = true },
             )
+
+            btnFilledSmall01(
+                text = "DialogProperties.dismissOnBackPress == false && DialogProperties.dismissOnClickOutside == false",
+                enabled = true,
+                onClick = { alertState7 = true },
+            )
         }
 
         if (alertState1) {
@@ -92,7 +100,7 @@ fun AlertScreen(
                 rightButtonText = "확인",
                 onLeftButtonClick = { alertState1 = false },
                 onRightButtonClick = { alertState1 = false },
-                onDismissRequest = { alertState1 = false }
+                onDismissRequest = { alertState1 = false },
             )
         }
 
@@ -168,6 +176,19 @@ fun AlertScreen(
                 buttonText = "확인",
                 onButtonClick = { alertState6 = false },
                 onDismissRequest = { alertState6 = false }
+            )
+        }
+
+        if (alertState7) {
+            AlertSingleButton(
+                contentText = "댓글을 삭제하시겠습니까?",
+                buttonText = "확인",
+                onButtonClick = { alertState7 = false },
+                onDismissRequest = { alertState7 = false },
+                properties = DialogProperties(
+                    dismissOnBackPress = false,
+                    dismissOnClickOutside = false,
+                )
             )
         }
     }
