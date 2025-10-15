@@ -2,13 +2,11 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -19,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalView
@@ -31,7 +28,6 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.click.noRippleClickable
 
 /**
  * 신상마켓 디자인 시스템 팝업 컴포넌트.
@@ -591,27 +587,16 @@ private fun ComposeAlert(
         properties = properties
     ) {
         val dialogWindow = (LocalView.current.parent as? DialogWindowProvider)?.window
-        dialogWindow?.setDimAmount(0f)
+        dialogWindow?.setDimAmount(0.4f)
 
-        Box(
+        Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(DealiColor.b40)
-                .noRippleClickable(
-                    enabled = properties.dismissOnClickOutside,
-                    onClick = onDismissRequest,
-                )
-        ) {
-            Column(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(DealiColor.primary04)
-                    .width(280.dp)
-                    .padding(horizontal = 20.dp),
-                content = content
-            )
-        }
+                .clip(RoundedCornerShape(10.dp))
+                .background(DealiColor.primary04)
+                .width(280.dp)
+                .padding(horizontal = 20.dp),
+            content = content
+        )
     }
 }
 
