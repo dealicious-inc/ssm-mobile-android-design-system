@@ -2,8 +2,8 @@
 minSdk = "24"
 targetSdk = "35"
 
-kotlin = "2.2.0"
-agp = "8.11.1"
+kotlin = "2.2.20"
+agp = "8.13.0"
 maven-gradle-plugin = "2.1"
 
 androidx-core = "1.16.0"
@@ -13,11 +13,11 @@ androidx-navigation-compose = "2.9.0"
 androidx-constraintlayout-compose = "1.1.1"
 androidx-datastore = "1.1.7"
 
-compose-bom = "2025.09.00"
-material = "1.12.0"
+compose-bom = "2025.10.00"
+material = "1.13.0"
 
-kotlinx-collections-immutable = "0.3.8"
-coil = "3.2.0"
+kotlinx-collections-immutable = "0.4.0"
+coil = "3.3.0"
 snapper = "0.3.0"
 gridlayout-compose = "0.2.0"
 
