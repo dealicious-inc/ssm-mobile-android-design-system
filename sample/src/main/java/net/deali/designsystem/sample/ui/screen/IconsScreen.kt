@@ -500,7 +500,7 @@ val etcIcons = listOf(
     IconItem("ic_checkcircle_off", R.drawable.ic_checkcircle_off),
     IconItem("ic_checkcircle_on", R.drawable.ic_checkcircle_on),
     IconItem("ic_checkcircle_onad", R.drawable.ic_checkcircle_onad),
-    IconItem("ic_checkcircle_disable", R.drawable.ic_checkcircle_disable),
+    IconItem("ic_checkcircle_disable", R.drawable.ic_checkcircle_ondisable),
     IconItem("ic_radiobutton_off", R.drawable.ic_radiobutton_off),
     IconItem("ic_radiobutton_on", R.drawable.ic_radiobutton_on),
     IconItem("ic_radiobutton_disable", R.drawable.ic_radiobutton_disable),

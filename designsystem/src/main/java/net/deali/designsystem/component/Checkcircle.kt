@@ -133,7 +133,8 @@ private fun CheckcircleIcon(
     onCheck: (() -> Unit)? = null,
 ) {
     val iconRes = when {
-        enabled.not() -> R.drawable.ic_checkcircle_disable
+        !checked && !enabled -> R.drawable.ic_checkcircle_disabled
+        checked && !enabled -> R.drawable.ic_checkcircle_ondisable
         checked && isAd -> R.drawable.ic_checkcircle_onad
         checked && !isAd -> R.drawable.ic_checkcircle_on
         else -> R.drawable.ic_checkcircle_off
@@ -184,6 +185,12 @@ private fun CheckcirclePreview() {
         Checkcircle(
             checked = true,
             text = "checkcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disablecheckcircle_disable",
+            enabled = false,
+            onCheck = {}
+        )
+        Checkcircle(
+            checked = false,
+            text = "checkcircle_disable",
             enabled = false,
             onCheck = {}
         )
