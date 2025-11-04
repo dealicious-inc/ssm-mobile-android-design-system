@@ -5,6 +5,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -33,43 +34,57 @@ internal fun CoreDealiPlaceholderImage(
     @DrawableRes placeholder: Int,
     placeholderColor: Color?,
     backgroundColor: Color,
+    enabled: Boolean,
+    contentScale: ContentScale,
     modifier: Modifier = Modifier,
-    contentScale: ContentScale = ContentScale.Fit,
 ) {
-    SubcomposeAsyncImage(
+    Box(
         modifier = modifier
+            .clip(shape),
+    ) {
+        val imageModifier = Modifier
+            .fillMaxSize()
             .border(
                 width = 1.dp,
                 color = DealiColor.b5,
                 shape = shape,
             )
-            .clip(shape)
-            .background(backgroundColor),
-        model = ImageRequest.Builder(LocalContext.current)
-            .data(imageUrl)
-            .crossfade(true)
-            .build(),
-        contentDescription = null,
-        contentScale = contentScale,
-        loading = {
-            PlaceholderImage(
-                modifier = modifier
-                    .fillMaxSize(),
-                placeholder = placeholder,
-                placeholderColor = placeholderColor,
-                contentScale = contentScale,
-            )
-        },
-        error = {
-            PlaceholderImage(
-                modifier = modifier
-                    .fillMaxSize(),
-                placeholder = placeholder,
-                placeholderColor = placeholderColor,
-                contentScale = contentScale,
+            .background(backgroundColor)
+
+        SubcomposeAsyncImage(
+            modifier = imageModifier,
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(imageUrl)
+                .crossfade(true)
+                .build(),
+            contentDescription = null,
+            contentScale = contentScale,
+            loading = {
+                PlaceholderImage(
+                    modifier = imageModifier,
+                    placeholder = placeholder,
+                    placeholderColor = placeholderColor,
+                    contentScale = contentScale,
+                )
+            },
+            error = {
+                PlaceholderImage(
+                    modifier = imageModifier,
+                    placeholder = placeholder,
+                    placeholderColor = placeholderColor,
+                    contentScale = contentScale,
+                )
+            }
+        )
+
+        if (!enabled) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(DealiColor.b40)
             )
         }
-    )
+    }
 }
 
 @SuppressLint("UnusedBoxWithConstraintsScope")

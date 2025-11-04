@@ -1,8 +1,6 @@
 package net.deali.designsystem.component
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,6 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.placeholderimage.CoreDealiPlaceholderImage
@@ -25,6 +25,7 @@ fun DealiPlaceholderImage(
     state: PlaceholderState,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     contentScale: ContentScale = ContentScale.Fit,
 ) {
     val placeholder = PlaceholderImageDefaults.placeholder(state)
@@ -38,6 +39,7 @@ fun DealiPlaceholderImage(
         placeholder = placeholder,
         placeholderColor = placeholderColor,
         backgroundColor = backgroundColor,
+        enabled = enabled,
         contentScale = contentScale,
     )
 }
@@ -49,6 +51,7 @@ fun DealiPlaceholderImage(
     @DrawableRes customPlaceholder: Int,
     colorState: PlaceholderColorState,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
     contentScale: ContentScale = ContentScale.Fit,
 ) {
     val backgroundColor = PlaceholderImageDefaults.backgroundColor(colorState)
@@ -60,47 +63,64 @@ fun DealiPlaceholderImage(
         placeholder = customPlaceholder,
         placeholderColor = null,
         backgroundColor = backgroundColor,
+        enabled = enabled,
         contentScale = contentScale,
+    )
+}
+
+private class ParamPreviewProvider : PreviewParameterProvider<ParamPreviewProvider.Param> {
+    override val values: Sequence<Param>
+        get() = sequenceOf(
+            Param(),
+            Param(
+                state = PlaceholderState.STORE,
+                colorState = PlaceholderColorState.GRAY,
+            ),
+            Param(
+                customPlaceholder = R.drawable.img_mbs_filled,
+            ),
+            Param(
+                enabled = false,
+            ),
+        )
+
+    data class Param(
+        @DrawableRes val customPlaceholder: Int? = null,
+        val state: PlaceholderState = PlaceholderState.GOODS,
+        val colorState: PlaceholderColorState = PlaceholderColorState.WHITE,
+        val enabled: Boolean = true,
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun Preview(
+    @PreviewParameter(ParamPreviewProvider::class) value: ParamPreviewProvider.Param
+) {
     val width = 210.dp
     val height = 280.dp
 
-    Column(
-        verticalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
+    if (value.customPlaceholder == null) {
         DealiPlaceholderImage(
             modifier = Modifier
                 .width(width)
                 .height(height),
             imageUrl = "",
             shape = RoundedCornerShape(6.dp),
-            state = PlaceholderState.GOODS,
-            colorState = PlaceholderColorState.WHITE,
+            state = value.state,
+            colorState = value.colorState,
+            enabled = value.enabled,
         )
-
+    } else {
         DealiPlaceholderImage(
             modifier = Modifier
                 .width(width)
                 .height(height),
             imageUrl = "",
             shape = RoundedCornerShape(6.dp),
-            state = PlaceholderState.STORE,
-            colorState = PlaceholderColorState.GRAY,
-        )
-
-        DealiPlaceholderImage(
-            modifier = Modifier
-                .width(width)
-                .height(height),
-            imageUrl = "",
-            shape = RoundedCornerShape(6.dp),
-            customPlaceholder = R.drawable.img_mbs_filled,
-            colorState = PlaceholderColorState.GRAY,
+            customPlaceholder = value.customPlaceholder,
+            colorState = value.colorState,
+            enabled = value.enabled,
         )
     }
 }

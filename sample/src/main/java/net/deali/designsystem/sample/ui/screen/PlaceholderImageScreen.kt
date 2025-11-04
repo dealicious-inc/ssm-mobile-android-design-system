@@ -123,6 +123,20 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                         )
                     }
 
+                    item {
+                        DealiPlaceholderImage(
+                            modifier = Modifier
+                                .width(width)
+                                .height(height),
+                            imageUrl = "",
+                            shape = RoundedCornerShape(6.dp),
+                            state = PlaceholderState.GOODS,
+                            colorState = PlaceholderColorState.GRAY,
+                            contentScale = ContentScale.Crop,
+                            enabled = false,
+                        )
+                    }
+
                     if (width == height) {
                         item {
                             DealiPlaceholderImage(
@@ -160,6 +174,20 @@ fun PlaceholderImageScreen(onBackPress: () -> Unit) {
                                 state = PlaceholderState.STORE,
                                 colorState = PlaceholderColorState.GRAY,
                                 contentScale = ContentScale.Crop,
+                            )
+                        }
+
+                        item {
+                            DealiPlaceholderImage(
+                                modifier = Modifier
+                                    .width(width)
+                                    .height(height),
+                                imageUrl = "",
+                                shape = CircleShape,
+                                state = PlaceholderState.STORE,
+                                colorState = PlaceholderColorState.GRAY,
+                                contentScale = ContentScale.Crop,
+                                enabled = false,
                             )
                         }
                     }
