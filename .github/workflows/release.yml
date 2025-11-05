@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-4-cores
     env:
       GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
       VERSION_UP_CHECK_KEYWORD: "버전업"
