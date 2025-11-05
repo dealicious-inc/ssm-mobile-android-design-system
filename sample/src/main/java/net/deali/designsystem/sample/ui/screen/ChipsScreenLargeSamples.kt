@@ -2,7 +2,6 @@ package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,8 +10,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import io.woong.compose.grid.SimpleGridCells
-import io.woong.compose.grid.VerticalGrid
+import com.cheonjaeung.compose.grid.SimpleGridCells
+import com.cheonjaeung.compose.grid.VerticalGrid
 import net.deali.designsystem.R
 import net.deali.designsystem.component.chipFilledDepthLarge01
 import net.deali.designsystem.component.chipFilledImageDepthLarge01
@@ -51,134 +50,104 @@ fun LargeChipSamples(modifier: Modifier = Modifier) {
 private fun ChipOutlineLarge01Samples() {
     ChipSampleLayout(title = "chipOutlineLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipOutlineLarge01(
+                onClick = {},
+                text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipOutlineLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipOutlineLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipOutlineLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipOutlineLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
         }
     }
 }
@@ -187,135 +156,105 @@ private fun ChipOutlineLarge01Samples() {
 private fun ChipOutlineSquareLarge01Samples() {
     ChipSampleLayout(title = "chipOutlineSquareLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "Text",
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipOutlineSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipOutlineSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipOutlineSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipOutlineSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipOutlineSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
 
         }
     }
@@ -325,165 +264,129 @@ private fun ChipOutlineSquareLarge01Samples() {
 private fun ChipFilledLarge01Samples() {
     ChipSampleLayout(title = "chipFilledLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                onClick = {},
+                text = "Text",
+            )
+            chipFilledLarge01(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipFilledLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipFilledLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipFilledLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
         }
     }
 }
@@ -492,135 +395,105 @@ private fun ChipFilledLarge01Samples() {
 private fun ChipFilledSquareLarge01Samples() {
     ChipSampleLayout(title = "chipFilledSquareLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "Text",
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge01(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge01(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipFilledSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipFilledSquareLarge01(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
         }
     }
 }
@@ -629,135 +502,105 @@ private fun ChipFilledSquareLarge01Samples() {
 private fun ChipFilledSquareLarge02Samples() {
     ChipSampleLayout(title = "chipFilledSquareLarge02") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "Text",
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge02(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge02(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge02(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge02(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipFilledSquareLarge02(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipFilledSquareLarge02(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
         }
     }
 }
@@ -766,135 +609,105 @@ private fun ChipFilledSquareLarge02Samples() {
 private fun ChipFilledSquareLarge03Samples() {
     ChipSampleLayout(title = "chipFilledSquareLarge03") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(3),
+            columns = SimpleGridCells.Fixed(3, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "Text",
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "Selected",
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "Disabled",
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "Text",
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "Selected",
+                selected = true,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "Disabled",
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_bookmark_1_filled,
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_bookmark_1_filled,
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "TTT",
-                    leftIcon = R.drawable.ic_check,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "SSS",
-                    leftIcon = R.drawable.ic_check,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    text = "DDD",
-                    leftIcon = R.drawable.ic_check,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "TTT",
+                leftIcon = R.drawable.ic_check,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "SSS",
+                leftIcon = R.drawable.ic_check,
+                selected = true,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                text = "DDD",
+                leftIcon = R.drawable.ic_check,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "TTT",
-                    rightIcon = R.drawable.ic_x_s,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "SSS",
-                    rightIcon = R.drawable.ic_x_s,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    onClick = {},
-                    onRightIconClick = {},
-                    text = "DDD",
-                    rightIcon = R.drawable.ic_x_s,
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "TTT",
+                rightIcon = R.drawable.ic_x_s,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "SSS",
+                rightIcon = R.drawable.ic_x_s,
+                selected = true,
+            )
+            chipFilledSquareLarge03(
+                onClick = {},
+                onRightIconClick = {},
+                text = "DDD",
+                rightIcon = R.drawable.ic_x_s,
+                enabled = false,
+            )
 
-            Box {
-                chipFilledSquareLarge03(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledSquareLarge03(
-                    icon = R.drawable.ic_refresh_1,
-                    onClick = {},
-                    enabled = false,
-                )
-            }
+            chipFilledSquareLarge03(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+            )
+            chipFilledSquareLarge03(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                selected = true,
+            )
+            chipFilledSquareLarge03(
+                icon = R.drawable.ic_refresh_1,
+                onClick = {},
+                enabled = false,
+            )
         }
     }
 }
@@ -1053,49 +866,41 @@ private fun ChipFilledImageLarge01Samples() {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipSampleLayout(title = "chipFilledImageLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(2),
+            columns = SimpleGridCells.Fixed(2, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipFilledImageLarge01(
-                    onClick = {},
-                    imageUrl = sampleImage,
-                    text = "Default",
-                )
-            }
-            Box {
-                chipFilledImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Default",
-                    useRemoveIcon = true,
-                )
-            }
-            Box {
-                chipFilledImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Selected",
-                    useRemoveIcon = true,
-                    selected = true,
-                )
-            }
-            Box {
-                chipFilledImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Disabled",
-                    useRemoveIcon = true,
-                    enabled = false,
-                )
-            }
+            chipFilledImageLarge01(
+                onClick = {},
+                imageUrl = sampleImage,
+                text = "Default",
+            )
+            chipFilledImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Default",
+                useRemoveIcon = true,
+            )
+            chipFilledImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Selected",
+                useRemoveIcon = true,
+                selected = true,
+            )
+            chipFilledImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Disabled",
+                useRemoveIcon = true,
+                enabled = false,
+            )
         }
     }
 }
@@ -1144,49 +949,41 @@ private fun ChipOutlineImageLarge01Samples() {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
     ChipSampleLayout(title = "chipOutlineImageLarge01") {
         VerticalGrid(
-            columns = SimpleGridCells.Fixed(2),
+            columns = SimpleGridCells.Fixed(2, false),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Box {
-                chipOutlineImageLarge01(
-                    onClick = {},
-                    imageUrl = sampleImage,
-                    text = "Default",
-                )
-            }
-            Box {
-                chipOutlineImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Default",
-                    useRemoveIcon = true,
-                )
-            }
-            Box {
-                chipOutlineImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Selected",
-                    useRemoveIcon = true,
-                    selected = true,
-                )
-            }
-            Box {
-                chipOutlineImageLarge01(
-                    onClick = {},
-                    onRemoveClick = {},
-                    imageUrl = sampleImage,
-                    text = "Disabled",
-                    useRemoveIcon = true,
-                    enabled = false,
-                )
-            }
+            chipOutlineImageLarge01(
+                onClick = {},
+                imageUrl = sampleImage,
+                text = "Default",
+            )
+            chipOutlineImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Default",
+                useRemoveIcon = true,
+            )
+            chipOutlineImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Selected",
+                useRemoveIcon = true,
+                selected = true,
+            )
+            chipOutlineImageLarge01(
+                onClick = {},
+                onRemoveClick = {},
+                imageUrl = sampleImage,
+                text = "Disabled",
+                useRemoveIcon = true,
+                enabled = false,
+            )
         }
     }
 }

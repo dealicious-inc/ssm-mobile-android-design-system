@@ -19,7 +19,7 @@ material = "1.13.0"
 kotlinx-collections-immutable = "0.4.0"
 coil = "3.3.0"
 snapper = "0.3.0"
-gridlayout-compose = "0.2.0"
+gridlayout-compose = "2.5.2"
 
 junit4 = "4.13.2"
 
@@ -53,7 +53,7 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 androidx-datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "androidx-datastore" }
 androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidx-constraintlayout-compose" }
 
-gridlayout-compose = { group = "io.woong.compose.grid", name = "grid", version.ref = "gridlayout-compose" }
+gridlayout-compose = { group = "com.cheonjaeung.compose.grid", name = "grid", version.ref = "gridlayout-compose" }
 
 # 빌드스크립트에서 사용하는 dependencies
 maven-gradle-plugin = { group = "com.github.dcendents", name = "android-maven-gradle-plugin", version.ref = "maven-gradle-plugin" }
