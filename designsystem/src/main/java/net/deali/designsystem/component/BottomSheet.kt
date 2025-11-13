@@ -197,7 +197,13 @@ fun BottomSheet(
         } else {
             Spacer(modifier = Modifier.height(16.dp))
         }
-        content()
+
+        Column(
+            modifier = Modifier
+                .weight(1f, false)
+        ) {
+            content()
+        }
     }
 }
 
@@ -226,7 +232,14 @@ fun BottomSheet(
         } else {
             Spacer(modifier = Modifier.height(16.dp))
         }
-        content()
+
+        Column(
+            modifier = Modifier
+                .weight(1f, false)
+        ) {
+            content()
+        }
+
         BottomSheetFooterOneButton(
             buttonText = buttonText,
             isButtonEnabled = isButtonEnabled,
@@ -267,7 +280,12 @@ fun BottomSheet(
             Spacer(modifier = Modifier.height(16.dp))
         }
 
-        content()
+        Column(
+            modifier = Modifier
+                .weight(1f, false)
+        ) {
+            content()
+        }
 
         BottomSheetFooterTwoButtons(
             primaryButtonText = primaryButtonText,

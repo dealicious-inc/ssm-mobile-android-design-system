@@ -2,12 +2,12 @@ package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -31,16 +31,22 @@ import net.deali.designsystem.R
 import net.deali.designsystem.component.BottomSheet
 import net.deali.designsystem.component.BottomSheetHeaderArrowClose
 import net.deali.designsystem.component.BottomSheetSingleSelectOption
+import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon
 import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.btnOutlineMedium01
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.theme.DealiFont
 
 @Composable
 fun BottomSheetScreen(onBackPress: () -> Unit) {
     val coroutineScope = rememberCoroutineScope()
     val bottomSheetState =
-        rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+        rememberModalBottomSheetState(
+            initialValue = ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true,
+        )
     var bottomSheetType by remember { mutableStateOf(BottomSheetType.Empty) }
     val hideBottomSheet: () -> Unit = {
         coroutineScope.launch { bottomSheetState.hide() }
@@ -357,13 +363,26 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
 @Composable
 private fun EmptyBox(modifier: Modifier = Modifier) {
-    Box(
+    val items = List(50) { i -> "아이템 ${i + 1}" }
+
+    LazyColumn(
         modifier = modifier
             .fillMaxWidth()
-            .height(104.dp)
             .background(color = Color(0xFFFFE0E0))
             .padding(start = 16.dp, top = 4.dp, end = 16.dp)
-    )
+    ) {
+        items(
+            items = items,
+        ) { item ->
+            DealiText(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                text = item,
+                color = DealiColor.g100,
+                style = DealiFont.sh2sb18
+            )
+        }
+    }
 }
 
 private enum class BottomSheetType {
