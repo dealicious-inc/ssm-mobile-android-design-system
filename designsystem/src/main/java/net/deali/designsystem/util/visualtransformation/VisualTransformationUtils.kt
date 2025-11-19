@@ -1,13 +1,6 @@
 package net.deali.designsystem.util.visualtransformation
 
 /**
- * 문자열이 0에서 9사이의 문자 또는 비어 있는 경우 true.
- */
-internal fun String.isNumberOrEmpty(): Boolean {
-    return this.isEmpty() || this.matches(Regex("^[0-9]+$"))
-}
-
-/**
  * [substring]과 유사하게 문자열을 자르지만, [ignore] 조건을 만족하는 경우 index를 뛰어 넘어 처리.
  *
  * 예를 들어 '100,000'을 대상으로 [startIndex]를 0, [endIndex]를 4를 주면서 [ignore]는 ','와 같은 조건으로

@@ -16,10 +16,12 @@ class PhoneNumberVisualTransformation(
     private val separator: Char = '-'
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
+        // 문자열이 숫자가 아닌 경우 transformation 하지 않고 현재 문자 그대로 표기
         if (!text.text.isNumberOrEmpty()) {
             return TransformedText(text, OffsetMapping.Identity)
         }
 
+        // 전화 번호 형태의 transformation을 위해 separator 문자를 추가
         val separatorIndices = getSeparatorIndices(text.text)
         val phoneNumberText = text.text.toPhoneNumberFormat(separator, separatorIndices)
 
@@ -32,6 +34,16 @@ class PhoneNumberVisualTransformation(
         )
     }
 
+    /**
+     * 0~9까지의 10진수 숫자만 포함된 경우 또는 비어 있는 경우 `true`, 다른 문자가 포함된 경우 `false`.
+     */
+    internal fun String.isNumberOrEmpty(): Boolean {
+        return this.isEmpty() || this.matches(Regex("^[0-9]+$"))
+    }
+
+    /**
+     * 숫자 형태의 문자열에 [separatorIndices]의 인덱스에 [separator] 추가해 반환.
+     */
     private fun String.toPhoneNumberFormat(separator: Char, separatorIndices: IntArray): String {
         if (this.isEmpty()) {
             return ""
@@ -88,7 +100,7 @@ class PhoneNumberVisualTransformation(
             if (transformedText.isEmpty()) {
                 return 0
             }
-            val stringUntilOffset = transformedText.substring(0, offset)
+            val stringUntilOffset = transformedText.take(offset)
             return offset - stringUntilOffset.count { it == separator }
         }
     }

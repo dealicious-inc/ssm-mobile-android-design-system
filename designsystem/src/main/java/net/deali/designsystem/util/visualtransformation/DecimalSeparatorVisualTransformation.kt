@@ -22,15 +22,16 @@ class DecimalSeparatorVisualTransformation(
     private val alwaysShowPrefix: Boolean = false,
 ) : VisualTransformation {
     override fun filter(text: AnnotatedString): TransformedText {
-        if (!text.text.isNumberOrEmpty()) {
+        // 문자열이 숫자(소숫점 형태 허용)가 아닌 경우 transformation 하지 않고 현재 문자 그대로 표기
+        if (!text.text.isNumberOrDotOrEmpty()) {
             return TransformedText(text, OffsetMapping.Identity)
         }
 
+        // 문자열을 콤마가 포함된 형태로 포매팅할 수 없는 경우 transformation 하지 않고 현재 문자 그대로 표기
         val textWithComma = text.text.toCommaTextOrEmpty()
-        if (textWithComma.isNullOrEmpty()) {
-            return TransformedText(text, OffsetMapping.Identity)
-        }
+            ?: return TransformedText(text, OffsetMapping.Identity)
 
+        // 콤마가 포함 된 문자열과 prefix를 모두 처리해 transformation
         val textWithCommaAndPrefix = if (alwaysShowPrefix || textWithComma.isNotEmpty()) {
             prefix + textWithComma
         } else {
@@ -42,13 +43,23 @@ class DecimalSeparatorVisualTransformation(
         )
     }
 
+    /**
+     * 0~9까지의 10진수 숫자와 온점(.)만 포함된 경우 또는 비어 있는 경우 `true`, 다른 문자가 포함된 경우 `false`.
+     */
+    private fun String.isNumberOrDotOrEmpty(): Boolean {
+        return this.isEmpty() || this.matches(Regex("^[0-9]*\\.?[0-9]*$"))
+    }
+
+    /**
+     * 문자열을 콤마가 포함된 형태로 변경. 문자열이 숫자 형태가 아닌 경우에는 `null` 반환.
+     */
     private fun String.toCommaTextOrEmpty(): String? {
         if (this.isEmpty()) {
             return ""
         }
         return try {
             String.format(Locale.getDefault(), "%,.0f", this.toDouble())
-        } catch (e: NumberFormatException) {
+        } catch (_: NumberFormatException) {
             null
         }
     }
@@ -74,15 +85,13 @@ class DecimalSeparatorVisualTransformation(
             if (transformedText.isEmpty()) {
                 return 0
             }
-            
+
             if (offset < prefixOffset) {
                 return 0
             }
-            
-            // 변환된 텍스트 범위를 벗어나는 인덱스 처리
+
             val safeOffset = offset.coerceIn(0, transformedText.length)
-            
-            val stringUntilOffset = transformedText.substring(0, safeOffset)
+            val stringUntilOffset = transformedText.take(safeOffset)
             val commaCount = stringUntilOffset.commaCount()
             val originalOffset = safeOffset - commaCount - prefixOffset
 

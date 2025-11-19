@@ -6,10 +6,14 @@ import org.junit.Test
 
 class PhoneNumberVisualTransformationTest {
 
-    @Test(expected = IllegalArgumentException::class)
+    @Test
     fun onlyNumbers() {
         val visualTransformation = PhoneNumberVisualTransformation()
-        visualTransformation.filter(AnnotatedString("100+-"))
+
+        Assert.assertEquals(
+            "100+-./213456",
+            visualTransformation.filter(AnnotatedString("100+-./213456")).text.text
+        )
     }
 
     @Test

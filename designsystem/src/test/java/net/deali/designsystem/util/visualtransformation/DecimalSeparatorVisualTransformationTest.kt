@@ -6,10 +6,14 @@ import org.junit.Test
 
 class DecimalSeparatorVisualTransformationTest {
 
-    @Test(expected = IllegalArgumentException::class)
+    @Test
     fun onlyNumbers() {
         val visualTransformation = DecimalSeparatorVisualTransformation()
-        visualTransformation.filter(AnnotatedString("$"))
+
+        Assert.assertEquals(
+            "1234567890/*",
+            visualTransformation.filter(AnnotatedString("1234567890/*")).text.text
+        )
     }
 
     @Test
