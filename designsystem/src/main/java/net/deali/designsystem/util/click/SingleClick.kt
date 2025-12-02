@@ -1,8 +1,11 @@
 package net.deali.designsystem.util.click
 
 import androidx.compose.foundation.Indication
+import androidx.compose.foundation.IndicationNodeFactory
+import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -17,16 +20,17 @@ import androidx.compose.ui.semantics.Role
  * @param interval 클릭 활성화 간격 (밀리초)
  * @param onClick 클릭 이벤트 콜백
  */
+@Composable
 fun Modifier.singleClickable(
     enabled: Boolean = true,
     interval: Long = DEFAULT_CLICK_INTERVAL,
-    interactionSource: MutableInteractionSource? = null,
-    indication: Indication? = null,
+    interactionSource: MutableInteractionSource? = remember { MutableInteractionSource() },
+    indication: Indication? = LocalIndication.current,
     role: Role? = null,
     onClick: () -> Unit
 ): Modifier = this.composed(
     inspectorInfo = debugInspectorInfo {
-        name = "clickableSingle"
+        name = "singleClickable"
         properties["enabled"] = enabled
         properties["interval"] = interval
         properties["interactionSource"] = interactionSource

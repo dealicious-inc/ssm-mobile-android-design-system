@@ -426,6 +426,7 @@ private fun RowScope.DepthContent(
  * 클릭을 사용하는 경우 [clickable] Modifier를 적용하고 사용하지 않는 경우 아무 것도 적용하지 않아
  * 클릭 이벤트를 잡지 않도록 만드는 편의성 Modifier.
  */
+@Composable
 @Stable
 private fun Modifier.clickableOrNothing(
     clickable: Boolean,
