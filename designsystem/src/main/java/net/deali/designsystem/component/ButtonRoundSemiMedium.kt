@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonDefaults
@@ -19,7 +20,6 @@ import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun btnFilledRoundSemiMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -28,10 +28,13 @@ fun btnFilledRoundSemiMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -47,15 +50,16 @@ fun btnFilledRoundSemiMedium01(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSemiMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -64,10 +68,13 @@ fun btnFilledRoundSemiMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -83,15 +90,16 @@ fun btnFilledRoundSemiMedium02(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSemiMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -100,10 +108,13 @@ fun btnFilledRoundSemiMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -119,15 +130,16 @@ fun btnFilledRoundSemiMedium03(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSemiMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -136,10 +148,13 @@ fun btnFilledRoundSemiMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -155,15 +170,16 @@ fun btnFilledRoundSemiMedium04(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSemiMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -172,10 +188,13 @@ fun btnFilledRoundSemiMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -191,15 +210,16 @@ fun btnFilledRoundSemiMedium05(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSemiMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -208,10 +228,13 @@ fun btnFilledRoundSemiMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -227,15 +250,16 @@ fun btnFilledRoundSemiMedium06(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -244,10 +268,13 @@ fun btnFilledTonalRoundSemiMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -263,15 +290,16 @@ fun btnFilledTonalRoundSemiMedium01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -280,10 +308,13 @@ fun btnFilledTonalRoundSemiMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -299,15 +330,16 @@ fun btnFilledTonalRoundSemiMedium02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -316,10 +348,13 @@ fun btnFilledTonalRoundSemiMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -335,15 +370,16 @@ fun btnFilledTonalRoundSemiMedium03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -352,10 +388,13 @@ fun btnFilledTonalRoundSemiMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -371,15 +410,16 @@ fun btnFilledTonalRoundSemiMedium04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -388,10 +428,13 @@ fun btnFilledTonalRoundSemiMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -407,15 +450,16 @@ fun btnFilledTonalRoundSemiMedium05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSemiMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -424,10 +468,13 @@ fun btnFilledTonalRoundSemiMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -443,15 +490,16 @@ fun btnFilledTonalRoundSemiMedium06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -460,10 +508,13 @@ fun btnOutlineRoundSemiMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -481,15 +532,16 @@ fun btnOutlineRoundSemiMedium01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -498,10 +550,13 @@ fun btnOutlineRoundSemiMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -519,15 +574,16 @@ fun btnOutlineRoundSemiMedium02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -536,10 +592,13 @@ fun btnOutlineRoundSemiMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -557,15 +616,16 @@ fun btnOutlineRoundSemiMedium03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -574,10 +634,13 @@ fun btnOutlineRoundSemiMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -595,15 +658,16 @@ fun btnOutlineRoundSemiMedium04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -612,10 +676,13 @@ fun btnOutlineRoundSemiMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -633,15 +700,16 @@ fun btnOutlineRoundSemiMedium05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSemiMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -650,10 +718,13 @@ fun btnOutlineRoundSemiMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -671,9 +742,11 @@ fun btnOutlineRoundSemiMedium06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
@@ -688,10 +761,12 @@ fun btnOutlineBgRoundSemiMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -709,9 +784,11 @@ fun btnOutlineBgRoundSemiMedium01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -726,10 +803,12 @@ fun btnOutlineBgRoundSemiMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -747,9 +826,11 @@ fun btnOutlineBgRoundSemiMedium03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -764,10 +845,12 @@ fun btnOutlineBgRoundSemiMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -785,9 +868,11 @@ fun btnOutlineBgRoundSemiMedium04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -802,10 +887,12 @@ fun btnOutlineBgRoundSemiMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -823,9 +910,11 @@ fun btnOutlineBgRoundSemiMedium05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -840,10 +929,12 @@ fun btnOutlineBgRoundSemiMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -861,9 +952,11 @@ fun btnOutlineBgRoundSemiMedium06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -878,10 +971,12 @@ fun btnTextRoundSemiMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -897,9 +992,10 @@ fun btnTextRoundSemiMedium01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
-        isRoundShape = true,
+        onClick = onClick,
     )
 }
 
@@ -914,10 +1010,12 @@ fun btnTextRoundSemiMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -933,9 +1031,11 @@ fun btnTextRoundSemiMedium02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -950,10 +1050,12 @@ fun btnTextRoundSemiMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -969,9 +1071,11 @@ fun btnTextRoundSemiMedium03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -986,10 +1090,12 @@ fun btnTextRoundSemiMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1005,9 +1111,11 @@ fun btnTextRoundSemiMedium04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -1022,10 +1130,12 @@ fun btnTextRoundSemiMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1041,9 +1151,11 @@ fun btnTextRoundSemiMedium05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -1058,10 +1170,12 @@ fun btnTextRoundSemiMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1077,9 +1191,11 @@ fun btnTextRoundSemiMedium06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 
@@ -1094,10 +1210,12 @@ fun btnTextRoundSemiMedium07(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1113,9 +1231,11 @@ fun btnTextRoundSemiMedium07(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
-        interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        overflow = overflow,
+        maxLines = maxLines,
+        interactionSource = interactionSource,
+        onClick = onClick,
     )
 }
 

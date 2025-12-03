@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
@@ -40,6 +41,8 @@ internal fun CoreButton(
     buttonStyle: ButtonStyle,
     buttonSize: ButtonSize,
     buttonColors: ButtonColors,
+    overflow: TextOverflow,
+    maxLines: Int,
     modifier: Modifier = Modifier,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     isRoundShape: Boolean = false,
@@ -105,6 +108,8 @@ internal fun CoreButton(
                         buttonStyle = buttonStyle
                     ),
                     color = contentColor,
+                    overflow = overflow,
+                    maxLines = maxLines
                 )
                 if (rightIcon != null) {
                     Icon(

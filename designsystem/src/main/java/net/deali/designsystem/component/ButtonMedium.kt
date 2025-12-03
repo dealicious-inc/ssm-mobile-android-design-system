@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonDefaults
@@ -19,7 +20,6 @@ import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun btnFilledMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -28,10 +28,13 @@ fun btnFilledMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -47,15 +50,16 @@ fun btnFilledMedium01(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 
 @Composable
 fun btnFilledMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -64,10 +68,13 @@ fun btnFilledMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -83,14 +90,15 @@ fun btnFilledMedium02(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -99,10 +107,13 @@ fun btnFilledMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -118,14 +129,15 @@ fun btnFilledMedium03(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -134,10 +146,13 @@ fun btnFilledMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -153,14 +168,15 @@ fun btnFilledMedium04(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -169,10 +185,13 @@ fun btnFilledMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -188,14 +207,15 @@ fun btnFilledMedium05(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -204,10 +224,13 @@ fun btnFilledMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -223,14 +246,15 @@ fun btnFilledMedium06(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -239,10 +263,13 @@ fun btnFilledTonalMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -258,14 +285,15 @@ fun btnFilledTonalMedium01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -274,10 +302,13 @@ fun btnFilledTonalMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -293,14 +324,15 @@ fun btnFilledTonalMedium02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -309,10 +341,13 @@ fun btnFilledTonalMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -328,14 +363,15 @@ fun btnFilledTonalMedium03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -344,10 +380,13 @@ fun btnFilledTonalMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -363,14 +402,15 @@ fun btnFilledTonalMedium04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -379,10 +419,13 @@ fun btnFilledTonalMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -398,14 +441,15 @@ fun btnFilledTonalMedium05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -414,10 +458,13 @@ fun btnFilledTonalMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -433,8 +480,10 @@ fun btnFilledTonalMedium06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -449,10 +498,11 @@ fun btnOutlineMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -470,8 +520,10 @@ fun btnOutlineMedium01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -486,10 +538,11 @@ fun btnOutlineMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -507,8 +560,10 @@ fun btnOutlineMedium02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -523,10 +578,11 @@ fun btnOutlineMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -544,8 +600,10 @@ fun btnOutlineMedium03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -560,10 +618,11 @@ fun btnOutlineMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -581,8 +640,10 @@ fun btnOutlineMedium04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -597,10 +658,11 @@ fun btnOutlineMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -618,8 +680,10 @@ fun btnOutlineMedium05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -634,10 +698,11 @@ fun btnOutlineMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -655,8 +720,10 @@ fun btnOutlineMedium06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -671,10 +738,11 @@ fun btnOutlineBgMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -692,8 +760,10 @@ fun btnOutlineBgMedium01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -708,10 +778,11 @@ fun btnOutlineBgMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -729,8 +800,10 @@ fun btnOutlineBgMedium03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -745,10 +818,11 @@ fun btnOutlineBgMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -766,8 +840,10 @@ fun btnOutlineBgMedium04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -782,10 +858,11 @@ fun btnOutlineBgMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -803,8 +880,10 @@ fun btnOutlineBgMedium05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -819,10 +898,11 @@ fun btnOutlineBgMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -840,8 +920,10 @@ fun btnOutlineBgMedium06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -856,10 +938,11 @@ fun btnTextMedium01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -875,8 +958,10 @@ fun btnTextMedium01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -891,10 +976,11 @@ fun btnTextMedium02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -910,8 +996,10 @@ fun btnTextMedium02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -926,10 +1014,11 @@ fun btnTextMedium03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -945,8 +1034,10 @@ fun btnTextMedium03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -961,10 +1052,11 @@ fun btnTextMedium04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -980,8 +1072,10 @@ fun btnTextMedium04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -996,10 +1090,11 @@ fun btnTextMedium05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1015,8 +1110,10 @@ fun btnTextMedium05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -1031,10 +1128,11 @@ fun btnTextMedium06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1050,8 +1148,10 @@ fun btnTextMedium06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 
@@ -1066,10 +1166,11 @@ fun btnTextMedium07(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     CoreButton(
-        onClick = onClick,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1085,8 +1186,10 @@ fun btnTextMedium07(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
+        onClick = onClick,
     )
 }
 

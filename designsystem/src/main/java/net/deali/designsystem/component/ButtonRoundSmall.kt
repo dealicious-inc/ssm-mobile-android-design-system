@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.internal.button.ButtonDefaults
@@ -19,7 +20,6 @@ import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun btnFilledRoundSmall01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -28,10 +28,13 @@ fun btnFilledRoundSmall01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -47,16 +50,17 @@ fun btnFilledRoundSmall01(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 
 @Composable
 fun btnFilledRoundSmall02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -65,10 +69,13 @@ fun btnFilledRoundSmall02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -84,15 +91,16 @@ fun btnFilledRoundSmall02(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSmall03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -101,10 +109,13 @@ fun btnFilledRoundSmall03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -120,15 +131,16 @@ fun btnFilledRoundSmall03(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSmall04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -137,10 +149,13 @@ fun btnFilledRoundSmall04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -156,15 +171,16 @@ fun btnFilledRoundSmall04(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSmall05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -173,10 +189,13 @@ fun btnFilledRoundSmall05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -192,15 +211,16 @@ fun btnFilledRoundSmall05(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledRoundSmall06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -209,10 +229,13 @@ fun btnFilledRoundSmall06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -228,15 +251,16 @@ fun btnFilledRoundSmall06(
             disabledContentColor = DealiColor.primary04,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -245,10 +269,13 @@ fun btnFilledTonalRoundSmall01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -264,15 +291,16 @@ fun btnFilledTonalRoundSmall01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -281,10 +309,13 @@ fun btnFilledTonalRoundSmall02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -300,15 +331,16 @@ fun btnFilledTonalRoundSmall02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -317,10 +349,13 @@ fun btnFilledTonalRoundSmall03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -336,15 +371,16 @@ fun btnFilledTonalRoundSmall03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -353,10 +389,13 @@ fun btnFilledTonalRoundSmall04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -372,15 +411,16 @@ fun btnFilledTonalRoundSmall04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -389,10 +429,13 @@ fun btnFilledTonalRoundSmall05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -408,15 +451,16 @@ fun btnFilledTonalRoundSmall05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnFilledTonalRoundSmall06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -425,10 +469,13 @@ fun btnFilledTonalRoundSmall06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -444,15 +491,16 @@ fun btnFilledTonalRoundSmall06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -461,10 +509,13 @@ fun btnOutlineRoundSmall01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -482,15 +533,16 @@ fun btnOutlineRoundSmall01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -499,10 +551,13 @@ fun btnOutlineRoundSmall02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -520,15 +575,16 @@ fun btnOutlineRoundSmall02(
             contentColor = DealiColor.primary04,
             disabledContentColor = DealiColor.w50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -537,10 +593,13 @@ fun btnOutlineRoundSmall03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -558,15 +617,16 @@ fun btnOutlineRoundSmall03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -575,10 +635,13 @@ fun btnOutlineRoundSmall04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -596,15 +659,16 @@ fun btnOutlineRoundSmall04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -613,10 +677,13 @@ fun btnOutlineRoundSmall05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -634,15 +701,16 @@ fun btnOutlineRoundSmall05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineRoundSmall06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -651,10 +719,13 @@ fun btnOutlineRoundSmall06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -672,15 +743,16 @@ fun btnOutlineRoundSmall06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineBgRoundSmall01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -689,10 +761,13 @@ fun btnOutlineBgRoundSmall01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -710,15 +785,16 @@ fun btnOutlineBgRoundSmall01(
             contentColor = DealiColor.primary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineBgRoundSmall03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -727,10 +803,13 @@ fun btnOutlineBgRoundSmall03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -748,15 +827,16 @@ fun btnOutlineBgRoundSmall03(
             contentColor = DealiColor.secondary01,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineBgRoundSmall04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -765,10 +845,13 @@ fun btnOutlineBgRoundSmall04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -786,15 +869,16 @@ fun btnOutlineBgRoundSmall04(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineBgRoundSmall05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -803,10 +887,13 @@ fun btnOutlineBgRoundSmall05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -824,15 +911,16 @@ fun btnOutlineBgRoundSmall05(
             contentColor = DealiColor.g100,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnOutlineBgRoundSmall06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -841,10 +929,13 @@ fun btnOutlineBgRoundSmall06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -862,15 +953,16 @@ fun btnOutlineBgRoundSmall06(
             contentColor = DealiColor.g80,
             disabledContentColor = DealiColor.g50,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -879,10 +971,13 @@ fun btnTextRoundSmall01(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -898,15 +993,16 @@ fun btnTextRoundSmall01(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -915,10 +1011,13 @@ fun btnTextRoundSmall02(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -934,15 +1033,16 @@ fun btnTextRoundSmall02(
             disabledContentColor = DealiColor.w50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -951,10 +1051,13 @@ fun btnTextRoundSmall03(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -970,15 +1073,16 @@ fun btnTextRoundSmall03(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -987,10 +1091,13 @@ fun btnTextRoundSmall04(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1006,15 +1113,16 @@ fun btnTextRoundSmall04(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1023,10 +1131,13 @@ fun btnTextRoundSmall05(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1042,15 +1153,16 @@ fun btnTextRoundSmall05(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1059,10 +1171,13 @@ fun btnTextRoundSmall06(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1078,15 +1193,16 @@ fun btnTextRoundSmall06(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
 @Composable
 fun btnTextRoundSmall07(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1095,10 +1211,13 @@ fun btnTextRoundSmall07(
     enabled: Boolean = true,
     loading: Boolean = false,
     iconColor: Color? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
-        onClick = onClick,
+        modifier = modifier,
         text = text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -1114,9 +1233,11 @@ fun btnTextRoundSmall07(
             disabledContentColor = DealiColor.g50,
             iconColor = iconColor,
         ),
+        overflow = overflow,
+        maxLines = maxLines,
         interactionSource = interactionSource,
-        modifier = modifier,
         isRoundShape = true,
+        onClick = onClick,
     )
 }
 
