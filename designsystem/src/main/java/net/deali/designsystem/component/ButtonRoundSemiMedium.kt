@@ -752,7 +752,6 @@ fun btnOutlineRoundSemiMedium06(
 
 @Composable
 fun btnOutlineBgRoundSemiMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -764,6 +763,7 @@ fun btnOutlineBgRoundSemiMedium01(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -794,7 +794,6 @@ fun btnOutlineBgRoundSemiMedium01(
 
 @Composable
 fun btnOutlineBgRoundSemiMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -806,6 +805,7 @@ fun btnOutlineBgRoundSemiMedium03(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -836,7 +836,6 @@ fun btnOutlineBgRoundSemiMedium03(
 
 @Composable
 fun btnOutlineBgRoundSemiMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -848,6 +847,7 @@ fun btnOutlineBgRoundSemiMedium04(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -878,7 +878,6 @@ fun btnOutlineBgRoundSemiMedium04(
 
 @Composable
 fun btnOutlineBgRoundSemiMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -890,6 +889,7 @@ fun btnOutlineBgRoundSemiMedium05(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -920,7 +920,6 @@ fun btnOutlineBgRoundSemiMedium05(
 
 @Composable
 fun btnOutlineBgRoundSemiMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -932,6 +931,7 @@ fun btnOutlineBgRoundSemiMedium06(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -962,7 +962,6 @@ fun btnOutlineBgRoundSemiMedium06(
 
 @Composable
 fun btnTextRoundSemiMedium01(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -974,6 +973,7 @@ fun btnTextRoundSemiMedium01(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1001,7 +1001,6 @@ fun btnTextRoundSemiMedium01(
 
 @Composable
 fun btnTextRoundSemiMedium02(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1013,6 +1012,7 @@ fun btnTextRoundSemiMedium02(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1041,7 +1041,6 @@ fun btnTextRoundSemiMedium02(
 
 @Composable
 fun btnTextRoundSemiMedium03(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1053,6 +1052,7 @@ fun btnTextRoundSemiMedium03(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1081,7 +1081,6 @@ fun btnTextRoundSemiMedium03(
 
 @Composable
 fun btnTextRoundSemiMedium04(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1093,6 +1092,7 @@ fun btnTextRoundSemiMedium04(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1121,7 +1121,6 @@ fun btnTextRoundSemiMedium04(
 
 @Composable
 fun btnTextRoundSemiMedium05(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1133,6 +1132,7 @@ fun btnTextRoundSemiMedium05(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1161,7 +1161,6 @@ fun btnTextRoundSemiMedium05(
 
 @Composable
 fun btnTextRoundSemiMedium06(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1173,6 +1172,7 @@ fun btnTextRoundSemiMedium06(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1201,7 +1201,6 @@ fun btnTextRoundSemiMedium06(
 
 @Composable
 fun btnTextRoundSemiMedium07(
-    onClick: () -> Unit,
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -1213,6 +1212,7 @@ fun btnTextRoundSemiMedium07(
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
