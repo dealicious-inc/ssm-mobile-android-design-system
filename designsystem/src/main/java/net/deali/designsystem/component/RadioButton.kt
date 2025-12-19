@@ -23,9 +23,9 @@ import net.deali.designsystem.util.getRandomText
 
 @Composable
 fun RadioButton(
-    text: String,
     selected: Boolean,
     modifier: Modifier = Modifier,
+    text: String = "",
     enabled: Boolean = true,
     onClick: () -> Unit
 ) {
@@ -47,16 +47,19 @@ fun RadioButton(
             selected = selected,
             enabled = enabled
         )
-        DealiText(
-            modifier = Modifier
-                .padding(start = 8.dp),
-            text = text,
-            style = DealiFont.b2r14,
-            color = when {
-                enabled.not() -> DealiColor.g50
-                else -> DealiColor.g100
-            }
-        )
+
+        if (text.isNotEmpty()) {
+            DealiText(
+                modifier = Modifier
+                    .padding(start = 8.dp),
+                text = text,
+                style = DealiFont.b2r14,
+                color = when {
+                    enabled.not() -> DealiColor.g50
+                    else -> DealiColor.g100
+                }
+            )
+        }
     }
 }
 
@@ -98,6 +101,22 @@ private fun RadioButtonPreview() {
 
         RadioButton(
             text = getRandomText(3),
+            selected = false,
+            enabled = false,
+            onClick = {}
+        )
+
+        RadioButton(
+            selected = false,
+            onClick = {}
+        )
+
+        RadioButton(
+            selected = true,
+            onClick = {}
+        )
+
+        RadioButton(
             selected = false,
             enabled = false,
             onClick = {}
