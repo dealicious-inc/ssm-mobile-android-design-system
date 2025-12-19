@@ -95,7 +95,7 @@ class AlertDialog private constructor(
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
-                                color = DealiColor.g70
+                                color = DealiColor.g80
                             )
                         }
 
@@ -117,7 +117,7 @@ class AlertDialog private constructor(
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
-                                color = DealiColor.g70
+                                color = DealiColor.g80
                             )
                             Spacer(modifier = Modifier.height(16.dp))
                             contentStrategy.content()
@@ -128,7 +128,7 @@ class AlertDialog private constructor(
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
-                                color = DealiColor.g70
+                                color = DealiColor.g80
                             )
                         }
 
@@ -137,7 +137,7 @@ class AlertDialog private constructor(
                             DealiText(
                                 text = contentStrategy.message,
                                 style = DealiFont.sh3r16,
-                                color = DealiColor.g70
+                                color = DealiColor.g80
                             )
                             Spacer(modifier = Modifier.height(16.dp))
                             contentStrategy.content()

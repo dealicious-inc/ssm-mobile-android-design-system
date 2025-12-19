@@ -149,7 +149,7 @@ fun Alert(
         DealiText(
             text = contentText,
             style = DealiFont.b1r15,
-            color = DealiColor.g70
+            color = DealiColor.g80
         )
         Spacer(modifier = Modifier.height(24.dp))
         Row(
@@ -220,7 +220,7 @@ fun Alert(
         DealiText(
             text = contentText,
             style = DealiFont.b1r15,
-            color = DealiColor.g70
+            color = DealiColor.g80
         )
         Spacer(modifier = Modifier.height(16.dp))
         content()
@@ -497,7 +497,7 @@ fun AlertSingleButton(
         DealiText(
             text = contentText,
             style = DealiFont.b1r15,
-            color = DealiColor.g70
+            color = DealiColor.g80
         )
         Spacer(modifier = Modifier.height(24.dp))
         btnFilledMedium01(
