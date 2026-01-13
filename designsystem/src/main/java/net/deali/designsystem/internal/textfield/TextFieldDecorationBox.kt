@@ -40,8 +40,8 @@ import net.deali.designsystem.theme.DealiFont
 @Composable
 internal fun DealiTextFieldDecorationBox(
     state: DealiTextFieldState,
-    colors: DealiTextFieldColors,
-    paddings: DealiTextFieldPaddingValues,
+    colors: TextFieldColors,
+    paddings: TextFieldPaddings,
     interactionSource: MutableInteractionSource,
     isValueEmpty: Boolean,
     placeholder: String?,
@@ -219,7 +219,7 @@ internal fun DealiTextFieldDecorationBox(
 @Composable
 private fun LabelText(
     label: String?,
-    colors: DealiTextFieldColors,
+    colors: TextFieldColors,
     modifier: Modifier = Modifier
 ) {
     val textColor by colors.labelTextColor()
@@ -236,7 +236,7 @@ private fun LabelText(
 private fun PlaceholderText(
     placeholder: String?,
     isVisible: Boolean,
-    colors: DealiTextFieldColors,
+    colors: TextFieldColors,
     maxLines: Int,
     overflow: TextOverflow,
     state: DealiTextFieldState,
@@ -259,7 +259,7 @@ private fun PlaceholderText(
 private fun HelperText(
     helperText: String?,
     isError: Boolean,
-    colors: DealiTextFieldColors,
+    colors: TextFieldColors,
     modifier: Modifier = Modifier
 ) {
     val textColor by colors.helperTextColor(isError)
@@ -276,7 +276,7 @@ private fun HelperText(
 private fun CounterText(
     textLength: Int,
     maxLength: Int,
-    colors: DealiTextFieldColors,
+    colors: TextFieldColors,
     modifier: Modifier = Modifier
 ) {
     val textColor by colors.helperTextColor(false)
@@ -291,8 +291,8 @@ private fun CounterText(
 
 @Composable
 private fun InnerTextField(
-    colors: DealiTextFieldColors,
-    paddings: DealiTextFieldPaddingValues,
+    colors: TextFieldColors,
+    paddings: TextFieldPaddings,
     placeholder: String?,
     isPlaceholderVisible: Boolean,
     placeholderMaxLines: Int,

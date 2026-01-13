@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ChainStyle
@@ -199,7 +200,9 @@ private fun InnerText(
                 .weight(1f),
             text = value,
             style = DealiFont.b2r14,
-            color = contentColor
+            color = contentColor,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
         )
 
         HorizontalSpacer(width = 16.dp)
