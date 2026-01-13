@@ -36,7 +36,7 @@ internal object DealiTextFieldDefaults {
             decoratedStart = 6.dp,
             decoratedEnd = 12.dp,
             horizontal = 16.dp,
-            vertical = 12.dp
+            vertical = 13.dp
         )
     }
 
