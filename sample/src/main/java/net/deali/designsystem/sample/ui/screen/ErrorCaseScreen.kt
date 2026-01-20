@@ -80,8 +80,8 @@ fun ErrorCaseScreen(
             ErrorCase(
                 modifier = errorCaseModifier,
                 content = getRandomText(3),
-                state = ErrorCaseState.REFRESH,
                 buttonText = "ButtonText",
+                state = ErrorCaseState.REFRESH,
                 onClick = {}
             )
 
@@ -91,8 +91,8 @@ fun ErrorCaseScreen(
                 modifier = errorCaseModifier,
                 title = getRandomText(2),
                 content = getRandomText(4),
-                state = ErrorCaseState.REFRESH,
                 buttonText = "ButtonText",
+                state = ErrorCaseState.REFRESH,
                 onClick = {},
             )
 
@@ -114,8 +114,8 @@ fun ErrorCaseScreen(
             ErrorCase(
                 modifier = errorCaseModifier,
                 content = getRandomText(3),
-                imageRes = R.drawable.img_mbs_filled,
                 buttonText = "ButtonText",
+                imageRes = R.drawable.img_mbs_filled,
                 onClick = {}
             )
 
@@ -125,8 +125,8 @@ fun ErrorCaseScreen(
                 modifier = errorCaseModifier,
                 title = getRandomText(2),
                 content = getRandomText(4),
-                imageRes = R.drawable.img_mbs_filled,
                 buttonText = "ButtonText",
+                imageRes = R.drawable.img_mbs_filled,
                 onClick = {},
             )
 

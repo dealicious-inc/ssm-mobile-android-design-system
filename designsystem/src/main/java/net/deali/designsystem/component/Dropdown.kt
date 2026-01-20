@@ -41,6 +41,7 @@ import net.deali.designsystem.util.click.singleClickable
 @Composable
 fun Dropdown(
     value: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     label: String? = null,
     isNecessary: Boolean = false,
@@ -50,7 +51,6 @@ fun Dropdown(
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
     isDisabled: Boolean = false,
-    onClick: () -> Unit,
 ) {
     val isLabelVisible = !label.isNullOrEmpty() || isNecessary
 
@@ -147,12 +147,12 @@ fun Dropdown(
 @Composable
 private fun InnerText(
     value: String,
+    onClick: () -> Unit,
     @DrawableRes icon: Int?,
     isOpen: Boolean,
     isDisabled: Boolean,
     modifier: Modifier = Modifier,
     iconColor: Color = Color.Unspecified,
-    onClick: () -> Unit,
 ) {
     val contentColor = if (isDisabled) DealiColor.g70 else DealiColor.g100
     val backgroundColor = if (isDisabled) DealiColor.g10 else DealiColor.primary04

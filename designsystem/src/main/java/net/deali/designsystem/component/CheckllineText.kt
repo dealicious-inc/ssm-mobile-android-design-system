@@ -34,10 +34,10 @@ import net.deali.designsystem.util.icon.Checkline
 fun ChecklineText(
     checked: Boolean,
     text: String,
+    onCheck: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isAd: Boolean = false,
-    onCheck: () -> Unit,
 ) {
     Row(
         modifier = Modifier

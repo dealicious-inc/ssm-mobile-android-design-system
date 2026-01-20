@@ -61,10 +61,9 @@ fun SearchInputScreen(onBackPress: () -> Unit) {
 
             TextInput(
                 value = placeholder,
-                onValueChange = { placeholder = it },
                 placeholder = "Placeholder를 수정해 보세요.",
                 label = "Placeholder",
-                modifier = Modifier,
+                onValueChange = { placeholder = it },
             )
         }
     }

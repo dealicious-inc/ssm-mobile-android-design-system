@@ -31,8 +31,8 @@ import net.deali.designsystem.theme.DealiColor
 
 @Composable
 fun chipOutlineSmall01(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -81,8 +81,8 @@ fun chipOutlineSmall01(
 
 @Composable
 fun chipOutlineSmall01(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -117,8 +117,8 @@ fun chipOutlineSmall01(
 
 @Composable
 fun chipOutlineSquareSmall01(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -167,8 +167,8 @@ fun chipOutlineSquareSmall01(
 
 @Composable
 fun chipOutlineSquareSmall01(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -203,8 +203,8 @@ fun chipOutlineSquareSmall01(
 
 @Composable
 fun chipFilledSmall01(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -253,8 +253,8 @@ fun chipFilledSmall01(
 
 @Composable
 fun chipFilledSmall01(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -289,8 +289,8 @@ fun chipFilledSmall01(
 
 @Composable
 fun chipFilledSmall02(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -340,8 +340,8 @@ fun chipFilledSmall02(
 
 @Composable
 fun chipFilledSmall02(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -376,8 +376,8 @@ fun chipFilledSmall02(
 
 @Composable
 fun chipFilledSmall03(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -427,8 +427,8 @@ fun chipFilledSmall03(
 
 @Composable
 fun chipFilledSmall03(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -463,8 +463,8 @@ fun chipFilledSmall03(
 
 @Composable
 fun chipFilledSquareSmall01(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -513,8 +513,8 @@ fun chipFilledSquareSmall01(
 
 @Composable
 fun chipFilledSquareSmall01(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -549,8 +549,8 @@ fun chipFilledSquareSmall01(
 
 @Composable
 fun chipFilledSquareSmall02(
-    onClick: () -> Unit,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -596,8 +596,8 @@ fun chipFilledSquareSmall02(
 
 @Composable
 fun chipFilledSquareSmall02(
-    onClick: () -> Unit,
     @DrawableRes icon: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     iconColor: Color? = Color.Unspecified,
     clickable: Boolean = true,
@@ -630,9 +630,9 @@ fun chipFilledSquareSmall02(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01OnlyTexts")
 fun chipFilledDepthSmall01(
+    texts: List<String>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    texts: List<String>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -692,9 +692,9 @@ fun chipFilledDepthSmall01(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01OnlyIcons")
 fun chipFilledDepthSmall01(
+    icons: List<Int>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    icons: List<Int>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -751,9 +751,9 @@ fun chipFilledDepthSmall01(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01TextsAndIcons")
 fun chipFilledDepthSmall01(
+    contents: List<Triple<Int?, String, Int?>>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    contents: List<Triple<Int?, String, Int?>>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -833,9 +833,9 @@ fun chipFilledDepthSmall01(
 
 @Composable
 fun chipFilledImageSmall01(
-    onClick: () -> Unit,
     imageUrl: String,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     useRemoveIcon: Boolean = false,
     onRemoveClick: () -> Unit = {},
@@ -899,10 +899,10 @@ fun chipFilledImageSmall01(
 
 @Composable
 fun chipFilledImageDepthSmall01(
-    onClick: () -> Unit,
-    onRemoveClick: () -> Unit,
     imageUrl: String,
     texts: List<String>,
+    onClick: () -> Unit,
+    onRemoveClick: () -> Unit,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,

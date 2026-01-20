@@ -32,12 +32,12 @@ fun Tooltip(
     text: String,
     isShow: Boolean,
     colorState: TooltipColorState,
+    onDismiss: () -> Unit = {},
+    content: @Composable (Modifier) -> Unit,
     modifier: Modifier = Modifier,
     arrowDirectionState: TooltipArrowDirectionState? = null,
     maxWidth: Dp = Dp.Unspecified,
     bubblePaddingY: Dp = 2.dp,
-    onDismiss: () -> Unit = {},
-    content: @Composable (Modifier) -> Unit
 ) {
     Box(
         modifier = modifier,

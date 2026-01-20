@@ -238,12 +238,12 @@ private fun BtnFilledSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -263,12 +263,12 @@ private fun BtnFilledSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -287,12 +287,12 @@ private fun BtnFilledSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -311,12 +311,12 @@ private fun BtnFilledSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -335,12 +335,12 @@ private fun BtnFilledSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -359,12 +359,12 @@ private fun BtnFilledSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -383,12 +383,12 @@ private fun BtnRoundFilledSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledRoundSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -408,12 +408,12 @@ private fun BtnRoundFilledSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledRoundSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -432,12 +432,12 @@ private fun BtnRoundFilledSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledRoundSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -456,12 +456,12 @@ private fun BtnFilledTonalSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -481,12 +481,12 @@ private fun BtnFilledTonalSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -506,12 +506,12 @@ private fun BtnFilledTonalSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -530,12 +530,12 @@ private fun BtnFilledTonalSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -554,12 +554,12 @@ private fun BtnFilledTonalSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -578,12 +578,12 @@ private fun BtnFilledTonalSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -602,12 +602,12 @@ private fun BtnFilledTonalRoundSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -626,12 +626,12 @@ private fun BtnFilledTonalRoundSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -650,12 +650,12 @@ private fun BtnFilledTonalRoundSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -674,12 +674,12 @@ private fun BtnFilledTonalRoundSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -698,12 +698,12 @@ private fun BtnFilledTonalRoundSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -722,12 +722,12 @@ private fun BtnFilledTonalRoundSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalRoundSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -746,12 +746,12 @@ private fun BtnOutlineSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -770,12 +770,12 @@ private fun BtnOutlineSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -794,12 +794,12 @@ private fun BtnOutlineSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -818,12 +818,12 @@ private fun BtnOutlineSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -842,12 +842,12 @@ private fun BtnOutlineSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -866,12 +866,12 @@ private fun BtnOutlineSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -890,12 +890,12 @@ private fun BtnOutlineRoundSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -914,12 +914,12 @@ private fun BtnOutlineRoundSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -938,12 +938,12 @@ private fun BtnOutlineRoundSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -962,12 +962,12 @@ private fun BtnOutlineRoundSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -986,12 +986,12 @@ private fun BtnOutlineRoundSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1010,12 +1010,12 @@ private fun BtnOutlineRoundSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineRoundSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1035,12 +1035,12 @@ private fun BtnOutlineBgSmall01Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1060,12 +1060,12 @@ private fun BtnOutlineBgSmall03Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1085,12 +1085,12 @@ private fun BtnOutlineBgSmall04Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1110,12 +1110,12 @@ private fun BtnOutlineBgSmall05Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1135,12 +1135,12 @@ private fun BtnOutlineBgSmall06Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1160,12 +1160,12 @@ private fun BtnOutlineBgRoundSmall01Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgRoundSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1185,12 +1185,12 @@ private fun BtnOutlineBgRoundSmall03Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgRoundSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1210,12 +1210,12 @@ private fun BtnOutlineBgRoundSmall04Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgRoundSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1235,12 +1235,12 @@ private fun BtnOutlineBgRoundSmall05Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgRoundSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1260,12 +1260,12 @@ private fun BtnOutlineBgRoundSmall06Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgRoundSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1284,12 +1284,12 @@ private fun BtnTextRoundSmall01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1308,12 +1308,12 @@ private fun BtnTextRoundSmall02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1332,12 +1332,12 @@ private fun BtnTextRoundSmall03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1356,12 +1356,12 @@ private fun BtnTextRoundSmall04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1380,12 +1380,12 @@ private fun BtnTextRoundSmall05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1404,12 +1404,12 @@ private fun BtnTextRoundSmall06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -1428,12 +1428,12 @@ private fun BtnTextRoundSmall07Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextSmall07(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }

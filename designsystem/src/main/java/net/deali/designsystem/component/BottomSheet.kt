@@ -53,10 +53,10 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
-    modifier: Modifier = Modifier,
-    title: String? = null,
     text: String,
     onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    title: String? = null,
     hideXButton: Boolean = false,
 ) {
     Column(modifier = modifier) {
@@ -85,15 +85,15 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
-    modifier: Modifier = Modifier,
-    title: String? = null,
     text: String,
     buttonText: String,
+    onButtonClick: () -> Unit,
+    onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    title: String? = null,
     isButtonEnabled: Boolean = true,
     isButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
-    onButtonClick: () -> Unit,
-    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -128,20 +128,20 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
-    modifier: Modifier = Modifier,
-    title: String? = null,
     text: String,
     primaryButtonText: String,
     secondaryButtonText: String,
+    onPrimaryButtonClick: () -> Unit,
+    onSecondaryButtonClick: () -> Unit,
+    onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    title: String? = null,
     isPrimaryButtonEnabled: Boolean = true,
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
     useGraySecondary: Boolean = false,
     hideXButton: Boolean = false,
-    onPrimaryButtonClick: () -> Unit,
-    onSecondaryButtonClick: () -> Unit,
-    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -181,10 +181,10 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
+    onDismiss: () -> Unit = {},
     modifier: Modifier = Modifier,
     title: String? = null,
     hideXButton: Boolean = false,
-    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -212,14 +212,14 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
+    buttonText: String,
+    onButtonClick: () -> Unit,
+    onDismiss: () -> Unit = {},
     modifier: Modifier = Modifier,
     title: String? = null,
-    buttonText: String,
     isButtonEnabled: Boolean = true,
     isButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
-    onButtonClick: () -> Unit,
-    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -254,19 +254,19 @@ fun BottomSheet(
  */
 @Composable
 fun BottomSheet(
-    modifier: Modifier = Modifier,
-    title: String? = null,
     primaryButtonText: String,
     secondaryButtonText: String,
+    onPrimaryButtonClick: () -> Unit,
+    onSecondaryButtonClick: () -> Unit,
+    onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    title: String? = null,
     isPrimaryButtonEnabled: Boolean = true,
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
     hideXButton: Boolean = false,
     useGraySecondary: Boolean = false,
-    onPrimaryButtonClick: () -> Unit,
-    onSecondaryButtonClick: () -> Unit,
-    onDismiss: () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -306,10 +306,10 @@ fun BottomSheet(
  */
 @Composable
 fun DatePickerBottomSheet(
+    onDismiss: () -> Unit = {},
     modifier: Modifier = Modifier,
     title: String? = null,
     hideXButton: Boolean = false,
-    onDismiss: () -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -332,11 +332,11 @@ fun DatePickerBottomSheet(
 @Composable
 fun BottomSheetSingleSelectOption(
     title: String,
-    modifier: Modifier = Modifier,
     singleSelectOptionList: List<SingleSelectOption>,
     onSelectOption: (index: Int) -> Unit,
-    hideXButton: Boolean = false,
     onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    hideXButton: Boolean = false,
 ) {
     Column(modifier = modifier) {
         BottomSheetHeader(
@@ -356,10 +356,10 @@ fun BottomSheetSingleSelectOption(
 
 @Composable
 fun BottomSheetHeader(
-    modifier: Modifier = Modifier,
     title: String,
-    hideXButton: Boolean = false,
     onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
+    hideXButton: Boolean = false,
 ) {
     Row(
         modifier = modifier
@@ -391,8 +391,8 @@ fun BottomSheetHeader(
 
 @Composable
 fun BottomSheetHeaderArrowClose(
-    modifier: Modifier = Modifier,
     onDismiss: () -> Unit = {},
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
@@ -423,10 +423,10 @@ fun BottomSheetHeaderArrowClose(
 @Composable
 fun BottomSheetFooterOneButton(
     buttonText: String,
+    onButtonClick: () -> Unit,
     modifier: Modifier = Modifier,
     isButtonEnabled: Boolean = true,
     isButtonLoading: Boolean = false,
-    onButtonClick: () -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -455,14 +455,14 @@ fun BottomSheetFooterOneButton(
 fun BottomSheetFooterTwoButtons(
     primaryButtonText: String,
     secondaryButtonText: String,
+    onPrimaryButtonClick: () -> Unit,
+    onSecondaryButtonClick: () -> Unit,
     modifier: Modifier = Modifier,
     isPrimaryButtonEnabled: Boolean = true,
     isSecondaryButtonEnabled: Boolean = true,
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
     useGraySecondary: Boolean = false,
-    onPrimaryButtonClick: () -> Unit,
-    onSecondaryButtonClick: () -> Unit,
 ) {
     Row(
         modifier = modifier
@@ -505,8 +505,8 @@ fun BottomSheetFooterTwoButtons(
 @Composable
 fun BottomSheetOption(
     text: String,
-    isSelected: Boolean = false,
     onClick: () -> Unit,
+    isSelected: Boolean = false,
 ) {
     Row(
         modifier = Modifier
@@ -540,10 +540,10 @@ fun BottomSheetOption(
 @Composable
 fun BottomSheetOption(
     text: String,
-    isSelected: Boolean = false,
     iconRes: Int,
-    iconColor: Color = DealiColor.g100,
     onClick: () -> Unit,
+    isSelected: Boolean = false,
+    iconColor: Color = DealiColor.g100,
 ) {
     Row(
         modifier = Modifier
@@ -586,13 +586,13 @@ fun BottomSheetOption(
 @Composable
 fun BottomSheetOption24(
     text: String,
+    onClick: () -> Unit,
+    leftContent: @Composable () -> Unit,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
-    leftContent: @Composable () -> Unit,
     rightIconRes: Int = 0,
     rightIconColor: Color = DealiColor.g100,
     isShowRightIcon: Boolean = true,
-    onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -640,13 +640,13 @@ fun BottomSheetOption24(
 @Composable
 fun BottomSheetOption32(
     text: String,
+    rightIconRes: Int,
+    onClick: () -> Unit,
+    leftContent: @Composable () -> Unit,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
-    leftContent: @Composable () -> Unit,
-    rightIconRes: Int,
     rightIconColor: Color = DealiColor.g100,
     isShowRightIcon: Boolean = true,
-    onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -694,13 +694,13 @@ fun BottomSheetOption32(
 @Composable
 fun BottomSheetOption40(
     text: String,
+    rightIconRes: Int,
+    onClick: () -> Unit,
+    leftContent: @Composable () -> Unit,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
-    leftContent: @Composable () -> Unit,
-    rightIconRes: Int,
     rightIconColor: Color = DealiColor.g100,
     isShowRightIcon: Boolean = true,
-    onClick: () -> Unit,
 ) {
     Row(
         modifier = Modifier

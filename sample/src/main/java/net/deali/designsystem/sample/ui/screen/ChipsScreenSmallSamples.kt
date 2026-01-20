@@ -58,8 +58,8 @@ private fun ChipOutlineSmall01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipOutlineSmall01(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipOutlineSmall01(
                 onClick = {},
@@ -73,16 +73,16 @@ private fun ChipOutlineSmall01Samples() {
             )
 
             chipOutlineSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -97,9 +97,9 @@ private fun ChipOutlineSmall01Samples() {
             )
 
             chipOutlineSmall01(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipOutlineSmall01(
                 onClick = {},
@@ -115,15 +115,15 @@ private fun ChipOutlineSmall01Samples() {
             )
 
             chipOutlineSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -165,31 +165,31 @@ private fun ChipOutlineSquareSmall01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipOutlineSquareSmall01(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipOutlineSquareSmall01(
-                onClick = {},
                 text = "Selected",
                 selected = true,
+                onClick = {},
             )
             chipOutlineSquareSmall01(
-                onClick = {},
                 text = "Disabled",
                 enabled = false,
+                onClick = {},
             )
 
             chipOutlineSquareSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineSquareSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -204,9 +204,9 @@ private fun ChipOutlineSquareSmall01Samples() {
             )
 
             chipOutlineSquareSmall01(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipOutlineSquareSmall01(
                 onClick = {},
@@ -222,15 +222,15 @@ private fun ChipOutlineSquareSmall01Samples() {
             )
 
             chipOutlineSquareSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineSquareSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -272,8 +272,8 @@ private fun ChipFilledSmall01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipFilledSmall01(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipFilledSmall01(
                 onClick = {},
@@ -287,16 +287,16 @@ private fun ChipFilledSmall01Samples() {
             )
 
             chipFilledSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -311,9 +311,9 @@ private fun ChipFilledSmall01Samples() {
             )
 
             chipFilledSmall01(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipFilledSmall01(
                 onClick = {},
@@ -329,15 +329,15 @@ private fun ChipFilledSmall01Samples() {
             )
 
             chipFilledSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -380,8 +380,8 @@ private fun ChipFilledSmall02Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipFilledSmall02(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipFilledSmall02(
                 onClick = {},
@@ -395,16 +395,16 @@ private fun ChipFilledSmall02Samples() {
             )
 
             chipFilledSmall02(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall02(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -419,9 +419,9 @@ private fun ChipFilledSmall02Samples() {
             )
 
             chipFilledSmall02(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipFilledSmall02(
                 onClick = {},
@@ -437,15 +437,15 @@ private fun ChipFilledSmall02Samples() {
             )
 
             chipFilledSmall02(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall02(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -487,8 +487,8 @@ private fun ChipFilledSmall03Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipFilledSmall03(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipFilledSmall03(
                 onClick = {},
@@ -502,16 +502,16 @@ private fun ChipFilledSmall03Samples() {
             )
 
             chipFilledSmall03(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall03(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -526,9 +526,9 @@ private fun ChipFilledSmall03Samples() {
             )
 
             chipFilledSmall03(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipFilledSmall03(
                 onClick = {},
@@ -544,15 +544,15 @@ private fun ChipFilledSmall03Samples() {
             )
 
             chipFilledSmall03(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSmall03(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -595,8 +595,8 @@ private fun ChipFilledSquareSmall01Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipFilledSquareSmall01(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipFilledSquareSmall01(
                 onClick = {},
@@ -610,16 +610,16 @@ private fun ChipFilledSquareSmall01Samples() {
             )
 
             chipFilledSquareSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -634,9 +634,9 @@ private fun ChipFilledSquareSmall01Samples() {
             )
 
             chipFilledSquareSmall01(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipFilledSquareSmall01(
                 onClick = {},
@@ -652,15 +652,15 @@ private fun ChipFilledSquareSmall01Samples() {
             )
 
             chipFilledSquareSmall01(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareSmall01(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -702,8 +702,8 @@ private fun ChipFilledSquareSmall02Samples() {
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             chipFilledSquareSmall02(
-                onClick = {},
                 text = "Text",
+                onClick = {},
             )
             chipFilledSquareSmall02(
                 onClick = {},
@@ -717,16 +717,16 @@ private fun ChipFilledSquareSmall02Samples() {
             )
 
             chipFilledSquareSmall02(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareSmall02(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 leftIcon = R.drawable.ic_bookmark_1_filled,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
@@ -741,9 +741,9 @@ private fun ChipFilledSquareSmall02Samples() {
             )
 
             chipFilledSquareSmall02(
-                onClick = {},
                 text = "TTT",
                 leftIcon = R.drawable.ic_check,
+                onClick = {},
             )
             chipFilledSquareSmall02(
                 onClick = {},
@@ -759,15 +759,15 @@ private fun ChipFilledSquareSmall02Samples() {
             )
 
             chipFilledSquareSmall02(
+                text = "TTT",
                 onClick = {},
                 onRightIconClick = {},
-                text = "TTT",
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareSmall02(
+                text = "SSS",
                 onClick = {},
                 onRightIconClick = {},
-                text = "SSS",
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )

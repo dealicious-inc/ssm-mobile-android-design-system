@@ -77,10 +77,11 @@ fun TextAreaButtonScreen(onBackPress: () -> Unit) {
                 DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
-                        selected = state == innerState
-                    ) {
-                        state = innerState
-                    }
+                        selected = state == innerState,
+                        onClick = {
+                            state = innerState
+                        }
+                    )
                 }
             }
 
@@ -132,14 +133,14 @@ fun TextAreaButtonScreen(onBackPress: () -> Unit) {
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     chipOutlineSmall01(
-                        onClick = { actionButtonType = TextAreaActionButtonType.Send },
                         text = "Send",
-                        selected = actionButtonType == TextAreaActionButtonType.Send
+                        selected = actionButtonType == TextAreaActionButtonType.Send,
+                        onClick = { actionButtonType = TextAreaActionButtonType.Send }
                     )
                     chipOutlineSmall01(
-                        onClick = { actionButtonType = TextAreaActionButtonType.Upload },
                         text = "Upload",
-                        selected = actionButtonType == TextAreaActionButtonType.Upload
+                        selected = actionButtonType == TextAreaActionButtonType.Upload,
+                        onClick = { actionButtonType = TextAreaActionButtonType.Upload }
                     )
                 }
             }
@@ -187,11 +188,11 @@ private fun InputOption(
     modifier: Modifier = Modifier,
 ) {
     TextInput(
+        modifier = modifier,
         value = value,
-        onValueChange = onValueChange,
         placeholder = placeholder,
         label = title,
-        modifier = modifier,
+        onValueChange = onValueChange,
     )
 }
 

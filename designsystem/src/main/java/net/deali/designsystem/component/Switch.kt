@@ -18,10 +18,10 @@ import net.deali.designsystem.internal.switch.SwitchSize
 @Composable
 fun SwitchSmall(
     isOn: Boolean,
+    onChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onChange: (Boolean) -> Unit,
 ) {
     CoreSwitch(
         modifier = modifier,
@@ -36,10 +36,10 @@ fun SwitchSmall(
 @Composable
 fun SwitchLarge(
     isOn: Boolean,
+    onChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onChange: (Boolean) -> Unit,
 ) {
     CoreSwitch(
         modifier = modifier,

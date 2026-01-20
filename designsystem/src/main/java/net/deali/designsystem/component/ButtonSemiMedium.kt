@@ -21,17 +21,17 @@ import net.deali.designsystem.theme.DealiColor
 @Composable
 fun btnFilledSemiMedium01(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -60,17 +60,17 @@ fun btnFilledSemiMedium01(
 @Composable
 fun btnFilledSemiMedium02(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -99,17 +99,17 @@ fun btnFilledSemiMedium02(
 @Composable
 fun btnFilledSemiMedium03(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -138,17 +138,17 @@ fun btnFilledSemiMedium03(
 @Composable
 fun btnFilledSemiMedium04(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -177,17 +177,17 @@ fun btnFilledSemiMedium04(
 @Composable
 fun btnFilledSemiMedium05(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -216,17 +216,17 @@ fun btnFilledSemiMedium05(
 @Composable
 fun btnFilledSemiMedium06(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -255,17 +255,17 @@ fun btnFilledSemiMedium06(
 @Composable
 fun btnFilledTonalSemiMedium01(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -294,17 +294,17 @@ fun btnFilledTonalSemiMedium01(
 @Composable
 fun btnFilledTonalSemiMedium02(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -333,17 +333,17 @@ fun btnFilledTonalSemiMedium02(
 @Composable
 fun btnFilledTonalSemiMedium03(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -372,17 +372,17 @@ fun btnFilledTonalSemiMedium03(
 @Composable
 fun btnFilledTonalSemiMedium04(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -411,17 +411,17 @@ fun btnFilledTonalSemiMedium04(
 @Composable
 fun btnFilledTonalSemiMedium05(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -450,17 +450,17 @@ fun btnFilledTonalSemiMedium05(
 @Composable
 fun btnFilledTonalSemiMedium06(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -489,17 +489,17 @@ fun btnFilledTonalSemiMedium06(
 @Composable
 fun btnOutlineSemiMedium01(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -530,17 +530,17 @@ fun btnOutlineSemiMedium01(
 @Composable
 fun btnOutlineSemiMedium02(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -571,17 +571,17 @@ fun btnOutlineSemiMedium02(
 @Composable
 fun btnOutlineSemiMedium03(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -612,17 +612,17 @@ fun btnOutlineSemiMedium03(
 @Composable
 fun btnOutlineSemiMedium04(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -653,17 +653,17 @@ fun btnOutlineSemiMedium04(
 @Composable
 fun btnOutlineSemiMedium05(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -694,17 +694,17 @@ fun btnOutlineSemiMedium05(
 @Composable
 fun btnOutlineSemiMedium06(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -735,17 +735,17 @@ fun btnOutlineSemiMedium06(
 @Composable
 fun btnOutlineBgSemiMedium01(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -776,17 +776,17 @@ fun btnOutlineBgSemiMedium01(
 @Composable
 fun btnOutlineBgSemiMedium03(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -817,17 +817,17 @@ fun btnOutlineBgSemiMedium03(
 @Composable
 fun btnOutlineBgSemiMedium04(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -858,17 +858,17 @@ fun btnOutlineBgSemiMedium04(
 @Composable
 fun btnOutlineBgSemiMedium05(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -899,17 +899,17 @@ fun btnOutlineBgSemiMedium05(
 @Composable
 fun btnOutlineBgSemiMedium06(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -940,17 +940,17 @@ fun btnOutlineBgSemiMedium06(
 @Composable
 fun btnTextSemiMedium01(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -979,17 +979,17 @@ fun btnTextSemiMedium01(
 @Composable
 fun btnTextSemiMedium02(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1018,17 +1018,17 @@ fun btnTextSemiMedium02(
 @Composable
 fun btnTextSemiMedium03(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1057,17 +1057,17 @@ fun btnTextSemiMedium03(
 @Composable
 fun btnTextSemiMedium04(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1096,17 +1096,17 @@ fun btnTextSemiMedium04(
 @Composable
 fun btnTextSemiMedium05(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1135,17 +1135,17 @@ fun btnTextSemiMedium05(
 @Composable
 fun btnTextSemiMedium06(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,
@@ -1174,17 +1174,17 @@ fun btnTextSemiMedium06(
 @Composable
 fun btnTextSemiMedium07(
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
     @DrawableRes rightIcon: Int? = null,
-    clickable: Boolean = true,
     enabled: Boolean = true,
     loading: Boolean = false,
+    clickable: Boolean = true,
     iconColor: Color? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     maxLines: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
 ) {
     CoreButton(
         modifier = modifier,

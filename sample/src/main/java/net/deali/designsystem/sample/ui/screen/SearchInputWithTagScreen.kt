@@ -51,18 +51,16 @@ fun SearchInputWithTagScreen(onBackPress: () -> Unit) {
             HorizontalDivider(color = DealiColor.g20)
             TextInput(
                 value = placeholder,
-                onValueChange = { placeholder = it },
                 placeholder = "Placeholder를 수정해 보세요.",
                 label = "Placeholder",
-                modifier = Modifier,
+                onValueChange = { placeholder = it },
             )
             HorizontalDivider(color = DealiColor.g20)
             TextInput(
                 value = tagText,
-                onValueChange = { tagText = it },
                 placeholder = "Tag의 텍스트를 수정해보세요",
                 label = "Tag Text",
-                modifier = Modifier,
+                onValueChange = { tagText = it },
             )
         }
     }

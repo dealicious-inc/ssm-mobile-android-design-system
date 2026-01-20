@@ -36,45 +36,45 @@ fun FormsScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Text Input",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInput,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Text Input + Button",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToInputWithButton,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Text Area",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToTextArea,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Text Area + Buttons",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToTextAreaButton,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Search Input",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToSearchInput,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Search Input + Tag",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToSearchInputWithTag,
             )
             btnOutlineMedium01(
+                modifier = Modifier.fillMaxWidth(),
                 text = "Dropdown",
                 enabled = true,
-                modifier = Modifier.fillMaxWidth(),
                 onClick = navigateToDropdown,
             )
         }

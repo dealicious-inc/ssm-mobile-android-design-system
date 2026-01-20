@@ -76,8 +76,8 @@ fun MainScreen(
                         modifier = Modifier
                             .padding(4.dp)
                             .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
+                        text = item.route,
+                        onClick = { onClickMenu(item) }
                     )
                 }
 
@@ -120,8 +120,8 @@ fun MainScreen(
                         modifier = Modifier
                             .padding(4.dp)
                             .weight(1f),
-                        onClick = { onClickMenu(item) },
-                        text = item.route
+                        text = item.route,
+                        onClick = { onClickMenu(item) }
                     )
                 }
 

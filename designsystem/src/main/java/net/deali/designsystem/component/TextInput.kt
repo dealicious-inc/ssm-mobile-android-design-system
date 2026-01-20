@@ -66,13 +66,13 @@ fun TextInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    onPostRemoveIconClick: (() -> Unit)? = null,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
     innerLeadingContent: @Composable (() -> Unit)? = null,
     innerTrailingContent: @Composable (() -> Unit)? = null,
     innerFixedContent: @Composable (() -> Unit)? = null,
-    onPostRemoveIconClick: (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -163,13 +163,13 @@ fun TextInput(
     label: String? = null,
     helperText: String? = null,
     isHelperTextVisible: Boolean = false,
+    onPostRemoveIconClick: (() -> Unit)? = null,
     labelContent: @Composable (() -> Unit)? = null,
     leadingContent: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null,
     innerLeadingContent: @Composable (() -> Unit)? = null,
     innerTrailingContent: @Composable (() -> Unit)? = null,
     innerFixedContent: @Composable (() -> Unit)? = null,
-    onPostRemoveIconClick: (() -> Unit)? = null,
 ) {
     val focused by interactionSource.collectIsFocusedAsState()
     val shouldRemoveIconVisible by rememberUpdatedState(
@@ -221,9 +221,9 @@ fun TextInput(
 private fun Preview() {
     TextInput(
         value = "예제입니다",
-        onValueChange = {},
         isNecessary = true,
         label = "라벨입니다",
+        onValueChange = {},
         innerTrailingContent = {
             Icon(
                 iconRes = R.drawable.ic_addaccount,

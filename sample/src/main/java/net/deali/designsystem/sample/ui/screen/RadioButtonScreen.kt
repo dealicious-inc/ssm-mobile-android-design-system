@@ -55,8 +55,8 @@ fun RadioButtonScreen(
                 RadioButton(
                     text = "$label / selected : ${selectedItem == label} / enabled : ${index != radioOptions.lastIndex}",
                     selected = (selectedItem == label),
-                    onClick = { selectedItem = label },
-                    enabled = index != radioOptions.lastIndex
+                    enabled = index != radioOptions.lastIndex,
+                    onClick = { selectedItem = label }
                 )
             }
         }

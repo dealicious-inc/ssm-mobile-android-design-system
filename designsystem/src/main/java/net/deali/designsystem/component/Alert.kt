@@ -51,6 +51,7 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
@@ -85,10 +86,10 @@ fun Alert(
     contentText: String,
     leftButtonText: String,
     rightButtonText: String,
-    content: @Composable () -> Unit,
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
@@ -193,10 +194,10 @@ fun Alert(
     contentText: AnnotatedString,
     leftButtonText: String,
     rightButtonText: String,
-    content: @Composable () -> Unit,
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
     ComposeAlert(
@@ -266,6 +267,7 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
@@ -297,10 +299,11 @@ fun Alert(
     contentText: String,
     leftButtonText: String,
     rightButtonText: String,
-    content: @Composable () -> Unit,
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
@@ -333,10 +336,10 @@ fun Alert(
     contentText: AnnotatedString,
     leftButtonText: String,
     rightButtonText: String,
-    content: @Composable () -> Unit,
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
 ) {
     ComposeAlert(

@@ -77,8 +77,8 @@ fun ErrorCase(
     content: String,
     buttonText: String,
     state: ErrorCaseState,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
@@ -103,7 +103,6 @@ fun ErrorCase(
         VerticalSpacer(height = 24.dp)
 
         Button(
-            modifier = Modifier,
             text = buttonText,
             onClick = onClick
         )
@@ -119,8 +118,8 @@ fun ErrorCase(
     content: String,
     buttonText: String,
     state: ErrorCaseState,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
 ) {
     val iconRes = ErrorCaseDefaults.icon(state = state)
 
@@ -153,7 +152,6 @@ fun ErrorCase(
         VerticalSpacer(height = 24.dp)
 
         Button(
-            modifier = Modifier,
             text = buttonText,
             onClick = onClick
         )
@@ -232,8 +230,8 @@ fun ErrorCase(
     content: String,
     buttonText: String,
     @DrawableRes imageRes: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
 ) {
     CoreErrorCase(
         modifier = modifier,
@@ -251,7 +249,6 @@ fun ErrorCase(
         VerticalSpacer(height = 24.dp)
 
         Button(
-            modifier = Modifier,
             text = buttonText,
             onClick = onClick
         )
@@ -267,8 +264,8 @@ fun ErrorCase(
     content: String,
     buttonText: String,
     @DrawableRes imageRes: Int,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
 ) {
     CoreErrorCase(
         modifier = modifier,
@@ -294,7 +291,6 @@ fun ErrorCase(
         VerticalSpacer(height = 24.dp)
 
         Button(
-            modifier = Modifier,
             text = buttonText,
             onClick = onClick
         )

@@ -34,11 +34,11 @@ import net.deali.designsystem.util.getRandomText
  */
 @Composable
 fun Notice(
+    onClickTextLink: () -> Unit = {},
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes titleIconRes: Int = R.drawable.ic_notice,
     textLinkText: String = "",
-    onClickTextLink: () -> Unit = {},
     content: @Composable () -> Unit,
 ) {
     Column(
@@ -88,12 +88,12 @@ fun Notice(
 @Composable
 fun Notice(
     textList: List<String>,
+    onClickTextLink: () -> Unit = {},
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes titleIconRes: Int = R.drawable.ic_notice,
     textStyle: TextStyle = DealiFont.b3r13,
     textLinkText: String = "",
-    onClickTextLink: () -> Unit = {},
 ) {
     Column(
         modifier = modifier

@@ -33,9 +33,9 @@ import net.deali.designsystem.util.click.singleClickable
 fun CheckBox(
     checked: Boolean,
     text: String,
+    onCheck: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -79,9 +79,9 @@ fun CheckBox(
 @Composable
 fun CheckBoxIcon(
     checked: Boolean,
+    onCheck: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onCheck: (() -> Unit)? = null,
 ) {
     val iconRes = when {
         enabled.not() && checked -> R.drawable.ic_checkbox_ondisable
@@ -101,8 +101,8 @@ fun CheckBoxIcon(
             modifier = modifier,
             iconRes = iconRes,
             size = 24.dp,
-            onClick = onCheck,
             enabled = enabled,
+            onClick = onCheck,
         )
     }
 }

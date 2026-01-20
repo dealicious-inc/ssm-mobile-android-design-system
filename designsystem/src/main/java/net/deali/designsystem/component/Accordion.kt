@@ -47,9 +47,9 @@ import net.deali.designsystem.util.click.noRippleClickable
 fun Accordion(
     title: String,
     isExpanded: Boolean,
+    onClickExpand: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes titleIconRes: Int = R.drawable.ic_notice,
-    onClickExpand: () -> Unit,
     content: @Composable () -> Unit,
 ) {
     Column(

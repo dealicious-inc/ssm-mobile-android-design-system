@@ -49,15 +49,15 @@ fun CheckBoxScreen(
 
             CheckBox(
                 checked = false,
-                enabled = false,
                 text = "CheckBox / checked: false / enabled: false",
+                enabled = false,
                 onCheck = { }
             )
 
             CheckBox(
                 checked = true,
-                enabled = false,
                 text = "CheckBox / checked: true / enabled: false",
+                enabled = false,
                 onCheck = { }
             )
         }

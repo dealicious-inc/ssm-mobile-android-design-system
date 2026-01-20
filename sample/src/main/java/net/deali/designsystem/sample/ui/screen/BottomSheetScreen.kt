@@ -66,9 +66,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextNoButton -> {
                 {
                     BottomSheet(
-                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
                         onDismiss = hideBottomSheet,
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                     )
                 }
             }
@@ -76,11 +76,11 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextOneButton -> {
                 {
                     BottomSheet(
-                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트",
                         buttonText = "버튼명",
                         onButtonClick = {},
                         onDismiss = hideBottomSheet,
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                     )
                 }
             }
@@ -88,13 +88,13 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextTwoButtons -> {
                 {
                     BottomSheet(
-                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트",
                         primaryButtonText = "버튼1",
                         secondaryButtonText = "버튼2",
                         onPrimaryButtonClick = {},
                         onSecondaryButtonClick = {},
                         onDismiss = hideBottomSheet,
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                     )
                 }
             }
@@ -102,13 +102,13 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextTwoButtonsGray -> {
                 {
                     BottomSheet(
-                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                         text = "텍스트",
                         primaryButtonText = "버튼1",
                         secondaryButtonText = "버튼2",
                         onPrimaryButtonClick = {},
                         onSecondaryButtonClick = {},
                         onDismiss = hideBottomSheet,
+                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
                     )
                 }
             }
@@ -116,8 +116,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.NoButton -> {
                 {
                     BottomSheet(
-                        title = "타이틀",
                         onDismiss = hideBottomSheet,
+                        title = "타이틀",
                         content = { EmptyBox() }
                     )
                 }
@@ -129,9 +129,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        title = "타이틀",
                         buttonText = "확인",
-                        isButtonLoading = isLoading,
                         onButtonClick = remember {
                             {
                                 delayJob = coroutineScope.launch {
@@ -142,6 +140,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                             }
                         },
                         onDismiss = hideBottomSheet,
+                        title = "타이틀",
+                        isButtonLoading = isLoading,
                     ) {
                         EmptyBox()
                     }
@@ -162,10 +162,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        title = "타이틀",
                         primaryButtonText = "탈퇴",
                         secondaryButtonText = "취소",
-                        isPrimaryButtonLoading = isLoading,
                         onPrimaryButtonClick = remember {
                             {
                                 delayJob = coroutineScope.launch {
@@ -177,6 +175,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                         },
                         onSecondaryButtonClick = hideBottomSheet,
                         onDismiss = hideBottomSheet,
+                        title = "타이틀",
+                        isPrimaryButtonLoading = isLoading,
                     ) {
                         EmptyBox()
                     }
@@ -197,11 +197,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        title = "타이틀",
                         primaryButtonText = "탈퇴",
                         secondaryButtonText = "취소",
-                        isPrimaryButtonLoading = isLoading,
-                        useGraySecondary = true,
                         onPrimaryButtonClick = remember {
                             {
                                 delayJob = coroutineScope.launch {
@@ -213,6 +210,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                         },
                         onSecondaryButtonClick = hideBottomSheet,
                         onDismiss = hideBottomSheet,
+                        title = "타이틀",
+                        isPrimaryButtonLoading = isLoading,
+                        useGraySecondary = true,
                     ) {
                         EmptyBox()
                     }
@@ -281,8 +281,8 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
         ) {
             btnOutlineMedium01(
                 modifier = modifier.fillMaxWidth(),
-                enabled = true,
                 text = text,
+                enabled = true,
                 onClick = {
                     coroutineScope.launch {
                         bottomSheetType = type

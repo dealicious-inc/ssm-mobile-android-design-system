@@ -181,11 +181,11 @@ private fun InputOption(
     modifier: Modifier = Modifier,
 ) {
     TextInput(
+        modifier = modifier,
         value = value,
-        onValueChange = onValueChange,
         placeholder = placeholder,
         label = title,
-        modifier = modifier,
+        onValueChange = onValueChange,
     )
 }
 

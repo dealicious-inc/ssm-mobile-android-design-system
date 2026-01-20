@@ -87,10 +87,11 @@ fun TextAreaScreen(onBackPress: () -> Unit) {
                 DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
-                        selected = state == innerState
-                    ) {
-                        state = innerState
-                    }
+                        selected = state == innerState,
+                        onClick = {
+                            state = innerState
+                        }
+                    )
                 }
             }
 

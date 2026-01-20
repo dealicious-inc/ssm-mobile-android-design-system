@@ -67,8 +67,8 @@ fun TooltipScreen(
                     maxWidth = if (alignment == Alignment.Center) 100.dp else Dp.Unspecified,
                     onDismiss = {
                         isShow = false
-                    }
-                ) { innerModifier ->
+                    },
+                    content = { innerModifier ->
                     Icon(
                         modifier = innerModifier,
                         iconRes = R.drawable.ic_info,
@@ -77,6 +77,7 @@ fun TooltipScreen(
                             isShow = !isShow
                         }
                     )
+                    }
                 }
             }
         }

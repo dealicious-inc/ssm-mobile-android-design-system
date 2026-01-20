@@ -160,12 +160,12 @@ private fun BtnFilledMedium01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -185,12 +185,12 @@ private fun BtnFilledMedium02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -209,12 +209,12 @@ private fun BtnFilledMedium03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -233,12 +233,12 @@ private fun BtnFilledMedium04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -257,12 +257,12 @@ private fun BtnFilledMedium05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -281,12 +281,12 @@ private fun BtnFilledMedium06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledMedium06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -305,12 +305,12 @@ private fun BtnFilledTonalMedium01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -329,12 +329,12 @@ private fun BtnFilledTonalMedium02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -353,12 +353,12 @@ private fun BtnFilledTonalMedium03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -377,12 +377,12 @@ private fun BtnFilledTonalMedium04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -401,12 +401,12 @@ private fun BtnFilledTonalMedium05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -425,12 +425,12 @@ private fun BtnFilledTonalMedium06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnFilledTonalMedium06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -449,12 +449,12 @@ private fun BtnOutlineMedium01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -473,12 +473,12 @@ private fun BtnOutlineMedium02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -497,12 +497,12 @@ private fun BtnOutlineMedium03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -521,12 +521,12 @@ private fun BtnOutlineMedium04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -545,12 +545,12 @@ private fun BtnOutlineMedium05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -569,12 +569,12 @@ private fun BtnOutlineMedium06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineMedium06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
 
                 AndroidView(
@@ -603,12 +603,12 @@ private fun BtnOutlineBgMedium01Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgMedium01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -628,12 +628,12 @@ private fun BtnOutlineBgMedium03Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgMedium03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -653,12 +653,12 @@ private fun BtnOutlineBgMedium04Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgMedium04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -678,12 +678,12 @@ private fun BtnOutlineBgMedium05Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgMedium05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -703,12 +703,12 @@ private fun BtnOutlineBgMedium06Samples() {
                 scrollEnabled = true,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnOutlineBgMedium06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -727,12 +727,12 @@ private fun BtnTextMedium01Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium01(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -751,12 +751,12 @@ private fun BtnTextMedium02Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium02(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -775,12 +775,12 @@ private fun BtnTextMedium03Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium03(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -799,12 +799,12 @@ private fun BtnTextMedium04Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium04(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -823,12 +823,12 @@ private fun BtnTextMedium05Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium05(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -847,12 +847,12 @@ private fun BtnTextMedium06Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium06(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }
@@ -871,12 +871,12 @@ private fun BtnTextMedium07Samples() {
                 rightIcon = if (i == 2) R.drawable.ic_arrow_right else null,
             ) { text, leftIcon, rightIcon, enabled, loading ->
                 btnTextMedium07(
-                    onClick = {},
                     text = text,
                     leftIcon = leftIcon,
                     rightIcon = rightIcon,
                     enabled = enabled,
                     loading = loading,
+                    onClick = {},
                 )
             }
         }

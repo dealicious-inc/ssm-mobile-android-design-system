@@ -59,15 +59,18 @@ fun SwitchScreen(onBackPress: () -> Unit) {
                     onChange = { on1 = it }
                 )
                 SwitchLarge(
+                    modifier = Modifier,
                     isOn = on2,
                     enabled = false,
                     onChange = { on2 = it }
                 )
                 SwitchLarge(
+                    modifier = Modifier,
                     isOn = on3,
                     onChange = { on3 = it }
                 )
                 SwitchLarge(
+                    modifier = Modifier,
                     isOn = on4,
                     enabled = false,
                     onChange = { on4 = it }
@@ -96,15 +99,18 @@ fun SwitchScreen(onBackPress: () -> Unit) {
                     onChange = { on1 = it }
                 )
                 SwitchSmall(
+                    modifier = Modifier,
                     isOn = on2,
                     enabled = false,
                     onChange = { on2 = it }
                 )
                 SwitchSmall(
+                    modifier = Modifier,
                     isOn = on3,
                     onChange = { on3 = it }
                 )
                 SwitchSmall(
+                    modifier = Modifier,
                     isOn = on4,
                     enabled = false,
                     onChange = { on4 = it }

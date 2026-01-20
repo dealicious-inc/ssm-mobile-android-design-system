@@ -64,7 +64,6 @@ fun TextInputScreen(onBackPress: () -> Unit) {
         ) {
             TextInput(
                 value = text,
-                onValueChange = { text = it },
                 placeholder = if (isPlaceholderVisible) placeholder else null,
                 label = label,
                 isNecessary = isNecessary,
@@ -72,6 +71,7 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                 isHelperTextVisible = isHelperTextVisible,
                 state = state,
                 visualTransformation = visualTransformation,
+                onValueChange = { text = it },
                 labelContent = if (labelContent.isNotEmpty()) {
                     {
                         DealiText(
@@ -102,10 +102,11 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                 DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
-                        selected = state == innerState
-                    ) {
-                        state = innerState
-                    }
+                        selected = state == innerState,
+                        onClick = {
+                            state = innerState
+                        }
+                    )
                 }
             }
 
@@ -159,6 +160,8 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     chipOutlineSmall01(
+                        text = "Decimal",
+                        selected = visualTransformation is DecimalSeparatorVisualTransformation,
                         onClick = {
                             text = ""
                             visualTransformation =
@@ -167,11 +170,11 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                                 } else {
                                     DecimalSeparatorVisualTransformation(prefix = "$ ")
                                 }
-                        },
-                        text = "Decimal",
-                        selected = visualTransformation is DecimalSeparatorVisualTransformation
+                        }
                     )
                     chipOutlineSmall01(
+                        text = "Phone",
+                        selected = visualTransformation is PhoneNumberVisualTransformation,
                         onClick = {
                             text = ""
                             visualTransformation =
@@ -180,9 +183,7 @@ fun TextInputScreen(onBackPress: () -> Unit) {
                                 } else {
                                     PhoneNumberVisualTransformation()
                                 }
-                        },
-                        text = "Phone",
-                        selected = visualTransformation is PhoneNumberVisualTransformation
+                        }
                     )
                 }
             }
@@ -262,11 +263,11 @@ private fun InputOption(
     modifier: Modifier = Modifier,
 ) {
     TextInput(
+        modifier = modifier,
         value = value,
-        onValueChange = onValueChange,
         placeholder = placeholder,
         label = title,
-        modifier = modifier,
+        onValueChange = onValueChange,
     )
 }
 

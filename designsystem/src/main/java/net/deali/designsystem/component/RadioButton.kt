@@ -25,9 +25,9 @@ import net.deali.designsystem.util.getRandomText
 fun RadioButton(
     text: String,
     selected: Boolean,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier

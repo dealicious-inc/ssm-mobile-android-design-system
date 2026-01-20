@@ -52,6 +52,7 @@ import net.deali.designsystem.util.click.singleClickable
 fun SearchInput(
     value: String,
     onValueChange: (String) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -59,7 +60,6 @@ fun SearchInput(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
@@ -145,6 +145,7 @@ fun SearchInput(
 fun SearchInput(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -152,7 +153,6 @@ fun SearchInput(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
@@ -238,6 +238,7 @@ fun SearchInput(
     value: String,
     tagText: String,
     onValueChange: (String) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -245,7 +246,6 @@ fun SearchInput(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }
@@ -338,6 +338,7 @@ fun SearchInput(
     value: TextFieldValue,
     tagText: String,
     onValueChange: (TextFieldValue) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -345,7 +346,6 @@ fun SearchInput(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     var isFocused by remember { mutableStateOf(false) }

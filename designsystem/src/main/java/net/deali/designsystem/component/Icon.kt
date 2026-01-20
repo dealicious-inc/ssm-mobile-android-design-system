@@ -32,11 +32,11 @@ import net.deali.designsystem.util.click.singleClickable
 fun Icon(
     @DrawableRes iconRes: Int,
     size: Dp,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onClick: () -> Unit,
 ) {
     val rippleRadius = when {
         size < 24.dp -> {

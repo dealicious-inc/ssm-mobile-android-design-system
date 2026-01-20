@@ -110,6 +110,11 @@ fun AlertScreen(
             Alert(
                 title = "title",
                 contentText = "해당 주문을 취소하시겠어요?",
+                leftButtonText = "취소",
+                rightButtonText = "확인",
+                onLeftButtonClick = { alertState2 = false },
+                onRightButtonClick = { alertState2 = false },
+                onDismissRequest = { alertState2 = false },
                 content = {
                     CheckBox(
                         checked = checked,
@@ -119,11 +124,6 @@ fun AlertScreen(
                         }
                     )
                 },
-                leftButtonText = "취소",
-                rightButtonText = "확인",
-                onLeftButtonClick = { alertState2 = false },
-                onRightButtonClick = { alertState2 = false },
-                onDismissRequest = { alertState2 = false },
             )
         }
 
@@ -143,6 +143,11 @@ fun AlertScreen(
 
             Alert(
                 contentText = "해당 주문을 취소하시겠어요?",
+                leftButtonText = "취소",
+                rightButtonText = "확인",
+                onLeftButtonClick = { alertState4 = false },
+                onRightButtonClick = { alertState4 = false },
+                onDismissRequest = { alertState4 = false },
                 content = {
                     CheckBox(
                         checked = checked,
@@ -152,11 +157,6 @@ fun AlertScreen(
                         }
                     )
                 },
-                leftButtonText = "취소",
-                rightButtonText = "확인",
-                onLeftButtonClick = { alertState4 = false },
-                onRightButtonClick = { alertState4 = false },
-                onDismissRequest = { alertState4 = false },
             )
         }
 

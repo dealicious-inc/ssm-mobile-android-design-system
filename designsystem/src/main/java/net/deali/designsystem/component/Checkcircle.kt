@@ -34,10 +34,10 @@ import net.deali.designsystem.util.click.singleClickable
 fun Checkcircle(
     checked: Boolean,
     text: String,
+    onCheck: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     isAd: Boolean = false,
-    onCheck: () -> Unit,
 ) {
     Row(
         modifier = Modifier
@@ -80,10 +80,10 @@ fun Checkcircle(
 @Composable
 fun CheckcircleIcon(
     checked: Boolean,
+    onCheck: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: (() -> Unit)? = null,
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -98,10 +98,10 @@ fun CheckcircleIcon(
 @Composable
 fun CheckcircleAdIcon(
     checked: Boolean,
+    onCheck: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     noRipple: Boolean = false,
-    onCheck: (() -> Unit)? = null,
 ) {
     CheckcircleIcon(
         modifier = modifier,
@@ -151,9 +151,9 @@ private fun CheckcircleIcon(
             modifier = modifier,
             iconRes = iconRes,
             size = 24.dp,
+            noRipple = noRipple,
             enabled = enabled,
             onClick = onCheck,
-            noRipple = noRipple,
         )
     }
 }

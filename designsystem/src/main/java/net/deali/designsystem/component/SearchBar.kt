@@ -23,6 +23,7 @@ import net.deali.designsystem.theme.DealiColor
 fun SearchBar(
     value: String,
     onValueChange: (String) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -30,7 +31,6 @@ fun SearchBar(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     Box(
@@ -63,6 +63,7 @@ fun SearchBar(
 fun SearchBar(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
+    onClickSearch: () -> Unit,
     modifier: Modifier = Modifier,
     maxLength: Int = Int.MAX_VALUE,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -70,7 +71,6 @@ fun SearchBar(
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
     focusRequester: FocusRequester = remember { FocusRequester() },
     keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
-    onClickSearch: () -> Unit,
     onClickRemoveIcon: () -> Unit = {},
 ) {
     Box(
