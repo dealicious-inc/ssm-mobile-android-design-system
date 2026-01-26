@@ -22,9 +22,12 @@ import net.deali.designsystem.theme.DealiFont
  *
  * @param text 툴팁에 표시할 텍스트
  * @param isShow 툴팁 Visible 여부
- * @param bubblePaddingY content와 툴팁 사이의 간격
- * @param arrowDirectionState 툴팁의 화살표 방향 (null = 방향을 알아서 계산)
+ * @param colorState 툴팁 색상 상태
+ * @param modifier Modifier
  * @param onDismiss 툴팁 레이아웃 외 부분을 클릭할 때 호출되는 콜백
+ * @param arrowDirectionState 툴팁의 화살표 방향 (null = 방향을 알아서 계산)
+ * @param maxWidth 툴팁 최대 너비
+ * @param bubblePaddingY content와 툴팁 사이의 간격
  * @param content 툴팁이 표기될 anchor content
  */
 @Composable
@@ -32,12 +35,12 @@ fun Tooltip(
     text: String,
     isShow: Boolean,
     colorState: TooltipColorState,
-    onDismiss: () -> Unit = {},
-    content: @Composable (Modifier) -> Unit,
     modifier: Modifier = Modifier,
+    onDismiss: () -> Unit = {},
     arrowDirectionState: TooltipArrowDirectionState? = null,
     maxWidth: Dp = Dp.Unspecified,
     bubblePaddingY: Dp = 2.dp,
+    content: @Composable (Modifier) -> Unit,
 ) {
     Box(
         modifier = modifier,

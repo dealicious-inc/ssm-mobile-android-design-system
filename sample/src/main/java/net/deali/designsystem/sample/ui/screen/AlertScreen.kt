@@ -114,17 +114,16 @@ fun AlertScreen(
                 rightButtonText = "확인",
                 onLeftButtonClick = { alertState2 = false },
                 onRightButtonClick = { alertState2 = false },
-                onDismissRequest = { alertState2 = false },
-                content = {
-                    CheckBox(
-                        checked = checked,
-                        text = "주문 취소 후 장바구니 담기",
-                        onCheck = {
-                            checked = !checked
-                        }
-                    )
-                },
-            )
+                onDismissRequest = { alertState2 = false }
+            ) {
+                CheckBox(
+                    checked = checked,
+                    text = "주문 취소 후 장바구니 담기",
+                    onCheck = {
+                        checked = !checked
+                    }
+                )
+            }
         }
 
         if (alertState3) {
@@ -147,17 +146,16 @@ fun AlertScreen(
                 rightButtonText = "확인",
                 onLeftButtonClick = { alertState4 = false },
                 onRightButtonClick = { alertState4 = false },
-                onDismissRequest = { alertState4 = false },
-                content = {
-                    CheckBox(
-                        checked = checked,
-                        text = "주문 취소 후 장바구니 담기",
-                        onCheck = {
-                            checked = !checked
-                        }
-                    )
-                },
-            )
+                onDismissRequest = { alertState4 = false }
+            ) {
+                CheckBox(
+                    checked = checked,
+                    text = "주문 취소 후 장바구니 담기",
+                    onCheck = {
+                        checked = !checked
+                    }
+                )
+            }
         }
 
         if (alertState5) {

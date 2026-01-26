@@ -57,18 +57,18 @@ fun TooltipScreen(
                 var isShow by remember { mutableStateOf(false) }
 
                 Tooltip(
-                    modifier = Modifier
-                        .align(alignment)
-                        .padding(30.dp),
                     text = getRandomText(15),
                     isShow = isShow,
                     colorState = if (alignment == Alignment.Center) TooltipColorState.BLUE else TooltipColorState.WHITE,
+                    modifier = Modifier
+                        .align(alignment)
+                        .padding(30.dp),
                     arrowDirectionState = if (alignment == Alignment.Center) TooltipArrowDirectionState.TOP else null,
                     maxWidth = if (alignment == Alignment.Center) 100.dp else Dp.Unspecified,
                     onDismiss = {
                         isShow = false
-                    },
-                    content = { innerModifier ->
+                    }
+                ) { innerModifier ->
                     Icon(
                         modifier = innerModifier,
                         iconRes = R.drawable.ic_info,
@@ -77,7 +77,6 @@ fun TooltipScreen(
                             isShow = !isShow
                         }
                     )
-                    }
                 }
             }
         }

@@ -73,12 +73,12 @@ fun Alert(
  * @param contentText 팝업 문구.
  * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
  * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
- * @param content 팝업 커스텀 컨텐츠 슬롯.
  * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onDismissRequest 팝업 외부나 백 버튼 클릭으로 인해 팝업 닫기가 요청되었을 때 실행되는 콜백.
  * [DialogProperties]에서 닫기가 비활성화 된 경우 호출하지 않습니다.
  * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ * @param content 팝업 커스텀 컨텐츠 슬롯.
  */
 @Composable
 fun Alert(
@@ -89,19 +89,19 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
-    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
+    content: @Composable () -> Unit,
 ) {
     Alert(
         title = title,
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
         rightButtonText = rightButtonText,
-        content = content,
         onLeftButtonClick = onLeftButtonClick,
         onRightButtonClick = onRightButtonClick,
         onDismissRequest = onDismissRequest,
-        properties = properties
+        properties = properties,
+        content = content
     )
 }
 
@@ -181,12 +181,12 @@ fun Alert(
  * @param contentText 팝업 문구.
  * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
  * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
- * @param content 팝업 커스텀 컨텐츠 슬롯.
  * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onDismissRequest 팝업 외부나 백 버튼 클릭으로 인해 팝업 닫기가 요청되었을 때 실행되는 콜백.
  * [DialogProperties]에서 닫기가 비활성화 된 경우 호출하지 않습니다.
  * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ * @param content 팝업 커스텀 컨텐츠 슬롯.
  */
 @Composable
 fun Alert(
@@ -197,8 +197,8 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
-    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
+    content: @Composable () -> Unit,
 ) {
     ComposeAlert(
         onDismissRequest = onDismissRequest,
@@ -287,12 +287,13 @@ fun Alert(
  * @param contentText 팝업 문구.
  * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
  * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
- * @param content 팝업 커스텀 컨텐츠 슬롯.
  * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onDismissRequest 팝업 외부나 백 버튼 클릭으로 인해 팝업 닫기가 요청되었을 때 실행되는 콜백.
  * [DialogProperties]에서 닫기가 비활성화 된 경우 호출하지 않습니다.
+ * @param modifier Modifier
  * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ * @param content 팝업 커스텀 컨텐츠 슬롯.
  */
 @Composable
 fun Alert(
@@ -303,18 +304,18 @@ fun Alert(
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
+    content: @Composable () -> Unit,
 ) {
     Alert(
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
         rightButtonText = rightButtonText,
-        content = content,
         onLeftButtonClick = onLeftButtonClick,
         onRightButtonClick = onRightButtonClick,
         onDismissRequest = onDismissRequest,
-        properties = properties
+        properties = properties,
+        content = content
     )
 }
 
@@ -324,12 +325,12 @@ fun Alert(
  * @param contentText 팝업 문구.
  * @param leftButtonText 팝업의 왼쪽에 위치한 버튼 문구. 일반적으로 왼쪽에 위치한 버튼은 팝업의 부차적인 동작(취소 등)을 위한 버튼입니다.
  * @param rightButtonText 팝업의 오른쪽에 위치한 버튼 문구. 일반적으로 오른쪽 버튼은 팝업이 유도 하고자 하는 동작(확인 등)을 위한 버튼입니다.
- * @param content 팝업 커스텀 컨텐츠 슬롯.
  * @param onLeftButtonClick 팝업의 왼쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onRightButtonClick 팝업의 오른쪽에 위치한 버튼 클릭 시 이벤트 콜백.
  * @param onDismissRequest 팝업 외부나 백 버튼 클릭으로 인해 팝업 닫기가 요청되었을 때 실행되는 콜백.
  * [DialogProperties]에서 닫기가 비활성화 된 경우 호출하지 않습니다.
  * @param properties 팝업 다이얼로그의 동작을 정의하는 속성 객체.
+ * @param content 팝업 커스텀 컨텐츠 슬롯.
  */
 @Composable
 fun Alert(
@@ -339,8 +340,8 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
-    content: @Composable () -> Unit,
     properties: DialogProperties = DialogProperties(),
+    content: @Composable () -> Unit,
 ) {
     ComposeAlert(
         onDismissRequest = onDismissRequest,
@@ -625,21 +626,20 @@ private fun AlertContentPreview() {
     Alert(
         title = "title",
         contentText = "해당 주문을 취소하시겠어요?",
-        content = {
-            CheckBox(
-                checked = checked,
-                text = "주문 취소 후 장바구니 담기",
-                onCheck = {
-                    checked = !checked
-                }
-            )
-        },
         leftButtonText = "취소",
         rightButtonText = "확인",
         onLeftButtonClick = {},
         onRightButtonClick = {},
         onDismissRequest = {}
-    )
+    ) {
+        CheckBox(
+            checked = checked,
+            text = "주문 취소 후 장바구니 담기",
+            onCheck = {
+                checked = !checked
+            }
+        )
+    }
 }
 
 @Composable
@@ -662,21 +662,20 @@ private fun AlertContentWithoutTitlePreview() {
 
     Alert(
         contentText = "해당 주문을 취소하시겠어요?",
-        content = {
-            CheckBox(
-                checked = checked,
-                text = "주문 취소 후 장바구니 담기",
-                onCheck = {
-                    checked = !checked
-                }
-            )
-        },
         leftButtonText = "취소",
         rightButtonText = "확인",
         onLeftButtonClick = {},
         onRightButtonClick = {},
         onDismissRequest = {}
-    )
+    ) {
+        CheckBox(
+            checked = checked,
+            text = "주문 취소 후 장바구니 담기",
+            onCheck = {
+                checked = !checked
+            }
+        )
+    }
 }
 
 @Composable

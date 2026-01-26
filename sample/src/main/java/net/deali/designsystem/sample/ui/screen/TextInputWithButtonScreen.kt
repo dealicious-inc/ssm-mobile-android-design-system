@@ -20,12 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.RadioButton
 import net.deali.designsystem.component.SwitchSmall
 import net.deali.designsystem.component.TextInput
 import net.deali.designsystem.component.TextInputWithButton
+import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.chipOutlineSmall01
 import net.deali.designsystem.internal.textfield.DealiTextFieldState
 import net.deali.designsystem.sample.ui.NavigationContainer
@@ -98,10 +98,11 @@ fun TextInputWithButtonScreen(onBackPress: () -> Unit) {
                 DealiTextFieldState.entries.forEach { innerState ->
                     RadioButton(
                         text = innerState.name,
-                        selected = state == innerState
-                    ) {
-                        state = innerState
-                    }
+                        selected = state == innerState,
+                        onClick = {
+                            state = innerState
+                        }
+                    )
                 }
             }
 
