@@ -27,6 +27,7 @@ fun DealiPlaceholderImage(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     contentScale: ContentScale = ContentScale.Fit,
+    crossfade: Boolean = true,
 ) {
     val placeholder = PlaceholderImageDefaults.placeholder(state)
     val placeholderColor = PlaceholderImageDefaults.placeholderColor(colorState)
@@ -41,6 +42,7 @@ fun DealiPlaceholderImage(
         backgroundColor = backgroundColor,
         enabled = enabled,
         contentScale = contentScale,
+        crossfade = crossfade,
     )
 }
 
@@ -53,6 +55,7 @@ fun DealiPlaceholderImage(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     contentScale: ContentScale = ContentScale.Fit,
+    crossfade: Boolean = true,
 ) {
     val backgroundColor = PlaceholderImageDefaults.backgroundColor(colorState)
 
@@ -65,6 +68,7 @@ fun DealiPlaceholderImage(
         backgroundColor = backgroundColor,
         enabled = enabled,
         contentScale = contentScale,
+        crossfade = crossfade,
     )
 }
 

@@ -36,6 +36,7 @@ internal fun CoreDealiPlaceholderImage(
     backgroundColor: Color,
     enabled: Boolean,
     contentScale: ContentScale,
+    crossfade: Boolean,
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -55,7 +56,7 @@ internal fun CoreDealiPlaceholderImage(
             modifier = imageModifier,
             model = ImageRequest.Builder(LocalContext.current)
                 .data(imageUrl)
-                .crossfade(true)
+                .crossfade(crossfade)
                 .build(),
             contentDescription = null,
             contentScale = contentScale,
