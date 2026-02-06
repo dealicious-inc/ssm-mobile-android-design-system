@@ -29,6 +29,18 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
 
 /**
+ * 뱃지의 수평 정렬 방식.
+ */
+enum class BadgeAlignment {
+    /** 왼쪽 끝 고정 → 오른쪽으로 늘어남 */
+    Start,
+    /** 가운데 고정 → 양쪽으로 늘어남 */
+    Center,
+    /** 오른쪽 끝 고정 → 왼쪽으로 늘어남 */
+    End
+}
+
+/**
  * Composable 우측 상단에 원형점 형태의 뱃지 표현.
  *
  * @param badgeRadius 원형점의 반지름.
@@ -64,14 +76,17 @@ fun Modifier.badge(
  *
  * @param count 뱃지 내부에 표시 할 숫자.
  * @param offset 뱃지의 위치를 조정할 수 있는 offset.
+ * @param alignment 뱃지의 수평 정렬 방식.
  */
 @Stable
 fun Modifier.badge(
     count: Int,
-    offset: DpOffset = DpOffset.Zero
+    offset: DpOffset = DpOffset.Zero,
+    alignment: BadgeAlignment = BadgeAlignment.Center
 ): Modifier = badge(
     text = count.toString(),
-    offset = offset
+    offset = offset,
+    alignment = alignment
 )
 
 /**
@@ -79,11 +94,13 @@ fun Modifier.badge(
  *
  * @param text 뱃지 내부에 표시 할 내용.
  * @param offset 뱃지의 위치를 조정할 수 있는 offset.
+ * @param alignment 뱃지의 수평 정렬 방식.
  */
 @Stable
 fun Modifier.badge(
     text: String,
-    offset: DpOffset = DpOffset.Zero
+    offset: DpOffset = DpOffset.Zero,
+    alignment: BadgeAlignment = BadgeAlignment.Center
 ): Modifier = this.composed {
     val badgeColor = DealiColor.primary01
     val textColor = DealiColor.primary04
@@ -111,7 +128,17 @@ fun Modifier.badge(
             y = offset.y.toPx()
         )
 
-        println("$text ${badgeSize.toDpSize()}")
+        val badgeX = when (alignment) {
+            BadgeAlignment.Start -> badgeCenter.x + badgeOffset.x
+            BadgeAlignment.Center -> badgeCenter.x - badgeSize.width / 2f + badgeOffset.x
+            BadgeAlignment.End -> badgeCenter.x - badgeSize.width + badgeOffset.x
+        }
+
+        val textX = when (alignment) {
+            BadgeAlignment.Start -> badgeCenter.x + (badgeSize.width - measuredText.size.width) / 2f + badgeOffset.x
+            BadgeAlignment.Center -> badgeCenter.x - measuredText.size.width / 2f + badgeOffset.x
+            BadgeAlignment.End -> badgeCenter.x - badgeSize.width + (badgeSize.width - measuredText.size.width) / 2f + badgeOffset.x
+        }
 
         onDrawWithContent {
             drawContent()
@@ -119,7 +146,7 @@ fun Modifier.badge(
             drawRoundRect(
                 color = badgeColor,
                 topLeft = Offset(
-                    x = badgeCenter.x - badgeSize.width / 2f + badgeOffset.x,
+                    x = badgeX,
                     y = badgeCenter.y - badgeSize.height / 2f + badgeOffset.y
                 ),
                 size = badgeSize,
@@ -129,7 +156,7 @@ fun Modifier.badge(
             drawText(
                 textLayoutResult = measuredText,
                 topLeft = Offset(
-                    x = badgeCenter.x - measuredText.size.width / 2f + badgeOffset.x,
+                    x = textX,
                     y = badgeCenter.y - measuredText.size.height / 2f + badgeOffset.y
                 ),
             )
@@ -141,6 +168,7 @@ fun Modifier.badge(
 @Composable
 private fun Preview() {
     Column {
+        // 원형점 뱃지
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -158,22 +186,14 @@ private fun Preview() {
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(count = 3)
-            )
-            Box(
-                modifier = Modifier
-                    .size(50.dp)
-                    .background(color = Color.Black)
-                    .badge(count = 24)
-            )
-            Box(
-                modifier = Modifier
-                    .size(50.dp)
-                    .background(color = Color.Black)
-                    .badge(count = 111)
+                    .badge(
+                        badgeRadius = 2.dp,
+                        offset = DpOffset(x = 0.dp, y = 5.dp)
+                    )
             )
         }
 
+        // Center 정렬 (기본값) - 가운데를 기준으로 양쪽으로 확장
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -185,28 +205,75 @@ private fun Preview() {
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(
-                        badgeRadius = 2.dp,
-                        offset = DpOffset(x = 0.dp, y = 5.dp)
-                    )
+                    .badge(count = 3, alignment = BadgeAlignment.Center)
             )
             Box(
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(count = 3, offset = DpOffset(x = 0.dp, y = 5.dp))
+                    .badge(count = 24, alignment = BadgeAlignment.Center)
             )
             Box(
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(count = 24, offset = DpOffset(x = 0.dp, y = 5.dp))
+                    .badge(count = 111, alignment = BadgeAlignment.Center)
+            )
+        }
+
+        // Start 정렬 - 왼쪽 끝 고정, 오른쪽으로 확장
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 3, alignment = BadgeAlignment.Start)
             )
             Box(
                 modifier = Modifier
                     .size(50.dp)
                     .background(color = Color.Black)
-                    .badge(count = 111, offset = DpOffset(x = 0.dp, y = 5.dp))
+                    .badge(count = 24, alignment = BadgeAlignment.Start)
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 111, alignment = BadgeAlignment.Start)
+            )
+        }
+
+        // End 정렬 - 오른쪽 끝 고정, 왼쪽으로 확장
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 3, alignment = BadgeAlignment.End)
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 24, alignment = BadgeAlignment.End)
+            )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(color = Color.Black)
+                    .badge(count = 111, alignment = BadgeAlignment.End)
             )
         }
     }
