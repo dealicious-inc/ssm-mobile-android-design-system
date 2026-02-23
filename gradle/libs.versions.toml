@@ -3,7 +3,7 @@ minSdk = "24"
 targetSdk = "35"
 
 kotlin = "2.2.20"
-agp = "8.13.0"
+agp = "9.0.0"
 maven-gradle-plugin = "2.1"
 
 androidx-core = "1.16.0"

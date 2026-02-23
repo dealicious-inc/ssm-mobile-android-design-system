@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose)
     id("maven-publish")
 }
@@ -27,6 +26,11 @@ android {
 
     buildFeatures {
         compose = true
+    }
+
+    publishing {
+        // "release" 변형에 대한 소프트웨어 컴포넌트를 생성하라고 명시적으로 지시
+        singleVariant("release")
     }
 
     kotlin {
