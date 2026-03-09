@@ -455,6 +455,33 @@ fun labeledTextIcon01(
     }
 }
 
+/**
+ * 아이콘 라벨을 가지고 있는 g80 컬러의 단일 [annotatedString] 텍스트.
+ *
+ * @param annotatedString 라벨을 붙여 보여줄 텍스트.
+ * @param iconRes 텍스트 앞에 보여줄 아이콘 리소스.
+ * @param modifier Modifier.
+ * */
+@Composable
+fun labeledTextIcon01(
+    annotatedString: AnnotatedString,
+    @DrawableRes iconRes: Int,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier,
+    ) {
+        SingleLabeledTextIcon01(
+            annotatedString = annotatedString,
+            color = DealiColor.g80,
+            iconRes = iconRes,
+            textStyle = DealiFont.b3r13,
+        )
+    }
+}
+
+
+
 @Preview(showBackground = true, name = "labeledTextBullet01")
 @Composable
 private fun Preview1() {
@@ -576,5 +603,41 @@ private fun Preview5_1() {
         iconRes = R.drawable.ic_info,
         highlightColor = DealiColor.primary01,
         isHighlightBold = true,
+    )
+}
+
+
+@Preview(showBackground = true, name = "labeledTextIcon01")
+@Composable
+private fun Preview5_2() {
+    val annotatedString = buildAnnotatedString {
+        val text = "annotatedString을 테스트 중입니다. 테스트 중입니다."
+        val boldTarget1 = "annotatedString"
+        val boldStart1 = text.indexOf(boldTarget1)
+        val boldEnd1 = boldStart1 + boldTarget1.length
+        val boldTarget2 = "테스트"
+        val boldStart2 = text.indexOf(boldTarget2)
+        val boldEnd2 = boldStart2 + boldTarget2.length
+
+        append(text)
+        addStyle(
+            style = SpanStyle(
+                color = DealiColor.primary01,
+            ),
+            start = boldStart1,
+            end = boldEnd1
+        )
+        addStyle(
+            style = SpanStyle(
+                color = DealiColor.secondary01,
+            ),
+            start = boldStart2,
+            end = boldEnd2
+        )
+    }
+
+    labeledTextIcon01(
+        annotatedString = annotatedString,
+        iconRes = R.drawable.ic_info,
     )
 }

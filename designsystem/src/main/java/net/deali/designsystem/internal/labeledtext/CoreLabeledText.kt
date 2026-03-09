@@ -170,6 +170,28 @@ internal fun SingleLabeledTextIcon01(
 }
 
 @Composable
+internal fun SingleLabeledTextIcon01(
+    annotatedString: AnnotatedString,
+    color: Color,
+    textStyle: TextStyle,
+    @DrawableRes iconRes: Int,
+) {
+    CoreSingleLabeledText(
+        annotatedString = annotatedString,
+        color = color,
+        textStyle = textStyle,
+        leftContent = {
+            Icon(
+                modifier = Modifier.padding(end = 8.dp),
+                size = 16.dp,
+                iconRes = iconRes,
+                color = DealiColor.g80,
+            )
+        },
+    )
+}
+
+@Composable
 private fun CoreSingleLabeledText(
     text: String,
     color: Color,
