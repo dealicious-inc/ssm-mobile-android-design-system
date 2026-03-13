@@ -15,7 +15,7 @@ import com.cheonjaeung.compose.grid.VerticalGrid
 import net.deali.designsystem.R
 import net.deali.designsystem.component.chipFilledDepthLarge01
 import net.deali.designsystem.component.chipFilledImageDepthLarge01
-import net.deali.designsystem.component.chipFilledImageLarge01
+import net.deali.designsystem.component.chipOutlineSquareImageLarge01
 import net.deali.designsystem.component.chipFilledLarge01
 import net.deali.designsystem.component.chipFilledSquareLarge01
 import net.deali.designsystem.component.chipFilledSquareLarge02
@@ -873,19 +873,19 @@ private fun ChipFilledImageLarge01Samples() {
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            chipFilledImageLarge01(
+            chipOutlineSquareImageLarge01(
                 onClick = {},
                 imageUrl = sampleImage,
                 text = "Default",
             )
-            chipFilledImageLarge01(
+            chipOutlineSquareImageLarge01(
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
                 text = "Default",
                 useRemoveIcon = true,
             )
-            chipFilledImageLarge01(
+            chipOutlineSquareImageLarge01(
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
@@ -893,7 +893,7 @@ private fun ChipFilledImageLarge01Samples() {
                 useRemoveIcon = true,
                 selected = true,
             )
-            chipFilledImageLarge01(
+            chipOutlineSquareImageLarge01(
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,

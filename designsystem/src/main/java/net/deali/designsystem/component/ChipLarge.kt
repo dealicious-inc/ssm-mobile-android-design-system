@@ -738,7 +738,7 @@ fun chipFilledDepthLarge01(
 }
 
 @Composable
-fun chipFilledImageLarge01(
+fun chipOutlineSquareImageLarge01(
     onClick: () -> Unit,
     imageUrl: String,
     text: String,
@@ -751,15 +751,16 @@ fun chipFilledImageLarge01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    val chipStyle = ChipStyle.FilledImage
+    val chipStyle = ChipStyle.OutlineImage
     val chipSize = ChipSize.Large
     val chipColors = ChipDefaults.colors(
-        backgroundColor = DealiColor.g10,
+        backgroundColor = DealiColor.primary04,
         selectedBackgroundColor = DealiColor.g20,
         disabledBackgroundColor = DealiColor.g10,
         contentColor = DealiColor.g100,
         selectedContentColor = DealiColor.g100,
         disabledContentColor = DealiColor.g50,
+        outlineColor = DealiColor.g20,
     )
 
     CoreCustomChip(

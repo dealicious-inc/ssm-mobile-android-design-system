@@ -48,7 +48,7 @@ internal object ChipDefaults {
             is ChipStyle.Square,
             ChipStyle.FilledSquare,
             ChipStyle.FilledDepth,
-            ChipStyle.FilledImage,
+            ChipStyle.OutlineImage,
             ChipStyle.FilledImageDepth -> {
                 RoundedCornerShape(4.dp)
             }
@@ -159,7 +159,7 @@ internal object ChipDefaults {
                 )
             }
 
-            ChipStyle.FilledImage -> {
+            ChipStyle.OutlineImage -> {
                 PaddingValues(
                     start = 12.dp,
                     end = if (useRightIcon) 12.dp else 16.dp,
@@ -192,7 +192,7 @@ internal object ChipDefaults {
 
             is ChipStyle.Square,
             ChipStyle.FilledSquare,
-            ChipStyle.FilledImage -> {
+            ChipStyle.OutlineImage -> {
                 PaddingValues(
                     start = if (useLeftIcon) 8.dp else 12.dp,
                     end = if (useRightIcon) 8.dp else 12.dp,
@@ -227,7 +227,7 @@ internal object ChipDefaults {
             ChipSize.Small -> {
                 when (chipStyle) {
                     ChipStyle.FilledDepth,
-                    ChipStyle.FilledImage,
+                    ChipStyle.OutlineImage,
                     ChipStyle.FilledImageDepth -> DealiFont.b2r14
 
                     else -> if (enabled && selected) DealiFont.b2sb14 else DealiFont.b2r14
