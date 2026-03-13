@@ -757,7 +757,7 @@ fun chipFilledImageMedium01(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textAlign: TextAlign? = null,
 ) {
-    val chipStyle = ChipStyle.FilledImage
+    val chipStyle = ChipStyle.OutlineImage
     val chipSize = ChipSize.Medium
     val chipColors = ChipDefaults.colors(
         backgroundColor = DealiColor.g10,
