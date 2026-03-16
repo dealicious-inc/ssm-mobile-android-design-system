@@ -1,0 +1,222 @@
+package net.deali.designsystem.component
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import net.deali.designsystem.internal.tag.CoreTag
+import net.deali.designsystem.internal.tag.TagSize
+import net.deali.designsystem.internal.tag.TagStyle
+import net.deali.designsystem.theme.DealiColor
+import net.deali.designsystem.util.getRandomText
+
+@Composable
+fun TagFilledMedium01(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.primary01,
+        backgroundColor = DealiColor.primary03,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Filled,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagFilledMedium02(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.secondary01,
+        backgroundColor = DealiColor.secondary03,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Filled,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagFilledMedium03(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.secondary04,
+        backgroundColor = DealiColor.secondary06,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Filled,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagFilledMedium04(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g80,
+        backgroundColor = DealiColor.g10,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Filled,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagOutlinedMedium01(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.primary02,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.primary01,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagOutlinedMedium02(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.secondary02,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.secondary01,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagOutlinedMedium03(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.secondary04,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.secondary04,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+fun TagOutlinedMedium04(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    trailingIcon: (@Composable () -> Unit)? = null,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g80,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.g20,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
+
+@Composable
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
+private fun TagMediumPrimaryFilledPreview() {
+    Row(
+        modifier = Modifier
+            .padding(10.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        TagFilledMedium01(
+            text = getRandomText(1)
+        )
+
+        TagFilledMedium02(
+            text = getRandomText(1)
+        )
+
+        TagFilledMedium03(
+            text = getRandomText(1)
+        )
+
+        TagFilledMedium04(
+            text = getRandomText(1)
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true, backgroundColor = 0XFFFFFF)
+private fun TagMediumSecondaryOutlinedPreview() {
+    Row(
+        modifier = Modifier
+            .padding(10.dp),
+        horizontalArrangement = Arrangement.spacedBy(10.dp)
+    ) {
+        TagOutlinedMedium01(
+            text = getRandomText(1)
+        )
+
+        TagOutlinedMedium02(
+            text = getRandomText(1)
+        )
+
+        TagOutlinedMedium03(
+            text = getRandomText(1)
+        )
+
+        TagOutlinedMedium04(
+            text = getRandomText(1)
+        )
+    }
+}
