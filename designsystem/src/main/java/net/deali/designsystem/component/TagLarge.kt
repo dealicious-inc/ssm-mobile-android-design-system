@@ -103,6 +103,27 @@ fun TagFilledLarge04(
 }
 
 @Composable
+fun TagFilledLarge05(
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    iconColor: Color = Color.Unspecified,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g100,
+        backgroundColor = DealiColor.g10,
+        tagSize = TagSize.Large,
+        tagStyle = TagStyle.Filled,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        iconColor = iconColor,
+    )
+}
+
+@Composable
 fun TagOutlineLarge01(
     text: String,
     modifier: Modifier = Modifier,
@@ -180,6 +201,28 @@ fun TagOutlineLarge04(
         modifier = modifier,
         text = text,
         color = DealiColor.g80,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Large,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.g20,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        iconColor = iconColor,
+    )
+}
+
+@Composable
+fun TagOutlineLarge05(
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    iconColor: Color = Color.Unspecified,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g100,
         backgroundColor = DealiColor.primary04,
         tagSize = TagSize.Large,
         tagStyle = TagStyle.Outline,
@@ -310,6 +353,7 @@ private fun TagLargePreview() {
             TagFilledLarge02(text = getRandomText(1))
             TagFilledLarge03(text = getRandomText(1))
             TagFilledLarge04(text = getRandomText(1))
+            TagFilledLarge05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -319,6 +363,7 @@ private fun TagLargePreview() {
             TagOutlineLarge02(text = getRandomText(1))
             TagOutlineLarge03(text = getRandomText(1))
             TagOutlineLarge04(text = getRandomText(1))
+            TagOutlineLarge05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),

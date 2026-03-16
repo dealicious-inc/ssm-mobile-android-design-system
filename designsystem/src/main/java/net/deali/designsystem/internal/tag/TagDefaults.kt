@@ -14,6 +14,7 @@ internal object TagDefaults {
         return when (tagSize) {
             TagSize.Large -> 28.dp
             TagSize.Medium -> 26.dp
+            TagSize.SemiMedium -> 22.dp
             TagSize.Small -> 16.dp
         }
     }
@@ -22,7 +23,7 @@ internal object TagDefaults {
     fun textStyle(tagSize: TagSize): TextStyle {
         return when (tagSize) {
             TagSize.Large -> DealiFont.b2sb14
-            TagSize.Medium -> DealiFont.b4sb12
+            TagSize.Medium, TagSize.SemiMedium -> DealiFont.b4sb12
             TagSize.Small -> DealiFont.c1sb10
         }
     }
@@ -31,6 +32,7 @@ internal object TagDefaults {
     fun containerPadding(tagSize: TagSize): PaddingValues {
         return when (tagSize) {
             TagSize.Large, TagSize.Medium -> PaddingValues(horizontal = 6.dp)
+            TagSize.SemiMedium -> PaddingValues(horizontal = 4.dp)
             TagSize.Small -> PaddingValues(horizontal = 2.dp)
         }
     }
@@ -43,7 +45,7 @@ internal object TagDefaults {
     @Composable
     fun cornerRadius(tagSize: TagSize): Dp {
         return when (tagSize) {
-            TagSize.Large, TagSize.Medium -> 4.dp
+            TagSize.Large, TagSize.Medium, TagSize.SemiMedium -> 4.dp
             TagSize.Small -> 3.dp
         }
     }
@@ -52,7 +54,7 @@ internal object TagDefaults {
     fun iconSize(tagSize: TagSize): Dp {
         return when (tagSize) {
             TagSize.Large -> 20.dp
-            TagSize.Medium -> 16.dp
+            TagSize.Medium, TagSize.SemiMedium -> 16.dp
             TagSize.Small -> 12.dp
         }
     }

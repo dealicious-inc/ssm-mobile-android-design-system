@@ -103,6 +103,27 @@ fun TagFilledMedium04(
 }
 
 @Composable
+fun TagFilledMedium05(
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    iconColor: Color = Color.Unspecified,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g100,
+        backgroundColor = DealiColor.g10,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Filled,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        iconColor = iconColor,
+    )
+}
+
+@Composable
 fun TagOutlinedMedium01(
     text: String,
     modifier: Modifier = Modifier,
@@ -180,6 +201,28 @@ fun TagOutlinedMedium04(
         modifier = modifier,
         text = text,
         color = DealiColor.g80,
+        backgroundColor = DealiColor.primary04,
+        tagSize = TagSize.Medium,
+        tagStyle = TagStyle.Outline,
+        borderColor = DealiColor.g20,
+        leftIcon = leftIcon,
+        rightIcon = rightIcon,
+        iconColor = iconColor,
+    )
+}
+
+@Composable
+fun TagOutlinedMedium05(
+    text: String,
+    modifier: Modifier = Modifier,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    iconColor: Color = Color.Unspecified,
+) {
+    CoreTag(
+        modifier = modifier,
+        text = text,
+        color = DealiColor.g100,
         backgroundColor = DealiColor.primary04,
         tagSize = TagSize.Medium,
         tagStyle = TagStyle.Outline,
@@ -310,6 +353,7 @@ private fun TagMediumPreview() {
             TagFilledMedium02(text = getRandomText(1))
             TagFilledMedium03(text = getRandomText(1))
             TagFilledMedium04(text = getRandomText(1))
+            TagFilledMedium05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -319,6 +363,7 @@ private fun TagMediumPreview() {
             TagOutlinedMedium02(text = getRandomText(1))
             TagOutlinedMedium03(text = getRandomText(1))
             TagOutlinedMedium04(text = getRandomText(1))
+            TagOutlinedMedium05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),

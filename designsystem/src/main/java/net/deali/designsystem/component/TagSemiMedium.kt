@@ -19,7 +19,7 @@ import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.util.getRandomText
 
 @Composable
-fun TagFilledSmall01(
+fun TagFilledSemiMedium01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -31,7 +31,7 @@ fun TagFilledSmall01(
         text = text,
         color = DealiColor.primary01,
         backgroundColor = DealiColor.primary03,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Filled,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -40,7 +40,7 @@ fun TagFilledSmall01(
 }
 
 @Composable
-fun TagFilledSmall02(
+fun TagFilledSemiMedium02(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -52,7 +52,7 @@ fun TagFilledSmall02(
         text = text,
         color = DealiColor.secondary01,
         backgroundColor = DealiColor.secondary03,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Filled,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -61,7 +61,7 @@ fun TagFilledSmall02(
 }
 
 @Composable
-fun TagFilledSmall03(
+fun TagFilledSemiMedium03(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -73,7 +73,7 @@ fun TagFilledSmall03(
         text = text,
         color = DealiColor.secondary04,
         backgroundColor = DealiColor.secondary06,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Filled,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -82,7 +82,7 @@ fun TagFilledSmall03(
 }
 
 @Composable
-fun TagFilledSmall04(
+fun TagFilledSemiMedium04(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -94,7 +94,7 @@ fun TagFilledSmall04(
         text = text,
         color = DealiColor.g80,
         backgroundColor = DealiColor.g10,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Filled,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -103,7 +103,7 @@ fun TagFilledSmall04(
 }
 
 @Composable
-fun TagFilledSmall05(
+fun TagFilledSemiMedium05(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -115,7 +115,7 @@ fun TagFilledSmall05(
         text = text,
         color = DealiColor.g100,
         backgroundColor = DealiColor.g10,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Filled,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -124,7 +124,7 @@ fun TagFilledSmall05(
 }
 
 @Composable
-fun TagOutlineSmall01(
+fun TagOutlineSemiMedium01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -136,7 +136,7 @@ fun TagOutlineSmall01(
         text = text,
         color = DealiColor.primary02,
         backgroundColor = DealiColor.primary04,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Outline,
         borderColor = DealiColor.primary01,
         leftIcon = leftIcon,
@@ -146,7 +146,7 @@ fun TagOutlineSmall01(
 }
 
 @Composable
-fun TagOutlineSmall02(
+fun TagOutlineSemiMedium02(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -158,7 +158,7 @@ fun TagOutlineSmall02(
         text = text,
         color = DealiColor.secondary02,
         backgroundColor = DealiColor.primary04,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Outline,
         borderColor = DealiColor.secondary01,
         leftIcon = leftIcon,
@@ -168,7 +168,7 @@ fun TagOutlineSmall02(
 }
 
 @Composable
-fun TagOutlineSmall03(
+fun TagOutlineSemiMedium03(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -180,7 +180,7 @@ fun TagOutlineSmall03(
         text = text,
         color = DealiColor.secondary04,
         backgroundColor = DealiColor.primary04,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Outline,
         borderColor = DealiColor.secondary04,
         leftIcon = leftIcon,
@@ -190,7 +190,7 @@ fun TagOutlineSmall03(
 }
 
 @Composable
-fun TagOutlineSmall04(
+fun TagOutlineSemiMedium04(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -202,7 +202,7 @@ fun TagOutlineSmall04(
         text = text,
         color = DealiColor.g80,
         backgroundColor = DealiColor.primary04,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Outline,
         borderColor = DealiColor.g20,
         leftIcon = leftIcon,
@@ -212,7 +212,7 @@ fun TagOutlineSmall04(
 }
 
 @Composable
-fun TagOutlineSmall05(
+fun TagOutlineSemiMedium05(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -224,7 +224,7 @@ fun TagOutlineSmall05(
         text = text,
         color = DealiColor.g100,
         backgroundColor = DealiColor.primary04,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Outline,
         borderColor = DealiColor.g20,
         leftIcon = leftIcon,
@@ -234,7 +234,7 @@ fun TagOutlineSmall05(
 }
 
 @Composable
-fun TagTextSmall01(
+fun TagTextSemiMedium01(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -246,7 +246,7 @@ fun TagTextSmall01(
         text = text,
         color = DealiColor.primary01,
         backgroundColor = DealiColor.transparent,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -255,7 +255,7 @@ fun TagTextSmall01(
 }
 
 @Composable
-fun TagTextSmall02(
+fun TagTextSemiMedium02(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -267,7 +267,7 @@ fun TagTextSmall02(
         text = text,
         color = DealiColor.secondary01,
         backgroundColor = DealiColor.transparent,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -276,7 +276,7 @@ fun TagTextSmall02(
 }
 
 @Composable
-fun TagTextSmall03(
+fun TagTextSemiMedium03(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -288,7 +288,7 @@ fun TagTextSmall03(
         text = text,
         color = DealiColor.secondary04,
         backgroundColor = DealiColor.transparent,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -297,7 +297,7 @@ fun TagTextSmall03(
 }
 
 @Composable
-fun TagTextSmall04(
+fun TagTextSemiMedium04(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -309,7 +309,7 @@ fun TagTextSmall04(
         text = text,
         color = DealiColor.g80,
         backgroundColor = DealiColor.transparent,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -318,7 +318,7 @@ fun TagTextSmall04(
 }
 
 @Composable
-fun TagTextSmall05(
+fun TagTextSemiMedium05(
     text: String,
     modifier: Modifier = Modifier,
     @DrawableRes leftIcon: Int? = null,
@@ -330,7 +330,7 @@ fun TagTextSmall05(
         text = text,
         color = DealiColor.g100,
         backgroundColor = DealiColor.transparent,
-        tagSize = TagSize.Small,
+        tagSize = TagSize.SemiMedium,
         tagStyle = TagStyle.Text,
         leftIcon = leftIcon,
         rightIcon = rightIcon,
@@ -340,7 +340,7 @@ fun TagTextSmall05(
 
 @Composable
 @Preview(showBackground = true, backgroundColor = 0xFFFFFF)
-private fun TagSmallPreview() {
+private fun TagSemiMediumPreview() {
     Column(
         modifier = Modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -349,42 +349,42 @@ private fun TagSmallPreview() {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            TagFilledSmall01(text = getRandomText(1))
-            TagFilledSmall02(text = getRandomText(1))
-            TagFilledSmall03(text = getRandomText(1))
-            TagFilledSmall04(text = getRandomText(1))
-            TagFilledSmall05(text = getRandomText(1))
+            TagFilledSemiMedium01(text = getRandomText(1))
+            TagFilledSemiMedium02(text = getRandomText(1))
+            TagFilledSemiMedium03(text = getRandomText(1))
+            TagFilledSemiMedium04(text = getRandomText(1))
+            TagFilledSemiMedium05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            TagOutlineSmall01(text = getRandomText(1))
-            TagOutlineSmall02(text = getRandomText(1))
-            TagOutlineSmall03(text = getRandomText(1))
-            TagOutlineSmall04(text = getRandomText(1))
-            TagOutlineSmall05(text = getRandomText(1))
+            TagOutlineSemiMedium01(text = getRandomText(1))
+            TagOutlineSemiMedium02(text = getRandomText(1))
+            TagOutlineSemiMedium03(text = getRandomText(1))
+            TagOutlineSemiMedium04(text = getRandomText(1))
+            TagOutlineSemiMedium05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            TagTextSmall01(text = getRandomText(1))
-            TagTextSmall02(text = getRandomText(1))
-            TagTextSmall03(text = getRandomText(1))
-            TagTextSmall04(text = getRandomText(1))
-            TagTextSmall05(text = getRandomText(1))
+            TagTextSemiMedium01(text = getRandomText(1))
+            TagTextSemiMedium02(text = getRandomText(1))
+            TagTextSemiMedium03(text = getRandomText(1))
+            TagTextSemiMedium04(text = getRandomText(1))
+            TagTextSemiMedium05(text = getRandomText(1))
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            TagFilledSmall01(
+            TagFilledSemiMedium01(
                 text = getRandomText(1),
                 leftIcon = R.drawable.ic_star_filled,
                 rightIcon = R.drawable.ic_heart_filled,
             )
-            TagTextSmall01(
+            TagTextSemiMedium01(
                 text = getRandomText(1),
                 leftIcon = R.drawable.ic_star_filled,
             )
