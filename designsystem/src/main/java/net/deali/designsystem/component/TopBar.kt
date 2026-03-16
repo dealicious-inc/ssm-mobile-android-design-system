@@ -162,11 +162,6 @@ private fun TopBarrPreview5() {
                 onClick = {},
             )
             Icon(
-                iconRes = R.drawable.ic_bookmark_1,
-                size = 24.dp,
-                onClick = {},
-            )
-            Icon(
                 modifier = Modifier.badge(count = 99),
                 iconRes = R.drawable.ic_cart,
                 size = 24.dp,

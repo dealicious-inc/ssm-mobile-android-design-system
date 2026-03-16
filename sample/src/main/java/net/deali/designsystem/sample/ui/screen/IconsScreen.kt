@@ -272,7 +272,6 @@ val outlineIcons = listOf(
     IconItem("ic_alarm", R.drawable.ic_alarm),
     IconItem("ic_notify", R.drawable.ic_notify),
     IconItem("ic_trash", R.drawable.ic_trash),
-    IconItem("ic_bookmark1", R.drawable.ic_bookmark_1),
     IconItem("ic_heart", R.drawable.ic_heart),
     IconItem("ic_star", R.drawable.ic_star),
     IconItem("ic_talk", R.drawable.ic_talk),
@@ -320,7 +319,6 @@ val outlineIcons = listOf(
     IconItem("ic_history", R.drawable.ic_history),
     IconItem("ic_file_text", R.drawable.ic_file_text),
     IconItem("ic_certificate", R.drawable.ic_certificate),
-    IconItem("ic_bookmark2", R.drawable.ic_bookmark_2),
     IconItem("ic_orderlist", R.drawable.ic_orderlist),
     IconItem("ic_restocked", R.drawable.ic_restocked),
     IconItem("ic_soldout", R.drawable.ic_soldout),
@@ -405,7 +403,6 @@ val filledIcons = listOf(
     IconItem("ic_notify_filled", R.drawable.ic_notify_filled),
     IconItem("ic_trash_filled", R.drawable.ic_trash_filled),
 
-    IconItem("ic_bookmark1_filled", R.drawable.ic_bookmark_1_filled),
     IconItem("ic_heart_filled", R.drawable.ic_heart_filled),
     IconItem("ic_star_filled", R.drawable.ic_star_filled),
     IconItem("ic_talk_filled", R.drawable.ic_talk_filled),

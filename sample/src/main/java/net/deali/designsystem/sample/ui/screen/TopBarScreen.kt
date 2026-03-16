@@ -30,7 +30,6 @@ import net.deali.designsystem.util.getRandomText
 fun TopBarScreen(onBackPress: () -> Unit) {
     var menuContent1Visible by remember { mutableStateOf(true) }
     var menuContent2Visible by remember { mutableStateOf(true) }
-    var menuContent3Visible by remember { mutableStateOf(true) }
 
     NavigationContainer(
         navigationBar = {
@@ -46,14 +45,6 @@ fun TopBarScreen(onBackPress: () -> Unit) {
                     }
 
                     if (menuContent2Visible) {
-                        Icon(
-                            iconRes = R.drawable.ic_bookmark_1,
-                            size = 24.dp,
-                            onClick = {},
-                        )
-                    }
-
-                    if (menuContent3Visible) {
                         Icon(
                             modifier = Modifier.badge(count = 99),
                             iconRes = R.drawable.ic_cart,
@@ -83,12 +74,6 @@ fun TopBarScreen(onBackPress: () -> Unit) {
                 title = "menuContent2",
                 selected = menuContent2Visible,
                 onSelectedChange = { menuContent2Visible = it }
-            )
-
-            ToggleOption(
-                title = "menuContent3",
-                selected = menuContent3Visible,
-                onSelectedChange = { menuContent3Visible = it }
             )
         }
     }

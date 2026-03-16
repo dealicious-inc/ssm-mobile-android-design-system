@@ -76,14 +76,14 @@ private fun ChipOutlineMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineMedium01(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -91,7 +91,7 @@ private fun ChipOutlineMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -183,14 +183,14 @@ private fun ChipOutlineMedium02Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineMedium02(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -198,7 +198,7 @@ private fun ChipOutlineMedium02Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -291,14 +291,14 @@ private fun ChipSquareBoldMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipOutlineSquareMedium01(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -306,7 +306,7 @@ private fun ChipSquareBoldMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -398,14 +398,14 @@ private fun ChipFilledMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledMedium01(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -413,7 +413,7 @@ private fun ChipFilledMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -506,14 +506,14 @@ private fun ChipFilledSquareMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareMedium01(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -521,7 +521,7 @@ private fun ChipFilledSquareMedium01Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -613,14 +613,14 @@ private fun ChipFilledSquareMedium02Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "TTT",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
             )
             chipFilledSquareMedium02(
                 onClick = {},
                 onRightIconClick = {},
                 text = "SSS",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 selected = true,
             )
@@ -628,7 +628,7 @@ private fun ChipFilledSquareMedium02Samples() {
                 onClick = {},
                 onRightIconClick = {},
                 text = "DDD",
-                leftIcon = R.drawable.ic_bookmark_1_filled,
+                leftIcon = R.drawable.ic_star,
                 rightIcon = R.drawable.ic_x_s,
                 enabled = false,
             )
@@ -718,9 +718,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", null),
-                    Triple(R.drawable.ic_bookmark_1, "Second", null),
-                    Triple(R.drawable.ic_bookmark_1, "Third", null),
+                    Triple(R.drawable.ic_star, "First", null),
+                    Triple(R.drawable.ic_star, "Second", null),
+                    Triple(R.drawable.ic_star, "Third", null),
                 ),
             )
             chipFilledDepthMedium01(
@@ -736,9 +736,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Second", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Third", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
                 ),
             )
 
@@ -762,9 +762,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", null),
-                    Triple(R.drawable.ic_bookmark_1, "Second", null),
-                    Triple(R.drawable.ic_bookmark_1, "Third", null),
+                    Triple(R.drawable.ic_star, "First", null),
+                    Triple(R.drawable.ic_star, "Second", null),
+                    Triple(R.drawable.ic_star, "Third", null),
                 ),
                 selected = true,
             )
@@ -782,9 +782,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Second", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Third", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
                 ),
                 selected = true,
             )
@@ -809,9 +809,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", null),
-                    Triple(R.drawable.ic_bookmark_1, "Second", null),
-                    Triple(R.drawable.ic_bookmark_1, "Third", null),
+                    Triple(R.drawable.ic_star, "First", null),
+                    Triple(R.drawable.ic_star, "Second", null),
+                    Triple(R.drawable.ic_star, "Third", null),
                 ),
                 enabled = false,
             )
@@ -829,9 +829,9 @@ private fun ChipFilledDepthMedium01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 contents = listOf(
-                    Triple(R.drawable.ic_bookmark_1, "First", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Second", R.drawable.ic_check),
-                    Triple(R.drawable.ic_bookmark_1, "Third", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
+                    Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
                 ),
                 enabled = false,
             )

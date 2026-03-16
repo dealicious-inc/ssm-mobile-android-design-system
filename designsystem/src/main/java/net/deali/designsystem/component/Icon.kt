@@ -122,17 +122,17 @@ fun IconRotating(
 private fun IconPreview() {
     Row {
         Icon(
-            iconRes = R.drawable.ic_bookmark_1,
+            iconRes = R.drawable.ic_star,
             size = 16.dp,
         )
 
         Icon(
-            iconRes = R.drawable.ic_bookmark_1,
+            iconRes = R.drawable.ic_star,
             size = 24.dp,
         )
 
         Icon(
-            iconRes = R.drawable.ic_bookmark_1,
+            iconRes = R.drawable.ic_star,
             size = 32.dp,
         )
     }
