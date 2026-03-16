@@ -1,5 +1,6 @@
 package net.deali.designsystem.internal.tag
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -16,6 +17,7 @@ import androidx.compose.ui.graphics.isSpecified
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.component.DealiText
+import net.deali.designsystem.component.Icon
 
 @Composable
 internal fun CoreTag(
@@ -26,8 +28,9 @@ internal fun CoreTag(
     tagStyle: TagStyle,
     modifier: Modifier = Modifier,
     borderColor: Color = Color.Unspecified,
-    leadingIcon: (@Composable () -> Unit)? = null,
-    trailingIcon: (@Composable () -> Unit)? = null,
+    @DrawableRes leftIcon: Int? = null,
+    @DrawableRes rightIcon: Int? = null,
+    iconColor: Color = Color.Unspecified,
 ) {
     val style = TagDefaults.textStyle(tagSize)
     val containerPaddingValues = TagDefaults.containerPadding(tagSize)
@@ -38,13 +41,20 @@ internal fun CoreTag(
 
     val shape = RoundedCornerShape(cornerRadius)
     val showBorder = tagStyle == TagStyle.Outline && borderColor.isSpecified
+    val resolvedIconColor = if (iconColor.isSpecified) iconColor else color
 
     Row(
         modifier = modifier
             .height(height)
-            .background(
-                color = backgroundColor,
-                shape = shape
+            .then(
+                if (tagStyle != TagStyle.Text) {
+                    Modifier.background(
+                        color = backgroundColor,
+                        shape = shape
+                    )
+                } else {
+                    Modifier
+                }
             )
             .then(
                 if (showBorder) {
@@ -60,12 +70,16 @@ internal fun CoreTag(
             .padding(containerPaddingValues),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        leadingIcon?.let { icon ->
+        leftIcon?.let { iconRes ->
             Box(
                 modifier = Modifier.size(iconSize),
                 contentAlignment = Alignment.Center,
             ) {
-                icon()
+                Icon(
+                    iconRes = iconRes,
+                    size = iconSize,
+                    color = resolvedIconColor,
+                )
             }
         }
 
@@ -78,12 +92,16 @@ internal fun CoreTag(
             overflow = TextOverflow.Ellipsis,
         )
 
-        trailingIcon?.let { icon ->
+        rightIcon?.let { iconRes ->
             Box(
                 modifier = Modifier.size(iconSize),
                 contentAlignment = Alignment.Center,
             ) {
-                icon()
+                Icon(
+                    iconRes = iconRes,
+                    size = iconSize,
+                    color = resolvedIconColor,
+                )
             }
         }
     }
