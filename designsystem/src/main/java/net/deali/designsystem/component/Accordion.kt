@@ -91,9 +91,9 @@ fun Accordion(
 private fun Title(
     title: String,
     isExpanded: Boolean,
+    onClickExpand: () -> Unit,
     modifier: Modifier = Modifier,
     @DrawableRes titleIconRes: Int = 0,
-    onClickExpand: () -> Unit,
 ) {
     val degrees by animateFloatAsState(
         targetValue = if (isExpanded) 180f else 0f,

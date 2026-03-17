@@ -55,6 +55,7 @@ fun Alert(
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
+        modifier = modifier,
         title = title,
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
@@ -89,10 +90,12 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
     Alert(
+        modifier = modifier,
         title = title,
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
@@ -127,9 +130,11 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
 ) {
     ComposeAlert(
+        modifier = modifier,
         onDismissRequest = onDismissRequest,
         properties = properties
     ) {
@@ -197,10 +202,12 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
     ComposeAlert(
+        modifier = modifier,
         onDismissRequest = onDismissRequest,
         properties = properties
     ) {
@@ -271,6 +278,7 @@ fun Alert(
     properties: DialogProperties = DialogProperties(),
 ) {
     Alert(
+        modifier = modifier,
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
         rightButtonText = rightButtonText,
@@ -308,6 +316,7 @@ fun Alert(
     content: @Composable () -> Unit,
 ) {
     Alert(
+        modifier = modifier,
         contentText = AnnotatedString(contentText),
         leftButtonText = leftButtonText,
         rightButtonText = rightButtonText,
@@ -340,10 +349,12 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
     ComposeAlert(
+        modifier = modifier,
         onDismissRequest = onDismissRequest,
         properties = properties
     ) {
@@ -397,9 +408,11 @@ fun Alert(
     onLeftButtonClick: () -> Unit,
     onRightButtonClick: () -> Unit,
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
 ) {
     ComposeAlert(
+        modifier = modifier,
         onDismissRequest = onDismissRequest,
         properties = properties
     ) {
@@ -583,6 +596,7 @@ fun AlertSingleButton(
 @Composable
 private fun ComposeAlert(
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     properties: DialogProperties = DialogProperties(),
     content: @Composable ColumnScope.() -> Unit
 ) {
@@ -594,7 +608,7 @@ private fun ComposeAlert(
         dialogWindow?.setDimAmount(0.4f)
 
         Column(
-            modifier = Modifier
+            modifier = modifier
                 .clip(RoundedCornerShape(10.dp))
                 .background(DealiColor.primary04)
                 .width(280.dp)

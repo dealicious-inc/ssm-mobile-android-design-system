@@ -24,6 +24,7 @@ fun imgChipLarge01(
     imageUrl: String,
     @DrawableRes placeholder: Int,
     text: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     textAlign: TextAlign? = null,
     @DrawableRes rightIcon: Int? = null,
@@ -32,7 +33,6 @@ fun imgChipLarge01(
     selected: Boolean = false,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    onClick: () -> Unit,
     subContent: @Composable (() -> Unit)? = null,
     onRightIconClick: (() -> Unit)? = null,
 ) {

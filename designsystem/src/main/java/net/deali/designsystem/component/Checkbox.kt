@@ -79,8 +79,8 @@ fun CheckBox(
 @Composable
 fun CheckBoxIcon(
     checked: Boolean,
-    onCheck: (() -> Unit)? = null,
     modifier: Modifier = Modifier,
+    onCheck: (() -> Unit)? = null,
     enabled: Boolean = true,
 ) {
     val iconRes = when {
