@@ -9,3 +9,5 @@ build
 .cxx
 local.properties
 
+# Cursor: 개인용 세팅 (팀과 공유하지 않음)
+.cursor/
