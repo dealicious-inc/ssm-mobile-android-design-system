@@ -175,6 +175,56 @@ class DecimalSeparatorVisualTransformationTest {
     }
 
     @Test
+    fun negativeNumbers_withoutPrefix() {
+        val visualTransformation = DecimalSeparatorVisualTransformation(
+            prefix = "",
+            alwaysShowPrefix = false,
+        )
+
+        Assert.assertEquals(
+            "-",
+            visualTransformation.filter(AnnotatedString("-")).text.text
+        )
+        Assert.assertEquals(
+            "-9",
+            visualTransformation.filter(AnnotatedString("-9")).text.text
+        )
+        Assert.assertEquals(
+            "-999",
+            visualTransformation.filter(AnnotatedString("-999")).text.text
+        )
+        Assert.assertEquals(
+            "-9,999",
+            visualTransformation.filter(AnnotatedString("-9999")).text.text
+        )
+        Assert.assertEquals(
+            "-9,999,999",
+            visualTransformation.filter(AnnotatedString("-9999999")).text.text
+        )
+    }
+
+    @Test
+    fun negativeNumbers_withPrefix() {
+        val visualTransformation = DecimalSeparatorVisualTransformation(
+            prefix = "₩",
+            alwaysShowPrefix = false,
+        )
+
+        Assert.assertEquals(
+            "-₩",
+            visualTransformation.filter(AnnotatedString("-")).text.text
+        )
+        Assert.assertEquals(
+            "-₩9,999",
+            visualTransformation.filter(AnnotatedString("-9999")).text.text
+        )
+        Assert.assertEquals(
+            "-₩9,999,999",
+            visualTransformation.filter(AnnotatedString("-9999999")).text.text
+        )
+    }
+
+    @Test
     fun round() {
         val visualTransformation = DecimalSeparatorVisualTransformation(
             prefix = "$ ",
