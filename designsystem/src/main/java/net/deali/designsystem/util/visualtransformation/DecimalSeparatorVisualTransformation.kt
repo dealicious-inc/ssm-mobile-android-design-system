@@ -67,18 +67,37 @@ class DecimalSeparatorVisualTransformation(
         if (isEmpty()) {
             return ""
         }
+
         val isNegative = startsWith("-")
-        val digits = if (isNegative) removePrefix("-") else this
-        val formatted = if (digits.isEmpty()) {
-            ""
+
+        val digits = if (isNegative) {
+            this.removePrefix("-")
         } else {
+            this
+        }
+
+        // 소수점으로 끝나는 경우 포맷 후 다시 붙임.
+        // 포맷 과정에서 trailing '.'이 제거되면 변환 텍스트 길이가 원본과 같아져
+        // originalToTransformed가 transformedText.length와 동일한 값을 캐릭터 인덱스로
+        // 반환하게 되고, Compose 내부의 fillBoundingBoxes에서 범위 오류가 발생함.
+        val hasTrailingDot = digits.endsWith(".")
+        val digitsForFormat = if (hasTrailingDot) {
+            digits.dropLast(1)
+        } else {
+            digits
+        }
+        val formatted = if (digitsForFormat.isNotEmpty()) {
             try {
-                String.format(Locale.getDefault(), "%,.0f", digits.toDouble())
+                String.format(Locale.getDefault(), "%,.0f", digitsForFormat.toDouble())
             } catch (_: NumberFormatException) {
                 return null
             }
+        } else {
+            ""
         }
-        return if (isNegative) "-$formatted" else formatted
+
+        val suffix = if (hasTrailingDot) "." else ""
+        return if (isNegative) "-$formatted$suffix" else "$formatted$suffix"
     }
 
     private class DecimalSeparatorOffsetMapping(

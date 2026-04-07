@@ -248,4 +248,21 @@ class DecimalSeparatorVisualTransformationTest {
             visualTransformation.filter(AnnotatedString("9999999.17")).text.text
         )
     }
+
+    @Test
+    fun `소숫점 입력 중`() {
+        val visualTransformation = DecimalSeparatorVisualTransformation(
+            prefix = "$",
+            alwaysShowPrefix = false,
+        )
+
+        Assert.assertEquals(
+            "$10.",
+            visualTransformation.filter(AnnotatedString("10.")).text.text
+        )
+        Assert.assertEquals(
+            "1,000.",
+            visualTransformation.filter(AnnotatedString("1,000.")).text.text
+        )
+    }
 }
