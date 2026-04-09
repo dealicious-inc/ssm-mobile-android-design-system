@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.Dp
  * @param colors 텍스트 필드의 색상 상태.
  * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.
  * @param state 텍스트 필드 상태.
+ * @param readOnlyUsesScrollInteraction [DealiTextFieldState.READ_ONLY]일 때 `BasicTextField`를 스크롤 가능하게 둘지 여부.
  * @param singleLine 텍스트 필드에 1줄로만 문자를 쓸 수 있도록 설정.
  * @param minLines 텍스트 필드에서 한번에 보이는 최소 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
  * 이 값은 반드시 1보다 커야 하고 [maxLines]보다 작아야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
@@ -69,6 +70,7 @@ internal fun CoreDealiTextField(
     colors: TextFieldColors = DealiTextFieldDefaults.colors(),
     paddings: TextFieldPaddings = DealiTextFieldDefaults.paddings(),
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    readOnlyUsesScrollInteraction: Boolean = true,
     singleLine: Boolean = true,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
@@ -127,6 +129,7 @@ internal fun CoreDealiTextField(
         colors = colors,
         paddings = paddings,
         state = state,
+        readOnlyUsesScrollInteraction = readOnlyUsesScrollInteraction,
         singleLine = singleLine,
         minLines = minLines,
         maxLines = maxLines,
@@ -164,6 +167,7 @@ internal fun CoreDealiTextField(
  * @param colors 텍스트 필드의 색상 상태.
  * @param textStyle 텍스트 필드에 입력 된 문자의 스타일.
  * @param state 텍스트 필드 상태.
+ * @param readOnlyUsesScrollInteraction [DealiTextFieldState.READ_ONLY]일 때 `BasicTextField`를 스크롤 가능하게 둘지 여부.
  * @param singleLine 텍스트 필드에 1줄로만 문자를 쓸 수 있도록 설정.
  * @param minLines 텍스트 필드에서 한번에 보이는 최소 줄 수. 이 값은 실제 입력 된 문자를 제한하지 않습니다.
  * 이 값은 반드시 1보다 커야 하고 [maxLines]보다 작아야 합니다. 만약 [singleLine]이 `true`이면 무시됩니다.
@@ -202,6 +206,7 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     colors: TextFieldColors = DealiTextFieldDefaults.colors(),
     paddings: TextFieldPaddings = DealiTextFieldDefaults.paddings(),
     state: DealiTextFieldState = DealiTextFieldState.ENABLED,
+    readOnlyUsesScrollInteraction: Boolean = true,
     singleLine: Boolean = true,
     minLines: Int = 1,
     maxLines: Int = Int.MAX_VALUE,
@@ -233,6 +238,23 @@ internal fun CoreDealiTextFieldForTextFieldValue(
     val textColor by colors.textColor(state)
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
 
+    val enabled: Boolean
+    val readOnly: Boolean
+    when (state) {
+        DealiTextFieldState.DISABLED -> {
+            enabled = false
+            readOnly = false
+        }
+        DealiTextFieldState.READ_ONLY -> {
+            readOnly = true
+            enabled = readOnlyUsesScrollInteraction
+        }
+        else -> {
+            enabled = true
+            readOnly = false
+        }
+    }
+
     BasicTextField(
         value = value,
         onValueChange = {
@@ -245,8 +267,8 @@ internal fun CoreDealiTextFieldForTextFieldValue(
         },
         modifier = modifier,
         textStyle = mergedTextStyle,
-        enabled = state != DealiTextFieldState.DISABLED,
-        readOnly = state == DealiTextFieldState.READ_ONLY,
+        enabled = enabled,
+        readOnly = readOnly,
         singleLine = singleLine,
         minLines = if (singleLine) 1 else minLines,
         maxLines = if (singleLine) 1 else maxLines,
