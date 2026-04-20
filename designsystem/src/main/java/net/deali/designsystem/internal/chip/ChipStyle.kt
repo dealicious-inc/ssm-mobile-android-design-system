@@ -1,5 +1,8 @@
 package net.deali.designsystem.internal.chip
 
+import androidx.compose.runtime.Stable
+
+@Stable
 internal sealed interface ChipStyle {
     data object Outline : ChipStyle
 

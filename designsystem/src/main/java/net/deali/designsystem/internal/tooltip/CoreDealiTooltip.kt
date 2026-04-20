@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -307,6 +308,7 @@ private fun BubbleLayout(
     }
 }
 
+@Stable
 private data class TooltipPopupPosition(
     val offset: IntOffset = IntOffset(0, 0),
     val alignment: TooltipArrowDirectionState = TooltipArrowDirectionState.TOP,
