@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -747,6 +748,7 @@ fun BottomSheetOption40(
  * 단일 옵션 선택할 때 사용.
  * 좌측에 아이콘이 붙는 경우 icon composable 작성.
  */
+@Stable
 data class SingleSelectOption(
     val text: String,
     val isSelected: Boolean,

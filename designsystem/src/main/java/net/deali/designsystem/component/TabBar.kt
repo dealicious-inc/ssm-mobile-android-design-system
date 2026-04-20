@@ -17,6 +17,7 @@ import androidx.compose.foundation.pager.PagerScope
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -646,6 +647,7 @@ fun tabBarChip01Layout(
  * @param text 각 탭의 타이틀
  * @param isShowBadge 각 탭에서 뱃지의 표시 여부
  */
+@Stable
 data class Tab(
     val text: String,
     val isShowBadge: Boolean,
@@ -663,6 +665,7 @@ data class Tab(
  * @param subContent 이미지 칩 하단 추가 컨텐츠
  * @param onRightIconClick 오른쪽 아이콘 클릭 시 콜백
  */
+@Stable
 data class ImgChip(
     val imageUrl: String,
     val text: String,
