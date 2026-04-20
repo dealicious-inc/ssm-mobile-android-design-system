@@ -23,11 +23,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
-import net.deali.designsystem.util.getRandomText
 import net.deali.designsystem.util.click.noRippleClickable
+import net.deali.designsystem.util.getRandomText
 
 /**
  * 아코디언 컴포넌트.
@@ -181,7 +182,7 @@ private fun Preview3() {
             isExpanded = !isExpanded
         },
         content = {
-            val texts = listOf(
+            val texts = persistentListOf(
                 "신분증 이미지를 가이드 영역에 맞춰 가로로 촬영 후 등록해주세요.",
                 getRandomText(9),
                 getRandomText(13),

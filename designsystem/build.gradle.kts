@@ -64,7 +64,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
 
     implementation(libs.android.material)
-    implementation(libs.kotlinx.collections.immutable)
+    api(libs.kotlinx.collections.immutable)
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
     implementation(libs.snapper)

@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.component.HorizontalDivider
 import net.deali.designsystem.component.TopBar
@@ -34,7 +35,7 @@ fun LabeledTextScreen(
             )
         }
     ) {
-        val texts = listOf(
+        val texts = persistentListOf(
             getRandomText(3),
             getRandomText(9),
             getRandomText(15),

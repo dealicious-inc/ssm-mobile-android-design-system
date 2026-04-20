@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Notice
 import net.deali.designsystem.component.TopBar
@@ -53,7 +54,7 @@ fun NoticeScreen(
                     .padding(16.dp),
                 title = "TITLE",
                 content = {
-                    val texts = listOf(
+                    val texts = persistentListOf(
                         getRandomText(3),
                         getRandomText(9),
                         getRandomText(13),
@@ -95,7 +96,7 @@ fun NoticeScreen(
 
             Notice(
                 modifier = Modifier.padding(16.dp),
-                textList = listOf(
+                textList = persistentListOf(
                     getRandomText(3),
                     getRandomText(9),
                     getRandomText(13),

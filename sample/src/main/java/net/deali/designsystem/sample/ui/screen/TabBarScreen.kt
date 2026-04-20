@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.toImmutableList
 import net.deali.designsystem.R
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.Icon
@@ -69,7 +70,7 @@ fun TabBarScreen(
 
             val tabsSlide = List(15) { index ->
                 "Tab$index"
-            }
+            }.toImmutableList()
 
             var tabBarSlider01Index by remember { mutableIntStateOf(1) }
             tabBarSlider01(
@@ -120,7 +121,7 @@ fun TabBarScreen(
             val imageUrl =
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png"
 
-            val imgChips = listOf(
+            val imgChips = (listOf(
                 ImgChip(
                     imageUrl = imageUrl,
                     text = "이미지칩0",
@@ -176,7 +177,7 @@ fun TabBarScreen(
                         }
                     }
                 )
-            }
+            }).toImmutableList()
 
             tabBarImgChip(
                 imgChips = imgChips,
@@ -195,7 +196,7 @@ fun TabBarScreen(
 
             val tabs = List(3) { index ->
                 Tab("Title$index", index == 1)
-            }
+            }.toImmutableList()
 
             tabBarSegment01Layout(
                 tabs = tabs,
@@ -221,7 +222,7 @@ fun TabBarScreen(
 
             val tabsScrollable = List(7) { index ->
                 Tab("Title$index", index == 1)
-            }
+            }.toImmutableList()
 
             DealiText(
                 modifier = Modifier.padding(10.dp),
@@ -283,7 +284,7 @@ fun TabBarScreen(
 
             val subTitles = List(9) { index ->
                 "Sub$index"
-            }
+            }.toImmutableList()
 
             DealiText(
                 modifier = Modifier.padding(10.dp),

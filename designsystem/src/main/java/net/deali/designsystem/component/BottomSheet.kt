@@ -28,6 +28,8 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.bottomsheet.BottomSheetDatePicker
 import net.deali.designsystem.internal.bottomsheet.SingleSelectOptionList
@@ -333,7 +335,7 @@ fun DatePickerBottomSheet(
 @Composable
 fun BottomSheetSingleSelectOption(
     title: String,
-    singleSelectOptionList: List<SingleSelectOption>,
+    singleSelectOptionList: ImmutableList<SingleSelectOption>,
     onSelectOption: (index: Int) -> Unit,
     modifier: Modifier = Modifier,
     onDismiss: () -> Unit = {},
@@ -885,7 +887,7 @@ fun PreviewBottomSheetTwoButtonsGray() {
 private fun PreviewBottomSheetSingleSelectOption() {
     BottomSheetSingleSelectOption(
         title = "단일 선택 바텀시트",
-        singleSelectOptionList = listOf(
+        singleSelectOptionList = persistentListOf(
             SingleSelectOption(
                 text = "옵션명1",
                 isSelected = true,

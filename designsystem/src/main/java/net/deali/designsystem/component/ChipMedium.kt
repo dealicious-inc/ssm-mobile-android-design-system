@@ -19,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.chip.ChipDefaults
 import net.deali.designsystem.internal.chip.ChipImage
@@ -544,7 +545,7 @@ fun chipFilledSquareMedium02(
 fun chipFilledDepthMedium01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    texts: List<String>,
+    texts: ImmutableList<String>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -606,7 +607,7 @@ fun chipFilledDepthMedium01(
 fun chipFilledDepthMedium01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    icons: List<Int>,
+    icons: ImmutableList<Int>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -665,7 +666,7 @@ fun chipFilledDepthMedium01(
 fun chipFilledDepthMedium01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
-    contents: List<Triple<Int?, String, Int?>>,
+    contents: ImmutableList<Triple<Int?, String, Int?>>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,
@@ -814,7 +815,7 @@ fun chipFilledImageDepthMedium01(
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     imageUrl: String,
-    texts: List<String>,
+    texts: ImmutableList<String>,
     modifier: Modifier = Modifier,
     clickable: Boolean = true,
     selected: Boolean = false,

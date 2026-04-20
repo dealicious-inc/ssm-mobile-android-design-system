@@ -19,6 +19,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalSpacer
 import net.deali.designsystem.component.Icon
@@ -251,7 +252,7 @@ private fun CoreSingleLabeledText(
 
 @Composable
 internal fun LabeledTextContainer(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes titleIconRes: Int = 0,

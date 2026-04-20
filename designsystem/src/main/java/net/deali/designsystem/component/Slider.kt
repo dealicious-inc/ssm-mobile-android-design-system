@@ -18,6 +18,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.internal.slider.CoreRangeSlider
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -55,7 +57,7 @@ fun PriceRangeSlider(
     modifier: Modifier = Modifier,
     minValue: Float = 0f,
     maxValue: Float = 1f,
-    indicators: List<String>,
+    indicators: ImmutableList<String>,
     trackColor: Color = DealiColor.primary01,
     trackBackgroundColor: Color = DealiColor.g30,
     trackCornerRadius: CornerRadius = CornerRadius(32f, 32f),
@@ -92,7 +94,7 @@ fun PriceRangeSlider(
 @Composable
 private fun PriceIndicators(
     modifier: Modifier = Modifier,
-    indicators: List<String>,
+    indicators: ImmutableList<String>,
 ) {
     Row(
         modifier = modifier
@@ -154,7 +156,7 @@ private fun PreviewRangeSlider() {
 @Composable
 private fun PreviewPriceRangeSlider() {
     PriceRangeSlider(
-        indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
+        indicators = persistentListOf("1만원", "3만원", "5만원", "15만원", "25만원"),
         onValueChanged = { _, _ -> }
     )
 }
@@ -162,5 +164,5 @@ private fun PreviewPriceRangeSlider() {
 @Preview(showBackground = true)
 @Composable
 private fun PreviewRangePoints() {
-    PriceIndicators(indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"))
+    PriceIndicators(indicators = persistentListOf("1만원", "3만원", "5만원", "15만원", "25만원"))
 }
