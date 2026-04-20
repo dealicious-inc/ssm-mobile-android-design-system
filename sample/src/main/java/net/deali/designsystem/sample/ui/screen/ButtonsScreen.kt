@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.tabBarSlider02Layout
@@ -30,7 +31,7 @@ fun ButtonsScreen(
             modifier = Modifier.fillMaxWidth(),
         )
 
-        val tabTitles = remember { listOf("Large", "Medium", "SemiMedium", "Small") }
+        val tabTitles = remember { persistentListOf("Large", "Medium", "SemiMedium", "Small") }
 
         tabBarSlider02Layout(
             tabTitles = tabTitles,

@@ -29,6 +29,7 @@ import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.LazyListSnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberLazyListSnapperLayoutInfo
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
+import kotlinx.collections.immutable.ImmutableList
 import net.deali.designsystem.util.internal.calculateHorizontalPadding
 import net.deali.designsystem.util.internal.calculateVerticalPadding
 import net.deali.designsystem.util.internal.plus
@@ -37,7 +38,7 @@ import kotlin.math.abs
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
 internal fun <T> CorePicker(
-    values: List<T>,
+    values: ImmutableList<T>,
     state: CorePickerState,
     itemHeight: Dp,
     repeated: Boolean,

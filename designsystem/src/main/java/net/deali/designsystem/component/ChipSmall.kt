@@ -19,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.chip.ChipDefaults
 import net.deali.designsystem.internal.chip.ChipImage
@@ -630,7 +631,7 @@ fun chipFilledSquareSmall02(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01OnlyTexts")
 fun chipFilledDepthSmall01(
-    texts: List<String>,
+    texts: ImmutableList<String>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -692,7 +693,7 @@ fun chipFilledDepthSmall01(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01OnlyIcons")
 fun chipFilledDepthSmall01(
-    icons: List<Int>,
+    icons: ImmutableList<Int>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -751,7 +752,7 @@ fun chipFilledDepthSmall01(
 @Composable
 @JvmName("chipsFilledDepthSmallSecondary01TextsAndIcons")
 fun chipFilledDepthSmall01(
-    contents: List<Triple<Int?, String, Int?>>,
+    contents: ImmutableList<Triple<Int?, String, Int?>>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -900,7 +901,7 @@ fun chipFilledImageSmall01(
 @Composable
 fun chipFilledImageDepthSmall01(
     imageUrl: String,
-    texts: List<String>,
+    texts: ImmutableList<String>,
     onClick: () -> Unit,
     onRemoveClick: () -> Unit,
     modifier: Modifier = Modifier,

@@ -9,6 +9,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.Accordion
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.labeledTextBullet01
@@ -38,7 +39,7 @@ fun AccordionScreen(
                 isExpanded = !isExpanded
             },
             content = {
-                val texts = listOf(
+                val texts = persistentListOf(
                     getRandomText(3),
                     getRandomText(9),
                     getRandomText(13),

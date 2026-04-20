@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -231,7 +232,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                 {
                     BottomSheetSingleSelectOption(
                         title = "단일 옵션",
-                        singleSelectOptionList = listOf(
+                        singleSelectOptionList = persistentListOf(
                             SingleSelectOption(
                                 text = "옵션1",
                                 isSelected = selectedOptionIndex == 0,

@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.BottomSheetOption
 import net.deali.designsystem.component.DatePicker
 import net.deali.designsystem.component.SingleSelectOption
@@ -29,7 +31,7 @@ import java.util.Date
 @Composable
 internal fun SingleSelectOptionList(
     modifier: Modifier = Modifier,
-    list: List<SingleSelectOption>,
+    list: ImmutableList<SingleSelectOption>,
     onSelectOption: (index: Int) -> Unit,
     onDismiss: () -> Unit,
 ) {
@@ -163,7 +165,7 @@ internal fun BottomSheetTimePicker(
 @Composable
 private fun PreviewSingleSelectOptionList() {
     SingleSelectOptionList(
-        list = listOf(
+        list = persistentListOf(
             SingleSelectOption("옵션1", true),
             SingleSelectOption("옵션2", false),
             SingleSelectOption("옵션3", false),

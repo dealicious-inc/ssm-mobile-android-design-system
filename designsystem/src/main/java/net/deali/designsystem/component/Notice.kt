@@ -16,6 +16,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -87,7 +89,7 @@ fun Notice(
  */
 @Composable
 fun Notice(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     onClickTextLink: () -> Unit = {},
     title: String = "",
@@ -185,7 +187,7 @@ private fun Preview2() {
         title = "타이틀",
         textLinkText = "텍스트링크",
         content = {
-            val texts = listOf(
+            val texts = persistentListOf(
                 getRandomText(9),
                 getRandomText(13),
                 getRandomText(15),
@@ -202,7 +204,7 @@ private fun Preview2() {
 @Composable
 private fun Preview3() {
     Notice(
-        textList = listOf(
+        textList = persistentListOf(
             getRandomText(9),
             getRandomText(13),
             getRandomText(15),

@@ -1,6 +1,5 @@
 package net.deali.designsystem.internal.tabbar
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -23,10 +22,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.distinctUntilChanged
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.HorizontalDivider
@@ -40,7 +38,7 @@ import net.deali.designsystem.util.click.singleClickable
 @JvmName("CoreFixedTabBarString")
 @Composable
 internal fun CoreFixedTabBar(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     selectedTextColor: Color = DealiColor.primary01,
@@ -90,7 +88,7 @@ internal fun CoreFixedTabBar(
 @JvmName("CoreFixedTabBarTabs")
 @Composable
 internal fun CoreFixedTabBar(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     selectedTextColor: Color = DealiColor.primary01,
@@ -139,7 +137,7 @@ internal fun CoreFixedTabBar(
 
 @Composable
 internal fun CoreScrollableTabBar(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     selectedTextColor: Color,
     indicatorColor: Color,
@@ -189,7 +187,7 @@ internal fun CoreScrollableTabBar(
 
 @Composable
 internal fun CoreScrollableTabBar(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     currentIndex: Int,
     selectedTextColor: Color,
     indicatorColor: Color,
@@ -352,7 +350,7 @@ internal fun CoreTabBarLayout(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewCoreFixedTabBar() {
-    val tabs = listOf(
+    val tabs = persistentListOf(
         Tab("탭 타이틀1", false),
         Tab("탭 타이틀2", false),
     )
@@ -370,7 +368,7 @@ private fun PreviewCoreFixedTabBar() {
 @Preview(showBackground = true, backgroundColor = 0x000000)
 @Composable
 private fun PreviewCoreScrollableTabBar() {
-    val titles = listOf("탭 타이틀1", "탭 타이틀2")
+    val titles = persistentListOf("탭 타이틀1", "탭 타이틀2")
     CoreScrollableTabBar(
         modifier = Modifier
             .fillMaxWidth()

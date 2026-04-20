@@ -10,6 +10,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.TopBar
 import net.deali.designsystem.component.tabBarSegment01Layout
@@ -25,7 +26,7 @@ fun ImageChipsScreen(onBackPress: () -> Unit) {
             modifier = Modifier.fillMaxWidth(),
         )
 
-        val tabTitles = remember { listOf("Large", "Medium", "Small") }
+        val tabTitles = remember { persistentListOf("Large", "Medium", "Small") }
 
         tabBarSegment01Layout(
             tabTitles = tabTitles,

@@ -15,6 +15,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.DealiText
 import net.deali.designsystem.component.PriceRangeSlider
 import net.deali.designsystem.component.RangeSlider
@@ -113,7 +114,7 @@ fun SliderScreen(
                 modifier = Modifier,
                 minValue = priceMinValue,
                 maxValue = priceMaxValue,
-                indicators = listOf("1만원", "3만원", "5만원", "15만원", "25만원"),
+                indicators = persistentListOf("1만원", "3만원", "5만원", "15만원", "25만원"),
                 onValueChanged = { min, max ->
                     priceMinValue = min
                     priceMaxValue = max

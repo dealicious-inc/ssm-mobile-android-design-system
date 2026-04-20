@@ -24,6 +24,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.datetimepicker.CorePicker
@@ -133,15 +135,15 @@ fun TimePicker(
         "secondInterval은 60의 약수이면서 30 이하의 자연수만 사용 가능합니다."
     }
 
-    val amPm = remember { listOf(TimePickerPeriod.Am, TimePickerPeriod.Pm) }
+    val amPm = remember { persistentListOf(TimePickerPeriod.Am, TimePickerPeriod.Pm) }
     val hours = remember {
         when (timeFormat) {
-            TimePickerFormat.Format12Hour -> (1..12 step hourInterval).toList()
-            TimePickerFormat.Format24Hour -> (0..23 step hourInterval).toList()
+            TimePickerFormat.Format12Hour -> (1..12 step hourInterval).toImmutableList()
+            TimePickerFormat.Format24Hour -> (0..23 step hourInterval).toImmutableList()
         }
     }
-    val minutes = remember { (0..59 step minuteInterval).toList() }
-    val seconds = remember { (0..59 step secondInterval).toList() }
+    val minutes = remember { (0..59 step minuteInterval).toImmutableList() }
+    val seconds = remember { (0..59 step secondInterval).toImmutableList() }
 
     LaunchedEffect(Unit) {
         val initialHour = state.currentHour

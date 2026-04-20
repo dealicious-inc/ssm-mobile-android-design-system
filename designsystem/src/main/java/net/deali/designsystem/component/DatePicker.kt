@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import net.deali.designsystem.internal.datetimepicker.CorePicker
@@ -103,9 +104,9 @@ fun DatePicker(
     val (minYear, minMonth, minDate) = minimumYearMonthDate
     val (maxYear, maxMonth, maxDate) = maximumYearMonthDate
 
-    val years = remember { (minYear..maxYear).toList() }
-    val months = remember { (1..12).toList() }
-    val dates = remember { (1..31).toList() }
+    val years = remember { (minYear..maxYear).toImmutableList() }
+    val months = remember { (1..12).toImmutableList() }
+    val dates = remember { (1..31).toImmutableList() }
 
     LaunchedEffect(Unit) {
         val initialYear = state.currentYear

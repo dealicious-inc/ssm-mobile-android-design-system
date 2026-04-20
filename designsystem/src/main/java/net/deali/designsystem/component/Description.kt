@@ -27,6 +27,8 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.component.DescriptionFormat.DOT
 import net.deali.designsystem.component.DescriptionFormat.NUMBER
 import net.deali.designsystem.theme.DealiColor
@@ -127,7 +129,7 @@ fun Description(
 @JvmName("DescriptionStrings")
 @Composable
 fun Description(
-    texts: List<String>,
+    texts: ImmutableList<String>,
     format: DescriptionFormat,
     modifier: Modifier = Modifier,
     title: String = "",
@@ -171,7 +173,7 @@ fun Description(
 @JvmName("DescriptionAnnotatedStrings")
 @Composable
 fun Description(
-    texts: List<AnnotatedString>,
+    texts: ImmutableList<AnnotatedString>,
     format: DescriptionFormat,
     modifier: Modifier = Modifier,
     title: String = "",
@@ -434,7 +436,7 @@ private class DescriptionFormatPreviewProvider : PreviewParameterProvider<Descri
 private fun Preview(
     @PreviewParameter(DescriptionFormatPreviewProvider::class) value: DescriptionFormat
 ) {
-    val texts = listOf(
+    val texts = persistentListOf(
         "신분증 이미지를 가이드 영역에 맞춰 가로로 촬영 후 등록해주세요.",
         getRandomText(9),
         getRandomText(13),

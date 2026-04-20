@@ -7,9 +7,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.internal.labeledtext.LabeledTextContainer
 import net.deali.designsystem.internal.labeledtext.SingleLabeledTextBullet
@@ -31,7 +32,7 @@ import net.deali.designsystem.theme.DealiFont
  * */
 @Composable
 fun labeledTextBullet01(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
@@ -120,7 +121,7 @@ fun labeledTextBullet01(
  * */
 @Composable
 fun labeledTextBullet02(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
@@ -209,7 +210,7 @@ fun labeledTextBullet02(
  * */
 @Composable
 fun labeledTextNumber01(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
@@ -304,7 +305,7 @@ fun labeledTextNumber01(
  * */
 @Composable
 fun labeledTextNumber02(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     modifier: Modifier = Modifier,
     title: String = "",
     @DrawableRes iconRes: Int = 0,
@@ -399,7 +400,7 @@ fun labeledTextNumber02(
  * */
 @Composable
 fun labeledTextIcon01(
-    textList: List<String>,
+    textList: ImmutableList<String>,
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier,
     title: String = "",
@@ -486,7 +487,7 @@ fun labeledTextIcon01(
 @Composable
 private fun Preview1() {
     labeledTextBullet01(
-        textList = listOf(
+        textList = persistentListOf(
             "LabeledTextBullet01",
             "LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 LabeledTextBullet01 ",
             "LabeledTextBullet01",
@@ -544,7 +545,7 @@ private fun Preview1_2() {
 private fun Preview2() {
     labeledTextBullet02(
         title = "타이틀이 있는 라벨텍스트",
-        textList = listOf(
+        textList = persistentListOf(
             "LabeledTextBullet02",
             "LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 LabeledTextBullet02 ",
             "LabeledTextBullet02",
@@ -558,7 +559,7 @@ private fun Preview2() {
 private fun Preview3() {
     labeledTextNumber01(
         title = "타이틀이 있는 라벨텍스트",
-        textList = listOf(
+        textList = persistentListOf(
             "labeledTextNumber01",
             "labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01 labeledTextNumber01",
             "labeledTextNumber01",
@@ -571,7 +572,7 @@ private fun Preview3() {
 private fun Preview4() {
     labeledTextNumber02(
         title = "타이틀과 아이콘이 있는 라벨텍스트",
-        textList = listOf(
+        textList = persistentListOf(
             "labeledTextNumber02",
             "labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02 labeledTextNumber02",
             "labeledTextNumber02",
@@ -585,7 +586,7 @@ private fun Preview4() {
 private fun Preview5() {
     labeledTextIcon01(
         title = "타이틀이 있는 라벨텍스트",
-        textList = listOf(
+        textList = persistentListOf(
             "labeledTextIcon01",
             "labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01 labeledTextIcon01",
             "labeledTextIcon01",

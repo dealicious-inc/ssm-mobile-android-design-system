@@ -25,6 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -48,7 +51,7 @@ val TAB_BAR_CONTENT_PADDING = 16.dp
 @JvmName("tabBarSegment01String")
 @Composable
 fun tabBarSegment01(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -75,7 +78,7 @@ fun tabBarSegment01(
 @JvmName("tabBarSegment01Tabs")
 @Composable
 fun tabBarSegment01(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -102,7 +105,7 @@ fun tabBarSegment01(
 @JvmName("tabBarSlider01String")
 @Composable
 fun tabBarSlider01(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -131,7 +134,7 @@ fun tabBarSlider01(
 @JvmName("tabBarSlider01Tabs")
 @Composable
 fun tabBarSlider01(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -159,7 +162,7 @@ fun tabBarSlider01(
 @JvmName("tabBarSlider02String")
 @Composable
 fun tabBarSlider02(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -188,7 +191,7 @@ fun tabBarSlider02(
 @JvmName("tabBarSlider02Tabs")
 @Composable
 fun tabBarSlider02(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     onSelectTab: (index: Int) -> Unit,
@@ -215,7 +218,7 @@ fun tabBarSlider02(
  */
 @Composable
 fun tabBarChip01(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
@@ -262,7 +265,7 @@ fun tabBarChip01(
  */
 @Composable
 fun tabBarChip02(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     currentIndex: Int,
     modifier: Modifier = Modifier,
     state: LazyListState = rememberLazyListState(),
@@ -315,7 +318,7 @@ fun tabBarChip02(
  */
 @Composable
 fun tabBarImgChip(
-    imgChips: List<ImgChip>,
+    imgChips: ImmutableList<ImgChip>,
     currentIndex: Int,
     onSelectTab: (index: Int) -> Unit,
     modifier: Modifier = Modifier,
@@ -374,7 +377,7 @@ fun tabBarImgChip(
 @JvmName("tabBarSegment01LayoutString")
 @Composable
 fun tabBarSegment01Layout(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -414,7 +417,7 @@ fun tabBarSegment01Layout(
 @JvmName("tabBarSegment01LayoutTabs")
 @Composable
 fun tabBarSegment01Layout(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -454,7 +457,7 @@ fun tabBarSegment01Layout(
 @JvmName("tabBarSlider02LayoutString")
 @Composable
 fun tabBarSlider02Layout(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -494,7 +497,7 @@ fun tabBarSlider02Layout(
 @JvmName("tabBarSlider02LayoutTabs")
 @Composable
 fun tabBarSlider02Layout(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -534,7 +537,7 @@ fun tabBarSlider02Layout(
 @JvmName("tabBarSlider01LayoutString")
 @Composable
 fun tabBarSlider01Layout(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -574,7 +577,7 @@ fun tabBarSlider01Layout(
 @JvmName("tabBarSlider01LayoutTabs")
 @Composable
 fun tabBarSlider01Layout(
-    tabs: List<Tab>,
+    tabs: ImmutableList<Tab>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -614,7 +617,7 @@ fun tabBarSlider01Layout(
  */
 @Composable
 fun tabBarChip01Layout(
-    tabTitles: List<String>,
+    tabTitles: ImmutableList<String>,
     userSwipeEnabled: Boolean,
     modifier: Modifier = Modifier,
     initialPage: Int = 0,
@@ -681,7 +684,7 @@ data class ImgChip(
 @Composable
 private fun PreviewTabBarSegment01() {
     tabBarSegment01(
-        tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
+        tabTitles = persistentListOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
     )
@@ -691,7 +694,7 @@ private fun PreviewTabBarSegment01() {
 @Composable
 private fun PreviewTabBarSlider01() {
     tabBarSlider01(
-        tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
+        tabTitles = persistentListOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
     )
@@ -701,7 +704,7 @@ private fun PreviewTabBarSlider01() {
 @Composable
 private fun PreviewTabBarSlider02() {
     tabBarSlider02(
-        tabTitles = listOf("탭이름0", "탭이름1", "탭이름2"),
+        tabTitles = persistentListOf("탭이름0", "탭이름1", "탭이름2"),
         currentIndex = 1,
         onSelectTab = {},
     )
@@ -711,7 +714,7 @@ private fun PreviewTabBarSlider02() {
 @Composable
 private fun PreviewTabBarChip01() {
     tabBarChip01(
-        tabTitles = listOf("서브0", "서브1", "서브2"),
+        tabTitles = persistentListOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},
     )
@@ -721,7 +724,7 @@ private fun PreviewTabBarChip01() {
 @Composable
 private fun PreviewTabBarChip02() {
     tabBarChip02(
-        tabTitles = listOf("서브0", "서브1", "서브2"),
+        tabTitles = persistentListOf("서브0", "서브1", "서브2"),
         currentIndex = 1,
         onSelectTab = {},
     )
@@ -735,7 +738,7 @@ private fun PreviewTabBarImageChip() {
             imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Eo_circle_green_blank.svg/512px-Eo_circle_green_blank.svg.png",
             text = "이미지칩$index",
         )
-    }
+    }.toImmutableList()
 
     tabBarImgChip(
         imgChips = imgChips,
@@ -748,7 +751,7 @@ private fun PreviewTabBarImageChip() {
 @Composable
 private fun PreviewTabBarSegment01Layout() {
     tabBarSegment01Layout(
-        tabTitles = listOf("고정0", "고정1", "고정2"),
+        tabTitles = persistentListOf("고정0", "고정1", "고정2"),
         onSelectTab = {},
         userSwipeEnabled = true,
         pageContent = {
@@ -773,13 +776,13 @@ private fun PreviewTabBarSegment01Layout() {
 @Composable
 private fun PreviewTabBarSegment01Layout2Depth() {
     tabBarSegment01Layout(
-        tabTitles = listOf("원뎁스0", "원뎁스1", "원뎁스2", "원뎁스3"),
+        tabTitles = persistentListOf("원뎁스0", "원뎁스1", "원뎁스2", "원뎁스3"),
         onSelectTab = {},
         userSwipeEnabled = true,
         pageContent = { page ->
 
             tabBarChip01Layout(
-                tabTitles = listOf("투뎁스0", "투뎁스1", "투뎁스2", "투뎁스3", "투뎁스4"),
+                tabTitles = persistentListOf("투뎁스0", "투뎁스1", "투뎁스2", "투뎁스3", "투뎁스4"),
                 onSelectTab = {},
                 userSwipeEnabled = true
             ) { subPage ->

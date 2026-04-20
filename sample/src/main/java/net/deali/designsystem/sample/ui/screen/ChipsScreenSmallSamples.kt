@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.cheonjaeung.compose.grid.SimpleGridCells
 import com.cheonjaeung.compose.grid.VerticalGrid
+import kotlinx.collections.immutable.persistentListOf
 import net.deali.designsystem.R
 import net.deali.designsystem.component.chipFilledDepthSmall01
 import net.deali.designsystem.component.chipFilledImageDepthSmall01
@@ -809,12 +810,12 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                texts = listOf("First", "Second", "Third"),
+                texts = persistentListOf("First", "Second", "Third"),
             )
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                icons = listOf(
+                icons = persistentListOf(
                     R.drawable.ic_category,
                     R.drawable.ic_edit_line,
                     R.drawable.ic_file_copy,
@@ -823,7 +824,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", null),
                     Triple(R.drawable.ic_star, "Second", null),
                     Triple(R.drawable.ic_star, "Third", null),
@@ -832,7 +833,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(null, "First", R.drawable.ic_check),
                     Triple(null, "Second", R.drawable.ic_check),
                     Triple(null, "Third", R.drawable.ic_check),
@@ -841,7 +842,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
@@ -851,13 +852,13 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                texts = listOf("First", "Second", "Third"),
+                texts = persistentListOf("First", "Second", "Third"),
                 selected = true,
             )
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                icons = listOf(
+                icons = persistentListOf(
                     R.drawable.ic_category,
                     R.drawable.ic_edit_line,
                     R.drawable.ic_file_copy,
@@ -867,7 +868,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", null),
                     Triple(R.drawable.ic_star, "Second", null),
                     Triple(R.drawable.ic_star, "Third", null),
@@ -877,7 +878,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(null, "First", R.drawable.ic_check),
                     Triple(null, "Second", R.drawable.ic_check),
                     Triple(null, "Third", R.drawable.ic_check),
@@ -887,7 +888,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
@@ -898,13 +899,13 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                texts = listOf("First", "Second", "Third"),
+                texts = persistentListOf("First", "Second", "Third"),
                 enabled = false,
             )
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                icons = listOf(
+                icons = persistentListOf(
                     R.drawable.ic_category,
                     R.drawable.ic_edit_line,
                     R.drawable.ic_file_copy,
@@ -914,7 +915,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", null),
                     Triple(R.drawable.ic_star, "Second", null),
                     Triple(R.drawable.ic_star, "Third", null),
@@ -924,7 +925,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(null, "First", R.drawable.ic_check),
                     Triple(null, "Second", R.drawable.ic_check),
                     Triple(null, "Third", R.drawable.ic_check),
@@ -934,7 +935,7 @@ private fun ChipFilledDepthSmall01Samples() {
             chipFilledDepthSmall01(
                 onClick = {},
                 onRemoveClick = {},
-                contents = listOf(
+                contents = persistentListOf(
                     Triple(R.drawable.ic_star, "First", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Second", R.drawable.ic_check),
                     Triple(R.drawable.ic_star, "Third", R.drawable.ic_check),
@@ -1006,14 +1007,14 @@ private fun ChipFilledImageDepthSmall01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
-                texts = listOf("Default", "Text", "999,999"),
+                texts = persistentListOf("Default", "Text", "999,999"),
             )
             chipFilledImageDepthSmall01(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
-                texts = listOf("Selected", "Text", "999,999"),
+                texts = persistentListOf("Selected", "Text", "999,999"),
                 selected = true,
             )
             chipFilledImageDepthSmall01(
@@ -1021,7 +1022,7 @@ private fun ChipFilledImageDepthSmall01Samples() {
                 onClick = {},
                 onRemoveClick = {},
                 imageUrl = sampleImage,
-                texts = listOf("Disabled", "Text", "999,999"),
+                texts = persistentListOf("Disabled", "Text", "999,999"),
                 enabled = false,
             )
         }
