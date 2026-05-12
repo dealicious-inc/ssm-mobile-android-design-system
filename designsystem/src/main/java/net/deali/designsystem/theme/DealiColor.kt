@@ -27,6 +27,7 @@ object DealiColor {
     val primary05: Color = Color(0xFF000000)
     val primary06: Color = Color(0xFFFFDCE2)
     val primary07: Color = Color(0xFFC62558)
+    val primary08: Color = Color(0xFFFEF2F4)
 
     //Secondary
     val secondary01: Color = Color(0xFF4759FB)
