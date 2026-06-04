@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -109,7 +110,8 @@ internal fun CoreButton(
                     ),
                     color = contentColor,
                     overflow = overflow,
-                    maxLines = maxLines
+                    maxLines = maxLines,
+                    textAlign = TextAlign.Center
                 )
                 if (rightIcon != null) {
                     Icon(
