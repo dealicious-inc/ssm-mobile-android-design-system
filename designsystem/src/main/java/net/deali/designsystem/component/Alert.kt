@@ -2,6 +2,7 @@ package net.deali.designsystem.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -12,13 +13,14 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalView
@@ -628,19 +630,34 @@ private fun ComposeAlert(
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
-        properties = properties
+        // 화면 크기에 따라 너비가 유연하게 늘어나도록 플랫폼 기본 너비 제한을 해제합니다.
+        properties = DialogProperties(
+            dismissOnBackPress = properties.dismissOnBackPress,
+            dismissOnClickOutside = properties.dismissOnClickOutside,
+            securePolicy = properties.securePolicy,
+            usePlatformDefaultWidth = false,
+            decorFitsSystemWindows = properties.decorFitsSystemWindows,
+        )
     ) {
         val dialogWindow = (LocalView.current.parent as? DialogWindowProvider)?.window
         dialogWindow?.setDimAmount(0.4f)
 
-        Column(
-            modifier = modifier
-                .clip(RoundedCornerShape(10.dp))
-                .background(DealiColor.primary04)
-                .width(280.dp)
-                .padding(horizontal = 20.dp),
-            content = content
-        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 40.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(
+                modifier = modifier
+                    .widthIn(max = 360.dp)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(DealiColor.primary04)
+                    .padding(horizontal = 20.dp),
+                content = content
+            )
+        }
     }
 }
 
