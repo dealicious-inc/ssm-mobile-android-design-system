@@ -53,6 +53,7 @@ internal fun CoreButton(
     val outlineColor by buttonColors.outlineColor(enabled)
     val contentColor by buttonColors.contentColor(enabled)
     val iconColor by buttonColors.iconColor(enabled)
+    val rightIconColor by buttonColors.rightIconColor(enabled)
 
     Box(
         modifier = modifier
@@ -117,7 +118,7 @@ internal fun CoreButton(
                     Icon(
                         size = ButtonDefaults.subIconSize(buttonSize),
                         iconRes = rightIcon,
-                        color = iconColor,
+                        color = rightIconColor,
                     )
                 }
             }

@@ -28,6 +28,7 @@ internal object ButtonDefaults {
         iconColor: Color?,
         outlineColor: Color = DealiColor.transparent,
         disabledOutlineColor: Color = DealiColor.transparent,
+        rightIconColor: Color? = null,
     ): ButtonColors {
         return DefaultButtonColors(
             backgroundColor = SolidColor(backgroundColor),
@@ -37,6 +38,7 @@ internal object ButtonDefaults {
             contentColor = contentColor,
             disabledContentColor = disabledContentColor,
             iconColor = iconColor,
+            rightIconColor = rightIconColor,
         )
     }
 
@@ -49,6 +51,7 @@ internal object ButtonDefaults {
         iconColor: Color?,
         outlineColor: Color = DealiColor.transparent,
         disabledOutlineColor: Color = DealiColor.transparent,
+        rightIconColor: Color? = null,
     ): ButtonColors {
         return DefaultButtonColors(
             backgroundColor = backgroundColor,
@@ -58,6 +61,7 @@ internal object ButtonDefaults {
             contentColor = contentColor,
             disabledContentColor = disabledContentColor,
             iconColor = iconColor ?: contentColor,
+            rightIconColor = rightIconColor,
         )
     }
 
@@ -279,6 +283,9 @@ internal interface ButtonColors {
 
     @Composable
     fun iconColor(enabled: Boolean): State<Color>
+
+    @Composable
+    fun rightIconColor(enabled: Boolean): State<Color>
 }
 
 @Immutable
@@ -290,6 +297,7 @@ private class DefaultButtonColors(
     val contentColor: Color,
     val disabledContentColor: Color,
     val iconColor: Color?,
+    val rightIconColor: Color? = null,
 ) : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Brush> {
@@ -313,11 +321,19 @@ private class DefaultButtonColors(
     @Composable
     override fun iconColor(enabled: Boolean): State<Color> {
         return rememberUpdatedState(
-            if (iconColor == null) {
-                if (enabled) contentColor else disabledContentColor
-            } else {
-                iconColor
-            }
+            iconColor ?: if (enabled) contentColor else disabledContentColor
+        )
+    }
+
+    /**
+     * 오른쪽 아이콘 컬러.
+     * rightIconColor 를 따로 설정하지 않은 경우 : iconColor 규칙을 그대로 따름.
+     * rightIconColor 를 임의 설정한 경우 : enabled 여부와 상관없이 임의 설정한 컬러 사용.
+     */
+    @Composable
+    override fun rightIconColor(enabled: Boolean): State<Color> {
+        return rememberUpdatedState(
+            rightIconColor ?: (iconColor ?: if (enabled) contentColor else disabledContentColor)
         )
     }
 }
