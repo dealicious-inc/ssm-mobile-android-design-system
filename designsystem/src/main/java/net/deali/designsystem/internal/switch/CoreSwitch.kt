@@ -11,9 +11,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
@@ -34,7 +32,6 @@ internal fun CoreSwitch(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     onChange: (Boolean) -> Unit,
 ) {
-    var currentSelected by remember(isOn) { mutableStateOf(isOn) }
     val colors = SwitchDefaults.colors()
     val switchSize = SwitchDefaults.switchSize(size = size)
     val switchHandleRadius = SwitchDefaults.switchHandleRadius(size = size)
@@ -52,9 +49,7 @@ internal fun CoreSwitch(
                 role = Role.Switch,
                 interactionSource = interactionSource,
                 onClick = {
-                    val newState = !currentSelected
-                    currentSelected = newState
-                    onChange(newState)
+                    onChange(!isOn)
                 }
             )
     ) {
@@ -67,7 +62,7 @@ internal fun CoreSwitch(
         )
 
         val transition = updateTransition(
-            targetState = currentSelected,
+            targetState = isOn,
             label = "transition"
         )
         val handleOffsetX by transition.animateDp(
