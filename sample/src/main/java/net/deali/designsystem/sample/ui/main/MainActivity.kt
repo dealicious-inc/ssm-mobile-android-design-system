@@ -1,19 +1,32 @@
 package net.deali.designsystem.sample.ui.main
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import net.deali.designsystem.sample.data.datastore.DataStoreUtil
 import net.deali.designsystem.sample.data.model.Screen
 import net.deali.designsystem.sample.ui.Nav
 import net.deali.designsystem.theme.AppTheme
+import net.deali.designsystem.theme.DealiColor
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // 앱 배경이 항상 밝은 색(primary04)이므로 시스템 바 아이콘을 어두운 색으로 고정
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
+        )
         super.onCreate(savedInstanceState)
 
         val dataStoreUtil = DataStoreUtil(applicationContext)
@@ -25,13 +38,21 @@ class MainActivity : ComponentActivity() {
             AppTheme(
                 language = language
             ) {
-                Nav(
-                    dataStoreUtil = dataStoreUtil,
-                    tokens = getTokens(),
-                    atoms = getAtoms(),
-                    molecules = getMolecules(),
-                    others = getOthers(),
-                )
+                // 시스템 바 인셋 패딩은 화면 단위로 적용 (Nav.kt의 insetComposable 참고)
+                // 바텀시트의 딤드가 시스템 바 영역까지 덮어야 하므로 루트에서는 패딩하지 않음
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(DealiColor.primary04)
+                ) {
+                    Nav(
+                        dataStoreUtil = dataStoreUtil,
+                        tokens = getTokens(),
+                        atoms = getAtoms(),
+                        molecules = getMolecules(),
+                        others = getOthers(),
+                    )
+                }
             }
         }
     }

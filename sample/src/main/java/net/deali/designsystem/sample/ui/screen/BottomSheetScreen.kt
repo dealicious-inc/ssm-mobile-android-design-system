@@ -2,10 +2,18 @@ package net.deali.designsystem.sample.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBars
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -54,8 +62,11 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
     }
     var selectedOptionIndex: Int? by remember { mutableStateOf(null) }
 
+    // ModalBottomSheetLayout은 딤드가 시스템 바까지 덮도록 전체 화면을 차지하고,
+    // 시스템 바 인셋은 본문/시트 컨텐츠 안쪽에서 처리한다 (Nav.kt insetComposable 주석 참고)
     ModalBottomSheetLayout(
-        sheetContent = when (bottomSheetType) {
+        sheetContent = {
+            val sheetContentByType: @Composable ColumnScope.() -> Unit = when (bottomSheetType) {
             BottomSheetType.Empty -> {
                 {
                     BottomSheet {
@@ -269,6 +280,20 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     )
                 }
             }
+            }
+
+            // 하단에 붙는 시트이므로 내비바만큼만 아래 패딩을 주고,
+            // 시트가 최대로 펼쳐져도 status bar를 침범하지 않도록 최대 높이를 제한한다
+            BoxWithConstraints {
+                val statusBarHeight = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
+                Column(
+                    modifier = Modifier
+                        .heightIn(max = maxHeight - statusBarHeight)
+                        .navigationBarsPadding(),
+                ) {
+                    sheetContentByType()
+                }
+            }
         },
         sheetState = bottomSheetState,
         sheetShape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
@@ -293,7 +318,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             )
         }
 
-        Column {
+        Column(modifier = Modifier.systemBarsPadding()) {
             TopBar(
                 modifier = Modifier.fillMaxWidth(),
                 title = "Bottom Sheet",
