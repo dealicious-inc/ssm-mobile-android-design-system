@@ -466,6 +466,7 @@ fun BottomSheetFooterTwoButtons(
     isPrimaryButtonLoading: Boolean = false,
     isSecondaryButtonLoading: Boolean = false,
     useGraySecondary: Boolean = false,
+
 ) {
     Row(
         modifier = modifier

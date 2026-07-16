@@ -49,7 +49,7 @@ fun RadioButton(
         )
         DealiText(
             modifier = Modifier
-                .padding(start = 8.dp),
+                .padding(start = 4.dp),
             text = text,
             style = DealiFont.b2r14,
             color = when {
