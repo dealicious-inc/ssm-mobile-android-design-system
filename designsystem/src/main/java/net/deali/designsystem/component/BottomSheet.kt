@@ -40,6 +40,7 @@ import net.deali.designsystem.util.click.singleClickable
 /**
  * 모든 content 직접 구성하는 BottomSheet
  */
+@Deprecated("footer 슬롯을 제공하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     modifier: Modifier = Modifier,
@@ -54,6 +55,7 @@ fun BottomSheet(
 /**
  * 텍스트 컨텐트가 있고 버튼이 없는 BottomSheet
  */
+@Deprecated("footer 슬롯을 제공하는 BottomSheet를 사용해주세요. 텍스트 컨텐트는 content에 DealiText로 직접 선언해주세요.")
 @Composable
 fun BottomSheet(
     text: String,
@@ -86,6 +88,7 @@ fun BottomSheet(
 /**
  * 텍스트 컨텐트가 있고 버튼이 하나인 BottomSheet
  */
+@Deprecated("버튼 정보를 파라미터로 받는 방식은 더 이상 사용되지 않습니다. footer 슬롯에 버튼을 직접 선언하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     text: String,
@@ -129,6 +132,7 @@ fun BottomSheet(
 /**
  * 텍스트 컨텐트가 있고 버튼이 두개인 BottomSheet
  */
+@Deprecated("버튼 정보를 파라미터로 받는 방식은 더 이상 사용되지 않습니다. footer 슬롯에 버튼을 직접 선언하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     text: String,
@@ -182,6 +186,7 @@ fun BottomSheet(
 /**
  * 자유 형식의 버튼이 없는 BottomSheet
  */
+@Deprecated("footer 슬롯을 제공하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     modifier: Modifier = Modifier,
@@ -213,6 +218,7 @@ fun BottomSheet(
 /**
  * 자유 형식의 버튼 1개 있는 BottomSheet
  */
+@Deprecated("버튼 정보를 파라미터로 받는 방식은 더 이상 사용되지 않습니다. footer 슬롯에 버튼을 직접 선언하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     buttonText: String,
@@ -255,6 +261,7 @@ fun BottomSheet(
 /**
  * 자유 형식의 버튼 2개 있는 BottomSheet
  */
+@Deprecated("버튼 정보를 파라미터로 받는 방식은 더 이상 사용되지 않습니다. footer 슬롯에 버튼을 직접 선언하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheet(
     primaryButtonText: String,
@@ -305,14 +312,19 @@ fun BottomSheet(
 }
 
 /**
- * 연/월/일, 연/월 Date Picker를 사용하는 BottomSheet
+ * 컨텐츠, 푸터를 외부에서 직접 구성하는 BottomSheet
+ *
+ * 버튼 정보를 파라미터로 넘기는 대신 [footer] 슬롯에 버튼 컴포저블을 직접 선언해서 사용한다.
+ * 버튼이 필요 없는 경우 [footer]를 생략한다.
  */
 @Composable
-fun DatePickerBottomSheet(
+fun BottomSheet(
     modifier: Modifier = Modifier,
+    content: @Composable ColumnScope.() -> Unit,
     onDismiss: () -> Unit = {},
     title: String? = null,
     hideXButton: Boolean = false,
+    footer: @Composable ColumnScope.() -> Unit = {},
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -321,11 +333,18 @@ fun DatePickerBottomSheet(
                 hideXButton = hideXButton,
                 onDismiss = onDismiss,
             )
+        } else {
+            Spacer(modifier = Modifier.height(16.dp))
         }
 
-        BottomSheetDatePicker(
-            modifier = modifier
-        )
+        Column(
+            modifier = Modifier
+                .weight(1f, false)
+        ) {
+            content()
+        }
+
+        footer()
     }
 }
 
@@ -423,6 +442,7 @@ fun BottomSheetHeaderArrowClose(
     }
 }
 
+@Deprecated("BottomSheet의 footer 슬롯에 버튼을 직접 선언하는 방식으로 변경되었습니다. footer 슬롯을 제공하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheetFooterOneButton(
     buttonText: String,
@@ -454,6 +474,7 @@ fun BottomSheetFooterOneButton(
     }
 }
 
+@Deprecated("BottomSheet의 footer 슬롯에 버튼을 직접 선언하는 방식으로 변경되었습니다. footer 슬롯을 제공하는 BottomSheet를 사용해주세요.")
 @Composable
 fun BottomSheetFooterTwoButtons(
     primaryButtonText: String,
@@ -760,128 +781,42 @@ data class SingleSelectOption(
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewTextBottomSheetNoButton() {
+private fun PreviewBottomSheetFooterSlot() {
     BottomSheet(
         title = "타이틀",
-        text = "텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 텍스트가 이렇게 깁니다 ",
         onDismiss = {},
+        content = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(150.dp)
+                    .background(DealiColor.primary03)
+            )
+        },
+        footer = {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(74.dp)
+                    .background(DealiColor.primary04)
+                    .padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                btnOutlineLarge01(
+                    modifier = Modifier.weight(1f),
+                    text = "취소",
+                    onClick = {},
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                btnFilledLarge01(
+                    modifier = Modifier.weight(1f),
+                    text = "확인",
+                    onClick = {},
+                )
+            }
+        },
     )
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewTextBottomSheetOneButton() {
-    BottomSheet(
-        title = "타이틀",
-        text = "버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 ",
-        buttonText = "버튼명",
-        onButtonClick = {},
-        onDismiss = {},
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewTextBottomSheetOneButtonNoTitle() {
-    BottomSheet(
-        text = "버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 ",
-        buttonText = "버튼명",
-        onButtonClick = {},
-        onDismiss = {},
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewTextBottomSheetTwoButtons() {
-    BottomSheet(
-        title = "타이틀",
-        text = "버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 버튼1개 텍스트 ",
-        primaryButtonText = "확인",
-        secondaryButtonText = "취소",
-        onPrimaryButtonClick = {},
-        onSecondaryButtonClick = {},
-        onDismiss = {},
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewBottomSheetNoButton() {
-    BottomSheet(
-        title = "타이틀",
-        onDismiss = {},
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp)
-                .background(DealiColor.primary03)
-        )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewBottomSheetOneButton() {
-    BottomSheet(
-        title = "타이틀",
-        buttonText = "확인",
-        onButtonClick = {},
-        onDismiss = {},
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp)
-                .background(DealiColor.primary03)
-        )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewBottomSheetTwoButtons() {
-    BottomSheet(
-        title = "타이틀",
-        primaryButtonText = "확인",
-        secondaryButtonText = "취소",
-        onPrimaryButtonClick = {},
-        onSecondaryButtonClick = {},
-        onDismiss = {}
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp)
-                .background(DealiColor.primary03)
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewBottomSheetTwoButtonsGray() {
-    BottomSheet(
-        title = "타이틀",
-        primaryButtonText = "확인",
-        secondaryButtonText = "취소",
-        useGraySecondary = true,
-        onPrimaryButtonClick = {},
-        onSecondaryButtonClick = {},
-        onDismiss = {}
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(150.dp)
-                .background(DealiColor.primary03)
-        )
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable
@@ -981,39 +916,6 @@ private fun PreviewBottomSheetOption40() {
         },
         rightIconRes = R.drawable.ic_calculate,
         onClick = {},
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewBottomSheetFooter1() {
-    BottomSheetFooterOneButton(
-        buttonText = "버튼",
-        onButtonClick = {}
-    )
-}
-
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewBottomSheetFooter2() {
-    BottomSheetFooterTwoButtons(
-        primaryButtonText = "확인",
-        secondaryButtonText = "취소",
-        onPrimaryButtonClick = {},
-        onSecondaryButtonClick = {},
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewBottomSheetFooter3() {
-    BottomSheetFooterTwoButtons(
-        primaryButtonText = "확인",
-        secondaryButtonText = "취소",
-        useGraySecondary = true,
-        onPrimaryButtonClick = {},
-        onSecondaryButtonClick = {},
     )
 }
 
