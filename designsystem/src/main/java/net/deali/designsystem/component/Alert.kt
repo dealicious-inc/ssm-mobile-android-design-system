@@ -21,9 +21,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +36,7 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.DialogWindowProvider
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
+import net.deali.designsystem.util.testtag.DealiTestTag
 
 /**
  * 신상마켓 디자인 시스템 팝업 컴포넌트.
@@ -162,29 +167,12 @@ fun Alert(
             color = DealiColor.g80
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            btnOutlineMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = leftButtonText,
-                enabled = true,
-                onClick = onLeftButtonClick
-            )
-            btnFilledMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = rightButtonText,
-                enabled = true,
-                onClick = onRightButtonClick
-            )
-        }
+        AlertButtonRow(
+            leftButtonText = leftButtonText,
+            rightButtonText = rightButtonText,
+            onLeftButtonClick = onLeftButtonClick,
+            onRightButtonClick = onRightButtonClick
+        )
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
@@ -243,29 +231,12 @@ fun Alert(
         Spacer(modifier = Modifier.height(16.dp))
         content()
         Spacer(modifier = Modifier.height(24.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            btnOutlineMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = leftButtonText,
-                enabled = true,
-                onClick = onLeftButtonClick
-            )
-            btnFilledMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = rightButtonText,
-                enabled = true,
-                onClick = onRightButtonClick
-            )
-        }
+        AlertButtonRow(
+            leftButtonText = leftButtonText,
+            rightButtonText = rightButtonText,
+            onLeftButtonClick = onLeftButtonClick,
+            onRightButtonClick = onRightButtonClick
+        )
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
@@ -383,29 +354,12 @@ fun Alert(
         Spacer(modifier = Modifier.height(16.dp))
         content()
         Spacer(modifier = Modifier.height(24.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            btnOutlineMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = leftButtonText,
-                enabled = true,
-                onClick = onLeftButtonClick
-            )
-            btnFilledMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = rightButtonText,
-                enabled = true,
-                onClick = onRightButtonClick
-            )
-        }
+        AlertButtonRow(
+            leftButtonText = leftButtonText,
+            rightButtonText = rightButtonText,
+            onLeftButtonClick = onLeftButtonClick,
+            onRightButtonClick = onRightButtonClick
+        )
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
@@ -445,29 +399,12 @@ fun Alert(
             color = DealiColor.g80
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(IntrinsicSize.Min),
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            btnOutlineMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = leftButtonText,
-                enabled = true,
-                onClick = onLeftButtonClick
-            )
-            btnFilledMedium01(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                text = rightButtonText,
-                enabled = true,
-                onClick = onRightButtonClick
-            )
-        }
+        AlertButtonRow(
+            leftButtonText = leftButtonText,
+            rightButtonText = rightButtonText,
+            onLeftButtonClick = onLeftButtonClick,
+            onRightButtonClick = onRightButtonClick
+        )
         Spacer(modifier = Modifier.height(20.dp))
     }
 }
@@ -546,7 +483,9 @@ fun AlertSingleButton(
         )
         Spacer(modifier = Modifier.height(24.dp))
         btnFilledMedium01(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(DealiTestTag.DIALOG_BUTTON_RIGHT),
             text = buttonText,
             enabled = true,
             onClick = onButtonClick
@@ -612,7 +551,9 @@ fun AlertSingleButton(
         )
         Spacer(modifier = Modifier.height(24.dp))
         btnFilledMedium01(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .testTag(DealiTestTag.DIALOG_BUTTON_RIGHT),
             text = buttonText,
             enabled = true,
             onClick = onButtonClick
@@ -621,6 +562,45 @@ fun AlertSingleButton(
     }
 }
 
+/**
+ * 좌/우 2버튼 팝업의 공용 버튼 행. 여러 [Alert] 오버로드가 공유하며, QA E2E 자동화용 식별자를
+ * 한 곳에서 부여한다(좌 [DealiTestTag.DIALOG_BUTTON_LEFT], 우 [DealiTestTag.DIALOG_BUTTON_RIGHT]).
+ */
+@Composable
+private fun AlertButtonRow(
+    leftButtonText: String,
+    rightButtonText: String,
+    onLeftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(IntrinsicSize.Min),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        btnOutlineMedium01(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .testTag(DealiTestTag.DIALOG_BUTTON_LEFT),
+            text = leftButtonText,
+            enabled = true,
+            onClick = onLeftButtonClick
+        )
+        btnFilledMedium01(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+                .testTag(DealiTestTag.DIALOG_BUTTON_RIGHT),
+            text = rightButtonText,
+            enabled = true,
+            onClick = onRightButtonClick
+        )
+    }
+}
+
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun ComposeAlert(
     onDismissRequest: () -> Unit,
@@ -649,7 +629,11 @@ private fun ComposeAlert(
             contentAlignment = Alignment.Center
         ) {
             Column(
+                // QA E2E 자동화(Appium): 다이얼로그는 별도 서브컴포지션이라 여기(다이얼로그 루트)에 직접
+                // testTagsAsResourceId를 심어야 하위 testTag가 resource-id로 노출된다. DIALOG는 "떴다" 신호.
                 modifier = modifier
+                    .semantics { testTagsAsResourceId = true }
+                    .testTag(DealiTestTag.DIALOG)
                     .widthIn(max = 360.dp)
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(10.dp))
