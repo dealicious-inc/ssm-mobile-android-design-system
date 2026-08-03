@@ -44,30 +44,29 @@ internal fun CoreTag(
     val resolvedIconColor = if (iconColor.isSpecified) iconColor else color
 
     Row(
-        modifier = modifier
-            .height(height)
-            .then(
-                if (tagStyle != TagStyle.Text) {
-                    Modifier.background(
-                        color = backgroundColor,
-                        shape = shape
-                    )
-                } else {
-                    Modifier
-                }
-            )
-            .then(
-                if (showBorder) {
-                    Modifier.border(
-                        width = 1.dp,
-                        color = borderColor,
-                        shape = shape
-                    )
-                } else {
-                    Modifier
-                }
-            )
-            .padding(containerPaddingValues),
+        modifier =
+            modifier
+                .height(height)
+                .then(
+                    if (tagStyle != TagStyle.Text) {
+                        Modifier.background(
+                            color = backgroundColor,
+                            shape = shape,
+                        )
+                    } else {
+                        Modifier
+                    },
+                ).then(
+                    if (showBorder) {
+                        Modifier.border(
+                            width = 1.dp,
+                            color = borderColor,
+                            shape = shape,
+                        )
+                    } else {
+                        Modifier
+                    },
+                ).padding(containerPaddingValues),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         leftIcon?.let { iconRes ->
@@ -83,14 +82,17 @@ internal fun CoreTag(
             }
         }
 
-        DealiText(
-            modifier = Modifier.padding(textPaddingValues),
-            text = text,
-            color = color,
-            style = style,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
+        // 텍스트가 없으면(아이콘 전용 태그) 텍스트 좌우 패딩까지 함께 생략해 불필요한 여백을 없앤다.
+        if (text.isNotEmpty()) {
+            DealiText(
+                modifier = Modifier.padding(textPaddingValues),
+                text = text,
+                color = color,
+                style = style,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
 
         rightIcon?.let { iconRes ->
             Box(

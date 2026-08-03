@@ -343,11 +343,11 @@ fun TagTextSmall05(
 private fun TagSmallPreview() {
     Column(
         modifier = Modifier.padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             TagFilledSmall01(text = getRandomText(1))
             TagFilledSmall02(text = getRandomText(1))
@@ -357,7 +357,7 @@ private fun TagSmallPreview() {
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             TagOutlineSmall01(text = getRandomText(1))
             TagOutlineSmall02(text = getRandomText(1))
@@ -367,7 +367,7 @@ private fun TagSmallPreview() {
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             TagTextSmall01(text = getRandomText(1))
             TagTextSmall02(text = getRandomText(1))
@@ -377,7 +377,7 @@ private fun TagSmallPreview() {
         }
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             TagFilledSmall01(
                 text = getRandomText(1),
@@ -386,6 +386,11 @@ private fun TagSmallPreview() {
             )
             TagTextSmall01(
                 text = getRandomText(1),
+                leftIcon = R.drawable.ic_star_filled,
+            )
+            // 아이콘 전용(텍스트 없음): 텍스트 패딩 없이 아이콘만 노출되어야 한다.
+            TagFilledSmall04(
+                text = "",
                 leftIcon = R.drawable.ic_star_filled,
             )
         }
