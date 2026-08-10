@@ -5,17 +5,23 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -29,21 +35,22 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import net.deali.designsystem.R
 import net.deali.designsystem.component.BottomSheet
-import net.deali.designsystem.component.BottomSheetHeaderArrowClose
-import net.deali.designsystem.component.BottomSheetSingleSelectOption
+import net.deali.designsystem.component.BottomSheetOption
 import net.deali.designsystem.component.DealiText
-import net.deali.designsystem.component.Icon
-import net.deali.designsystem.component.SingleSelectOption
 import net.deali.designsystem.component.TopBar
+import net.deali.designsystem.component.btnFilledLarge01
+import net.deali.designsystem.component.btnOutlineLarge01
+import net.deali.designsystem.component.btnOutlineLarge06
 import net.deali.designsystem.component.btnOutlineMedium01
 import net.deali.designsystem.theme.DealiColor
 import net.deali.designsystem.theme.DealiFont
@@ -69,18 +76,23 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             val sheetContentByType: @Composable ColumnScope.() -> Unit = when (bottomSheetType) {
             BottomSheetType.Empty -> {
                 {
-                    BottomSheet {
-                        EmptyBox()
-                    }
+                    BottomSheet(
+                        content = { EmptyBox() },
+                    )
                 }
             }
 
             BottomSheetType.TextNoButton -> {
                 {
                     BottomSheet(
-                        text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        content = {
+                            SheetText(
+                                text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
+                                bottomPadding = 24.dp,
+                            )
+                        },
                     )
                 }
             }
@@ -88,11 +100,18 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextOneButton -> {
                 {
                     BottomSheet(
-                        text = "텍스트",
-                        buttonText = "버튼명",
-                        onButtonClick = {},
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        content = { SheetText(text = "텍스트") },
+                        footer = {
+                            SheetFooter {
+                                btnFilledLarge01(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    text = "버튼명",
+                                    onClick = {},
+                                )
+                            }
+                        },
                     )
                 }
             }
@@ -100,27 +119,24 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             BottomSheetType.TextTwoButtons -> {
                 {
                     BottomSheet(
-                        text = "텍스트",
-                        primaryButtonText = "버튼1",
-                        secondaryButtonText = "버튼2",
-                        onPrimaryButtonClick = {},
-                        onSecondaryButtonClick = {},
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
-                    )
-                }
-            }
-
-            BottomSheetType.TextTwoButtonsGray -> {
-                {
-                    BottomSheet(
-                        text = "텍스트",
-                        primaryButtonText = "버튼1",
-                        secondaryButtonText = "버튼2",
-                        onPrimaryButtonClick = {},
-                        onSecondaryButtonClick = {},
-                        onDismiss = hideBottomSheet,
-                        title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
+                        content = { SheetText(text = "텍스트") },
+                        footer = {
+                            SheetFooter {
+                                btnOutlineLarge01(
+                                    modifier = Modifier.weight(1f),
+                                    text = "버튼2",
+                                    onClick = {},
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                btnFilledLarge01(
+                                    modifier = Modifier.weight(1f),
+                                    text = "버튼1",
+                                    onClick = {},
+                                )
+                            }
+                        },
                     )
                 }
             }
@@ -130,7 +146,7 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        content = { EmptyBox() }
+                        content = { EmptyBox() },
                     )
                 }
             }
@@ -141,22 +157,28 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        buttonText = "확인",
-                        onButtonClick = remember {
-                            {
-                                delayJob = coroutineScope.launch {
-                                    isLoading = true
-                                    delay(1_000L)
-                                    bottomSheetState.hide()
-                                }
-                            }
-                        },
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        isButtonLoading = isLoading,
-                    ) {
-                        EmptyBox()
-                    }
+                        content = { EmptyBox() },
+                        footer = {
+                            SheetFooter {
+                                btnFilledLarge01(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    text = "확인",
+                                    loading = isLoading,
+                                    onClick = remember {
+                                        {
+                                            delayJob = coroutineScope.launch {
+                                                isLoading = true
+                                                delay(1_000L)
+                                                bottomSheetState.hide()
+                                            }
+                                        }
+                                    },
+                                )
+                            }
+                        },
+                    )
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -174,24 +196,34 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        primaryButtonText = "탈퇴",
-                        secondaryButtonText = "취소",
-                        onPrimaryButtonClick = remember {
-                            {
-                                delayJob = coroutineScope.launch {
-                                    isLoading = true
-                                    delay(1_000L)
-                                    bottomSheetState.hide()
-                                }
-                            }
-                        },
-                        onSecondaryButtonClick = hideBottomSheet,
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        isPrimaryButtonLoading = isLoading,
-                    ) {
-                        EmptyBox()
-                    }
+                        content = { EmptyBox() },
+                        footer = {
+                            SheetFooter {
+                                btnOutlineLarge01(
+                                    modifier = Modifier.weight(1f),
+                                    text = "취소",
+                                    onClick = hideBottomSheet,
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                btnFilledLarge01(
+                                    modifier = Modifier.weight(1f),
+                                    text = "탈퇴",
+                                    loading = isLoading,
+                                    onClick = remember {
+                                        {
+                                            delayJob = coroutineScope.launch {
+                                                isLoading = true
+                                                delay(1_000L)
+                                                bottomSheetState.hide()
+                                            }
+                                        }
+                                    },
+                                )
+                            }
+                        },
+                    )
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -209,25 +241,34 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     var delayJob by remember { mutableStateOf<Job?>(null) }
 
                     BottomSheet(
-                        primaryButtonText = "탈퇴",
-                        secondaryButtonText = "취소",
-                        onPrimaryButtonClick = remember {
-                            {
-                                delayJob = coroutineScope.launch {
-                                    isLoading = true
-                                    delay(1_000L)
-                                    bottomSheetState.hide()
-                                }
-                            }
-                        },
-                        onSecondaryButtonClick = hideBottomSheet,
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        isPrimaryButtonLoading = isLoading,
-                        useGraySecondary = true,
-                    ) {
-                        EmptyBox()
-                    }
+                        content = { EmptyBox() },
+                        footer = {
+                            SheetFooter {
+                                btnOutlineLarge06(
+                                    modifier = Modifier.weight(1f),
+                                    text = "취소",
+                                    onClick = hideBottomSheet,
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                btnFilledLarge01(
+                                    modifier = Modifier.weight(1f),
+                                    text = "탈퇴",
+                                    loading = isLoading,
+                                    onClick = remember {
+                                        {
+                                            delayJob = coroutineScope.launch {
+                                                isLoading = true
+                                                delay(1_000L)
+                                                bottomSheetState.hide()
+                                            }
+                                        }
+                                    },
+                                )
+                            }
+                        },
+                    )
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -241,42 +282,25 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
 
             BottomSheetType.SingleSelect -> {
                 {
-                    BottomSheetSingleSelectOption(
+                    val options = remember { persistentListOf("옵션1", "옵션2", "옵션3") }
+
+                    BottomSheet(
+                        onDismiss = hideBottomSheet,
                         title = "단일 옵션",
-                        singleSelectOptionList = persistentListOf(
-                            SingleSelectOption(
-                                text = "옵션1",
-                                isSelected = selectedOptionIndex == 0,
-                            ),
-
-                            SingleSelectOption(
-                                text = "옵션2",
-                                isSelected = selectedOptionIndex == 1,
-                            ),
-
-                            SingleSelectOption(
-                                text = "옵션3",
-                                isSelected = selectedOptionIndex == 2,
-                                icon = {
-                                    Icon(
-                                        iconRes = R.drawable.ic_category_filled,
-                                        size = 16.dp,
+                        content = {
+                            LazyColumn {
+                                itemsIndexed(options) { index, option ->
+                                    BottomSheetOption(
+                                        text = option,
+                                        isSelected = selectedOptionIndex == index,
+                                        onClick = {
+                                            selectedOptionIndex = index
+                                            hideBottomSheet()
+                                        },
                                     )
                                 }
-                            ),
-                        ),
-                        onSelectOption = {
-                            selectedOptionIndex = it
+                            }
                         },
-                        onDismiss = hideBottomSheet
-                    )
-                }
-            }
-
-            BottomSheetType.HeaderArrowClose -> {
-                {
-                    BottomSheetHeaderArrowClose(
-                        onDismiss = hideBottomSheet,
                     )
                 }
             }
@@ -376,16 +400,43 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     text = "단일 옵션 선택",
                     type = BottomSheetType.SingleSelect,
                 )
-
-                OpenBottomSheetButton(
-                    text = "Header Arrow Close",
-                    type = BottomSheetType.HeaderArrowClose,
-                )
             }
         }
     }
 }
 
+/** 텍스트만 있는 바텀시트의 본문 텍스트 */
+@Composable
+private fun SheetText(
+    text: String,
+    modifier: Modifier = Modifier,
+    bottomPadding: Dp = 12.dp,
+) {
+    DealiText(
+        modifier = modifier
+            .padding(start = 16.dp, end = 16.dp, top = 4.dp, bottom = bottomPadding),
+        text = text,
+        style = DealiFont.b2r14,
+        color = DealiColor.g80,
+    )
+}
+
+/** footer 슬롯에 버튼을 배치할 때 쓰는 공통 컨테이너 */
+@Composable
+private fun SheetFooter(
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(74.dp)
+            .background(DealiColor.primary04)
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        content = content,
+    )
+}
 
 @Composable
 private fun EmptyBox(modifier: Modifier = Modifier) {
@@ -416,11 +467,9 @@ private enum class BottomSheetType {
     TextNoButton,
     TextOneButton,
     TextTwoButtons,
-    TextTwoButtonsGray,
     NoButton,
     OneButton,
     TwoButton,
     TwoButtonGray,
     SingleSelect,
-    HeaderArrowClose,
 }
