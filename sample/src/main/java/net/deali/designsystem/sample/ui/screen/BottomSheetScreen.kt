@@ -76,9 +76,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
             val sheetContentByType: @Composable ColumnScope.() -> Unit = when (bottomSheetType) {
             BottomSheetType.Empty -> {
                 {
-                    BottomSheet(
-                        content = { EmptyBox() },
-                    )
+                    BottomSheet {
+                        EmptyBox()
+                    }
                 }
             }
 
@@ -87,13 +87,12 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
-                        content = {
-                            SheetText(
-                                text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
-                                bottomPadding = 24.dp,
-                            )
-                        },
-                    )
+                    ) {
+                        SheetText(
+                            text = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
+                            bottomPadding = 24.dp,
+                        )
+                    }
                 }
             }
 
@@ -102,7 +101,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
-                        content = { SheetText(text = "텍스트") },
                         footer = {
                             SheetFooter {
                                 btnFilledLarge01(
@@ -112,7 +110,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 )
                             }
                         },
-                    )
+                    ) {
+                        SheetText(text = "텍스트")
+                    }
                 }
             }
 
@@ -121,7 +121,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀타이틀",
-                        content = { SheetText(text = "텍스트") },
                         footer = {
                             SheetFooter {
                                 btnOutlineLarge01(
@@ -137,7 +136,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 )
                             }
                         },
-                    )
+                    ) {
+                        SheetText(text = "텍스트")
+                    }
                 }
             }
 
@@ -146,8 +147,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        content = { EmptyBox() },
-                    )
+                    ) {
+                        EmptyBox()
+                    }
                 }
             }
 
@@ -159,7 +161,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        content = { EmptyBox() },
                         footer = {
                             SheetFooter {
                                 btnFilledLarge01(
@@ -178,7 +179,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 )
                             }
                         },
-                    )
+                    ) {
+                        EmptyBox()
+                    }
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -198,7 +201,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        content = { EmptyBox() },
                         footer = {
                             SheetFooter {
                                 btnOutlineLarge01(
@@ -223,7 +225,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 )
                             }
                         },
-                    )
+                    ) {
+                        EmptyBox()
+                    }
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -243,7 +247,6 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "타이틀",
-                        content = { EmptyBox() },
                         footer = {
                             SheetFooter {
                                 btnOutlineLarge06(
@@ -268,7 +271,9 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                                 )
                             }
                         },
-                    )
+                    ) {
+                        EmptyBox()
+                    }
 
                     LaunchedEffect(key1 = bottomSheetState.isVisible) {
                         if (!bottomSheetState.isVisible) {
@@ -287,21 +292,20 @@ fun BottomSheetScreen(onBackPress: () -> Unit) {
                     BottomSheet(
                         onDismiss = hideBottomSheet,
                         title = "단일 옵션",
-                        content = {
-                            LazyColumn {
-                                itemsIndexed(options) { index, option ->
-                                    BottomSheetOption(
-                                        text = option,
-                                        isSelected = selectedOptionIndex == index,
-                                        onClick = {
-                                            selectedOptionIndex = index
-                                            hideBottomSheet()
-                                        },
-                                    )
-                                }
+                    ) {
+                        LazyColumn {
+                            itemsIndexed(options) { index, option ->
+                                BottomSheetOption(
+                                    text = option,
+                                    isSelected = selectedOptionIndex == index,
+                                    onClick = {
+                                        selectedOptionIndex = index
+                                        hideBottomSheet()
+                                    },
+                                )
                             }
-                        },
-                    )
+                        }
+                    }
                 }
             }
             }

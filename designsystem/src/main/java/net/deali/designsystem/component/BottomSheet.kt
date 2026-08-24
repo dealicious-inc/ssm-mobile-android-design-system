@@ -30,12 +30,12 @@ import net.deali.designsystem.util.click.singleClickable
  */
 @Composable
 fun BottomSheet(
-    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
     onDismiss: () -> Unit = {},
     title: String? = null,
     hideXButton: Boolean = false,
     footer: @Composable ColumnScope.() -> Unit = {},
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(modifier = modifier) {
         if (title != null) {
@@ -136,14 +136,6 @@ private fun PreviewBottomSheet() {
     BottomSheet(
         title = "타이틀",
         onDismiss = {},
-        content = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(150.dp)
-                    .background(DealiColor.primary03)
-            )
-        },
         footer = {
             Row(
                 modifier = Modifier
@@ -166,7 +158,14 @@ private fun PreviewBottomSheet() {
                 )
             }
         },
-    )
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
+                .background(DealiColor.primary03)
+        )
+    }
 }
 
 @Preview(showBackground = true)
