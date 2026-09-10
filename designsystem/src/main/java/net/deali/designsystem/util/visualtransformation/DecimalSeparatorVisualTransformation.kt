@@ -16,6 +16,9 @@ import java.util.Locale
  * 음수 부호의 경우 [prefix] 앞에 위치합니다. 예를 들어 TextField가 `-10000`을 value로 가지고 있고 [prefix]
  * 가 `$`라면, `-$10,000`로 보입니다.
  *
+ * 천 단위 구분자는 기기 로케일과 무관하게 항상 콤마(,)입니다. 커서 오프셋 매핑이 콤마를 기준으로 계산되므로
+ * 로케일별 구분자('.', NBSP 등)를 따르면 매핑이 어긋나 크래시가 발생합니다.
+ *
  * @param prefix 가격 형태의 숫자 앞에 표기 할 문자. (e.g. '$')
  * @param alwaysShowPrefix `true`인 경우 value가 비어 있어도 [prefix]를 보여줌. `false`인 경우
  * value가 비어 있지 않은 경우에만 [prefix]를 보여줌.
@@ -86,9 +89,13 @@ class DecimalSeparatorVisualTransformation(
         } else {
             digits
         }
+        // 기기 로케일(Locale.getDefault())을 쓰면 vi-VN·de-DE 등은 천 단위 구분자가 '.'(또는 NBSP)로 나와
+        // ','만 카운트하는 DecimalSeparatorOffsetMapping과 어긋나고, Compose가
+        // "OffsetMapping.transformedToOriginal returned invalid mapping" 으로 크래시한다.
+        // 구분자를 항상 ','로 고정하기 위해 Locale.US 로 포맷한다.
         val formatted = if (digitsForFormat.isNotEmpty()) {
             try {
-                String.format(Locale.getDefault(), "%,.0f", digitsForFormat.toDouble())
+                String.format(Locale.US, "%,.0f", digitsForFormat.toDouble())
             } catch (_: NumberFormatException) {
                 return null
             }
