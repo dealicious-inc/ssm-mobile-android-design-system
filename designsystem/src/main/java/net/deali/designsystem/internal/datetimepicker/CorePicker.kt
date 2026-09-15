@@ -35,15 +35,20 @@ import net.deali.designsystem.util.internal.calculateVerticalPadding
 import net.deali.designsystem.util.internal.plus
 import kotlin.math.abs
 
+/**
+ * 날짜/시간 피커 공통 휠 컴포넌트. 아이템은 반복되지 않으며 첫 번째와 마지막 아이템이 스크롤의 양 끝이다.
+ *
+ * @param key 각 아이템을 식별할 key. 지정하면 [values]가 바뀌어도 값 기준으로 아이템을 추적한다.
+ */
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
 internal fun <T> CorePicker(
     values: ImmutableList<T>,
     state: CorePickerState,
     itemHeight: Dp,
-    repeated: Boolean,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(),
+    key: ((value: T) -> Any)? = null,
     decorationBox: @Composable BoxScope.(innerPicker: @Composable () -> Unit) -> Unit =
         @Composable { innerPicker -> innerPicker() },
     itemContent: @Composable BoxScope.(value: T) -> Unit
@@ -54,29 +59,7 @@ internal fun <T> CorePicker(
     LaunchedEffect(state) {
         snapshotFlow { state.centralVisibleIndexLayoutInfo?.index }.collect { index ->
             if (index != null) {
-                state.currentIndex = if (repeated) index % values.size else index
-            }
-        }
-    }
-
-    if (repeated) {
-        LaunchedEffect(Unit) {
-            state.scrollToItem(
-                calculateFarIndexForRepeatedPicker(
-                    index = state.currentIndex,
-                    valuesCount = values.size
-                )
-            )
-        }
-
-        LaunchedEffect(state.isScrollInProgress) {
-            if (!state.isScrollInProgress) {
-                state.scrollToItem(
-                    calculateFarIndexForRepeatedPicker(
-                        index = state.currentIndex,
-                        valuesCount = values.size
-                    )
-                )
+                state.currentIndex = index
             }
         }
     }
@@ -103,41 +86,22 @@ internal fun <T> CorePicker(
                 val itemBoxModifier = Modifier
                     .fillMaxWidth()
                     .height(itemHeight)
-                if (repeated) {
-                    items(count = Int.MAX_VALUE) { index ->
-                        Box(
-                            modifier = itemBoxModifier.pickerAlpha(
-                                index = index,
-                                itemHeight = itemHeight,
-                                lazyListState = lazyListState,
-                                snapperLayoutInfo = snapperLayoutInfo
-                            ),
-                            content = { itemContent(values[index % values.size]) }
-                        )
-                    }
-                } else {
-                    items(count = values.size) { index ->
-                        Box(
-                            modifier = itemBoxModifier.pickerAlpha(
-                                index = index,
-                                itemHeight = itemHeight,
-                                lazyListState = lazyListState,
-                                snapperLayoutInfo = snapperLayoutInfo
-                            ),
-                            content = { itemContent(values[index]) }
-                        )
-                    }
+                // key가 주어지면 values가 바뀌어도 LazyColumn이 아이템을 값 기준으로 추적한다.
+                val itemKey: ((Int) -> Any)? = key?.let { keyOf -> { index -> keyOf(values[index]) } }
+                items(count = values.size, key = itemKey) { index ->
+                    Box(
+                        modifier = itemBoxModifier.pickerAlpha(
+                            index = index,
+                            itemHeight = itemHeight,
+                            lazyListState = lazyListState,
+                            snapperLayoutInfo = snapperLayoutInfo
+                        ),
+                        content = { itemContent(values[index]) }
+                    )
                 }
             }
         }
     }
-}
-
-/**
- * 피커의 반복 옵션이 활성화된 상태일 때, 무한히 아이템이 반복되는 것 처럼 보이기 위해서 적당히 먼 곳으로 이동할 위치 계산.
- */
-internal fun calculateFarIndexForRepeatedPicker(index: Int, valuesCount: Int): Int {
-    return valuesCount * 1000 + index
 }
 
 @OptIn(ExperimentalSnapperApi::class)
