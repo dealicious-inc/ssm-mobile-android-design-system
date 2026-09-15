@@ -32,7 +32,6 @@ import net.deali.designsystem.internal.datetimepicker.CorePicker
 import net.deali.designsystem.internal.datetimepicker.CorePickerState
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerDecoration
 import net.deali.designsystem.internal.datetimepicker.DefaultPickerItemContent
-import net.deali.designsystem.internal.datetimepicker.calculateFarIndexForRepeatedPicker
 import net.deali.designsystem.util.internal.calculateHorizontalPadding
 import net.deali.designsystem.util.internal.calculateVerticalPadding
 import net.deali.designsystem.util.internal.countTrue
@@ -255,7 +254,6 @@ fun TimePicker(
                         values = amPm,
                         state = state.periodPickerState,
                         modifier = Modifier.width(itemPickerWidth + leftContentPadding),
-                        repeated = false,
                         itemHeight = itemHeight,
                         contentPadding = PaddingValues.Absolute(left = leftContentPadding),
                         itemContent = periodItemContent
@@ -290,7 +288,6 @@ fun TimePicker(
                         values = hours,
                         state = state.hourPickerState,
                         modifier = Modifier.width(width),
-                        repeated = true,
                         itemHeight = itemHeight,
                         contentPadding = padding,
                         itemContent = hourItemContent
@@ -325,7 +322,6 @@ fun TimePicker(
                         values = minutes,
                         state = state.minutePickerState,
                         modifier = Modifier.width(width),
-                        repeated = true,
                         itemHeight = itemHeight,
                         contentPadding = padding,
                         itemContent = minuteItemContent
@@ -336,7 +332,6 @@ fun TimePicker(
                         values = seconds,
                         state = state.secondPickerState,
                         modifier = Modifier.width(itemPickerWidth + rightContentPadding),
-                        repeated = true,
                         itemHeight = itemHeight,
                         contentPadding = PaddingValues.Absolute(right = rightContentPadding),
                         itemContent = secondItemContent
@@ -686,21 +681,21 @@ class TimePickerState(
         val possibleHours = getPossibleHours()
         val hourIndexInPossibles = possibleHours?.indexOf(hour) ?: NO_INDEX
         if (possibleHours == null || hourIndexInPossibles == NO_INDEX) return NO_INDEX
-        return calculateFarIndexForRepeatedPicker(hourIndexInPossibles, possibleHours.count())
+        return hourIndexInPossibles
     }
 
     private fun calculateMinuteScrollTargetIndex(minute: Int): Int {
         val possibleMinutes = getPossibleMinutes()
         val minuteIndexInPossibles = possibleMinutes?.indexOf(minute) ?: NO_INDEX
         if (possibleMinutes == null || minuteIndexInPossibles == NO_INDEX) return NO_INDEX
-        return calculateFarIndexForRepeatedPicker(minuteIndexInPossibles, possibleMinutes.count())
+        return minuteIndexInPossibles
     }
 
     private fun calculateSecondScrollTargetIndex(second: Int): Int {
         val possibleSeconds = getPossibleSeconds()
         val secondIndexInPossibles = possibleSeconds?.indexOf(second) ?: NO_INDEX
         if (possibleSeconds == null || secondIndexInPossibles == NO_INDEX) return NO_INDEX
-        return calculateFarIndexForRepeatedPicker(secondIndexInPossibles, possibleSeconds.count())
+        return secondIndexInPossibles
     }
 
     private fun getPossibleHours(): IntProgression? {
