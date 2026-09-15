@@ -49,6 +49,13 @@ internal class CorePickerState(initialIndex: Int = 0) : ScrollableState {
     suspend fun scrollToItem(index: Int): Unit =
         lazyListState.scrollToItem(index, scrollOffset = 0)
 
+    /**
+     * 다음 측정에서 [index] 아이템이 중앙에 오도록 요청. suspend 없이 컴포지션 중에도 호출 가능하며,
+     * 아이템 목록이 바뀌는 것과 같은 프레임에 위치를 맞출 때 사용한다.
+     */
+    fun requestScrollToItem(index: Int): Unit =
+        lazyListState.requestScrollToItem(index, scrollOffset = 0)
+
     suspend fun animateScrollToItem(index: Int): Unit =
         lazyListState.animateScrollToItem(index, scrollOffset = 0)
 }
