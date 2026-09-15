@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -157,11 +159,9 @@ internal fun SingleLabeledTextIcon01(
         color = color,
         textStyle = textStyle,
         leftContent = {
-            Icon(
-                modifier = Modifier.padding(end = 8.dp),
-                size = 16.dp,
+            LabeledTextIcon01Label(
                 iconRes = iconRes,
-                color = DealiColor.g80,
+                textStyle = textStyle,
             )
         },
         highlightText = highlightText,
@@ -182,14 +182,38 @@ internal fun SingleLabeledTextIcon01(
         color = color,
         textStyle = textStyle,
         leftContent = {
-            Icon(
-                modifier = Modifier.padding(end = 8.dp),
-                size = 16.dp,
+            LabeledTextIcon01Label(
                 iconRes = iconRes,
-                color = DealiColor.g80,
+                textStyle = textStyle,
             )
         },
     )
+}
+
+/**
+ * 아이콘의 세로 중심을 텍스트 첫 줄의 중심에 맞추기 위해
+ * 아이콘을 텍스트 lineHeight 높이의 박스 안에서 세로 중앙 정렬한다.
+ * 텍스트가 여러 줄이어도 아이콘은 첫 줄 기준으로 정렬된다.
+ */
+@Composable
+private fun LabeledTextIcon01Label(
+    @DrawableRes iconRes: Int,
+    textStyle: TextStyle,
+) {
+    val lineHeight = with(LocalDensity.current) { textStyle.lineHeight.toDp() }
+
+    Box(
+        modifier = Modifier
+            .padding(end = 8.dp)
+            .height(lineHeight),
+        contentAlignment = Alignment.Center,
+    ) {
+        Icon(
+            size = 16.dp,
+            iconRes = iconRes,
+            color = DealiColor.g80,
+        )
+    }
 }
 
 @Composable
