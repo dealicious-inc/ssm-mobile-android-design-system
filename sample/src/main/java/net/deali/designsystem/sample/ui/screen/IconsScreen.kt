@@ -1,8 +1,11 @@
 package net.deali.designsystem.sample.ui.screen
 
+import android.widget.Toast
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +24,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +34,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.deali.designsystem.R
@@ -54,6 +60,22 @@ fun IconsScreen(
         }
     ) {
         val scrollState = rememberScrollState()
+        val context = LocalContext.current
+        var toast by remember { mutableStateOf<Toast?>(null) }
+
+        // 빠르게 연속 클릭해도 토스트가 쌓이지 않도록 이전 토스트를 취소하고 새로 띄운다
+        val showIconName: (Int) -> Unit = { iconRes ->
+            toast?.cancel()
+            toast = Toast.makeText(
+                context,
+                context.resources.getResourceEntryName(iconRes),
+                Toast.LENGTH_SHORT,
+            ).apply { show() }
+        }
+
+        DisposableEffect(Unit) {
+            onDispose { toast?.cancel() }
+        }
 
         Column(
             modifier = Modifier
@@ -64,43 +86,44 @@ fun IconsScreen(
 
             Container(
                 iconList = outlineIcons,
-                height = 600,
                 containerTitle = "아이콘",
+                onIconClick = showIconName,
             )
 
 
             Container(
                 iconList = noStrokeIcons,
-                height = 120,
                 containerTitle = "No Stroke",
+                onIconClick = showIconName,
             )
 
 
             Container(
                 iconList = filledIcons,
-                height = 300,
                 containerTitle = "Filled",
+                onIconClick = showIconName,
             )
 
 
             Container(
                 iconList = categoryIcons,
-                height = 120,
                 containerTitle = "카테고리",
+                onIconClick = showIconName,
             )
 
 
             Container(
                 iconList = myPageIcons,
-                height = 120,
                 containerTitle = "마이페이지",
+                onIconClick = showIconName,
             )
 
 
             Container(
                 iconList = etcIcons,
-                height = 120,
                 containerTitle = "Etc",
+                onIconClick = showIconName,
+                useOriginalStyle = true,
             )
         }
     }
@@ -109,81 +132,79 @@ fun IconsScreen(
 @Composable
 private fun Container(
     iconList: List<IconItem>,
-    height: Int,
     containerTitle: String,
+    onIconClick: (Int) -> Unit,
+    // Etc 아이콘은 아이콘마다 고유 사이즈/컬러가 있어 tint·사이즈 변경 없이 원본 그대로 노출한다
+    useOriginalStyle: Boolean = false,
 ) {
-    var currentIconColor by remember { mutableStateOf(DealiColor.primary05) }
-    var currentBackgroundColor by remember { mutableStateOf(DealiColor.primary04) }
+    var isDark by remember { mutableStateOf(false) }
     var currentIconSize by remember { mutableIntStateOf(SIZE_16) }
+    val iconColor = if (isDark) DealiColor.primary04 else DealiColor.primary05
+    val backgroundColor = when {
+        useOriginalStyle -> DealiColor.g20
+        isDark -> DealiColor.primary05
+        else -> DealiColor.primary04
+    }
 
     val lazyGridState = rememberLazyGridState()
 
-    Column(
-        Modifier
-            .height(height.dp)
-    ) {
+    val rowCount = (iconList.size + GRID_COLUMNS - 1) / GRID_COLUMNS
+
+    Column {
         DealiText(
             text = containerTitle,
             style = DealiFont.sh3sb16,
             color = DealiColor.g100,
         )
 
-        Row {
-            btnOutlineSmall01(
-                onClick = {
-                    currentIconColor = when (currentIconColor) {
-                        DealiColor.primary05 -> DealiColor.primary04
-                        DealiColor.primary04 -> DealiColor.primary05
-                        else -> DealiColor.primary01
-                    }
+        if (!useOriginalStyle) {
+            Row {
+                btnOutlineSmall01(
+                    onClick = { isDark = !isDark },
+                    text = "색상"
+                )
 
-                },
-                text = "아이콘 색상"
-            )
+                Spacer(modifier = Modifier.width(4.dp))
 
-            Spacer(modifier = Modifier.width(4.dp))
-
-            btnOutlineSmall01(
-                onClick = {
-                    currentBackgroundColor = when (currentBackgroundColor) {
-                        DealiColor.primary04 -> DealiColor.primary05
-                        DealiColor.primary05 -> DealiColor.primary04
-                        else -> DealiColor.primary01
-                    }
-                },
-                text = "배경 색상"
-            )
-
-            Spacer(modifier = Modifier.width(4.dp))
-
-            btnOutlineSmall01(
-                onClick = {
-                    currentIconSize = when (currentIconSize) {
-                        SIZE_16 -> SIZE_24
-                        SIZE_24 -> SIZE_32
-                        else -> SIZE_16
-                    }
-                },
-                text = "사이즈 $currentIconSize"
-            )
+                btnOutlineSmall01(
+                    onClick = {
+                        currentIconSize = when (currentIconSize) {
+                            SIZE_16 -> SIZE_24
+                            SIZE_24 -> SIZE_32
+                            else -> SIZE_16
+                        }
+                    },
+                    text = "사이즈 $currentIconSize"
+                )
+            }
         }
 
         LazyVerticalGrid(
             modifier = Modifier
                 .wrapContentWidth()
+                .height((rowCount * ITEM_SIZE + GRID_BORDER * 2).dp)
                 .clip(RoundedCornerShape(6.dp))
-                .background(currentBackgroundColor)
-                .border(1.dp, DealiColor.g30, RoundedCornerShape(6.dp))
+                .background(backgroundColor)
+                .border(GRID_BORDER.dp, DealiColor.g30, RoundedCornerShape(6.dp))
                 .padding(horizontal = 10.dp),
-            columns = GridCells.Fixed(11),
+            columns = GridCells.Fixed(GRID_COLUMNS),
+            userScrollEnabled = false,
             state = lazyGridState,
         ) {
             items(items = iconList) { icon ->
-                Item(
-                    size = currentIconSize,
-                    iconColor = currentIconColor,
-                    iconRes = icon.iconRes,
-                )
+                if (useOriginalStyle) {
+                    OriginalItem(
+                        iconRes = icon.iconRes,
+                        onClick = { onIconClick(icon.iconRes) },
+                    )
+                } else {
+                    Item(
+                        size = currentIconSize,
+                        iconColor = iconColor,
+                        iconRes = icon.iconRes,
+                        onClick = { onIconClick(icon.iconRes) },
+                    )
+                }
             }
         }
     }
@@ -194,52 +215,38 @@ private fun Item(
     size: Int,
     iconColor: Color,
     @DrawableRes iconRes: Int,
+    onClick: () -> Unit,
 ) {
     Box(
         modifier = Modifier
-            .size(48.dp)
+            .size(ITEM_SIZE.dp)
     ) {
-        when (size) {
-            SIZE_16 -> {
-                Icon(
-                    modifier = Modifier.align(Alignment.Center),
-                    iconRes = iconRes,
-                    size = 16.dp,
-                    color = iconColor,
-                    onClick = {}
-                )
-            }
+        Icon(
+            modifier = Modifier.align(Alignment.Center),
+            iconRes = iconRes,
+            size = size.dp,
+            color = iconColor,
+            onClick = onClick,
+        )
+    }
+}
 
-            SIZE_24 -> {
-                Icon(
-                    modifier = Modifier.align(Alignment.Center),
-                    iconRes = iconRes,
-                    size = 24.dp,
-                    color = iconColor,
-                    onClick = {}
-                )
-            }
-
-            SIZE_32 -> {
-                Icon(
-                    modifier = Modifier.align(Alignment.Center),
-                    iconRes = iconRes,
-                    size = 32.dp,
-                    color = iconColor,
-                    onClick = {}
-                )
-            }
-
-            else -> {
-                Icon(
-                    modifier = Modifier.align(Alignment.Center),
-                    iconRes = iconRes,
-                    size = 16.dp,
-                    color = iconColor,
-                    onClick = {}
-                )
-            }
-        }
+/** drawable 의 원본 사이즈/컬러 그대로 노출 */
+@Composable
+private fun OriginalItem(
+    @DrawableRes iconRes: Int,
+    onClick: () -> Unit,
+) {
+    Box(
+        modifier = Modifier
+            .size(ITEM_SIZE.dp)
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            painter = painterResource(id = iconRes),
+            contentDescription = null,
+        )
     }
 }
 
@@ -279,8 +286,8 @@ val outlineIcons = listOf(
     IconItem("ic_alarm_etc", R.drawable.ic_alarm_etc),
     IconItem("ic_plus_circle", R.drawable.ic_pluscircle),
     IconItem("ic_minus_circle", R.drawable.ic_minuscircle),
-
     IconItem("ic_lens", R.drawable.ic_lens),
+
     IconItem("ic_info", R.drawable.ic_info),
     IconItem("ic_x_circle_s", R.drawable.ic_x_circle_s),
     IconItem("ic_checkcircle", R.drawable.ic_checkcircle),
@@ -291,8 +298,8 @@ val outlineIcons = listOf(
     IconItem("ic_time", R.drawable.ic_time),
     IconItem("ic_download1", R.drawable.ic_download_1),
     IconItem("ic_up", R.drawable.ic_up),
-
     IconItem("ic_restore", R.drawable.ic_restore),
+
     IconItem("ic_recentproduct", R.drawable.ic_recentproduct),
     IconItem("ic_refresh2", R.drawable.ic_refresh_2),
     IconItem("ic_mypage_editimage", R.drawable.ic_mypage_editimage),
@@ -303,8 +310,8 @@ val outlineIcons = listOf(
     IconItem("ic_alarm_ad", R.drawable.ic_alarm_ad),
     IconItem("ic_speechbubble", R.drawable.ic_speechbubble),
     IconItem("ic_thumbsup", R.drawable.ic_thumbs_up),
-
     IconItem("ic_thumbsdw", R.drawable.ic_thumbs_down),
+
     IconItem("ic_pen", R.drawable.ic_pen),
     IconItem("ic_edit_line", R.drawable.ic_edit_line),
     IconItem("ic_setting", R.drawable.ic_setting),
@@ -315,8 +322,8 @@ val outlineIcons = listOf(
     IconItem("ic_calendar", R.drawable.ic_calendar),
     IconItem("ic_cshelp", R.drawable.ic_cshelp),
     IconItem("ic_memo", R.drawable.ic_memo),
-
     IconItem("ic_history", R.drawable.ic_history),
+
     IconItem("ic_file_text", R.drawable.ic_file_text),
     IconItem("ic_certificate", R.drawable.ic_certificate),
     IconItem("ic_orderlist", R.drawable.ic_orderlist),
@@ -326,9 +333,9 @@ val outlineIcons = listOf(
     IconItem("ic_file_copy", R.drawable.ic_file_copy),
     IconItem("ic_orderdetail_ac_copy", R.drawable.ic_orderdetail_ac_copy),
     IconItem("ic_folder", R.drawable.ic_folder),
-
     IconItem("ic_folder_move", R.drawable.ic_folder_move),
     IconItem("ic_folder_add", R.drawable.ic_folder_add),
+
     IconItem("ic_wallet", R.drawable.ic_wallet),
     IconItem("ic_accountnumber_bank", R.drawable.ic_accountnumber_bank),
     IconItem("ic_accountnumber_account", R.drawable.ic_accountnumber_account),
@@ -338,9 +345,9 @@ val outlineIcons = listOf(
     IconItem("ic_message", R.drawable.ic_message_1),
     IconItem("ic_preview_yes", R.drawable.ic_preview_yes),
     IconItem("ic_preview_no", R.drawable.ic_preview_no),
-
     IconItem("ic_outlink", R.drawable.ic_outlink),
     IconItem("ic_out", R.drawable.ic_out),
+
     IconItem("ic_download2", R.drawable.ic_download_2),
     IconItem("ic_share3", R.drawable.ic_share_3),
     IconItem("ic_share2", R.drawable.ic_share_2),
@@ -350,9 +357,9 @@ val outlineIcons = listOf(
     IconItem("ic_minus", R.drawable.ic_minus),
     IconItem("ic_arrow_left", R.drawable.ic_arrow_left),
     IconItem("ic_arrow_right", R.drawable.ic_arrow_right),
-
     IconItem("ic_arrow_open", R.drawable.ic_arrow_open),
     IconItem("ic_arrow_close", R.drawable.ic_arrow_close),
+
     IconItem("ic_refresh1", R.drawable.ic_refresh_1),
     IconItem("ic_repeat", R.drawable.ic_repeat),
     IconItem("ic_plus_ad_forward", R.drawable.ic_plus_ad_forward),
@@ -362,9 +369,9 @@ val outlineIcons = listOf(
     IconItem("ic_arrowhead", R.drawable.ic_arrowhead),
     IconItem("ic_hashtag", R.drawable.ic_hashtag),
     IconItem("ic_listview", R.drawable.ic_listview),
-
     IconItem("ic_3gridview_4", R.drawable.ic_3gridview),
     IconItem("ic_2gridview_4", R.drawable.ic_2gridview),
+
     IconItem("ic_more_horiz", R.drawable.ic_more_horiz),
     IconItem("ic_more_vert", R.drawable.ic_more_vert),
     IconItem("ic_share1", R.drawable.ic_share_1),
@@ -374,11 +381,31 @@ val outlineIcons = listOf(
     IconItem("ic_addaccount", R.drawable.ic_addaccount),
     IconItem("ic_waitaccount", R.drawable.ic_waitaccount),
     IconItem("ic_adcenter", R.drawable.ic_adcenter),
-
     IconItem("ic_report", R.drawable.ic_report),
     IconItem("ic_camera", R.drawable.ic_camera),
+
     IconItem("ic_image", R.drawable.ic_image),
     IconItem("ic_notice", R.drawable.ic_notice),
+    IconItem("ic_alarmchecked", R.drawable.ic_alarmchecked),
+    IconItem("ic_arrow_rightcircle", R.drawable.ic_arrow_rightcircle),
+    IconItem("ic_arrow_up", R.drawable.ic_arrow_up),
+    IconItem("ic_category_1", R.drawable.ic_category_1),
+    IconItem("ic_copytext", R.drawable.ic_copytext),
+    IconItem("ic_delivery", R.drawable.ic_delivery),
+    IconItem("ic_edit", R.drawable.ic_edit),
+    IconItem("ic_flash_auto", R.drawable.ic_flash_auto),
+    IconItem("ic_flash_off", R.drawable.ic_flash_off),
+
+    IconItem("ic_flash_on", R.drawable.ic_flash_on),
+    IconItem("ic_lock", R.drawable.ic_lock),
+    IconItem("ic_movelist", R.drawable.ic_movelist),
+    IconItem("ic_noimage", R.drawable.ic_noimage),
+    IconItem("ic_send", R.drawable.ic_send),
+    IconItem("ic_sinsanglens", R.drawable.ic_sinsanglens),
+    IconItem("ic_store_3", R.drawable.ic_store_3),
+    IconItem("ic_talk_check", R.drawable.ic_talk_check),
+    IconItem("ic_translate", R.drawable.ic_translate),
+    IconItem("ic_users_profiles", R.drawable.ic_users_profiles),
 )
 
 /** Stroke 에외 아이콘 */
@@ -387,6 +414,7 @@ val noStrokeIcons = listOf(
     IconItem("ic_filter", R.drawable.ic_filter),
     IconItem("ic_list_sort", R.drawable.ic_list_sort),
     IconItem("ic_check_s", R.drawable.ic_check_s),
+    IconItem("ic_x_ss", R.drawable.ic_x_ss),
 )
 
 /** Filled 아이콘 */
@@ -450,7 +478,25 @@ val filledIcons = listOf(
     IconItem("ic_camera_filled", R.drawable.ic_camera_filled),
     IconItem("ic_image1_filled", R.drawable.ic_image_1_filled),
     IconItem("ic_image2_filled", R.drawable.ic_image_2_filled),
+
     IconItem("ic_notice_filled", R.drawable.ic_notice_filled),
+    IconItem("ic_alarmchecked_filled", R.drawable.ic_alarmchecked_filled),
+    IconItem("ic_arrow_close_1_filled", R.drawable.ic_arrow_close_1_filled),
+    IconItem("ic_arrow_open_1_filled", R.drawable.ic_arrow_open_1_filled),
+    IconItem("ic_category_1_filled", R.drawable.ic_category_1_filled),
+    IconItem("ic_frequentchat_filled", R.drawable.ic_frequentchat_filled),
+    IconItem("ic_image_multi_filled", R.drawable.ic_image_multi_filled),
+    IconItem("ic_lock_filled", R.drawable.ic_lock_filled),
+    IconItem("ic_pause_filled", R.drawable.ic_pause_filled),
+    IconItem("ic_play_filled", R.drawable.ic_play_filled),
+    IconItem("ic_report_1_filled", R.drawable.ic_report_1_filled),
+
+    IconItem("ic_send_filled", R.drawable.ic_send_filled),
+    IconItem("ic_store_3_filled", R.drawable.ic_store_3_filled),
+    IconItem("ic_talk_check_filled", R.drawable.ic_talk_check_filled),
+    IconItem("ic_trophy_filled", R.drawable.ic_trophy_filled),
+    IconItem("ic_truck_filled", R.drawable.ic_truck_filled),
+    IconItem("ic_up_1_filled", R.drawable.ic_up_1_filled),
 )
 
 /** 카테고리 아이콘 */
@@ -475,7 +521,7 @@ val myPageIcons = listOf(
     IconItem("ic_ad", R.drawable.ic_ad),
 )
 
-/** Etc 아이콘 */
+/** Etc 아이콘 - Figma Etc 섹션 순서 (Figma 에 없는 고정색 아이콘은 뒤에) */
 val etcIcons = listOf(
     IconItem("ic_mbs", R.drawable.ic_mbs),
     IconItem("ic_ssmall", R.drawable.ic_ssmall),
@@ -488,7 +534,6 @@ val etcIcons = listOf(
     IconItem("ic_wechat", R.drawable.ic_wechat),
     IconItem("ic_email", R.drawable.ic_email),
     IconItem("ic_imgsearch", R.drawable.ic_imgsearch),
-    IconItem("ic_expander_filled", R.drawable.ic_expander_filled),
 
     IconItem("ic_checkbox_off", R.drawable.ic_checkbox_off),
     IconItem("ic_checkbox_on", R.drawable.ic_checkbox_on),
@@ -497,14 +542,43 @@ val etcIcons = listOf(
     IconItem("ic_checkcircle_off", R.drawable.ic_checkcircle_off),
     IconItem("ic_checkcircle_on", R.drawable.ic_checkcircle_on),
     IconItem("ic_checkcircle_onad", R.drawable.ic_checkcircle_onad),
+    IconItem("ic_checkcircle_disabled", R.drawable.ic_checkcircle_disabled),
     IconItem("ic_checkcircle_disable", R.drawable.ic_checkcircle_ondisable),
+    IconItem("ic_checkline_off", R.drawable.ic_checkline_off),
+    IconItem("ic_checkline_on", R.drawable.ic_checkline_on),
+
+    IconItem("ic_checkline_onad", R.drawable.ic_checkline_onad),
+    IconItem("ic_checkline_disabled", R.drawable.ic_checkline_disabled),
     IconItem("ic_radiobutton_off", R.drawable.ic_radiobutton_off),
     IconItem("ic_radiobutton_on", R.drawable.ic_radiobutton_on),
     IconItem("ic_radiobutton_disable", R.drawable.ic_radiobutton_disable),
+    IconItem("ic_expander_filled", R.drawable.ic_expander_filled),
+    IconItem("ic_price_arrow_close", R.drawable.ic_price_arrow_close),
+    IconItem("ic_gotop", R.drawable.ic_gotop),
+    IconItem("ic_membership", R.drawable.ic_membership),
+    IconItem("ic_new_l", R.drawable.ic_new_l),
+    IconItem("ic_new_m", R.drawable.ic_new_m),
 
+    IconItem("ic_new_s", R.drawable.ic_new_s),
+    IconItem("ic_depth", R.drawable.ic_depth),
+    IconItem("ic_kakaoch", R.drawable.ic_kakaoch),
+    IconItem("ic_x_circle_solid", R.drawable.ic_x_circle_solid),
+    IconItem("ic_arrow_close_2_filled", R.drawable.ic_arrow_close_2_filled),
+    IconItem("ic_arrow_open_2_filled", R.drawable.ic_arrow_open_2_filled),
     IconItem("ic_empty40", R.drawable.ic_empty40),
+    IconItem("ic_loading_filled", R.drawable.ic_loading_filled),
+    IconItem("ic_star_gray04", R.drawable.ic_star_gray04),
+    IconItem("ic_stockanswer", R.drawable.ic_stockanswer),
+    IconItem("ic_stockcheck", R.drawable.ic_stockcheck),
+
+    IconItem("ic_zzim_16", R.drawable.ic_zzim_16),
+    IconItem("ic_zzim_filled_16", R.drawable.ic_zzim_filled_16),
 )
 
 private const val SIZE_16 = 16
 private const val SIZE_24 = 24
 private const val SIZE_32 = 32
+
+private const val GRID_COLUMNS = 11
+private const val ITEM_SIZE = 48
+private const val GRID_BORDER = 1
