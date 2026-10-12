@@ -255,7 +255,7 @@ private fun SendButton(
     ) {
         Icon(
             modifier = modifier,
-            iconRes = R.drawable.ic_send,
+            iconRes = R.drawable.ic_send_filled,
             size = 24.dp,
             enabled = value.isNotEmpty(),
             color = if (value.isNotEmpty()) DealiColor.primary01 else DealiColor.g60,
