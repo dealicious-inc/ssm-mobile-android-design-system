@@ -400,6 +400,7 @@ val outlineIcons = listOf(
     IconItem("ic_x_ss", R.drawable.ic_x_ss),
     IconItem("ic_copytext", R.drawable.ic_copytext),
     IconItem("ic_translate", R.drawable.ic_translate),
+    IconItem("ic_pin", R.drawable.ic_pin),
 )
 
 /** Stroke 예외 아이콘 */
