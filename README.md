@@ -1,5 +1,17 @@
 # SinsangMarket Design System for Android
 
+> [!IMPORTANT]
+> **이 저장소는 더 이상 사용하지 않습니다 (2026-10, archive).**
+> 디자인시스템은 앱 저장소 [ssm-mobile-android](https://github.com/dealicious-inc/ssm-mobile-android)의 모듈로 통합되었습니다.
+>
+> - 라이브러리: `core/designsystem` (`:core:designsystem`)
+> - 샘플 앱: `dev/designsystem-sample` (`:dev:designsystem-sample`)
+> - 아이콘 추가 스킬: `docs/skill/add-icon`
+> - 통합 PR: [dealicious-inc/ssm-mobile-android#1128](https://github.com/dealicious-inc/ssm-mobile-android/pull/1128) (Jira [MP-7422](https://dealicious.atlassian.net/browse/MP-7422))
+>
+> 앞으로의 수정은 앱 저장소에서 진행합니다. 이 저장소의 마지막 버전은 `2.68.12`이며, JitPack 아티팩트는 archive 후에도 그대로 받을 수 있습니다.
+> 앱 저장소의 통합 커밋 본문에 이 저장소의 커밋 이력(원본 SHA·작성일·제목)이 남아 있고, 원본 SHA는 이 저장소에서 조회할 수 있습니다.
+
 [![jitpack](https://jitpack.io/v/dealicious-inc/ssm-mobile-android-design-system.svg)](https://jitpack.io/#dealicious-inc/ssm-mobile-android-design-system)
 
 딜리셔스 신상마켓 디자인 시스템 Android Component 및 Sample App
